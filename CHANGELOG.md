@@ -2,6 +2,17 @@
 
 ## Unreleased
 
+- Bound Type3 glyph-program nesting to 64 active scopes. Reject deeper or cyclic programs
+  with `INPUT_TOO_LARGE` rather than a JVM stack overflow; unwind scope state after failure.
+
+- Exclude invisible Type3 glyph drawing commands from native table-rule and shaded-row
+  evidence. Preserve ordinary page paint, visible glyphs, source-image accounting and
+  shared operator/cancellation limits.
+
+- Preserve per-occurrence PDF image graphics-state alpha, resolved blend mode, soft-mask
+  presence and alpha-source flag as separate metadata. Keep normalized PNGs and source
+  occurrences unchanged; this records invocation state rather than final page compositing.
+
 - Support frozen original chunk input in the Ollama example so generation preserves
   pre-existing relevance IDs. Add owned PDF/DOCX/HTML corpus preparation and exact collection
   guards; a12query live check improves top1 hits10/12 to11/12, retaining the remaining miss.

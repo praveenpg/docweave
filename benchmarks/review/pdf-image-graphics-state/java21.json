@@ -1,0 +1,34 @@
+{
+  "scope": "Owned source-image invocation state and original-geometry preservation; not general compositing accuracy",
+  "baseline_missing_field": {
+    "methods": 2,
+    "failures": 2
+  },
+  "focused_image_tests": {
+    "tests": 16,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "json_coordinate_integration": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "full_java21": {
+    "tests": 1269,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "strict_private_javadocs": "PASS",
+  "scoped_format": "PASS",
+  "source_sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java": "702a9ac1f2f757d784450b5cda4b776903116e1e87da8f8da02d1b0d5822341e",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfImageGraphicsStateTest.java": "20d5219a5806db69207d31a62db83a99b361db77f2126b86e2d25168c85e37d7",
+    "docweave-integration-tests/src/test/java/dev/docweave/partition/PdfImageGraphicsStateIntegrationTest.java": "b7590d053b7ac7001d226b32f8344aa1d7c06b9533b769a4b852ceb6a9bc6be6"
+  },
+  "verify_log_sha256": "6c9d145abf6057621bc36a7a0c9ce39a6c307fec17434579993be3228819d095",
+  "limits": "No new image filtering, intrinsic pixel rewriting, group compositing, OCR or model execution"
+}

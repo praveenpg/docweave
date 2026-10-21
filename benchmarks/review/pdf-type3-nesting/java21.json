@@ -1,0 +1,40 @@
+{
+  "scope": "Bounded native Type3 glyph-program nesting",
+  "before": {
+    "self_referencing_glyph": "StackOverflowError"
+  },
+  "after": {
+    "self_referencing_glyph": "INPUT_TOO_LARGE",
+    "serialized_public_api": "INPUT_TOO_LARGE",
+    "finite_64_scopes": "SUCCESS",
+    "finite_65_scopes": "INPUT_TOO_LARGE",
+    "post_failure_leaf_glyph": "SUCCESS"
+  },
+  "focused": {
+    "tests": 24,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "full_java21": {
+    "tests": 1276,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "final_focused_after_diagnostic_wording": {
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "strict_private_javadocs": "PASS",
+  "scoped_format": "PASS",
+  "sources_sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java": "61f1d74fd1cf10f7e049644d3bbbdec3a41091b52c6f396c27bc784b4930f4df",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfType3PaintTest.java": "e430d064562708e1a6e7faffe99ba5099aa9ef9914a120b8cad283bcebe1eec4"
+  },
+  "verify_log_sha256": "95df01483681c968683dd2adb067b297eebeffaa3ed6ef540104b81033be7c75",
+  "final_focused_log_sha256": "841b10833b73dc9101d7279ef55db5beccde4bf077e5d555a269fc6ece54a633",
+  "limit_scope": "Current native graphics visitor glyph-program nesting; not a total JVM stack/heap bound for parser or codec internals"
+}

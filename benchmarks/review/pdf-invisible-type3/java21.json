@@ -1,0 +1,34 @@
+{
+  "scope": "Invisible Type3 character-program paint eligibility for native table evidence",
+  "before": {
+    "render_equivalent_control": "PASS",
+    "hidden_glyph_table_count": 1,
+    "expected_hidden_glyph_table_count": 0
+  },
+  "after": {
+    "hidden_glyph_table_count": 0,
+    "visible_glyph_table_count": 1,
+    "ordinary_page_table_after_hidden_glyph": 1,
+    "retained_hidden_glyph_source_images": 1
+  },
+  "focused": {
+    "tests": 22,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "full_java21": {
+    "tests": 1274,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "strict_private_javadocs": "PASS",
+  "scoped_format": "PASS",
+  "sources_sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java": "918216d9947379f91ae1d60911d04a1b246165ff4b0677b0a7898894955dfbee",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfType3PaintTest.java": "162e61c36c464a2db3ec853f7527a48ed72a90441a5bf158d0e1b361addde8ff"
+  },
+  "verify_log_sha256": "c318bfe0740d5e92007cbc04c042b13dd5fab3ec4f5ff851fd0484b1f049292d",
+  "quality_scope": "Owned render-equivalent counterexample; no general document-corpus quality gain or upstream parity measured"
+}

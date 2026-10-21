@@ -5,6 +5,55 @@ New options in [Unreleased changes](../CHANGELOG.md#unreleased) require a snapsh
 they are not part of the published beta.6 dependency in the [getting-started example](../README.md#getting-started).
 
 
+## Invisible Type3 glyphs and native table evidence (unreleased)
+
+Drawing operators inside an invisible Type3 character program (`Tr 3`, PDFBox
+`RenderingMode.NEITHER`) no longer supply native stroked or filled table rules or
+shaded-row evidence. Visible Type3 programs retain their own painting operators;
+other text modes are not interpreted as ordinary-font fill/stroke restrictions.
+
+The suppression is scoped to the glyph program and its nested content. Ordinary page
+rules remain eligible after the glyph, even if the text state still has rendering mode3.
+Source text selection and source image occurrence accounting remain unchanged. All
+operators still consume the shared work budget, and cancellation/errors restore the
+surrounding paint scope. At most 64 Type3 character programs may be active simultaneously;
+the 65th, including a cyclic font program, fails with `INPUT_TOO_LARGE` instead of
+continuing toward JVM stack exhaustion. The shared operator budget can reject a source
+earlier. The nesting counter unwinds after cancellation or failure. This correction does
+not implement general font visibility, clipping, optional-content or final page compositing.
+
+## Source-image graphics state (unreleased)
+
+Every native source Image includes `pdf_image_graphics_state` alongside its geometry:
+
+```json
+{
+  "nonstroking_alpha": 0.25,
+  "blend_mode": "Multiply",
+  "has_soft_mask": false,
+  "alpha_is_shape": false
+}
+```
+
+The values describe the graphics state interpreted by PDFBox at that particular image
+invocation. Ordinary form inheritance and save/restore scopes are retained. Blend mode
+is the resolved PDF mode name, not an evaluation of the pixels it will produce.
+`has_soft_mask` reports a graphics-state soft mask; it is separate from the image's
+intrinsic mask, which the existing normalized PNG decoder may already apply.
+`alpha_is_shape` records the graphics-state alpha-source flag.
+
+These properties are present with or without image bytes. They do not change normalized
+PNG samples, source occurrence counts, placements, source text or resource limits.
+Zero-alpha occurrences remain source Images. Do not interpret `nonstroking_alpha` as
+an intrinsic PNG alpha channel or automatically apply the mask twice.
+
+This map describes the current stream's state, not the complete page-compositing chain.
+Transparency groups reset their internal alpha/blend/mask values before group contents
+are interpreted; enclosing group opacity is not multiplied into this image map.
+Clipping, backdrop interactions, group isolation/knockout, occlusion and final visible
+pixels require separate rendering. JSON serialization and coordinate conversion retain
+this map unchanged. The field is additive snapshot metadata, not part of beta.6.
+
 ## Ordered source-image placement corners (unreleased)
 
 Every native source Image now carries an additional `pdf_image_coordinates` map.
@@ -828,7 +877,7 @@ or independent human-review gates.
 | Scientific reading order | Native/oriented lines, paragraph and compound-column layouts, source-tagged paragraphs, figure-caption association | Complete-body paragraph fidelity and asymmetric sidebar order remain unresolved. Physical wrap hyphens and reference whitespace differences are separate from lost/interleaved text. The sidebar investigation is parked; do not replace missing references or relax scoring to close it. |
 | Historical scans | Explicit language/model selection, managed OCR, quarter-turn correction, deskew and source-frame word geometry | Recognition and physical reading order vary across originals. Earlier language/model and segmentation comparisons are retained; no universal winning profile or automatic engine selection is established. |
 | Degraded scans | Explicit raster correction, white-point preprocessing and OCR magnification | Improvements are source-dependent; the tested white-point/sparse composition regressed several originals and is not promoted. Broader held-out transcription and calibration remain open. |
-| Source images | Actual occurrence accounting, normalized PNGs, mask/stencil handling and ordered affine placement corners | Source payloads and placements do not reproduce final compositing, clipping, occlusion or generated descriptions. Ordered-corner checks do not establish rendered-pixel equality. |
+| Source images | Actual occurrence accounting, normalized PNGs, mask/stencil handling, invocation graphics state and ordered affine placement corners | Source payloads and placements do not reproduce final compositing, clipping, occlusion or generated descriptions. Ordered-corner checks do not establish rendered-pixel equality. |
 | Independent acceptance and operations | Owned regressions, pinned original-source comparisons, bounded parser callbacks, packaged consumer checks | Independent human review, broader authoring-tool diversity, calibrated confidence and production heap/latency evidence remain open. PDFBox/codecs may allocate or delay cancellation before callbacks; limits are not a total decompression/heap bound. |
 
 Use one proposed change and one focused validation pass per investigation. Park a
@@ -839,8 +888,9 @@ configuration. Report implementation gains separately from validation-only work.
 
 Interactive annotations/forms and vector-only drawings remain outside the initial
 element model. Semantic image description is a separate future capability. Further
-DOCX work, cross-format contextual chunking, Python-test migration and the sanitized
-public-source mirror remain separate backlog items. Java21 is the development test
+DOCX work and Python-test migration remain separate backlog items. Cross-format contextual
+enrichment is implemented; broader retrieval acceptance and ongoing public-source synchronization
+are separate from the PDF quality gates. Java21 is the development test
 baseline; final Java25 verification remains deferred to PDF completion/final candidate.
 
 ### Separately retained source table captions (unreleased)

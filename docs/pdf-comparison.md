@@ -313,6 +313,13 @@ currency while preserving measured0.27.28 runtime and historical0.27.27 goldens.
 
 ## Defaults and source images
 
+Source-image invocation metadata also retains alpha, resolved blend mode, graphics-state
+soft-mask presence and alpha-source flag. These properties do not flatten PNGs against
+the page or implement the full enclosing transparency-group chain. No paired upstream
+state/pixel comparison or general rendered-image fidelity score is claimed.
+
+
+
 The [default behavior run](../benchmarks/review/pdf-interim-defaults/README.md) retains all18
 outcomes across nine whole documents and both libraries, with equal summaries on Java21/25.
 DocWeave without an OCR provider returns an image and OCR-not-performed diagnostic for scans;

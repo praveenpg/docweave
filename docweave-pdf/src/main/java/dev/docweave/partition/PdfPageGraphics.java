@@ -4,6 +4,7 @@ import org.apache.pdfbox.contentstream.PDFGraphicsStreamEngine;
 import org.apache.pdfbox.contentstream.operator.Operator;
 import org.apache.pdfbox.cos.COSBase;
 import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.font.PDType3Font;
 import org.apache.pdfbox.pdmodel.graphics.blend.BlendMode;
 import org.apache.pdfbox.pdmodel.graphics.color.PDDeviceCMYK;
 import org.apache.pdfbox.pdmodel.graphics.color.PDDeviceGray;
@@ -12,6 +13,9 @@ import org.apache.pdfbox.pdmodel.graphics.color.PDICCBased;
 import org.apache.pdfbox.pdmodel.graphics.form.PDFormXObject;
 import org.apache.pdfbox.pdmodel.graphics.form.PDTransparencyGroup;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImage;
+import org.apache.pdfbox.pdmodel.graphics.state.RenderingMode;
+import org.apache.pdfbox.util.Matrix;
+import org.apache.pdfbox.util.Vector;
 
 import java.awt.geom.Area;
 import java.awt.geom.GeneralPath;
@@ -24,6 +28,9 @@ import java.util.Map;
 
 /** Traverses painted paths and raster occurrences, including form XObjects, with an operator budget. */
 final class PdfPageGraphics extends PDFGraphicsStreamEngine {
+    /** Hard source-program stack bound, independent from the larger shared page-operator budget. */
+    private static final int MAX_TYPE3_DEPTH = 64;
+
     /**
      * Axis-aligned crop-relative top-left coordinates of a painted segment.
      * @param x1 original first horizontal coordinate
@@ -77,6 +84,10 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
     private boolean curved;
     /** Number of path subpaths, capped at two because compound fills are unsupported. */
     private int subpaths;
+    /** Invisible Type3 glyph scopes suppress native rule/band evidence while retaining source traversal. */
+    private boolean type3PaintSuppressed;
+    /** Active Type3 character-program scopes; restored even when a descendant fails. */
+    private int type3Depth;
 
     /**
      * Temporarily owned caller path; child interpretation receives independent mutable path storage.
@@ -195,6 +206,36 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
     }
 
     /**
+     * Retains source traversal inside Type3 glyphs without treating invisible character programs as painted rules.
+     * Only rendering mode NEITHER suppresses Type3 paint; other modes keep the glyph's own drawing operators.
+     * Source-image accounting, operator budgets and cancellation remain active, including in nested forms/glyphs.
+     * At most 64 simultaneous glyph programs are accepted; deeper or cyclic programs fail before stack exhaustion.
+     * @param textRenderingMatrix original glyph transform
+     * @param font source Type3 font
+     * @param code original character code
+     * @param displacement source glyph advance
+     * @throws IOException if glyph traversal or a shared limit/cancellation check fails
+     */
+    @Override
+    protected void showType3Glyph(final Matrix textRenderingMatrix, final PDType3Font font, final int code,
+            final Vector displacement) throws IOException {
+        ElementCollector.checkInterrupted();
+        if (type3Depth >= MAX_TYPE3_DEPTH) {
+            throw new PartitionException(
+                    PartitionException.Code.INPUT_TOO_LARGE, "PDF Type3 glyph nesting exceeds 64 levels");
+        }
+        final boolean parent = type3PaintSuppressed;
+        type3Depth++;
+        try {
+            type3PaintSuppressed |= getGraphicsState().getTextState().getRenderingMode() == RenderingMode.NEITHER;
+            super.showType3Glyph(textRenderingMatrix, font, code, displacement);
+        } finally {
+            type3PaintSuppressed = parent;
+            type3Depth--;
+        }
+    }
+
+    /**
      * Prevents PDFBox recovery from swallowing typed budget, cancellation or image failures.
      * @param operator source operator
      * @param operands source operands
@@ -227,6 +268,12 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
         final var metadata = new LinkedHashMap<String, Object>();
         metadata.put("image_width", image.getWidth());
         metadata.put("image_height", image.getHeight());
+        final var state = getGraphicsState();
+        // Describe this invocation only; group composition and intrinsic sample alpha remain separate.
+        metadata.put("pdf_image_graphics_state",
+                Map.of("nonstroking_alpha", state.getNonStrokeAlphaConstant(), "blend_mode",
+                        state.getBlendMode().getCOSName().getName(), "has_soft_mask", state.getSoftMask() != null,
+                        "alpha_is_shape", state.isAlphaSource()));
         // Keep source unit-square corner identities: the enclosing rectangle loses shear and reflection.
         metadata.put("pdf_image_coordinates",
                 Map.of("system", "PDFUserSpace", "layout_width", (double) geometry.width(), "layout_height",
@@ -395,7 +442,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
     @Override
     public void strokePath() throws IOException {
         final var state = getGraphicsState();
-        if (state.getAlphaConstant() > 0) {
+        if (!type3PaintSuppressed && state.getAlphaConstant() > 0) {
             final var clip = PdfInheritedRuleClip.stroke(state, geometry);
             for (int index = 0; index < pending.size(); index++) {
                 if ((index & 255) == 0) {
@@ -427,9 +474,9 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
         final var state = getGraphicsState();
         final var color = state.getNonStrokingColor();
         final var space = color.getColorSpace();
-        if (!curved && subpaths == 1 && pending.size() == 4 && !state.getCurrentClippingPath().isEmpty()
-                && state.getNonStrokeAlphaConstant() >= 0.99 && state.getSoftMask() == null
-                && state.getBlendMode() == BlendMode.NORMAL
+        if (!type3PaintSuppressed && !curved && subpaths == 1 && pending.size() == 4
+                && !state.getCurrentClippingPath().isEmpty() && state.getNonStrokeAlphaConstant() >= 0.99
+                && state.getSoftMask() == null && state.getBlendMode() == BlendMode.NORMAL
                 && (space instanceof PDDeviceGray || space instanceof PDDeviceRGB || space instanceof PDDeviceCMYK
                         || space instanceof PDICCBased)) {
             if (!PdfInheritedRuleClip.fill(state, geometry).intersects(pending)) {
