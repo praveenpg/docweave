@@ -3045,3 +3045,13 @@ Owned cases cover both behaviors across four rotations and three paint modes, pl
 three-rectangle fallback control. Conservative inherited envelopes still do not trim
 partial rules or determine visibility inside clip holes. Source-image payloads and final
 compositing remain unchanged. See [compound-clip evidence](../benchmarks/review/pdf-two-rectangle-clips/README.md).
+
+### Historical magnification pilot: mixed outcomes
+
+A targeted [fixed 2x pilot](../benchmarks/review/pdf-historical-upscale-pilot/README.md)
+uses the existing public magnification decorator on the complete 1835 scan with both
+pinned models, source 300 DPI and recognition 600 DPI. Fraktur character edits improve
+51 to 45, while German regresses 104 to 112 against the same 1,059-character ordered
+reference. Both still miss one line. This does not recommend magnification generally or
+change defaults. The result is parked with both outcomes preserved; no parameter sweep
+or new runtime functionality follows.

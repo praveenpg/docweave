@@ -1,0 +1,7 @@
+{
+  "decision_before_inference": "One targeted complete1835page pilot, bothpinnedmodels, fixednearestneighbor2x, source300DPI/recognition600DPI; AUTO/ENGINE_DEFAULT unchanged. No tuning or model selection. Other three sources not evaluated; no full historical-corpus claim.",
+  "baseline_report_sha256": "95db19b628dee8930d16620d894b60e8d47dc1b804ad01c5d8d4b3a2836ae84c",
+  "manifest_sha256": "5714b2e873d5da52c93f0003821c19b01de18308527ef3e369f3f605c4c0ea7c",
+  "raster_pixel_limit": 16000000,
+  "runtime_change": "NONE"
+}

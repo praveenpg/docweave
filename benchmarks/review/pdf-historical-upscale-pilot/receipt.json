@@ -1,0 +1,33 @@
+{
+  "decision": "PARKED_NO_GENERAL_PROMOTION",
+  "production_change": "NONE",
+  "pilot_scope": "One complete1835sourcepage x bothpinnedmodels; two actual OCRcalls",
+  "reference_lines_per_profile": 22,
+  "reference_code_points_per_profile": 1059,
+  "source_dpi": 300,
+  "recognition_dpi": 600,
+  "magnification": 2,
+  "raster_pixel_limit": 16000000,
+  "german_character_edits_before_after": [
+    104,
+    112
+  ],
+  "fraktur_character_edits_before_after": [
+    51,
+    45
+  ],
+  "missing_lines_before_after_per_model": [
+    1,
+    1
+  ],
+  "baseline_report_sha256": "95db19b628dee8930d16620d894b60e8d47dc1b804ad01c5d8d4b3a2836ae84c",
+  "manifest_sha256": "5714b2e873d5da52c93f0003821c19b01de18308527ef3e369f3f605c4c0ea7c",
+  "selection_sha256": "738480db24fa040a44e107e06b6d4094b11ae712cfb92ea0f72169dd5dcf0fe8",
+  "candidate_harness_source_sha256": "b30de24a1a39adc15edc70e3297358cb1da75c004793bb969971ac42327f5e52",
+  "baseline_harness_source_sha256": "13c08719c4e5b6c54cf1dc22290766738e473f7fda9f9ec67df3021991678a73",
+  "comparison_source_sha256": "a0df4794c67535e4c91927638842f8296b63807172bb473756f26b4392999be2",
+  "candidate_report_sha256": "1ee9295307fbfdc6ed7ff3bb3d5987d0bfa7d77ce5d2fe20539592d9a9118bbc",
+  "run_log_sha256": "3aed55d1e8366610afdd7f13ffa253c9f6e5460bdf00dfeca1d20396bad0d41d",
+  "java_runtime": "21.0.12.1+12-LTS",
+  "known_limits": "Targeted known-source pilot, no other source, no broad OCR accuracy or new functionality claim"
+}

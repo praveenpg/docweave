@@ -1,0 +1,37 @@
+{
+  "source_pages" : 1,
+  "reference_code_points_per_profile" : 1059,
+  "deltas" : [ {
+    "language" : "deu",
+    "outcome" : "SUCCESS",
+    "before_global_character_edits" : 104,
+    "after_global_character_edits" : 112,
+    "before_global_word_edits" : 74,
+    "after_global_word_edits" : 78,
+    "before_associated_reference_lines" : 21,
+    "after_associated_reference_lines" : 21,
+    "before_exact_associated_lines" : 0,
+    "after_exact_associated_lines" : 0,
+    "before_missing_reference_lines" : 1,
+    "after_missing_reference_lines" : 1,
+    "before_predicted_lines_without_reference" : 0,
+    "after_predicted_lines_without_reference" : 0
+  }, {
+    "language" : "deu_latf",
+    "outcome" : "SUCCESS",
+    "before_global_character_edits" : 51,
+    "after_global_character_edits" : 45,
+    "before_global_word_edits" : 35,
+    "after_global_word_edits" : 30,
+    "before_associated_reference_lines" : 21,
+    "after_associated_reference_lines" : 21,
+    "before_exact_associated_lines" : 4,
+    "after_exact_associated_lines" : 4,
+    "before_missing_reference_lines" : 1,
+    "after_missing_reference_lines" : 1,
+    "before_predicted_lines_without_reference" : 0,
+    "after_predicted_lines_without_reference" : 0
+  } ],
+  "case_profiles" : 2,
+  "reference_lines_per_profile" : 22
+}

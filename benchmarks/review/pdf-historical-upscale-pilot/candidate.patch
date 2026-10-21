@@ -1,0 +1,34 @@
+--- a/docweave-validation/src/test/java/dev/docweave/validation/PdfHistoricalTextCorpusTest.java
++++ b/docweave-validation/src/test/java/dev/docweave/validation/PdfHistoricalTextCorpusTest.java
+@@ -219,8 +219,9 @@
+                                             .withPageSegmentation(segmentation(profile));
+                 final var engine = managedBackground ? TesseractOcr.create(options, thresholding(profile), dpi,
+                                                                dev.docweave.ocr.TesseractPreprocessing.LOCAL_WHITEPOINT)
+-                                   : sourceResolution ? TesseractOcr.create(options, thresholding(profile), dpi)
++                                   : sourceResolution ? TesseractOcr.create(options, thresholding(profile), dpi * 2)
+                                                       : TesseractOcr.create(options, thresholding(profile));
++                final PdfOcrProvider magnified = PdfOcrProvider.upscaled(engine, 2, new PdfOcrOptions(dpi, MAX_PIXELS, 10_000, 1_000_000));
+                 final PdfOcrProvider observed = raster -> {
+                     assertEquals(reference.width(), raster.getWidth());
+                     assertEquals(reference.height(), raster.getHeight());
+@@ -229,7 +230,7 @@
+                     frames.add(Map.of(
+                             "width", raster.getWidth(), "height", raster.getHeight(), "rgb_sha256", pixels(raster)));
+                     if ((!median && !background && !contrast) || managedBackground) {
+-                        return engine.recognize(raster);
++                        return magnified.recognize(raster);
+                     }
+                     final var filtered = contrast     ? ContrastLimitedScanProbe.apply(raster, MAX_PIXELS, dpi)
+                                          : background ? BackgroundWhitepointScanProbe.apply(raster, MAX_PIXELS, dpi)
+@@ -303,7 +304,10 @@
+                     result.put("managed_page_preprocessing", "LOCAL_WHITEPOINT");
+                 }
+                 result.put("container_dpi", dpi);
+-                result.put("engine_source_dpi", sourceResolution ? dpi : "ENGINE_DEFAULT");
++                result.put("engine_source_dpi", dpi * 2);
++                result.put("experimental_magnification", 2);
++                result.put("recognition_width", reference.width() * 2);
++                result.put("recognition_height", reference.height() * 2);
+                 if (resolved.models().size() == 1) {
+                     result.put("model_sha256", resolved.models().getFirst().get("sha256"));
+                 } else {
