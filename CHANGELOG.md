@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Honor bounded two-rectangle compound clips and their source winding rule during
+  native rule traversal, preventing fully hidden grids from creating false tables.
+
 - Keep adjacent partially ruled table headers separate across source-supported column
   boundaries. Recover all 11 previously mismatching header positions in the retained
   statistics original (350/350 total), preserving body cells and parent bounds.

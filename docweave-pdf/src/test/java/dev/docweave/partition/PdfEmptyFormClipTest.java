@@ -93,6 +93,30 @@ class PdfEmptyFormClipTest {
     }
 
     /**
+     * Duplicate rectangle subpaths cancel under even-odd clipping but retain visible paint under nonzero winding.
+     * @throws Exception if owned authoring, exact raster comparison or extraction fails
+     */
+    @Test
+    void twoRectangleClipsHonorWindingAndRestoreVisiblePaint() throws Exception {
+        for (final int rotation : List.of(0, 90, 180, 270)) {
+            for (final String paint : List.of("stroke", "fill", "fillstroke")) {
+                final var hidden = source("path-visible-duplicate-evenodd", paint, rotation, false);
+                assertSameRaster(source("none", paint, rotation, false), hidden);
+                assertTrue(extract(hidden).elements().stream().noneMatch(e -> e.type() == ElementType.Table));
+                final var visible = source("visible", paint, rotation, false);
+                final var triple = source("path-visible-triple-evenodd", paint, rotation, false);
+                assertSameRaster(visible, triple);
+                assertEquals(extract(visible).elements(), extract(triple).elements());
+                assertSameRaster(visible, source("path-visible-duplicate", paint, rotation, false));
+                assertEquals(extract(visible).elements(),
+                        extract(source("path-visible-duplicate", paint, rotation, false)).elements());
+                assertEquals(extract(visible).elements(),
+                        extract(source("path-visible-duplicate-evenodd", paint, rotation, true)).elements());
+            }
+        }
+    }
+
+    /**
      * Explicit/implicit closure, even-odd rules and transformed positive clips preserve the original table.
      * @throws Exception if independent raster comparison or extraction fails
      */
@@ -401,6 +425,12 @@ class PdfEmptyFormClipTest {
                         content.closePath();
                     }
                 } else {
+                    content.addRect(20, y, width, height);
+                }
+                if (clip.startsWith("path-visible-duplicate") || clip.startsWith("path-visible-triple")) {
+                    content.addRect(20, y, width, height);
+                }
+                if (clip.startsWith("path-visible-triple")) {
                     content.addRect(20, y, width, height);
                 }
                 if (clip.equals("path-visible-compound")) {

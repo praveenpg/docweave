@@ -86,7 +86,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
     private int operators;
     /** Whether a curve occurred in the current path, excluding filled-rule recognition. */
     private boolean curved;
-    /** Number of path subpaths, capped at two because compound fills are unsupported. */
+    /** Number of path subpaths, capped at three to distinguish the supported two-rectangle clip subset. */
     private int subpaths;
     /** Invisible Type3 glyph scopes suppress native rule/band evidence while retaining source traversal. */
     private boolean type3PaintSuppressed;
@@ -319,15 +319,16 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
     @Override
     public void appendRectangle(final Point2D p0, final Point2D p1, final Point2D p2, final Point2D p3) {
         lineClipPoints = 0;
-        // The rectangle operator remains a single bounded parallelogram after an affine source transform.
-        rectangleClip =
-                subpaths == 0
-                                && List.of(p0, p1, p2, p3)
-                                           .stream()
-                                           .allMatch(point
-                                                   -> Double.isFinite(point.getX()) && Double.isFinite(point.getY()))
-                        ? new GeneralPath()
-                        : null;
+        // Retain at most two original re subpaths; any other construction invalidates this bounded subset.
+        final boolean finite =
+                List.of(p0, p1, p2, p3)
+                        .stream()
+                        .allMatch(point -> Double.isFinite(point.getX()) && Double.isFinite(point.getY()));
+        if (subpaths == 0) {
+            rectangleClip = finite ? new GeneralPath() : null;
+        } else if (subpaths != 1 || !finite) {
+            rectangleClip = null;
+        }
         if (rectangleClip != null) {
             rectangleClip.moveTo(p0.getX(), p0.getY());
             rectangleClip.lineTo(p1.getX(), p1.getY());
@@ -335,7 +336,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
             rectangleClip.lineTo(p3.getX(), p3.getY());
             rectangleClip.closePath();
         }
-        subpaths = Math.min(2, subpaths + 1);
+        subpaths = Math.min(3, subpaths + 1);
         edge(p0, p1);
         edge(p1, p2);
         edge(p2, p3);
@@ -380,7 +381,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
             lineClipVertices[0] = x;
             lineClipVertices[1] = y;
         }
-        subpaths = Math.min(2, subpaths + 1);
+        subpaths = Math.min(3, subpaths + 1);
         current = new Point2D.Float(x, y);
         start = current;
     }
@@ -551,15 +552,21 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
     }
 
     /**
-     * Defers one bounded rectangle or four-corner source clip until the current path finishes painting.
+     * Defers a bounded source clip until the current path finishes painting.
      * Affine rectangle operators, axis-aligned line rectangles and bounded four-corner line paths are supported.
-     * Existing graphics-state save/restore and form scopes own its lifetime. Unsupported compound,
-     * larger general line-built and curved clip paths remain ignored; rule geometry is never partially trimmed.
+     * Two rectangle-operator subpaths also retain the source winding rule; larger compound paths are ignored.
+     * Existing graphics-state save/restore and form scopes own its lifetime. Unsupported
+     * larger line-built and curved clip paths remain ignored; rule geometry is never partially trimmed.
      * @param windingRule source clip rule
      */
     @Override
     public void clip(final int windingRule) {
         deferredClip = null;
+        if (!curved && subpaths == 2 && rectangleClip != null && pending.size() >= 8 && pending.size() <= 10) {
+            rectangleClip.setWindingRule(windingRule);
+            deferredClip = new GeneralPath(rectangleClip);
+            return;
+        }
         if (!curved && subpaths == 1 && pending.size() >= 3 && pending.size() <= 5
                 && (rectangleClip != null || lineClipPoints == 4 || axisAligned(current, start))) {
             GeneralPath candidate = rectangleClip;

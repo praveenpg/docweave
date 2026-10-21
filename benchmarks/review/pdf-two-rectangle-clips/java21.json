@@ -1,0 +1,33 @@
+{
+  "scope": "Bounded two-rectangle source clips; native rule false-table correction",
+  "before": {
+    "even_odd_hidden_grid_false_tables": 1
+  },
+  "after": {
+    "even_odd_hidden_grid_false_tables": 0,
+    "hidden_cases": 12,
+    "nonzero_visible_cases": 12,
+    "restored_visible_cases": 12,
+    "three_rectangle_visible_fallback_cases": 12
+  },
+  "focused_before_three_rectangle_extension": {
+    "tests": 22,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "full_java21_final": {
+    "tests": 1284,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "strict_private_javadocs": "PASS",
+  "scoped_format": "PASS",
+  "sources_sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java": "81875c057bf233919e314e27aa9ad21904d45f14c639f412526ac5d05d44f422",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfEmptyFormClipTest.java": "b5477d6a7fc20ffee0db14fb18b75b8f7d935697f75d276b7e2aa76994125fc3"
+  },
+  "verify_log_sha256": "91802623bab016319c1f5d56f6926831eadd16f9ddaf8dc4c241a0825f6b7246",
+  "claim_limit": "Owned source extraction correction, not original-corpus gain or final compositing"
+}

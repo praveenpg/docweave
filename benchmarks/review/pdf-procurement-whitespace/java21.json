@@ -1,0 +1,16 @@
+{
+  "source_sha256" : "038126d57e3d9aadfee6c3ac44acc66d4fbdc13598dad8deadd7ec76a2a7d2ab",
+  "body_positions" : 143,
+  "reference_positions" : 154,
+  "header_matches" : 11,
+  "reference_sha256" : "d4ae792846efa5cb1a2829ec8fe767d2aae62c6e96de5e8d9538cba465a3032e",
+  "header_positions" : 11,
+  "matched_positions" : 152,
+  "coordinates" : {
+    "layout_height" : 612.0,
+    "points" : [ [ 31.500003814697266, 61.68000030517578 ], [ 778.5, 61.68000030517578 ], [ 778.5, 537.0599975585938 ], [ 31.500003814697266, 537.0599975585938 ] ],
+    "layout_width" : 792.0,
+    "system" : "PDFUserSpace"
+  },
+  "body_matches" : 141
+}

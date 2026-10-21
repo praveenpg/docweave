@@ -3029,3 +3029,19 @@ positions: headers 24/35 to 35/35, body 315/315 unchanged, same 50-by-7 bounds. 
 known-source development evidence, not independent span truth or general table accuracy.
 All other 17 case/profile records in the three-document/six-policy regression remain equal.
 See [header evidence](../benchmarks/review/pdf-partial-header-boundaries/README.md).
+
+### Bounded two-rectangle compound clips (unreleased)
+
+Native rule traversal now retains a path made from exactly two finite rectangle operators,
+including their affine transforms, and applies its original nonzero/even-odd winding rule.
+The clip takes effect after its path paints or ends, with existing graphics-state/form
+restoration. A third subpath invalidates this bounded subset; larger compound paths and
+curves remain unsupported. Filled-rule recognition still requires one eligible subpath.
+
+Two identical rectangles cancel under even-odd clipping. Their hidden grid previously
+produced a false Table; it now leaves the original ordinary labels unclaimed. Nonzero
+winding retains the visible grid, and paint after leaving the form retains its table.
+Owned cases cover both behaviors across four rotations and three paint modes, plus a
+three-rectangle fallback control. Conservative inherited envelopes still do not trim
+partial rules or determine visibility inside clip holes. Source-image payloads and final
+compositing remain unchanged. See [compound-clip evidence](../benchmarks/review/pdf-two-rectangle-clips/README.md).
