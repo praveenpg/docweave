@@ -1,0 +1,16 @@
+{
+  "from": "50054e7f8350e237b3b177f798cc68cb3b27020a",
+  "to": "07d978b8c182404b800fba27c01f4a2c633cfffc",
+  "delta_response_sha256": "52af145bb4c0feb0aaacd28953e372f553d045d8ff52a64bedd0fb815642fddb",
+  "commit": "07d978b8c182404b800fba27c01f4a2c633cfffc",
+  "title": "perf(xlsx): reduce dense-worksheet partitioning memory (#4563)",
+  "changed_paths": [
+    "CHANGELOG.md",
+    "pyproject.toml",
+    "test_unstructured/partition/test_xlsx.py",
+    "test_unstructured/partition/test_xlsx_dense_memory.py",
+    "unstructured/__version__.py",
+    "unstructured/partition/xlsx.py",
+    "uv.lock"
+  ]
+}

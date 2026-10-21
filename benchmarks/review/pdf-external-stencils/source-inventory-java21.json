@@ -1,0 +1,77 @@
+{
+  "runtime" : "21.0.12.1+12-LTS",
+  "scope" : "Source-only PDFBox image-operator/paint inventory before any DocWeave extraction; no pixels decoded or figure/visibility ground truth; tiling paint contents not rendered",
+  "results" : [ {
+    "id" : "PDFBOX-6077-1",
+    "bytes" : 1451709,
+    "sha256" : "120d090e9f037483c0702477537cd2814f66e7ce5aaea33e190bfdc10973a4cc",
+    "pages" : 1,
+    "source_pages" : [ {
+      "raw_source_image_operator_bag" : {
+        "stencil_pattern:2480x3508" : 2
+      },
+      "rotation" : 0,
+      "width" : 595.0,
+      "page" : 1,
+      "operators" : 27,
+      "height" : 842.0
+    } ],
+    "outcome" : "SUCCESS"
+  }, {
+    "id" : "PDFBOX-6077-2",
+    "bytes" : 360456,
+    "sha256" : "8ff30cecefc29ae0a6603178c14eb1961b14a3139dd4fb56fa41b4170a4248e6",
+    "pages" : 1,
+    "source_pages" : [ {
+      "raw_source_image_operator_bag" : {
+        "stencil_pattern:323x47" : 1
+      },
+      "rotation" : 0,
+      "width" : 790.866,
+      "page" : 1,
+      "operators" : 7,
+      "height" : 1125.35
+    } ],
+    "outcome" : "SUCCESS"
+  }, {
+    "id" : "PDFBOX-5403",
+    "bytes" : 1070083,
+    "sha256" : "c5f06f8157a5ee796d44b2900cbd71fafa4d0c0f06806536af3b0f8a6b980a01",
+    "pages" : 3,
+    "source_pages" : [ {
+      "raw_source_image_operator_bag" : {
+        "ordinary:1654x2339" : 1,
+        "stencil_pattern:1654x38" : 1,
+        "stencil_pattern:1654x39" : 59
+      },
+      "rotation" : 0,
+      "width" : 595.0,
+      "page" : 1,
+      "operators" : 485,
+      "height" : 842.0
+    }, {
+      "raw_source_image_operator_bag" : {
+        "ordinary:1654x2339" : 1,
+        "stencil_pattern:1654x38" : 1,
+        "stencil_pattern:1654x39" : 59
+      },
+      "rotation" : 0,
+      "width" : 595.0,
+      "page" : 2,
+      "operators" : 632,
+      "height" : 842.0
+    }, {
+      "raw_source_image_operator_bag" : {
+        "ordinary:1654x2339" : 1,
+        "stencil_pattern:1654x38" : 1,
+        "stencil_pattern:1654x39" : 59
+      },
+      "rotation" : 0,
+      "width" : 595.0,
+      "page" : 3,
+      "operators" : 633,
+      "height" : 842.0
+    } ],
+    "outcome" : "SUCCESS"
+  } ]
+}

@@ -1,0 +1,23 @@
+{
+  "checked_at": "2026-10-19T21:42:04.897604+00:00",
+  "release": "0.27.29",
+  "release_commit": "f98602237cb152e9c33fd824fb8ec96037806ad4",
+  "published_at": "2026-10-19T20:39:51Z",
+  "release_url": "https://github.com/Unstructured-IO/unstructured/releases/tag/0.27.29",
+  "previous_reviewed_release": "0.27.28",
+  "previous_release_commit": "1b02b4d189c260ed9b1aca29583203e233d853cb",
+  "additional_commits": 1,
+  "changed_paths": [
+    "CHANGELOG.md",
+    "example-docs/xlwt-padded-workbook.xls",
+    "test_unstructured/partition/test_xlsx.py",
+    "unstructured/__version__.py",
+    "unstructured/partition/xlsx.py"
+  ],
+  "official_release_response_sha256": "2d82c6d8651c7c953c780a3786fdd76acc96cee5f2eaf70c22c6671b4deccd42",
+  "official_compare_response_sha256": "2939ac86038c93832ad00f8b490720f4f412bebe27295dd9aaed20669fd78c0a",
+  "released_pdf_source_sha256": "0dec47c9dac28769a58f76576ccdc4795c81b4554e3d74a7329ed7e27238287e",
+  "installed_measured_pdf_source_equal": true,
+  "classification": "One already reviewed legacy XLS padding/encryption-probe fix, owned XLS regression fixture, version/changelog. No PDF path or dependency manifest changes. Released commit equals previously reviewed main.",
+  "execution_boundary": "Scientific runtime remains explicitly0.27.28; unchanged pdf.py source does not establish a complete0.27.29 runtime execution. Historical0.27.27 goldens unchanged."
+}

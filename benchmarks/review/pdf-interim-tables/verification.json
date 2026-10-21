@@ -1,0 +1,9 @@
+{
+  "all_numeric_results_equal" : true,
+  "issuer_row_references_per_profile" : 59,
+  "all_missing_extra_and_failed_cases_retained" : true,
+  "publisher_anchor_references_per_profile" : 171,
+  "native_source_frames_and_complete_table_metadata_equal" : true,
+  "runtime_and_capture_hash_fields_retained_separately" : true,
+  "paired_case_profiles" : 10
+}

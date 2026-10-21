@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Real Tesseract mixed-page integration evidence</comment>
+<entry key="eng_model_sha256">daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047</entry>
+<entry key="owned_image_occurrences">2</entry>
+<entry key="checked_at">2026-10-17T08:27:48.740039248Z</entry>
+<entry key="executable_sha256">9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917</entry>
+<entry key="scope">owned mixed PDF and optional independent scan with an owned native heading; no accuracy claim</entry>
+<entry key="owned_ocr_lines">2</entry>
+<entry key="owned_pdf_sha256">4e49cc5566b450dd5f61a5bfe66bfad287f76822dfa3193134b4f9bcd45a1a54</entry>
+<entry key="owned_native_elements_preserved">true</entry>
+<entry key="owned_distinct_regions">1</entry>
+</properties>

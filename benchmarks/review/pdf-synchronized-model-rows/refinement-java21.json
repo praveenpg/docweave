@@ -1,0 +1,139 @@
+{
+  "original_replay_sha256" : "5ded274dc78dfdd2db6d5fedad11ec261e035ad4148c137570fd72b1244c38eb",
+  "gate_sha256" : "a71d56197022eaf421ad27a0be450cf03acf92394fcb20528359d975c0598b20",
+  "results" : [ {
+    "family" : "tatr",
+    "anchors" : 91,
+    "refined_rows" : 0,
+    "page" : 1,
+    "candidates" : 0
+  }, {
+    "family" : "yolox",
+    "anchors" : 85,
+    "refined_rows" : 0,
+    "page" : 1,
+    "candidates" : 0
+  }, {
+    "family" : "tatr",
+    "anchors" : 59,
+    "refined_rows" : 0,
+    "page" : 2,
+    "candidates" : 0
+  }, {
+    "family" : "yolox",
+    "anchors" : 56,
+    "refined_rows" : 0,
+    "page" : 2,
+    "candidates" : 0
+  }, {
+    "family" : "tatr",
+    "anchors" : 0,
+    "refined_rows" : 0,
+    "page" : 3,
+    "candidates" : 0
+  }, {
+    "family" : "yolox",
+    "anchors" : 0,
+    "refined_rows" : 0,
+    "page" : 3,
+    "candidates" : 0
+  }, {
+    "family" : "tatr",
+    "anchors" : 56,
+    "refined_rows" : 0,
+    "page" : 4,
+    "candidates" : 0
+  }, {
+    "family" : "yolox",
+    "anchors" : 64,
+    "refined_rows" : 1,
+    "page" : 4,
+    "candidates" : 1
+  }, {
+    "family" : "tatr",
+    "anchors" : 131,
+    "refined_rows" : 1,
+    "page" : 5,
+    "candidates" : 1
+  }, {
+    "family" : "yolox",
+    "anchors" : 89,
+    "refined_rows" : 1,
+    "page" : 5,
+    "candidates" : 1
+  }, {
+    "family" : "tatr",
+    "anchors" : 56,
+    "refined_rows" : 1,
+    "page" : 6,
+    "candidates" : 1
+  }, {
+    "family" : "yolox",
+    "anchors" : 102,
+    "refined_rows" : 1,
+    "page" : 6,
+    "candidates" : 1
+  }, {
+    "family" : "tatr",
+    "anchors" : 118,
+    "refined_rows" : 0,
+    "page" : 7,
+    "candidates" : 0
+  }, {
+    "family" : "yolox",
+    "anchors" : 112,
+    "refined_rows" : 0,
+    "page" : 7,
+    "candidates" : 0
+  }, {
+    "family" : "tatr",
+    "anchors" : 0,
+    "refined_rows" : 0,
+    "page" : 8,
+    "candidates" : 0
+  }, {
+    "family" : "yolox",
+    "anchors" : 128,
+    "refined_rows" : 0,
+    "page" : 8,
+    "candidates" : 0
+  }, {
+    "family" : "tatr",
+    "anchors" : 60,
+    "refined_rows" : 0,
+    "page" : 9,
+    "candidates" : 0
+  }, {
+    "family" : "yolox",
+    "anchors" : 88,
+    "refined_rows" : 0,
+    "page" : 9,
+    "candidates" : 0
+  }, {
+    "family" : "tatr",
+    "anchors" : 14,
+    "refined_rows" : 0,
+    "page" : 10,
+    "candidates" : 0
+  }, {
+    "family" : "yolox",
+    "anchors" : 0,
+    "refined_rows" : 0,
+    "page" : 10,
+    "candidates" : 0
+  }, {
+    "family" : "tatr",
+    "anchors" : 0,
+    "refined_rows" : 0,
+    "page" : 11,
+    "candidates" : 0
+  }, {
+    "family" : "yolox",
+    "anchors" : 0,
+    "refined_rows" : 0,
+    "page" : 11,
+    "candidates" : 0
+  } ],
+  "source_sha256" : "89de999d7155649197672bf490c519607f1abbcdc96e2e4c6718bf6ecbb13564",
+  "runtime" : "21.0.12.1+12-LTS"
+}

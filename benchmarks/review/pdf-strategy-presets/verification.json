@@ -1,0 +1,39 @@
+{
+  "parent_commit": "2173b7101c524fdacdc36b0a4a68704b6d2da06e",
+  "scope": "Additive routing API and explicit full-page OCR; no dependency/default/version change",
+  "java21": {
+    "version": "21.0.12.1+12-LTS",
+    "clean_verify": "SUCCESS",
+    "tests": 1053,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "strict_public_and_touched_private_javadocs": "PASS",
+    "build_log_sha256": "8d97c0cb3ceec69481451ef28ba73ac4028f291a07752a71186537405aa22046",
+    "explicit_installed_engine_test": "SUCCESS",
+    "installed_log_sha256": "dedb57cfda6489fd3f6e3f4a6aebc2b4547365e9f58f9f1008d26f0d91cf9091",
+    "installed_receipt_sha256": "822a0daaa06d9da7f506bf77e605cba16b984ec69586307234956aa898a1b98c"
+  },
+  "java25": {
+    "version": "25.0.4+7-LTS",
+    "clean_verify": "SUCCESS",
+    "tests": 1053,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "strict_public_and_touched_private_javadocs": "PASS",
+    "build_log_sha256": "3d3d0fc6810f1427580647e9f39fd8792494f3be1a67b0e84f6b6ebc37ffab52",
+    "explicit_installed_engine_test": "SUCCESS",
+    "installed_log_sha256": "f33299fed6a0967e1fbfe253219999213ce0d822cb77924815c0a3794cf01960",
+    "installed_receipt_sha256": "570673fbba594a3bafc5c7d696cf9d8d3ec27d55d3d39685f50089e4df64cc33"
+  },
+  "owned_routing_controls_per_jdk": 16,
+  "explicit_installed_engine_control_per_jdk": 1,
+  "ordinary_verification_executes_installed_ocr": false,
+  "owned_four_page_ocr_calls": { "FAST": 0, "AUTO": 2, "OCR_ONLY": 4, "HI_RES": 4 },
+  "owned_native_page_real_engine_calls": { "FAST": 0, "AUTO": 0, "OCR_ONLY": 1, "HI_RES": 1 },
+  "upstream_review": "PASS; latest release/main remain reviewed0.27.29/f98602237cb152e9c33fd824fb8ec96037806ad4",
+  "upstream_status_sha256": "71b092a91549f6aa77dea26aa6470c691d19412f21cb73ea26bdbf7a655fcf6b",
+  "formatter_and_diff_checks": "PASS",
+  "limits": "Owned routing/engine integration evidence only; no corpus-quality improvement or upstream strategy/output parity claim. Interim comparison remains pinned to its earlier production source. Unreleased; no tag or publication."
+}

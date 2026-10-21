@@ -1,0 +1,34 @@
+{
+  "scope": "Explicit automatic quarter-turn estimation; owned controls, not independent physical-scan accuracy or calibration",
+  "engine": {
+    "version": "5.5.3",
+    "sha256": "9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917"
+  },
+  "osd": {
+    "repository": "https://github.com/tesseract-ocr/tessdata",
+    "revision": "ced78752cc61322fb554c280d13360b35b8684e4",
+    "path": "osd.traineddata",
+    "bytes": 10562874,
+    "sha256": "e19f2ae860792fdf372cf48d8ce70ae5da3c4052962fe22e9de1f680c374bb0e",
+    "license": "Apache-2.0; fetch-only, no model redistribution"
+  },
+  "decision": {
+    "minimum_raw_score": 15,
+    "calibrated": false,
+    "low_score": "unchanged input; undetermined"
+  },
+  "negative_control": {
+    "fixture": "Owned serif ruled six-cell grid, known exact provider layout, generic provider CELL crops with boundary pixels and 12px padding",
+    "expected": "ITEM COUNT RED 10 BLUE 20",
+    "observed": "ITEM COUNT BLUE",
+    "status": "recognition limitation retained; not an orientation failure",
+    "change": "No generic crop/segmentation/default change; explicit RULED control uses existing border removal"
+  },
+  "boundaries": [
+    "No physical-scan accuracy claim",
+    "No script or language inference",
+    "No arbitrary-angle deskew estimation",
+    "No calibrated probability",
+    "No model/executable auto-download or launch at construction"
+  ]
+}

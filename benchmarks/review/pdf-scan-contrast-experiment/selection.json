@@ -1,0 +1,14 @@
+{
+  "base_commit": "797e405",
+  "frozen_at": "2026-10-20T22:52:41.247737+00:00",
+  "pre_run_source_sha256": {
+    "docweave-validation/src/test/java/dev/docweave/validation/ContrastLimitedScanProbe.java": "75ac1cf659ef99f5cdef7905f00080a18e37eded991c72343cb429eff6460130",
+    "docweave-validation/src/test/java/dev/docweave/validation/ContrastLimitedScanProbeTest.java": "4010f703da4312f787fbfd4c58837ff222e0fa224ae9b5066573a095d0f8fc97",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfHistoricalTextCorpusTest.java": "04eca5c8d1df2099c39433698ff354d98f0cd5e094056fea25f25a390f3c3fbf"
+  },
+  "manifest_sha256": "6834cc3ebf786a380491319e27d66a4be6b10ea52c411f0cfa9e407f91fa1a43",
+  "baseline_report": "benchmarks/review/pdf-scan-source-resolution/java21.json",
+  "baseline_sha256": "95db19b628dee8930d16620d894b60e8d47dc1b804ad01c5d8d4b3a2836ae84c",
+  "production_preprocessing": false,
+  "protocol": "64pxat300DPI; clip2mean; uniformtileidentity; grayscalealphaoverwhite; sourceDPI70..600; max4194304LUTentries; source unchanged; no composition"
+}

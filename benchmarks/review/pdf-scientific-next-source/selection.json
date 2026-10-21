@@ -1,0 +1,11 @@
+{
+  "frozen_at": "2026-10-19T16:42:36.623578+00:00",
+  "selection": "First official PLOS One result from query site:journals.plos.org/plosone/article \"2025\" \"Table 1\" \"data extraction\" systematic review; source chosen before PDF/XML fetch and before DocWeave extraction. First ordinal main table, do not replace source or omit case if unsupported/cross-page. Same publisher, additional source breadth only, not publisher diversity or untouched heldout evidence.",
+  "doi": "10.1371/journal.pone.0330904",
+  "publication_date": "2025-08-18",
+  "publication_date_status": "Verify against fetched publisher XML; search date is provisional.",
+  "article_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0330904",
+  "pdf_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0330904&type=printable",
+  "jats_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0330904&type=manuscript",
+  "protocol": "Whole original PDF, fixed first main logical table, publisher JATS text/spans/header prefix truth and source-only independent page/ROI selection before candidate; keep every reference anchor on failures. Uniform tagged/native/provider config unchanged from resolved-text feature, graphs fixed, no reference inputs to inference."
+}

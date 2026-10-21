@@ -1,0 +1,26 @@
+{
+  "java": {
+    "21": {
+      "tests": 773,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "25": {
+      "tests": 773,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "strict_javadocs": "passed both actual JDKs",
+  "python_reference_guards": 12,
+  "formatter": "23.1.1 passed",
+  "scope": "explicit known angles only; automatic estimation and rotated table topology remain open",
+  "sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOcrProvider.java": "a67ac6d3df04e73188d890324b736132610f73e38188dc1db5a9f9cc061f640a",
+    "docweave-pdf/src/main/java/dev/docweave/partition/RotatedPdfOcrProvider.java": "40c19d19f2bacdb1bd46fe1503e872bd3287655af6959d9b3ede289901ed5ff6",
+    "docweave-pdf/src/test/java/dev/docweave/partition/RotatedPdfOcrProviderTest.java": "0a18a1cbf17091dcc9fdf043de560f749e79083f6845b22dde3127c74a0503aa",
+    "docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractRotationInstalledTest.java": "16d2c45c0402e5d6f8c97681940e9bdcdf563bfb587e8c41b6a3d596bb556591"
+  }
+}

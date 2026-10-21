@@ -1,0 +1,110 @@
+--- AuditCaptionUnitBoundaries.java
++++ AuditCaptionUnitBoundaries.java
+@@ -35,6 +35,7 @@
+      * @throws Exception if originals, reference identities, fixed populations or fresh output checks fail
+      */
+     public static void main(final String[] args) throws Exception {
++        presentationControls();
+         require(args.length == 4 && !Files.exists(Path.of(args[3])), "Expected originals, baseline and NEW report");
+         final var mapper = JsonMapper.builder().build();
+         final var sourceManifest = mapper.readTree(Files.readAllBytes(Path.of(args[0])));
+@@ -81,11 +82,12 @@
+                                                     .asString()),
+                             "Frozen caption reference changed");
+                 }
+-                final var options = PdfOptions.defaults()
+-                                            .withFigureCaptions(PdfOptions.FigureCaptions.IMAGE_ADJACENT_LABELS)
+-                                            .withTextLayout(profile.equals("NATIVE_COLUMNS")
+-                                                                    ? PdfOptions.TextLayout.COLUMN_PARAGRAPHS
+-                                                                    : PdfOptions.TextLayout.LINES);
++                final var options =
++                        PdfOptions.defaults()
++                                .withFigureCaptions(PdfOptions.FigureCaptions.IMAGE_ADJACENT_HORIZONTAL_LABELS)
++                                .withTextLayout(profile.equals("NATIVE_COLUMNS")
++                                                        ? PdfOptions.TextLayout.COLUMN_PARAGRAPHS
++                                                        : PdfOptions.TextLayout.LINES);
+                 final var partitioner = profile.equals("SOURCE_TAGGED_LINES")
+                                                 ? PdfPartitioner.createWithTaggedTables(options)
+                                                 : PdfPartitioner.create(options);
+@@ -109,17 +111,28 @@
+                 }
+                 final var details = new ArrayList<Map<String, Object>>();
+                 int unique = 0;
++                int presentationOnly = 0;
+                 for (int index = 0; index < expected.size(); index++) {
+                     final String reference = expected.get(index);
+                     final long count = units.stream().filter(reference::equals).count();
++                    final String caption = captions.get(index);
++                    final String sourceLabel = reference.substring(0, reference.length() - caption.length() - 1);
++                    final long presentation =
++                            units.stream()
++                                    .filter(unit
++                                            -> !unit.equals(reference) && presentationOnly(unit, sourceLabel, caption))
++                                    .count();
+                     unique += count == 1 ? 1 : 0;
++                    presentationOnly += presentation == 1 ? 1 : 0;
+                     details.add(Map.of("ordinal", index, "expected_unit_sha256",
+-                            hash(reference.getBytes(StandardCharsets.UTF_8)), "exact_complete_unit_matches", count));
++                            hash(reference.getBytes(StandardCharsets.UTF_8)), "exact_complete_unit_matches", count,
++                            "label_presentation_only_matches", presentation));
+                 }
+                 row.put("reference_captions", expected.size());
+                 row.put("emitted_caption_units", units.size());
+                 row.put("uniquely_exact_complete_units", unique);
+                 row.put("nonexact_emitted_units", units.stream().filter(unit -> !expected.contains(unit)).count());
++                row.put("unique_label_presentation_only_units", presentationOnly);
+                 row.put("references", details);
+                 results.add(row);
+             }
+@@ -130,12 +143,50 @@
+                 mapper.writerWithDefaultPrettyPrinter().writeValueAsString(Map.of("scope",
+                         "Exact entire classified unit equals original publisher label plus complete frozen caption; no extra prefix/suffix tolerance, geometry oracle or semantic precision claim",
+                         "runtime", Runtime.version().toString(), "baseline_sha256",
+-                        hash(Files.readAllBytes(Path.of(args[2]))), "results", results))
++                        hash(Files.readAllBytes(Path.of(args[2]))), "presentation_diagnostic_scope",
++                        "Strict fields unchanged; separately count label-terminal-period/horizontal-separator-only differences when entire caption body is exact; no body repair or strict-score credit",
++                        "results", results))
+                         + "\n",
+                 StandardOpenOption.CREATE_NEW);
+     }
+ 
+     /**
++     * Diagnoses only source label styling; never changes output, reference bodies or strict equality credit.
++     * @param unit complete classified native unit, ASCII whitespace normalized by the frozen scorer
++     * @param sourceLabel unchanged source publisher label under the same ASCII normalization
++     * @param caption complete unchanged publisher caption
++     * @return whether a terminal label period and horizontal separator explain the whole difference
++     */
++    private static boolean presentationOnly(final String unit, final String sourceLabel, final String caption) {
++        if (!sourceLabel.matches("(?:Fig(?:ure)?\\.?|FIG(?:URE)?\\.?)[\\p{Zs}\\t]+[1-9][0-9]{0,2}[A-Za-z]?\\.?")) {
++            return false;
++        }
++        final String marker = sourceLabel.endsWith(".") ? sourceLabel : sourceLabel + ".";
++        if (!unit.startsWith(marker)) {
++            return false;
++        }
++        int offset = marker.length();
++        final int start = offset;
++        while (offset < unit.length()) {
++            final int point = unit.codePointAt(offset);
++            if (point != '\t' && Character.getType(point) != Character.SPACE_SEPARATOR) {
++                break;
++            }
++            offset += Character.charCount(point);
++        }
++        return offset > start && unit.substring(offset).equals(caption);
++    }
++
++    /** Checks presentation diagnosis cannot excuse added body text, changed labels, vertical breaks or punctuation. */
++    private static void presentationControls() {
++        require(presentationOnly("Fig 1.\u2002Body", "Fig 1", "Body"), "Owned label spacing diagnosis failed");
++        require(!presentationOnly("Fig 1.\u2002Body extra", "Fig 1", "Body"), "Extra body text hidden");
++        require(!presentationOnly("Fig 2.\u2002Body", "Fig 1", "Body"), "Changed label hidden");
++        require(!presentationOnly("Fig 1.\nBody", "Fig 1", "Body"), "Vertical break hidden");
++        require(!presentationOnly("Fig 1.\u2002Body!", "Fig 1", "Body"), "Changed body punctuation hidden");
++    }
++
++    /**
+      * Requires one direct source child rather than inheriting a nested caption or label.
+      * @param parent original source element
+      * @param name required direct child

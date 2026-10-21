@@ -1,0 +1,286 @@
+﻿{
+    "status":  "observations_collected_human_review_pending",
+    "manifest_sha256":  "17731e954457667371c5c38d689e5a6f657fd556b77e3f36e74c11e492f5d011",
+    "collected_at_utc":  "2026-10-15T09:56:05.0236726Z",
+    "word_version":  "16.0",
+    "word_build":  "16.0.20430",
+    "platform":  "Microsoft Windows NT 10.0.26300.0",
+    "cases":  [
+                  {
+                      "file":  "plain-direct-outline-0.docx",
+                      "sha256":  "ed18e4d310526ae53648a7c74a898dba749698609fd7b17df0e97b04859b3de6",
+                      "cells":  [
+                                    {
+                                        "row":  0,
+                                        "column":  0,
+                                        "text":  "plain-direct-outline-0-r0c0",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  1,
+                                        "text":  "plain-direct-outline-0-r0c1",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  2,
+                                        "text":  "plain-direct-outline-0-r0c2",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  0,
+                                        "text":  "plain-direct-outline-0-r1c0",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  1,
+                                        "text":  "plain-direct-outline-0-r1c1",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  2,
+                                        "text":  "plain-direct-outline-0-r1c2",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  0,
+                                        "text":  "plain-direct-outline-0-r2c0",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  1,
+                                        "text":  "plain-direct-outline-0-r2c1",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  2,
+                                        "text":  "plain-direct-outline-0-r2c2",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    }
+                                ]
+                  },
+                  {
+                      "file":  "plain-direct-outline-3.docx",
+                      "sha256":  "51e46aa37db3a98a378de2f382d04d12998d5e38429619ec13336b56938f1752",
+                      "cells":  [
+                                    {
+                                        "row":  0,
+                                        "column":  0,
+                                        "text":  "plain-direct-outline-3-r0c0",
+                                        "outline_level":  3,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  1,
+                                        "text":  "plain-direct-outline-3-r0c1",
+                                        "outline_level":  3,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  2,
+                                        "text":  "plain-direct-outline-3-r0c2",
+                                        "outline_level":  3,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  0,
+                                        "text":  "plain-direct-outline-3-r1c0",
+                                        "outline_level":  3,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  1,
+                                        "text":  "plain-direct-outline-3-r1c1",
+                                        "outline_level":  3,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  2,
+                                        "text":  "plain-direct-outline-3-r1c2",
+                                        "outline_level":  3,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  0,
+                                        "text":  "plain-direct-outline-3-r2c0",
+                                        "outline_level":  3,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  1,
+                                        "text":  "plain-direct-outline-3-r2c1",
+                                        "outline_level":  3,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  2,
+                                        "text":  "plain-direct-outline-3-r2c2",
+                                        "outline_level":  3,
+                                        "list_string":  ""
+                                    }
+                                ]
+                  },
+                  {
+                      "file":  "conditional-direct-outline-0.docx",
+                      "sha256":  "c61d24d5fe4f56d898b46d0ce11515d40f0bf0fcff55d351566437bd6cb021eb",
+                      "cells":  [
+                                    {
+                                        "row":  0,
+                                        "column":  0,
+                                        "text":  "conditional-direct-outline-0-r0c0",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  1,
+                                        "text":  "conditional-direct-outline-0-r0c1",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  2,
+                                        "text":  "conditional-direct-outline-0-r0c2",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  0,
+                                        "text":  "conditional-direct-outline-0-r1c0",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  1,
+                                        "text":  "conditional-direct-outline-0-r1c1",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  2,
+                                        "text":  "conditional-direct-outline-0-r1c2",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  0,
+                                        "text":  "conditional-direct-outline-0-r2c0",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  1,
+                                        "text":  "conditional-direct-outline-0-r2c1",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  2,
+                                        "text":  "conditional-direct-outline-0-r2c2",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    }
+                                ]
+                  },
+                  {
+                      "file":  "conditional-direct-outline-3.docx",
+                      "sha256":  "e8dbdf71ba2fdbbbbfd77ec5b4a0b5decd97a9272aac00f4767bdb319638d96a",
+                      "cells":  [
+                                    {
+                                        "row":  0,
+                                        "column":  0,
+                                        "text":  "conditional-direct-outline-3-r0c0",
+                                        "outline_level":  3,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  1,
+                                        "text":  "conditional-direct-outline-3-r0c1",
+                                        "outline_level":  3,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  2,
+                                        "text":  "conditional-direct-outline-3-r0c2",
+                                        "outline_level":  3,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  0,
+                                        "text":  "conditional-direct-outline-3-r1c0",
+                                        "outline_level":  3,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  1,
+                                        "text":  "conditional-direct-outline-3-r1c1",
+                                        "outline_level":  3,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  2,
+                                        "text":  "conditional-direct-outline-3-r1c2",
+                                        "outline_level":  3,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  0,
+                                        "text":  "conditional-direct-outline-3-r2c0",
+                                        "outline_level":  3,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  1,
+                                        "text":  "conditional-direct-outline-3-r2c1",
+                                        "outline_level":  3,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  2,
+                                        "text":  "conditional-direct-outline-3-r2c2",
+                                        "outline_level":  3,
+                                        "list_string":  ""
+                                    }
+                                ]
+                  }
+              ]
+}

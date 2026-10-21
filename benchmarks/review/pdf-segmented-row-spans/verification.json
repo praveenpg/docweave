@@ -1,0 +1,30 @@
+{
+  "builds": [
+    {
+      "jdk": "21",
+      "tests": 985,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "strict_public_javadocs": "PASS",
+      "strict_new_helper_private_javadocs": "PASS",
+      "log_sha256": "176e187a2b508ed90f1b92fe462b11a2c43215c54f53d9c156900fd1cae6f8ab"
+    },
+    {
+      "jdk": "25",
+      "tests": 985,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "strict_public_javadocs": "PASS",
+      "strict_new_helper_private_javadocs": "PASS",
+      "log_sha256": "662ccd175c7c0370ca9b7a1fab91973231a1c65b21ff4eebf498211602afa072"
+    }
+  ],
+  "formatter": "clang-format23.1.1",
+  "source_mode": "RULED_AND_SEGMENTED_ROWS",
+  "replay_comparisons": 46,
+  "unchanged_other_comparisons": 44,
+  "public_record_shapes": "unchanged",
+  "source_evidence": "Logical publisher spans/text, not physical border truth"
+}

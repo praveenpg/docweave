@@ -1,0 +1,191 @@
+{
+  "kind": "Owned current-thread allocation and intrusive process live-heap observations; not peak/exact retained sizes",
+  "cases": [
+    {
+      "fixture": "wide.html",
+      "flatten": {
+        "allocated_bytes_median_of_trial_means": 2707799.2,
+        "trial_mean_range": [
+          2704750.4,
+          2708240.8
+        ],
+        "held_minus_released_median": 173248,
+        "held_minus_released_range": [
+          173248,
+          173248
+        ],
+        "descriptor_payload_units": 0
+      },
+      "preserve": {
+        "allocated_bytes_median_of_trial_means": 5811938.4,
+        "trial_mean_range": [
+          5811908.8,
+          5813933.6
+        ],
+        "held_minus_released_median": 495288,
+        "held_minus_released_range": [
+          495288,
+          495288
+        ],
+        "descriptor_payload_units": 97697
+      },
+      "allocation_difference": 3104139.2,
+      "allocation_ratio": 2.146369789901703
+    },
+    {
+      "fixture": "wide.md",
+      "flatten": {
+        "allocated_bytes_median_of_trial_means": 4076873.6,
+        "trial_mean_range": [
+          4076873.6,
+          4076873.6
+        ],
+        "held_minus_released_median": 173736,
+        "held_minus_released_range": [
+          173736,
+          173736
+        ],
+        "descriptor_payload_units": 0
+      },
+      "preserve": {
+        "allocated_bytes_median_of_trial_means": 6470621.6,
+        "trial_mean_range": [
+          6465140,
+          6472201.6
+        ],
+        "held_minus_released_median": 495776,
+        "held_minus_released_range": [
+          495776,
+          495776
+        ],
+        "descriptor_payload_units": 97697
+      },
+      "allocation_difference": 2393747.9999999995,
+      "allocation_ratio": 1.587152861447556
+    },
+    {
+      "fixture": "wide.docx",
+      "flatten": {
+        "allocated_bytes_median_of_trial_means": 20979766.4,
+        "trial_mean_range": [
+          20865961.6,
+          21096147.2
+        ],
+        "held_minus_released_median": 177792,
+        "held_minus_released_range": [
+          177792,
+          177792
+        ],
+        "descriptor_payload_units": 0
+      },
+      "preserve": {
+        "allocated_bytes_median_of_trial_means": 21241981.6,
+        "trial_mean_range": [
+          21217470.4,
+          21528593.6
+        ],
+        "held_minus_released_median": 532600,
+        "held_minus_released_range": [
+          532600,
+          532600
+        ],
+        "descriptor_payload_units": 104993
+      },
+      "allocation_difference": 262215.200000003,
+      "allocation_ratio": 1.0124984804406594
+    },
+    {
+      "fixture": "deep.html",
+      "flatten": {
+        "allocated_bytes_median_of_trial_means": 397512,
+        "trial_mean_range": [
+          397512,
+          397512
+        ],
+        "held_minus_released_median": 18248,
+        "held_minus_released_range": [
+          18248,
+          18248
+        ],
+        "descriptor_payload_units": 0
+      },
+      "preserve": {
+        "allocated_bytes_median_of_trial_means": 1454012.8,
+        "trial_mean_range": [
+          1453264,
+          1454137.6
+        ],
+        "held_minus_released_median": 157408,
+        "held_minus_released_range": [
+          156528,
+          157408
+        ],
+        "descriptor_payload_units": 53735
+      },
+      "allocation_difference": 1056500.8,
+      "allocation_ratio": 3.657783412827789
+    },
+    {
+      "fixture": "deep.md",
+      "flatten": {
+        "allocated_bytes_median_of_trial_means": 663143.2,
+        "trial_mean_range": [
+          663099.2,
+          663143.2
+        ],
+        "held_minus_released_median": 18736,
+        "held_minus_released_range": [
+          18736,
+          18736
+        ],
+        "descriptor_payload_units": 0
+      },
+      "preserve": {
+        "allocated_bytes_median_of_trial_means": 1458792,
+        "trial_mean_range": [
+          1458768,
+          1458792
+        ],
+        "held_minus_released_median": 157896,
+        "held_minus_released_range": [
+          157896,
+          157896
+        ],
+        "descriptor_payload_units": 53735
+      },
+      "allocation_difference": 795648.8,
+      "allocation_ratio": 2.199814459380719
+    },
+    {
+      "fixture": "deep.docx",
+      "flatten": {
+        "allocated_bytes_median_of_trial_means": 6854238.4,
+        "trial_mean_range": [
+          6849013.6,
+          6972170.4
+        ],
+        "held_minus_released_median": 18848,
+        "held_minus_released_range": [
+          18848,
+          18848
+        ],
+        "descriptor_payload_units": 0
+      },
+      "preserve": {
+        "allocated_bytes_median_of_trial_means": 6996084,
+        "trial_mean_range": [
+          6992042.4,
+          7115708
+        ],
+        "held_minus_released_median": 161472,
+        "held_minus_released_range": [
+          161472,
+          161472
+        ],
+        "descriptor_payload_units": 54617
+      },
+      "allocation_difference": 141845.59999999963,
+      "allocation_ratio": 1.0206945822018678
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "scope" : "Official OCR regression fixtures with source orientation labels and transcription; model-training overlap unknown; not physical-scan provenance or calibration",
+  "engine_sha256" : "9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917",
+  "osd_sha256" : "e19f2ae860792fdf372cf48d8ce70ae5da3c4052962fe22e9de1f680c374bb0e",
+  "render_dpi" : 72,
+  "runtime" : "25.0.4+7-LTS",
+  "eng_sha256" : "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047",
+  "results" : [ {
+    "input" : "phototest.tif",
+    "minimum_raw_score" : 15.0,
+    "expected_correction" : 0,
+    "accepted" : false,
+    "correction" : 0,
+    "raw_score" : 10.86,
+    "exact_normalized_transcription" : true,
+    "observed_characters" : 284,
+    "source_images" : 1
+  }, {
+    "input" : "phototest-rotated-R.png",
+    "minimum_raw_score" : 15.0,
+    "expected_correction" : 270,
+    "accepted" : false,
+    "correction" : 0,
+    "raw_score" : 9.3,
+    "exact_normalized_transcription" : true,
+    "observed_characters" : 284,
+    "source_images" : 1
+  }, {
+    "input" : "phototest-rotated-180.png",
+    "minimum_raw_score" : 15.0,
+    "expected_correction" : 180,
+    "accepted" : false,
+    "correction" : 0,
+    "raw_score" : 10.99,
+    "exact_normalized_transcription" : false,
+    "observed_characters" : 277,
+    "source_images" : 1
+  }, {
+    "input" : "phototest-rotated-L.png",
+    "minimum_raw_score" : 15.0,
+    "expected_correction" : 90,
+    "accepted" : false,
+    "correction" : 0,
+    "raw_score" : 9.62,
+    "exact_normalized_transcription" : false,
+    "observed_characters" : 277,
+    "source_images" : 1
+  }, {
+    "input" : "phototest.tif",
+    "minimum_raw_score" : 0.0,
+    "expected_correction" : 0,
+    "accepted" : true,
+    "correction" : 0,
+    "raw_score" : 10.86,
+    "exact_normalized_transcription" : true,
+    "observed_characters" : 284,
+    "source_images" : 1
+  }, {
+    "input" : "phototest-rotated-R.png",
+    "minimum_raw_score" : 0.0,
+    "expected_correction" : 270,
+    "accepted" : true,
+    "correction" : 270,
+    "raw_score" : 9.3,
+    "exact_normalized_transcription" : true,
+    "observed_characters" : 284,
+    "source_images" : 1
+  }, {
+    "input" : "phototest-rotated-180.png",
+    "minimum_raw_score" : 0.0,
+    "expected_correction" : 180,
+    "accepted" : true,
+    "correction" : 180,
+    "raw_score" : 10.99,
+    "exact_normalized_transcription" : true,
+    "observed_characters" : 284,
+    "source_images" : 1
+  }, {
+    "input" : "phototest-rotated-L.png",
+    "minimum_raw_score" : 0.0,
+    "expected_correction" : 90,
+    "accepted" : true,
+    "correction" : 90,
+    "raw_score" : 9.62,
+    "exact_normalized_transcription" : true,
+    "observed_characters" : 284,
+    "source_images" : 1
+  } ],
+  "source_revision" : "232ff181c66516116ec0e84c4963f70de15050fd"
+}

@@ -1,0 +1,49 @@
+{
+  "scope": "Project-owned DOCX ownership probes, not Word rendering evidence",
+  "documents": [
+    {
+      "filename": "content-ownership.docx",
+      "sha256": "68a1f45410c36462d34e104a7e9dda1b0aa8bd4f0533e2afa217677118ef6194",
+      "bytes": 4444,
+      "required_text": [
+        "Content report",
+        "Text box paragraph."
+      ],
+      "minimum_tables": 2,
+      "expected_warning_codes": [],
+      "expected_stored_parts": {
+        "Header": 0,
+        "Footer": 0
+      }
+    },
+    {
+      "filename": "nested.docx",
+      "sha256": "140fbdecee3b7dd6adf0bb6459375f0fc02ef88bd1819586244dd6e1834c5da8",
+      "bytes": 2561,
+      "required_text": [
+        "Repeated",
+        "Grandchild"
+      ],
+      "minimum_tables": 1,
+      "expected_warning_codes": [
+        "NESTED_TABLE_FLATTENED",
+        "NESTED_TABLE_FLATTENED",
+        "NESTED_TABLE_FLATTENED"
+      ],
+      "expected_stored_parts": {
+        "Header": 0,
+        "Footer": 0
+      }
+    }
+  ],
+  "provenance": {
+    "content-ownership.docx": {
+      "generator": "benchmarks/tools/CreateDocxContentFixture.java",
+      "generator_sha256": "457426b898125f585fd45bd15535e521f5e722044baf05ac2050e08bc121fb9d"
+    },
+    "nested.docx": {
+      "copied_from": "benchmarks/review/nested-tables/nested.docx",
+      "policy": "Exact copy of existing owned fixture; no new independent source or renderer evidence."
+    }
+  }
+}

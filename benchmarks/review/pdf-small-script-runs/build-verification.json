@@ -1,0 +1,10 @@
+{
+  "strict_private_javadocs" : true,
+  "production_source_hashes_verified" : true,
+  "strict_public_javadocs" : true,
+  "errors" : 0,
+  "failures" : 0,
+  "java25_tests" : 1089,
+  "java21_tests" : 1089,
+  "skipped" : 0
+}

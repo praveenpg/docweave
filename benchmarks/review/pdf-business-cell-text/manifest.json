@@ -1,0 +1,124 @@
+{
+  "repository": "https://github.com/tabulapdf/tabula-java",
+  "commit": "2cdf3b4fd3f7e921dca8cc6814cdd9316be40f0f",
+  "inputs": [
+    {
+      "filename": "frx_2012_disclosure.pdf",
+      "path": "src/test/resources/technology/tabula/frx_2012_disclosure.pdf",
+      "bytes": 21404,
+      "sha256": "aa80de941ee2999798e2d36b63b475861468bcb958cb7106e9afcc12242ad54a",
+      "git_blob_sha1": "3dfc2c777b5b3552ea60205bcd377e9358c04fbc",
+      "url": "https://raw.githubusercontent.com/tabulapdf/tabula-java/2cdf3b4fd3f7e921dca8cc6814cdd9316be40f0f/src/test/resources/technology/tabula/frx_2012_disclosure.pdf"
+    },
+    {
+      "filename": "frx_2012_disclosure.csv",
+      "path": "src/test/resources/technology/tabula/csv/frx_2012_disclosure.csv",
+      "bytes": 3139,
+      "sha256": "7fc6282b949d41620a81c7a92f2c05b298f88cde6f1eb65be1ac8b37d8c843b0",
+      "git_blob_sha1": "cbe65fb59ca802e46643502b44ed4a0739480139",
+      "url": "https://raw.githubusercontent.com/tabulapdf/tabula-java/2cdf3b4fd3f7e921dca8cc6814cdd9316be40f0f/src/test/resources/technology/tabula/csv/frx_2012_disclosure.csv"
+    },
+    {
+      "filename": "Publication_of_award_of_Bids_for_Transport_Sector__August_2016.pdf",
+      "path": "src/test/resources/technology/tabula/Publication_of_award_of_Bids_for_Transport_Sector__August_2016.pdf",
+      "bytes": 121559,
+      "sha256": "038126d57e3d9aadfee6c3ac44acc66d4fbdc13598dad8deadd7ec76a2a7d2ab",
+      "git_blob_sha1": "64cf98bda2ba67c3ba50dc04dbfb68d4652244d4",
+      "url": "https://raw.githubusercontent.com/tabulapdf/tabula-java/2cdf3b4fd3f7e921dca8cc6814cdd9316be40f0f/src/test/resources/technology/tabula/Publication_of_award_of_Bids_for_Transport_Sector__August_2016.pdf"
+    },
+    {
+      "filename": "Publication_of_award_of_Bids_for_Transport_Sector__August_2016.csv",
+      "path": "src/test/resources/technology/tabula/csv/Publication_of_award_of_Bids_for_Transport_Sector__August_2016.csv",
+      "bytes": 2993,
+      "sha256": "d4ae792846efa5cb1a2829ec8fe767d2aae62c6e96de5e8d9538cba465a3032e",
+      "git_blob_sha1": "af75b5f15d07243eace0ff4742030a1d20ac0143",
+      "url": "https://raw.githubusercontent.com/tabulapdf/tabula-java/2cdf3b4fd3f7e921dca8cc6814cdd9316be40f0f/src/test/resources/technology/tabula/csv/Publication_of_award_of_Bids_for_Transport_Sector__August_2016.csv"
+    },
+    {
+      "filename": "us-020.pdf",
+      "path": "src/test/resources/technology/tabula/us-020.pdf",
+      "bytes": 122078,
+      "sha256": "d884d32bd2a1d620e0c7b5446e4d0b58ba67dab04e884839b2640b9a35749e99",
+      "git_blob_sha1": "39a8546ce0d8ece82a9b38509deb5497ee4549e2",
+      "url": "https://raw.githubusercontent.com/tabulapdf/tabula-java/2cdf3b4fd3f7e921dca8cc6814cdd9316be40f0f/src/test/resources/technology/tabula/us-020.pdf"
+    },
+    {
+      "filename": "us-020.csv",
+      "path": "src/test/resources/technology/tabula/csv/us-020.csv",
+      "bytes": 1682,
+      "sha256": "ff0ccd1d6ec4023e0c47a05d32f3dc8aa804f48cb28f704ab1886fedba80382b",
+      "git_blob_sha1": "b846d71988de1345c12f3f3b8f00000c327ec1b7",
+      "url": "https://raw.githubusercontent.com/tabulapdf/tabula-java/2cdf3b4fd3f7e921dca8cc6814cdd9316be40f0f/src/test/resources/technology/tabula/csv/us-020.csv"
+    }
+  ],
+  "scope": "Two business documents and one public-statistics control; upstream saved CSV extraction expectations, not human-reviewed scan transcriptions or span labels.",
+  "profiles": {
+    "dpi": 150,
+    "max_render_pixels": 16000000,
+    "max_table_cells": 1024,
+    "rule_profile": "COMPACT",
+    "page_segmentation": "AUTO",
+    "cell_segmentation": "SINGLE_BLOCK",
+    "cell_borders": "RETAIN",
+    "language": "eng",
+    "cell_context_pixels": 0,
+    "ocr_scaling": 1,
+    "orientation": "none",
+    "model": "none",
+    "association": "maximum parent-box IoU >= 0.5; no text-based selection",
+    "normalization": "ASCII whitespace collapse and trim only; case and punctuation preserved"
+  },
+  "cases": [
+    {
+      "id": "financial-disclosure",
+      "pdf": "frx_2012_disclosure.pdf",
+      "csv": "frx_2012_disclosure.csv",
+      "source_page": 1,
+      "roi_left_top_right_bottom": [
+        49,
+        53,
+        550,
+        735
+      ],
+      "domain": "business",
+      "expected_rows": 88,
+      "expected_columns": 5,
+      "selection_source": "TestWriters.java",
+      "selection_source_sha256": "a290d9b69dba05ce144c58e88b14cccb6f976f2a2b6b9df802c47d7c07c5d31c"
+    },
+    {
+      "id": "transport-procurement",
+      "pdf": "Publication_of_award_of_Bids_for_Transport_Sector__August_2016.pdf",
+      "csv": "Publication_of_award_of_Bids_for_Transport_Sector__August_2016.csv",
+      "source_page": 1,
+      "roi_left_top_right_bottom": [
+        24.255,
+        56.925,
+        786.555,
+        549.945
+      ],
+      "domain": "business",
+      "expected_rows": 14,
+      "expected_columns": 11,
+      "selection_source": "TestSpreadsheetExtractor.java",
+      "selection_source_sha256": "645657e3f695d917b12820b127330d965f65f0dcc514b84c2b122da8208fabb7"
+    },
+    {
+      "id": "education-statistics",
+      "pdf": "us-020.pdf",
+      "csv": "us-020.csv",
+      "source_page": 2,
+      "roi_left_top_right_bottom": [
+        35,
+        103,
+        560,
+        641
+      ],
+      "domain": "public-statistics-control",
+      "expected_rows": 50,
+      "expected_columns": 7,
+      "selection_source": "TestBasicExtractor.java",
+      "selection_source_sha256": "06aef88e46e30c7b74dd115097fe92d242dc29ab25e01d5a5cbaf0815fcfc9c1"
+    }
+  ]
+}

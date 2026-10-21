@@ -1,0 +1,33 @@
+{
+  "base_commit": "5cebb58",
+  "java21_full_verify": {
+    "tests": 1213,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "new_behavioral_tests": 5,
+  "final_codec_tests": 22,
+  "private_doclint": "PASS",
+  "allocation_fixtures": 3,
+  "all_decoded_json_bytes_exact": true,
+  "public_interface_unchanged": true,
+  "json_utf8_limit": 16777216,
+  "source_sha256": {
+    "docweave-json/src/main/java/dev/docweave/json/ElementJson.java": "aa7b83f17f9176220b550fa971f2c6ed57d8c389d9dd0ebdc0cd6a6237b000fa",
+    "docweave-json/src/main/java/dev/docweave/json/DefaultElementJson.java": "29eb15b3c9d10a137c0fc7a5d9a8c78b80759519300ca4d6ea3c792232420376",
+    "docweave-json/src/main/java/dev/docweave/json/OriginalsJsonOutput.java": "dde62c42afb4d948b9b27272f15d3529042b126aac57dfc2c27aa85dc33006c7",
+    "docweave-integration-tests/src/test/java/dev/docweave/json/OriginalsStreamingTest.java": "14f8011b0ac26ee825f1c8fe0f926574e05c3ca95fde037c6834f0b403f37265",
+    "benchmarks/tools/ProbeOriginalsAllocations.java": "c3325ae13ddb72e67f30b209ac136f239136b10a7974e763b5c61858dd23b747"
+  },
+  "artifacts": {
+    "README.md": "cc0f5649d29e158b4500d30c44edd2e0208b8e995131c0a02c4a37db4a438097",
+    "allocations-java21.json": "eba9a1941ddd45156ec50bfc7c68915d65cf59940db7ca7f0d7d7c250998c0b5"
+  },
+  "local_log_sha256": {
+    "docweave-originals-stream-before21.log": "ca4f137c3f917d333097db3a570373674f6b5127a1248f73ad69442b6c63a9df",
+    "docweave-originals-sequence-focused21.log": "9dc32ff40e7945da149d7878a8cfc9326c65b9dc251f3ad0454502ad538fe8f7",
+    "docweave-originals-stream-verify21.log": "b85c4d7ebea779bccf056f70677419098b63ae0ad6b5040f13fa33ae10026ee1",
+    "final-private-doclint.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

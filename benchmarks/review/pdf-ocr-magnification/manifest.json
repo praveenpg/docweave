@@ -1,0 +1,19 @@
+{
+  "source_manifest": "../pdf-pubtabnet/manifest.json",
+  "baseline_report": "../pdf-provider-cell-ocr/pubtabnet-300-java21.json",
+  "profile": {
+    "cell_scale_factor": 3,
+    "cell_context_pixels": 0,
+    "render_dpi": 300,
+    "page_segmentation": "SINGLE_BLOCK",
+    "cell_segmentation": "SINGLE_BLOCK",
+    "cell_borders": "RETAIN",
+    "table_detection": "PROVIDER_LAYOUT_CELLS",
+    "page_and_cell_model_sha256": "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047",
+    "layout_graph_sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detector_enabled": false,
+    "orientation_enabled": false
+  },
+  "transform": "Integer nearest-neighbor RGB magnification of borrowed CELL inputs; inverse line coordinates; original PAGE words/layout/crop geometry/source payload unchanged",
+  "sampling": "All20 original upstream-train examples, no sample exclusion or per-case selection. Fixed3x chosen after a disclosed one-cell development observation; not a held-out or general accuracy estimate. No source/annotation repair or budget increase."
+}

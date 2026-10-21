@@ -1,0 +1,63 @@
+{
+  "frozen_at" : "2026-10-20T07:15:11.179609209Z",
+  "frozen_code_commit" : "41720b8",
+  "scope" : "Prospectively frozen source attribute-class span regression on the unchanged complete original source. All prior profiles, original source identities, case/ROI/reference populations and budgets retained. No added profile, text/reference repair, model or OCR. Candidate resolves standard positive class-defined Table cell spans, later class/array values then direct precedence; namespaces/revisions/malformed definitions retain whole fallback. These existing development PDFs do not establish independently observed class-span accuracy or heldout acceptance.",
+  "source_note" : "Original publisher-served tagged Acrobat Distiller 25 PDF, Letter612x792 rotation0. HTML tables8/9/10 exclude external issuer/title/unit labels. Source PDF text inventory includes Quarter Group not visible in the page1 render; no repair or hidden-text filtering introduced. PDF visible date/year lines differ from HTML cell presentation; reference scoring remains unchanged. Browser-reencoded-plus CDN link returned403; exact raw publisher HTML href downloaded successfully before any extraction. Separate calendar fetch had DNS failure and was unnecessary once original press-release links were available.",
+  "source_pdf" : "amd-fy25q4.pdf",
+  "source_html" : "amd-fy25q4.html",
+  "source_pages" : 7,
+  "inputs" : [ {
+    "bytes" : 315796,
+    "url" : "https://d1io3yog0oux5.cloudfront.net/_016ed771a65723c055e13ad960a941fb/amd/db/841/9223/financial_tables_pdf/Q4+2025+GAAP+and+Non-GAAP+Earnings+Tables.pdf",
+    "sha256" : "2e929f92e513ac2395928d29f3cf2db9fbefb4fbef3f68a56efe7d6fffd258df",
+    "filename" : "amd-fy25q4.pdf"
+  }, {
+    "bytes" : 458337,
+    "url" : "https://ir.amd.com/news-events/press-releases/detail/1276/amd-reports-fourth-quarter-and-full-year-2025-financial-results",
+    "sha256" : "03248f2fdc2e43f31dbf55b02238e6c97135e42bb606fbc9c9cfa25259433b33",
+    "filename" : "amd-fy25q4.html"
+  } ],
+  "cases" : [ {
+    "roi_left_top_right_bottom" : [ 48, 98, 560, 700 ],
+    "reference_rows" : 32,
+    "html_table_index" : 8,
+    "page" : 1,
+    "reference_rows_sha256" : "3b41e70a58ae12d9dd41d4f87e7ba198b2868c4c585a578c15ebc319578d9419",
+    "id" : "operations"
+  }, {
+    "roi_left_top_right_bottom" : [ 48, 108, 560, 640 ],
+    "reference_rows" : 36,
+    "html_table_index" : 9,
+    "page" : 2,
+    "reference_rows_sha256" : "42410fc1b81c7163dea7e62b0e29481f82ea69f7a6fd9b388268fbfd49388a47",
+    "id" : "balance-sheet"
+  }, {
+    "roi_left_top_right_bottom" : [ 48, 108, 560, 680 ],
+    "reference_rows" : 52,
+    "html_table_index" : 10,
+    "page" : 3,
+    "reference_rows_sha256" : "e8ca674d97a779ea1e0e8249ed4cfbe0add71a3cf1574ef31c2c421a8a973ab0",
+    "id" : "cash-flows"
+  } ],
+  "profiles" : [ "RULED_ONLY", "RULED_AND_ALIGNED_TEXT", "RULED_AND_MULTILINE_ALIGNED_TEXT", "RULED_AND_DOUBLE_BORDERS", "RULED_AND_HORIZONTAL_TEXT", "RULED_AND_PARTIAL_TEXT", "RULED_AND_SEGMENTED_ROWS", "RULED_AND_SHADED_ROWS", "RULED_AND_SHADED_ROWS_COMPACT_PADDING", "RULED_AND_SHADED_ROWS_INLINE_SCRIPTS", "SOURCE_TAGGED_TABLES", "SOURCE_TAGGED_LOGICAL_TABLES", "SOURCE_TAGGED_PAINTED_TABLES", "SOURCE_TAGGED_PAINTED_LOGICAL_TABLES", "SOURCE_TAGGED_CELL_ENVELOPE_TABLES" ],
+  "reference_rows_per_profile" : 120,
+  "candidate_case_profiles" : 45,
+  "protocol" : {
+    "extraction" : "Complete original PDF per mode, native defaults plus cell geometry. No reference/page/ROI inputs to extraction; source-dependent failures retain both cases in denominator.",
+    "references" : "Issuer-authored SEC HTML tables by fixed document-order index. Direct tr rows for that table, direct td/th wholeText joined by ASCII space. Map NBSP to display space, collapse ASCII whitespace only, trim only those spaces, drop wholly blank rows. Preserve punctuation/case/numeric formatting and all other Unicode. SHA256 of newline-joined normalized nonblank rows without trailing newline.",
+    "selection" : "Fixed source pages and displayed ROIs from PDF page rendering before DocWeave extraction. Max parent IoU >=0.5, stable first-index tie; never text-based association.",
+    "comparison" : "Exact nonblank row text at original nonblank row index. Do not shift rows, join fragments, fuzzy match, fix parentheses/currency/numbers or use content to choose a table. Keep missing/extra rows separate.",
+    "limits" : "HTML presentational cells/spans are NOT labels for PDF physical topology. No physical-span accuracy, cell-box accuracy or semantic-merge claim."
+  },
+  "validation_source_sha256" : "8e203603143ce2892222e76fd9704ca752a33fac8e39697f5b6806fc23aa2532",
+  "baseline_manifest" : "benchmarks/review/pdf-unseen-business-amd/cell-envelopes-manifest.json",
+  "baseline_manifest_sha256" : "4f14e0acc2da8cb30aa2c63c00ceed2ae716e64abb3ddd168774fb4032098c9e",
+  "baseline_report_sha256" : "eaee81be259dfc16ed26a5f0a74209bc117b1b9e55c984aad06fce6d1deabbf1",
+  "changed_profiles" : [ ],
+  "candidate_source_sha256" : {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTaggedAttributeClasses.java" : "f95cc636b4265c455b1ca7d30737a971777feff54e872fc07dd37aa24996c86f",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTaggedStructure.java" : "e2a7b7475192dd977696c7f2cfba183b08a5c1161fe14616a0ea51507a23f43c",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPartitioner.java" : "0887ac1d251c4d484029772a67ffc94bedc865d5955cef76ba3b153f6fe9617d"
+  },
+  "baseline_case_profiles" : 45
+}

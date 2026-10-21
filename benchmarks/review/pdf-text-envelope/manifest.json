@@ -1,0 +1,13 @@
+{
+  "source_manifest": "../pdf-pubtabnet/manifest.json",
+  "source_manifest_sha256": "6ece9c22eb8b86508148f2cf63f63d13ca8b4d4805b35bf34260578b921936e7",
+  "source_commit": "8ffde9024bd331f5a61c3c549fdf30dd3c3e43a5",
+  "layout_graph_sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+  "render_dpi": 300,
+  "source_embedding_dpi": 150,
+  "source_to_raster": "page_media_width/source_width * render_dpi/72 and corresponding height; preserve float page size and actual raster edge truncation",
+  "source_cell_correspondence": "Exact row/column/rowspan/colspan; absent matching anchors contribute zero coverage",
+  "rounded_crop": "floor left/top and ceil right/bottom as PdfLayoutCellOcr; white padding adds no source pixels",
+  "tolerance": "One original source pixel; separate diagnostic, does not modify bounds or raw overlap",
+  "source_sampling": "All20 original train images, all1380 anchors/1230 valid published boxes;150 anchors have no source geometry label; no exclusions, crops or annotation repair"
+}

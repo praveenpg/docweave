@@ -1,0 +1,75 @@
+{
+  "frozen_at" : "2026-10-20T13:10:08.322975182Z",
+  "code_commit" : "7650848ab462b0d487238e99ccd2abb9fce6b88b",
+  "scope" : "Bounded score-cutoff diagnosis on existing development source. Every one of eleven whole original page rasters and both frozen detector proposal sets, uniform structure cutoffs0.5 and0.25, same model/crops/merge/resource policies. References never enter inference. Keep all outcomes, no per-page best-of or altered row scorer. No production default/accuracy change implied.",
+  "baseline_manifest" : "benchmarks/review/pdf-nvidia-proposal-structures/manifest.json",
+  "baseline_manifest_sha256" : "e41c7a8c6584288d3afa0821e1ae62281e16422331b477e853763ca185ffd9d4",
+  "structure_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+  "minimum_scores" : [ 0.5, 0.25 ],
+  "profiles" : [ "tatr", "yolox" ],
+  "pages" : [ {
+    "render_png_sha256" : "00cebfb356f9d9b4bc54e934b795ed104de8908f1d417baea89d6f9b504bb886",
+    "yolox_proposals_sha256" : "1b7e9651bb70b3e9d326ea02d7bdebebfa38fec13c44743c54638a3c6f1c6061",
+    "source_page" : 1,
+    "tatr_proposals_sha256" : "b04b6dbd9df4e63d3984db509c7198887efb5a96498c2d964f9ae217d390bb5d"
+  }, {
+    "render_png_sha256" : "061c7b85f584da9034a767b914e5fc87d5f1bf7d9bd5a5613b9fef081ba47918",
+    "yolox_proposals_sha256" : "c1948b76a19a5b521eb2cdf043e762081c46b663a42b619f4e60e1fa942f8a47",
+    "source_page" : 2,
+    "tatr_proposals_sha256" : "7a411021b4d5bb1a8719628551a95a4efcdec3fd59d3ae7fc204987e85935c62"
+  }, {
+    "render_png_sha256" : "0808c5bdcd4c6443b81e6b11651b2559bc21774f89e6b571e2058ec2cc56c512",
+    "yolox_proposals_sha256" : "7c6c088599dd6dba8c0f839ca4c062fa5ffbc9bcc3db26442fad2f557eb68805",
+    "source_page" : 3,
+    "tatr_proposals_sha256" : "7c6c088599dd6dba8c0f839ca4c062fa5ffbc9bcc3db26442fad2f557eb68805"
+  }, {
+    "render_png_sha256" : "d70ee45946f9dfdb281d5fa17718f942a7d843ceedc1921acf0da20279452fcc",
+    "yolox_proposals_sha256" : "a8e91e5e6d06b12b81599308853e61e1467a9612e7f82345a6cacecc713c1df5",
+    "source_page" : 4,
+    "tatr_proposals_sha256" : "c13d966d7f013ea0d009e6d0637cfbd69c3d6f29b65d9e4b834c6f46e7d408a5"
+  }, {
+    "render_png_sha256" : "24f50db57471b54442a8d1994c60e2bb4d3ce657f2d573a958bb8dbbe6d8c793",
+    "yolox_proposals_sha256" : "5bbddac25b441b55aca5f03ac997937cf2aa8b3379539b5bc68366c6dc592f91",
+    "source_page" : 5,
+    "tatr_proposals_sha256" : "a48f933df5a2ef34c9744493a8253490c49618f4de45ada598544be8c31d39a0"
+  }, {
+    "render_png_sha256" : "e95cd7f1926834de0fe8666c083a1cd04be0275f509a3b4bac7a6649e5a9145b",
+    "yolox_proposals_sha256" : "c1b4f4cc6ae6238ad531509b6e8d17db7aef23b6f8f3b81845f6d1cf3395d524",
+    "source_page" : 6,
+    "tatr_proposals_sha256" : "fa5bff7d0ad6491bc728904cbdfee0842dd155bcf48f5f099e270d9746fc3403"
+  }, {
+    "render_png_sha256" : "f0b93bd5e577d7e46fa990edb865d475c5e7f5ff4d1792c40e0e7d8f2f34adb4",
+    "yolox_proposals_sha256" : "91832bab7e9a0f375d1dd6dfc942dd4fff558ed6d5817fbb5128e1855da5ab72",
+    "source_page" : 7,
+    "tatr_proposals_sha256" : "aead129a3a8a81ffb2d372a5bbabd78049decfce76a666508d244ca203c0ecb3"
+  }, {
+    "render_png_sha256" : "b44930b184996692cdde9a9a894d0d2c78f7bd0507a62781a2d082d1e7589fec",
+    "yolox_proposals_sha256" : "386ea1f6572665067deb3b44df8e7669f016759a0e5b8d23a6c153e15e2b825d",
+    "source_page" : 8,
+    "tatr_proposals_sha256" : "7c6c088599dd6dba8c0f839ca4c062fa5ffbc9bcc3db26442fad2f557eb68805"
+  }, {
+    "render_png_sha256" : "ea1acb5a60b92ad59069d3ddc76c8e6c77f9bdee51edf825561faa71a502ca71",
+    "yolox_proposals_sha256" : "74348a603ff6b32995e69083eba4cc6b38872b5a2ffb3a8910abbc62fe7dea33",
+    "source_page" : 9,
+    "tatr_proposals_sha256" : "ba5d7c522a9f53bb57228a3909ea89d1716482e158ff19a28b28fdb7f5a197b1"
+  }, {
+    "render_png_sha256" : "168581fdcd40a8964f7a97ef6ae1d2017ee252718f747f52995b7b6fe304b769",
+    "yolox_proposals_sha256" : "7c6c088599dd6dba8c0f839ca4c062fa5ffbc9bcc3db26442fad2f557eb68805",
+    "source_page" : 10,
+    "tatr_proposals_sha256" : "7f2aea6b05df1d70605ae10b9bec7afb495f7e0774351e25cd8841064789f90b"
+  }, {
+    "render_png_sha256" : "49277a634535f18d1dfd3d0e32b1c438b9e010f4e686478c7590dcb93b32579c",
+    "yolox_proposals_sha256" : "7c6c088599dd6dba8c0f839ca4c062fa5ffbc9bcc3db26442fad2f557eb68805",
+    "source_page" : 11,
+    "tatr_proposals_sha256" : "0d0b91b8eed521d8289e4c26b447d3c9f0e8bfd61dabc88e2ff9c3de2b995d0d"
+  } ],
+  "tool_sha256" : {
+    "benchmarks/tools/CaptureDetectorStructures.java" : "810329112e16626ecccbdcfa9593b08beede676d4b01e05aac57349e25761c7a",
+    "benchmarks/tools/ReplayNativeLayoutCaptures.java" : "9fc39919def458a9ddab98cfb69964ab2aa564cdd15294e943abda6b4e6473b9",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfCurrentBusinessRowsTest.java" : "8e203603143ce2892222e76fd9704ca752a33fac8e39697f5b6806fc23aa2532"
+  },
+  "capture_tool" : "benchmarks/tools/CaptureDetectorStructures.java",
+  "capture_tool_sha256" : "810329112e16626ecccbdcfa9593b08beede676d4b01e05aac57349e25761c7a",
+  "minimum_score" : 0.5,
+  "study_manifest_sha256" : "91a5fe4918606f4d0b3fa7716133bffa3a40f83f1e12ee04915759db2f8643f5"
+}

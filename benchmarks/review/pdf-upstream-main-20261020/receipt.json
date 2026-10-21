@@ -1,0 +1,19 @@
+{
+  "upstream_java21_tests": 3,
+  "result": "PASS",
+  "historical_goldens_repinned": false,
+  "measured_pdf_runtime_relabelled": false,
+  "latest_official_release": "0.27.30",
+  "reviewed_main": "07d978b8c182404b800fba27c01f4a2c633cfffc",
+  "source_review_only": true,
+  "provenance_streaming_followup": "PENDING",
+  "artifacts": {
+    "README.md": "c050b5d76ddcb6f2c66ba4bc1b09ad8e9dee88ba805a1d8859f73f67fec8a201",
+    "central-pdf-metadata.xml": "5563a9876a4b3b9b7807bb2e4f52f32d32b8d988ed5f76f7892b7d34267d67a7",
+    "delta-identities.json": "3c778c2a5e085a155874e14f0083acc8a136ed37ce779f5c0df3b40105b0e1af",
+    "freshness-initial.json": "997cd6f3d4deff52affb7fae9e83ff7f68c5b60c6c4484d81837392600d9a8b6",
+    "freshness-observation.json": "97082a7c7ab91dcbe584e2890b2be4805b27c4504d8744f60de164f5cad5d796",
+    "verified-observation.json": "8f97c170900efd14959279cd33d3e5765b3926d54c10ea321cd4608a6c31c3f8",
+    "xlsx-delta-identities.json": "7e5ac7d4901b947ec08904a1dfa0beb8d4f40d1af9d96f2b71a681cd95bf7389"
+  }
+}

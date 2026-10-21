@@ -1,0 +1,3 @@
+Exception in thread "main" java.lang.IllegalStateException: Invalid or duplicate numeric source label
+	at dev.docweave.partition.ScoreFigureAssociations.require(ScoreFigureAssociations.java:283)
+	at dev.docweave.partition.ScoreFigureAssociations.main(ScoreFigureAssociations.java:55)

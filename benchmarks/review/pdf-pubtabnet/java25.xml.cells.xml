@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Actual Tesseract explicit cell segmentation control</comment>
+<entry key="eng_model_sha256">daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047</entry>
+<entry key="checked_at">2026-10-17T09:02:49.521600018Z</entry>
+<entry key="blank_empty">true</entry>
+<entry key="java">25.0.4+7-LTS</entry>
+<entry key="executable_sha256">9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917</entry>
+<entry key="cell_segmentation">SINGLE_BLOCK</entry>
+<entry key="scope">owned multiline and blank cell rasters; no independent accuracy claim</entry>
+<entry key="multiline_exact">true</entry>
+</properties>

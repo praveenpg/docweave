@@ -1,0 +1,19 @@
+{
+  "scope": "All11 original pages, both frozen detector/structure profiles; every captured cell, unchanged source baselines. No labels, source-specific crops, model calls, topology or text repair. Baseline inventory is not a correctness score.",
+  "base_commit": "2f53032",
+  "identities": {
+    "benchmarks/tools/AuditModelCellBaselines.java": "809fa7b9fa770a4f702f20a74c17ada2c2c48d6f4aff4ec9de3ded9f90bc5660",
+    "benchmarks/review/pdf-nvidia-proposal-structures/replay-manifest.json": "5ded274dc78dfdd2db6d5fedad11ec261e035ad4148c137570fd72b1244c38eb",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageText.java": "73355a0038a123d55aaa28e98732d7182d5d7baec1af3949bf84251f55aab810"
+  },
+  "native_baseline_tolerance_points": 2,
+  "ownership": "nonblank upright glyph center, half-open cell bounds; cross-cell duplicate rejects",
+  "profiles": [
+    "tatr",
+    "yolox"
+  ],
+  "source_sha256": "89de999d7155649197672bf490c519607f1abbcdc96e2e4c6718bf6ecbb13564",
+  "raw_sources_redistributed": false,
+  "initial_tool_sha256": "78299e58574758f2465f05d66d63f2112f210648f3738e523e0be3f5b5e0e674",
+  "initial_attempt": "No report: audit incorrectly shared the per-page work counter across all pages/profiles and hit TABLE_LIMIT. Corrected to independent page/profile counter with identical two-million ceiling; no source/geometry/threshold change."
+}

@@ -1,0 +1,10 @@
+{
+  "old_api_commit": "4c53394",
+  "old_api_source_sha256": "e923aa0800d43092b68f99fb70ee7e84b37dcc0f59e8b0dd8099a96df954de62",
+  "consumer_source_sha256": "7762e2ba3ee3568cbecb60fc84b1f01db731bd5b14e9f0b3240f2db6b8181291",
+  "compile_release": 21,
+  "runtime_old_api_classes_present": false,
+  "actual21": "PASS",
+  "actual25": "PASS",
+  "boundary": "Constructor/accessor descriptors only. Record patterns/reflection/serialization shape require documented update."
+}

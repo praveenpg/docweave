@@ -1,0 +1,1737 @@
+{
+  "mode": "stacks",
+  "java_runtime": "25.0.4+7-LTS",
+  "java_vendor": "Amazon.com Inc.",
+  "os": "Linux amd64",
+  "jvm_arguments": [
+    "-Xms512m",
+    "-Xmx512m",
+    "-XX:+UseG1GC",
+    "--add-modules=ALL-DEFAULT"
+  ],
+  "warmup_calls_per_case": 10,
+  "allocation_calls": 10,
+  "jfr_calls": 20,
+  "input_manifest_sha256": "5146e5cc461caa1b81fa45756cce6bb0bfab20a24cddfded9a8ce165673c90d1",
+  "tool_sha256": "a857ce1c4bc275f0ac1b6c8de87c7a158f8c2c19f773c2745dc89e271ed7ad68",
+  "runtime_jars": [
+    {
+      "sha256": "35afaa92eeff6d030475222e1388b01c33a93e1babb3038a8f7b7b2511b22c89",
+      "file": "__LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-core/target/docweave-core-0.1.0-SNAPSHOT.jar"
+    },
+    {
+      "sha256": "dff781b54d68e48e9b5a391329baf28233a09c9c3eb7c73e82de36cdf55eea76",
+      "file": "__LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-json/target/docweave-json-0.1.0-SNAPSHOT.jar"
+    },
+    {
+      "sha256": "3a2338d996fd3056791df8d335fa9ba8a62a706ed4245ecf81b3e583df37d08a",
+      "file": "/tmp/docweave-m2/tools/jackson/core/jackson-databind/3.1.5/jackson-databind-3.1.5.jar"
+    },
+    {
+      "sha256": "53ca085f4a150f703f49e1aabd935bd03b43e1ea3d55d135438292af22cef56b",
+      "file": "/tmp/docweave-m2/com/fasterxml/jackson/core/jackson-annotations/2.21/jackson-annotations-2.21.jar"
+    },
+    {
+      "sha256": "9431b7fa2673bbb618c11d865fe15e13222fd182a214ff998cb7e56afd8f35d2",
+      "file": "/tmp/docweave-m2/tools/jackson/core/jackson-core/3.1.5/jackson-core-3.1.5.jar"
+    },
+    {
+      "sha256": "bff82ff99e3a6e16df2d89b4fc0623745e6e2e7e54939e179aba8cc0dbbe670d",
+      "file": "__LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-chunking/target/docweave-chunking-0.1.0-SNAPSHOT.jar"
+    },
+    {
+      "sha256": "e9d8c856856680427f096d156f02a414289985c930998fcb519ce5be39b42003",
+      "file": "/tmp/docweave-m2/org/jsoup/jsoup/1.23.2/jsoup-1.23.2.jar"
+    },
+    {
+      "sha256": "14d722cad77c42029b34e2664c8526b2e64a6fb4cc72ed67d8feb6b1f50fba81",
+      "file": "__LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-batch/target/docweave-batch-0.1.0-SNAPSHOT.jar"
+    },
+    {
+      "sha256": "86e9203d6c52ad4d3a0661c1ff1db3089ec7160882109f011aff723c1f2911b2",
+      "file": "__LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-txt/target/docweave-txt-0.1.0-SNAPSHOT.jar"
+    },
+    {
+      "sha256": "23c150dfe5e7de1d2aa96435dda72d6250f417f97ffbfa8970a006a740023859",
+      "file": "__LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-html/target/docweave-html-0.1.0-SNAPSHOT.jar"
+    },
+    {
+      "sha256": "43d33be5641d550d93bf2ffd1a1fc772eb730fe8a924fb6a148d9b159c0e0dc9",
+      "file": "__LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-markdown/target/docweave-markdown-0.1.0-SNAPSHOT.jar"
+    },
+    {
+      "sha256": "9b0d20064975a17e876fcb4b599c6b3667f46a7739ed61e2f06c96f44b50629f",
+      "file": "/tmp/docweave-m2/org/commonmark/commonmark/0.30.1/commonmark-0.30.1.jar"
+    },
+    {
+      "sha256": "c375b6d5b71efe179e5763a6d83fcf10e303c0bf82031310a46769727ac90da0",
+      "file": "/tmp/docweave-m2/org/commonmark/commonmark-ext-gfm-tables/0.30.1/commonmark-ext-gfm-tables-0.30.1.jar"
+    },
+    {
+      "sha256": "47e55854d473443863d1341a3084fe8e0edea462b07a1b3544de98f1c35e2ae9",
+      "file": "__LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-csv/target/docweave-csv-0.1.0-SNAPSHOT.jar"
+    },
+    {
+      "sha256": "76d6c671b6a8fca02fde4d67b56e65f45621f6e3121f849425ea73664905dc9a",
+      "file": "__LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-delimited/target/docweave-delimited-0.1.0-SNAPSHOT.jar"
+    },
+    {
+      "sha256": "32be0e1e76673092f5d12cb790bd2acb6c2ab04c4ea6efc69ea5ee17911c24fe",
+      "file": "/tmp/docweave-m2/org/apache/commons/commons-csv/1.14.1/commons-csv-1.14.1.jar"
+    },
+    {
+      "sha256": "6e596e8232571d48b881b94f8979915d9d8e3ac68ee0846dfd6646c1c09997d7",
+      "file": "__LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-tsv/target/docweave-tsv-0.1.0-SNAPSHOT.jar"
+    },
+    {
+      "sha256": "0816ab9524492c27c635d6c5879c3f70156294753c7667d482c33f5c0164e0b2",
+      "file": "__LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-xml/target/docweave-xml-0.1.0-SNAPSHOT.jar"
+    },
+    {
+      "sha256": "f8cb706b51261cc51e1d86d6fb1e02d9f7e9b855fc937c30c6580941e0413fb6",
+      "file": "__LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-docx/target/docweave-docx-0.1.0-SNAPSHOT.jar"
+    },
+    {
+      "sha256": "bd7be2fdfe3fd2c1684fa813351c2798fd636b44f6236e0674500d4f8ff1c2f9",
+      "file": "/tmp/docweave-m2/org/apache/poi/poi-ooxml/5.5.1/poi-ooxml-5.5.1.jar"
+    },
+    {
+      "sha256": "6c52e876ca75775a11b56e4b36a7541f682827f56406725fcd87560b792ee3d8",
+      "file": "/tmp/docweave-m2/org/apache/poi/poi/5.5.1/poi-5.5.1.jar"
+    },
+    {
+      "sha256": "1e56d7b058d28b65abd256b8458e3885b674c1d588fa43cd7d1cbb9c7ef2b308",
+      "file": "/tmp/docweave-m2/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar"
+    },
+    {
+      "sha256": "f76b85adb0c00721ae267b7cfde4da7f71d3121cc2160c9fc00c0c89f8c53c8a",
+      "file": "/tmp/docweave-m2/com/zaxxer/SparseBitSet/1.3/SparseBitSet-1.3.jar"
+    },
+    {
+      "sha256": "e6e37adeb6d6ee8b40ec491ad955d934d8f99827ab050f105b18286e59b1d9e7",
+      "file": "/tmp/docweave-m2/org/apache/poi/poi-ooxml-lite/5.5.1/poi-ooxml-lite-5.5.1.jar"
+    },
+    {
+      "sha256": "6cc69da3b4d35b83c5e477cd4daba204e44109833e34af2b9a8a2c8788289917",
+      "file": "/tmp/docweave-m2/org/apache/xmlbeans/xmlbeans/5.3.0/xmlbeans-5.3.0.jar"
+    },
+    {
+      "sha256": "e1522945218456f3649a39bc4afd70ce4bd466221519dba7d378f2141a4642ca",
+      "file": "/tmp/docweave-m2/org/apache/commons/commons-compress/1.28.0/commons-compress-1.28.0.jar"
+    },
+    {
+      "sha256": "4eeeae8d20c078abb64b015ec158add383ac581571cddc45c68f0c9ae0230720",
+      "file": "/tmp/docweave-m2/org/apache/commons/commons-lang3/3.18.0/commons-lang3-3.18.0.jar"
+    },
+    {
+      "sha256": "ad95b08b8bbf9d7d17e5e00814898fa23324f32bc5b62f1a37801e6a56ce0079",
+      "file": "/tmp/docweave-m2/com/github/virtuald/curvesapi/1.08/curvesapi-1.08.jar"
+    },
+    {
+      "sha256": "5b4a0a0cd0e751ded431c162442bdbdd53328d1f8bb2bae5fc1bbeee0f66d80f",
+      "file": "/tmp/docweave-m2/org/apache/logging/log4j/log4j-api/2.24.3/log4j-api-2.24.3.jar"
+    },
+    {
+      "sha256": "00f93263c267be201b8ae521b44a7137271b16688435340bf629db1bac0a5845",
+      "file": "/tmp/docweave-m2/org/apache/commons/commons-collections4/4.5.0/commons-collections4-4.5.0.jar"
+    },
+    {
+      "sha256": "7d643a2afea8b058b762aa6fb90e5b256f6c729739f8b3784c3370ddc609e88d",
+      "file": "/tmp/docweave-m2/commons-io/commons-io/2.21.0/commons-io-2.21.0.jar"
+    },
+    {
+      "sha256": "6af66595f9f6a7bb58ce66518d6888d40b547c366d2262f06676eee19528ff66",
+      "file": "/tmp/docweave-m2/commons-codec/commons-codec/1.20.0/commons-codec-1.20.0.jar"
+    }
+  ],
+  "cases": [
+    {
+      "fixture": "wide.html",
+      "preserve": false,
+      "input_bytes": 59107,
+      "source_children": 128,
+      "preserved_children": 0,
+      "elements": 1,
+      "descriptor_payload_units": 0,
+      "sampled_allocations": {
+        "nearest_frames": [
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.partition",
+            "estimated_weight_bytes": 19018152
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.table",
+            "estimated_weight_bytes": 9282368
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.checkDepth",
+            "estimated_weight_bytes": 7354520
+          },
+          {
+            "frame": "dev.docweave.partition.SourceLoader.load",
+            "estimated_weight_bytes": 6276424
+          },
+          {
+            "frame": "dev.docweave.partition.SourceLoader.htmlCharset",
+            "estimated_weight_bytes": 4409600
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.appendText",
+            "estimated_weight_bytes": 3200496
+          },
+          {
+            "frame": "<no DocWeave frame>",
+            "estimated_weight_bytes": 2892840
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.append",
+            "estimated_weight_bytes": 1681720
+          },
+          {
+            "frame": "dev.docweave.partition.DocumentSource$Bytes.content",
+            "estimated_weight_bytes": 885944
+          },
+          {
+            "frame": "dev.docweave.partition.Utf8Digest.<init>",
+            "estimated_weight_bytes": 480512
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlInputEncoding.detect",
+            "estimated_weight_bytes": 435176
+          }
+        ],
+        "first_sample_excluded": true,
+        "observed_samples": 109,
+        "allocation_stacks": [
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.String.<init> <- org.jsoup.parser.CharacterReader.cacheString <- org.jsoup.parser.CharacterReader.consumeRange <- org.jsoup.parser.CharacterReader.consumeToAny <- org.jsoup.parser.CharacterReader.consumeData <- org.jsoup.parser.TokeniserState$1.read",
+            "estimated_weight_bytes": 4357168
+          },
+          {
+            "frame": "java.lang.String : org.jsoup.parser.Tokeniser.emit <- org.jsoup.parser.TokeniserState.readCharRef <- org.jsoup.parser.TokeniserState.access$100 <- org.jsoup.parser.TokeniserState$2.read <- org.jsoup.parser.Tokeniser.read <- org.jsoup.parser.TreeBuilder.stepParser <- org.jsoup.parser.TreeBuilder.runParser <- org.jsoup.parser.TreeBuilder.parse",
+            "estimated_weight_bytes": 4187128
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.newBytesFor <- java.lang.String.<init> <- java.lang.String.<init> <- dev.docweave.partition.SourceLoader.load <- dev.docweave.partition.NativePartitionEngine.partition <- ProfileNestedTableMemory.partition <- ProfileNestedTableMemory.stacks <- ProfileNestedTableMemory.main",
+            "estimated_weight_bytes": 3482944
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- org.jsoup.internal.QuietAppendable$StringBuilderAppendable.append",
+            "estimated_weight_bytes": 3432352
+          },
+          {
+            "frame": "java.lang.String : org.jsoup.parser.CharacterReader.cacheString <- org.jsoup.parser.CharacterReader.consumeRange <- org.jsoup.parser.CharacterReader.consumeToAny <- org.jsoup.parser.CharacterReader.consumeData <- org.jsoup.parser.TokeniserState$1.read <- org.jsoup.parser.Tokeniser.read <- org.jsoup.parser.TreeBuilder.stepParser <- org.jsoup.parser.TreeBuilder.runParser",
+            "estimated_weight_bytes": 3415368
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.String.<init> <- java.lang.String.<init> <- dev.docweave.partition.SourceLoader.load <- dev.docweave.partition.NativePartitionEngine.partition <- ProfileNestedTableMemory.partition <- ProfileNestedTableMemory.stacks <- ProfileNestedTableMemory.main",
+            "estimated_weight_bytes": 2276056
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- org.jsoup.internal.StringUtil.releaseBuilder <- org.jsoup.nodes.Node.outerHtml <- dev.docweave.partition.HtmlDomWalker.table <- dev.docweave.partition.HtmlDomWalker.visit",
+            "estimated_weight_bytes": 2020528
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- org.jsoup.parser.Tokeniser.emit <- org.jsoup.parser.TokeniserState.readCharRef <- org.jsoup.parser.TokeniserState.access$100 <- org.jsoup.parser.TokeniserState$2.read <- org.jsoup.parser.Tokeniser.read <- org.jsoup.parser.TreeBuilder.stepParser",
+            "estimated_weight_bytes": 1802144
+          },
+          {
+            "frame": "[C : java.lang.Character.toChars <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlInlineText.appendText <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append",
+            "estimated_weight_bytes": 1644856
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlInlineText.appendText",
+            "estimated_weight_bytes": 1555640
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- org.jsoup.internal.StringUtil.releaseBuilder <- org.jsoup.parser.TokenData.value <- org.jsoup.parser.Token$Character.normalizeNulls <- org.jsoup.parser.HtmlTreeBuilder.insertCharacterNode",
+            "estimated_weight_bytes": 1511440
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- org.jsoup.internal.StringUtil.releaseBuilder <- org.jsoup.parser.TokenData.value <- org.jsoup.parser.Token$Character.normalizeNulls <- org.jsoup.parser.HtmlTreeBuilder.insertCharacterNode <- org.jsoup.parser.HtmlTreeBuilder.insertCharacterNode",
+            "estimated_weight_bytes": 1509048
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- dev.docweave.partition.HtmlDomWalker.table <- dev.docweave.partition.HtmlDomWalker.visit <- dev.docweave.partition.HtmlDomWalker.walkContainer <- dev.docweave.partition.HtmlDomWalker.partition <- dev.docweave.partition.HtmlDomWalker.partition",
+            "estimated_weight_bytes": 1113208
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- org.jsoup.internal.QuietAppendable$StringBuilderAppendable.append <- org.jsoup.internal.QuietAppendable$StringBuilderAppendable.append <- org.jsoup.nodes.Entities.appendEscaped <- org.jsoup.nodes.Entities.doEscape",
+            "estimated_weight_bytes": 1112392
+          },
+          {
+            "frame": "java.util.Collections$UnmodifiableRandomAccessList : java.util.Collections.unmodifiableList <- org.jsoup.nodes.Element$$Lambda.0x0000000077230250.apply <- java.util.function.Function.lambda$andThen$0 <- java.util.function.Function$$Lambda.0x000000007702fbe8.apply <- java.util.stream.ReferencePipeline.collect <- org.jsoup.nodes.Element.filterNodes <- org.jsoup.nodes.Element.childElementsList <- org.jsoup.nodes.Element.children",
+            "estimated_weight_bytes": 1047408
+          }
+        ],
+        "jfr_sha256": "a92659684b2b0a41eee3c5703b95a8fc03d7ed35b99db1c04e03bd57ac459d62"
+      }
+    },
+    {
+      "fixture": "wide.html",
+      "preserve": true,
+      "input_bytes": 59107,
+      "source_children": 128,
+      "preserved_children": 128,
+      "elements": 1,
+      "descriptor_payload_units": 97697,
+      "sampled_allocations": {
+        "nearest_frames": [
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.appendText",
+            "estimated_weight_bytes": 25257432
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.partition",
+            "estimated_weight_bytes": 18612136
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.checkDepth",
+            "estimated_weight_bytes": 8758056
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.table",
+            "estimated_weight_bytes": 8261408
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.append",
+            "estimated_weight_bytes": 6816592
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables$BoundedHtml.text",
+            "estimated_weight_bytes": 5858632
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables.snapshot",
+            "estimated_weight_bytes": 5235160
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.text",
+            "estimated_weight_bytes": 4700784
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables.grid",
+            "estimated_weight_bytes": 3992464
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables.positiveSpan",
+            "estimated_weight_bytes": 3884936
+          },
+          {
+            "frame": "dev.docweave.partition.NestedTableDescriptors.add",
+            "estimated_weight_bytes": 3310176
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables.span",
+            "estimated_weight_bytes": 2749680
+          },
+          {
+            "frame": "dev.docweave.core.JsonValues.lambda$freeze$0",
+            "estimated_weight_bytes": 2687872
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables$BoundedHtml.append",
+            "estimated_weight_bytes": 2548168
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.checkTableLimits",
+            "estimated_weight_bytes": 2164160
+          }
+        ],
+        "first_sample_excluded": true,
+        "observed_samples": 222,
+        "allocation_stacks": [
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlInlineText.appendText",
+            "estimated_weight_bytes": 12316992
+          },
+          {
+            "frame": "[C : java.lang.Character.toChars <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlInlineText.appendText <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append",
+            "estimated_weight_bytes": 8641224
+          },
+          {
+            "frame": "java.lang.String : org.jsoup.parser.Tokeniser.emit <- org.jsoup.parser.TokeniserState.readCharRef <- org.jsoup.parser.TokeniserState.access$100 <- org.jsoup.parser.TokeniserState$2.read <- org.jsoup.parser.Tokeniser.read <- org.jsoup.parser.TreeBuilder.stepParser <- org.jsoup.parser.TreeBuilder.runParser <- org.jsoup.parser.TreeBuilder.parse",
+            "estimated_weight_bytes": 7463008
+          },
+          {
+            "frame": "java.lang.String : org.jsoup.parser.CharacterReader.cacheString <- org.jsoup.parser.CharacterReader.consumeRange <- org.jsoup.parser.CharacterReader.consumeToAny <- org.jsoup.parser.CharacterReader.consumeData <- org.jsoup.parser.TokeniserState$1.read <- org.jsoup.parser.Tokeniser.read <- org.jsoup.parser.TreeBuilder.stepParser <- org.jsoup.parser.TreeBuilder.runParser",
+            "estimated_weight_bytes": 3987336
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlNestedTables$BoundedHtml.text",
+            "estimated_weight_bytes": 3240448
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- dev.docweave.partition.HtmlInlineText.text <- dev.docweave.partition.HtmlNestedTables.snapshot <- dev.docweave.partition.HtmlNestedTables.capture <- dev.docweave.partition.HtmlDomWalker.table <- dev.docweave.partition.HtmlDomWalker.visit",
+            "estimated_weight_bytes": 3140664
+          },
+          {
+            "frame": "[J : java.lang.Throwable.fillInStackTrace <- java.lang.Throwable.fillInStackTrace <- java.lang.Throwable.<init> <- java.lang.Exception.<init> <- java.lang.RuntimeException.<init> <- java.lang.IllegalArgumentException.<init> <- java.lang.NumberFormatException.<init> <- java.lang.NumberFormatException.forInputString",
+            "estimated_weight_bytes": 2800512
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- org.jsoup.parser.Tokeniser.emit <- org.jsoup.parser.TokeniserState.readCharRef <- org.jsoup.parser.TokeniserState.access$100 <- org.jsoup.parser.TokeniserState$2.read <- org.jsoup.parser.Tokeniser.read <- org.jsoup.parser.TreeBuilder.stepParser",
+            "estimated_weight_bytes": 2797360
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- dev.docweave.partition.HtmlNestedTables$BoundedHtml.append <- dev.docweave.partition.HtmlNestedTables$BoundedHtml.text <- dev.docweave.partition.HtmlNestedTables.snapshot <- dev.docweave.partition.HtmlNestedTables.capture",
+            "estimated_weight_bytes": 2548168
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- org.jsoup.internal.QuietAppendable$StringBuilderAppendable.append",
+            "estimated_weight_bytes": 2488072
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.String.<init> <- org.jsoup.parser.CharacterReader.cacheString <- org.jsoup.parser.CharacterReader.consumeRange <- org.jsoup.parser.CharacterReader.consumeToAny <- org.jsoup.parser.CharacterReader.consumeData <- org.jsoup.parser.TokeniserState$1.read",
+            "estimated_weight_bytes": 2437440
+          },
+          {
+            "frame": "java.util.LinkedHashMap$Entry : java.util.LinkedHashMap.newNode <- java.util.HashMap.putVal <- java.util.HashMap.put <- dev.docweave.core.JsonValues.lambda$freeze$0 <- dev.docweave.core.JsonValues$$Lambda.0x0000000077234e70.accept <- java.util.Map.forEach <- dev.docweave.core.JsonValues.freeze <- dev.docweave.core.JsonValues.freeze",
+            "estimated_weight_bytes": 2164232
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.newBytesFor <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- dev.docweave.partition.HtmlNestedTables.snapshot <- dev.docweave.partition.HtmlNestedTables.capture <- dev.docweave.partition.HtmlDomWalker.table <- dev.docweave.partition.HtmlDomWalker.visit",
+            "estimated_weight_bytes": 2093576
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacitySameCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlInlineText.appendText",
+            "estimated_weight_bytes": 2061544
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- dev.docweave.partition.HtmlNestedTables$BoundedHtml.value <- dev.docweave.partition.HtmlNestedTables.snapshot <- dev.docweave.partition.HtmlNestedTables.capture <- dev.docweave.partition.HtmlDomWalker.table <- dev.docweave.partition.HtmlDomWalker.visit",
+            "estimated_weight_bytes": 1864792
+          }
+        ],
+        "jfr_sha256": "20b8a62477cc8fcf88be82509e0987f223205afd68fd4df070ffad09b135c175"
+      }
+    },
+    {
+      "fixture": "wide.md",
+      "preserve": false,
+      "input_bytes": 59117,
+      "source_children": 128,
+      "preserved_children": 0,
+      "elements": 2,
+      "descriptor_payload_units": 0,
+      "sampled_allocations": {
+        "nearest_frames": [
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.partition",
+            "estimated_weight_bytes": 19911112
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.appendText",
+            "estimated_weight_bytes": 11330064
+          },
+          {
+            "frame": "dev.docweave.partition.MarkdownPartitioner.partition",
+            "estimated_weight_bytes": 10451736
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.table",
+            "estimated_weight_bytes": 8612424
+          },
+          {
+            "frame": "dev.docweave.partition.MarkdownPartitioner.htmlExtraction",
+            "estimated_weight_bytes": 6836240
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.checkDepth",
+            "estimated_weight_bytes": 6815536
+          },
+          {
+            "frame": "dev.docweave.partition.SourceLoader.load",
+            "estimated_weight_bytes": 6590600
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.text",
+            "estimated_weight_bytes": 3275944
+          },
+          {
+            "frame": "dev.docweave.partition.DocumentSource$Bytes.content",
+            "estimated_weight_bytes": 2471672
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.append",
+            "estimated_weight_bytes": 2131664
+          },
+          {
+            "frame": "dev.docweave.partition.StrictTextDecoder.decode",
+            "estimated_weight_bytes": 1196016
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.checkTableLimits",
+            "estimated_weight_bytes": 523672
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.render",
+            "estimated_weight_bytes": 523184
+          }
+        ],
+        "first_sample_excluded": true,
+        "observed_samples": 159,
+        "allocation_stacks": [
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlInlineText.appendText",
+            "estimated_weight_bytes": 5955344
+          },
+          {
+            "frame": "java.lang.String : org.jsoup.parser.Tokeniser.emit <- org.jsoup.parser.TokeniserState.readCharRef <- org.jsoup.parser.TokeniserState.access$100 <- org.jsoup.parser.TokeniserState$2.read <- org.jsoup.parser.Tokeniser.read <- org.jsoup.parser.TreeBuilder.stepParser <- org.jsoup.parser.TreeBuilder.runParser <- org.jsoup.parser.TreeBuilder.parse",
+            "estimated_weight_bytes": 5649112
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.newBytesFor <- java.lang.String.<init> <- java.lang.String.<init> <- dev.docweave.partition.SourceLoader.load <- dev.docweave.partition.NativePartitionEngine.partition <- ProfileNestedTableMemory.partition <- ProfileNestedTableMemory.stacks <- ProfileNestedTableMemory.main",
+            "estimated_weight_bytes": 5114584
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.String.<init> <- org.jsoup.parser.CharacterReader.cacheString <- org.jsoup.parser.CharacterReader.consumeRange <- org.jsoup.parser.CharacterReader.consumeToAny <- org.jsoup.parser.CharacterReader.consumeData <- org.jsoup.parser.TokeniserState$1.read",
+            "estimated_weight_bytes": 4725304
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- org.jsoup.internal.QuietAppendable$StringBuilderAppendable.append",
+            "estimated_weight_bytes": 4308400
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.StringUTF16.newString <- java.lang.String.substring <- java.lang.String.substring <- org.commonmark.internal.DocumentParser.parse <- org.commonmark.parser.Parser.parse <- dev.docweave.partition.MarkdownPartitioner.partition <- dev.docweave.partition.NativePartitionEngine.partition",
+            "estimated_weight_bytes": 3396512
+          },
+          {
+            "frame": "[C : java.io.BufferedReader.<init> <- java.io.BufferedReader.<init> <- java.util.ServiceLoader$LazyClassPathLookupIterator.parse <- java.util.ServiceLoader$LazyClassPathLookupIterator.nextProviderClass <- java.util.ServiceLoader$LazyClassPathLookupIterator.hasNextService <- java.util.ServiceLoader$LazyClassPathLookupIterator.hasNext <- java.util.ServiceLoader$1.hasNext <- java.util.ServiceLoader$2.hasNext",
+            "estimated_weight_bytes": 3288792
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- org.jsoup.parser.Tokeniser.emit <- org.jsoup.parser.TokeniserState.readCharRef <- org.jsoup.parser.TokeniserState.access$100 <- org.jsoup.parser.TokeniserState$2.read <- org.jsoup.parser.Tokeniser.read <- org.jsoup.parser.TreeBuilder.stepParser",
+            "estimated_weight_bytes": 2903168
+          },
+          {
+            "frame": "java.util.stream.ReferencePipeline$Head : java.util.stream.StreamSupport.stream <- java.util.Collection.stream <- org.jsoup.nodes.Element.filterNodes <- org.jsoup.nodes.Element.childElementsList <- org.jsoup.nodes.Element.children <- dev.docweave.partition.HtmlDomWalker.checkDepth <- dev.docweave.partition.HtmlDomWalker.partition <- dev.docweave.partition.HtmlPartitionerProvider.partition",
+            "estimated_weight_bytes": 2618448
+          },
+          {
+            "frame": "[B : java.nio.HeapByteBuffer.<init> <- java.nio.ByteBuffer.allocate <- sun.nio.cs.StreamDecoder.<init> <- sun.nio.cs.StreamDecoder.<init> <- sun.nio.cs.StreamDecoder.forInputStreamReader <- java.io.InputStreamReader.<init> <- java.util.ServiceLoader$LazyClassPathLookupIterator.parse <- java.util.ServiceLoader$LazyClassPathLookupIterator.nextProviderClass",
+            "estimated_weight_bytes": 2510032
+          },
+          {
+            "frame": "[B : java.lang.Object.clone <- dev.docweave.partition.DocumentSource$Bytes.content <- dev.docweave.partition.SourceLoader.load <- dev.docweave.partition.NativePartitionEngine.partition <- ProfileNestedTableMemory.partition <- ProfileNestedTableMemory.stacks <- ProfileNestedTableMemory.main <- java.lang.invoke.LambdaForm$DMH.0x000000007706c000.invokeStatic",
+            "estimated_weight_bytes": 2471672
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append",
+            "estimated_weight_bytes": 2377896
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- dev.docweave.partition.HtmlDomWalker.table <- dev.docweave.partition.HtmlDomWalker.visit <- dev.docweave.partition.HtmlDomWalker.walkContainer <- dev.docweave.partition.HtmlDomWalker.partition <- dev.docweave.partition.HtmlPartitionerProvider.partition",
+            "estimated_weight_bytes": 2318992
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.newBytesFor <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- org.commonmark.internal.BlockContent.add",
+            "estimated_weight_bytes": 2275248
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- dev.docweave.partition.HtmlInlineText.text <- dev.docweave.partition.HtmlDomWalker.checkTableLimits <- dev.docweave.partition.HtmlDomWalker.partition <- dev.docweave.partition.HtmlPartitionerProvider.partition <- dev.docweave.partition.MarkdownPartitioner.partition",
+            "estimated_weight_bytes": 2163232
+          }
+        ],
+        "jfr_sha256": "80516834c8e41094c160528b91b39825cfa621c153f1998025841c1f16b64a1e"
+      }
+    },
+    {
+      "fixture": "wide.md",
+      "preserve": true,
+      "input_bytes": 59117,
+      "source_children": 128,
+      "preserved_children": 128,
+      "elements": 2,
+      "descriptor_payload_units": 97697,
+      "sampled_allocations": {
+        "nearest_frames": [
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.appendText",
+            "estimated_weight_bytes": 23602232
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.partition",
+            "estimated_weight_bytes": 22007872
+          },
+          {
+            "frame": "dev.docweave.partition.MarkdownPartitioner.partition",
+            "estimated_weight_bytes": 10687576
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.table",
+            "estimated_weight_bytes": 9282256
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables.span",
+            "estimated_weight_bytes": 8830968
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.checkDepth",
+            "estimated_weight_bytes": 6033800
+          },
+          {
+            "frame": "dev.docweave.partition.MarkdownPartitioner.htmlExtraction",
+            "estimated_weight_bytes": 5488624
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables.snapshot",
+            "estimated_weight_bytes": 5001032
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables.positiveSpan",
+            "estimated_weight_bytes": 4712720
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables.grid",
+            "estimated_weight_bytes": 3142200
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.append",
+            "estimated_weight_bytes": 3115664
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.<init>",
+            "estimated_weight_bytes": 2618480
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables$BoundedHtml.append",
+            "estimated_weight_bytes": 2616632
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables$BoundedHtml.text",
+            "estimated_weight_bytes": 2548792
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables.capture",
+            "estimated_weight_bytes": 2300552
+          }
+        ],
+        "first_sample_excluded": true,
+        "observed_samples": 247,
+        "allocation_stacks": [
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlInlineText.appendText",
+            "estimated_weight_bytes": 12879144
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append",
+            "estimated_weight_bytes": 6532712
+          },
+          {
+            "frame": "[J : java.lang.Throwable.fillInStackTrace <- java.lang.Throwable.fillInStackTrace <- java.lang.Throwable.<init> <- java.lang.Exception.<init> <- java.lang.RuntimeException.<init> <- java.lang.IllegalArgumentException.<init> <- java.lang.NumberFormatException.<init> <- java.lang.NumberFormatException.forInputString",
+            "estimated_weight_bytes": 5529600
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- org.jsoup.internal.QuietAppendable$StringBuilderAppendable.append",
+            "estimated_weight_bytes": 5491960
+          },
+          {
+            "frame": "java.lang.String : org.jsoup.parser.Tokeniser.emit <- org.jsoup.parser.TokeniserState.readCharRef <- org.jsoup.parser.TokeniserState.access$100 <- org.jsoup.parser.TokeniserState$2.read <- org.jsoup.parser.Tokeniser.read <- org.jsoup.parser.TreeBuilder.stepParser <- org.jsoup.parser.TreeBuilder.runParser <- org.jsoup.parser.TreeBuilder.parse",
+            "estimated_weight_bytes": 5288840
+          },
+          {
+            "frame": "[B : java.nio.HeapByteBuffer.<init> <- java.nio.ByteBuffer.allocate <- sun.nio.cs.StreamDecoder.<init> <- sun.nio.cs.StreamDecoder.<init> <- sun.nio.cs.StreamDecoder.forInputStreamReader <- java.io.InputStreamReader.<init> <- java.util.ServiceLoader$LazyClassPathLookupIterator.parse <- java.util.ServiceLoader$LazyClassPathLookupIterator.nextProviderClass",
+            "estimated_weight_bytes": 4738496
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- org.jsoup.parser.Tokeniser.emit <- org.jsoup.parser.TokeniserState.readCharRef <- org.jsoup.parser.TokeniserState.access$100 <- org.jsoup.parser.TokeniserState$2.read <- org.jsoup.parser.Tokeniser.read <- org.jsoup.parser.TreeBuilder.stepParser",
+            "estimated_weight_bytes": 4726560
+          },
+          {
+            "frame": "[C : java.lang.Character.toChars <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlInlineText.appendText <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append",
+            "estimated_weight_bytes": 4264048
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.String.<init> <- org.jsoup.parser.CharacterReader.cacheString <- org.jsoup.parser.CharacterReader.consumeRange <- org.jsoup.parser.CharacterReader.consumeToAny <- org.jsoup.parser.CharacterReader.consumeData <- org.jsoup.parser.TokeniserState$1.read",
+            "estimated_weight_bytes": 3627552
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacitySameCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlInlineText.appendText",
+            "estimated_weight_bytes": 3140480
+          },
+          {
+            "frame": "[Ljava.lang.Object; : java.util.ArrayList.<init> <- org.jsoup.nodes.Element$NodeList.<init> <- org.jsoup.nodes.Element.ensureChildNodes <- org.jsoup.nodes.Element.appendChild <- org.jsoup.parser.HtmlTreeBuilder.doInsertElement <- org.jsoup.parser.HtmlTreeBuilder.insertElementFor <- org.jsoup.parser.HtmlTreeBuilderState$12.process <- org.jsoup.parser.HtmlTreeBuilder.process",
+            "estimated_weight_bytes": 3121744
+          },
+          {
+            "frame": "[Ljava.lang.Object; : java.lang.Throwable.fillInStackTrace <- java.lang.Throwable.fillInStackTrace <- java.lang.Throwable.<init> <- java.lang.Exception.<init> <- java.lang.RuntimeException.<init> <- java.lang.IllegalArgumentException.<init> <- java.lang.NumberFormatException.<init> <- java.lang.NumberFormatException.forInputString",
+            "estimated_weight_bytes": 2814184
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- dev.docweave.partition.HtmlNestedTables$BoundedHtml.append <- dev.docweave.partition.HtmlNestedTables$BoundedHtml.text <- dev.docweave.partition.HtmlNestedTables.snapshot <- dev.docweave.partition.HtmlNestedTables.capture",
+            "estimated_weight_bytes": 2616632
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.newBytesFor <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- dev.docweave.partition.HtmlNestedTables.snapshot <- dev.docweave.partition.HtmlNestedTables.capture <- dev.docweave.partition.HtmlDomWalker.table <- dev.docweave.partition.HtmlDomWalker.visit",
+            "estimated_weight_bytes": 2382912
+          },
+          {
+            "frame": "java.util.LinkedHashMap$Entry : java.util.LinkedHashMap.newNode <- java.util.HashMap.putVal <- java.util.HashMap.put <- dev.docweave.core.JsonValues.lambda$freeze$0 <- dev.docweave.core.JsonValues$$Lambda.0x0000000077234e70.accept <- java.util.Map.forEach <- dev.docweave.core.JsonValues.freeze <- dev.docweave.core.JsonValues.freeze",
+            "estimated_weight_bytes": 2164144
+          }
+        ],
+        "jfr_sha256": "888b5f861945085e6560262a842452acd202d0f8a9a2506736f4eb94ce30e71c"
+      }
+    },
+    {
+      "fixture": "wide.docx",
+      "preserve": false,
+      "input_bytes": 22928,
+      "source_children": 128,
+      "preserved_children": 0,
+      "elements": 1,
+      "descriptor_payload_units": 0,
+      "sampled_allocations": {
+        "nearest_frames": [
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.contents",
+            "estimated_weight_bytes": 75842344
+          },
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.collect",
+            "estimated_weight_bytes": 68586184
+          },
+          {
+            "frame": "dev.docweave.partition.DocxPartitioner.partition",
+            "estimated_weight_bytes": 47318064
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlTextEscaper.escape",
+            "estimated_weight_bytes": 43277752
+          },
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.collectRows",
+            "estimated_weight_bytes": 41426088
+          },
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.collectCells",
+            "estimated_weight_bytes": 38304888
+          },
+          {
+            "frame": "dev.docweave.partition.DocxTableExtractor.extract",
+            "estimated_weight_bytes": 24381400
+          },
+          {
+            "frame": "dev.docweave.partition.StructuredTable.row",
+            "estimated_weight_bytes": 13229248
+          },
+          {
+            "frame": "dev.docweave.partition.DocxTextAccumulator.rendered",
+            "estimated_weight_bytes": 9592968
+          },
+          {
+            "frame": "dev.docweave.partition.DocxArchiveVerifier.verify",
+            "estimated_weight_bytes": 9207328
+          },
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.text",
+            "estimated_weight_bytes": 8834600
+          },
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.originalRoot",
+            "estimated_weight_bytes": 8507568
+          },
+          {
+            "frame": "dev.docweave.partition.StructuredTable.metadata",
+            "estimated_weight_bytes": 6085528
+          },
+          {
+            "frame": "dev.docweave.partition.DocxParagraphText.append",
+            "estimated_weight_bytes": 5759200
+          },
+          {
+            "frame": "dev.docweave.partition.DocxTextAccumulator.append",
+            "estimated_weight_bytes": 4704856
+          }
+        ],
+        "first_sample_excluded": true,
+        "observed_samples": 797,
+        "allocation_stacks": [
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.String.<init> <- org.apache.xmlbeans.impl.store.CharUtil.getString <- org.apache.xmlbeans.impl.store.Xobj.getValueAsString <- org.apache.xmlbeans.impl.store.Xobj.fetch_text <- org.apache.xmlbeans.impl.values.XmlObjectBase.get_wscanon_text <- org.apache.xmlbeans.impl.values.XmlObjectBase.check_dated",
+            "estimated_weight_bytes": 14657280
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.String.<init> <- org.apache.xmlbeans.impl.store.CharUtil.getString <- org.apache.xmlbeans.impl.store.Xobj.getCharsAsString <- org.apache.xmlbeans.impl.store.Xobj.getCharsValueAsString <- org.apache.xmlbeans.impl.store.DomImpl.node_getNodeValue <- org.apache.xmlbeans.impl.store.DomImpl$$Lambda.0x00000000773e6008.apply",
+            "estimated_weight_bytes": 14592536
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlTextEscaper.escape",
+            "estimated_weight_bytes": 14179392
+          },
+          {
+            "frame": "[Ljava.lang.Object; : java.util.ArrayList.grow <- java.util.ArrayList.grow <- java.util.ArrayList.add <- java.util.ArrayList.add <- org.apache.xmlbeans.impl.xpath.XPathExecutionContext$PathContext.element <- org.apache.xmlbeans.impl.xpath.XPathExecutionContext.element <- org.apache.xmlbeans.impl.xpath.xmlbeans.XmlbeansXPathEngine.advance <- org.apache.xmlbeans.impl.xpath.xmlbeans.XmlbeansXPathEngine.next",
+            "estimated_weight_bytes": 8968152
+          },
+          {
+            "frame": "[Ljava.lang.Object; : java.util.ArrayList.grow <- java.util.ArrayList.grow <- java.util.ArrayList.add <- java.util.ArrayList.add <- org.apache.xmlbeans.impl.xpath.XPathExecutionContext.element <- org.apache.xmlbeans.impl.xpath.xmlbeans.XmlbeansXPathEngine.advance <- org.apache.xmlbeans.impl.xpath.xmlbeans.XmlbeansXPathEngine.next <- org.apache.xmlbeans.impl.store.Cursor._toSelection",
+            "estimated_weight_bytes": 8902624
+          },
+          {
+            "frame": "org.apache.xmlbeans.impl.store.ElementXobj : org.apache.xmlbeans.impl.store.Cur.createElementXobj <- org.apache.xmlbeans.impl.store.Cur$CurLoadContext.startElement <- org.apache.xmlbeans.impl.store.Locale.loadNode <- org.apache.xmlbeans.impl.store.Locale.loadNodeChildren <- org.apache.xmlbeans.impl.store.Locale.loadNode <- org.apache.xmlbeans.impl.store.Locale.loadNodeChildren <- org.apache.xmlbeans.impl.store.Locale.loadNode <- org.apache.xmlbeans.impl.store.Locale.loadNodeChildren",
+            "estimated_weight_bytes": 8902504
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- dev.docweave.partition.HtmlTextEscaper.escape <- dev.docweave.partition.StructuredTable.row <- dev.docweave.partition.DocxTableExtractor.extract <- dev.docweave.partition.DocxTableExtractor.extract",
+            "estimated_weight_bytes": 8208008
+          },
+          {
+            "frame": "[B : dev.docweave.partition.DocxArchiveVerifier.verify <- dev.docweave.partition.DocxPartitioner.partition <- dev.docweave.partition.NativePartitionEngine.partition <- ProfileNestedTableMemory.partition <- ProfileNestedTableMemory.stacks <- ProfileNestedTableMemory.main <- java.lang.invoke.LambdaForm$DMH.0x000000007706c000.invokeStatic <- java.lang.invoke.LambdaForm$MH.0x00000000771f4800.invoke",
+            "estimated_weight_bytes": 7195464
+          },
+          {
+            "frame": "org.apache.xmlbeans.impl.store.ElementXobj : org.apache.xmlbeans.impl.store.ElementXobj.newNode <- org.apache.xmlbeans.impl.store.Xobj.copyNode <- org.apache.xmlbeans.impl.store.Cur.copyNode <- org.apache.xmlbeans.impl.store.Cursor._copyXmlContents <- org.apache.xmlbeans.impl.store.Cursor.twoLocaleOp <- org.apache.xmlbeans.impl.store.Cursor.twoLocaleOp <- org.apache.xmlbeans.impl.store.Cursor.copyXmlContents <- dev.docweave.partition.DocxBodyView.contents",
+            "estimated_weight_bytes": 6807712
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- org.apache.poi.xwpf.usermodel.XWPFRun.text <- org.apache.poi.xwpf.usermodel.XWPFRun.toString <- java.lang.String.valueOf <- java.lang.StringBuilder.append <- org.apache.poi.xwpf.usermodel.XWPFParagraph.getText",
+            "estimated_weight_bytes": 6739080
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- dev.docweave.partition.DocxTableExtractor.extract <- dev.docweave.partition.DocxTableExtractor.cell <- dev.docweave.partition.DocxTableExtractor.extract <- dev.docweave.partition.DocxTableExtractor.extract",
+            "estimated_weight_bytes": 6274808
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.newBytesFor <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- org.apache.poi.xwpf.usermodel.XWPFParagraph.getText <- org.apache.poi.xwpf.usermodel.XWPFTable.<init> <- org.apache.poi.xwpf.usermodel.XWPFTableCell.<init>",
+            "estimated_weight_bytes": 6150392
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- dev.docweave.partition.StructuredTable.row <- dev.docweave.partition.DocxTableExtractor.extract <- dev.docweave.partition.DocxTableExtractor.cell <- dev.docweave.partition.DocxTableExtractor.extract",
+            "estimated_weight_bytes": 5689264
+          },
+          {
+            "frame": "[I : org.apache.xmlbeans.impl.store.Cur$Locations.<init> <- org.apache.xmlbeans.impl.store.Locale.<init> <- org.apache.xmlbeans.impl.store.Locale.getLocale <- org.apache.xmlbeans.impl.store.Locale.syncWrap <- org.apache.xmlbeans.impl.store.Locale.parseToXmlObject <- org.apache.xmlbeans.impl.schema.SchemaTypeLoaderBase.parse <- org.apache.xmlbeans.impl.schema.XmlObjectFactory.parse <- dev.docweave.partition.DocxBodyView.contents",
+            "estimated_weight_bytes": 5302104
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- dev.docweave.partition.DocxTextAccumulator.rendered <- dev.docweave.partition.DocxTableExtractor.extract <- dev.docweave.partition.DocxTableExtractor.cell <- dev.docweave.partition.DocxTableExtractor.extract <- dev.docweave.partition.DocxTableExtractor.extract",
+            "estimated_weight_bytes": 5169560
+          }
+        ],
+        "jfr_sha256": "74f740a047b1be4d9dc19d63451efaaf4d98d0937cab855d35ce4ce923ea2085"
+      }
+    },
+    {
+      "fixture": "wide.docx",
+      "preserve": true,
+      "input_bytes": 22928,
+      "source_children": 128,
+      "preserved_children": 128,
+      "elements": 1,
+      "descriptor_payload_units": 104993,
+      "sampled_allocations": {
+        "nearest_frames": [
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.collect",
+            "estimated_weight_bytes": 69504464
+          },
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.contents",
+            "estimated_weight_bytes": 67623992
+          },
+          {
+            "frame": "dev.docweave.partition.DocxPartitioner.partition",
+            "estimated_weight_bytes": 48556120
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlTextEscaper.escape",
+            "estimated_weight_bytes": 45307904
+          },
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.collectRows",
+            "estimated_weight_bytes": 41818768
+          },
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.collectCells",
+            "estimated_weight_bytes": 39729656
+          },
+          {
+            "frame": "dev.docweave.partition.DocxTableExtractor.extract",
+            "estimated_weight_bytes": 22428992
+          },
+          {
+            "frame": "dev.docweave.partition.DocxTextAccumulator.rendered",
+            "estimated_weight_bytes": 11162672
+          },
+          {
+            "frame": "dev.docweave.partition.DocxTextAccumulator.append",
+            "estimated_weight_bytes": 10397288
+          },
+          {
+            "frame": "dev.docweave.partition.StructuredTable.row",
+            "estimated_weight_bytes": 9796168
+          },
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.originalRoot",
+            "estimated_weight_bytes": 8509728
+          },
+          {
+            "frame": "dev.docweave.partition.StructuredTable.metadata",
+            "estimated_weight_bytes": 6793304
+          },
+          {
+            "frame": "dev.docweave.partition.DocxArchiveVerifier.verify",
+            "estimated_weight_bytes": 5335072
+          },
+          {
+            "frame": "dev.docweave.partition.DocxParagraphText.render",
+            "estimated_weight_bytes": 5234568
+          },
+          {
+            "frame": "dev.docweave.partition.NestedTableDescriptors.add",
+            "estimated_weight_bytes": 4791744
+          }
+        ],
+        "first_sample_excluded": true,
+        "observed_samples": 829,
+        "allocation_stacks": [
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlTextEscaper.escape",
+            "estimated_weight_bytes": 17565208
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- org.apache.poi.xwpf.usermodel.XWPFTable.<init> <- org.apache.poi.xwpf.usermodel.XWPFTableCell.<init> <- org.apache.poi.xwpf.usermodel.XWPFTableRow.getTableCells <- org.apache.poi.xwpf.usermodel.XWPFTableRow.<init>",
+            "estimated_weight_bytes": 11246680
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- org.apache.poi.xwpf.usermodel.XWPFRun.text <- org.apache.poi.xwpf.usermodel.XWPFRun.toString <- java.lang.String.valueOf <- java.lang.StringBuilder.append <- org.apache.poi.xwpf.usermodel.XWPFParagraph.getText",
+            "estimated_weight_bytes": 10469032
+          },
+          {
+            "frame": "org.apache.xmlbeans.impl.store.ElementXobj : org.apache.xmlbeans.impl.store.ElementXobj.newNode <- org.apache.xmlbeans.impl.store.Xobj.copyNode <- org.apache.xmlbeans.impl.store.Cur.copyNode <- org.apache.xmlbeans.impl.store.Cursor._copyXmlContents <- org.apache.xmlbeans.impl.store.Cursor.twoLocaleOp <- org.apache.xmlbeans.impl.store.Cursor.twoLocaleOp <- org.apache.xmlbeans.impl.store.Cursor.copyXmlContents <- dev.docweave.partition.DocxBodyView.contents",
+            "estimated_weight_bytes": 9884024
+          },
+          {
+            "frame": "[I : org.apache.xmlbeans.impl.store.Cur$Locations.<init> <- org.apache.xmlbeans.impl.store.Locale.<init> <- org.apache.xmlbeans.impl.store.Locale.getLocale <- org.apache.xmlbeans.impl.store.Locale.syncWrap <- org.apache.xmlbeans.impl.store.Locale.parseToXmlObject <- org.apache.xmlbeans.impl.schema.SchemaTypeLoaderBase.parse <- org.apache.xmlbeans.impl.schema.XmlObjectFactory.parse <- dev.docweave.partition.DocxBodyView.contents",
+            "estimated_weight_bytes": 7348464
+          },
+          {
+            "frame": "[Ljava.lang.Object; : java.util.ArrayList.grow <- java.util.ArrayList.grow <- java.util.ArrayList.add <- java.util.ArrayList.add <- org.apache.xmlbeans.impl.xpath.XPathExecutionContext$PathContext.element <- org.apache.xmlbeans.impl.xpath.XPathExecutionContext.element <- org.apache.xmlbeans.impl.xpath.xmlbeans.XmlbeansXPathEngine.advance <- org.apache.xmlbeans.impl.xpath.xmlbeans.XmlbeansXPathEngine.next",
+            "estimated_weight_bytes": 7331624
+          },
+          {
+            "frame": "java.util.HashMap : org.apache.xmlbeans.impl.xpath.XPathFactory.getCompiledPath <- org.apache.xmlbeans.impl.xpath.XPathFactory.getCompiledPath <- org.apache.xmlbeans.impl.store.Cursor._selectPath <- org.apache.xmlbeans.impl.store.Cursor._selectPath <- org.apache.xmlbeans.impl.store.Cursor.lambda$selectPath$19 <- org.apache.xmlbeans.impl.store.Cursor$$Lambda.0x00000000773bac98.run <- org.apache.xmlbeans.impl.store.Cursor.syncWrapHelper <- org.apache.xmlbeans.impl.store.Cursor.syncWrap",
+            "estimated_weight_bytes": 7266200
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- dev.docweave.partition.HtmlTextEscaper.escape <- dev.docweave.partition.StructuredTable.row <- dev.docweave.partition.DocxTableExtractor.extract <- dev.docweave.partition.DocxTableExtractor.extract",
+            "estimated_weight_bytes": 7097408
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- dev.docweave.partition.DocxTableExtractor.extract <- dev.docweave.partition.DocxTableExtractor.extract <- dev.docweave.partition.DocxBodyExtractor.bodyElements <- dev.docweave.partition.DocxBodyExtractor.section <- dev.docweave.partition.DocxBodyExtractor.extract",
+            "estimated_weight_bytes": 6994128
+          },
+          {
+            "frame": "[Ljava.lang.Object; : java.util.ArrayList.grow <- java.util.ArrayList.grow <- java.util.ArrayList.add <- java.util.ArrayList.add <- org.apache.xmlbeans.impl.xpath.XPathExecutionContext.element <- org.apache.xmlbeans.impl.xpath.xmlbeans.XmlbeansXPathEngine.advance <- org.apache.xmlbeans.impl.xpath.xmlbeans.XmlbeansXPathEngine.next <- org.apache.xmlbeans.impl.store.Cursor._toSelection",
+            "estimated_weight_bytes": 6965472
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.String.<init> <- org.apache.xmlbeans.impl.store.CharUtil.getString <- org.apache.xmlbeans.impl.store.Xobj.getCharsAsString <- org.apache.xmlbeans.impl.store.Xobj.getCharsValueAsString <- org.apache.xmlbeans.impl.store.DomImpl.node_getNodeValue <- org.apache.xmlbeans.impl.store.DomImpl$$Lambda.0x00000000773e6008.apply",
+            "estimated_weight_bytes": 6738584
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.String.<init> <- org.apache.xmlbeans.impl.store.CharUtil.getString <- org.apache.xmlbeans.impl.store.Xobj.getValueAsString <- org.apache.xmlbeans.impl.store.Xobj.fetch_text <- org.apache.xmlbeans.impl.values.XmlObjectBase.get_wscanon_text <- org.apache.xmlbeans.impl.values.XmlObjectBase.check_dated",
+            "estimated_weight_bytes": 6281024
+          },
+          {
+            "frame": "org.apache.xmlbeans.impl.xpath.xmlbeans.XmlbeansXPathEngine : org.apache.xmlbeans.impl.xpath.xmlbeans.XmlbeansXPath.execute <- org.apache.xmlbeans.impl.store.Cursor._selectPath <- org.apache.xmlbeans.impl.store.Cursor._selectPath <- org.apache.xmlbeans.impl.store.Cursor.lambda$selectPath$19 <- org.apache.xmlbeans.impl.store.Cursor$$Lambda.0x00000000773bac98.run <- org.apache.xmlbeans.impl.store.Cursor.syncWrapHelper <- org.apache.xmlbeans.impl.store.Cursor.syncWrap <- org.apache.xmlbeans.impl.store.Cursor.selectPath",
+            "estimated_weight_bytes": 5760648
+          },
+          {
+            "frame": "org.apache.xmlbeans.impl.store.ElementXobj : org.apache.xmlbeans.impl.store.Cur.createElementXobj <- org.apache.xmlbeans.impl.store.Cur$CurLoadContext.startElement <- org.apache.xmlbeans.impl.store.Locale.loadNode <- org.apache.xmlbeans.impl.store.Locale.loadNodeChildren <- org.apache.xmlbeans.impl.store.Locale.loadNode <- org.apache.xmlbeans.impl.store.Locale.loadNodeChildren <- org.apache.xmlbeans.impl.store.Locale.loadNode <- org.apache.xmlbeans.impl.store.Locale.loadNodeChildren",
+            "estimated_weight_bytes": 5760368
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.newBytesFor <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- org.apache.poi.xwpf.usermodel.XWPFRun._getText <- org.apache.poi.xwpf.usermodel.XWPFRun.text <- org.apache.poi.xwpf.usermodel.XWPFRun.toString <- java.lang.String.valueOf",
+            "estimated_weight_bytes": 5584936
+          }
+        ],
+        "jfr_sha256": "54b5c23a3f8e07d8744f54300a7f15360510afb06a5f3504fb3c6617905c8c19"
+      }
+    },
+    {
+      "fixture": "deep.html",
+      "preserve": false,
+      "input_bytes": 6043,
+      "source_children": 12,
+      "preserved_children": 0,
+      "elements": 1,
+      "descriptor_payload_units": 0,
+      "sampled_allocations": {
+        "nearest_frames": [
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.partition",
+            "estimated_weight_bytes": 1570624
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlInputEncoding.detect",
+            "estimated_weight_bytes": 1521736
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.checkDepth",
+            "estimated_weight_bytes": 1047416
+          },
+          {
+            "frame": "dev.docweave.partition.SourceLoader.htmlCharset",
+            "estimated_weight_bytes": 1044288
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.table",
+            "estimated_weight_bytes": 1041040
+          },
+          {
+            "frame": "dev.docweave.partition.Utf8Digest.finish",
+            "estimated_weight_bytes": 523688
+          },
+          {
+            "frame": "dev.docweave.partition.SourceLoader.load",
+            "estimated_weight_bytes": 518680
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.text",
+            "estimated_weight_bytes": 516840
+          }
+        ],
+        "first_sample_excluded": true,
+        "observed_samples": 16,
+        "allocation_stacks": [
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- org.jsoup.parser.Tokeniser.emit <- org.jsoup.parser.TokeniserState.readCharRef <- org.jsoup.parser.TokeniserState.access$100 <- org.jsoup.parser.TokeniserState$2.read <- org.jsoup.parser.Tokeniser.read <- org.jsoup.parser.TreeBuilder.stepParser",
+            "estimated_weight_bytes": 1521736
+          },
+          {
+            "frame": "[Ljava.lang.Object; : java.util.ArrayList.grow <- java.util.ArrayList.grow <- java.util.ArrayList.add <- java.util.ArrayList.add <- java.util.stream.Collectors$$Lambda.0x0000000077246030.accept <- java.util.stream.ReduceOps$3ReducingSink.accept <- java.util.stream.ReferencePipeline$3$1.accept <- java.util.stream.ReferencePipeline$2$1.accept",
+            "estimated_weight_bytes": 523712
+          },
+          {
+            "frame": "org.jsoup.nodes.Attributes : org.jsoup.nodes.Element.attributes <- org.jsoup.nodes.Element.stashChildren <- org.jsoup.nodes.Element.childElementsList <- org.jsoup.nodes.Element.children <- dev.docweave.partition.HtmlDomWalker.checkDepth <- dev.docweave.partition.HtmlDomWalker.partition <- dev.docweave.partition.HtmlDomWalker.partition <- dev.docweave.partition.HtmlPartitioner.partition",
+            "estimated_weight_bytes": 523704
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.String.<init> <- org.jsoup.parser.CharacterReader.cacheString <- org.jsoup.parser.CharacterReader.consumeRange <- org.jsoup.parser.CharacterReader.consumeToAny <- org.jsoup.parser.CharacterReader.consumeData <- org.jsoup.parser.TokeniserState$1.read",
+            "estimated_weight_bytes": 523704
+          },
+          {
+            "frame": "java.lang.ref.WeakReference : java.lang.reflect.AccessibleObject.slowVerifyAccess <- java.lang.reflect.AccessibleObject.verifyAccess <- java.lang.reflect.AccessibleObject.checkAccess <- java.lang.reflect.Constructor.newInstanceWithCaller <- java.lang.reflect.Constructor.newInstance <- java.util.ServiceLoader$ProviderImpl.newInstance <- java.util.ServiceLoader$ProviderImpl.get <- java.util.ServiceLoader$2.next",
+            "estimated_weight_bytes": 523704
+          },
+          {
+            "frame": "java.lang.String : org.jsoup.parser.CharacterReader.cacheString <- org.jsoup.parser.CharacterReader.consumeRange <- org.jsoup.parser.CharacterReader.consumeToAny <- org.jsoup.parser.CharacterReader.consumeData <- org.jsoup.parser.TokeniserState$1.read <- org.jsoup.parser.Tokeniser.read <- org.jsoup.parser.TreeBuilder.stepParser <- org.jsoup.parser.TreeBuilder.runParser",
+            "estimated_weight_bytes": 523696
+          },
+          {
+            "frame": "[B : sun.security.provider.DigestBase.engineDigest <- java.security.MessageDigest$Delegate.engineDigest <- java.security.MessageDigest.digest <- dev.docweave.partition.Utf8Digest.finish <- dev.docweave.partition.ElementIdGenerator.create <- dev.docweave.partition.ElementCollector.add <- dev.docweave.partition.DefaultPartitionContext.emit <- dev.docweave.partition.HtmlDomWalker.table",
+            "estimated_weight_bytes": 523688
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- dev.docweave.partition.HtmlDomWalker.table <- dev.docweave.partition.HtmlDomWalker.visit <- dev.docweave.partition.HtmlDomWalker.walkContainer <- dev.docweave.partition.HtmlDomWalker.partition <- dev.docweave.partition.HtmlDomWalker.partition",
+            "estimated_weight_bytes": 523560
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- org.jsoup.internal.StringUtil.releaseBuilder <- org.jsoup.parser.TokenData.value <- org.jsoup.parser.Token$Character.normalizeNulls <- org.jsoup.parser.HtmlTreeBuilder.insertCharacterNode",
+            "estimated_weight_bytes": 523224
+          },
+          {
+            "frame": "[C : java.io.BufferedReader.<init> <- java.io.BufferedReader.<init> <- java.util.ServiceLoader$LazyClassPathLookupIterator.parse <- java.util.ServiceLoader$LazyClassPathLookupIterator.nextProviderClass <- java.util.ServiceLoader$LazyClassPathLookupIterator.hasNextService <- java.util.ServiceLoader$LazyClassPathLookupIterator.hasNext <- java.util.ServiceLoader$1.hasNext <- java.util.ServiceLoader$2.hasNext",
+            "estimated_weight_bytes": 520584
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.newBytesFor <- java.lang.String.<init> <- java.lang.String.<init> <- dev.docweave.partition.SourceLoader.load <- dev.docweave.partition.NativePartitionEngine.partition <- ProfileNestedTableMemory.partition <- ProfileNestedTableMemory.stacks <- ProfileNestedTableMemory.main",
+            "estimated_weight_bytes": 518680
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- org.jsoup.internal.StringUtil.releaseBuilder <- org.jsoup.nodes.Node.outerHtml <- dev.docweave.partition.HtmlDomWalker.table <- dev.docweave.partition.HtmlDomWalker.visit",
+            "estimated_weight_bytes": 517480
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- dev.docweave.partition.HtmlInlineText.text <- dev.docweave.partition.HtmlDomWalker.table <- dev.docweave.partition.HtmlDomWalker.visit <- dev.docweave.partition.HtmlDomWalker.walkContainer <- dev.docweave.partition.HtmlDomWalker.partition",
+            "estimated_weight_bytes": 516840
+          }
+        ],
+        "jfr_sha256": "8348c01f2fb4d4ef25f442581273a4b6a41cf713f56c15fc1f354a3b24eb98e0"
+      }
+    },
+    {
+      "fixture": "deep.html",
+      "preserve": true,
+      "input_bytes": 6043,
+      "source_children": 12,
+      "preserved_children": 12,
+      "elements": 1,
+      "descriptor_payload_units": 53735,
+      "sampled_allocations": {
+        "nearest_frames": [
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.appendText",
+            "estimated_weight_bytes": 7305408
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.append",
+            "estimated_weight_bytes": 2618496
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables$BoundedHtml.value",
+            "estimated_weight_bytes": 2599552
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.text",
+            "estimated_weight_bytes": 2078968
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables.span",
+            "estimated_weight_bytes": 1570712
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables$BoundedHtml.append",
+            "estimated_weight_bytes": 1566304
+          },
+          {
+            "frame": "dev.docweave.partition.SourceLoader.htmlCharset",
+            "estimated_weight_bytes": 1565440
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables$BoundedHtml.text",
+            "estimated_weight_bytes": 1565424
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.partition",
+            "estimated_weight_bytes": 1058488
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.checkDepth",
+            "estimated_weight_bytes": 1047416
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlInputEncoding.detect",
+            "estimated_weight_bytes": 1047416
+          },
+          {
+            "frame": "dev.docweave.core.JsonValues.freeze",
+            "estimated_weight_bytes": 1047376
+          },
+          {
+            "frame": "dev.docweave.partition.NestedTableDescriptors.measure",
+            "estimated_weight_bytes": 1042776
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables.positiveSpan",
+            "estimated_weight_bytes": 523680
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.table",
+            "estimated_weight_bytes": 522128
+          }
+        ],
+        "first_sample_excluded": true,
+        "observed_samples": 56,
+        "allocation_stacks": [
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlInlineText.appendText",
+            "estimated_weight_bytes": 5735472
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- dev.docweave.partition.HtmlNestedTables$BoundedHtml.value <- dev.docweave.partition.HtmlNestedTables.snapshot <- dev.docweave.partition.HtmlNestedTables.capture <- dev.docweave.partition.HtmlDomWalker.table <- dev.docweave.partition.HtmlDomWalker.visit",
+            "estimated_weight_bytes": 2599552
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- dev.docweave.partition.HtmlNestedTables$BoundedHtml.append <- dev.docweave.partition.HtmlNestedTables$BoundedHtml.text <- dev.docweave.partition.HtmlNestedTables.snapshot <- dev.docweave.partition.HtmlNestedTables.capture",
+            "estimated_weight_bytes": 1566304
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- org.jsoup.parser.Tokeniser.emit <- org.jsoup.parser.TokeniserState.readCharRef <- org.jsoup.parser.TokeniserState.access$100 <- org.jsoup.parser.TokeniserState$2.read <- org.jsoup.parser.Tokeniser.read <- org.jsoup.parser.TreeBuilder.stepParser",
+            "estimated_weight_bytes": 1047416
+          },
+          {
+            "frame": "[C : java.lang.Character.toChars <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlInlineText.appendText <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append",
+            "estimated_weight_bytes": 1047400
+          },
+          {
+            "frame": "java.util.ArrayList$Itr : java.util.ArrayList.iterator <- java.util.Collections$UnmodifiableCollection$1.<init> <- java.util.Collections$UnmodifiableCollection.iterator <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append",
+            "estimated_weight_bytes": 1047392
+          },
+          {
+            "frame": "[Ljava.lang.Object; : java.util.Arrays.copyOf <- java.util.ArrayList.toArray <- java.util.ArrayList.addAll <- org.jsoup.nodes.Node.childNodes <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append",
+            "estimated_weight_bytes": 1047392
+          },
+          {
+            "frame": "java.util.LinkedHashMap : dev.docweave.core.JsonValues.freeze <- dev.docweave.core.JsonValues.freeze <- dev.docweave.core.JsonValues.lambda$freeze$0 <- dev.docweave.core.JsonValues$$Lambda.0x0000000077234e70.accept <- java.util.Map.forEach <- dev.docweave.core.JsonValues.freeze <- dev.docweave.core.JsonValues.freeze <- dev.docweave.core.JsonValues.lambda$snapshot$0",
+            "estimated_weight_bytes": 1047376
+          },
+          {
+            "frame": "[J : java.lang.Throwable.fillInStackTrace <- java.lang.Throwable.fillInStackTrace <- java.lang.Throwable.<init> <- java.lang.Exception.<init> <- java.lang.RuntimeException.<init> <- java.lang.IllegalArgumentException.<init> <- java.lang.NumberFormatException.<init> <- java.lang.NumberFormatException.forInputString",
+            "estimated_weight_bytes": 1047032
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- org.jsoup.internal.StringUtil.releaseBuilder <- org.jsoup.parser.TokenData.value <- org.jsoup.parser.Token$Character.normalizeNulls <- org.jsoup.parser.HtmlTreeBuilder.insertCharacterNode",
+            "estimated_weight_bytes": 534776
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacitySameCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlNestedTables$BoundedHtml.text",
+            "estimated_weight_bytes": 526168
+          },
+          {
+            "frame": "[Ljava.lang.Object; : java.util.ArrayList.<init> <- org.jsoup.nodes.Element$NodeList.<init> <- org.jsoup.nodes.Element.ensureChildNodes <- org.jsoup.nodes.Element.appendChild <- org.jsoup.parser.HtmlTreeBuilder.insertCharacterToElement <- org.jsoup.parser.HtmlTreeBuilder.insertCharacterNode <- org.jsoup.parser.HtmlTreeBuilder.insertCharacterNode <- org.jsoup.parser.HtmlTreeBuilderState$6.process",
+            "estimated_weight_bytes": 523712
+          },
+          {
+            "frame": "java.util.stream.ReferencePipeline$Head : java.util.stream.StreamSupport.stream <- java.util.Collection.stream <- org.jsoup.nodes.Element.filterNodes <- org.jsoup.nodes.Element.childElementsList <- org.jsoup.nodes.Element.children <- dev.docweave.partition.HtmlDomWalker.checkDepth <- dev.docweave.partition.HtmlDomWalker.partition <- dev.docweave.partition.HtmlDomWalker.partition",
+            "estimated_weight_bytes": 523712
+          },
+          {
+            "frame": "[Ljava.lang.Object; : java.util.ArrayList.<init> <- org.jsoup.nodes.Node.childNodes <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append",
+            "estimated_weight_bytes": 523712
+          },
+          {
+            "frame": "java.util.HashMap$Node : java.util.HashMap.newNode <- java.util.HashMap.putVal <- java.util.HashMap.put <- org.jsoup.nodes.Element.stashChildren <- org.jsoup.nodes.Element.childElementsList <- org.jsoup.nodes.Element.children <- dev.docweave.partition.HtmlDomWalker.checkDepth <- dev.docweave.partition.HtmlDomWalker.partition",
+            "estimated_weight_bytes": 523704
+          }
+        ],
+        "jfr_sha256": "961075fe77ad39e2852aafd2a3c9e61e8d238b589e6df66222c3d7d42c3bf119"
+      }
+    },
+    {
+      "fixture": "deep.md",
+      "preserve": false,
+      "input_bytes": 6053,
+      "source_children": 12,
+      "preserved_children": 0,
+      "elements": 2,
+      "descriptor_payload_units": 0,
+      "sampled_allocations": {
+        "nearest_frames": [
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.appendText",
+            "estimated_weight_bytes": 4109392
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.partition",
+            "estimated_weight_bytes": 2705208
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.text",
+            "estimated_weight_bytes": 1554624
+          },
+          {
+            "frame": "dev.docweave.partition.MarkdownPartitioner.partition",
+            "estimated_weight_bytes": 1053160
+          },
+          {
+            "frame": "dev.docweave.partition.MarkdownPartitioner.htmlExtraction",
+            "estimated_weight_bytes": 535152
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.append",
+            "estimated_weight_bytes": 523712
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.checkDepth",
+            "estimated_weight_bytes": 523688
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.table",
+            "estimated_weight_bytes": 520208
+          },
+          {
+            "frame": "<no DocWeave frame>",
+            "estimated_weight_bytes": 519648
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.checkTableLimits",
+            "estimated_weight_bytes": 512264
+          },
+          {
+            "frame": "dev.docweave.partition.StrictTextDecoder.decode",
+            "estimated_weight_bytes": 509480
+          },
+          {
+            "frame": "dev.docweave.partition.DocumentSource$Bytes.content",
+            "estimated_weight_bytes": 456792
+          }
+        ],
+        "first_sample_excluded": true,
+        "observed_samples": 27,
+        "allocation_stacks": [
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlInlineText.appendText",
+            "estimated_weight_bytes": 3105864
+          },
+          {
+            "frame": "java.lang.String : org.jsoup.parser.CharacterReader.cacheString <- org.jsoup.parser.CharacterReader.consumeRange <- org.jsoup.parser.CharacterReader.consumeToAny <- org.jsoup.parser.CharacterReader.consumeData <- org.jsoup.parser.TokeniserState$1.read <- org.jsoup.parser.Tokeniser.read <- org.jsoup.parser.TreeBuilder.stepParser <- org.jsoup.parser.TreeBuilder.runParser",
+            "estimated_weight_bytes": 1081800
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- dev.docweave.partition.HtmlInlineText.text <- dev.docweave.partition.HtmlDomWalker.checkTableLimits <- dev.docweave.partition.HtmlDomWalker.partition <- dev.docweave.partition.HtmlPartitionerProvider.partition <- dev.docweave.partition.MarkdownPartitioner.partition",
+            "estimated_weight_bytes": 1027008
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- org.jsoup.internal.StringUtil.releaseBuilder <- org.jsoup.parser.TokenData.value <- org.jsoup.parser.Token$Character.normalizeNulls <- org.jsoup.parser.HtmlTreeBuilder.insertCharacterNode",
+            "estimated_weight_bytes": 585632
+          },
+          {
+            "frame": "java.nio.file.attribute.FileTime : java.nio.file.attribute.FileTime.from <- sun.nio.fs.UnixFileAttributes.toFileTime <- sun.nio.fs.UnixFileAttributes.lastModifiedTime <- sun.nio.fs.UnixFileAttributes$UnixAsBasicFileAttributes.lastModifiedTime <- java.util.zip.ZipFile$Source$Key.equals <- java.util.HashMap.getNode <- java.util.HashMap.get <- java.util.zip.ZipFile$Source.get",
+            "estimated_weight_bytes": 535152
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.StringUTF16.newString <- java.lang.String.substring <- java.lang.String.substring <- org.commonmark.internal.DocumentParser.parse <- org.commonmark.parser.Parser.parse <- dev.docweave.partition.MarkdownPartitioner.partition <- dev.docweave.partition.NativePartitionEngine.partition",
+            "estimated_weight_bytes": 530368
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- dev.docweave.partition.HtmlInlineText.text <- dev.docweave.partition.HtmlDomWalker.table <- dev.docweave.partition.HtmlDomWalker.visit <- dev.docweave.partition.HtmlDomWalker.walkContainer <- dev.docweave.partition.HtmlDomWalker.partition",
+            "estimated_weight_bytes": 527616
+          },
+          {
+            "frame": "java.util.ArrayList : org.jsoup.nodes.Node.childNodes <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append",
+            "estimated_weight_bytes": 523712
+          },
+          {
+            "frame": "java.util.stream.ReferencePipeline$2 : java.util.stream.ReferencePipeline.filter <- org.jsoup.nodes.Element.filterNodes <- org.jsoup.nodes.Element.childElementsList <- org.jsoup.nodes.Element.children <- dev.docweave.partition.HtmlDomWalker.checkDepth <- dev.docweave.partition.HtmlDomWalker.partition <- dev.docweave.partition.HtmlPartitionerProvider.partition <- dev.docweave.partition.MarkdownPartitioner.partition",
+            "estimated_weight_bytes": 523688
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- org.jsoup.internal.StringUtil.releaseBuilder <- org.jsoup.parser.TokenData.value <- org.jsoup.parser.Token$Character.normalizeNulls <- org.jsoup.parser.HtmlTreeBuilder.insertCharacterNode <- org.jsoup.parser.HtmlTreeBuilder.insertCharacterNode",
+            "estimated_weight_bytes": 523616
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.StringUTF16.compress <- java.lang.StringUTF16.newString <- java.lang.String.substring <- java.lang.String.substring <- org.commonmark.internal.DocumentParser.parse <- org.commonmark.parser.Parser.parse <- dev.docweave.partition.MarkdownPartitioner.partition",
+            "estimated_weight_bytes": 522792
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- org.jsoup.internal.StringUtil.releaseBuilder <- org.jsoup.nodes.Node.outerHtml <- dev.docweave.partition.HtmlDomWalker.table <- dev.docweave.partition.HtmlDomWalker.visit",
+            "estimated_weight_bytes": 520208
+          },
+          {
+            "frame": "[C : java.io.BufferedReader.<init> <- java.io.BufferedReader.<init> <- java.nio.file.Files.newBufferedReader <- java.nio.file.Files.lines <- java.nio.file.Files.lines <- jdk.internal.platform.CgroupSubsystemController.getStringValue <- jdk.internal.platform.cgroupv2.CgroupV2Subsystem.getMemoryAndSwapLimit <- jdk.internal.platform.CgroupMetrics.getMemoryAndSwapLimit",
+            "estimated_weight_bytes": 519648
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacitySameCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlInlineText.appendText",
+            "estimated_weight_bytes": 514208
+          },
+          {
+            "frame": "java.lang.String : org.jsoup.parser.Tokeniser.emit <- org.jsoup.parser.TokeniserState.readCharRef <- org.jsoup.parser.TokeniserState.access$100 <- org.jsoup.parser.TokeniserState$2.read <- org.jsoup.parser.Tokeniser.read <- org.jsoup.parser.TreeBuilder.stepParser <- org.jsoup.parser.TreeBuilder.runParser <- org.jsoup.parser.TreeBuilder.parse",
+            "estimated_weight_bytes": 514160
+          }
+        ],
+        "jfr_sha256": "5b22c89e0bf5ad0e85b6a8167e19dedfed570e535a433de602d8b417afa63978"
+      }
+    },
+    {
+      "fixture": "deep.md",
+      "preserve": true,
+      "input_bytes": 6053,
+      "source_children": 12,
+      "preserved_children": 12,
+      "elements": 2,
+      "descriptor_payload_units": 53735,
+      "sampled_allocations": {
+        "nearest_frames": [
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.appendText",
+            "estimated_weight_bytes": 5725144
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.text",
+            "estimated_weight_bytes": 3653208
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables$BoundedHtml.text",
+            "estimated_weight_bytes": 2606608
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables$BoundedHtml.append",
+            "estimated_weight_bytes": 2009216
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.partition",
+            "estimated_weight_bytes": 1594032
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlInlineText.append",
+            "estimated_weight_bytes": 1571136
+          },
+          {
+            "frame": "dev.docweave.partition.MarkdownPartitioner.partition",
+            "estimated_weight_bytes": 1566944
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables.snapshot",
+            "estimated_weight_bytes": 1566304
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.table",
+            "estimated_weight_bytes": 1555040
+          },
+          {
+            "frame": "dev.docweave.partition.NestedTableDescriptors.add",
+            "estimated_weight_bytes": 1065840
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlDomWalker.checkDepth",
+            "estimated_weight_bytes": 1047408
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables.span",
+            "estimated_weight_bytes": 1047320
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlNestedTables$BoundedHtml.value",
+            "estimated_weight_bytes": 1044472
+          },
+          {
+            "frame": "dev.docweave.core.JsonValues.lambda$freeze$0",
+            "estimated_weight_bytes": 523704
+          },
+          {
+            "frame": "dev.docweave.partition.MarkdownPartitioner.htmlExtraction",
+            "estimated_weight_bytes": 523624
+          }
+        ],
+        "first_sample_excluded": true,
+        "observed_samples": 57,
+        "allocation_stacks": [
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlInlineText.appendText",
+            "estimated_weight_bytes": 3630304
+          },
+          {
+            "frame": "[C : java.lang.Character.toChars <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlInlineText.appendText <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append",
+            "estimated_weight_bytes": 2094840
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- dev.docweave.partition.HtmlNestedTables$BoundedHtml.append <- dev.docweave.partition.HtmlNestedTables$BoundedHtml.text <- dev.docweave.partition.HtmlNestedTables.snapshot <- dev.docweave.partition.HtmlNestedTables.capture",
+            "estimated_weight_bytes": 2009216
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlNestedTables$BoundedHtml.text",
+            "estimated_weight_bytes": 1566264
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- dev.docweave.partition.HtmlInlineText.text <- dev.docweave.partition.HtmlNestedTables.snapshot <- dev.docweave.partition.HtmlNestedTables.capture <- dev.docweave.partition.HtmlDomWalker.table <- dev.docweave.partition.HtmlDomWalker.visit",
+            "estimated_weight_bytes": 1565928
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- dev.docweave.partition.HtmlInlineText.text <- dev.docweave.partition.HtmlDomWalker.checkTableLimits <- dev.docweave.partition.HtmlDomWalker.partition <- dev.docweave.partition.HtmlPartitionerProvider.partition <- dev.docweave.partition.MarkdownPartitioner.partition",
+            "estimated_weight_bytes": 1563584
+          },
+          {
+            "frame": "java.util.ArrayList$Itr : java.util.ArrayList.iterator <- java.util.Collections$UnmodifiableCollection$1.<init> <- java.util.Collections$UnmodifiableCollection.iterator <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append",
+            "estimated_weight_bytes": 1047424
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- dev.docweave.partition.HtmlNestedTables$BoundedHtml.value <- dev.docweave.partition.HtmlNestedTables.snapshot <- dev.docweave.partition.HtmlNestedTables.capture <- dev.docweave.partition.HtmlDomWalker.table <- dev.docweave.partition.HtmlDomWalker.visit",
+            "estimated_weight_bytes": 1044472
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.newBytesFor <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- dev.docweave.partition.HtmlNestedTables.snapshot <- dev.docweave.partition.HtmlNestedTables.capture <- dev.docweave.partition.HtmlDomWalker.table <- dev.docweave.partition.HtmlDomWalker.visit",
+            "estimated_weight_bytes": 1043472
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- org.jsoup.parser.Tokeniser.emit <- org.jsoup.parser.TokeniserState.readCharRef <- org.jsoup.parser.TokeniserState.access$100 <- org.jsoup.parser.TokeniserState$2.read <- org.jsoup.parser.Tokeniser.read <- org.jsoup.parser.TreeBuilder.stepParser",
+            "estimated_weight_bytes": 546616
+          },
+          {
+            "frame": "java.util.LinkedHashMap$Entry : java.util.LinkedHashMap.newNode <- java.util.HashMap.putVal <- java.util.HashMap.put <- dev.docweave.partition.NestedTableDescriptors.add <- dev.docweave.partition.NestedTableDescriptors.add <- dev.docweave.partition.HtmlNestedTables.capture <- dev.docweave.partition.HtmlDomWalker.table <- dev.docweave.partition.HtmlDomWalker.visit",
+            "estimated_weight_bytes": 542128
+          },
+          {
+            "frame": "java.util.ImmutableCollections$ListItr : java.util.ImmutableCollections$AbstractImmutableList.iterator <- java.util.ArrayList.equalsRange <- java.util.ArrayList$SubList.equals <- dev.docweave.partition.NestedTableDescriptors.add <- dev.docweave.partition.NestedTableDescriptors.add <- dev.docweave.partition.HtmlNestedTables.capture <- dev.docweave.partition.HtmlDomWalker.table <- dev.docweave.partition.HtmlDomWalker.visit",
+            "estimated_weight_bytes": 523712
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.String.<init> <- org.jsoup.parser.CharacterReader.cacheString <- org.jsoup.parser.CharacterReader.consumeRange <- org.jsoup.parser.CharacterReader.consumeToAny <- org.jsoup.parser.CharacterReader.consumeData <- org.jsoup.parser.TokeniserState$1.read",
+            "estimated_weight_bytes": 523712
+          },
+          {
+            "frame": "[Ljava.lang.Object; : java.util.Arrays.copyOf <- java.util.ArrayList.toArray <- java.util.ArrayList.addAll <- org.jsoup.nodes.Node.childNodes <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append <- dev.docweave.partition.HtmlInlineText.append",
+            "estimated_weight_bytes": 523712
+          },
+          {
+            "frame": "org.jsoup.nodes.Element$NodeList : org.jsoup.nodes.Element.ensureChildNodes <- org.jsoup.nodes.Element.appendChild <- org.jsoup.parser.HtmlTreeBuilder.doInsertElement <- org.jsoup.parser.HtmlTreeBuilder.insertElementFor <- org.jsoup.parser.HtmlTreeBuilderState$13.process <- org.jsoup.parser.HtmlTreeBuilder.process <- org.jsoup.parser.TreeBuilder.stepParser <- org.jsoup.parser.TreeBuilder.runParser",
+            "estimated_weight_bytes": 523704
+          }
+        ],
+        "jfr_sha256": "df7d0968bc331ab87e51f9d171e4b0cd2cb8dffb7ecb44af3bc1496c4574e74b"
+      }
+    },
+    {
+      "fixture": "deep.docx",
+      "preserve": false,
+      "input_bytes": 4417,
+      "source_children": 12,
+      "preserved_children": 0,
+      "elements": 1,
+      "descriptor_payload_units": 0,
+      "sampled_allocations": {
+        "nearest_frames": [
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.collect",
+            "estimated_weight_bytes": 22840192
+          },
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.collectRows",
+            "estimated_weight_bytes": 20090208
+          },
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.collectCells",
+            "estimated_weight_bytes": 17934304
+          },
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.contents",
+            "estimated_weight_bytes": 16147048
+          },
+          {
+            "frame": "dev.docweave.partition.DocxPartitioner.partition",
+            "estimated_weight_bytes": 14007192
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlTextEscaper.escape",
+            "estimated_weight_bytes": 13016136
+          },
+          {
+            "frame": "dev.docweave.partition.StructuredTable.row",
+            "estimated_weight_bytes": 6337880
+          },
+          {
+            "frame": "dev.docweave.partition.StructuredTable.metadata",
+            "estimated_weight_bytes": 5234632
+          },
+          {
+            "frame": "dev.docweave.partition.DocxTableExtractor.extract",
+            "estimated_weight_bytes": 4763472
+          },
+          {
+            "frame": "dev.docweave.partition.DocxTextAccumulator.rendered",
+            "estimated_weight_bytes": 4687856
+          },
+          {
+            "frame": "dev.docweave.partition.DocxArchiveVerifier.verify",
+            "estimated_weight_bytes": 2587800
+          },
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.originalRoot",
+            "estimated_weight_bytes": 2554640
+          },
+          {
+            "frame": "dev.docweave.partition.DocxTextAccumulator.append",
+            "estimated_weight_bytes": 2538696
+          },
+          {
+            "frame": "dev.docweave.partition.DocxArchiveVerifier.xml",
+            "estimated_weight_bytes": 2094664
+          },
+          {
+            "frame": "<no DocWeave frame>",
+            "estimated_weight_bytes": 1571056
+          }
+        ],
+        "first_sample_excluded": true,
+        "observed_samples": 268,
+        "allocation_stacks": [
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- org.apache.poi.xwpf.usermodel.XWPFTable.<init> <- org.apache.poi.xwpf.usermodel.XWPFTableCell.<init> <- org.apache.poi.xwpf.usermodel.XWPFTableRow.getTableCells <- org.apache.poi.xwpf.usermodel.XWPFTableRow.<init>",
+            "estimated_weight_bytes": 5297656
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.String.<init> <- org.apache.xmlbeans.impl.store.CharUtil.getString <- org.apache.xmlbeans.impl.store.Xobj.getValueAsString <- org.apache.xmlbeans.impl.store.Xobj.fetch_text <- org.apache.xmlbeans.impl.values.XmlObjectBase.get_wscanon_text <- org.apache.xmlbeans.impl.values.XmlObjectBase.check_dated",
+            "estimated_weight_bytes": 5234056
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.newBytesFor <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- dev.docweave.partition.StructuredTable.row <- dev.docweave.partition.DocxTableExtractor.extract <- dev.docweave.partition.DocxTableExtractor.cell <- dev.docweave.partition.DocxTableExtractor.extract",
+            "estimated_weight_bytes": 4753520
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- org.apache.poi.xwpf.usermodel.XWPFRun.text <- org.apache.poi.xwpf.usermodel.XWPFRun.toString <- java.lang.String.valueOf <- java.lang.StringBuilder.append <- org.apache.poi.xwpf.usermodel.XWPFParagraph.getText",
+            "estimated_weight_bytes": 4711176
+          },
+          {
+            "frame": "org.apache.xmlbeans.impl.store.ElementXobj : org.apache.xmlbeans.impl.store.ElementXobj.newNode <- org.apache.xmlbeans.impl.store.Xobj.copyNode <- org.apache.xmlbeans.impl.store.Cur.copyNode <- org.apache.xmlbeans.impl.store.Cursor._copyXmlContents <- org.apache.xmlbeans.impl.store.Cursor.twoLocaleOp <- org.apache.xmlbeans.impl.store.Cursor.twoLocaleOp <- org.apache.xmlbeans.impl.store.Cursor.copyXmlContents <- dev.docweave.partition.DocxBodyView.contents",
+            "estimated_weight_bytes": 4254840
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.newBytesFor <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- org.apache.poi.xwpf.usermodel.XWPFParagraph.getText <- org.apache.poi.xwpf.usermodel.XWPFTable.<init> <- org.apache.poi.xwpf.usermodel.XWPFTableCell.<init>",
+            "estimated_weight_bytes": 4254216
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlTextEscaper.escape",
+            "estimated_weight_bytes": 3652272
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- org.apache.poi.xwpf.usermodel.XWPFParagraph.getText <- org.apache.poi.xwpf.usermodel.XWPFTable.<init> <- org.apache.poi.xwpf.usermodel.XWPFTableCell.<init> <- org.apache.poi.xwpf.usermodel.XWPFTableRow.getTableCells <- org.apache.poi.xwpf.usermodel.XWPFTableRow.<init>",
+            "estimated_weight_bytes": 3075168
+          },
+          {
+            "frame": "[Ljava.lang.Object; : java.util.ArrayList.grow <- java.util.ArrayList.grow <- java.util.ArrayList.add <- java.util.ArrayList.add <- org.apache.xmlbeans.impl.xpath.XPathExecutionContext$PathContext.element <- org.apache.xmlbeans.impl.xpath.XPathExecutionContext.element <- org.apache.xmlbeans.impl.xpath.xmlbeans.XmlbeansXPathEngine.advance <- org.apache.xmlbeans.impl.xpath.xmlbeans.XmlbeansXPathEngine.next",
+            "estimated_weight_bytes": 2684024
+          },
+          {
+            "frame": "[B : jdk.internal.misc.Unsafe.allocateUninitializedArray <- java.lang.StringConcatHelper.newArray <- java.lang.StringConcatHelper.doConcat <- java.lang.StringConcatHelper.simpleConcat <- java.lang.invoke.DirectMethodHandle$Holder.invokeStatic <- java.lang.invoke.LambdaForm$MH.0x00000000772dd400.invoke <- java.lang.invoke.Invokers$Holder.linkToTargetMethod <- dev.docweave.partition.StructuredTable.metadata",
+            "estimated_weight_bytes": 2628472
+          },
+          {
+            "frame": "[Ljava.lang.Object; : java.util.ArrayList.grow <- java.util.ArrayList.grow <- java.util.ArrayList.add <- java.util.ArrayList.add <- org.apache.poi.xwpf.usermodel.XWPFTableCell.<init> <- org.apache.poi.xwpf.usermodel.XWPFTableRow.getTableCells <- org.apache.poi.xwpf.usermodel.XWPFTableRow.<init> <- org.apache.poi.xwpf.usermodel.XWPFTable.<init>",
+            "estimated_weight_bytes": 2618424
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.newBytesFor <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- org.apache.poi.xwpf.usermodel.XWPFTable.<init> <- org.apache.poi.xwpf.usermodel.XWPFTableCell.<init> <- org.apache.poi.xwpf.usermodel.XWPFTableRow.getTableCells <- org.apache.poi.xwpf.usermodel.XWPFTableRow.<init>",
+            "estimated_weight_bytes": 2616008
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- java.lang.String.valueOf <- dev.docweave.partition.StructuredTable.metadata <- dev.docweave.partition.DocxTableExtractor.extract <- dev.docweave.partition.DocxTableExtractor.cell <- dev.docweave.partition.DocxTableExtractor.extract",
+            "estimated_weight_bytes": 2606160
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- dev.docweave.partition.DocxTextAccumulator.rendered <- dev.docweave.partition.DocxTableExtractor.cell <- dev.docweave.partition.DocxTableExtractor.extract <- dev.docweave.partition.DocxTableExtractor.cell <- dev.docweave.partition.DocxTableExtractor.extract",
+            "estimated_weight_bytes": 2605304
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- dev.docweave.partition.HtmlTextEscaper.escape <- dev.docweave.partition.DocxTableExtractor.extract <- dev.docweave.partition.DocxTableExtractor.cell <- dev.docweave.partition.DocxTableExtractor.extract",
+            "estimated_weight_bytes": 2594136
+          }
+        ],
+        "jfr_sha256": "eecea753aa1261108ff902b4f7be8d9f8d3d667348500d4e85c9d7ddc35a479e"
+      }
+    },
+    {
+      "fixture": "deep.docx",
+      "preserve": true,
+      "input_bytes": 4417,
+      "source_children": 12,
+      "preserved_children": 12,
+      "elements": 1,
+      "descriptor_payload_units": 54617,
+      "sampled_allocations": {
+        "nearest_frames": [
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.collect",
+            "estimated_weight_bytes": 24148816
+          },
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.contents",
+            "estimated_weight_bytes": 18669408
+          },
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.collectCells",
+            "estimated_weight_bytes": 17932576
+          },
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.collectRows",
+            "estimated_weight_bytes": 14724928
+          },
+          {
+            "frame": "dev.docweave.partition.HtmlTextEscaper.escape",
+            "estimated_weight_bytes": 14644056
+          },
+          {
+            "frame": "dev.docweave.partition.DocxPartitioner.partition",
+            "estimated_weight_bytes": 13537776
+          },
+          {
+            "frame": "dev.docweave.partition.DocxTableExtractor.extract",
+            "estimated_weight_bytes": 7291024
+          },
+          {
+            "frame": "dev.docweave.partition.StructuredTable.row",
+            "estimated_weight_bytes": 6656632
+          },
+          {
+            "frame": "dev.docweave.partition.DocxTextAccumulator.append",
+            "estimated_weight_bytes": 5739264
+          },
+          {
+            "frame": "dev.docweave.partition.DocxBodyView.originalRoot",
+            "estimated_weight_bytes": 3665872
+          },
+          {
+            "frame": "<no DocWeave frame>",
+            "estimated_weight_bytes": 3659512
+          },
+          {
+            "frame": "dev.docweave.partition.DocxArchiveVerifier.xml",
+            "estimated_weight_bytes": 3142120
+          },
+          {
+            "frame": "dev.docweave.partition.StructuredTable.metadata",
+            "estimated_weight_bytes": 1586624
+          },
+          {
+            "frame": "dev.docweave.partition.NestedTableDescriptors.add",
+            "estimated_weight_bytes": 1571096
+          },
+          {
+            "frame": "dev.docweave.partition.DocxNestedTables.source",
+            "estimated_weight_bytes": 1571016
+          }
+        ],
+        "first_sample_excluded": true,
+        "observed_samples": 275,
+        "allocation_stacks": [
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- java.lang.AbstractStringBuilder.appendCodePoint <- java.lang.StringBuilder.appendCodePoint <- dev.docweave.partition.HtmlTextEscaper.escape",
+            "estimated_weight_bytes": 6814352
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.compress <- java.lang.String.<init> <- java.lang.String.<init> <- org.apache.xmlbeans.impl.store.CharUtil.getString <- org.apache.xmlbeans.impl.store.Xobj.getValueAsString <- org.apache.xmlbeans.impl.store.Xobj.fetch_text <- org.apache.xmlbeans.impl.values.XmlObjectBase.get_wscanon_text <- org.apache.xmlbeans.impl.values.XmlObjectBase.check_dated",
+            "estimated_weight_bytes": 6805456
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- org.apache.poi.xwpf.usermodel.XWPFTable.<init> <- org.apache.poi.xwpf.usermodel.XWPFTableCell.<init> <- org.apache.poi.xwpf.usermodel.XWPFTableRow.getTableCells <- org.apache.poi.xwpf.usermodel.XWPFTableRow.<init>",
+            "estimated_weight_bytes": 5298520
+          },
+          {
+            "frame": "org.apache.xmlbeans.impl.store.ElementXobj : org.apache.xmlbeans.impl.store.ElementXobj.newNode <- org.apache.xmlbeans.impl.store.Xobj.copyNode <- org.apache.xmlbeans.impl.store.Cur.copyNode <- org.apache.xmlbeans.impl.store.Cursor._copyXmlContents <- org.apache.xmlbeans.impl.store.Cursor.twoLocaleOp <- org.apache.xmlbeans.impl.store.Cursor.twoLocaleOp <- org.apache.xmlbeans.impl.store.Cursor.copyXmlContents <- dev.docweave.partition.DocxBodyView.contents",
+            "estimated_weight_bytes": 3679104
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- dev.docweave.partition.StructuredTable.row <- dev.docweave.partition.DocxTableExtractor.extract <- dev.docweave.partition.DocxTableExtractor.cell <- dev.docweave.partition.DocxTableExtractor.extract",
+            "estimated_weight_bytes": 3511008
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.newBytesFor <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- dev.docweave.partition.StructuredTable.row <- dev.docweave.partition.DocxTableExtractor.extract <- dev.docweave.partition.DocxTableExtractor.cell <- dev.docweave.partition.DocxTableExtractor.extract",
+            "estimated_weight_bytes": 3145624
+          },
+          {
+            "frame": "org.apache.xmlbeans.impl.store.ElementXobj : org.apache.xmlbeans.impl.store.Cur.createElementXobj <- org.apache.xmlbeans.impl.store.Cur$CurLoadContext.startElement <- org.apache.xmlbeans.impl.store.Locale.loadNode <- org.apache.xmlbeans.impl.store.Locale.loadNodeChildren <- org.apache.xmlbeans.impl.store.Locale.loadNode <- org.apache.xmlbeans.impl.store.Locale.loadNodeChildren <- org.apache.xmlbeans.impl.store.Locale.loadNode <- org.apache.xmlbeans.impl.store.Locale.loadNodeChildren",
+            "estimated_weight_bytes": 3142072
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- org.apache.poi.xwpf.usermodel.XWPFParagraph.getText <- org.apache.poi.xwpf.usermodel.XWPFTable.<init> <- org.apache.poi.xwpf.usermodel.XWPFTableCell.<init> <- org.apache.poi.xwpf.usermodel.XWPFTableRow.getTableCells <- org.apache.poi.xwpf.usermodel.XWPFTableRow.<init>",
+            "estimated_weight_bytes": 3141136
+          },
+          {
+            "frame": "[B : java.lang.StringUTF16.newBytesFor <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- java.lang.StringBuilder.append <- org.apache.poi.xwpf.usermodel.XWPFParagraph.getText <- org.apache.poi.xwpf.usermodel.XWPFTable.<init> <- org.apache.poi.xwpf.usermodel.XWPFTableCell.<init>",
+            "estimated_weight_bytes": 3140400
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- dev.docweave.partition.HtmlTextEscaper.escape <- dev.docweave.partition.StructuredTable.row <- dev.docweave.partition.DocxTableExtractor.extract <- dev.docweave.partition.DocxTableExtractor.cell <- dev.docweave.partition.DocxTableExtractor.extract",
+            "estimated_weight_bytes": 3133504
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- dev.docweave.partition.DocxTableExtractor.extract <- dev.docweave.partition.DocxTableExtractor.cell <- dev.docweave.partition.DocxTableExtractor.extract <- dev.docweave.partition.DocxTableExtractor.cell",
+            "estimated_weight_bytes": 3115088
+          },
+          {
+            "frame": "org.apache.xmlbeans.impl.store.DomImpl$$Lambda.0x00000000773e4890 : java.lang.invoke.DirectMethodHandle.allocateInstance <- java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial <- java.lang.invoke.Invokers$Holder.linkToTargetMethod <- org.apache.xmlbeans.impl.store.DomImpl.syncWrap <- org.apache.xmlbeans.impl.store.DomImpl._attributes_getLength <- org.apache.xmlbeans.impl.store.ElementAttributes.getLength <- org.apache.xmlbeans.impl.store.Locale.loadNode <- org.apache.xmlbeans.impl.store.Locale.loadNodeChildren",
+            "estimated_weight_bytes": 2618504
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOfRange <- java.lang.String.<init> <- java.lang.StringBuilder.toString <- org.apache.poi.xwpf.usermodel.XWPFRun.text <- org.apache.poi.xwpf.usermodel.XWPFRun.toString <- java.lang.String.valueOf <- java.lang.StringBuilder.append <- org.apache.poi.xwpf.usermodel.XWPFParagraph.getText",
+            "estimated_weight_bytes": 2617248
+          },
+          {
+            "frame": "[B : java.util.Arrays.copyOf <- java.lang.AbstractStringBuilder.ensureCapacityNewCoder <- java.lang.AbstractStringBuilder.append <- java.lang.StringBuilder.append <- dev.docweave.partition.HtmlTextEscaper.escape <- dev.docweave.partition.DocxTableExtractor.extract <- dev.docweave.partition.DocxTableExtractor.cell <- dev.docweave.partition.DocxTableExtractor.extract",
+            "estimated_weight_bytes": 2607496
+          },
+          {
+            "frame": "java.util.HashMap : org.apache.xmlbeans.impl.xpath.XPathFactory.getCompiledPath <- org.apache.xmlbeans.impl.xpath.XPathFactory.getCompiledPath <- org.apache.xmlbeans.impl.store.Cursor._selectPath <- org.apache.xmlbeans.impl.store.Cursor._selectPath <- org.apache.xmlbeans.impl.store.Cursor.lambda$selectPath$19 <- org.apache.xmlbeans.impl.store.Cursor$$Lambda.0x00000000773bac98.run <- org.apache.xmlbeans.impl.store.Cursor.syncWrapHelper <- org.apache.xmlbeans.impl.store.Cursor.syncWrap",
+            "estimated_weight_bytes": 2160280
+          }
+        ],
+        "jfr_sha256": "5fe13774e3a0afe073801452672396a9dc85d312a18a9db6f481a08690599bcc"
+      }
+    }
+  ],
+  "_public_projection": {
+    "original_sha256": "3732e8a963dc553699d5427706a11f1c6f27c75a640bb4c962e114956f16b94a",
+    "status": "Derived documentation/path projection; historical measurements and embedded fingerprints unchanged"
+  }
+}

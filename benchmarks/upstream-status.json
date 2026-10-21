@@ -1,0 +1,143 @@
+{
+  "checked_at": "2026-10-20T23:08:45.191231291Z",
+  "repository": "Unstructured-IO/unstructured",
+  "reference_commit": "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",
+  "latest_release": {
+    "published_at": "2026-10-19T23:08:14Z",
+    "tag": "0.27.30",
+    "url": "https://github.com/Unstructured-IO/unstructured/releases/tag/0.27.30",
+    "commit": "08d407ea5ab77dcc7f27775c22cc70bbedae7d58"
+  },
+  "reviewed_main": "07d978b8c182404b800fba27c01f4a2c633cfffc",
+  "ahead_by": 14,
+  "comparison_url": "https://github.com/Unstructured-IO/unstructured/compare/347fbbfd3e84e228017f125e5c5dbdc326ef7de2...07d978b8c182404b800fba27c01f4a2c633cfffc",
+  "compare_response_sha256": "d4e37264b5d2078790678923387b480aca15fa0f14bcf173996e060eed459461",
+  "release_response_sha256": "e62a8f63f4b002691c006193238b3c1277eb525d3d2ab148c9f3ee3c5cafe571",
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "CHANGELOG.md",
+    "Makefile",
+    "example-docs/xlwt-padded-workbook.xls",
+    "pyproject.toml",
+    "scripts/performance/benchmark_chunking_memory.py",
+    "scripts/performance/benchmark_pdf_ocr_memory.py",
+    "test_unstructured/chunking/test_image_payload_memory.py",
+    "test_unstructured/file_utils/test_filetype.py",
+    "test_unstructured/partition/common/test_common.py",
+    "test_unstructured/partition/common/test_lang.py",
+    "test_unstructured/partition/html/test_convert.py",
+    "test_unstructured/partition/html/test_parser.py",
+    "test_unstructured/partition/html/test_partition.py",
+    "test_unstructured/partition/pdf_image/test_pdf_streaming_memory.py",
+    "test_unstructured/partition/test_auto.py",
+    "test_unstructured/partition/test_docx.py",
+    "test_unstructured/partition/test_email.py",
+    "test_unstructured/partition/test_pptx.py",
+    "test_unstructured/partition/test_xlsx.py",
+    "test_unstructured/partition/test_xlsx_dense_memory.py",
+    "test_unstructured/partition/test_xlsx_reader.py",
+    "test_unstructured/partition/utils/ocr_models/test_ocr_interface.py",
+    "test_unstructured/partition/utils/test_config.py",
+    "test_unstructured/staging/test_streamed_orig_elements.py",
+    "unstructured/__version__.py",
+    "unstructured/chunking/base.py",
+    "unstructured/documents/html_sanitization.py",
+    "unstructured/file_utils/filetype.py",
+    "unstructured/partition/common/common.py",
+    "unstructured/partition/common/lang.py",
+    "unstructured/partition/docx.py",
+    "unstructured/partition/email.py",
+    "unstructured/partition/html/parser.py",
+    "unstructured/partition/pdf.py",
+    "unstructured/partition/pdf_image/ocr.py",
+    "unstructured/partition/pdf_image/pdf_image_utils.py",
+    "unstructured/partition/pptx.py",
+    "unstructured/partition/tsv.py",
+    "unstructured/partition/utils/config.py",
+    "unstructured/partition/utils/ocr_models/ocr_interface.py",
+    "unstructured/partition/xlsx.py",
+    "unstructured/partition/xml.py",
+    "unstructured/staging/base.py",
+    "uv.lock"
+  ],
+  "changes": [
+    {
+      "commit": "0308163e9042a5696f23eb0f4cd30c51cdcd5c36",
+      "title": "feat: opt-in langdetect-rs backend for partition language detection (#4547)",
+      "classification": "outside_current_language_policy"
+    },
+    {
+      "commit": "804e8a10d488a9567b539c3424a891fcd07e252c",
+      "title": "fix(html): keep text inside unrecognized elements (#4497)",
+      "classification": "reviewed_HTML_unknown_wrapper_and_noncontent_subset_adopted_math_gaps_explicit"
+    },
+    {
+      "commit": "d4008b99a12f2f417f3270711bd37d89d0d7f1be",
+      "title": "fix(html): keep table captions in Table text and text_as_html (#4553)",
+      "classification": "reviewed_HTML_caption_representation_difference_retained"
+    },
+    {
+      "commit": "e80c88c0a0f9c02883bdcc18a169ab766ba2444a",
+      "title": "perf(docx): resolve each paragraph style once per document (5.3 s -> 1.0 s outside spaCy) (#4554)",
+      "classification": "reviewed_DOCX_per_document_style_cache_performance_change"
+    },
+    {
+      "commit": "3253c2b0f6b0a5f0808910c085675672aff718f3",
+      "title": "fix(xlsx): collapse empty-row runs instead of rejecting far-away cells (#4525)",
+      "classification": "outside_current_formats_XLSX"
+    },
+    {
+      "commit": "1b02b4d189c260ed9b1aca29583203e233d853cb",
+      "title": "fix(ocr): include underlying error when loading OCR agent fails (#4491)",
+      "classification": "reviewed_OCR_agent_loading_error_details_distinct_JVM_provider_contract"
+    },
+    {
+      "commit": "f98602237cb152e9c33fd824fb8ec96037806ad4",
+      "title": "fix(xlsx): read .xls files whose Workbook stream ends in padding (#4545)",
+      "classification": "outside_current_formats_XLS_XLSX_padding_encryption_probe"
+    },
+    {
+      "title": "fix(email): keep non-ASCII sender and recipient names readable (#4543)",
+      "classification": "outside_current_formats_EMAIL_non_ASCII_address_metadata",
+      "commit": "08d407ea5ab77dcc7f27775c22cc70bbedae7d58"
+    },
+    {
+      "commit": "3f716e21d876a1d4aa7ddc37cf8db2e0428cda78",
+      "title": "fix: label numbered headings without making them list items, and skip section-break paragraphs (#4538)",
+      "classification": "reviewed_DOCX_numbered_heading_and_empty_section_break_semantics_deferred_until_PDF_complete"
+    },
+    {
+      "commit": "ffc1c7f0afc843a38b14ce6f98215191e70256f6",
+      "title": "fix(partition): read spooled uploads in place instead of copying them (#4419)",
+      "classification": "reviewed_spooled_input_ownership_distinct_bounded_JVM_Path_Bytes_contract"
+    },
+    {
+      "commit": "1fc40570b33dd9555644429bf029721baa09e325",
+      "title": "perf(pdf): bound OCR upload and rendered-page memory (#4516)",
+      "classification": "reviewed_PDF_OCR_pagewise_render_and_finally_release_already_present_JVM_upload_contract_distinct"
+    },
+    {
+      "commit": "73b42953bf5b9e33437a7b53cc4b0ef283a758c0",
+      "title": "perf(chunking): bound image payload and original-element serialization memory (#4517)",
+      "classification": "reviewed_JVM_provenance_streaming_adopted_existing_16MiB_cap_List_image_retention_distinct"
+    },
+    {
+      "commit": "50054e7f8350e237b3b177f798cc68cb3b27020a",
+      "title": "feat(xlsx): expose a guarded worksheet-at-a-time workbook reader (#4562)",
+      "classification": "outside_current_formats_XLSX_worksheet_reader"
+    },
+    {
+      "commit": "07d978b8c182404b800fba27c01f4a2c633cfffc",
+      "title": "perf(xlsx): reduce dense-worksheet partitioning memory (#4563)",
+      "classification": "outside_current_formats_XLSX_dense_worksheet_memory_and_runtime_networkx_removal"
+    }
+  ],
+  "policy": "Historical reference release/goldens stay pinned independently of the latest reviewed release and main. Freshness validates each saved identity against its own track; no automatic reference rewrite or full parity claim.",
+  "assessment": "Latest official release remains0.27.30; unreleased main07d978b adds6commits beyond that release (14beyond unchanged0.27.27goldens): DOCX numbered heading/section-break semantics; Python spooled-upload ownership; PDF pagewise OCR memory/owned-image release; chunk image/provenance serialization memory; guarded XLSX worksheet reader. JVM already renders/flushes one OCR page at a time but retains bounded whole-input bytes. No Python stream cursor or XLSX API parity is claimed. DOCX semantics await post-PDF work; JVM provenance serialization now streams under its existing16MiB ceiling with exact owned decoded-wire regression coverage; caller-owned List input/final payload retention remains distinct. Preserve measured0.27.28 comparisons and0.27.27goldens; source review is not executed runtime parity. Additional dense-XLSX traversal/row-render memory change and NetworkX runtime removal remain outside current formats; main changelog versions do not replace official release metadata.",
+  "reference_release": {
+    "tag": "0.27.27",
+    "commit": "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",
+    "published_at": "2026-10-15T00:46:02Z",
+    "url": "https://github.com/Unstructured-IO/unstructured/releases/tag/0.27.27"
+  }
+}

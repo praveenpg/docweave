@@ -1,0 +1,56 @@
+{
+  "scope": "Fixed uniform optional preprocessing comparison; not general or held-out-model accuracy",
+  "before_RETAIN": {
+    "tables": 19,
+    "complete_positional_span_topologies": 14,
+    "exact_positional_span_text_cells": 336,
+    "fully_exact_text_tables": 0,
+    "matched_tokens": 791,
+    "observed_tokens": 1765
+  },
+  "after_REMOVE_EDGE_RULES": {
+    "tables": 19,
+    "complete_positional_span_topologies": 14,
+    "exact_positional_span_text_cells": 334,
+    "fully_exact_text_tables": 0,
+    "matched_tokens": 793,
+    "observed_tokens": 1781
+  },
+  "changed_input_entries": [
+    {
+      "input": "PMC5577841_001_00.png",
+      "before_exact_cells": 3,
+      "after_exact_cells": 3
+    },
+    {
+      "input": "PMC4003957_018_00.png",
+      "before_exact_cells": 11,
+      "after_exact_cells": 9
+    },
+    {
+      "input": "PMC4682394_003_00.png",
+      "before_exact_cells": 4,
+      "after_exact_cells": 4
+    },
+    {
+      "input": "PMC4172848_007_00.png",
+      "before_exact_cells": 17,
+      "after_exact_cells": 17
+    }
+  ],
+  "policy": {
+    "minimum_width_and_height": 64,
+    "edge_band_pixels": 24,
+    "minimum_dark_fraction": 0.8,
+    "minimum_alpha": 128,
+    "dark_rgb_sum_below": 384
+  },
+  "default_policy": "RETAIN",
+  "authored_grid_all_four_rotations_exact_cells": 6,
+  "java21_full_tests": 853,
+  "java25_verification": "853 tests, zero failures/errors/skips, strict Javadocs, ten installed-engine families, all20 corpus cases",
+  "paired_result_entries_identical": true,
+  "paired_owned_observations_identical_except_runtime": true,
+  "default_ruled_auto_retain_replay_identical_to_historical": true,
+  "strict_javadocs_refreshed_after_cell_crop_contract_correction": true
+}

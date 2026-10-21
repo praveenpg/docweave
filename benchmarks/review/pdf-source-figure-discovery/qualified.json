@@ -1,0 +1,51 @@
+{
+  "scope": "Pre-extraction qualified complete three-source Figure controls: Poppler26.10.0 image inventory gives one75x16 raster plus auxiliary soft mask per original. All96DPI independent renders visually inspected: same small logo and ordinary company text; no separate caption. Source inventory has Figure1/Caption0 per original. No Alt/ActualText caption inference.",
+  "inputs": [
+    {
+      "filename": "8.2.5.28.2-t01-pass-a.pdf",
+      "bytes": 25599,
+      "sha256": "bc58f794982d708053af7fcafb8e76d161340b1016fb978d650eaacdc9b540e6",
+      "expected_images": 1,
+      "expected_width": 75,
+      "expected_height": 16,
+      "expected_captions": 0
+    },
+    {
+      "filename": "8.2.5.28.2-t01-pass-b.pdf",
+      "bytes": 25613,
+      "sha256": "d0bed6640010fcf8349b62965b6e1ca8517425e3e0741473526f6c5cef6dd85f",
+      "expected_images": 1,
+      "expected_width": 75,
+      "expected_height": 16,
+      "expected_captions": 0
+    },
+    {
+      "filename": "8.2.5.28.2-t01-pass-c.pdf",
+      "bytes": 25720,
+      "sha256": "8f911613a5bd7b2bf8010c12fb6076b1a669b1a279f39d75e2d6451088740384",
+      "expected_images": 1,
+      "expected_width": 75,
+      "expected_height": 16,
+      "expected_captions": 0
+    }
+  ],
+  "expected_case_profiles": 18,
+  "profiles": [
+    "ALL",
+    "PAINTED_MODES",
+    "NONZERO_ALPHA_PAINTED_MODES"
+  ],
+  "factories": [
+    "NATIVE",
+    "SOURCE_TAGGED"
+  ],
+  "inventory_sha256": "17e686d187fea6f1f8180e2a8839d943fdf9e0bea157cd379fcfbabf6876a043",
+  "independent_render_dpi": 96,
+  "independent_render_sha256": "953d4f782b415520cebb39c97b13440ddc11bed62f8894a3a302879d833d458b",
+  "tool_identities": {
+    "benchmarks/tools/InventorySourceFigureRoles.java": "2d3c0bd3f000d3fafc6ea0491a2e006da9944fb3e1d4dd0c808b2517cfa18c08",
+    "benchmarks/tools/VerifySourceFigureImages.java": "66252fde1d87318ab496ffe863324dc93ef87ba65bf4368ea0f0f146c99c3a79",
+    "benchmarks/review/pdf-source-figure-discovery/selection.json": "1288bff642f9fb91e84ed282250578c5362e0fe286fb27027c430ed0e3fdedb5"
+  },
+  "source_bytes_redistributed": false
+}

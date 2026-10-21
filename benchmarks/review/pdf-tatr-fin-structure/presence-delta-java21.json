@@ -1,0 +1,77 @@
+{
+  "baseline_sha256" : "96f8f7042eb14ddc3634b8c142102c7e5fe07842d85481f4e62520e19cbc6ff8",
+  "results" : [ {
+    "strict_candidate" : 0,
+    "case" : "income",
+    "gained_reference_indices" : [ ],
+    "baseline_present" : 11,
+    "references" : 28,
+    "lost_reference_indices" : [ 6 ],
+    "profile" : "tatr",
+    "candidate_present" : 10,
+    "strict_baseline" : 0
+  }, {
+    "strict_candidate" : 0,
+    "case" : "balance-sheet",
+    "gained_reference_indices" : [ 2 ],
+    "baseline_present" : 16,
+    "references" : 33,
+    "lost_reference_indices" : [ 6, 7, 8, 11 ],
+    "profile" : "tatr",
+    "candidate_present" : 13,
+    "strict_baseline" : 0
+  }, {
+    "strict_candidate" : 0,
+    "case" : "cash-flows",
+    "gained_reference_indices" : [ ],
+    "baseline_present" : 12,
+    "references" : 49,
+    "lost_reference_indices" : [ ],
+    "profile" : "tatr",
+    "candidate_present" : 12,
+    "strict_baseline" : 0
+  }, {
+    "strict_candidate" : 0,
+    "case" : "income",
+    "gained_reference_indices" : [ ],
+    "baseline_present" : 21,
+    "references" : 28,
+    "lost_reference_indices" : [ ],
+    "profile" : "yolox",
+    "candidate_present" : 21,
+    "strict_baseline" : 0
+  }, {
+    "strict_candidate" : 0,
+    "case" : "balance-sheet",
+    "gained_reference_indices" : [ ],
+    "baseline_present" : 25,
+    "references" : 33,
+    "lost_reference_indices" : [ ],
+    "profile" : "yolox",
+    "candidate_present" : 25,
+    "strict_baseline" : 0
+  }, {
+    "strict_candidate" : 0,
+    "case" : "cash-flows",
+    "gained_reference_indices" : [ ],
+    "baseline_present" : 20,
+    "references" : 49,
+    "lost_reference_indices" : [ ],
+    "profile" : "yolox",
+    "candidate_present" : 20,
+    "strict_baseline" : 0
+  } ],
+  "candidate_sha256" : "52fd0cb7bd33510e15d3ab7b7585aee898e8ad8febb82b72cec2d8c8ae311625",
+  "summary" : [ {
+    "candidate_present" : 35,
+    "references" : 110,
+    "profile" : "tatr",
+    "baseline_present" : 39
+  }, {
+    "candidate_present" : 66,
+    "references" : 110,
+    "profile" : "yolox",
+    "baseline_present" : 66
+  } ],
+  "reference_manifest_sha256" : "2c0ad481b1a42eb5edfc7e6af2d8ec6c76f5e1ab206d7d539c492b156dabb3b6"
+}

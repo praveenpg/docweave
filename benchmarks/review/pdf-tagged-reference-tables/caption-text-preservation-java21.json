@@ -1,0 +1,8 @@
+{
+  "native_caption_elements_before_after" : [ 1, 1 ],
+  "non_whitespace_source_character_counts_equal" : true,
+  "caption_copied_into_table" : false,
+  "scope" : "Original complete one-page source text preservation, excluding ASCII whitespace only; not a text accuracy or semantic-order score",
+  "runtime" : "21.0.12.1+12-LTS",
+  "caption_source_references" : 1
+}

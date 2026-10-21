@@ -1,0 +1,30 @@
+{
+  "production_source": "9fd30c7e14fce5e80c612752b415179be7f00bee",
+  "scope": "JVM diagnostic/scorer controls and independent consumer checks only; no production change or release",
+  "audit_tool_sha256": "ca49287b6b8a9e9f14908fd7b63e9f7a240014c106b402c011af279e392b37f0",
+  "java21": {
+    "focused_tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "build_log_sha256": "c6be63ce9da173358d2f5e1d42235af1f65e28a0141b0b2d00a93184ddf234b1",
+    "all_eight_original_document_profile_extractions": "SUCCESS",
+    "strict_private_javadocs": "PASS"
+  },
+  "java25": {
+    "focused_tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "build_log_sha256": "397a9022144a80412fddc4419ad3aa800a8e5cc9376ec81d163e082dccf7ae0d",
+    "all_eight_original_document_profile_extractions": "SUCCESS",
+    "strict_private_javadocs": "PASS"
+  },
+  "owned_controls": "Standalone compilation and diagnostic self-tests cover exact, duplicated, absent, short, reversed, ambiguous, Unicode/hyphen/spacing, complete trace accounting, prospective alignment budget and unchanged strict-score failures",
+  "strict_baseline_rows_unchanged": 8,
+  "paragraph_profile_observations_retained": 56,
+  "full_suite": "Prior 1053-test clean verification on each JDK remains applicable to unchanged production; not presented as a newly rerun full suite",
+  "new_python_test_or_dependency": false,
+  "publishing_action": "NONE; beta deferred",
+  "formatter_and_diff_checks": "PASS"
+}

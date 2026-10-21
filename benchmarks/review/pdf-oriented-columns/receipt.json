@@ -1,0 +1,18 @@
+{
+  "java": 21,
+  "tests": 1224,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "scorer_sha256": "dafe7165e23d2bed93baaad34496fe2e1fff7a8527a35e7231ae6dcffcdd7e6c",
+  "scientific_fingerprints_exact": 15,
+  "business_observations_exact": 39,
+  "private_doclint": "PASS",
+  "production_default_behavior": "unchanged",
+  "whole_document_pages": 28,
+  "projected_lines_exact": 13,
+  "paragraphs": 173,
+  "column_elements": 50,
+  "compound_paragraphs": 1,
+  "accuracy_claim": "None; independent logical paragraph/reading-order labels unavailable"
+}

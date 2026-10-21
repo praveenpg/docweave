@@ -1,0 +1,31 @@
+{
+  "production_source_commit": "aaec93f262a9bc642dd684115b99d1bbb6f2eb96",
+  "files": {
+    "benchmarks/tools/CaptureNativeBusinessTables.java": "b90b3295e308784ba434a10c81003c139627345de29474ce8a186cedee780221",
+    "benchmarks/tools/compare_business_cell_text.py": "6946b5ce6650fd955d85a3d05880e114214f409717f2ce71c88ec88f15d93db6",
+    "benchmarks/tools/test_business_cell_text.py": "60b43e2c94edfa774e8a944f3b0413bd94af376af5012e2fbb6b5909e90489ce",
+    "benchmarks/review/pdf-business-native/manifest.json": "40959712fb47945242639466369d3ff65f3c67ba0e03c44d0cb22e0a280d4c7d"
+  },
+  "paired_metrics_equal_excluding_local_capture_sha256": true,
+  "native_capture_semantic_equality": {
+    "financial-disclosure/default.json": true,
+    "financial-disclosure/aligned.json": true,
+    "financial-disclosure/multiline.json": true,
+    "financial-disclosure/double-borders.json": true,
+    "financial-disclosure/horizontal.json": true,
+    "transport-procurement/default.json": true,
+    "transport-procurement/aligned.json": true,
+    "transport-procurement/multiline.json": true,
+    "transport-procurement/double-borders.json": true,
+    "transport-procurement/horizontal.json": true,
+    "education-statistics/default.json": true,
+    "education-statistics/aligned.json": true,
+    "education-statistics/multiline.json": true,
+    "education-statistics/double-borders.json": true,
+    "education-statistics/horizontal.json": true
+  },
+  "prior_four_reports_unchanged_with_default_comparator_profiles": true,
+  "engine_invocations": 0,
+  "model_invocations": 0,
+  "rasterization_calls": 0
+}

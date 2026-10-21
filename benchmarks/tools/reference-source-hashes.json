@@ -1,0 +1,7 @@
+{
+  "unstructured/chunking/base.py": "076daa0ba00212217d6d9bef60156a364f3b50684ce5d5c8168f7ea8cd97ea42",
+  "unstructured/chunking/basic.py": "68d6fde873e5f744ab0527717f029bfe0c8b232df03bcba25359b466d5d77159",
+  "unstructured/chunking/title.py": "f5305324030bb77100584bb8b432b8b2110f3c280b1d697dcc2b41f65dce2f23",
+  "unstructured/documents/elements.py": "94f0f5eca1d987b2e1e5c574417e62305fae4556bb572bf95918861047954d0c",
+  "unstructured/common/html_table.py": "741e09b2b057438e1044c33b2592179e055f75e5664600657b000310caa85bd5"
+}

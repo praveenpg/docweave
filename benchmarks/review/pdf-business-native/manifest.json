@@ -1,0 +1,22 @@
+{
+  "source_manifest": "../pdf-business-cell-text/manifest.json",
+  "source_manifest_sha256": "df8b9fcd50d77a61fe9b273aa0a2470932c922d5ada4b21c90fd02cc954cecbe",
+  "profiles": {
+    "default": "RULED_ONLY",
+    "aligned": "RULED_AND_ALIGNED_TEXT",
+    "multiline": "RULED_AND_MULTILINE_ALIGNED_TEXT",
+    "double-borders": "RULED_AND_DOUBLE_BORDERS",
+    "horizontal": "RULED_AND_HORIZONTAL_TEXT"
+  },
+  "policy": "Complete original PDF bytes processed without page copying, rasterization, OCR or model; score only the same selected original page. All PdfOptions defaults except cell coordinates enabled and the uniformly selected table mode. A document-level failure remains a failure for its selected page. No reference ROI enters inference, no per-case mode chooser. All existing five public native table policies are evaluated, not tuned.",
+  "table_limits": {
+    "max_rows": 100000,
+    "max_columns": 1000,
+    "max_cells": 1000000,
+    "max_cell_characters": 1000000
+  },
+  "comparisons": [
+    "../pdf-business-cell-text/",
+    "../pdf-business-model-layout/"
+  ]
+}

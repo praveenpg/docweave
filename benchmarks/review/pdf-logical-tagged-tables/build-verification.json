@@ -1,0 +1,12 @@
+{
+  "skipped" : 0,
+  "paired_business_observations" : 124,
+  "strict_private_javadocs" : true,
+  "candidate_source_hashes_verified" : true,
+  "java21_tests" : 1105,
+  "unchanged_business_observations" : 113,
+  "java25_tests" : 1105,
+  "errors" : 0,
+  "failures" : 0,
+  "strict_public_javadocs" : true
+}

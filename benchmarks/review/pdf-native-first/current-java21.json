@@ -1,0 +1,42 @@
+{
+  "results": [
+    {
+      "capture_sha256": "33d9732afe90c88ba4946900363826b08e49326527ade724c5297447384dce07",
+      "case": "operations",
+      "source_page": 7,
+      "profile": "native-first",
+      "outcome": "SUCCESS",
+      "tables": 1,
+      "association_iou": 0.9744091556578106,
+      "reference_content_rows": 27,
+      "observed_content_rows": 27,
+      "exact_ordinal_rows": 27,
+      "missing_row_positions": 0,
+      "extra_row_positions": 0,
+      "page_calls": 0,
+      "cell_calls": 0,
+      "layout_calls": 14,
+      "layout_tables": 9
+    },
+    {
+      "capture_sha256": "108afc56a5a0dc9b29787133f3bc8ce77599469a912d4ad30dd70582da9da0d3",
+      "case": "balance-sheet",
+      "source_page": 10,
+      "profile": "native-first",
+      "outcome": "SUCCESS",
+      "tables": 1,
+      "association_iou": 0.9795760589331478,
+      "reference_content_rows": 32,
+      "observed_content_rows": 32,
+      "exact_ordinal_rows": 32,
+      "missing_row_positions": 0,
+      "extra_row_positions": 0,
+      "page_calls": 0,
+      "cell_calls": 0,
+      "layout_calls": 14,
+      "layout_tables": 9
+    }
+  ],
+  "runtime": "21.0.12.1+12-LTS",
+  "representation": "Complete original document; live model geometry and native glyph text"
+}

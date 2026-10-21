@@ -1,0 +1,7 @@
+{
+  "scope" : "Pinned native regression comparison; no positive multiline or semantic accuracy oracle",
+  "runtime" : "21.0.12.1+12-LTS",
+  "equal_elements" : true,
+  "commit" : "2cdf3b4fd3f7e921dca8cc6814cdd9316be40f0f",
+  "inputs_checked" : 2
+}

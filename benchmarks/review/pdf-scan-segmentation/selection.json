@@ -1,0 +1,41 @@
+{
+  "frozen_at": "2026-10-19T17:58:44.495860+00:00",
+  "rule": "All four fixed historical/degraded sources; both already-pinned language models; all three existing explicit page segmentation options. Uniform full-source grid, no source/policy exclusion or per-page winner routing. Frozen before new mode OCR.",
+  "reference_manifests": [
+    {
+      "manifest": "benchmarks/review/pdf-historical-text/manifest.json",
+      "sha256": "72a4191bf08f2507700ee42add253f0038b6047e5f6272709e21d104c6a0f795"
+    },
+    {
+      "manifest": "benchmarks/review/pdf-degraded-text/manifest.json",
+      "sha256": "bd5096b17583bb12236e288c7c61e4dd98750264105bd6fc21c9b279fa9fc68f"
+    }
+  ],
+  "profiles": [
+    {
+      "language": "deu",
+      "page_segmentation": "AUTO"
+    },
+    {
+      "language": "deu_latf",
+      "page_segmentation": "AUTO"
+    },
+    {
+      "language": "deu",
+      "page_segmentation": "SINGLE_BLOCK"
+    },
+    {
+      "language": "deu_latf",
+      "page_segmentation": "SINGLE_BLOCK"
+    },
+    {
+      "language": "deu",
+      "page_segmentation": "SPARSE_TEXT"
+    },
+    {
+      "language": "deu_latf",
+      "page_segmentation": "SPARSE_TEXT"
+    }
+  ],
+  "protocol": "Same decoded opaque RGB whole-scan derivative PDF at72DPI, no enhancement/cropping/reference geometry supplied to OCR. Preserve all original references and undeclared-order qualifications. Unknown training overlap; development diagnostics, not held-out acceptance."
+}

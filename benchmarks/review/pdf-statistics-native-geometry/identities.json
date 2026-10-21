@@ -1,0 +1,11 @@
+{
+  "source_commit": "41dd139ce65694415f5f6903ebc74a6cf4fac1e9",
+  "java21": "21.0.12.1+12-LTS",
+  "java25": "25.0.4-amzn",
+  "sha256": {
+    "benchmarks/tools/AuditNativeTableGeometry.java": "39f0ab6455f065c868eeea27348195a76b884312aa19104086f8cdbe0fcbbba2",
+    "benchmarks/review/pdf-statistics-native-geometry/java21.json": "5f4e680be50d2a81e9204b9ba7d94b2f82073565151b4daaf9a8e25e89dae0f0",
+    "benchmarks/review/pdf-statistics-native-geometry/java25.json": "5f4e680be50d2a81e9204b9ba7d94b2f82073565151b4daaf9a8e25e89dae0f0",
+    "benchmarks/review/pdf-business-cell-text/manifest.json": "df8b9fcd50d77a61fe9b273aa0a2470932c922d5ada4b21c90fd02cc954cecbe"
+  }
+}

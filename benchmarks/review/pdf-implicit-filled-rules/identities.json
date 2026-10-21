@@ -1,0 +1,52 @@
+{
+  "baseline_source_commit": "0759b845f48fe2811360a644c1d03f538f09e8c8",
+  "files": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java": "fe06068ff09330399a5e5c57501423749f8a2dced0d714099350ec93e46342ad",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfFilledRuleTest.java": "d493b6c4c421fadfcd85a4a6c883a1dbb6757bf1f6bd82019736a1f6768dfbd1",
+    "benchmarks/tools/CaptureNativeBusinessTables.java": "b90b3295e308784ba434a10c81003c139627345de29474ce8a186cedee780221",
+    "benchmarks/tools/compare_business_cell_text.py": "6946b5ce6650fd955d85a3d05880e114214f409717f2ce71c88ec88f15d93db6",
+    "benchmarks/review/pdf-implicit-filled-rules/manifest.json": "be071e42943efbe934fc05c242d75357fca1153f7b581907bf41ba7c286cdd45",
+    "benchmarks/review/pdf-implicit-filled-rules/diagnosis.json": "03f222a155ab8589742cb81d9e335fbc7fd02ba4515db8baac9fe8fd82097776"
+  },
+  "verification": {
+    "21": {
+      "sha256": "ed654687ded44d018f45ef08a579389bdeecbc67cd194ecaddc6b5f9b81d5088",
+      "tests_failures_errors_skips": [
+        915,
+        0,
+        0,
+        0
+      ],
+      "strict_javadocs": "passed"
+    },
+    "25": {
+      "sha256": "c9836c179208142626027dfd952a5373ef59e9714f20b62c71708cc241e8ecd4",
+      "tests_failures_errors_skips": [
+        915,
+        0,
+        0,
+        0
+      ],
+      "strict_javadocs": "passed"
+    }
+  },
+  "paired_records_equal_excluding_capture_byte_hashes": true,
+  "local_capture_semantic_equality": {
+    "financial-disclosure/default.json": true,
+    "financial-disclosure/aligned.json": true,
+    "financial-disclosure/multiline.json": true,
+    "financial-disclosure/double-borders.json": true,
+    "financial-disclosure/horizontal.json": true,
+    "transport-procurement/default.json": true,
+    "transport-procurement/aligned.json": true,
+    "transport-procurement/multiline.json": true,
+    "transport-procurement/double-borders.json": true,
+    "transport-procurement/horizontal.json": true,
+    "education-statistics/default.json": true,
+    "education-statistics/aligned.json": true,
+    "education-statistics/multiline.json": true,
+    "education-statistics/double-borders.json": true,
+    "education-statistics/horizontal.json": true
+  },
+  "engine_model_rasterization_calls": 0
+}

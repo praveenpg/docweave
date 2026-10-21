@@ -1,0 +1,21 @@
+{
+  "baseline_commit": "47a532bc2a21e44699a639e4249d3f2ee23b7817",
+  "paired_native_reports_equal": true,
+  "models_executed": false,
+  "production_policy_adopted": false,
+  "tests_per_jdk": {
+    "21": 950,
+    "25": 950
+  },
+  "files": {
+    "benchmarks/review/pdf-header-wrap-experiment/manifest.json": "c024991cf5a8be9802fb56558124ba591b9a76d419faa903df3284785e36445f",
+    "benchmarks/review/pdf-header-wrap-experiment/education-first-java21.json": "eda4385e12ec8428f5383b46a27bb8657a112b91c1e5d7274475ab6694aaacc2",
+    "benchmarks/review/pdf-header-wrap-experiment/education-first-java25.json": "cf8884160aa2c96fa348df03cbf7411dfa1f0fd14f8a78ff4d41a040c7d4d000",
+    "benchmarks/review/pdf-header-wrap-experiment/education-second-java21.json": "4b922e61d8d32bb121295af9d7db72f3251088b62a954a93247cca60a2f4b01e",
+    "benchmarks/review/pdf-header-wrap-experiment/education-second-java25.json": "569d08501e235474818c58e0554145970c8aea54bbf2c17f5f4f1213ce9a7bfa",
+    "benchmarks/review/pdf-header-wrap-experiment/upstream-status.json": "1851e21888522bae1000e60df2e7f3a713b9bb6ec038b3d89637ddd824d14d02",
+    "benchmarks/review/pdf-header-wrap-experiment/README.md": "5754122a3351a6942c1db12a29206a7965046ef86da7b38bb65a85f0708a0544",
+    "benchmarks/tools/ProbeHeaderWrapGeometry.java": "29c5a21a16098d11e7694cb08dad188b6f19cee2d5ce08983de77e4dbbb703f1",
+    "docweave-validation/src/test/java/dev/docweave/validation/StandaloneSourceCompatibilityTest.java": "e8af355b77dada44ec31959fcab694ff50964b8b70847e25323477d0f67e61b1"
+  }
+}

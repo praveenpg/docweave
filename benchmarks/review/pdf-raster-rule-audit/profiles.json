@@ -1,0 +1,29 @@
+{
+  "baseline_source_sha256": "04475b2ef5b7803a89b7db097e31e6e3de200e623b7bb1a5155b1c3835b83825",
+  "profiles": {
+    "baseline": {
+      "source_sha256": "b2c9499661570ae7780048ac046d68c60fb62f2f58e4decc446ea7d2206f9a66",
+      "minimum_run": 64,
+      "minimum_column": 32,
+      "minimum_row": 24
+    },
+    "chromatic": {
+      "source_sha256": "7efb8ea07fe17cd63fb150b4e4a658810c4d0b4b396692843499d076c21477f1",
+      "minimum_run": 64,
+      "minimum_column": 32,
+      "minimum_row": 24
+    },
+    "chromatic_compact": {
+      "source_sha256": "2430c4e1759c1a42a6edaf1660aafaad1f268ad97c66777c29a94675d568f27b",
+      "minimum_run": 32,
+      "minimum_column": 16,
+      "minimum_row": 12
+    },
+    "compact": {
+      "source_sha256": "06fa1ab02d0cd2711d45334b146e5fbebbed74d4c84b9d99701ab6418d7f1077",
+      "minimum_run": 32,
+      "minimum_column": 16,
+      "minimum_row": 12
+    }
+  }
+}

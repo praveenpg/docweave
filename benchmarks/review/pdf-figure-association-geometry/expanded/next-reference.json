@@ -1,0 +1,57 @@
+{
+  "base_commit": "4185fe4",
+  "scope": "All original pages and every independently inventoried raster occurrence; main-body figure/auxiliary roles visually reviewed before expanded association extraction. Observed development source, not held-out.",
+  "source": {
+    "id": "next",
+    "distribution_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0330904&type=printable",
+    "bytes": 321008,
+    "sha256": "0c96e723535ee671eb0d263702adc9e986fb2817a5e16ab7b7235e593a39eff2",
+    "pages": 14
+  },
+  "reference_method": "Poppler26.10.0 independent image inventory and XML zoom1 geometry; all image-bearing source pages rendered and visually reviewed before this association run. Integer-rounded top-left PDF points.",
+  "independent_xml_sha256": "761a98bcec3f5ce90aba54e22dfec16c4e20feec79b9b2c19b0cc26b571bd27e",
+  "maximum_edge_difference_points": 2,
+  "expected_images": 3,
+  "expected_figures": 1,
+  "profiles": [
+    "NATIVE_LINES",
+    "NATIVE_COLUMNS",
+    "SOURCE_TAGGED_LINES"
+  ],
+  "labels": [
+    {
+      "id": "crossmark",
+      "page": 1,
+      "figure": false,
+      "bounds": [
+        36,
+        283,
+        92,
+        339
+      ]
+    },
+    {
+      "id": "open-access",
+      "page": 1,
+      "figure": false,
+      "bounds": [
+        36,
+        385,
+        45,
+        397
+      ]
+    },
+    {
+      "id": "1",
+      "page": 9,
+      "figure": true,
+      "bounds": [
+        36,
+        541,
+        420,
+        678
+      ]
+    }
+  ],
+  "raw_sources_redistributed": false
+}

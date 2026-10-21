@@ -1,0 +1,33 @@
+{
+  "source_sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/RasterPdfTableDetector.java": "29a77b5ca9031b21978983b5c81045daf2a6a13657cf1241b7415fbb5af64f44",
+    "docweave-pdf/src/main/java/dev/docweave/partition/RuledPdfTableDetector.java": "69ac2a9d9dec3259d0f02e02d9ab7c0bed618586b039b38f1eff93af10a0f60f",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfScannedTables.java": "73818b897307482da6296374e51714d0375127f3a89f986352f1d256abfc9a30",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTableGrid.java": "a35a68e32943195e3e616b9ef476ea18d80841f64d87379dd5296c68e2727de2",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfScannedMergedTableTest.java": "55d3508c26d97e2f53f15c3c07b99151df2b93625d7bf07ae7661a914593a06d",
+    "docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractMergedTableInstalledTest.java": "e22a00fa2763b02c49b938a2ab1395aaa46ef3102b119ebc09091c40b62534d5",
+    "docweave-integration-tests/src/test/java/dev/docweave/partition/PdfPipelineTest.java": "1b8f6d6bf1318be64e5068546ccc31b4aeb7390b4fd784f08f3de1dd7e3c18ac"
+  },
+  "release21_class_sha256": {
+    "docweave-pdf/target/classes/dev/docweave/partition/RasterPdfTableDetector$Band.class": "9edd84cc9ce35e11efbd657b0efde22584923c3b291b7726bb19d22cfea2bd51",
+    "docweave-pdf/target/classes/dev/docweave/partition/RasterPdfTableDetector.class": "1d58656418832e4c753563eaf913b966369fd274b280e69f794905dbcc35df4f",
+    "docweave-pdf/target/classes/dev/docweave/partition/RuledPdfTableDetector$Rule.class": "c3b6eee4709950c1476a0c2df17993b1af0413c59e00efab0df035f96ecec4fb",
+    "docweave-pdf/target/classes/dev/docweave/partition/RuledPdfTableDetector$Groups.class": "e9887766268939e4a617bc9cdf234bde76baad77de1ad0d6fd9f069b17c39a1f",
+    "docweave-pdf/target/classes/dev/docweave/partition/RuledPdfTableDetector.class": "e8b97a65bc7d30e792513eb5f6495f78177d7c6629d7a26e4004fb19a3342cf7",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfScannedTables$Crop.class": "bf1e37cb489e647a59fe6fe3538f684603949c374b044a376d4ef69097dd24df",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfScannedTables.class": "2268bc03123dd6fe3788029bbe7f751e83b1a5fba10db326a4dcb8619fd7c498",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfTableGrid$Cell.class": "b587ebf3fa0e6494794b813039ce9d69179b2871fe23e3ea9272a8686f2b9491",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfTableGrid.class": "07f9eb85e971c7d452ab7b049a01930377fc4b15a45cdb42a34ba3babac5cd01",
+    "docweave-pdf/target/test-classes/dev/docweave/partition/PdfScannedMergedTableTest.class": "de8ae99a0e15a4b6fe32bc02ea7b5578381327f810f505e9357450cfcad6a80f",
+    "docweave-ocr-tesseract/target/test-classes/dev/docweave/ocr/TesseractMergedTableInstalledTest.class": "9bac329b1b53e790bd6518842237359fecb98253a3e4653ad75d70084f7670b5",
+    "docweave-integration-tests/target/test-classes/dev/docweave/partition/PdfPipelineTest.class": "ab67b3d82f7d09d0a8f089c053fd9b76c4c64e9248a0d9650026c617fa406384"
+  },
+  "report_sha256": {
+    "java21-corpus-recheck.json": "ba3412367fd01292516921dbf8b3ad816f593d3bed7eada91c004ba387ac651c",
+    "java21-merged-control.xml": "ffcfb7f037eb086717f7763c09db7cf80dec1b4e3da0684b19e45ebc49128a13",
+    "java25-corpus-recheck.json": "aa315b1f2d463b0d368e24bdd893b1580cf48dcae816faeb02783f9345499be6",
+    "java25-merged-control.xml": "5099b4af9de5eb2223e99006a217d1ba86e81389e1356bb44ea849eab67d1cd2",
+    "upstream-status.json": "5f7b6c4c841e697082d0f9667c731aec72895b2566c14ebba109fb93dc1704e4"
+  },
+  "scope": "Java21/25 local actual-engine controls; hosted uses owned controls without external engine/corpus"
+}

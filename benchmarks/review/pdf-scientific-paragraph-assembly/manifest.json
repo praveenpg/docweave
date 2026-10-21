@@ -1,0 +1,298 @@
+{
+  "frozen_at": "2026-10-19T21:33:00Z",
+  "baseline_commit": "db6e53f",
+  "rule": "Preserve all eight prior profiles and all four originals/28 paragraphs/111 pairs. Add explicit logical assembly of complete document-bound source-tagged consecutive-page fragments with one ASCII space and no normalization or cross-page dehyphenation. Development sources already observed in prototype, not a held-out acceptance test. All intervening content retained. No reference, denominator, source or default change.",
+  "profiles": [
+    "LINES",
+    "PARAGRAPHS",
+    "COLUMN_PARAGRAPHS",
+    "SOURCE_PARAGRAPHS_PRESERVE",
+    "SOURCE_PARAGRAPHS_SOFT_HYPHENS",
+    "SOURCE_PARAGRAPHS_PAGE_FRAGMENTS",
+    "PRESENTATION_FORMS_LINES",
+    "PRESENTATION_FORMS_SOURCE_PARAGRAPHS",
+    "SOURCE_PARAGRAPHS_ASSEMBLED"
+  ],
+  "cases": [
+    {
+      "id": "recent",
+      "doi": "10.1371/journal.pone.0324609",
+      "reference_manifest": "benchmarks/review/pdf-recent-scientific-headers/manifest.json",
+      "reference_manifest_sha256": "4b0906008a5e8f2ae5be45358fcc8eaa77a94b4189ed03b7009f5314d84d5449",
+      "inputs": [
+        {
+          "filename": "recent.pdf",
+          "sha256": "acb3af41357a960a9584f9ba0b0bf3319195af2ec4f3bc6074c2083d97d10bb8",
+          "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0324609&type=printable",
+          "bytes": 927934
+        },
+        {
+          "filename": "recent.xml",
+          "sha256": "2b691f82a7dc50ea051448861b852783a6be9069a61dc777d8871382d2bff9cd",
+          "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0324609&type=manuscript",
+          "bytes": 127737
+        }
+      ],
+      "pdf": "recent.pdf",
+      "jats": "recent.xml",
+      "reference": {
+        "ordered_reference_sha256": "78cb8644e284a3cfb0cc1b9aec7665d0e7e6b22b6b3e9fa87339839c123d6170",
+        "paragraphs": [
+          {
+            "section": "abstract",
+            "code_points": 301,
+            "sha256": "c862aa2a49b0c4611ec653a7ccbbac503f1ab62341fffc1b7bccc4bf7ab9b756",
+            "ordinal": 0
+          },
+          {
+            "section": "abstract",
+            "code_points": 296,
+            "sha256": "06be60b0cc2fbbe1a23c3fd621efebff5fb4db605efdea53121e5184ad1094c0",
+            "ordinal": 1
+          },
+          {
+            "section": "abstract",
+            "code_points": 710,
+            "sha256": "16c3be92a264f134ae18826fbbedcf3ba251f260a53f32812358be8691aba659",
+            "ordinal": 2
+          },
+          {
+            "section": "abstract",
+            "code_points": 238,
+            "sha256": "461886e28319420fe5f154458cfe6face5a22373ea3e07bbd5a21a8023a51a3c",
+            "ordinal": 3
+          },
+          {
+            "section": "first_body_section",
+            "code_points": 1032,
+            "sha256": "d6cedbecae2833cb045dd105be55a7de333dea24d0b8bfdda809eb72ed89e6f4",
+            "ordinal": 4
+          },
+          {
+            "section": "first_body_section",
+            "code_points": 1584,
+            "sha256": "eee5dfb1f40199ed7fc2f31d69e7f6d8379dc183fd44c5645fce92ac3504fa33",
+            "ordinal": 5
+          },
+          {
+            "section": "first_body_section",
+            "code_points": 1561,
+            "sha256": "baad296001306098d4ac63130f1fc759fc1fd049bba9d51593a213ce77357be9",
+            "ordinal": 6
+          },
+          {
+            "section": "first_body_section",
+            "code_points": 608,
+            "sha256": "8eb5f26cbb3eaba902c262dc54c5e724cffc474357ec2365d4523064178d11f8",
+            "ordinal": 7
+          },
+          {
+            "section": "first_body_section",
+            "code_points": 917,
+            "sha256": "89974822dfbbefd4f8d0b6a9fb9ae8e1162ff0dc54e7edac8d2599ea9325fa6d",
+            "ordinal": 8
+          }
+        ],
+        "reference_paragraphs": 9
+      }
+    },
+    {
+      "id": "next",
+      "doi": "10.1371/journal.pone.0330904",
+      "reference_manifest": "benchmarks/review/pdf-scientific-next-source/manifest.json",
+      "reference_manifest_sha256": "d3e9fb72127a8ceeed619e4d086585b7249af033cef32f8d183a1b704d7c1793",
+      "inputs": [
+        {
+          "filename": "next.pdf",
+          "sha256": "0c96e723535ee671eb0d263702adc9e986fb2817a5e16ab7b7235e593a39eff2",
+          "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0330904&type=printable",
+          "bytes": 321008
+        },
+        {
+          "filename": "next.xml",
+          "sha256": "0b73d71a5210d4797d5122d94d9dd65058460c644e87083ab9347d3224261be4",
+          "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0330904&type=manuscript",
+          "bytes": 123002
+        }
+      ],
+      "pdf": "next.pdf",
+      "jats": "next.xml",
+      "reference": {
+        "ordered_reference_sha256": "6f60bfeca03f61970a61966f46e6d4763ad65d14e911f07c9b9442cb12134f7b",
+        "paragraphs": [
+          {
+            "section": "abstract",
+            "code_points": 19,
+            "sha256": "3736556285d19eef6027ff85dfbff2da3843658c7f2d8d0315c93a8fe26aa39d",
+            "ordinal": 0
+          },
+          {
+            "section": "abstract",
+            "code_points": 601,
+            "sha256": "23078dc470d0dda81765b4ee2f9b45b2956895bd5dc46603cc3e35e0cffc1674",
+            "ordinal": 1
+          },
+          {
+            "section": "abstract",
+            "code_points": 281,
+            "sha256": "1d90874478c3a3858b5a354aa6859fb25942f854e061b8ba2785d9787bde7d2e",
+            "ordinal": 2
+          },
+          {
+            "section": "abstract",
+            "code_points": 901,
+            "sha256": "8297c7347d442a1e3892cdf560af4f5eb1ab895509570a13c753cbade80e1d6a",
+            "ordinal": 3
+          },
+          {
+            "section": "abstract",
+            "code_points": 450,
+            "sha256": "1c9a13640da227a5545e5bf2644070f2edd2479d9ffa28c5fdf3093e30c0ba4b",
+            "ordinal": 4
+          },
+          {
+            "section": "first_body_section",
+            "code_points": 938,
+            "sha256": "9ce5e821b3fd94ecb13c72c8873dfb7ec067d6436e07d7944f8a92358b161dcc",
+            "ordinal": 5
+          },
+          {
+            "section": "first_body_section",
+            "code_points": 474,
+            "sha256": "5d9dd988aa086eb26e86a7aa468fb171386c4f1e3a4b7478f411d056d713867e",
+            "ordinal": 6
+          },
+          {
+            "section": "first_body_section",
+            "code_points": 817,
+            "sha256": "c890e92692dcd3e652ffe7aa449962872c7a0c05e812147ca4a663efbe97ecff",
+            "ordinal": 7
+          },
+          {
+            "section": "first_body_section",
+            "code_points": 823,
+            "sha256": "2e437af680e14658781185580b71480dfd4f6d6e3f0448a28b86c16e2cf8cb43",
+            "ordinal": 8
+          },
+          {
+            "section": "first_body_section",
+            "code_points": 1252,
+            "sha256": "2f3e6dda79835cd3106d0fdadc1e4a4d2f5cac278d31c0ed47f3d8bd7231e369",
+            "ordinal": 9
+          },
+          {
+            "section": "first_body_section",
+            "code_points": 1067,
+            "sha256": "034bcd788857a61db02dc1afd8f0b6f72d2d8e6ad4bc56c93037a3bb80d2c0ea",
+            "ordinal": 10
+          },
+          {
+            "section": "first_body_section",
+            "code_points": 621,
+            "sha256": "6545166d16dac8ea90a585f8ffcb4585f692bed9594780b1020da3a1ee3c53cf",
+            "ordinal": 11
+          }
+        ],
+        "reference_paragraphs": 12
+      }
+    },
+    {
+      "id": "elife",
+      "doi": "10.7554/eLife.90049",
+      "reference_manifest": "benchmarks/review/pdf-scientific-second-publisher/manifest.json",
+      "reference_manifest_sha256": "3aa0657b56d12f60d99a855196171ae5b3edf2930c105ef077e752272f5d552e",
+      "inputs": [
+        {
+          "filename": "elife.pdf",
+          "sha256": "ae3d00995f44bdd26fd0f60e760dc0fce44e84a0482fc64d2277ef4792413a4b",
+          "url": "https://cdn.elifesciences.org/articles/90049/elife-90049-v1.pdf",
+          "bytes": 1641690
+        },
+        {
+          "filename": "elife.xml",
+          "sha256": "367b0b049e4bd20e221490d5f8b1cdca2e09cc8242fae67fa6cbb17f1b9b7e18",
+          "url": "https://cdn.elifesciences.org/articles/90049/elife-90049-v1.xml",
+          "bytes": 259829
+        }
+      ],
+      "pdf": "elife.pdf",
+      "jats": "elife.xml",
+      "reference": {
+        "ordered_reference_sha256": "68535d9090a8f2bd6fde603c818617acfda37f58df58c00965f02186b070c9d9",
+        "paragraphs": [
+          {
+            "section": "abstract",
+            "code_points": 1437,
+            "sha256": "b57d408215ca1e82aa08791e2797353a4e22407f00b66657607a88255aee3895",
+            "ordinal": 0
+          },
+          {
+            "section": "first_body_section",
+            "code_points": 1645,
+            "sha256": "fb2fa7aa327b1d3308bb2f0657461c66e698300dfbbddcf0d1737a1f7635d6f0",
+            "ordinal": 1
+          },
+          {
+            "section": "first_body_section",
+            "code_points": 1854,
+            "sha256": "4b137c06c915ba817562925e63a64518b9371cc0ce1313bdd1164294f75e8739",
+            "ordinal": 2
+          },
+          {
+            "section": "first_body_section",
+            "code_points": 1853,
+            "sha256": "d00bc2779c543605ad0609558840709327fac703e136c4195a2db7b6a5d36694",
+            "ordinal": 3
+          }
+        ],
+        "reference_paragraphs": 4
+      }
+    },
+    {
+      "id": "holdout",
+      "doi": "10.1371/journal.pone.0360958",
+      "publication_date": "2026-10-16",
+      "pdf": "holdout.pdf",
+      "jats": "holdout.xml",
+      "inputs": [
+        {
+          "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0360958&type=printable",
+          "bytes": 2529842,
+          "filename": "holdout.pdf",
+          "sha256": "dcd83b90a257628b5a1f8beac96dd14cafcbefa50d7077d15cc4f48d86c2e3dc"
+        },
+        {
+          "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0360958&type=manuscript",
+          "bytes": 242392,
+          "filename": "holdout.xml",
+          "sha256": "a8c6b4e2690e9e274bbb65204c4d6571f7dc6ee378c4612fc58761dbd29063ad"
+        }
+      ],
+      "reference": {
+        "reference_paragraphs": 3,
+        "ordered_reference_sha256": "5d09746ea47a97c6516e2831f77f4d352f02b277089bfca9c673afc1d7447a43",
+        "paragraphs": [
+          {
+            "ordinal": 0,
+            "section": "abstract",
+            "code_points": 1329,
+            "sha256": "3c099f4bbd0d6d7835a44b1756a8ab116f3e6bf697891b8362b6410fa9eeca04"
+          },
+          {
+            "ordinal": 1,
+            "section": "first_body_section",
+            "code_points": 1999,
+            "sha256": "89b255bca7efa24756b8b88da810da0cc0cdba5cc83fe00dbe31d4f2eb658ca3"
+          },
+          {
+            "ordinal": 2,
+            "section": "first_body_section",
+            "code_points": 2656,
+            "sha256": "c5734589a42770cd056881ec42f3c60527fe22ab36f2eab4ade27ed9a8c3c0e1"
+          }
+        ]
+      }
+    }
+  ],
+  "experiment_frozen_at": "2026-10-19T21:16:54Z"
+}

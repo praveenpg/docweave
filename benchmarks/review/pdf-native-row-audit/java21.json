@@ -1,0 +1,225 @@
+{
+  "runtime": "21.0.12.1+12-LTS\nAmazon.com Inc.\n",
+  "reference_fully_blank_rows": {
+    "financial": 0,
+    "statistics": 0
+  },
+  "cases": [
+    {
+      "case": "financial",
+      "frame": {
+        "render_width": 1275,
+        "dpi": 150,
+        "source_page": 1,
+        "pdf_sha256": "aa80de941ee2999798e2d36b63b475861468bcb958cb7106e9afcc12242ad54a",
+        "render_height": 1649,
+        "source_rotation": 0
+      },
+      "stages": {
+        "model_width": 587,
+        "source_width": 1053,
+        "tables": [
+          {
+            "anchors": 291,
+            "columns": 5,
+            "rows": 59
+          }
+        ],
+        "decoded_positive_classes_0_through_5": [
+          1,
+          5,
+          67,
+          1,
+          0,
+          1
+        ],
+        "row_filter_stages": [
+          {
+            "excluded_by_membership": 0,
+            "retained_after_suppression": 59,
+            "decoded_rows": 67,
+            "member_rows": 67,
+            "suppressed_rows": 8
+          }
+        ],
+        "source_height": 1435,
+        "decoded_objects": 75,
+        "model_height": 800
+      },
+      "native_model_row_bands": {
+        "native_row_count": 88,
+        "model_row_count": 59,
+        "native_recovered_row_bands": 88,
+        "model_recovered_row_bands": 59,
+        "native_centers_per_model_band": [
+          1,
+          2,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          3,
+          2,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          1,
+          2,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2
+        ],
+        "unassigned_native_centers": 0,
+        "empty_model_bands": 1,
+        "model_bands_with_multiple_native_centers": 29
+      }
+    },
+    {
+      "case": "statistics",
+      "frame": {
+        "render_width": 1275,
+        "dpi": 150,
+        "source_page": 2,
+        "pdf_sha256": "d884d32bd2a1d620e0c7b5446e4d0b58ba67dab04e884839b2640b9a35749e99",
+        "render_height": 1649,
+        "source_rotation": 0
+      },
+      "stages": {
+        "source_width": 1097,
+        "tables": [
+          {
+            "columns": 7,
+            "rows": 51,
+            "anchors": 357
+          }
+        ],
+        "decoded_positive_classes_0_through_5": [
+          1,
+          7,
+          55,
+          1,
+          0,
+          0
+        ],
+        "row_filter_stages": [
+          {
+            "excluded_by_membership": 0,
+            "retained_after_suppression": 51,
+            "decoded_rows": 55,
+            "member_rows": 55,
+            "suppressed_rows": 4
+          }
+        ],
+        "source_height": 1130,
+        "decoded_objects": 64,
+        "model_height": 800,
+        "model_width": 776
+      },
+      "native_model_row_bands": {
+        "native_row_count": 50,
+        "model_row_count": 51,
+        "native_recovered_row_bands": 50,
+        "model_recovered_row_bands": 51,
+        "native_centers_per_model_band": [
+          5,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "unassigned_native_centers": 0,
+        "empty_model_bands": 5,
+        "model_bands_with_multiple_native_centers": 1
+      }
+    }
+  ]
+}

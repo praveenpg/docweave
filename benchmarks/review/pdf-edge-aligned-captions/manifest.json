@@ -1,0 +1,31 @@
+{
+  "scope": "Pre-evaluation separate explicit edge-aligned numbered-title policy. Five now-observed complete scientific originals, all21captionreferences perprofile. Development replay, not held-out. All three uniform layouts, exact frozen references/scoring/raw Unicode retained.",
+  "base_commit": "caa2dd6",
+  "policy": "IMAGE_EDGE_ALIGNED_NUMBERED_TITLES",
+  "contract": "Horizontal space optionally precedes period/colon. Either image edge may align within unchanged12points. Gap0..24, overlap half narrower width, same substantial-image caps and unique ambiguity rejection.",
+  "positive_case_profiles": 15,
+  "negative_case_profiles": 18,
+  "reference_captions_per_profile": 21,
+  "identities": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "896faa560f35966c915b5d11685dbf73532fe5681a009678f3a59613c61d8f89",
+    "docweave-pdf/src/main/java/dev/docweave/partition/ImageAdjacentPdfFigureCaptions.java": "ee9d4f387447e43f0eddb183e0cb355283920a5f637899ab10e9c661bfae234f",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfFigureCaptionDetection.java": "de560575814ecb3a7853d7da13bf178f689e86f297ce3c0770c10e45f34ae652",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfFigureCaptionTest.java": "4bedb3d57009b257deda10a15c97078091f708718617acca9220f22a4324b6e7",
+    "benchmarks/review/pdf-caption-scirep-transfer/source-manifest.json": "0d5421ad9a5004b893cb17f12f417a692d8840bbfc797b36b89758903bf994c5",
+    "benchmarks/review/pdf-caption-peerj-transfer/source-manifest.json": "b67dc50a40047bdbfe2a7c47d37e188fe02275a46103a67af3b0f9db4200da7f",
+    "benchmarks/review/pdf-scientific-reading/manifest.json": "e146fb276c4397be24d6fdedeb13307f65a3012290bfafc96488d3d6673f12e2",
+    "benchmarks/review/pdf-source-figure-discovery/qualified.json": "87d1e11aa7cc184a201c9ab804abb707b416ea94acc880ada3843d893a17acaf",
+    "benchmarks/review/pdf-edge-aligned-captions/old-score.patch": "fd7d1b5502fa39cafdf9d0348fe04c1e27547caf0ea54282c87068de043ef080",
+    "benchmarks/review/pdf-edge-aligned-captions/negative.patch": "d8d4f347bcc9818dede204159ee110dee83ec080d7505929083398944935a554",
+    "benchmarks/review/pdf-edge-aligned-captions/transfer-score.patch": "a1db2a409ccb3bb606643e78195b7011422da7365108cdb55826d392a0e34bd9"
+  },
+  "raw_sources_redistributed": false,
+  "comparison_tool_sha256": "8489147cb9a7dd787a8997a93009e177016fefc6f67c763ee865d3052ff2583f",
+  "validation": {
+    "java21_tests": 1165,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "java25_run": false
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "frozen_at": "2026-10-19T16:53:53.351819+00:00",
+  "baseline_commit": "7e168f7",
+  "protocol": "Explicit new native mode: unchanged closed/partial stages plus source-segmented horizontal row-span strategy. At least2 observed column partitions from matching top/bottom paint, first-column rule at every atomic row, an interior full-width separator and at leastone partial divider. No vertical/raster/angled/barrier ambiguity; every inferred rectangular anchor needs contained nonblank original text. Exact original glyph ownership, no semantic header claim or text repair. Replay all23 fixed regions (prior21 plus nextPLOS and eLife) onactual21/25, same model/config/datepolicy and source/reference labels. No labels/ROI to extraction; preserve all changes/failures and denominators.",
+  "reference_manifests": {
+    "pdf-tagged-tables": "4f495b6d0686a55d583c9206aa968fdf5c80e90d860c6d267f84ad3349b6876d",
+    "pdf-scientific-next-source": "d3e9fb72127a8ceeed619e4d086585b7249af033cef32f8d183a1b704d7c1793",
+    "pdf-scientific-second-publisher": "3aa0657b56d12f60d99a855196171ae5b3edf2930c105ef077e752272f5d552e"
+  },
+  "acceptance": "Owned rectangular rowspans, multiline cell content, multiple tables, invalid/missing/overlapping paint, glyph crossings/empty anchors/raster/angle/rotation barriers, source/table/work/cancel budgets and exact unclaimed source preservation; unchanged oldfactories/modes. Development cases, not general merge correctness."
+}

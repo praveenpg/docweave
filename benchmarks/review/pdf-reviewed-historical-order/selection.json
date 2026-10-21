@@ -1,0 +1,9 @@
+{
+  "scope": "Freeze separate source-image-reviewed1879 order before any OCR score against this order. Original sources, XML line sequence, historical metrics and native OCR algorithms remain unchanged.",
+  "reviewed_order_sha256": "0ca1e0a61f9df408d31e946a5b2d10de11ec1268bca0e10ea8d68461a6e6056b",
+  "original_reference_manifest_sha256": "72a4191bf08f2507700ee42add253f0038b6047e5f6272709e21d104c6a0f795",
+  "labels": 50,
+  "ocr_profiles": "Both pinned German and Fraktur models, AUTO/ENGINE_DEFAULT, actual source DPI, no preprocessing change.",
+  "paired_upstream_manifest_sha256": "203f324d55f69dba68894936d27d55d906246b6cb7be6ed363996f6149199f2d",
+  "paired_capture_version": "Unstructured0.27.28; reuse both pinned-model1879 public captures, no new Python inference or per-model selection"
+}

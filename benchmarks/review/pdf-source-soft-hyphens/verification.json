@@ -1,0 +1,32 @@
+{
+  "builds": [
+    {
+      "jdk": 21,
+      "tests": 994,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "strict_public_javadocs": "PASS",
+      "strict_changed_source_and_new_test_private_javadocs": "PASS",
+      "log_sha256": "c9ae1de4da685fe9a4f480c100d1e204eabeea3c71610bae1b75b4eb1ee20fc0"
+    },
+    {
+      "jdk": 25,
+      "tests": 994,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "strict_public_javadocs": "PASS",
+      "strict_changed_source_and_new_test_private_javadocs": "PASS",
+      "log_sha256": "197e15feab981401bd56ec3dbe637fb22c1866d45db2ad07ebb529fa92c4cd83"
+    }
+  ],
+  "formatter": "clang-format23.1.1",
+  "capture_comparisons": 46,
+  "unchanged_other_comparisons": 42,
+  "source_frames_equal": 46,
+  "paired_jdk_captures_equal": 23,
+  "default_behavior": "unchanged",
+  "public_record_shapes": "unchanged",
+  "upstream": "Known0.27.28/main1b02b4d drift recorded; historical reference0.27.27 retained"
+}

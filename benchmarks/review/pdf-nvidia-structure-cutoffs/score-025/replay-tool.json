@@ -1,0 +1,5 @@
+{
+  "replay_manifest_sha256" : "2c15213e6687a523f738f1b463e77ca0848d9887a3c9aa6c4692d776aa228fa2",
+  "tool" : "benchmarks/tools/ReplayNativeLayoutCaptures.java",
+  "tool_sha256" : "9fc39919def458a9ddab98cfb69964ab2aa564cdd15294e943abda6b4e6473b9"
+}

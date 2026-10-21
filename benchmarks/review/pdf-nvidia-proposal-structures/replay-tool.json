@@ -1,0 +1,6 @@
+{
+  "scope": "Tool identity frozen before the first native-text replay; Java 21 only.",
+  "tool": "benchmarks/tools/ReplayNativeLayoutCaptures.java",
+  "tool_sha256": "9fc39919def458a9ddab98cfb69964ab2aa564cdd15294e943abda6b4e6473b9",
+  "replay_manifest_sha256": "5ded274dc78dfdd2db6d5fedad11ec261e035ad4148c137570fd72b1244c38eb"
+}

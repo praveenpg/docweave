@@ -1,0 +1,613 @@
+{
+  "visual_review_status": "SOURCE_IMAGE_REVIEWED",
+  "lines": [
+    {
+      "original_xml_index": 0,
+      "line_id": "l7",
+      "index": 0,
+      "bounds": [
+        1274.0,
+        119.0,
+        1755.0,
+        173.0
+      ],
+      "region_id": "r1"
+    },
+    {
+      "original_xml_index": 1,
+      "line_id": "l11",
+      "index": 1,
+      "bounds": [
+        250.0,
+        291.0,
+        2785.0,
+        353.0
+      ],
+      "region_id": "r2"
+    },
+    {
+      "original_xml_index": 2,
+      "line_id": "l12",
+      "index": 2,
+      "bounds": [
+        250.0,
+        383.0,
+        456.0,
+        441.0
+      ],
+      "region_id": "r2"
+    },
+    {
+      "original_xml_index": 3,
+      "line_id": "l14",
+      "index": 3,
+      "bounds": [
+        429.0,
+        468.0,
+        2787.0,
+        543.0
+      ],
+      "region_id": "r3"
+    },
+    {
+      "original_xml_index": 4,
+      "line_id": "l16",
+      "index": 4,
+      "bounds": [
+        249.0,
+        556.0,
+        2788.0,
+        628.0
+      ],
+      "region_id": "r3"
+    },
+    {
+      "original_xml_index": 5,
+      "line_id": "l17",
+      "index": 5,
+      "bounds": [
+        250.0,
+        645.0,
+        2786.0,
+        717.0
+      ],
+      "region_id": "r3"
+    },
+    {
+      "original_xml_index": 6,
+      "line_id": "l18",
+      "index": 6,
+      "bounds": [
+        250.0,
+        734.0,
+        2789.0,
+        804.0
+      ],
+      "region_id": "r3"
+    },
+    {
+      "original_xml_index": 7,
+      "line_id": "l19",
+      "index": 7,
+      "bounds": [
+        252.0,
+        821.0,
+        2787.0,
+        894.0
+      ],
+      "region_id": "r3"
+    },
+    {
+      "original_xml_index": 8,
+      "line_id": "l21",
+      "index": 8,
+      "bounds": [
+        248.0,
+        910.0,
+        2789.0,
+        980.0
+      ],
+      "region_id": "r3"
+    },
+    {
+      "original_xml_index": 10,
+      "line_id": "l23",
+      "index": 9,
+      "bounds": [
+        250.0,
+        999.0,
+        2793.0,
+        1071.0
+      ],
+      "region_id": "r3"
+    },
+    {
+      "original_xml_index": 11,
+      "line_id": "l24",
+      "index": 10,
+      "bounds": [
+        250.0,
+        1087.0,
+        2790.0,
+        1159.0
+      ],
+      "region_id": "r3"
+    },
+    {
+      "original_xml_index": 12,
+      "line_id": "l25",
+      "index": 11,
+      "bounds": [
+        250.0,
+        1175.0,
+        2791.0,
+        1247.0
+      ],
+      "region_id": "r3"
+    },
+    {
+      "original_xml_index": 13,
+      "line_id": "l26",
+      "index": 12,
+      "bounds": [
+        252.0,
+        1265.0,
+        2791.0,
+        1336.0
+      ],
+      "region_id": "r3"
+    },
+    {
+      "original_xml_index": 14,
+      "line_id": "l27",
+      "index": 13,
+      "bounds": [
+        252.0,
+        1354.0,
+        2790.0,
+        1425.0
+      ],
+      "region_id": "r3"
+    },
+    {
+      "original_xml_index": 15,
+      "line_id": "l28",
+      "index": 14,
+      "bounds": [
+        250.0,
+        1442.0,
+        2791.0,
+        1513.0
+      ],
+      "region_id": "r3"
+    },
+    {
+      "original_xml_index": 16,
+      "line_id": "l29",
+      "index": 15,
+      "bounds": [
+        250.0,
+        1530.0,
+        2793.0,
+        1601.0
+      ],
+      "region_id": "r3"
+    },
+    {
+      "original_xml_index": 17,
+      "line_id": "l30",
+      "index": 16,
+      "bounds": [
+        253.0,
+        1617.0,
+        2789.0,
+        1691.0
+      ],
+      "region_id": "r3"
+    },
+    {
+      "original_xml_index": 18,
+      "line_id": "l31",
+      "index": 17,
+      "bounds": [
+        252.0,
+        1709.0,
+        2789.0,
+        1779.0
+      ],
+      "region_id": "r3"
+    },
+    {
+      "original_xml_index": 19,
+      "line_id": "l32",
+      "index": 18,
+      "bounds": [
+        251.0,
+        1797.0,
+        2794.0,
+        1868.0
+      ],
+      "region_id": "r3"
+    },
+    {
+      "original_xml_index": 9,
+      "line_id": "l22",
+      "index": 19,
+      "bounds": [
+        253.0,
+        1885.0,
+        2598.0,
+        1950.0
+      ],
+      "region_id": "r3"
+    },
+    {
+      "original_xml_index": 20,
+      "line_id": "l33",
+      "index": 20,
+      "bounds": [
+        428.0,
+        1974.0,
+        2794.0,
+        2045.0
+      ],
+      "region_id": "r4"
+    },
+    {
+      "original_xml_index": 21,
+      "line_id": "l34",
+      "index": 21,
+      "bounds": [
+        253.0,
+        2062.0,
+        764.0,
+        2120.0
+      ],
+      "region_id": "r4"
+    },
+    {
+      "original_xml_index": 22,
+      "line_id": "l35",
+      "index": 22,
+      "bounds": [
+        434.0,
+        2170.0,
+        2794.0,
+        2240.0
+      ],
+      "region_id": "r4"
+    },
+    {
+      "original_xml_index": 24,
+      "line_id": "l37",
+      "index": 23,
+      "bounds": [
+        548.0,
+        2255.0,
+        2794.0,
+        2329.0
+      ],
+      "region_id": "r4"
+    },
+    {
+      "original_xml_index": 25,
+      "line_id": "l38",
+      "index": 24,
+      "bounds": [
+        550.0,
+        2348.0,
+        2799.0,
+        2416.0
+      ],
+      "region_id": "r4"
+    },
+    {
+      "original_xml_index": 26,
+      "line_id": "l39",
+      "index": 25,
+      "bounds": [
+        540.0,
+        2436.0,
+        2793.0,
+        2510.0
+      ],
+      "region_id": "r4"
+    },
+    {
+      "original_xml_index": 27,
+      "line_id": "l41",
+      "index": 26,
+      "bounds": [
+        540.0,
+        2524.0,
+        1369.0,
+        2595.0
+      ],
+      "region_id": "r4"
+    },
+    {
+      "original_xml_index": 28,
+      "line_id": "l42",
+      "index": 27,
+      "bounds": [
+        434.0,
+        2612.0,
+        2794.0,
+        2684.0
+      ],
+      "region_id": "r4"
+    },
+    {
+      "original_xml_index": 29,
+      "line_id": "l44",
+      "index": 28,
+      "bounds": [
+        540.0,
+        2702.0,
+        2776.0,
+        2772.0
+      ],
+      "region_id": "r4"
+    },
+    {
+      "original_xml_index": 30,
+      "line_id": "l46",
+      "index": 29,
+      "bounds": [
+        541.0,
+        2787.0,
+        2795.0,
+        2861.0
+      ],
+      "region_id": "r4"
+    },
+    {
+      "original_xml_index": 31,
+      "line_id": "l47",
+      "index": 30,
+      "bounds": [
+        542.0,
+        2876.0,
+        2057.0,
+        2950.0
+      ],
+      "region_id": "r4"
+    },
+    {
+      "original_xml_index": 32,
+      "line_id": "l48",
+      "index": 31,
+      "bounds": [
+        432.0,
+        2965.0,
+        2789.0,
+        3037.0
+      ],
+      "region_id": "r4"
+    },
+    {
+      "original_xml_index": 33,
+      "line_id": "l49",
+      "index": 32,
+      "bounds": [
+        539.0,
+        3054.0,
+        2792.0,
+        3125.0
+      ],
+      "region_id": "r4"
+    },
+    {
+      "original_xml_index": 34,
+      "line_id": "l50",
+      "index": 33,
+      "bounds": [
+        541.0,
+        3142.0,
+        2795.0,
+        3214.0
+      ],
+      "region_id": "r4"
+    },
+    {
+      "original_xml_index": 35,
+      "line_id": "l52",
+      "index": 34,
+      "bounds": [
+        544.0,
+        3231.0,
+        2794.0,
+        3303.0
+      ],
+      "region_id": "r4"
+    },
+    {
+      "original_xml_index": 36,
+      "line_id": "l53",
+      "index": 35,
+      "bounds": [
+        543.0,
+        3319.0,
+        2793.0,
+        3392.0
+      ],
+      "region_id": "r4"
+    },
+    {
+      "original_xml_index": 37,
+      "line_id": "l54",
+      "index": 36,
+      "bounds": [
+        540.0,
+        3408.0,
+        2796.0,
+        3482.0
+      ],
+      "region_id": "r4"
+    },
+    {
+      "original_xml_index": 38,
+      "line_id": "l55",
+      "index": 37,
+      "bounds": [
+        543.0,
+        3497.0,
+        2795.0,
+        3569.0
+      ],
+      "region_id": "r4"
+    },
+    {
+      "original_xml_index": 23,
+      "line_id": "l36",
+      "index": 38,
+      "bounds": [
+        544.0,
+        3583.0,
+        841.0,
+        3660.0
+      ],
+      "region_id": "r4"
+    },
+    {
+      "original_xml_index": 39,
+      "line_id": "l57",
+      "index": 39,
+      "bounds": [
+        399.0,
+        3754.0,
+        2795.0,
+        3821.0
+      ],
+      "region_id": "r6"
+    },
+    {
+      "original_xml_index": 40,
+      "line_id": "l58",
+      "index": 40,
+      "bounds": [
+        255.0,
+        3825.0,
+        2797.0,
+        3890.0
+      ],
+      "region_id": "r6"
+    },
+    {
+      "original_xml_index": 41,
+      "line_id": "l60",
+      "index": 41,
+      "bounds": [
+        254.0,
+        3895.0,
+        2798.0,
+        3963.0
+      ],
+      "region_id": "r6"
+    },
+    {
+      "original_xml_index": 42,
+      "line_id": "l63",
+      "index": 42,
+      "bounds": [
+        257.0,
+        3967.0,
+        2812.0,
+        4032.0
+      ],
+      "region_id": "r6"
+    },
+    {
+      "original_xml_index": 44,
+      "line_id": "l65",
+      "index": 43,
+      "bounds": [
+        257.0,
+        4038.0,
+        2797.0,
+        4103.0
+      ],
+      "region_id": "r6"
+    },
+    {
+      "original_xml_index": 45,
+      "line_id": "l66",
+      "index": 44,
+      "bounds": [
+        256.0,
+        4108.0,
+        2795.0,
+        4174.0
+      ],
+      "region_id": "r6"
+    },
+    {
+      "original_xml_index": 46,
+      "line_id": "l68",
+      "index": 45,
+      "bounds": [
+        258.0,
+        4176.0,
+        2795.0,
+        4245.0
+      ],
+      "region_id": "r6"
+    },
+    {
+      "original_xml_index": 47,
+      "line_id": "l70",
+      "index": 46,
+      "bounds": [
+        260.0,
+        4248.0,
+        2794.0,
+        4315.0
+      ],
+      "region_id": "r6"
+    },
+    {
+      "original_xml_index": 48,
+      "line_id": "l71",
+      "index": 47,
+      "bounds": [
+        259.0,
+        4318.0,
+        2795.0,
+        4387.0
+      ],
+      "region_id": "r6"
+    },
+    {
+      "original_xml_index": 49,
+      "line_id": "l73",
+      "index": 48,
+      "bounds": [
+        260.0,
+        4388.0,
+        2794.0,
+        4457.0
+      ],
+      "region_id": "r6"
+    },
+    {
+      "original_xml_index": 43,
+      "line_id": "l64",
+      "index": 49,
+      "bounds": [
+        261.0,
+        4459.0,
+        2794.0,
+        4527.0
+      ],
+      "region_id": "r6"
+    }
+  ],
+  "source_image_width": 3068,
+  "source_image_height": 4660,
+  "source_xml_sha256": "c604c931b76195730b61513208d9998162331b4f841eba153d0ca8b629696315",
+  "scope": "Proposed source-coordinate order for independent source-image visual review, before OCR order scoring. Original XML and historical reports unchanged.",
+  "review_method": "Complete source scan and a50-line polygon/index overlay were visually reviewed before any reordered-reference OCR scoring. One page-number line, single-column body through numbered item3, then the bottom footnote. All50 IDs exactly once. Original transcriptions, punctuation and physical hyphens unchanged. This is a separately labelled physical reading order, not an assertion that the published XML declares line order or a blind/held-out review.",
+  "source_tiff_sha256": "261b727a9175152eab3b1175497f07e15f4ba35942e5a4322996a7745f0c89ea",
+  "preview_sha256": "00aa5424e2bda18f99ca75f1cd2f54b1a8e0f29df1f9a177843b778d7d0f2fa9",
+  "indexed_overlay_sha256": "245d86a31e29ca7ab22050a87a3634dd63b5e0262c30498d22323edb5c5f1318"
+}

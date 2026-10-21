@@ -1,0 +1,10 @@
+{
+  "frozen_at": "2026-10-19T04:45:21.144592+00:00",
+  "references": {
+    "benchmarks/review/pdf-business-cell-text/manifest.json": "df8b9fcd50d77a61fe9b273aa0a2470932c922d5ada4b21c90fd02cc954cecbe",
+    "benchmarks/review/pdf-native-model-breadth/manifest.json": "585f6d56500d29bc0c14ba4a8256166773766f0ef9a514fed818c230d9c1ddeb",
+    "benchmarks/review/pdf-current-business-rows/manifest.json": "3656667adb4345c0b7ff0ac74f07b255cf4aa923ce7ab55a7ad13d747a732898",
+    "benchmarks/review/pdf-scientific-native-spans/manifest.json": "0c963557789d766f4661d09225a326f836c7ea07d3fc0834500e7e6a93431311"
+  },
+  "protocol": "Same whole-original-document native/model150DPI,16Mpixels,1024anchors,pinnedTATRgraphs4threads,structureKEEP_HIGHER_SCORE. Only production change maps native glyph centers via shared PdfPageGeometry and reuses existing per-direction native line grouping/display order. Original references/profiles/IoU/text normalization unchanged. Replay all3business cases, scientific43anchors and recent59rows; retain all denominators/failures. No OCR, page/reference/ROI input to extraction, no model/text/geometry threshold tuning."
+}

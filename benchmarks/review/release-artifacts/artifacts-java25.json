@@ -1,0 +1,391 @@
+{
+  "runtime": "25",
+  "publishable_jar_modules": 16,
+  "internal_harness_attachments_absent": true,
+  "artifacts": [
+    {
+      "module": "docweave-core",
+      "artifact": "docweave-core",
+      "archives": {
+        "binary": {
+          "sha256": "d6d8e78dedb6b1590e4be514855222b95895ba2904b6ae56e519a752d7d6a689",
+          "bytes": 91959,
+          "entries": 75,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-sources": {
+          "sha256": "528d43871f774292f274739ffcbde09d2ffddf4609e9c06a3e7e8954d0b82fb1",
+          "bytes": 69916,
+          "entries": 57,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-javadoc": {
+          "sha256": "3421bdb859d07bb92d4b965c59aaca02059dccdb5bfe678e0bca56a631f6ac6e",
+          "bytes": 369178,
+          "entries": 130,
+          "license_entry": "resources/META-INF/LICENSE"
+        }
+      }
+    },
+    {
+      "module": "docweave-json",
+      "artifact": "docweave-json",
+      "archives": {
+        "binary": {
+          "sha256": "30f3bb8529408e851a3eb50a0e46b2d5722e7a134f2f2fcb3b7871be92fa2908",
+          "bytes": 16422,
+          "entries": 16,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-sources": {
+          "sha256": "7d2c9c2bcb0852cfd3ff4d46280b114e0d10f6e2f62977e520d2c6dd79008af6",
+          "bytes": 14910,
+          "entries": 16,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-javadoc": {
+          "sha256": "1291fb6deb735476ac3249d11f9c6d5760dcd9879a83b73ce9a2bfab7665a632",
+          "bytes": 120539,
+          "entries": 51,
+          "license_entry": "resources/META-INF/LICENSE"
+        }
+      }
+    },
+    {
+      "module": "docweave-chunking",
+      "artifact": "docweave-chunking",
+      "archives": {
+        "binary": {
+          "sha256": "e3e8015122605e9ec6c8ab48d0f07212f6b81f129ee91c2c34f1de007c2f88d1",
+          "bytes": 48551,
+          "entries": 32,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-sources": {
+          "sha256": "389f2bfde26f212c4dcb8d7a115ce2eddde87d935cdbd84f009cc829ed44f185",
+          "bytes": 34914,
+          "entries": 23,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-javadoc": {
+          "sha256": "81fd96f5416606608b34ddd481c77c087cea81523534aaa1dee864c2bceb27d7",
+          "bytes": 137329,
+          "entries": 55,
+          "license_entry": "resources/META-INF/LICENSE"
+        }
+      }
+    },
+    {
+      "module": "docweave-batch",
+      "artifact": "docweave-batch",
+      "archives": {
+        "binary": {
+          "sha256": "a6c593646a0377fba9b06c39f9d8959fd762874348ce79c1e9d3d6c492f82c1d",
+          "bytes": 29480,
+          "entries": 27,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-sources": {
+          "sha256": "976c2547088f0fb1aab8748dc0850c0b943f281e948ec9609ea562de594adc2d",
+          "bytes": 23800,
+          "entries": 21,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-javadoc": {
+          "sha256": "63f5633b86e0a214431ab595674e7d204616aefa5ea144be1fe58c218f89a8b5",
+          "bytes": 172396,
+          "entries": 68,
+          "license_entry": "resources/META-INF/LICENSE"
+        }
+      }
+    },
+    {
+      "module": "docweave-txt",
+      "artifact": "docweave-txt",
+      "archives": {
+        "binary": {
+          "sha256": "89d1b4a2b630e4425e8866f02a601708af8e8378bf317792b7889161cf795064",
+          "bytes": 12767,
+          "entries": 18,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-sources": {
+          "sha256": "3cf8b78a39d7c920c59fc258f9aebed611503c68b3ca08189862606e8598d92b",
+          "bytes": 11917,
+          "entries": 18,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-javadoc": {
+          "sha256": "1a3917819aee5d567dcc076ebf3bd47611a544506fe2340d0de4d060cdf3f011",
+          "bytes": 110544,
+          "entries": 49,
+          "license_entry": "resources/META-INF/LICENSE"
+        }
+      }
+    },
+    {
+      "module": "docweave-html",
+      "artifact": "docweave-html",
+      "archives": {
+        "binary": {
+          "sha256": "e966206533d55375854dc03d81a1e599429ff54736d52d8d7bb261ff11c69fce",
+          "bytes": 36328,
+          "entries": 27,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-sources": {
+          "sha256": "612ac1359f835af67d5af3207a46bc378628310e5a20d17e3eab4edc05014e57",
+          "bytes": 23509,
+          "entries": 21,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-javadoc": {
+          "sha256": "04212769a388d78b1119baf753df350294f8d1300ffd48b67453b0ed787a6698",
+          "bytes": 111592,
+          "entries": 49,
+          "license_entry": "resources/META-INF/LICENSE"
+        }
+      }
+    },
+    {
+      "module": "docweave-markdown",
+      "artifact": "docweave-markdown",
+      "archives": {
+        "binary": {
+          "sha256": "ff3915c8cff2cc3311c64f2db938eb92328c327f2e01373b538ae7640aae4f93",
+          "bytes": 20338,
+          "entries": 18,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-sources": {
+          "sha256": "71037c56445023f94030a9a5197494717ad363bcc5753e449034bbae25edc45e",
+          "bytes": 13243,
+          "entries": 16,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-javadoc": {
+          "sha256": "395e08fa6004a5d65139cde7214be0d09c4e2e25642d9e01170fc06673736efe",
+          "bytes": 110647,
+          "entries": 49,
+          "license_entry": "resources/META-INF/LICENSE"
+        }
+      }
+    },
+    {
+      "module": "docweave-delimited",
+      "artifact": "docweave-delimited",
+      "archives": {
+        "binary": {
+          "sha256": "435700d563566f08b7ce79c80b833f9b3761a370c898b8a2294fdcc260610ba9",
+          "bytes": 8737,
+          "entries": 12,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-sources": {
+          "sha256": "d048f5963baa4606f2f98ea1496693cfc516ada95d6afe19373f16e98f5dabe9",
+          "bytes": 7285,
+          "entries": 12,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-javadoc": {
+          "sha256": "6fde63c4faf6aebf3ce584a7492da1294187b54c03a3745d8b078ae2626ab738",
+          "bytes": 110172,
+          "entries": 49,
+          "license_entry": "resources/META-INF/LICENSE"
+        }
+      }
+    },
+    {
+      "module": "docweave-csv",
+      "artifact": "docweave-csv",
+      "archives": {
+        "binary": {
+          "sha256": "0cb4cc097a53ba1145f3b5ec28d9c954efa95ae257fb63920bba45888db20a75",
+          "bytes": 7345,
+          "entries": 15,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-sources": {
+          "sha256": "255eeabbfd59bbb4e359211918a27dc8862e9fdfa1b5c8349d57377c1f178c44",
+          "bytes": 7260,
+          "entries": 15,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-javadoc": {
+          "sha256": "7819d9aa600a13ece2a43ed8a24880f6e442e43ec1960e7c4fb84ccf0be9a924",
+          "bytes": 110529,
+          "entries": 49,
+          "license_entry": "resources/META-INF/LICENSE"
+        }
+      }
+    },
+    {
+      "module": "docweave-tsv",
+      "artifact": "docweave-tsv",
+      "archives": {
+        "binary": {
+          "sha256": "cce944c2ed8813684fcbede94d7dbaa55740c4e5c0dec288dd3d19d14f3eb873",
+          "bytes": 7343,
+          "entries": 15,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-sources": {
+          "sha256": "38d0e6337d7c583579c3e03571c2d4d2ec31fd8fd9469c6c2589255c57836618",
+          "bytes": 7258,
+          "entries": 15,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-javadoc": {
+          "sha256": "57bcf3ccfb623df8c75d2646c279430b150b9e6c48946cb1ea5ae943a2ca3301",
+          "bytes": 110544,
+          "entries": 49,
+          "license_entry": "resources/META-INF/LICENSE"
+        }
+      }
+    },
+    {
+      "module": "docweave-xml",
+      "artifact": "docweave-xml",
+      "archives": {
+        "binary": {
+          "sha256": "b0280ee6b56cd38219a1b0a15b015568641ca0508a30511e6dcc8fc250838cd3",
+          "bytes": 12426,
+          "entries": 17,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-sources": {
+          "sha256": "11ff54a6b76153f140e19cb6abfd6cc41108297fdcb09d705cb5e2aac9b0747a",
+          "bytes": 10093,
+          "entries": 16,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-javadoc": {
+          "sha256": "657e22d9b1b477ee957f732836a3d81859791792a9a167d5282d6b1f5f0e981d",
+          "bytes": 110556,
+          "entries": 49,
+          "license_entry": "resources/META-INF/LICENSE"
+        }
+      }
+    },
+    {
+      "module": "docweave-docx",
+      "artifact": "docweave-docx",
+      "archives": {
+        "binary": {
+          "sha256": "314c3ff8d33c1433b7775b0ee4dcb04fca271483d9e23cf6e40689ce8863dca7",
+          "bytes": 98560,
+          "entries": 41,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-sources": {
+          "sha256": "9004b53edbb37f640b55dbe664cdf8c3e4c837c40630f3ca0dd963666377ec67",
+          "bytes": 54965,
+          "entries": 29,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-javadoc": {
+          "sha256": "cac066f9c83c2b09e4817e58a4f11b84643b644f55c56c072689900f5e2324cd",
+          "bytes": 110567,
+          "entries": 49,
+          "license_entry": "resources/META-INF/LICENSE"
+        }
+      }
+    },
+    {
+      "module": "docweave-pdf",
+      "artifact": "docweave-pdf",
+      "archives": {
+        "binary": {
+          "sha256": "dac27d5d1453015570c18b5e41522770887772eb475088abe9957a244d7dceea",
+          "bytes": 246523,
+          "entries": 128,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-sources": {
+          "sha256": "6983b39a0da4667c458220a895a92ffd33180d1caa407df5d5e2863f9b4fdf3d",
+          "bytes": 147248,
+          "entries": 81,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-javadoc": {
+          "sha256": "e384b2e0554eb29b087cd51795b986cf5f7ca9270f5b38d50814fc1896e046a7",
+          "bytes": 330013,
+          "entries": 111,
+          "license_entry": "resources/META-INF/LICENSE"
+        }
+      }
+    },
+    {
+      "module": "docweave-ocr-tesseract",
+      "artifact": "docweave-ocr-tesseract",
+      "archives": {
+        "binary": {
+          "sha256": "8055f5a6ee189fff183a1ac016de48d060cda2959cee3ea9e9b180e96b5efece",
+          "bytes": 41691,
+          "entries": 31,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-sources": {
+          "sha256": "4cf3ccc993d1c6195c3bcec6d5f5deac3b8896798d72d9c64661dee6e75b40c1",
+          "bytes": 27042,
+          "entries": 23,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-javadoc": {
+          "sha256": "ef01de2d064179f795723933b2bc716be6dfb3bdfac528351aab41899fe86dcc",
+          "bytes": 155933,
+          "entries": 61,
+          "license_entry": "resources/META-INF/LICENSE"
+        }
+      }
+    },
+    {
+      "module": "docweave-layout-onnx",
+      "artifact": "docweave-layout-onnx",
+      "archives": {
+        "binary": {
+          "sha256": "132974b1033bbd4d29e409c0e07839d269184a592bb9fd20de2e5ad90cf949e0",
+          "bytes": 45967,
+          "entries": 31,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-sources": {
+          "sha256": "08e5d406df78f247f32573b1776a696aa40d1396b5a2b6b1b8e4b4d928db2335",
+          "bytes": 32978,
+          "entries": 27,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-javadoc": {
+          "sha256": "3e84dd1eea6141601ac96b6e4051149a89cfade2cd1492a42d134c600038446f",
+          "bytes": 131303,
+          "entries": 54,
+          "license_entry": "resources/META-INF/LICENSE"
+        }
+      }
+    },
+    {
+      "module": "docweave-all",
+      "artifact": "docweave",
+      "archives": {
+        "binary": {
+          "sha256": "aefaa46c4cbaf761d60ce5dca058cf59667722433ad44699435468249b7c047f",
+          "bytes": 6475,
+          "entries": 9,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-sources": {
+          "sha256": "b4abf9cefa3c838aabc500e351d7be32045cb2fc409d0314007dacd99d46a8b8",
+          "bytes": 6458,
+          "entries": 9,
+          "license_entry": "META-INF/LICENSE"
+        },
+        "-javadoc": {
+          "sha256": "54268b50b323dfb034bebfdb0557c060837ba9ee615888f3c4ab3f8cde749be9",
+          "bytes": 6475,
+          "entries": 9,
+          "license_entry": "META-INF/LICENSE"
+        }
+      }
+    }
+  ]
+}

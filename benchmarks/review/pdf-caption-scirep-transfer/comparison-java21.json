@@ -1,0 +1,5 @@
+{
+  "outcomes_references_and_full_text_exact" : true,
+  "profiles" : 3,
+  "normalization" : "No score or source modification; exact JSON tree equality"
+}

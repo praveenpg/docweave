@@ -1,0 +1,275 @@
+{
+  "schema_version": 1,
+  "frozen_at": "2026-10-19T21:38:43.707092+00:00",
+  "purpose": "Interim development comparison to guide PDF engineering. No overall winner/completion percentage. All selected cases are prior development data, not held out.",
+  "docweave_commit": "e557c43f6715cdb9b03d045b512b1c6d617e00b9",
+  "public_release": "0.1.0-beta.6",
+  "unstructured_version": "0.27.28",
+  "unstructured_commit": "1b02b4d189c260ed9b1aca29583203e233d853cb",
+  "execution_order": [
+    "modern-business-and-scientific",
+    "historical",
+    "degraded"
+  ],
+  "cases": [
+    {
+      "domain": "modern-scientific",
+      "id": "recent",
+      "reference_manifest": "benchmarks/review/pdf-scientific-paragraph-assembly/manifest.json",
+      "reference_manifest_sha256": "96cb82fc3e3b03918271ecd09543dbb4309f7326cc45e92857433d955ae31787",
+      "inputs": [
+        {
+          "filename": "recent.pdf",
+          "sha256": "acb3af41357a960a9584f9ba0b0bf3319195af2ec4f3bc6074c2083d97d10bb8",
+          "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0324609&type=printable",
+          "bytes": 927934
+        },
+        {
+          "filename": "recent.xml",
+          "sha256": "2b691f82a7dc50ea051448861b852783a6be9069a61dc777d8871382d2bff9cd",
+          "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0324609&type=manuscript",
+          "bytes": 127737
+        }
+      ],
+      "paired_status": "scheduled-native-text",
+      "label_boundary": "Publisher XML: selected exact paragraphs/order only; not full-document transcription or physical boxes."
+    },
+    {
+      "domain": "modern-scientific",
+      "id": "next",
+      "reference_manifest": "benchmarks/review/pdf-scientific-paragraph-assembly/manifest.json",
+      "reference_manifest_sha256": "96cb82fc3e3b03918271ecd09543dbb4309f7326cc45e92857433d955ae31787",
+      "inputs": [
+        {
+          "filename": "next.pdf",
+          "sha256": "0c96e723535ee671eb0d263702adc9e986fb2817a5e16ab7b7235e593a39eff2",
+          "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0330904&type=printable",
+          "bytes": 321008
+        },
+        {
+          "filename": "next.xml",
+          "sha256": "0b73d71a5210d4797d5122d94d9dd65058460c644e87083ab9347d3224261be4",
+          "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0330904&type=manuscript",
+          "bytes": 123002
+        }
+      ],
+      "paired_status": "scheduled-native-text",
+      "label_boundary": "Publisher XML: selected exact paragraphs/order only; not full-document transcription or physical boxes."
+    },
+    {
+      "domain": "modern-scientific",
+      "id": "elife",
+      "reference_manifest": "benchmarks/review/pdf-scientific-paragraph-assembly/manifest.json",
+      "reference_manifest_sha256": "96cb82fc3e3b03918271ecd09543dbb4309f7326cc45e92857433d955ae31787",
+      "inputs": [
+        {
+          "filename": "elife.pdf",
+          "sha256": "ae3d00995f44bdd26fd0f60e760dc0fce44e84a0482fc64d2277ef4792413a4b",
+          "url": "https://cdn.elifesciences.org/articles/90049/elife-90049-v1.pdf",
+          "bytes": 1641690
+        },
+        {
+          "filename": "elife.xml",
+          "sha256": "367b0b049e4bd20e221490d5f8b1cdca2e09cc8242fae67fa6cbb17f1b9b7e18",
+          "url": "https://cdn.elifesciences.org/articles/90049/elife-90049-v1.xml",
+          "bytes": 259829
+        }
+      ],
+      "paired_status": "scheduled-native-text",
+      "label_boundary": "Publisher XML: selected exact paragraphs/order only; not full-document transcription or physical boxes."
+    },
+    {
+      "domain": "modern-scientific",
+      "id": "holdout",
+      "reference_manifest": "benchmarks/review/pdf-scientific-paragraph-assembly/manifest.json",
+      "reference_manifest_sha256": "96cb82fc3e3b03918271ecd09543dbb4309f7326cc45e92857433d955ae31787",
+      "inputs": [
+        {
+          "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0360958&type=printable",
+          "bytes": 2529842,
+          "filename": "holdout.pdf",
+          "sha256": "dcd83b90a257628b5a1f8beac96dd14cafcbefa50d7077d15cc4f48d86c2e3dc"
+        },
+        {
+          "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0360958&type=manuscript",
+          "bytes": 242392,
+          "filename": "holdout.xml",
+          "sha256": "a8c6b4e2690e9e274bbb65204c4d6571f7dc6ee378c4612fc58761dbd29063ad"
+        }
+      ],
+      "paired_status": "scheduled-native-text",
+      "label_boundary": "Publisher XML: selected exact paragraphs/order only; not full-document transcription or physical boxes."
+    },
+    {
+      "domain": "modern-business",
+      "id": "amazon-q4-2025",
+      "reference_manifest": "benchmarks/review/pdf-current-business-rows/manifest.json",
+      "reference_manifest_sha256": "3656667adb4345c0b7ff0ac74f07b255cf4aa923ce7ab55a7ad13d747a732898",
+      "inputs": [
+        {
+          "filename": "amazon-q4-2025.pdf",
+          "url": "https://s2.q4cdn.com/299287126/files/doc_earnings/2025/q4/earnings-result/AMZN-Q4-2025-Earnings-Release.pdf",
+          "bytes": 360510,
+          "sha256": "ad8d84cbcc0a4ce35b803b93e8186c29ea0b06b4455d04fb584ab5ad29c42915"
+        },
+        {
+          "filename": "amazon-q4-2025-sec.html",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000002/amzn-20251231xex991.htm",
+          "bytes": 629437,
+          "sha256": "48446f283debb99562001c1b8456f00fd9bd5e6c5b142827653753c840e473c2"
+        }
+      ],
+      "paired_status": "pending",
+      "label_boundary": "Issuer HTML:59 ordered row-content references on two pages, not PDF cell/span geometry."
+    },
+    {
+      "domain": "historical",
+      "id": "arnimb_goethe03_1835",
+      "reference_manifest": "benchmarks/review/pdf-historical-text/manifest.json",
+      "reference_manifest_sha256": "72a4191bf08f2507700ee42add253f0038b6047e5f6272709e21d104c6a0f795",
+      "inputs": [
+        {
+          "filename": "arnimb_goethe03_1835.tif",
+          "bytes": 12156546,
+          "sha256": "ad0320478393bf50cfecfeaa957cf84937a6aadae25deac29d028a925f30e264",
+          "git_blob_sha1": "d989fd0c9ded1916cc89313f4a10d55f1e7688c5"
+        },
+        {
+          "filename": "arnimb_goethe03_1835.xml",
+          "bytes": 78215,
+          "sha256": "7204b05a4b4ca99b790f93baf2def833690aa48abb93a123d75c20b77b291713",
+          "git_blob_sha1": "4965d7544104a49eedd28037753aa2e1439aea0c"
+        }
+      ],
+      "paired_status": "pending",
+      "label_boundary": "PAGE XML lines and boxes; score CER/WER as logical reading order only where explicitly declared. Derivative lossless PDF container required."
+    },
+    {
+      "domain": "historical",
+      "id": "bebel_frau_1879",
+      "reference_manifest": "benchmarks/review/pdf-historical-text/manifest.json",
+      "reference_manifest_sha256": "72a4191bf08f2507700ee42add253f0038b6047e5f6272709e21d104c6a0f795",
+      "inputs": [
+        {
+          "filename": "bebel_frau_1879.tif",
+          "bytes": 268414,
+          "sha256": "261b727a9175152eab3b1175497f07e15f4ba35942e5a4322996a7745f0c89ea",
+          "git_blob_sha1": "ce63a3d731fd64ef5da1c253691c7843ffd1fa6b"
+        },
+        {
+          "filename": "bebel_frau_1879.xml",
+          "bytes": 177176,
+          "sha256": "c604c931b76195730b61513208d9998162331b4f841eba153d0ca8b629696315",
+          "git_blob_sha1": "0155f803add9f249ce99fa8e9002c72ef2f83ebb"
+        }
+      ],
+      "paired_status": "pending",
+      "label_boundary": "PAGE XML lines and boxes; score CER/WER as logical reading order only where explicitly declared. Derivative lossless PDF container required."
+    },
+    {
+      "domain": "degraded",
+      "id": "buerger_gedichte_1778_0039",
+      "reference_manifest": "benchmarks/review/pdf-degraded-text/manifest.json",
+      "reference_manifest_sha256": "bd5096b17583bb12236e288c7c61e4dd98750264105bd6fc21c9b279fa9fc68f",
+      "inputs": [
+        {
+          "filename": "buerger_gedichte_1778_0039.xml",
+          "bytes": 40761,
+          "sha256": "1c6c94ff6dd2823d3ce0197ace5973cae356540c9768de5d05aeb99bd560179d",
+          "git_blob_sha1": "983e7be65b38e96eaee34978c77cd9ec7033debd"
+        },
+        {
+          "filename": "buerger_gedichte_1778_0039.tif",
+          "bytes": 9002676,
+          "sha256": "e391f6e2347fa85fb9a0c1a3379b641874e0d771fbd8775cf0a0979e0ead07c5",
+          "git_blob_sha1": "7bdae065d2ca94da2efe9fee54c5059e6233560f"
+        }
+      ],
+      "paired_status": "pending",
+      "label_boundary": "PAGE XML line association/recognition; absent declared reading order makes XML-sequence edit distances diagnostic only. Derivative lossless PDF container required."
+    },
+    {
+      "domain": "degraded",
+      "id": "nn_besuch_1780_00001",
+      "reference_manifest": "benchmarks/review/pdf-degraded-text/manifest.json",
+      "reference_manifest_sha256": "bd5096b17583bb12236e288c7c61e4dd98750264105bd6fc21c9b279fa9fc68f",
+      "inputs": [
+        {
+          "filename": "nn_besuch_1780_00001.xml",
+          "bytes": 13105,
+          "sha256": "be5429a9c1a3555406664ebdf3fe40fea9ecbbc38915a63f965bff29a8e7a551",
+          "git_blob_sha1": "ad9616622f8b8575cb38cd782589f692ebd16648"
+        },
+        {
+          "filename": "nn_besuch_1780_00001.tif",
+          "bytes": 13648136,
+          "sha256": "5728ea1277fd3521ec2d5088584f6e749f67d99891d4f9e7b8362ddea8e8390a",
+          "git_blob_sha1": "83a79d7fd54c60630812c6b55c2420e26d96b49d"
+        }
+      ],
+      "paired_status": "pending",
+      "label_boundary": "PAGE XML line association/recognition; absent declared reading order makes XML-sequence edit distances diagnostic only. Derivative lossless PDF container required."
+    }
+  ],
+  "tracks": [
+    {
+      "id": "documented-defaults",
+      "status": "pending",
+      "docweave": "PdfPartitioner.create(PdfOptions.defaults())",
+      "unstructured": "partition_pdf defaults/auto with separately pinned OCR/layout dependencies and model hashes",
+      "boundary": "Do not label explicit fast as upstream auto. Missing optional dependencies are recorded configuration failures, not silently installed or substituted."
+    },
+    {
+      "id": "explicit-native",
+      "status": "scientific-scheduled",
+      "docweave": "Default LINES and all eight explicitly named configurations in scientific-manifest.json, including separate logical assembly. No per-source best selection.",
+      "unstructured": "strategy=fast, infer_table_structure=false, languages=eng, include_page_breaks=false",
+      "boundary": "Only native text/order measured; no table/OCR/image parity claim."
+    },
+    {
+      "id": "explicit-tables-and-ocr",
+      "status": "pending",
+      "docweave": "Freeze one configured native/provider composition and one explicit OCR baseline before executing; retain earlier model/segmentation variants separately.",
+      "unstructured": "Freeze hi_res plus infer_table_structure and OCR agent/model/engine settings before executing.",
+      "boundary": "Report shared-weight controlled experiments separately from each implementation native pipeline; never choose best settings using labels."
+    }
+  ],
+  "metrics": [
+    {
+      "id": "text",
+      "status": "scientific-selected-paragraphs-ready",
+      "rules": "Exact selected paragraphs and unique ordered pairs now. CER/WER only on complete independently labelled transcription with declared order; preserve missing/extras/failures and existing normalization."
+    },
+    {
+      "id": "tables",
+      "status": "references-partial",
+      "rules": "Separate detection, row/column/span keys, positional cell text, missing/extra tables/cells. Use fixed source page and geometry-blind-to-text association. Business HTML rows are not PDF physical topology labels."
+    },
+    {
+      "id": "images",
+      "status": "independent-labels-required",
+      "rules": "Keep placed source raster extraction separate from rendered detected figure crops. Authored placement/transform/payload controls are correctness tests, not natural-document figure recall. Freeze manually reviewed region/placement labels before paired scoring."
+    },
+    {
+      "id": "reading-order",
+      "status": "scientific-selected-pairs-ready",
+      "rules": "Fixed unique selected paragraph pairs; missing/duplicated paragraphs leave pairs unresolved. No nearest/fuzzy/best-occurrence selection."
+    },
+    {
+      "id": "runtime-and-memory",
+      "status": "separate-harness-required",
+      "rules": "Report cold startup/model loading separately from warm extraction, fixed CPU/thread limits and same input/resources. Separate JVM/native process memory and child OCR process memory; record host/versions. Do not derive speed/RSS rankings from historical captures."
+    }
+  ],
+  "acceptance_round": {
+    "status": "not-started",
+    "requirement": "Select unseen business/scientific, historical and degraded documents using output-independent criteria; freeze independently reviewed labels and one configuration per track before either extraction. Training overlap unknown must remain disclosed."
+  },
+  "execution_rules": [
+    "JVM extraction/scoring/verification for DocWeave; Python only executes Unstructured.",
+    "Pin originals, derivation recipe/produced PDF hash, all model weights, language binaries, runtimes and exact configurations. Never crop using reference boxes before extraction.",
+    "Keep failures, duplicates, missing and extra predictions; distinguish unsupported configuration from successful empty output.",
+    "No automatic downloads, model installation, per-document oracle routing, rewritten old receipts or aggregate library accuracy percentages.",
+    "Downloaded originals and raw third-party outputs remain outside Git; commit only code, hashes, numeric outcomes and reviewed notes."
+  ]
+}

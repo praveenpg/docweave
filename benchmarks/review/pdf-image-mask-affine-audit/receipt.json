@@ -1,0 +1,15 @@
+{
+  "java": 21,
+  "production_commit": "ef89e98",
+  "production_tests": 1224,
+  "audit_source_sha256": "526a32d5911f825fafee0be617176bb7f299a77ba370ee0d9fa3bf5c7c44e3b0",
+  "affine_verifier_sha256": "fc943d7c3b8cdedcae1aa2a3a948ee7f510a63f7a98e96cf884ebd999618fe4b",
+  "original_reference_population_retained": 106,
+  "direct_source_invocations": 94,
+  "soft_mask_invocations": 12,
+  "direct_output_correspondences": 94,
+  "independent_affine_cases": 4,
+  "private_doclint": "PASS",
+  "standalone_source_compatibility": "PASS",
+  "extraction_change": false
+}

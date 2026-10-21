@@ -1,0 +1,32 @@
+--- ScorePublisherCaptions.java
++++ ScorePublisherCaptions.java
+@@ -74,9 +74,17 @@
+                     DocumentSource.bytes(Files.readAllBytes(Path.of(args[1], selected.get("pdf").asString())),
+                             selected.get("pdf").asString());
+             for (final String profile : List.of("NATIVE_LINES", "NATIVE_COLUMNS", "SOURCE_TAGGED_LINES")) {
+-                final var options = PdfOptions.defaults().withTextLayout(
+-                        profile.equals("NATIVE_COLUMNS") ? PdfOptions.TextLayout.COLUMN_PARAGRAPHS
+-                                                         : PdfOptions.TextLayout.LINES);
++                final var options =
++                        PdfOptions.defaults()
++                                .withFigureCaptions(Boolean.getBoolean("docweave.caption.transfer.horizontal")
++                                                            ? PdfOptions.FigureCaptions.IMAGE_ADJACENT_HORIZONTAL_LABELS
++                                                            : PdfOptions.FigureCaptions.NONE)
++                                .withUnicodeNormalization(Boolean.getBoolean("docweave.caption.transfer.presentation")
++                                                                  ? PdfOptions.UnicodeNormalization.PRESENTATION_FORMS
++                                                                  : PdfOptions.UnicodeNormalization.RAW)
++                                .withTextLayout(profile.equals("NATIVE_COLUMNS")
++                                                        ? PdfOptions.TextLayout.COLUMN_PARAGRAPHS
++                                                        : PdfOptions.TextLayout.LINES);
+                 final var partitioner = profile.equals("SOURCE_TAGGED_LINES")
+                                                 ? PdfPartitioner.createWithTaggedTables(options)
+                                                 : PdfPartitioner.create(options);
+@@ -108,7 +116,7 @@
+                 results.add(row);
+             }
+         }
+-        require(results.size() == 9, "Incomplete source/profile population");
++        require(results.size() == 3, "Incomplete source/profile population");
+         Files.writeString(Path.of(args[2]),
+                 mapper.writerWithDefaultPrettyPrinter().writeValueAsString(Map.of("runtime",
+                         Runtime.version().toString(), "source_manifest_sha256", hash(protocol), "scope",

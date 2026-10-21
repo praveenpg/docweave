@@ -1,0 +1,110 @@
+{
+  "scope": "Uniform single-line diagnostic on all20 published train examples; not held-out-model/general recognition accuracy",
+  "baseline": "../pdf-provider-cell-ocr/pubtabnet-300-java21.json",
+  "single_block": {
+    "tables": 19,
+    "complete_span_topologies": 14,
+    "exact_cells": 336,
+    "exact_tables": 0,
+    "matched_tokens": 791,
+    "observed_tokens": 1765
+  },
+  "single_line": {
+    "tables": 19,
+    "complete_span_topologies": 14,
+    "exact_cells": 289,
+    "exact_tables": 0,
+    "matched_tokens": 745,
+    "observed_tokens": 1825
+  },
+  "paired_jvm_results_identical": true,
+  "reference_anchors": 1380,
+  "reference_tokens": 2070,
+  "changed_entries": [
+    {
+      "input": "PMC4840965_004_00.png",
+      "block_exact_cells": 52,
+      "line_exact_cells": 23
+    },
+    {
+      "input": "PMC4517499_004_00.png",
+      "block_exact_cells": 6,
+      "line_exact_cells": 6
+    },
+    {
+      "input": "PMC4776821_005_00.png",
+      "block_exact_cells": 17,
+      "line_exact_cells": 19
+    },
+    {
+      "input": "PMC2838834_005_00.png",
+      "block_exact_cells": 62,
+      "line_exact_cells": 25
+    },
+    {
+      "input": "PMC5897438_004_00.png",
+      "block_exact_cells": 0,
+      "line_exact_cells": 1
+    },
+    {
+      "input": "PMC3907710_006_00.png",
+      "block_exact_cells": 4,
+      "line_exact_cells": 4
+    },
+    {
+      "input": "PMC3519711_003_00.png",
+      "block_exact_cells": 2,
+      "line_exact_cells": 1
+    },
+    {
+      "input": "PMC5198506_004_00.png",
+      "block_exact_cells": 0,
+      "line_exact_cells": 0
+    },
+    {
+      "input": "PMC5679144_002_01.png",
+      "block_exact_cells": 1,
+      "line_exact_cells": 1
+    },
+    {
+      "input": "PMC2753619_002_00.png",
+      "block_exact_cells": 9,
+      "line_exact_cells": 8
+    },
+    {
+      "input": "PMC3826085_003_00.png",
+      "block_exact_cells": 43,
+      "line_exact_cells": 42
+    },
+    {
+      "input": "PMC5577841_001_00.png",
+      "block_exact_cells": 3,
+      "line_exact_cells": 1
+    },
+    {
+      "input": "PMC2759935_007_01.png",
+      "block_exact_cells": 29,
+      "line_exact_cells": 53
+    },
+    {
+      "input": "PMC4003957_018_00.png",
+      "block_exact_cells": 11,
+      "line_exact_cells": 8
+    },
+    {
+      "input": "PMC4682394_003_00.png",
+      "block_exact_cells": 4,
+      "line_exact_cells": 4
+    },
+    {
+      "input": "PMC4172848_007_00.png",
+      "block_exact_cells": 17,
+      "line_exact_cells": 17
+    },
+    {
+      "input": "PMC5332562_005_00.png",
+      "block_exact_cells": 9,
+      "line_exact_cells": 9
+    }
+  ]
+}

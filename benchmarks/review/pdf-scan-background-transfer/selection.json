@@ -1,0 +1,48 @@
+{
+  "base_commit": "127a2f9",
+  "repository": "https://github.com/tboenig/18_frak_complex",
+  "commit": "559892f099b32710c83d0dddbd21cde3128293a4",
+  "rule": "For each of the two previously selected degraded-scan works, take the next lexical GT-PAGE XML after the previous measured page, requiring an exactly stem-matched TIFF in the frozen source tree. Before source fetch/OCR. No image/text/result-based exclusions or parameter changes. Same known works, previously unmeasured pages; unknown training overlap, not broad held-out acceptance.",
+  "tree_sha256": "a970cc5ea96546d13d40fddf72c94dd46017f62022ffc0ff2b62f3decedd3e83",
+  "profiles_manifest": "benchmarks/review/pdf-scan-background-experiment/manifest.json",
+  "profiles_manifest_sha256": "5d1c00475fda12e12240546ce478d4192ab0a5035c1132a43385c69d3dc1c6c9",
+  "profiles": "Same two fixed pinned deu/deu_latf models, AUTO/ENGINE_DEFAULT, source TIFF DPI, both baseline and managed LOCAL_WHITEPOINT uniformly. All2pages\u00d72models\u00d72policies=8calls and all source references retained.",
+  "cases": [
+    {
+      "id": "buerger_gedichte_1778_0066",
+      "year": 1778,
+      "inputs": [
+        {
+          "path": "data/buerger_gedichte_1778/GT-PAGE/buerger_gedichte_1778_0066.xml",
+          "filename": "buerger_gedichte_1778_0066.xml",
+          "bytes": 5857,
+          "git_blob_sha1": "306c7c92ec66a2db30416dc4ef60d1795e7ee344"
+        },
+        {
+          "path": "data/buerger_gedichte_1778/GT-PAGE/buerger_gedichte_1778_0066.tif",
+          "filename": "buerger_gedichte_1778_0066.tif",
+          "bytes": 8996889,
+          "git_blob_sha1": "93e529ae1e5c7bce8d633fee8ead9419de1c3d78"
+        }
+      ]
+    },
+    {
+      "id": "nn_besuch_1780_00002",
+      "year": 1780,
+      "inputs": [
+        {
+          "path": "data/nn_besuch_1780/GT-PAGE/nn_besuch_1780_00002.xml",
+          "filename": "nn_besuch_1780_00002.xml",
+          "bytes": 94593,
+          "git_blob_sha1": "2c6a699cf72a3e21efdb8399a5c3e574a4a44cf5"
+        },
+        {
+          "path": "data/nn_besuch_1780/GT-PAGE/nn_besuch_1780_00002.tif",
+          "filename": "nn_besuch_1780_00002.tif",
+          "bytes": 13647372,
+          "git_blob_sha1": "fb1edd9e6d96bad0b540b51ad24bace0a57086c8"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "java": 21,
+  "production_commit": "ef89e98",
+  "production_tests": 1224,
+  "actual_ocr_calls": 8,
+  "successful_ocr_calls": 8,
+  "selected_harness_methods": 9,
+  "corrupted_comparison_guards_rejected": 6,
+  "legacy_equivalence_results": "EXACT",
+  "comparator_sha256": "5b4ca92cf4439461a4f622ae30481197bce1fcee73a51660b94f8f2d7e15e5db",
+  "selection_sha256": "d1e2b2de514d494a83f06b81768278ccfd21b17d4908b35b5be9026d5f78b52f",
+  "production_default_change": false,
+  "promoted": false,
+  "python_docweave_evaluation": false
+}

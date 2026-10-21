@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Actual Tesseract word-table owned control</comment>
+<entry key="method">provider_layout_cells_v1</entry>
+<entry key="scope">owned borderless numeric table; six exact cells plus outside prose; not general accuracy</entry>
+<entry key="page_mode">SINGLE_BLOCK</entry>
+<entry key="runtime">25.0.4+7-LTS</entry>
+</properties>

@@ -1,0 +1,125 @@
+{
+  "canonical_build_jdk": "21",
+  "same_canonical_artifact_set_on_both_jvms": true,
+  "network": "Consumers resolve only staged project artifacts and cached file-mirror dependencies/plugins",
+  "installed_tesseract_selected": false,
+  "model": "Explicit owned constant graph only",
+  "runs": {
+    "21": {
+      "tesseract": {
+        "outcome": "passed",
+        "dependencies": [
+          "docweave-ocr-tesseract-0.1.0-beta.1.jar",
+          "docweave-pdf-0.1.0-beta.1.jar",
+          "docweave-core-0.1.0-beta.1.jar",
+          "pdfbox-3.0.8.jar",
+          "pdfbox-io-3.0.8.jar",
+          "fontbox-3.0.8.jar",
+          "commons-logging-1.4.0.jar"
+        ],
+        "canonical_project_jar_sha256": {
+          "docweave-ocr-tesseract-0.1.0-beta.1.jar": "223ef1c2b5359e984a66c27e8e4a602c04ba3dadb825da7cd575378160c65c7f",
+          "docweave-pdf-0.1.0-beta.1.jar": "a1326de590c8e67b461cf176937f11413fb5386aa1c5d7fb410569753506eb5f",
+          "docweave-core-0.1.0-beta.1.jar": "6bdc8c02f45d399921afffe09cf86e3ac76c6f79162d7fc23a747e52d86e5b05"
+        },
+        "run_log_sha256": "10472978755980700e11bc54590d75a23c411ceb9ba8b4fc3c31c85e67435cad",
+        "class_major": 65
+      },
+      "onnx": {
+        "outcome": "passed",
+        "dependencies": [
+          "docweave-layout-onnx-0.1.0-beta.1.jar",
+          "docweave-pdf-0.1.0-beta.1.jar",
+          "docweave-core-0.1.0-beta.1.jar",
+          "pdfbox-3.0.8.jar",
+          "pdfbox-io-3.0.8.jar",
+          "fontbox-3.0.8.jar",
+          "commons-logging-1.4.0.jar",
+          "onnxruntime-1.23.2.jar"
+        ],
+        "canonical_project_jar_sha256": {
+          "docweave-layout-onnx-0.1.0-beta.1.jar": "5037a212d6be166c24f5f017b395e6968c5918e353e01c0a331d5ba477fe559d",
+          "docweave-pdf-0.1.0-beta.1.jar": "a1326de590c8e67b461cf176937f11413fb5386aa1c5d7fb410569753506eb5f",
+          "docweave-core-0.1.0-beta.1.jar": "6bdc8c02f45d399921afffe09cf86e3ac76c6f79162d7fc23a747e52d86e5b05"
+        },
+        "run_log_sha256": "686d56e8e01ab673c225ed8637233dd4ab21d3b71bb0e4b5b2068668cf616557",
+        "class_major": 65
+      },
+      "pdf": {
+        "outcome": "passed",
+        "dependencies": [
+          "docweave-pdf-0.1.0-beta.1.jar",
+          "docweave-core-0.1.0-beta.1.jar",
+          "pdfbox-3.0.8.jar",
+          "pdfbox-io-3.0.8.jar",
+          "fontbox-3.0.8.jar",
+          "commons-logging-1.4.0.jar"
+        ],
+        "canonical_project_jar_sha256": {
+          "docweave-pdf-0.1.0-beta.1.jar": "a1326de590c8e67b461cf176937f11413fb5386aa1c5d7fb410569753506eb5f",
+          "docweave-core-0.1.0-beta.1.jar": "6bdc8c02f45d399921afffe09cf86e3ac76c6f79162d7fc23a747e52d86e5b05"
+        },
+        "run_log_sha256": "1a0e2648c2c03bc65f02aba65560e36d7003d3941437b50c0333632bd0beb72b",
+        "class_major": 65
+      }
+    },
+    "25": {
+      "tesseract": {
+        "outcome": "passed",
+        "dependencies": [
+          "docweave-ocr-tesseract-0.1.0-beta.1.jar",
+          "docweave-pdf-0.1.0-beta.1.jar",
+          "docweave-core-0.1.0-beta.1.jar",
+          "pdfbox-3.0.8.jar",
+          "pdfbox-io-3.0.8.jar",
+          "fontbox-3.0.8.jar",
+          "commons-logging-1.4.0.jar"
+        ],
+        "canonical_project_jar_sha256": {
+          "docweave-ocr-tesseract-0.1.0-beta.1.jar": "223ef1c2b5359e984a66c27e8e4a602c04ba3dadb825da7cd575378160c65c7f",
+          "docweave-pdf-0.1.0-beta.1.jar": "a1326de590c8e67b461cf176937f11413fb5386aa1c5d7fb410569753506eb5f",
+          "docweave-core-0.1.0-beta.1.jar": "6bdc8c02f45d399921afffe09cf86e3ac76c6f79162d7fc23a747e52d86e5b05"
+        },
+        "run_log_sha256": "7fbc029ce4dc3b28d6501d03b36bac7682739413fe0882af27f1c7baf0a2f22a",
+        "class_major": 65
+      },
+      "onnx": {
+        "outcome": "passed",
+        "dependencies": [
+          "docweave-layout-onnx-0.1.0-beta.1.jar",
+          "docweave-pdf-0.1.0-beta.1.jar",
+          "docweave-core-0.1.0-beta.1.jar",
+          "pdfbox-3.0.8.jar",
+          "pdfbox-io-3.0.8.jar",
+          "fontbox-3.0.8.jar",
+          "commons-logging-1.4.0.jar",
+          "onnxruntime-1.23.2.jar"
+        ],
+        "canonical_project_jar_sha256": {
+          "docweave-layout-onnx-0.1.0-beta.1.jar": "5037a212d6be166c24f5f017b395e6968c5918e353e01c0a331d5ba477fe559d",
+          "docweave-pdf-0.1.0-beta.1.jar": "a1326de590c8e67b461cf176937f11413fb5386aa1c5d7fb410569753506eb5f",
+          "docweave-core-0.1.0-beta.1.jar": "6bdc8c02f45d399921afffe09cf86e3ac76c6f79162d7fc23a747e52d86e5b05"
+        },
+        "run_log_sha256": "7572be39719c0b9478871c3fc98ad3935685f1ea8cfa36599601754e848ef0c5",
+        "class_major": 65
+      },
+      "pdf": {
+        "outcome": "passed",
+        "dependencies": [
+          "docweave-pdf-0.1.0-beta.1.jar",
+          "docweave-core-0.1.0-beta.1.jar",
+          "pdfbox-3.0.8.jar",
+          "pdfbox-io-3.0.8.jar",
+          "fontbox-3.0.8.jar",
+          "commons-logging-1.4.0.jar"
+        ],
+        "canonical_project_jar_sha256": {
+          "docweave-pdf-0.1.0-beta.1.jar": "a1326de590c8e67b461cf176937f11413fb5386aa1c5d7fb410569753506eb5f",
+          "docweave-core-0.1.0-beta.1.jar": "6bdc8c02f45d399921afffe09cf86e3ac76c6f79162d7fc23a747e52d86e5b05"
+        },
+        "run_log_sha256": "978df9d27354ac38ce03a97ee3ae4ae0a5e9d861c6402faa6f0007cd5c658f85",
+        "class_major": 65
+      }
+    }
+  }
+}

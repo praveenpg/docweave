@@ -1,0 +1,356 @@
+{
+  "reference": {
+    "upstream_commit": "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",
+    "python": "3.13.16",
+    "scope": "Element-only chunking on upstream-supported Python 3.11–3.13. No parser/OCR parity claimed.",
+    "source_verification": "Selected pinned implementation hashes verified before import",
+    "source_sha256": {
+      "unstructured/chunking/base.py": "076daa0ba00212217d6d9bef60156a364f3b50684ce5d5c8168f7ea8cd97ea42",
+      "unstructured/chunking/basic.py": "68d6fde873e5f744ab0527717f029bfe0c8b232df03bcba25359b466d5d77159",
+      "unstructured/chunking/title.py": "f5305324030bb77100584bb8b432b8b2110f3c280b1d697dcc2b41f65dce2f23",
+      "unstructured/documents/elements.py": "94f0f5eca1d987b2e1e5c574417e62305fae4556bb572bf95918861047954d0c",
+      "unstructured/common/html_table.py": "741e09b2b057438e1044c33b2592179e055f75e5664600657b000310caa85bd5"
+    },
+    "dependencies": {
+      "wrapt": "2.5.1",
+      "urllib3": "2.8.0",
+      "charset-normalizer": "3.5.2",
+      "lxml": "6.1.3",
+      "typing_extensions": "4.16.0",
+      "idna": "3.20",
+      "psutil": "7.2.2",
+      "regex": "2026.9.29",
+      "emoji": "2.16.0",
+      "requests": "2.34.2",
+      "certifi": "2026.7.22"
+    }
+  },
+  "cases": [
+    {
+      "name": "html-compact",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "Table",
+          "element_id": "source-A B",
+          "text": "A B",
+          "metadata": {
+            "text_as_html": "<table class='cosmetic'><tbody><tr><td>A</td><td>B</td></tr></tbody></table>"
+          }
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "max_characters": 100
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "Table",
+          "element_id": "<generated>",
+          "text": "A B",
+          "metadata": {
+            "text_as_html": "<table><tr><td>A</td><td>B</td></tr></table>"
+          }
+        }
+      ]
+    },
+    {
+      "name": "html-row-splits",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "Table",
+          "element_id": "source-A0 B0 A1 B1 A2 B2 A3 B3 A4 B4 A5 B5",
+          "text": "A0 B0 A1 B1 A2 B2 A3 B3 A4 B4 A5 B5",
+          "metadata": {
+            "text_as_html": "<table><tr><td>A0</td><td>B0</td></tr><tr><td>A1</td><td>B1</td></tr><tr><td>A2</td><td>B2</td></tr><tr><td>A3</td><td>B3</td></tr><tr><td>A4</td><td>B4</td></tr><tr><td>A5</td><td>B5</td></tr></table>"
+          }
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "max_characters": 100
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "TableChunk",
+          "element_id": "<generated>",
+          "text": "A0 B0 A1 B1 A2 B2 A3 B3 A4 B4 A5 B5",
+          "metadata": {
+            "text_as_html": "<table><tr><td>A0</td><td>B0</td></tr><tr><td>A1</td><td>B1</td></tr><tr><td>A2</td><td>B2</td></tr><tr><td>A3</td><td>B3</td></tr><tr><td>A4</td><td>B4</td></tr><tr><td>A5</td><td>B5</td></tr></table>",
+            "num_carried_over_header_rows": 0,
+            "table_id": "<table>",
+            "chunk_index": 0
+          }
+        }
+      ],
+      "comparison": "strict-html-budget"
+    },
+    {
+      "name": "html-cell-splits",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "Table",
+          "element_id": "source-abcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefgh",
+          "text": "abcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefgh",
+          "metadata": {
+            "text_as_html": "<table><tr><td>abcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefgh</td></tr></table>"
+          }
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "max_characters": 60
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "TableChunk",
+          "element_id": "<generated>",
+          "text": "abcdefghabcdefghabcdefghabc",
+          "metadata": {
+            "text_as_html": "<table><tr><td>abcdefghabcdefghabcdefghabc</td></tr></table>",
+            "num_carried_over_header_rows": 0,
+            "table_id": "<table>",
+            "chunk_index": 0
+          }
+        },
+        {
+          "type": "TableChunk",
+          "element_id": "<generated>",
+          "text": "defghabcdefghabcdefghabcdef",
+          "metadata": {
+            "text_as_html": "<table><tr><td>defghabcdefghabcdefghabcdef</td></tr></table>",
+            "is_continuation": true,
+            "num_carried_over_header_rows": 0,
+            "table_id": "<table>",
+            "chunk_index": 1
+          }
+        },
+        {
+          "type": "TableChunk",
+          "element_id": "<generated>",
+          "text": "ghabcdefghabcdefghabcdefgha",
+          "metadata": {
+            "text_as_html": "<table><tr><td>ghabcdefghabcdefghabcdefgha</td></tr></table>",
+            "is_continuation": true,
+            "num_carried_over_header_rows": 0,
+            "table_id": "<table>",
+            "chunk_index": 2
+          }
+        },
+        {
+          "type": "TableChunk",
+          "element_id": "<generated>",
+          "text": "bcdefghabcdefghabcdefghabcd",
+          "metadata": {
+            "text_as_html": "<table><tr><td>bcdefghabcdefghabcdefghabcd</td></tr></table>",
+            "is_continuation": true,
+            "num_carried_over_header_rows": 0,
+            "table_id": "<table>",
+            "chunk_index": 3
+          }
+        },
+        {
+          "type": "TableChunk",
+          "element_id": "<generated>",
+          "text": "efghabcdefghabcdefghabcdefg",
+          "metadata": {
+            "text_as_html": "<table><tr><td>efghabcdefghabcdefghabcdefg</td></tr></table>",
+            "is_continuation": true,
+            "num_carried_over_header_rows": 0,
+            "table_id": "<table>",
+            "chunk_index": 4
+          }
+        },
+        {
+          "type": "TableChunk",
+          "element_id": "<generated>",
+          "text": "habcdefghabcdefghabcdefgh",
+          "metadata": {
+            "text_as_html": "<table><tr><td>habcdefghabcdefghabcdefgh</td></tr></table>",
+            "is_continuation": true,
+            "num_carried_over_header_rows": 0,
+            "table_id": "<table>",
+            "chunk_index": 5
+          }
+        }
+      ]
+    },
+    {
+      "name": "html-row-cell-boundaries",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "Table",
+          "element_id": "source-A B C D E F",
+          "text": "A B C D E F",
+          "metadata": {
+            "text_as_html": "<table><tr><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td></tr></table>"
+          }
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "max_characters": 60
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "TableChunk",
+          "element_id": "<generated>",
+          "text": "A B C D E F",
+          "metadata": {
+            "text_as_html": "<table><tr><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td></tr></table>",
+            "num_carried_over_header_rows": 0,
+            "table_id": "<table>",
+            "chunk_index": 0
+          }
+        }
+      ],
+      "comparison": "strict-html-budget"
+    },
+    {
+      "name": "html-span-group",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "Table",
+          "element_id": "source-A B C xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "text": "A B C xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "metadata": {
+            "text_as_html": "<table><tr><td rowspan='2'>A</td><td>B</td></tr><tr><td>C</td></tr><tr><td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td></tr></table>"
+          }
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "max_characters": 120
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "TableChunk",
+          "element_id": "<generated>",
+          "text": "A B C xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "metadata": {
+            "text_as_html": "<table><tr><td rowspan=\"2\">A</td><td>B</td></tr><tr><td>C</td></tr><tr><td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td></tr></table>",
+            "num_carried_over_header_rows": 0,
+            "table_id": "<table>",
+            "chunk_index": 0
+          }
+        }
+      ],
+      "comparison": "strict-html-budget"
+    },
+    {
+      "name": "html-tiny-fallback",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "Table",
+          "element_id": "source-abcdefgh",
+          "text": "abcdefgh",
+          "metadata": {
+            "text_as_html": "<table><tr><td>abcdefgh</td></tr></table>"
+          }
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "max_characters": 4
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "TableChunk",
+          "element_id": "<generated>",
+          "text": "abcd",
+          "metadata": {
+            "num_carried_over_header_rows": 0,
+            "table_id": "<table>",
+            "chunk_index": 0
+          }
+        },
+        {
+          "type": "TableChunk",
+          "element_id": "<generated>",
+          "text": "efgh",
+          "metadata": {
+            "is_continuation": true,
+            "num_carried_over_header_rows": 0,
+            "table_id": "<table>",
+            "chunk_index": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "html-headers-disabled",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "Table",
+          "element_id": "source-H A0 B0 A1 B1 A2 B2 A3 B3 A4 B4 A5 B5",
+          "text": "H A0 B0 A1 B1 A2 B2 A3 B3 A4 B4 A5 B5",
+          "metadata": {
+            "text_as_html": "<table><tr><th>H</th></tr><tr><td>A0</td><td>B0</td></tr><tr><td>A1</td><td>B1</td></tr><tr><td>A2</td><td>B2</td></tr><tr><td>A3</td><td>B3</td></tr><tr><td>A4</td><td>B4</td></tr><tr><td>A5</td><td>B5</td></tr></table>"
+          }
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "max_characters": 100,
+        "repeat_table_headers": false
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "TableChunk",
+          "element_id": "<generated>",
+          "text": "H A0 B0 A1 B1 A2 B2 A3 B3 A4 B4 A5 B5",
+          "metadata": {
+            "text_as_html": "<table><tr><td>H</td></tr><tr><td>A0</td><td>B0</td></tr><tr><td>A1</td><td>B1</td></tr><tr><td>A2</td><td>B2</td></tr><tr><td>A3</td><td>B3</td></tr><tr><td>A4</td><td>B4</td></tr><tr><td>A5</td><td>B5</td></tr></table>",
+            "num_carried_over_header_rows": 0,
+            "table_id": "<table>",
+            "chunk_index": 0
+          }
+        }
+      ],
+      "comparison": "strict-html-budget"
+    },
+    {
+      "name": "html-skip",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "Table",
+          "element_id": "source-raw \n text",
+          "text": "raw \n text",
+          "metadata": {
+            "text_as_html": "<table><tr><td>raw</td></tr></table>"
+          }
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "max_characters": 1,
+        "skip_table_chunking": true
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "Table",
+          "element_id": "<generated>",
+          "text": "raw \n text",
+          "metadata": {
+            "text_as_html": "<table><tr><td>raw</td></tr></table>"
+          }
+        }
+      ]
+    }
+  ]
+}

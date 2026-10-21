@@ -1,0 +1,101 @@
+{
+  "frozen_at": "2026-10-19T22:01:32.193307+00:00",
+  "unstructured_version": "0.27.28",
+  "strategy": "ocr_only",
+  "document_timeout_seconds": 120,
+  "cases": [
+    {
+      "id": "arnimb_goethe03_1835-deu",
+      "source_id": "arnimb_goethe03_1835",
+      "language": "deu",
+      "effective_upstream_language": "deu",
+      "model_sha256": "8407331d6aa0229dc927685c01a7938fc5a641d1a9524f74838cdac599f0d06e",
+      "pdf": "arnimb_goethe03_1835.pdf",
+      "sha256": "ad9aa0fff0e4c4b8b4ac010673abd0e00f7d4c48711f60014a8ad2849e4e3b92",
+      "bytes": 5938963,
+      "dpi": 300
+    },
+    {
+      "id": "arnimb_goethe03_1835-deu_latf",
+      "source_id": "arnimb_goethe03_1835",
+      "language": "deu_latf",
+      "effective_upstream_language": "frk",
+      "model_sha256": "429b8c33d37e1a4823a2bb082a644ff13e252f735b7945e08a518d22ddcc459e",
+      "pdf": "arnimb_goethe03_1835.pdf",
+      "sha256": "ad9aa0fff0e4c4b8b4ac010673abd0e00f7d4c48711f60014a8ad2849e4e3b92",
+      "bytes": 5938963,
+      "dpi": 300
+    },
+    {
+      "id": "bebel_frau_1879-deu",
+      "source_id": "bebel_frau_1879",
+      "language": "deu",
+      "effective_upstream_language": "deu",
+      "model_sha256": "8407331d6aa0229dc927685c01a7938fc5a641d1a9524f74838cdac599f0d06e",
+      "pdf": "bebel_frau_1879.pdf",
+      "sha256": "babf3114bcf3259acd1b16142fa8a9fd2888bb00706b64c8abb875906a6a76e7",
+      "bytes": 355895,
+      "dpi": 600
+    },
+    {
+      "id": "bebel_frau_1879-deu_latf",
+      "source_id": "bebel_frau_1879",
+      "language": "deu_latf",
+      "effective_upstream_language": "frk",
+      "model_sha256": "429b8c33d37e1a4823a2bb082a644ff13e252f735b7945e08a518d22ddcc459e",
+      "pdf": "bebel_frau_1879.pdf",
+      "sha256": "babf3114bcf3259acd1b16142fa8a9fd2888bb00706b64c8abb875906a6a76e7",
+      "bytes": 355895,
+      "dpi": 600
+    },
+    {
+      "id": "buerger_gedichte_1778_0039-deu",
+      "source_id": "buerger_gedichte_1778_0039",
+      "language": "deu",
+      "effective_upstream_language": "deu",
+      "model_sha256": "8407331d6aa0229dc927685c01a7938fc5a641d1a9524f74838cdac599f0d06e",
+      "pdf": "buerger_gedichte_1778_0039.pdf",
+      "sha256": "18bf200d9ea13b87b871842cd0bbdd6e97cc474ccf211a792291f0a073b58e2c",
+      "bytes": 4038735,
+      "dpi": 300
+    },
+    {
+      "id": "buerger_gedichte_1778_0039-deu_latf",
+      "source_id": "buerger_gedichte_1778_0039",
+      "language": "deu_latf",
+      "effective_upstream_language": "frk",
+      "model_sha256": "429b8c33d37e1a4823a2bb082a644ff13e252f735b7945e08a518d22ddcc459e",
+      "pdf": "buerger_gedichte_1778_0039.pdf",
+      "sha256": "18bf200d9ea13b87b871842cd0bbdd6e97cc474ccf211a792291f0a073b58e2c",
+      "bytes": 4038735,
+      "dpi": 300
+    },
+    {
+      "id": "nn_besuch_1780_00001-deu",
+      "source_id": "nn_besuch_1780_00001",
+      "language": "deu",
+      "effective_upstream_language": "deu",
+      "model_sha256": "8407331d6aa0229dc927685c01a7938fc5a641d1a9524f74838cdac599f0d06e",
+      "pdf": "nn_besuch_1780_00001.pdf",
+      "sha256": "f03ddf7afa2305cf347f935625e2164f6bac0b7afe98c3b15584a8d994b1acd2",
+      "bytes": 7357900,
+      "dpi": 300
+    },
+    {
+      "id": "nn_besuch_1780_00001-deu_latf",
+      "source_id": "nn_besuch_1780_00001",
+      "language": "deu_latf",
+      "effective_upstream_language": "frk",
+      "model_sha256": "429b8c33d37e1a4823a2bb082a644ff13e252f735b7945e08a518d22ddcc459e",
+      "pdf": "nn_besuch_1780_00001.pdf",
+      "sha256": "f03ddf7afa2305cf347f935625e2164f6bac0b7afe98c3b15584a8d994b1acd2",
+      "bytes": 7357900,
+      "dpi": 300
+    }
+  ],
+  "engine_sha256": "9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917",
+  "native_manifest_sha256": "b8086cdea5a97e310fc4248d6d6b2c03ba1327af365e4719dee2bd8590214369",
+  "language_binding": "Upstream standard-code filter maps literaldeu_latf toeng; reject that silentfallback. Explicit supportedfrk engine filename alias contains EXACT SAME bytes as source-pinneddeu_latf.traineddata. Native uses originaldeu_latf filename; both pipeline/model identities remain explicit. No new weights, training, best-source routing or label changes.",
+  "rendering": "Identical-byte lossless derivative PDF containers; native PDFBox/sourceDPI raster remains sourceRGBverified. Upstream OCR_ONLY uses PDF_RENDER_DPI environment (its pdf_image_dpi argument is not used by this path). Record actual Poppler raster dimensions/RGB before public pipeline; do not claim equal engine rasters or ignore internal OCR resizing/filtering.",
+  "scoring": "JVM complete public text in original output order, same PAGE NFC+ASCII-whitespace policy. Reference-declared order only yields logical CER/WER; other3sources remain qualified XML-sequence diagnostics. No fabricated upstream line geometry or per-line metric comparison."
+}

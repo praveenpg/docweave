@@ -1,0 +1,4 @@
+{
+  "sha256": "31343d8fd39ab12d067416ea925dd00e833ab81bcb9fb34be5b3c20fbb61a92f",
+  "change_after_manifest": "Sorted Java imports only; frozen generator and scorer semantics unchanged."
+}

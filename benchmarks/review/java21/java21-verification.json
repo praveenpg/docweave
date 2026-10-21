@@ -1,0 +1,35 @@
+{
+  "runtime": "openjdk version \"21.0.12.1\" 2026-08-18 LTS\nOpenJDK Runtime Environment Corretto-21.0.12.12.1 (build 21.0.12.1+12-LTS)\nOpenJDK 64-Bit Server VM Corretto-21.0.12.12.1 (build 21.0.12.1+12-LTS, mixed mode, sharing)\n",
+  "build_and_runtime": "Maven verify on actual JDK21, production targeting release21; real OCR properties enabled",
+  "tests": 706,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "production_class_count": 221,
+  "production_class_major_versions": [
+    65
+  ],
+  "standalone_sources_compiled_with_release21": 15,
+  "jdk_download_url": "https://corretto.aws/downloads/latest/amazon-corretto-21-x64-linux-jdk.tar.gz",
+  "jdk_archive_sha256": "8785082c2fb999c024c8821e4a7c5391bda28f1667cceadafd78e2965b7669d2",
+  "executed_source_examples": [
+    {
+      "source": "examples/PartitionDocument.java",
+      "input": "benchmarks/fixtures/plain.txt",
+      "output_sha256": "d7794d9ea53a63642a6ed80357418c252efc9f24d8d811da98ccb0fe457b1558",
+      "stdout": "Parsed TXT with 3 elements; wrote 3 output elements and observed 0 warnings."
+    },
+    {
+      "source": "examples/PartitionDocument.java",
+      "input": "benchmarks/fixtures/structured.html",
+      "output_sha256": "483f4dec00bc4773a07f59298f5b94bc65f25fc497f2c0e001d73e6ccfef3c0a",
+      "stdout": "Parsed HTML with 6 elements; wrote 6 output elements and observed 0 warnings."
+    },
+    {
+      "source": "examples/ChunkElements.java",
+      "input": "benchmarks/fixtures/elements.json",
+      "output_sha256": "9b1868383075d1458d3786a997c02cd37386f1e01bb8184b09cade4073154efa",
+      "stdout": "Wrote 1 chunks to /tmp/docweave-java21-example-chunks.json"
+    }
+  ]
+}

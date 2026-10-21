@@ -1,0 +1,7 @@
+{
+  "frozen_at" : "2026-10-19T18:40:33.924669377Z",
+  "production_commit" : "0796ba6",
+  "reference_manifest" : "benchmarks/review/pdf-scan-thresholding/manifest.json",
+  "rule" : "All four previous fixed source scans, both pinned German models, AUTO segmentation and all three previous threshold profiles uniformly. Use original declared square TIFF inch resolution, without tuning, cropping, resampling, enhancement or source/reference changes. Require exact RGB equality before recognition; retain every poor outcome.",
+  "training_overlap" : "unknown; development diagnostics, not held-out accuracy"
+}

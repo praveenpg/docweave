@@ -1,0 +1,59 @@
+{
+  "scope": "Three cached Apache POI samples from the original five-source style manifest; NRS samples not rerun. No human/rendering fidelity claim.",
+  "binary_policy": "Fetch-only sources/derivatives; no external binaries, assets, full text or raw output committed.",
+  "documents": [
+    {
+      "filename": "TestTableColumns.docx",
+      "publisher": "Apache POI test-data repository",
+      "source_page": "https://github.com/apache/poi/blob/094968cfc3d48224db08f0b7f0a6fc341b035114/test-data/document/TestTableColumns.docx",
+      "download_url": "https://raw.githubusercontent.com/apache/poi/094968cfc3d48224db08f0b7f0a6fc341b035114/test-data/document/TestTableColumns.docx",
+      "source_commit": "094968cfc3d48224db08f0b7f0a6fc341b035114",
+      "sha256": "3b1965a295c4a5c24573a6d5f2ded93f7de3e7a46ffe26b881456f1c4ddd6335",
+      "bytes": 12672,
+      "licence_notice": "Apache POI repository legal/LICENSE and legal/NOTICE; fetch-only external test sample, original authorship not independently verified",
+      "licence_url": "https://github.com/apache/poi/blob/094968cfc3d48224db08f0b7f0a6fc341b035114/legal/LICENSE",
+      "notice_url": "https://github.com/apache/poi/blob/094968cfc3d48224db08f0b7f0a6fc341b035114/legal/NOTICE",
+      "human_review": "pending",
+      "retrieved_on": "2026-10-15"
+    },
+    {
+      "filename": "TestTableCellAlign.docx",
+      "publisher": "Apache POI test-data repository",
+      "source_page": "https://github.com/apache/poi/blob/094968cfc3d48224db08f0b7f0a6fc341b035114/test-data/document/TestTableCellAlign.docx",
+      "download_url": "https://raw.githubusercontent.com/apache/poi/094968cfc3d48224db08f0b7f0a6fc341b035114/test-data/document/TestTableCellAlign.docx",
+      "source_commit": "094968cfc3d48224db08f0b7f0a6fc341b035114",
+      "sha256": "2968d4a5d5de21dce1cbeae3235e545cdf4bfd7ae508fe0eed3a9b032773ce17",
+      "bytes": 11712,
+      "licence_notice": "Apache POI repository legal/LICENSE and legal/NOTICE; fetch-only external test sample, original authorship not independently verified",
+      "licence_url": "https://github.com/apache/poi/blob/094968cfc3d48224db08f0b7f0a6fc341b035114/legal/LICENSE",
+      "notice_url": "https://github.com/apache/poi/blob/094968cfc3d48224db08f0b7f0a6fc341b035114/legal/NOTICE",
+      "human_review": "pending",
+      "retrieved_on": "2026-10-15"
+    },
+    {
+      "filename": "table-alignment.docx",
+      "publisher": "Apache POI test-data repository",
+      "source_page": "https://github.com/apache/poi/blob/094968cfc3d48224db08f0b7f0a6fc341b035114/test-data/document/table-alignment.docx",
+      "download_url": "https://raw.githubusercontent.com/apache/poi/094968cfc3d48224db08f0b7f0a6fc341b035114/test-data/document/table-alignment.docx",
+      "source_commit": "094968cfc3d48224db08f0b7f0a6fc341b035114",
+      "sha256": "ee36729e0d050e529fea0b444006a194bea72b35cf8958ae58c6624c26156b41",
+      "bytes": 15519,
+      "licence_notice": "Apache POI repository legal/LICENSE and legal/NOTICE; fetch-only external test sample, original authorship not independently verified",
+      "licence_url": "https://github.com/apache/poi/blob/094968cfc3d48224db08f0b7f0a6fc341b035114/legal/LICENSE",
+      "notice_url": "https://github.com/apache/poi/blob/094968cfc3d48224db08f0b7f0a6fc341b035114/legal/NOTICE",
+      "human_review": "pending",
+      "retrieved_on": "2026-10-15"
+    }
+  ],
+  "reviewed_on": "2026-10-15",
+  "poi_repository_notices": {
+    "LICENSE": {
+      "url": "https://github.com/apache/poi/blob/094968cfc3d48224db08f0b7f0a6fc341b035114/legal/LICENSE",
+      "sha256": "6e7c918e5a49f677c1b85a9eb2d035cd85c217fc42af6b4a336964a434001a9c"
+    },
+    "NOTICE": {
+      "url": "https://github.com/apache/poi/blob/094968cfc3d48224db08f0b7f0a6fc341b035114/legal/NOTICE",
+      "sha256": "8e41ec916a59981a28397e2b46d7fb851eea02f7d179d75f030eb248916a4a09"
+    }
+  }
+}

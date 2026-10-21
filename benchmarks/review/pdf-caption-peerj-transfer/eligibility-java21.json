@@ -1,0 +1,384 @@
+{
+  "runtime" : "21.0.12.1+12-LTS",
+  "results" : [ {
+    "label_cues" : [ {
+      "page" : 7,
+      "text_utf16_units" : 53,
+      "text_sha256" : "485f21c23192ab250cb9cc003ddfef46c96d57323f6cac473b2e1ea5391780d8",
+      "bounds" : [ 190.1320037841797, 584.195556640625, 390.6027526855469, 589.6740112304688 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 32,
+      "codepoint_after_label_period" : -1,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : true,
+        "vertical_gap" : 17.4805908203125,
+        "image_bounds" : [ 184.3090057373047, 85.9747314453125, 568.0363159179688, 566.7149658203125 ]
+      } ]
+    }, {
+      "page" : 11,
+      "text_utf16_units" : 100,
+      "text_sha256" : "258d30d1fdb1ca166eeb03b691cda790b58d0fdfc0f5c4f05e099a49a0554331",
+      "bounds" : [ 190.1320037841797, 250.9355926513672, 571.9302368164062, 256.4140625 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 32,
+      "codepoint_after_label_period" : -1,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : true,
+        "vertical_gap" : 17.480575561523438,
+        "image_bounds" : [ 184.3090057373047, 85.97503662109375, 568.3090209960938, 233.45501708984375 ]
+      } ]
+    }, {
+      "page" : 12,
+      "text_utf16_units" : 99,
+      "text_sha256" : "451a7c201de029c1934de40fa1072769129a5608f9d0438439fa5d7ae22a33e7",
+      "bounds" : [ 190.1320037841797, 310.67950439453125, 564.3446044921875, 316.1579895019531 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 32,
+      "codepoint_after_label_period" : -1,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : true,
+        "vertical_gap" : 17.480499267578125,
+        "image_bounds" : [ 184.3090057373047, 85.97552490234375, 571.9387817382812, 293.1990051269531 ]
+      } ]
+    }, {
+      "page" : 13,
+      "text_utf16_units" : 101,
+      "text_sha256" : "e4cb6a3fe4dcd26d287b89045a27499f8b735bd85737f80197c2cc4c846b03a4",
+      "bounds" : [ 190.1320037841797, 272.8955383300781, 567.7250366210938, 278.3740234375 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 32,
+      "codepoint_after_label_period" : -1,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : true,
+        "vertical_gap" : 17.480560302734375,
+        "image_bounds" : [ 184.3090057373047, 85.9749755859375, 572.0289916992188, 255.41497802734375 ]
+      }, {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : false,
+        "vertical_gap" : -281.3944396972656,
+        "image_bounds" : [ 184.3090057373047, 323.23541259765625, 572.127197265625, 554.2899780273438 ]
+      } ]
+    }, {
+      "page" : 13,
+      "text_utf16_units" : 98,
+      "text_sha256" : "09ffa3013d399e3f4bf7820891479f334150d1a229c8a09d133c6aa97e49ed51",
+      "bounds" : [ 190.1320037841797, 571.7705078125, 564.263916015625, 577.2489624023438 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 32,
+      "codepoint_after_label_period" : -1,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : false,
+        "vertical_gap" : 316.35552978515625,
+        "image_bounds" : [ 184.3090057373047, 85.9749755859375, 572.0289916992188, 255.41497802734375 ]
+      }, {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : true,
+        "vertical_gap" : 17.48052978515625,
+        "image_bounds" : [ 184.3090057373047, 323.23541259765625, 572.127197265625, 554.2899780273438 ]
+      } ]
+    }, {
+      "page" : 14,
+      "text_utf16_units" : 99,
+      "text_sha256" : "6bb087c7af47af9f685340c962a8a6e6c27a883632b68335a55236836fc39e58",
+      "bounds" : [ 190.1320037841797, 244.1975555419922, 571.2936401367188, 249.676025390625 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 32,
+      "codepoint_after_label_period" : -1,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : true,
+        "vertical_gap" : 17.480575561523438,
+        "image_bounds" : [ 184.3090057373047, 85.974853515625, 572.1641845703125, 226.71697998046875 ]
+      } ]
+    } ],
+    "outcome" : "SUCCESS",
+    "profile" : "NATIVE_LINES",
+    "source_images" : 6,
+    "case" : "peerj"
+  }, {
+    "label_cues" : [ {
+      "page" : 7,
+      "text_utf16_units" : 53,
+      "text_sha256" : "485f21c23192ab250cb9cc003ddfef46c96d57323f6cac473b2e1ea5391780d8",
+      "bounds" : [ 190.1320037841797, 584.195556640625, 390.6027526855469, 589.6740112304688 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 32,
+      "codepoint_after_label_period" : -1,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : true,
+        "vertical_gap" : 17.4805908203125,
+        "image_bounds" : [ 184.3090057373047, 85.9747314453125, 568.0363159179688, 566.7149658203125 ]
+      } ]
+    }, {
+      "page" : 11,
+      "text_utf16_units" : 175,
+      "text_sha256" : "755c97df7ac2d70c1dc44d107fd23c00b6d62aa4877892a83e6c223cfe40136f",
+      "bounds" : [ 190.1320037841797, 250.9355926513672, 571.9302368164062, 267.373046875 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 32,
+      "codepoint_after_label_period" : -1,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : true,
+        "vertical_gap" : 17.480575561523438,
+        "image_bounds" : [ 184.3090057373047, 85.97503662109375, 568.3090209960938, 233.45501708984375 ]
+      } ]
+    }, {
+      "page" : 12,
+      "text_utf16_units" : 213,
+      "text_sha256" : "cb9a2d66230e0d3916a5a0b6b006d462e36851d4bd237b4f2481e7bf97a12bc3",
+      "bounds" : [ 190.1320037841797, 310.67950439453125, 564.3446044921875, 338.07598876953125 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 32,
+      "codepoint_after_label_period" : -1,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : true,
+        "vertical_gap" : 17.480499267578125,
+        "image_bounds" : [ 184.3090057373047, 85.97552490234375, 571.9387817382812, 293.1990051269531 ]
+      } ]
+    }, {
+      "page" : 13,
+      "text_utf16_units" : 165,
+      "text_sha256" : "63f1435afa4e809e89e211ea3473cd34c6ba7b417dbcc089db79c358188b92de",
+      "bounds" : [ 190.1320037841797, 272.8955383300781, 567.7250366210938, 289.3330078125 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 32,
+      "codepoint_after_label_period" : -1,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : true,
+        "vertical_gap" : 17.480560302734375,
+        "image_bounds" : [ 184.3090057373047, 85.9749755859375, 572.0289916992188, 255.41497802734375 ]
+      }, {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : false,
+        "vertical_gap" : -281.3944396972656,
+        "image_bounds" : [ 184.3090057373047, 323.23541259765625, 572.127197265625, 554.2899780273438 ]
+      } ]
+    }, {
+      "page" : 13,
+      "text_utf16_units" : 140,
+      "text_sha256" : "e93c05a07db7b138304bf8becb41761414a6df1bd45093dcba70624a3e733644",
+      "bounds" : [ 190.1320037841797, 571.7705078125, 564.263916015625, 588.2080078125 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 32,
+      "codepoint_after_label_period" : -1,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : false,
+        "vertical_gap" : 316.35552978515625,
+        "image_bounds" : [ 184.3090057373047, 85.9749755859375, 572.0289916992188, 255.41497802734375 ]
+      }, {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : true,
+        "vertical_gap" : 17.48052978515625,
+        "image_bounds" : [ 184.3090057373047, 323.23541259765625, 572.127197265625, 554.2899780273438 ]
+      } ]
+    }, {
+      "page" : 14,
+      "text_utf16_units" : 140,
+      "text_sha256" : "0081b073aa736f7284d01a5bef7b1d8955bc21f181c00c6835e102d4129659b6",
+      "bounds" : [ 190.1320037841797, 244.1975555419922, 571.2936401367188, 260.635009765625 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 32,
+      "codepoint_after_label_period" : -1,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : true,
+        "vertical_gap" : 17.480575561523438,
+        "image_bounds" : [ 184.3090057373047, 85.974853515625, 572.1641845703125, 226.71697998046875 ]
+      } ]
+    } ],
+    "outcome" : "SUCCESS",
+    "profile" : "NATIVE_COLUMNS",
+    "source_images" : 6,
+    "case" : "peerj"
+  }, {
+    "label_cues" : [ {
+      "page" : 7,
+      "text_utf16_units" : 53,
+      "text_sha256" : "485f21c23192ab250cb9cc003ddfef46c96d57323f6cac473b2e1ea5391780d8",
+      "bounds" : [ 190.1320037841797, 584.195556640625, 390.6027526855469, 589.6740112304688 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 32,
+      "codepoint_after_label_period" : -1,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : true,
+        "vertical_gap" : 17.4805908203125,
+        "image_bounds" : [ 184.3090057373047, 85.9747314453125, 568.0363159179688, 566.7149658203125 ]
+      } ]
+    }, {
+      "page" : 11,
+      "text_utf16_units" : 100,
+      "text_sha256" : "258d30d1fdb1ca166eeb03b691cda790b58d0fdfc0f5c4f05e099a49a0554331",
+      "bounds" : [ 190.1320037841797, 250.9355926513672, 571.9302368164062, 256.4140625 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 32,
+      "codepoint_after_label_period" : -1,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : true,
+        "vertical_gap" : 17.480575561523438,
+        "image_bounds" : [ 184.3090057373047, 85.97503662109375, 568.3090209960938, 233.45501708984375 ]
+      } ]
+    }, {
+      "page" : 12,
+      "text_utf16_units" : 99,
+      "text_sha256" : "451a7c201de029c1934de40fa1072769129a5608f9d0438439fa5d7ae22a33e7",
+      "bounds" : [ 190.1320037841797, 310.67950439453125, 564.3446044921875, 316.1579895019531 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 32,
+      "codepoint_after_label_period" : -1,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : true,
+        "vertical_gap" : 17.480499267578125,
+        "image_bounds" : [ 184.3090057373047, 85.97552490234375, 571.9387817382812, 293.1990051269531 ]
+      } ]
+    }, {
+      "page" : 13,
+      "text_utf16_units" : 101,
+      "text_sha256" : "e4cb6a3fe4dcd26d287b89045a27499f8b735bd85737f80197c2cc4c846b03a4",
+      "bounds" : [ 190.1320037841797, 272.8955383300781, 567.7250366210938, 278.3740234375 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 32,
+      "codepoint_after_label_period" : -1,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : true,
+        "vertical_gap" : 17.480560302734375,
+        "image_bounds" : [ 184.3090057373047, 85.9749755859375, 572.0289916992188, 255.41497802734375 ]
+      }, {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : false,
+        "vertical_gap" : -281.3944396972656,
+        "image_bounds" : [ 184.3090057373047, 323.23541259765625, 572.127197265625, 554.2899780273438 ]
+      } ]
+    }, {
+      "page" : 13,
+      "text_utf16_units" : 98,
+      "text_sha256" : "09ffa3013d399e3f4bf7820891479f334150d1a229c8a09d133c6aa97e49ed51",
+      "bounds" : [ 190.1320037841797, 571.7705078125, 564.263916015625, 577.2489624023438 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 32,
+      "codepoint_after_label_period" : -1,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : false,
+        "vertical_gap" : 316.35552978515625,
+        "image_bounds" : [ 184.3090057373047, 85.9749755859375, 572.0289916992188, 255.41497802734375 ]
+      }, {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : true,
+        "vertical_gap" : 17.48052978515625,
+        "image_bounds" : [ 184.3090057373047, 323.23541259765625, 572.127197265625, 554.2899780273438 ]
+      } ]
+    }, {
+      "page" : 14,
+      "text_utf16_units" : 99,
+      "text_sha256" : "6bb087c7af47af9f685340c962a8a6e6c27a883632b68335a55236836fc39e58",
+      "bounds" : [ 190.1320037841797, 244.1975555419922, 571.2936401367188, 249.676025390625 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 32,
+      "codepoint_after_label_period" : -1,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "size_eligible" : true,
+        "left_edge_difference" : 5.822998046875,
+        "adjacency_predicate" : true,
+        "vertical_gap" : 17.480575561523438,
+        "image_bounds" : [ 184.3090057373047, 85.974853515625, 572.1641845703125, 226.71697998046875 ]
+      } ]
+    } ],
+    "outcome" : "SUCCESS",
+    "profile" : "SOURCE_TAGGED_LINES",
+    "source_images" : 6,
+    "case" : "peerj"
+  } ],
+  "scope" : "All original pages and Fig/FIG-prefixed native units with actual committed label/adjacency predicates; no source reference captions, tuning or extraction changes",
+  "source_manifest_sha256" : "b67dc50a40047bdbfe2a7c47d37e188fe02275a46103a67af3b0f9db4200da7f"
+}

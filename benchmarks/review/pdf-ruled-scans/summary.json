@@ -1,0 +1,39 @@
+{
+  "scope": "Fixed nine cTDaR inputs; structural diagnostics without a text transcription oracle",
+  "samples": 9,
+  "candidate_tables": 12,
+  "typed_failures": [
+    {
+      "input": "cTDaR_s001",
+      "code": "OCR_LIMIT"
+    }
+  ],
+  "orientation_observations": 8,
+  "orientation_accepted": 0,
+  "changed_inputs": [],
+  "all_four_result_arrays_identical": true,
+  "control_matches_historical_reject_table_results": true,
+  "exact_dimensions_and_anchor_sets_at_best_envelope": [
+    {
+      "input": "cTDaR_s002",
+      "rows": 2,
+      "columns": 5,
+      "reference_index": 0,
+      "envelope_iou": 0.825579981084257
+    },
+    {
+      "input": "cTDaR_s102",
+      "rows": 5,
+      "columns": 4,
+      "reference_index": 1,
+      "envelope_iou": 0.8939228209592953
+    },
+    {
+      "input": "cTDaR_s102",
+      "rows": 17,
+      "columns": 4,
+      "reference_index": 0,
+      "envelope_iou": 0.9085918818725953
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "base_commit": "4185fe4",
+  "scope": "All original pages and every independently inventoried raster occurrence; main-body figure/auxiliary roles visually reviewed before expanded association extraction. Observed development source, not held-out.",
+  "source": {
+    "id": "peerj",
+    "distribution_url": "s3://pmc-oa-opendata/PMC13086023.1/PMC13086023.1.pdf?md5=ecffcfced89cc365e6529ed2244a072c",
+    "bytes": 3673103,
+    "sha256": "c6c9e6134bcb38ce3855ff48146cdfbf4473ecba76f0fe04d46c2d094c00a522",
+    "pages": 27
+  },
+  "reference_method": "Poppler26.10.0 independent image inventory and XML zoom1 geometry; all image-bearing source pages rendered and visually reviewed before this association run. Integer-rounded top-left PDF points.",
+  "independent_xml_sha256": "47212cb2667ccb4c6635f3bbcd8c37b5dbb470fda93f94c3b49897bf0c0a2d96",
+  "maximum_edge_difference_points": 2,
+  "expected_images": 6,
+  "expected_figures": 6,
+  "profiles": [
+    "NATIVE_LINES",
+    "NATIVE_COLUMNS",
+    "SOURCE_TAGGED_LINES"
+  ],
+  "labels": [
+    {
+      "id": "1",
+      "page": 7,
+      "figure": true,
+      "bounds": [
+        184,
+        86,
+        568,
+        567
+      ]
+    },
+    {
+      "id": "2",
+      "page": 11,
+      "figure": true,
+      "bounds": [
+        184,
+        86,
+        568,
+        233
+      ]
+    },
+    {
+      "id": "3",
+      "page": 12,
+      "figure": true,
+      "bounds": [
+        184,
+        86,
+        572,
+        293
+      ]
+    },
+    {
+      "id": "4",
+      "page": 13,
+      "figure": true,
+      "bounds": [
+        184,
+        86,
+        572,
+        255
+      ]
+    },
+    {
+      "id": "5",
+      "page": 13,
+      "figure": true,
+      "bounds": [
+        184,
+        323,
+        572,
+        554
+      ]
+    },
+    {
+      "id": "6",
+      "page": 14,
+      "figure": true,
+      "bounds": [
+        184,
+        86,
+        572,
+        227
+      ]
+    }
+  ],
+  "raw_sources_redistributed": false
+}

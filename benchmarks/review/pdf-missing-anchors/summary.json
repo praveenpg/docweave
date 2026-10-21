@@ -1,0 +1,14 @@
+{
+  "scope": "All20 original upstream-train images; structure-only geometry, no OCR; valid labeled cells only. Descriptive exclusive symptoms, not causal model-error or general accuracy labels.",
+  "labeled": 1230,
+  "missing_anchor": 131,
+  "missing_anchor_reasons": {
+    "no_table": 97,
+    "different_span_at_origin": 24,
+    "origin_covered_by_other_anchor": 6,
+    "outside_predicted_grid": 4
+  },
+  "historical_metrics_preserved": true,
+  "paired_records_identical": true,
+  "harness_sha256": "77c23ad5a17016cc565921a227823e6d6e638f00755e51e4aa9bfa3b2dac79a6"
+}

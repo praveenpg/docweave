@@ -1,0 +1,4 @@
+java=25.0.4+7-LTS
+unit=ascii words input_code_points=49152 output_code_points=49151 allocated_bytes_per_call=196944
+unit=Café 漢 words input_code_points=53248 output_code_points=53247 allocated_bytes_per_call=401752
+unit=😀 𐐀 words input_code_points=40960 output_code_points=40959 allocated_bytes_per_call=393560

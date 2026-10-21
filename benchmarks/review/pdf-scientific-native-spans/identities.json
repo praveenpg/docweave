@@ -1,0 +1,16 @@
+{
+  "production_commit": "513fc2dbc0473e22d770d9e976a5e365f883330c",
+  "full_tests_per_jdk": 924,
+  "explicit_external_case_profiles_per_jdk": 6,
+  "sha256": {
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfScientificSpanTest.java": "c907c810f35abdc633ecaf7a457181dc0b831b65ef4abeaf0c1b169402218db5",
+    "benchmarks/review/pdf-scientific-native-spans/manifest.json": "0c963557789d766f4661d09225a326f836c7ea07d3fc0834500e7e6a93431311",
+    "benchmarks/review/pdf-scientific-native-spans/java21.json": "789a05f830c3ab6d1ae3c7ddd2aca07afc56b119231ed74a6e404895be32981a",
+    "benchmarks/review/pdf-scientific-native-spans/java25.json": "9f552e2c7c4ac6c56d0f1cf7fb72f6bdf6c6ec925b193c585b0aa73831b812c5"
+  },
+  "local_log_sha256": {
+    "/tmp/docweave-scientific-full21.log": "d1d1b71c7ea45d7838606464f42dbc44a52da38202a1f70920eb46a0507f8a55",
+    "/tmp/docweave-scientific-full25.log": "350847de9fb264290cd79fa8c4dde9087e4e8a5056be4a049c7aa21a8549630f",
+    "/tmp/docweave-scientific-tooling.log": "d8161f7e9cdad4a69e4ed9e413493aba86d900c4ef1166872d17209b8cea6059"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "frozen_at": "2026-10-19T17:11:15.796777+00:00",
+  "selection": "First two lexicographically ordered works with a four-digit publication suffix1800..1899 in OCR-D/gt_structure_text inventory, then first ordinal GT-PAGE XML from each. Both cases retained if labels/images/recognition unsupported. Selection frozen before fetching source XML/images or any OCR.",
+  "repository": "https://github.com/OCR-D/gt_structure_text",
+  "commit": "379f597a8dada882e6c2e4f509dbf9fdf2ebffa1",
+  "reported_commit_tree_sha": "305dc01ad498a4de9766c8b131eb3788ff58e7e5",
+  "inventory_response_sha256": "1e05ada58792b7f6616a022e20660e1d6853ccb6d37182c8ce847334db10928d",
+  "inventory_reported_sha": "379f597a8dada882e6c2e4f509dbf9fdf2ebffa1",
+  "identity_protocol": "Fetch raw sources at the commit; verify each expected Git blob and bytecount from inventory. The inventory returned a root sha different from commit.tree.sha; file identity checks remain authoritative; do not infer exact tree consistency from root metadata.",
+  "model_repository": "https://github.com/tesseract-ocr/tessdata_best",
+  "model_commit": "e12c65a915945e4c28e237a9b52bc4a8f39a0cec",
+  "model": "deu_latf.traineddata",
+  "model_blob_sha1": "cc64c41d469dd0d2791e26d6da8c0fa5d4ef94c0",
+  "cases": [
+    {
+      "id": "arnimb_goethe03_1835",
+      "year": 1835,
+      "page_xml_path": "data/arnimb_goethe03_1835/GT-PAGE/arnimb_goethe03_1835_0029.xml",
+      "page_xml_blob_sha1": "4965d7544104a49eedd28037753aa2e1439aea0c",
+      "image_path": "data/arnimb_goethe03_1835/GT-PAGE/arnimb_goethe03_1835_0029.tif",
+      "image_blob_sha1": "d989fd0c9ded1916cc89313f4a10d55f1e7688c5",
+      "image_bytes": 12156546
+    },
+    {
+      "id": "bebel_frau_1879",
+      "year": 1879,
+      "page_xml_path": "data/bebel_frau_1879/GT-PAGE/bebel_frau_1879_0146.xml",
+      "page_xml_blob_sha1": "0155f803add9f249ce99fa8e9002c72ef2f83ebb",
+      "image_path": "data/bebel_frau_1879/GT-PAGE/bebel_frau_1879_0146.tif",
+      "image_blob_sha1": "ce63a3d731fd64ef5da1c253691c7843ffd1fa6b",
+      "image_bytes": 268414
+    }
+  ],
+  "scope": "Original full historical scan images with independent PAGE text/geometry. If no publisher PDF exists, a lossless full-image PDF container must be explicitly labelled; no crop, selected line OCR, source correction or invented GT. Text references/scoring frozen before candidate. Training overlap of published model and OCR-D data unknown; development evidence, not heldout accuracy or PDFcompletion. No rawtranscriptions/images/models inGit."
+}

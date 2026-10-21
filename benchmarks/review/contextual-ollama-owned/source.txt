@@ -1,0 +1,11 @@
+Acme Holdings Annual Report 2026
+
+Acme Holdings is a fictional company used only for this owned integration test. This report covers fiscal year 2026. It is a source fixture rather than a statement about a real business.
+
+Revenue and operations
+
+Revenue increased from 100 million dollars in 2025 to 120 million dollars in 2026. The company operates in North America. Its manufacturing division contributed 80 million dollars of the 2026 revenue and its service division contributed 40 million dollars.
+
+Risk and outlook
+
+The company identifies supply interruptions as its main operating risk. It plans to add a second supplier during fiscal year 2027. The report does not give a forecast for 2027 revenue.

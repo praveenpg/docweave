@@ -1,0 +1,257 @@
+{
+  "baseline": "5dfa96cfc605d68c64c6a3a5efbd0d0ae1ac5c3a",
+  "scope": "Independent optional-adapter consumer integration on Linux, not PDF accuracy or new full-reactor validation",
+  "libraries": "Java25-built Java21-target installed snapshots, same for both JVM consumers",
+  "runs": {
+    "21-default": {
+      "tesseract": {
+        "dependencies": [
+          "docweave-ocr-tesseract-0.1.0-SNAPSHOT.jar",
+          "docweave-pdf-0.1.0-SNAPSHOT.jar",
+          "docweave-core-0.1.0-SNAPSHOT.jar",
+          "pdfbox-3.0.8.jar",
+          "pdfbox-io-3.0.8.jar",
+          "fontbox-3.0.8.jar",
+          "commons-logging-1.4.0.jar"
+        ],
+        "stdout_and_stderr": "Public OCR interface and missing-engine diagnostic passed\nTesseract consumer passed on 21.0.12.1+12-LTS\n",
+        "build_log_sha256": "c507993566d6bccf8333701c3f864f4695ff449a269864c1feb8a446127d10ab",
+        "class_major": 65,
+        "dependencies_sha256": {
+          "docweave-ocr-tesseract-0.1.0-SNAPSHOT.jar": "bec5d8162aabacf52a6bf4c3d0ef959a3d5ca338c08931ff4cb3726531a08997",
+          "docweave-pdf-0.1.0-SNAPSHOT.jar": "08b4c8df336c99249cd1a5f0d9bf77d967deec4ea094e544eba28149099261c5",
+          "docweave-core-0.1.0-SNAPSHOT.jar": "4cac981049695e2d02aba3e1f2fda8a9511d63f10f35d7bb7e42a019152f347c",
+          "pdfbox-3.0.8.jar": "97647cfbde61ebcfc06b4cf8c9b0ffcaaee073396eceb4a7f6836a9b9128903c",
+          "pdfbox-io-3.0.8.jar": "36a0e04001010b4c764857817412b96339930b19755e728959805cc0352061b2",
+          "fontbox-3.0.8.jar": "a1915c24e3edbe0ecec93896dfbf6d41427810b663ade97bd4e8bae86ec3fdab",
+          "commons-logging-1.4.0.jar": "d175dbd751dd782a63bde28c7a039520e971f25e84b79c19b8435edc3603e0dc"
+        },
+        "fresh_workspace": true
+      },
+      "onnx": {
+        "dependencies": [
+          "docweave-layout-onnx-0.1.0-SNAPSHOT.jar",
+          "docweave-pdf-0.1.0-SNAPSHOT.jar",
+          "docweave-core-0.1.0-SNAPSHOT.jar",
+          "pdfbox-3.0.8.jar",
+          "pdfbox-io-3.0.8.jar",
+          "fontbox-3.0.8.jar",
+          "commons-logging-1.4.0.jar",
+          "onnxruntime-1.23.2.jar"
+        ],
+        "stdout_and_stderr": "ONNX native geometry, identity and managed lifecycle passed on 21.0.12.1+12-LTS\n",
+        "build_log_sha256": "fdd5a74f82e03b294af81f6e9ddcb3d58a814ec46ebdacfabd7955f93a5abad3",
+        "class_major": 65,
+        "dependencies_sha256": {
+          "docweave-layout-onnx-0.1.0-SNAPSHOT.jar": "0809d890fdf5716096947809dd19501872d2989450ed122f94184822da01d378",
+          "docweave-pdf-0.1.0-SNAPSHOT.jar": "08b4c8df336c99249cd1a5f0d9bf77d967deec4ea094e544eba28149099261c5",
+          "docweave-core-0.1.0-SNAPSHOT.jar": "4cac981049695e2d02aba3e1f2fda8a9511d63f10f35d7bb7e42a019152f347c",
+          "pdfbox-3.0.8.jar": "97647cfbde61ebcfc06b4cf8c9b0ffcaaee073396eceb4a7f6836a9b9128903c",
+          "pdfbox-io-3.0.8.jar": "36a0e04001010b4c764857817412b96339930b19755e728959805cc0352061b2",
+          "fontbox-3.0.8.jar": "a1915c24e3edbe0ecec93896dfbf6d41427810b663ade97bd4e8bae86ec3fdab",
+          "commons-logging-1.4.0.jar": "d175dbd751dd782a63bde28c7a039520e971f25e84b79c19b8435edc3603e0dc",
+          "onnxruntime-1.23.2.jar": "e0ab4a1af57d2da09097202f2dfd691e390c82e81183314788ccde4cf7c3cc38"
+        },
+        "fresh_workspace": true
+      }
+    },
+    "21-native": {
+      "tesseract": {
+        "dependencies": [
+          "docweave-ocr-tesseract-0.1.0-SNAPSHOT.jar",
+          "docweave-pdf-0.1.0-SNAPSHOT.jar",
+          "docweave-core-0.1.0-SNAPSHOT.jar",
+          "pdfbox-3.0.8.jar",
+          "pdfbox-io-3.0.8.jar",
+          "fontbox-3.0.8.jar",
+          "commons-logging-1.4.0.jar"
+        ],
+        "stdout_and_stderr": "Public OCR interface and missing-engine diagnostic passed\nExplicit installed-engine recognition passed\nTesseract consumer passed on 21.0.12.1+12-LTS\n",
+        "build_log_sha256": "71b25596564e402f8ff06754ca89de67746e741f9bb277a4e0a3db51ddf0af5a",
+        "class_major": 65,
+        "dependencies_sha256": {
+          "docweave-ocr-tesseract-0.1.0-SNAPSHOT.jar": "bec5d8162aabacf52a6bf4c3d0ef959a3d5ca338c08931ff4cb3726531a08997",
+          "docweave-pdf-0.1.0-SNAPSHOT.jar": "08b4c8df336c99249cd1a5f0d9bf77d967deec4ea094e544eba28149099261c5",
+          "docweave-core-0.1.0-SNAPSHOT.jar": "4cac981049695e2d02aba3e1f2fda8a9511d63f10f35d7bb7e42a019152f347c",
+          "pdfbox-3.0.8.jar": "97647cfbde61ebcfc06b4cf8c9b0ffcaaee073396eceb4a7f6836a9b9128903c",
+          "pdfbox-io-3.0.8.jar": "36a0e04001010b4c764857817412b96339930b19755e728959805cc0352061b2",
+          "fontbox-3.0.8.jar": "a1915c24e3edbe0ecec93896dfbf6d41427810b663ade97bd4e8bae86ec3fdab",
+          "commons-logging-1.4.0.jar": "d175dbd751dd782a63bde28c7a039520e971f25e84b79c19b8435edc3603e0dc"
+        },
+        "fresh_workspace": true
+      },
+      "onnx": {
+        "dependencies": [
+          "docweave-layout-onnx-0.1.0-SNAPSHOT.jar",
+          "docweave-pdf-0.1.0-SNAPSHOT.jar",
+          "docweave-core-0.1.0-SNAPSHOT.jar",
+          "pdfbox-3.0.8.jar",
+          "pdfbox-io-3.0.8.jar",
+          "fontbox-3.0.8.jar",
+          "commons-logging-1.4.0.jar",
+          "onnxruntime-1.23.2.jar"
+        ],
+        "stdout_and_stderr": "ONNX native geometry, identity and managed lifecycle passed on 21.0.12.1+12-LTS\n",
+        "build_log_sha256": "23baf33bb89a6c6d48f77b5543efd6d04b81beedca6bd373eff6c460e6f57af8",
+        "class_major": 65,
+        "dependencies_sha256": {
+          "docweave-layout-onnx-0.1.0-SNAPSHOT.jar": "0809d890fdf5716096947809dd19501872d2989450ed122f94184822da01d378",
+          "docweave-pdf-0.1.0-SNAPSHOT.jar": "08b4c8df336c99249cd1a5f0d9bf77d967deec4ea094e544eba28149099261c5",
+          "docweave-core-0.1.0-SNAPSHOT.jar": "4cac981049695e2d02aba3e1f2fda8a9511d63f10f35d7bb7e42a019152f347c",
+          "pdfbox-3.0.8.jar": "97647cfbde61ebcfc06b4cf8c9b0ffcaaee073396eceb4a7f6836a9b9128903c",
+          "pdfbox-io-3.0.8.jar": "36a0e04001010b4c764857817412b96339930b19755e728959805cc0352061b2",
+          "fontbox-3.0.8.jar": "a1915c24e3edbe0ecec93896dfbf6d41427810b663ade97bd4e8bae86ec3fdab",
+          "commons-logging-1.4.0.jar": "d175dbd751dd782a63bde28c7a039520e971f25e84b79c19b8435edc3603e0dc",
+          "onnxruntime-1.23.2.jar": "e0ab4a1af57d2da09097202f2dfd691e390c82e81183314788ccde4cf7c3cc38"
+        },
+        "fresh_workspace": true
+      }
+    },
+    "25-default": {
+      "tesseract": {
+        "dependencies": [
+          "docweave-ocr-tesseract-0.1.0-SNAPSHOT.jar",
+          "docweave-pdf-0.1.0-SNAPSHOT.jar",
+          "docweave-core-0.1.0-SNAPSHOT.jar",
+          "pdfbox-3.0.8.jar",
+          "pdfbox-io-3.0.8.jar",
+          "fontbox-3.0.8.jar",
+          "commons-logging-1.4.0.jar"
+        ],
+        "stdout_and_stderr": "Public OCR interface and missing-engine diagnostic passed\nTesseract consumer passed on 25.0.4+7-LTS\n",
+        "build_log_sha256": "93068fda01daefca362b114b8b8cda5818f6005bfb97cc6b6d5519c684697924",
+        "class_major": 65,
+        "dependencies_sha256": {
+          "docweave-ocr-tesseract-0.1.0-SNAPSHOT.jar": "bec5d8162aabacf52a6bf4c3d0ef959a3d5ca338c08931ff4cb3726531a08997",
+          "docweave-pdf-0.1.0-SNAPSHOT.jar": "08b4c8df336c99249cd1a5f0d9bf77d967deec4ea094e544eba28149099261c5",
+          "docweave-core-0.1.0-SNAPSHOT.jar": "4cac981049695e2d02aba3e1f2fda8a9511d63f10f35d7bb7e42a019152f347c",
+          "pdfbox-3.0.8.jar": "97647cfbde61ebcfc06b4cf8c9b0ffcaaee073396eceb4a7f6836a9b9128903c",
+          "pdfbox-io-3.0.8.jar": "36a0e04001010b4c764857817412b96339930b19755e728959805cc0352061b2",
+          "fontbox-3.0.8.jar": "a1915c24e3edbe0ecec93896dfbf6d41427810b663ade97bd4e8bae86ec3fdab",
+          "commons-logging-1.4.0.jar": "d175dbd751dd782a63bde28c7a039520e971f25e84b79c19b8435edc3603e0dc"
+        },
+        "fresh_workspace": true
+      },
+      "onnx": {
+        "dependencies": [
+          "docweave-layout-onnx-0.1.0-SNAPSHOT.jar",
+          "docweave-pdf-0.1.0-SNAPSHOT.jar",
+          "docweave-core-0.1.0-SNAPSHOT.jar",
+          "pdfbox-3.0.8.jar",
+          "pdfbox-io-3.0.8.jar",
+          "fontbox-3.0.8.jar",
+          "commons-logging-1.4.0.jar",
+          "onnxruntime-1.23.2.jar"
+        ],
+        "stdout_and_stderr": "ONNX native geometry, identity and managed lifecycle passed on 25.0.4+7-LTS\n",
+        "build_log_sha256": "0154a37c0ecf5e2b9abeab9e0bca7571418d5f963e73f8518070b38adc4ac492",
+        "class_major": 65,
+        "dependencies_sha256": {
+          "docweave-layout-onnx-0.1.0-SNAPSHOT.jar": "0809d890fdf5716096947809dd19501872d2989450ed122f94184822da01d378",
+          "docweave-pdf-0.1.0-SNAPSHOT.jar": "08b4c8df336c99249cd1a5f0d9bf77d967deec4ea094e544eba28149099261c5",
+          "docweave-core-0.1.0-SNAPSHOT.jar": "4cac981049695e2d02aba3e1f2fda8a9511d63f10f35d7bb7e42a019152f347c",
+          "pdfbox-3.0.8.jar": "97647cfbde61ebcfc06b4cf8c9b0ffcaaee073396eceb4a7f6836a9b9128903c",
+          "pdfbox-io-3.0.8.jar": "36a0e04001010b4c764857817412b96339930b19755e728959805cc0352061b2",
+          "fontbox-3.0.8.jar": "a1915c24e3edbe0ecec93896dfbf6d41427810b663ade97bd4e8bae86ec3fdab",
+          "commons-logging-1.4.0.jar": "d175dbd751dd782a63bde28c7a039520e971f25e84b79c19b8435edc3603e0dc",
+          "onnxruntime-1.23.2.jar": "e0ab4a1af57d2da09097202f2dfd691e390c82e81183314788ccde4cf7c3cc38"
+        },
+        "fresh_workspace": true
+      }
+    },
+    "25-native": {
+      "tesseract": {
+        "dependencies": [
+          "docweave-ocr-tesseract-0.1.0-SNAPSHOT.jar",
+          "docweave-pdf-0.1.0-SNAPSHOT.jar",
+          "docweave-core-0.1.0-SNAPSHOT.jar",
+          "pdfbox-3.0.8.jar",
+          "pdfbox-io-3.0.8.jar",
+          "fontbox-3.0.8.jar",
+          "commons-logging-1.4.0.jar"
+        ],
+        "stdout_and_stderr": "Public OCR interface and missing-engine diagnostic passed\nExplicit installed-engine recognition passed\nTesseract consumer passed on 25.0.4+7-LTS\n",
+        "build_log_sha256": "b204dc9beb0448db49a84ab3bb782b209a65a772f8e29cb00c45cd34dad47fde",
+        "class_major": 65,
+        "dependencies_sha256": {
+          "docweave-ocr-tesseract-0.1.0-SNAPSHOT.jar": "bec5d8162aabacf52a6bf4c3d0ef959a3d5ca338c08931ff4cb3726531a08997",
+          "docweave-pdf-0.1.0-SNAPSHOT.jar": "08b4c8df336c99249cd1a5f0d9bf77d967deec4ea094e544eba28149099261c5",
+          "docweave-core-0.1.0-SNAPSHOT.jar": "4cac981049695e2d02aba3e1f2fda8a9511d63f10f35d7bb7e42a019152f347c",
+          "pdfbox-3.0.8.jar": "97647cfbde61ebcfc06b4cf8c9b0ffcaaee073396eceb4a7f6836a9b9128903c",
+          "pdfbox-io-3.0.8.jar": "36a0e04001010b4c764857817412b96339930b19755e728959805cc0352061b2",
+          "fontbox-3.0.8.jar": "a1915c24e3edbe0ecec93896dfbf6d41427810b663ade97bd4e8bae86ec3fdab",
+          "commons-logging-1.4.0.jar": "d175dbd751dd782a63bde28c7a039520e971f25e84b79c19b8435edc3603e0dc"
+        },
+        "fresh_workspace": true
+      },
+      "onnx": {
+        "dependencies": [
+          "docweave-layout-onnx-0.1.0-SNAPSHOT.jar",
+          "docweave-pdf-0.1.0-SNAPSHOT.jar",
+          "docweave-core-0.1.0-SNAPSHOT.jar",
+          "pdfbox-3.0.8.jar",
+          "pdfbox-io-3.0.8.jar",
+          "fontbox-3.0.8.jar",
+          "commons-logging-1.4.0.jar",
+          "onnxruntime-1.23.2.jar"
+        ],
+        "stdout_and_stderr": "ONNX native geometry, identity and managed lifecycle passed on 25.0.4+7-LTS\n",
+        "build_log_sha256": "5eb3f4ad20914a26120b53d567c5827a8da04ffc8ec004f40e453422f119c706",
+        "class_major": 65,
+        "dependencies_sha256": {
+          "docweave-layout-onnx-0.1.0-SNAPSHOT.jar": "0809d890fdf5716096947809dd19501872d2989450ed122f94184822da01d378",
+          "docweave-pdf-0.1.0-SNAPSHOT.jar": "08b4c8df336c99249cd1a5f0d9bf77d967deec4ea094e544eba28149099261c5",
+          "docweave-core-0.1.0-SNAPSHOT.jar": "4cac981049695e2d02aba3e1f2fda8a9511d63f10f35d7bb7e42a019152f347c",
+          "pdfbox-3.0.8.jar": "97647cfbde61ebcfc06b4cf8c9b0ffcaaee073396eceb4a7f6836a9b9128903c",
+          "pdfbox-io-3.0.8.jar": "36a0e04001010b4c764857817412b96339930b19755e728959805cc0352061b2",
+          "fontbox-3.0.8.jar": "a1915c24e3edbe0ecec93896dfbf6d41427810b663ade97bd4e8bae86ec3fdab",
+          "commons-logging-1.4.0.jar": "d175dbd751dd782a63bde28c7a039520e971f25e84b79c19b8435edc3603e0dc",
+          "onnxruntime-1.23.2.jar": "e0ab4a1af57d2da09097202f2dfd691e390c82e81183314788ccde4cf7c3cc38"
+        },
+        "fresh_workspace": true
+      }
+    }
+  },
+  "sources": {
+    "benchmarks/review/adapter-consumers/run.sh": "bdf1b1885d84827061f568da056f00306be9825ca28248ecf229f7fe15628e82",
+    "benchmarks/review/adapter-consumers/README.md": "a6e3b9dad0338ac2f923e30b17d600a77791e5240fb2282bd8216dd0d3b05128",
+    "benchmarks/review/adapter-consumers/tesseract/pom.xml": "e5ea492692efb7856786fa2d86cb4621f8bfbcf31f44768fd1e4a5c11b23a097",
+    "benchmarks/review/adapter-consumers/onnx/pom.xml": "9a8b60ed19f997bc290a02f1b248f19a642c5bc9c9b582e0f76ccf4bf0c21b51",
+    "benchmarks/review/adapter-consumers/onnx/src/main/java/OnnxConsumer.java": "8f5b5910c3f16531a6c08b58f2440bf6e81c6def29d66d6fa6d9b8996351b47e",
+    "benchmarks/review/adapter-consumers/tesseract/src/main/java/TesseractConsumer.java": "a158bf289a0291406f23e2841014d6ea72178a00dab9b4563f86288eeea8397c",
+    ".github/workflows/verify.yml": "4956a595b8151c7ad2b246715fe94296a7cc5e7a52709035e70be69d0537a459"
+  },
+  "library_artifacts": {
+    "docweave-core": "4cac981049695e2d02aba3e1f2fda8a9511d63f10f35d7bb7e42a019152f347c",
+    "docweave-pdf": "08b4c8df336c99249cd1a5f0d9bf77d967deec4ea094e544eba28149099261c5",
+    "docweave-ocr-tesseract": "bec5d8162aabacf52a6bf4c3d0ef959a3d5ca338c08931ff4cb3726531a08997",
+    "docweave-layout-onnx": "0809d890fdf5716096947809dd19501872d2989450ed122f94184822da01d378"
+  },
+  "installed_resources": {
+    "tesseract": {
+      "sha256": "9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917",
+      "bytes": 51480
+    },
+    "eng.traineddata": {
+      "sha256": "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047",
+      "bytes": 23466654
+    },
+    "fixed-table.onnx": {
+      "sha256": "13d88527dfc712e644b1f2251907d891a25d0b64e42326251e4745be67fee203",
+      "bytes": 594
+    }
+  },
+  "limits": [
+    "No learned-model recognition check",
+    "No Windows/macOS certification",
+    "No upload/signature/beta acceptance",
+    "Existing 899-test baseline is unchanged, not rerun for this checkpoint"
+  ],
+  "initial_ci": {
+    "run": 39090255770,
+    "result": "failure",
+    "java21": "Maven Central HTTP429 resolving existing Javadoc plugin before tests",
+    "java25": "Maven-version default clean plugin absent in file-only mirror",
+    "correction": "Copy source to fresh workspace and package without clean; all four paired mode/JVM runs repeated successfully"
+  }
+}

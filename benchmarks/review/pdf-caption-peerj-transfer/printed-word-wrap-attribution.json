@@ -1,0 +1,25 @@
+{
+  "scope": "Read-only attribution after frozen transfer, not a replacement acceptance metric. Independently rendered original pages show the physical line-wrap hyphens preserved by native output; original source reference/strict4of6score unchanged. No body repair or word dictionary applied.",
+  "source_pdf_sha256": "c6c9e6134bcb38ce3855ff48146cdfbf4473ecba76f0fe04d46c2d094c00a522",
+  "independent_tool": "Poppler26.10.0 pdftoppm/pdftotext",
+  "render_dpi": 150,
+  "source_words": [
+    "progressive",
+    "clinical"
+  ],
+  "observations": [
+    {
+      "page": 12,
+      "caption_ordinal": 2,
+      "independent_render_png_sha256": "94862075e55c84b9a3d3b263b085592777b3e30d64078d1ddb6289da672ea299",
+      "observation": "Printed terminal line hyphen and remaining word continuation are visible in independent full-page rendering and retained in native output"
+    },
+    {
+      "page": 13,
+      "caption_ordinal": 3,
+      "independent_render_png_sha256": "05293660db2753e97118ba321ad2a325ff97f7e8490aae2f757bf0fc65f83609",
+      "observation": "Printed terminal line hyphen and remaining word continuation are visible in independent full-page rendering and retained in native output"
+    }
+  ],
+  "rasters_redistributed": false
+}

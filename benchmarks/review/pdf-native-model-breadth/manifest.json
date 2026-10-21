@@ -1,0 +1,10 @@
+{
+  "frozen_at": "2026-10-19T04:36:55.767706+00:00",
+  "scope": "Four previously frozen development cases, not new/current or held-out sources. Two business, one public-statistics, one historical engineering/scientific table.",
+  "references": {
+    "benchmarks/review/pdf-business-cell-text/manifest.json": "df8b9fcd50d77a61fe9b273aa0a2470932c922d5ada4b21c90fd02cc954cecbe",
+    "benchmarks/review/pdf-scientific-native-spans/manifest.json": "0c963557789d766f4661d09225a326f836c7ea07d3fc0834500e7e6a93431311",
+    "benchmarks/review/pdf-native-provider-layout/manifest.json": "b34ae4e3f5615a40940996cfa789b28d325399445c028f42d6d28dcc9c0769f6"
+  },
+  "protocol": "Uniform whole-original-document live native/model layout at150DPI/16Mpixels/1024anchors, pinned previousTATRgraphs/fourthreads/KEEP_HIGHER_SCOREstructure. No OCR, ROI or labels supplied to extraction. Keep all944 CSV positions and43 scientific span/text anchors independently; no pooled accuracy score. Existing exact positional CSV comparator/normalization/association unchanged. Scientific exactspan/ASCII-normalizedtext keys and maxIoU>=0.5 unchanged. No score-threshold/routing/geometry/text tuning, no dropping typed failures or misses."
+}

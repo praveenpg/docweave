@@ -1,0 +1,583 @@
+{
+  "baseline_diagnostics" : [ {
+    "case" : "arnimb_goethe03_1835/deu/ENGINE_DEFAULT",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : true,
+    "associated_reference_lines" : {
+      "baseline" : 21,
+      "median" : 22
+    },
+    "exact_associated_lines" : {
+      "baseline" : 0,
+      "median" : 1
+    },
+    "missing_reference_lines" : {
+      "baseline" : 1,
+      "median" : 0
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 0,
+      "median" : 0
+    },
+    "global_character_edits" : {
+      "baseline" : 104,
+      "median" : 108
+    }
+  }, {
+    "case" : "arnimb_goethe03_1835/deu_latf/ENGINE_DEFAULT",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : true,
+    "associated_reference_lines" : {
+      "baseline" : 21,
+      "median" : 22
+    },
+    "exact_associated_lines" : {
+      "baseline" : 4,
+      "median" : 7
+    },
+    "missing_reference_lines" : {
+      "baseline" : 1,
+      "median" : 0
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 0,
+      "median" : 0
+    },
+    "global_character_edits" : {
+      "baseline" : 51,
+      "median" : 48
+    }
+  }, {
+    "case" : "arnimb_goethe03_1835/deu/ADAPTIVE_OTSU",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : true,
+    "associated_reference_lines" : {
+      "baseline" : 20,
+      "median" : 19
+    },
+    "exact_associated_lines" : {
+      "baseline" : 0,
+      "median" : 0
+    },
+    "missing_reference_lines" : {
+      "baseline" : 2,
+      "median" : 3
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 1,
+      "median" : 4
+    },
+    "global_character_edits" : {
+      "baseline" : 121,
+      "median" : 205
+    }
+  }, {
+    "case" : "arnimb_goethe03_1835/deu_latf/ADAPTIVE_OTSU",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : true,
+    "associated_reference_lines" : {
+      "baseline" : 20,
+      "median" : 19
+    },
+    "exact_associated_lines" : {
+      "baseline" : 5,
+      "median" : 3
+    },
+    "missing_reference_lines" : {
+      "baseline" : 2,
+      "median" : 3
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 1,
+      "median" : 4
+    },
+    "global_character_edits" : {
+      "baseline" : 59,
+      "median" : 162
+    }
+  }, {
+    "case" : "arnimb_goethe03_1835/deu/SAUVOLA",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : true,
+    "associated_reference_lines" : {
+      "baseline" : 22,
+      "median" : 22
+    },
+    "exact_associated_lines" : {
+      "baseline" : 1,
+      "median" : 1
+    },
+    "missing_reference_lines" : {
+      "baseline" : 0,
+      "median" : 0
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 1,
+      "median" : 9
+    },
+    "global_character_edits" : {
+      "baseline" : 110,
+      "median" : 144
+    }
+  }, {
+    "case" : "arnimb_goethe03_1835/deu_latf/SAUVOLA",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : true,
+    "associated_reference_lines" : {
+      "baseline" : 22,
+      "median" : 22
+    },
+    "exact_associated_lines" : {
+      "baseline" : 6,
+      "median" : 6
+    },
+    "missing_reference_lines" : {
+      "baseline" : 0,
+      "median" : 0
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 1,
+      "median" : 9
+    },
+    "global_character_edits" : {
+      "baseline" : 58,
+      "median" : 137
+    }
+  }, {
+    "case" : "bebel_frau_1879/deu/ENGINE_DEFAULT",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "baseline" : 49,
+      "median" : 49
+    },
+    "exact_associated_lines" : {
+      "baseline" : 42,
+      "median" : 41
+    },
+    "missing_reference_lines" : {
+      "baseline" : 1,
+      "median" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 1,
+      "median" : 1
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 291,
+      "median" : 292
+    }
+  }, {
+    "case" : "bebel_frau_1879/deu_latf/ENGINE_DEFAULT",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "baseline" : 49,
+      "median" : 49
+    },
+    "exact_associated_lines" : {
+      "baseline" : 18,
+      "median" : 17
+    },
+    "missing_reference_lines" : {
+      "baseline" : 1,
+      "median" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 1,
+      "median" : 1
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 334,
+      "median" : 342
+    }
+  }, {
+    "case" : "bebel_frau_1879/deu/ADAPTIVE_OTSU",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "baseline" : 49,
+      "median" : 49
+    },
+    "exact_associated_lines" : {
+      "baseline" : 42,
+      "median" : 41
+    },
+    "missing_reference_lines" : {
+      "baseline" : 1,
+      "median" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 1,
+      "median" : 1
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 291,
+      "median" : 292
+    }
+  }, {
+    "case" : "bebel_frau_1879/deu_latf/ADAPTIVE_OTSU",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "baseline" : 49,
+      "median" : 49
+    },
+    "exact_associated_lines" : {
+      "baseline" : 18,
+      "median" : 17
+    },
+    "missing_reference_lines" : {
+      "baseline" : 1,
+      "median" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 1,
+      "median" : 1
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 334,
+      "median" : 342
+    }
+  }, {
+    "case" : "bebel_frau_1879/deu/SAUVOLA",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "baseline" : 49,
+      "median" : 49
+    },
+    "exact_associated_lines" : {
+      "baseline" : 42,
+      "median" : 41
+    },
+    "missing_reference_lines" : {
+      "baseline" : 1,
+      "median" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 1,
+      "median" : 1
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 291,
+      "median" : 292
+    }
+  }, {
+    "case" : "bebel_frau_1879/deu_latf/SAUVOLA",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "baseline" : 49,
+      "median" : 49
+    },
+    "exact_associated_lines" : {
+      "baseline" : 18,
+      "median" : 17
+    },
+    "missing_reference_lines" : {
+      "baseline" : 1,
+      "median" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 1,
+      "median" : 1
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 334,
+      "median" : 342
+    }
+  }, {
+    "case" : "buerger_gedichte_1778_0039/deu/ENGINE_DEFAULT",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "baseline" : 17,
+      "median" : 18
+    },
+    "exact_associated_lines" : {
+      "baseline" : 0,
+      "median" : 1
+    },
+    "missing_reference_lines" : {
+      "baseline" : 21,
+      "median" : 20
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 11,
+      "median" : 9
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 419,
+      "median" : 416
+    }
+  }, {
+    "case" : "buerger_gedichte_1778_0039/deu_latf/ENGINE_DEFAULT",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "baseline" : 18,
+      "median" : 17
+    },
+    "exact_associated_lines" : {
+      "baseline" : 3,
+      "median" : 4
+    },
+    "missing_reference_lines" : {
+      "baseline" : 20,
+      "median" : 21
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 10,
+      "median" : 10
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 371,
+      "median" : 372
+    }
+  }, {
+    "case" : "buerger_gedichte_1778_0039/deu/ADAPTIVE_OTSU",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "baseline" : 17,
+      "median" : 32
+    },
+    "exact_associated_lines" : {
+      "baseline" : 0,
+      "median" : 0
+    },
+    "missing_reference_lines" : {
+      "baseline" : 21,
+      "median" : 6
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 15,
+      "median" : 10
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 401,
+      "median" : 502
+    }
+  }, {
+    "case" : "buerger_gedichte_1778_0039/deu_latf/ADAPTIVE_OTSU",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "baseline" : 17,
+      "median" : 32
+    },
+    "exact_associated_lines" : {
+      "baseline" : 3,
+      "median" : 4
+    },
+    "missing_reference_lines" : {
+      "baseline" : 21,
+      "median" : 6
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 15,
+      "median" : 10
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 370,
+      "median" : 479
+    }
+  }, {
+    "case" : "buerger_gedichte_1778_0039/deu/SAUVOLA",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "baseline" : 24,
+      "median" : 20
+    },
+    "exact_associated_lines" : {
+      "baseline" : 0,
+      "median" : 1
+    },
+    "missing_reference_lines" : {
+      "baseline" : 14,
+      "median" : 18
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 11,
+      "median" : 20
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 353,
+      "median" : 358
+    }
+  }, {
+    "case" : "buerger_gedichte_1778_0039/deu_latf/SAUVOLA",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "baseline" : 23,
+      "median" : 21
+    },
+    "exact_associated_lines" : {
+      "baseline" : 4,
+      "median" : 5
+    },
+    "missing_reference_lines" : {
+      "baseline" : 15,
+      "median" : 17
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 12,
+      "median" : 19
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 314,
+      "median" : 303
+    }
+  }, {
+    "case" : "nn_besuch_1780_00001/deu/ENGINE_DEFAULT",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "baseline" : 9,
+      "median" : 9
+    },
+    "exact_associated_lines" : {
+      "baseline" : 1,
+      "median" : 1
+    },
+    "missing_reference_lines" : {
+      "baseline" : 1,
+      "median" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 9,
+      "median" : 12
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 103,
+      "median" : 104
+    }
+  }, {
+    "case" : "nn_besuch_1780_00001/deu_latf/ENGINE_DEFAULT",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "baseline" : 9,
+      "median" : 9
+    },
+    "exact_associated_lines" : {
+      "baseline" : 3,
+      "median" : 3
+    },
+    "missing_reference_lines" : {
+      "baseline" : 1,
+      "median" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 9,
+      "median" : 12
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 82,
+      "median" : 88
+    }
+  }, {
+    "case" : "nn_besuch_1780_00001/deu/ADAPTIVE_OTSU",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "baseline" : 7,
+      "median" : 6
+    },
+    "exact_associated_lines" : {
+      "baseline" : 0,
+      "median" : 1
+    },
+    "missing_reference_lines" : {
+      "baseline" : 3,
+      "median" : 4
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 14,
+      "median" : 15
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 129,
+      "median" : 140
+    }
+  }, {
+    "case" : "nn_besuch_1780_00001/deu_latf/ADAPTIVE_OTSU",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "baseline" : 7,
+      "median" : 6
+    },
+    "exact_associated_lines" : {
+      "baseline" : 2,
+      "median" : 3
+    },
+    "missing_reference_lines" : {
+      "baseline" : 3,
+      "median" : 4
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 14,
+      "median" : 15
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 118,
+      "median" : 150
+    }
+  }, {
+    "case" : "nn_besuch_1780_00001/deu/SAUVOLA",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "baseline" : 8,
+      "median" : 9
+    },
+    "exact_associated_lines" : {
+      "baseline" : 1,
+      "median" : 1
+    },
+    "missing_reference_lines" : {
+      "baseline" : 2,
+      "median" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 12,
+      "median" : 5
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 141,
+      "median" : 86
+    }
+  }, {
+    "case" : "nn_besuch_1780_00001/deu_latf/SAUVOLA",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "baseline" : 8,
+      "median" : 9
+    },
+    "exact_associated_lines" : {
+      "baseline" : 3,
+      "median" : 3
+    },
+    "missing_reference_lines" : {
+      "baseline" : 2,
+      "median" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 12,
+      "median" : 5
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 123,
+      "median" : 67
+    }
+  } ],
+  "source_and_render_frames_unchanged" : true,
+  "filtered_engine_frames" : 24,
+  "paired_cases" : 24,
+  "jvm_results_equal_except_random_pdf_identity" : true
+}

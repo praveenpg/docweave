@@ -1,0 +1,18 @@
+{
+  "unstructured/chunking/base.py": "076daa0ba00212217d6d9bef60156a364f3b50684ce5d5c8168f7ea8cd97ea42",
+  "unstructured/chunking/basic.py": "68d6fde873e5f744ab0527717f029bfe0c8b232df03bcba25359b466d5d77159",
+  "unstructured/chunking/title.py": "f5305324030bb77100584bb8b432b8b2110f3c280b1d697dcc2b41f65dce2f23",
+  "unstructured/documents/elements.py": "94f0f5eca1d987b2e1e5c574417e62305fae4556bb572bf95918861047954d0c",
+  "unstructured/common/html_table.py": "741e09b2b057438e1044c33b2592179e055f75e5664600657b000310caa85bd5",
+  "unstructured/partition/docx.py": "623ef4c7d41dc8ad227a4524c0fe7b58b9688bad86623e81739c6def67f59f2a",
+  "unstructured/partition/text_type.py": "a423f9917c8740a00c04fa4aad6e8794ba9dd8d6e1071377c42878d3d3b20ac5",
+  "unstructured/nlp/tokenize.py": "22347992441136da156a6df38ad6298eda24944918e5edef581415c8bab84d42",
+  "unstructured/partition/common/metadata.py": "f9955fe62a7a695acdfd54b7a1874ed8c4b547de15e1f668bb6b7a1f124cd5d9",
+  "unstructured/partition/common/lang.py": "9c1f7d17c37c59a98b25b047e420ef1ba9f08d3edda74b93761ad7081c6be32c",
+  "unstructured/partition/md.py": "571c8a7c9027e5ea78460ea8f9aa8d944c71bcfc62a6adc6db74b320011510e1",
+  "unstructured/partition/html/__init__.py": "b8508a51e9e0993d66f90fc692466880486fdcc17bfeb03d6a1334105d12e5d6",
+  "unstructured/partition/html/partition.py": "3264bb3b13a3b586049824bee87310ae12586b45d10248d3e669190d4f74f629",
+  "unstructured/partition/html/parser.py": "20e7b2d15768bc020399af086808ce224899f1a927143f7afe1ebfd517a9f0aa",
+  "unstructured/partition/html/transformations.py": "f9d3794b3fa5b82be195d9c14bba5710daecad171643e489d25ccd8efba328bc",
+  "unstructured/documents/html_sanitization.py": "2775304209da955a26534ccd613867672c63f3644f954dbfd37f772a9f5ad8e6"
+}

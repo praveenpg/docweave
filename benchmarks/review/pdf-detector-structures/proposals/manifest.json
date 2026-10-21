@@ -1,0 +1,21 @@
+{
+  "region_summary_sha256": "76dc4d21f7172a1f6c5c2614be8cf33f82abf895780f1014c59ebb4136653159",
+  "proposal_sha256": {
+    "cTDaR_s002/tatr.tsv": "d28f5841b2c419b38b1220d6bd8f0e8e6cc197f8fc55f38204b1f1ad49272a4a",
+    "cTDaR_s002/yolox.tsv": "7c6c088599dd6dba8c0f839ca4c062fa5ffbc9bcc3db26442fad2f557eb68805",
+    "cTDaR_s003/tatr.tsv": "edda6cd77bd1ed17511431ce8dce467e563dd73bcaf30faa8b79685e22e6baa1",
+    "cTDaR_s003/yolox.tsv": "7c6c088599dd6dba8c0f839ca4c062fa5ffbc9bcc3db26442fad2f557eb68805",
+    "cTDaR_s004/tatr.tsv": "7c6c088599dd6dba8c0f839ca4c062fa5ffbc9bcc3db26442fad2f557eb68805",
+    "cTDaR_s004/yolox.tsv": "14045dde0524bdfec36788a86a3bb90c7c1257d2c14dd7c1db1171b054ff3474",
+    "cTDaR_s101/tatr.tsv": "460cbefc8d73490f68c34eabb4b3aae7d0e0e6a683bbe796dc69f8d9b61755ad",
+    "cTDaR_s101/yolox.tsv": "5713b6db8cf0f24941aeb132ab0d69efb41c8774d34f69f3dfd3b783152bf761",
+    "cTDaR_s102/tatr.tsv": "653610375d52104f662120e1a79ba5ecbb687d92e7fc85f823e4556283732e0d",
+    "cTDaR_s102/yolox.tsv": "7648cd6f8fc40365529ade2a68c7caa36b6eb7d05f909347537efe1ce1f49d69",
+    "cTDaR_s103/tatr.tsv": "2bf674578639fe78c9a244c8070e451fdd4a9986a02a4217c7da510c1a6e5f6b",
+    "cTDaR_s103/yolox.tsv": "f4e5312b3a988dcd8d77a6fe1e842f2c357f542f5097356dc7019f0fca28dba1",
+    "cTDaR_s104/tatr.tsv": "3233743e252165b89add8c8acd1ba4804b35231fa2d4413f45875e97fc44ff1d",
+    "cTDaR_s104/yolox.tsv": "987ecf5ca68a46f1e6ef3d432664b4aff7b6ee274e860b69ccac5052815db007",
+    "cTDaR_t00040/tatr.tsv": "7c6c088599dd6dba8c0f839ca4c062fa5ffbc9bcc3db26442fad2f557eb68805",
+    "cTDaR_t00040/yolox.tsv": "7c6c088599dd6dba8c0f839ca4c062fa5ffbc9bcc3db26442fad2f557eb68805"
+  }
+}

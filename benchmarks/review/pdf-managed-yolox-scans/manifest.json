@@ -1,0 +1,44 @@
+{
+  "scope": "Fixed paired managed detector study on all previously selected published samples; protocol saved before first YOLOX scan evaluation. Same original sources, OCR/orientation models, render settings, structure model and unchanged topology/envelope scorer. No transcription oracle or per-case routing. Final formatted harness replay preserves the initial protocol and evaluates both profiles again; initial evaluated source identities retained separately.",
+  "base_commit": "d978c72",
+  "source_manifest": "benchmarks/review/pdf-physical-scans/extended-manifest.json",
+  "identities": {
+    "benchmarks/review/pdf-physical-scans/extended-manifest.json": "475c219062ed3af1f23e791f69f839399b535ad6465247f1b37cd4045e8f32c5",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfPhysicalScanCorpusTest.java": "67dd6a087e749f86b0ff921090f8f434d4b9b3e79bc2a9534dc3236738869fec",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfLayoutModels.java": "500b4265df2ab952b47880f4af3d0882d4282a2bb485cb0f2fa301aaf014d731",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfCorpusOrientation.java": "e042f86dc808b1b864310b7e15507f1f19cd2d9cd056ccecc11e06fa41f7d794"
+  },
+  "coverage": "ALL_PUBLISHED_SAMPLES",
+  "inputs": 9,
+  "render_dpi": 150,
+  "orientation": true,
+  "table_detection": "PROVIDER_LAYOUT",
+  "language": "eng",
+  "executable_sha256": "9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917",
+  "eng_sha256": "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047",
+  "osd_sha256": "e19f2ae860792fdf372cf48d8ce70ae5da3c4052962fe22e9de1f680c374bb0e",
+  "structure_sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+  "structure_score": 0.5,
+  "merge_conflicts": "REJECT_TABLE",
+  "profiles": [
+    {
+      "family": "TATR",
+      "detector_sha256": "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+      "score": 0.5,
+      "max_queries": 256
+    },
+    {
+      "family": "YOLOX",
+      "detector_sha256": "134301ca94fb0df8027be9a6dad1908fe6218af8ffa4d34f0819c7c2226195f3",
+      "score": 0.25,
+      "max_queries": 16128
+    }
+  ],
+  "raw_sources_redistributed": false,
+  "initial_evaluated_identities": {
+    "benchmarks/review/pdf-physical-scans/extended-manifest.json": "475c219062ed3af1f23e791f69f839399b535ad6465247f1b37cd4045e8f32c5",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfPhysicalScanCorpusTest.java": "67dd6a087e749f86b0ff921090f8f434d4b9b3e79bc2a9534dc3236738869fec",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfLayoutModels.java": "89015f5dce1c32bae91f6419a9a9be5e9cfc25d237952fcbbe7e67c821346858",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfCorpusOrientation.java": "e042f86dc808b1b864310b7e15507f1f19cd2d9cd056ccecc11e06fa41f7d794"
+  }
+}

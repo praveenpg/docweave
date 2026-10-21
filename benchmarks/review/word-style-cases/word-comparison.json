@@ -1,0 +1,298 @@
+{
+  "status": "comparison_only_human_review_pending",
+  "word_version": "16.0",
+  "word_build": "16.0.20430",
+  "platform": "Microsoft Windows NT 10.0.26300.0",
+  "cases": [
+    {
+      "file": "unsized-bands.docx",
+      "differences": [
+        {
+          "row": 0,
+          "column": 0,
+          "property": "outline_level",
+          "candidate": 0,
+          "word": 9
+        },
+        {
+          "row": 0,
+          "column": 1,
+          "property": "outline_level",
+          "candidate": 0,
+          "word": 9
+        },
+        {
+          "row": 0,
+          "column": 2,
+          "property": "outline_level",
+          "candidate": 0,
+          "word": 9
+        },
+        {
+          "row": 1,
+          "column": 0,
+          "property": "outline_level",
+          "candidate": 1,
+          "word": 9
+        },
+        {
+          "row": 1,
+          "column": 1,
+          "property": "outline_level",
+          "candidate": 1,
+          "word": 9
+        },
+        {
+          "row": 1,
+          "column": 2,
+          "property": "outline_level",
+          "candidate": 1,
+          "word": 9
+        },
+        {
+          "row": 2,
+          "column": 0,
+          "property": "outline_level",
+          "candidate": 0,
+          "word": 9
+        },
+        {
+          "row": 2,
+          "column": 1,
+          "property": "outline_level",
+          "candidate": 0,
+          "word": 9
+        },
+        {
+          "row": 2,
+          "column": 2,
+          "property": "outline_level",
+          "candidate": 0,
+          "word": 9
+        }
+      ]
+    },
+    {
+      "file": "edge-flag-without-branch.docx",
+      "differences": [
+        {
+          "row": 0,
+          "column": 0,
+          "property": "outline_level",
+          "candidate": 9,
+          "word": 0
+        },
+        {
+          "row": 0,
+          "column": 1,
+          "property": "outline_level",
+          "candidate": 9,
+          "word": 0
+        },
+        {
+          "row": 0,
+          "column": 2,
+          "property": "outline_level",
+          "candidate": 9,
+          "word": 0
+        },
+        {
+          "row": 1,
+          "column": 0,
+          "property": "outline_level",
+          "candidate": 0,
+          "word": 1
+        },
+        {
+          "row": 1,
+          "column": 1,
+          "property": "outline_level",
+          "candidate": 0,
+          "word": 1
+        },
+        {
+          "row": 1,
+          "column": 2,
+          "property": "outline_level",
+          "candidate": 0,
+          "word": 1
+        },
+        {
+          "row": 2,
+          "column": 0,
+          "property": "outline_level",
+          "candidate": 1,
+          "word": 0
+        },
+        {
+          "row": 2,
+          "column": 1,
+          "property": "outline_level",
+          "candidate": 1,
+          "word": 0
+        },
+        {
+          "row": 2,
+          "column": 2,
+          "property": "outline_level",
+          "candidate": 1,
+          "word": 0
+        }
+      ]
+    },
+    {
+      "file": "row-column-overlap.docx",
+      "differences": [
+        {
+          "row": 0,
+          "column": 0,
+          "property": "outline_level",
+          "candidate": 5,
+          "word": 4
+        }
+      ]
+    },
+    {
+      "file": "whole-table-branch.docx",
+      "differences": [
+        {
+          "row": 0,
+          "column": 0,
+          "property": "outline_level",
+          "candidate": 6,
+          "word": 9
+        },
+        {
+          "row": 0,
+          "column": 1,
+          "property": "outline_level",
+          "candidate": 6,
+          "word": 9
+        },
+        {
+          "row": 0,
+          "column": 2,
+          "property": "outline_level",
+          "candidate": 6,
+          "word": 9
+        },
+        {
+          "row": 1,
+          "column": 0,
+          "property": "outline_level",
+          "candidate": 6,
+          "word": 9
+        },
+        {
+          "row": 1,
+          "column": 1,
+          "property": "outline_level",
+          "candidate": 6,
+          "word": 9
+        },
+        {
+          "row": 1,
+          "column": 2,
+          "property": "outline_level",
+          "candidate": 6,
+          "word": 9
+        },
+        {
+          "row": 2,
+          "column": 0,
+          "property": "outline_level",
+          "candidate": 6,
+          "word": 9
+        },
+        {
+          "row": 2,
+          "column": 1,
+          "property": "outline_level",
+          "candidate": 6,
+          "word": 9
+        },
+        {
+          "row": 2,
+          "column": 2,
+          "property": "outline_level",
+          "candidate": 6,
+          "word": 9
+        }
+      ]
+    },
+    {
+      "file": "table-style-numbering.docx",
+      "differences": [
+        {
+          "row": 1,
+          "column": 0,
+          "property": "list_string",
+          "candidate": "1.",
+          "word": "4."
+        },
+        {
+          "row": 1,
+          "column": 1,
+          "property": "list_string",
+          "candidate": "2.",
+          "word": "5."
+        },
+        {
+          "row": 1,
+          "column": 2,
+          "property": "list_string",
+          "candidate": "3.",
+          "word": "6."
+        },
+        {
+          "row": 2,
+          "column": 0,
+          "property": "list_string",
+          "candidate": "4.",
+          "word": "7."
+        },
+        {
+          "row": 2,
+          "column": 1,
+          "property": "list_string",
+          "candidate": "5.",
+          "word": "8."
+        },
+        {
+          "row": 2,
+          "column": 2,
+          "property": "list_string",
+          "candidate": "6.",
+          "word": "9."
+        }
+      ]
+    },
+    {
+      "file": "direct-override-control.docx",
+      "differences": [
+        {
+          "row": 0,
+          "column": 0,
+          "property": "outline_level",
+          "candidate": 9,
+          "word": 4
+        },
+        {
+          "row": 0,
+          "column": 1,
+          "property": "outline_level",
+          "candidate": 9,
+          "word": 4
+        },
+        {
+          "row": 0,
+          "column": 2,
+          "property": "outline_level",
+          "candidate": 9,
+          "word": 4
+        }
+      ]
+    }
+  ],
+  "limit": "Versioned observations are not a human approval or universal Word/upstream parity claim"
+}

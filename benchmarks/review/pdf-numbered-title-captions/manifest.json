@@ -1,0 +1,22 @@
+{
+  "scope": "Pre-evaluation separate explicit numbered-title caption policy. All three existing scientific originals and the previously evaluated whole PeerJ transfer; development cases, not held out. All references, raw Unicode, scoring, geometry, negatives and denominators retained. No model API or word-wrap repair.",
+  "base_commit": "536a7dfc548e42d4519062ff18d8842c45f04287",
+  "policy": "IMAGE_ADJACENT_NUMBERED_TITLES",
+  "contract": "Positive1..999 optional letter, period/colon with nonblank body OR bare label followed by uppercase/titlecase title. Horizontal TAB/Zs only. Existing bounded image relation unchanged.",
+  "positive_case_profiles": 12,
+  "caption_references_per_profile": 16,
+  "negative_case_profiles": 18,
+  "identities": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "aea56fda0d21b5b90ae72800ed2d3a7178c022a14312f137be07f74feacbc813",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfFigureCaptionDetection.java": "8eca10e241e426243ca95db1456cc83c1219077a2ef98b7b3ea82dfa4e44a7ae",
+    "docweave-pdf/src/main/java/dev/docweave/partition/ImageAdjacentPdfFigureCaptions.java": "8c0890b8b08aa6af4e2ec5f2ee2e114702afc1d9e9d0969e4fe274fe58e2a830",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfFigureCaptionTest.java": "baf3ee7b598c64cd2987a5a2b3d965cfc4ee419fab4633f6f48216254ae33ce9",
+    "benchmarks/review/pdf-caption-peerj-transfer/source-manifest.json": "b67dc50a40047bdbfe2a7c47d37e188fe02275a46103a67af3b0f9db4200da7f",
+    "benchmarks/review/pdf-scientific-reading/manifest.json": "e146fb276c4397be24d6fdedeb13307f65a3012290bfafc96488d3d6673f12e2",
+    "benchmarks/review/pdf-source-figure-discovery/qualified.json": "87d1e11aa7cc184a201c9ab804abb707b416ea94acc880ada3843d893a17acaf",
+    "benchmarks/review/pdf-numbered-title-captions/old-score.patch": "d171beb5cce61bc299c2634ff79a95f98b325f8f8ede2f4fb3945adebbcc5d37",
+    "benchmarks/review/pdf-numbered-title-captions/negative.patch": "214aede764cb9445ce4c43a29b1b5f813bda21c8f8bf83a3b10237e187d572bc",
+    "benchmarks/review/pdf-numbered-title-captions/peerj-score.patch": "b446583541124f8afa8d7aa0f448a753bcb4ab2752dbf7caef6f0c8055945039"
+  },
+  "raw_sources_redistributed": false
+}

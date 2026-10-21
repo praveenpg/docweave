@@ -1,0 +1,1 @@
+{"scope":"Same input tensor Torch versus Java ONNX Runtime; numerical equivalence only, not table accuracy","java":"21.0.12.1+12-LTS","results":[{"height":800,"width":1000,"max_absolute_logit_error":1.33514404297e-05,"max_absolute_box_error":4.17232513428e-07},{"height":1000,"width":667,"max_absolute_logit_error":1.90734863281e-05,"max_absolute_box_error":6.85453414917e-07}]}

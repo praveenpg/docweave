@@ -1,0 +1,46 @@
+{
+  "checked_at": "2026-10-17T20:24:53.435124+00:00",
+  "sources": {
+    "release": "https://api.github.com/repos/Unstructured-IO/unstructured/releases/latest",
+    "main": "https://api.github.com/repos/Unstructured-IO/unstructured/commits/main",
+    "comparison": "https://api.github.com/repos/Unstructured-IO/unstructured/compare/0.27.27...main"
+  },
+  "reference_pin": "0.27.27",
+  "reference_sha": "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",
+  "latest_release": "0.27.28",
+  "release_published_at": "2026-10-16T21:43:23Z",
+  "main_sha": "1b02b4d189c260ed9b1aca29583203e233d853cb",
+  "ahead_by": 6,
+  "new_since_previous_live_audit": false,
+  "pdf_ocr_files": [
+    "test_unstructured/partition/utils/ocr_models/test_ocr_interface.py",
+    "unstructured/partition/utils/ocr_models/ocr_interface.py"
+  ],
+  "commits": [
+    {
+      "sha": "0308163e9042a5696f23eb0f4cd30c51cdcd5c36",
+      "subject": "feat: opt-in langdetect-rs backend for partition language detection (#4547)"
+    },
+    {
+      "sha": "804e8a10d488a9567b539c3424a891fcd07e252c",
+      "subject": "fix(html): keep text inside unrecognized elements (#4497)"
+    },
+    {
+      "sha": "d4008b99a12f2f417f3270711bd37d89d0d7f1be",
+      "subject": "fix(html): keep table captions in Table text and text_as_html (#4553)"
+    },
+    {
+      "sha": "e80c88c0a0f9c02883bdcc18a169ab766ba2444a",
+      "subject": "perf(docx): resolve each paragraph style once per document (5.3 s -> 1.0 s outside spaCy) (#4554)"
+    },
+    {
+      "sha": "3253c2b0f6b0a5f0808910c085675672aff718f3",
+      "subject": "fix(xlsx): collapse empty-row runs instead of rejecting far-away cells (#4525)"
+    },
+    {
+      "sha": "1b02b4d189c260ed9b1aca29583203e233d853cb",
+      "subject": "fix(ocr): include underlying error when loading OCR agent fails (#4491)"
+    }
+  ],
+  "notes": "Live API still matches prior0.27.28/main audit; cached web latest page returned stale0.27.27. Only PDF/OCR delta is agent-load error cause propagation; Java explicit-provider/initialization paths retain causes. No historical reference repin or new PDF algorithm adoption. Other-format changes remain under their existing audits."
+}

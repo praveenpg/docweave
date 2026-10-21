@@ -1,0 +1,739 @@
+{
+  "runtime" : "21.0.12.1+12-LTS",
+  "scope" : "All20 published train examples embedded whole at150DPI; no oracle crop/repair; diagnostic, not general or held-out-model accuracy",
+  "model_sha256" : "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047",
+  "page_segmentation" : "AUTO",
+  "render_dpi" : 300,
+  "table_detection" : "PROVIDER_LAYOUT",
+  "cell_segmentation" : "SINGLE_BLOCK",
+  "results" : [ {
+    "input" : "PMC4840965_004_00.png",
+    "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "upstream_split" : "train",
+    "published_rows" : 28,
+    "published_columns" : 4,
+    "published_anchors" : 112,
+    "published_reference_characters" : 653,
+    "emitted_tables" : [ {
+      "complete_shape_text_match" : false,
+      "same_shape" : true,
+      "rows" : 28,
+      "positional_span_matches" : 112,
+      "positional_span_text_matches" : 63,
+      "text_center_containment" : {
+        "labeled" : 69,
+        "matched" : 69,
+        "invalid_annotations" : 0
+      },
+      "columns" : 4,
+      "anchors" : 112
+    } ],
+    "observed_characters" : 569,
+    "row_major_character_edits" : 175,
+    "token_overlap" : {
+      "matched" : 42,
+      "observed" : 91,
+      "reference" : 95
+    },
+    "source_images" : 1,
+    "orientation" : [ {
+      "correction" : 0,
+      "accepted" : false,
+      "provenance" : "tesseract_osd_score_gate_v1;minimum=15.0",
+      "raw_score" : 2.29
+    } ]
+  }, {
+    "input" : "PMC4517499_004_00.png",
+    "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "upstream_split" : "train",
+    "published_rows" : 4,
+    "published_columns" : 7,
+    "published_anchors" : 28,
+    "published_reference_characters" : 183,
+    "emitted_tables" : [ {
+      "complete_shape_text_match" : false,
+      "same_shape" : true,
+      "rows" : 4,
+      "positional_span_matches" : 28,
+      "positional_span_text_matches" : 2,
+      "text_center_containment" : {
+        "labeled" : 28,
+        "matched" : 28,
+        "invalid_annotations" : 0
+      },
+      "columns" : 7,
+      "anchors" : 28
+    } ],
+    "observed_characters" : 22,
+    "row_major_character_edits" : 163,
+    "token_overlap" : {
+      "matched" : 2,
+      "observed" : 6,
+      "reference" : 35
+    },
+    "source_images" : 1,
+    "orientation" : [ {
+      "correction" : 0,
+      "accepted" : false,
+      "provenance" : "tesseract_osd_score_gate_v1;minimum=15.0",
+      "raw_score" : 0.0
+    } ]
+  }, {
+    "input" : "PMC4776821_005_00.png",
+    "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "upstream_split" : "train",
+    "published_rows" : 5,
+    "published_columns" : 5,
+    "published_anchors" : 25,
+    "published_reference_characters" : 124,
+    "emitted_tables" : [ {
+      "complete_shape_text_match" : false,
+      "same_shape" : true,
+      "rows" : 5,
+      "positional_span_matches" : 25,
+      "positional_span_text_matches" : 10,
+      "text_center_containment" : {
+        "labeled" : 25,
+        "matched" : 25,
+        "invalid_annotations" : 0
+      },
+      "columns" : 5,
+      "anchors" : 25
+    } ],
+    "observed_characters" : 59,
+    "row_major_character_edits" : 67,
+    "token_overlap" : {
+      "matched" : 13,
+      "observed" : 16,
+      "reference" : 28
+    },
+    "source_images" : 1,
+    "orientation" : [ {
+      "correction" : 0,
+      "accepted" : false,
+      "provenance" : "tesseract_osd_score_gate_v1;minimum=15.0",
+      "raw_score" : 0.0
+    } ]
+  }, {
+    "input" : "PMC1626454_002_00.png",
+    "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "upstream_split" : "train",
+    "published_rows" : 9,
+    "published_columns" : 12,
+    "published_anchors" : 100,
+    "published_reference_characters" : 1033,
+    "emitted_tables" : [ ],
+    "observed_characters" : 923,
+    "row_major_character_edits" : 519,
+    "token_overlap" : {
+      "matched" : 105,
+      "observed" : 180,
+      "reference" : 190
+    },
+    "source_images" : 1,
+    "orientation" : [ {
+      "correction" : 0,
+      "accepted" : false,
+      "provenance" : "tesseract_osd_score_gate_v1;minimum=15.0",
+      "raw_score" : 1.41
+    } ]
+  }, {
+    "input" : "PMC2838834_005_00.png",
+    "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "upstream_split" : "train",
+    "published_rows" : 36,
+    "published_columns" : 7,
+    "published_anchors" : 248,
+    "published_reference_characters" : 2081,
+    "emitted_tables" : [ {
+      "complete_shape_text_match" : false,
+      "same_shape" : false,
+      "rows" : 37,
+      "positional_span_matches" : 206,
+      "positional_span_text_matches" : 50,
+      "text_center_containment" : {
+        "labeled" : 177,
+        "matched" : 98,
+        "invalid_annotations" : 0
+      },
+      "columns" : 7,
+      "anchors" : 222
+    } ],
+    "observed_characters" : 1886,
+    "row_major_character_edits" : 564,
+    "token_overlap" : {
+      "matched" : 127,
+      "observed" : 314,
+      "reference" : 316
+    },
+    "source_images" : 1,
+    "orientation" : [ {
+      "correction" : 0,
+      "accepted" : false,
+      "provenance" : "tesseract_osd_score_gate_v1;minimum=15.0",
+      "raw_score" : 1.34
+    } ]
+  }, {
+    "input" : "PMC5897438_004_00.png",
+    "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "upstream_split" : "train",
+    "published_rows" : 11,
+    "published_columns" : 2,
+    "published_anchors" : 22,
+    "published_reference_characters" : 396,
+    "emitted_tables" : [ {
+      "complete_shape_text_match" : false,
+      "same_shape" : true,
+      "rows" : 11,
+      "positional_span_matches" : 22,
+      "positional_span_text_matches" : 1,
+      "text_center_containment" : {
+        "labeled" : 22,
+        "matched" : 22,
+        "invalid_annotations" : 0
+      },
+      "columns" : 2,
+      "anchors" : 22
+    } ],
+    "observed_characters" : 386,
+    "row_major_character_edits" : 114,
+    "token_overlap" : {
+      "matched" : 7,
+      "observed" : 36,
+      "reference" : 35
+    },
+    "source_images" : 1,
+    "orientation" : [ {
+      "correction" : 0,
+      "accepted" : false,
+      "provenance" : "tesseract_osd_score_gate_v1;minimum=15.0",
+      "raw_score" : 0.08
+    } ]
+  }, {
+    "input" : "PMC3907710_006_00.png",
+    "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "upstream_split" : "train",
+    "published_rows" : 4,
+    "published_columns" : 5,
+    "published_anchors" : 20,
+    "published_reference_characters" : 128,
+    "emitted_tables" : [ {
+      "complete_shape_text_match" : false,
+      "same_shape" : true,
+      "rows" : 4,
+      "positional_span_matches" : 20,
+      "positional_span_text_matches" : 5,
+      "text_center_containment" : {
+        "labeled" : 20,
+        "matched" : 20,
+        "invalid_annotations" : 0
+      },
+      "columns" : 5,
+      "anchors" : 20
+    } ],
+    "observed_characters" : 71,
+    "row_major_character_edits" : 77,
+    "token_overlap" : {
+      "matched" : 6,
+      "observed" : 18,
+      "reference" : 36
+    },
+    "source_images" : 1,
+    "orientation" : [ {
+      "correction" : 0,
+      "accepted" : false,
+      "provenance" : "tesseract_osd_score_gate_v1;minimum=15.0",
+      "raw_score" : 0.58
+    } ]
+  }, {
+    "input" : "PMC3519711_003_00.png",
+    "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "upstream_split" : "train",
+    "published_rows" : 11,
+    "published_columns" : 4,
+    "published_anchors" : 44,
+    "published_reference_characters" : 903,
+    "emitted_tables" : [ {
+      "complete_shape_text_match" : false,
+      "same_shape" : true,
+      "rows" : 11,
+      "positional_span_matches" : 44,
+      "positional_span_text_matches" : 2,
+      "text_center_containment" : {
+        "labeled" : 43,
+        "matched" : 43,
+        "invalid_annotations" : 0
+      },
+      "columns" : 4,
+      "anchors" : 44
+    } ],
+    "observed_characters" : 58,
+    "row_major_character_edits" : 847,
+    "token_overlap" : {
+      "matched" : 2,
+      "observed" : 5,
+      "reference" : 145
+    },
+    "source_images" : 1,
+    "orientation" : [ {
+      "correction" : 0,
+      "accepted" : false,
+      "provenance" : "tesseract_osd_score_gate_v1;minimum=15.0",
+      "raw_score" : 0.0
+    } ]
+  }, {
+    "input" : "PMC5198506_004_00.png",
+    "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "upstream_split" : "train",
+    "published_rows" : 7,
+    "published_columns" : 3,
+    "published_anchors" : 17,
+    "published_reference_characters" : 224,
+    "emitted_tables" : [ {
+      "complete_shape_text_match" : false,
+      "same_shape" : true,
+      "rows" : 7,
+      "positional_span_matches" : 17,
+      "positional_span_text_matches" : 1,
+      "text_center_containment" : {
+        "labeled" : 17,
+        "matched" : 17,
+        "invalid_annotations" : 0
+      },
+      "columns" : 3,
+      "anchors" : 17
+    } ],
+    "observed_characters" : 47,
+    "row_major_character_edits" : 183,
+    "token_overlap" : {
+      "matched" : 4,
+      "observed" : 8,
+      "reference" : 45
+    },
+    "source_images" : 1,
+    "orientation" : [ {
+      "correction" : 0,
+      "accepted" : false,
+      "provenance" : "tesseract_osd_score_gate_v1;minimum=15.0",
+      "raw_score" : 0.0
+    } ]
+  }, {
+    "input" : "PMC5679144_002_01.png",
+    "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "upstream_split" : "train",
+    "published_rows" : 11,
+    "published_columns" : 2,
+    "published_anchors" : 22,
+    "published_reference_characters" : 274,
+    "emitted_tables" : [ {
+      "complete_shape_text_match" : false,
+      "same_shape" : true,
+      "rows" : 11,
+      "positional_span_matches" : 22,
+      "positional_span_text_matches" : 4,
+      "text_center_containment" : {
+        "labeled" : 22,
+        "matched" : 22,
+        "invalid_annotations" : 0
+      },
+      "columns" : 2,
+      "anchors" : 22
+    } ],
+    "observed_characters" : 247,
+    "row_major_character_edits" : 62,
+    "token_overlap" : {
+      "matched" : 10,
+      "observed" : 29,
+      "reference" : 32
+    },
+    "source_images" : 1,
+    "orientation" : [ {
+      "correction" : 0,
+      "accepted" : false,
+      "provenance" : "tesseract_osd_score_gate_v1;minimum=15.0",
+      "raw_score" : 0.92
+    } ]
+  }, {
+    "input" : "PMC5134617_013_00.png",
+    "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "upstream_split" : "train",
+    "published_rows" : 9,
+    "published_columns" : 8,
+    "published_anchors" : 72,
+    "published_reference_characters" : 526,
+    "emitted_tables" : [ {
+      "complete_shape_text_match" : false,
+      "same_shape" : true,
+      "rows" : 9,
+      "positional_span_matches" : 72,
+      "positional_span_text_matches" : 8,
+      "text_center_containment" : {
+        "labeled" : 72,
+        "matched" : 72,
+        "invalid_annotations" : 0
+      },
+      "columns" : 8,
+      "anchors" : 72
+    } ],
+    "observed_characters" : 111,
+    "row_major_character_edits" : 421,
+    "token_overlap" : {
+      "matched" : 10,
+      "observed" : 20,
+      "reference" : 92
+    },
+    "source_images" : 1,
+    "orientation" : [ {
+      "correction" : 0,
+      "accepted" : false,
+      "provenance" : "tesseract_osd_score_gate_v1;minimum=15.0",
+      "raw_score" : 8.5
+    } ]
+  }, {
+    "input" : "PMC2753619_002_00.png",
+    "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "upstream_split" : "train",
+    "published_rows" : 2,
+    "published_columns" : 6,
+    "published_anchors" : 12,
+    "published_reference_characters" : 103,
+    "emitted_tables" : [ {
+      "complete_shape_text_match" : false,
+      "same_shape" : true,
+      "rows" : 2,
+      "positional_span_matches" : 12,
+      "positional_span_text_matches" : 5,
+      "text_center_containment" : {
+        "labeled" : 12,
+        "matched" : 12,
+        "invalid_annotations" : 0
+      },
+      "columns" : 6,
+      "anchors" : 12
+    } ],
+    "observed_characters" : 67,
+    "row_major_character_edits" : 37,
+    "token_overlap" : {
+      "matched" : 9,
+      "observed" : 11,
+      "reference" : 16
+    },
+    "source_images" : 1,
+    "orientation" : [ {
+      "correction" : 0,
+      "accepted" : false,
+      "provenance" : "tesseract_osd_score_gate_v1;minimum=15.0",
+      "raw_score" : 1.2
+    } ]
+  }, {
+    "input" : "PMC3826085_003_00.png",
+    "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "upstream_split" : "train",
+    "published_rows" : 18,
+    "published_columns" : 5,
+    "published_anchors" : 90,
+    "published_reference_characters" : 299,
+    "emitted_tables" : [ {
+      "complete_shape_text_match" : false,
+      "same_shape" : true,
+      "rows" : 18,
+      "positional_span_matches" : 90,
+      "positional_span_text_matches" : 14,
+      "text_center_containment" : {
+        "labeled" : 89,
+        "matched" : 89,
+        "invalid_annotations" : 0
+      },
+      "columns" : 5,
+      "anchors" : 90
+    } ],
+    "observed_characters" : 155,
+    "row_major_character_edits" : 156,
+    "token_overlap" : {
+      "matched" : 13,
+      "observed" : 23,
+      "reference" : 89
+    },
+    "source_images" : 1,
+    "orientation" : [ {
+      "correction" : 0,
+      "accepted" : false,
+      "provenance" : "tesseract_osd_score_gate_v1;minimum=15.0",
+      "raw_score" : 0.06
+    } ]
+  }, {
+    "input" : "PMC5577841_001_00.png",
+    "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "upstream_split" : "train",
+    "published_rows" : 5,
+    "published_columns" : 4,
+    "published_anchors" : 18,
+    "published_reference_characters" : 289,
+    "emitted_tables" : [ {
+      "complete_shape_text_match" : false,
+      "same_shape" : true,
+      "rows" : 5,
+      "positional_span_matches" : 18,
+      "positional_span_text_matches" : 4,
+      "text_center_containment" : {
+        "labeled" : 18,
+        "matched" : 18,
+        "invalid_annotations" : 0
+      },
+      "columns" : 4,
+      "anchors" : 18
+    } ],
+    "observed_characters" : 185,
+    "row_major_character_edits" : 122,
+    "token_overlap" : {
+      "matched" : 20,
+      "observed" : 33,
+      "reference" : 47
+    },
+    "source_images" : 1,
+    "orientation" : [ {
+      "correction" : 0,
+      "accepted" : false,
+      "provenance" : "tesseract_osd_score_gate_v1;minimum=15.0",
+      "raw_score" : 2.7
+    } ]
+  }, {
+    "input" : "PMC2759935_007_01.png",
+    "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "upstream_split" : "train",
+    "published_rows" : 14,
+    "published_columns" : 9,
+    "published_anchors" : 122,
+    "published_reference_characters" : 520,
+    "emitted_tables" : [ {
+      "complete_shape_text_match" : false,
+      "same_shape" : false,
+      "rows" : 14,
+      "positional_span_matches" : 114,
+      "positional_span_text_matches" : 39,
+      "text_center_containment" : {
+        "labeled" : 118,
+        "matched" : 114,
+        "invalid_annotations" : 0
+      },
+      "columns" : 9,
+      "anchors" : 118
+    } ],
+    "observed_characters" : 283,
+    "row_major_character_edits" : 276,
+    "token_overlap" : {
+      "matched" : 49,
+      "observed" : 57,
+      "reference" : 124
+    },
+    "source_images" : 1,
+    "orientation" : [ {
+      "correction" : 0,
+      "accepted" : false,
+      "provenance" : "tesseract_osd_score_gate_v1;minimum=15.0",
+      "raw_score" : 3.71
+    } ]
+  }, {
+    "input" : "PMC4003957_018_00.png",
+    "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "upstream_split" : "train",
+    "published_rows" : 21,
+    "published_columns" : 4,
+    "published_anchors" : 69,
+    "published_reference_characters" : 1153,
+    "emitted_tables" : [ {
+      "complete_shape_text_match" : false,
+      "same_shape" : false,
+      "rows" : 22,
+      "positional_span_matches" : 56,
+      "positional_span_text_matches" : 8,
+      "text_center_containment" : {
+        "labeled" : 69,
+        "matched" : 0,
+        "invalid_annotations" : 0
+      },
+      "columns" : 4,
+      "anchors" : 73
+    } ],
+    "observed_characters" : 1138,
+    "row_major_character_edits" : 110,
+    "token_overlap" : {
+      "matched" : 128,
+      "observed" : 176,
+      "reference" : 165
+    },
+    "source_images" : 1,
+    "orientation" : [ {
+      "correction" : 0,
+      "accepted" : false,
+      "provenance" : "tesseract_osd_score_gate_v1;minimum=15.0",
+      "raw_score" : 1.3
+    } ]
+  }, {
+    "input" : "PMC4682394_003_00.png",
+    "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "upstream_split" : "train",
+    "published_rows" : 13,
+    "published_columns" : 8,
+    "published_anchors" : 99,
+    "published_reference_characters" : 1146,
+    "emitted_tables" : [ {
+      "complete_shape_text_match" : false,
+      "same_shape" : false,
+      "rows" : 13,
+      "positional_span_matches" : 95,
+      "positional_span_text_matches" : 4,
+      "text_center_containment" : {
+        "labeled" : 97,
+        "matched" : 95,
+        "invalid_annotations" : 0
+      },
+      "columns" : 8,
+      "anchors" : 97
+    } ],
+    "observed_characters" : 688,
+    "row_major_character_edits" : 609,
+    "token_overlap" : {
+      "matched" : 32,
+      "observed" : 135,
+      "reference" : 189
+    },
+    "source_images" : 1,
+    "orientation" : [ {
+      "correction" : 0,
+      "accepted" : false,
+      "provenance" : "tesseract_osd_score_gate_v1;minimum=15.0",
+      "raw_score" : 1.74
+    } ]
+  }, {
+    "input" : "PMC4172848_007_00.png",
+    "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "upstream_split" : "train",
+    "published_rows" : 18,
+    "published_columns" : 7,
+    "published_anchors" : 121,
+    "published_reference_characters" : 1158,
+    "emitted_tables" : [ {
+      "complete_shape_text_match" : false,
+      "same_shape" : false,
+      "rows" : 18,
+      "positional_span_matches" : 92,
+      "positional_span_text_matches" : 5,
+      "text_center_containment" : {
+        "labeled" : 96,
+        "matched" : 92,
+        "invalid_annotations" : 0
+      },
+      "columns" : 7,
+      "anchors" : 98
+    } ],
+    "observed_characters" : 311,
+    "row_major_character_edits" : 864,
+    "token_overlap" : {
+      "matched" : 27,
+      "observed" : 48,
+      "reference" : 208
+    },
+    "source_images" : 1,
+    "orientation" : [ {
+      "correction" : 0,
+      "accepted" : false,
+      "provenance" : "tesseract_osd_score_gate_v1;minimum=15.0",
+      "raw_score" : 3.98
+    } ]
+  }, {
+    "input" : "PMC5332562_005_00.png",
+    "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "upstream_split" : "train",
+    "published_rows" : 31,
+    "published_columns" : 4,
+    "published_anchors" : 97,
+    "published_reference_characters" : 555,
+    "emitted_tables" : [ {
+      "complete_shape_text_match" : false,
+      "same_shape" : true,
+      "rows" : 31,
+      "positional_span_matches" : 97,
+      "positional_span_text_matches" : 13,
+      "text_center_containment" : {
+        "labeled" : 97,
+        "matched" : 97,
+        "invalid_annotations" : 0
+      },
+      "columns" : 4,
+      "anchors" : 97
+    } ],
+    "observed_characters" : 369,
+    "row_major_character_edits" : 272,
+    "token_overlap" : {
+      "matched" : 15,
+      "observed" : 81,
+      "reference" : 102
+    },
+    "source_images" : 1,
+    "orientation" : [ {
+      "correction" : 0,
+      "accepted" : false,
+      "provenance" : "tesseract_osd_score_gate_v1;minimum=15.0",
+      "raw_score" : 5.51
+    } ]
+  }, {
+    "input" : "PMC5402779_004_00.png",
+    "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "upstream_split" : "train",
+    "published_rows" : 9,
+    "published_columns" : 5,
+    "published_anchors" : 42,
+    "published_reference_characters" : 461,
+    "emitted_tables" : [ {
+      "complete_shape_text_match" : false,
+      "same_shape" : true,
+      "rows" : 9,
+      "positional_span_matches" : 42,
+      "positional_span_text_matches" : 25,
+      "text_center_containment" : {
+        "labeled" : 42,
+        "matched" : 42,
+        "invalid_annotations" : 0
+      },
+      "columns" : 5,
+      "anchors" : 42
+    } ],
+    "observed_characters" : 455,
+    "row_major_character_edits" : 38,
+    "token_overlap" : {
+      "matched" : 60,
+      "observed" : 80,
+      "reference" : 81
+    },
+    "source_images" : 1,
+    "orientation" : [ {
+      "correction" : 0,
+      "accepted" : false,
+      "provenance" : "tesseract_osd_score_gate_v1;minimum=15.0",
+      "raw_score" : 8.12
+    } ]
+  } ],
+  "commit" : "8ffde9024bd331f5a61c3c549fdf30dd3c3e43a5",
+  "executable_sha256" : "9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917"
+}

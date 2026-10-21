@@ -1,0 +1,27 @@
+{
+  "java21": "21.0.12.1+12-LTS",
+  "java25": "25.0.4+7-LTS",
+  "tests_each": {
+    "tests": 737,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "strict_javadocs": "passed on both JDKs",
+  "python_reference_guards": 12,
+  "formatter": "clang-format23.1.1 passed",
+  "class_major": 65,
+  "sha256": {
+    "benchmarks/review/pdf-multiline/java21-corpus.json": "4005bace3799a18951ff8b5cc27e8333db0467f6ca795db4ee62cc34bce7aeda",
+    "benchmarks/review/pdf-multiline/java21-tests.json": "1020ff012a0e60daf7a89390a84c7b981079d02b84918b027bf6913c0c42f39e",
+    "benchmarks/review/pdf-multiline/java25-corpus.json": "05d6177b4d56afff42c2e5b3663b39f086090eb948a48038bfcb7d6abe21843b",
+    "benchmarks/review/pdf-multiline/java25-tests.json": "1020ff012a0e60daf7a89390a84c7b981079d02b84918b027bf6913c0c42f39e",
+    "benchmarks/review/pdf-multiline/upstream-status.json": "babcb844e4966461a1b01eba7b154ebbc0b516e49b4982b50db7475566679d03",
+    "docweave-pdf/src/main/java/dev/docweave/partition/MultilinePdfTableDetector.java": "d25e77f1be573cd207a479a0e82dd26b259b277f3fe1124e66ce45cc8c60bf39",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfAlignedTable.java": "f9725d1fefc049a2726805613c7b7a9dd33174da83a79433d5c8263b2b49eb49",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "50daed28e01f3b2e8b37fd5ac1acb44fe2ab614178a563ed601434ba5b642a12",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageLayout.java": "9414c0ef1345396068a93ac5c8c9ac83ac868d6f20acefd4ffb02662bef4b1ad",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfBorderlessTableTest.java": "cde9b0bb0f2a8054b142921186de1a5ac51179ace18149dd2205422f4180e801",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfMultilineCorpusTest.java": "fe638c3bfba8ae6cc8434384d15a7bafe4a13b1d5ebf2545b2e9bc0938916609"
+  }
+}

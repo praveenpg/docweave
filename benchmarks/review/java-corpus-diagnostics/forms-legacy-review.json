@@ -1,0 +1,510 @@
+{
+  "implementation" : "docweave-validation Java/JUnit corpus diagnostics",
+  "comparison_mode" : "candidate_only",
+  "paragraph_baseline" : "substring",
+  "scope" : "Two official blank consultation forms from different publishers/templates; stored-text diagnostics only, no upstream comparison or rendering ground truth.",
+  "metric_limit" : "Substring presence after whitespace normalization does not prove multiplicity, order, ownership, layout or correct categories. Human review pending.",
+  "manifest_sha256" : "68b5fc73d64c8992ed5668ae0e7b04923f02c343f82417eea12b4055de885d06",
+  "java_version" : "25.0.4+7-LTS",
+  "java_vendor" : "Amazon.com Inc.",
+  "validation_sources" : {
+    "UpstreamStatusTest.java" : "baf16537d51c0968e40b5c19a771d2440e39c7ba3cf11571cf66ee9fabd38765",
+    "DefaultDocxOwnership.java" : "f416426d0443f4b80a4ca8cc325be035c73e9fcbc894b3cd3d97494ff3ba8d6f",
+    "WordEvidenceComparator.java" : "5ca8a12e539df522ab0c09a4782bab58cf9c587df12554ae0657feebc78bd46c",
+    "ValidationProvenance.java" : "11f20dc669d4acfb67640acb04ca0e5599dd67ae9af670a20653179b592f76cd",
+    "DefaultWordEvidenceReplay.java" : "997d7b4c41e0c8c2341de41b088fdf36ec382d681d2a93f82f4db7026d4e792f",
+    "CorpusInventory.java" : "1f2e99039ac515864b8404afd2c04e60cb78289345b7aa7cfaf99dddc47d9bc5",
+    "WordCandidateCollector.java" : "006e1859405455ea9839ffeac9e072243d7501037958f388c9e99649c98aeeef",
+    "WordEvidenceReplayTest.java" : "fefaf988f420a841138391c17e303882aeb29d220bb7f533e4c57585e9518c75",
+    "DefaultWordCandidateCollector.java" : "84e59d65100649faaaf1270317fa06536783e637c028ea6623cd3d7b40c66a41",
+    "CorpusReview.java" : "40167b266a2b861679fb267944e89caf26bb358f95d8bbe2efdb21b13ca2cd4d",
+    "DefaultWordEvidenceComparator.java" : "32f26f7e5c3f78701de6e8faccdac6251641375bd09d7ec8cca25134095cd5df",
+    "DocxOwnershipTest.java" : "77013c3f0717a88f5c68b5516b3475820a35c734a8c80fbef7f4525a014828b6",
+    "DocxOwnership.java" : "297128417dc8c05b41122e6a18429b717d1c3eff5b84ca850ec30333577daade",
+    "WordEvidenceReplay.java" : "1f319d6d620bf7c08dfb1793fdea94ad63f4e2422948f3f437009ce8280de0c5",
+    "CorpusLegacyTest.java" : "b9d931fcc112acc8301759d2edd0245bac66d70f8b715e577d952860365480b3",
+    "CorpusReference.java" : "4780288e3d27859c5513d2bf224c8711c71ac7c740ed84604d1261ec6b933081",
+    "DocxCorpusSourceTest.java" : "f87ca9d216d212ceda96c5254e72a4f0abe400d8d125f4d54c1d0c62720a8ff0",
+    "DefaultDocxCorpusSource.java" : "e01aac1a9d95e710ab770aeab83fe8ea0c6fc10792b822af0f08b5590ed292e3",
+    "DocxCorpusSource.java" : "c947df5c1722d025685ce26dc86f44435448d1fc151811cb7ae3e9ac57c2c2ed",
+    "WordEvidenceComparatorTest.java" : "1d077c652d6124c06b3b06daddaece30c5953cfbacf288442119c30692b40187",
+    "XmlOwnerReader.java" : "c44ec9ea7c4a99a4f40dd697a8873370b66558aed1623b2d9ea4f24e43e1e051",
+    "CorpusReviewTest.java" : "b2796871da83fa7b86ee28d474ef8c1f3913d14bc244c0a2978d9e10c455c50c"
+  },
+  "runtime_classpath" : [ {
+    "entry" : "test-classes",
+    "exists" : true,
+    "sha256" : {
+      "dev/docweave/validation/XmlOwnerReader$Child.class" : "8e15df558ff81a7bdd3a80099fc1f341fca1d44ac96846c183229744c067e06d",
+      "dev/docweave/validation/DocxOwnershipTest.class" : "9e82e7a00180e59e5c96ff0d9a4725f9f1d1838e94a46c76c71a3618a46a2fad",
+      "dev/docweave/validation/DocxOwnership$Story.class" : "7bbc706475b41a883b4f1441f0edf68913732a73777ec1574a2ebf9aced6cb31",
+      "dev/docweave/validation/XmlOwnerReader.class" : "42b63961a3d5726853a8245cca8f88a1443a636055373a07be420d202d80f3db",
+      "dev/docweave/validation/DefaultWordEvidenceComparator.class" : "ecf05e82f934a1860bb8827c5cb7b4c0a4170f02018028582c0a2f750527a88d",
+      "dev/docweave/validation/DefaultDocxCorpusSource.class" : "0fc3f2c65d573aa2a4257c01e782eae9dab9ee3dd8a2ca226f82912c841ac20d",
+      "dev/docweave/validation/DefaultDocxOwnership$Interval.class" : "f581d834abe75beede33208fba1beb774285a78bb27979a680325c2ce4c56f06",
+      "dev/docweave/validation/WordEvidenceReplay.class" : "c1c0725137b7f6382303a485db894080385c2d8d40a55b67d5fad3cd2a69da0c",
+      "dev/docweave/validation/DefaultWordCandidateCollector.class" : "c55425d3c8331ce77d19ae0a860bafc2b8d5d6e3a3e3094699d3a27255c919cb",
+      "dev/docweave/validation/CorpusReview$Input.class" : "abbeebe5f6479e77b6670a1dc41db5ae9c9d05335f1e4b71b2906e3c2660f997",
+      "dev/docweave/validation/CorpusReview.class" : "150ba2d551359c2dcfb106672b15f58ff9fe49ca30663c4fbb2f5a0f807dd47f",
+      "dev/docweave/validation/WordEvidenceComparator$Cell.class" : "3ad4f930f2e63bdf5b59b748024b3ebc49b56ec49563845b47c348608ba2edd8",
+      "dev/docweave/validation/DocxOwnership$Report.class" : "a240c60ec867568a03fab6fb6b84775972e88c18a3d8b62dd2028200fdb9578e",
+      "dev/docweave/validation/WordEvidenceComparator$Difference.class" : "467575d2e0147a55fd64b7c96455d360fe0f802aac832f0f98c580ff1d31fbb5",
+      "dev/docweave/validation/DefaultWordEvidenceReplay.class" : "bfd1779f4110085cd6565a2ccef1618791d7e61d75721a6abbafbf287954986f",
+      "dev/docweave/validation/WordEvidenceComparatorTest$Fixture.class" : "9912b2eaf6f1896393ef9d4791fc100758823e530e528215839453ff1031618b",
+      "dev/docweave/validation/CorpusInventory.class" : "62b799fc771af50e84c654d517b9a6605b85ad829ae2a206963ad07eb2a64b38",
+      "dev/docweave/validation/CorpusReference.class" : "e4c0cbfe295849de2f0576c98051f070a65026b52eb5889bdf0719078c3d8a64",
+      "dev/docweave/validation/WordEvidenceReplayTest.class" : "26249bfc546bc7de2624bf3d8315baa2c82803e53b11bf1c1d05a723f2dc47df",
+      "dev/docweave/validation/DocxCorpusSource$TextElement.class" : "af31b236148a0360d561c380f896366ff3d5af119315de61becad0825fe65c56",
+      "dev/docweave/validation/DocxCorpusSource$Snapshot.class" : "42cdda2a39a0eaa75c896c1ec1f75481802f7e4e741ec41bac66e95746d1420f",
+      "dev/docweave/validation/UpstreamStatusTest.class" : "e76725d19125e09822a68778f70e469586ed0c4d30ae1d5f765a99be72765dbf",
+      "dev/docweave/validation/DocxOwnership$Kind.class" : "7f687d4628ce5fd233f67deaf2cfe304f4e7c66bc88bb17fce4b8e00a78eebf6",
+      "dev/docweave/validation/XmlOwnerReader$1.class" : "6d827c38f60b2b7fd0f968972dba9210ab7ac4a9aee81fb93bd92704758827a6",
+      "dev/docweave/validation/CorpusLegacyTest.class" : "2fbced28f95ed7ba2f967765dcdc7a7c8b22c719273849c27d4e0e21a49ab9d4",
+      "dev/docweave/validation/WordEvidenceReplay$Report.class" : "74b7b7ce179f230d84236c78afd4308000840120cd1ed1303c279912b0f4c93c",
+      "dev/docweave/validation/DocxOwnership.class" : "8407b97138fdccfbb388fac414260259f5c51ded73c3c83558f7de30bb862cd1",
+      "dev/docweave/validation/DefaultDocxOwnership.class" : "9920aa33d13e573e530e534ab23688d5354a83c5fdbf62baa6582a3b95cdaf82",
+      "dev/docweave/validation/CorpusReviewTest.class" : "333206a749370078bcf06f3fe5d8e0fefd73f6ad7d3c66bbd8fcb268a26a945c",
+      "dev/docweave/validation/DefaultWordEvidenceReplay$Packet.class" : "f18dfe7cb6494df2c221af3e68c91068ebbd9573a58cc3342848c4f0c60e33a5",
+      "dev/docweave/validation/DocxOwnership$Owner.class" : "205bac5cc17ccabd5eec422ce2a8dc717c7e2201bdba228c9a0cbd3bb699729e",
+      "dev/docweave/validation/WordEvidenceComparatorTest.class" : "9ef1dd4466a330777a7f20b448435e28986f1e8ffdd74ccb5d77e30fd77d2213",
+      "dev/docweave/validation/WordEvidenceComparator$Coordinate.class" : "2c14bfc6044666cee88761ce96aeb5c08422b1f6991e037492d9bd359996a3f8",
+      "dev/docweave/validation/CorpusReview$Baseline.class" : "b8353be676d91bd3616d610a85fa79b1f31c302b3d98379f61e92da81d8851a0",
+      "dev/docweave/validation/WordEvidenceReplay$PacketSummary.class" : "e1d30e70502440dd162605ddfaf0eca7b2e684438a84c143b88cf2c894fc7926",
+      "dev/docweave/validation/DocxCorpusSource.class" : "e1af71d00ecb569d32ebc841ce664726d514bb10ec6c5a5f530a5d78c5547cb8",
+      "dev/docweave/validation/ValidationProvenance.class" : "86ee866e9305553918cfe971083f86454f735563c1c395a8f7576cb8f0e311fa",
+      "dev/docweave/validation/WordCandidateCollector.class" : "d9a68772a5955cc84d37a847c6d6398c7bb5a5b23852bd1c4e3c607769766711",
+      "dev/docweave/validation/UpstreamStatusTest$Response.class" : "1c4c9d3c42ede42618b6a32d804b83ec6840c4e30cdca0699e062c17a4300228",
+      "dev/docweave/validation/WordEvidenceComparator$CaseComparison.class" : "b41393b4fb73aaa66acaeecc3a6bfb2ed7c2d0238837e8d5408294024b1517ea",
+      "dev/docweave/validation/WordEvidenceComparator$Comparison.class" : "76672de85e0a125cc02ce96f51ab82411756f210588b2a7538b9d928522d9009",
+      "dev/docweave/validation/WordEvidenceComparator.class" : "3d53174b2f7071e16a9e3d9aa84912566b95ab5a344665c580858298ff116bdc",
+      "dev/docweave/validation/DefaultDocxOwnership$Lane.class" : "7114d46757088c8901c5096a3b2d9d205a7d8226e49023f9ebf2b1a38101ef1f",
+      "dev/docweave/validation/DocxOwnership$OwnerCheck.class" : "b024ff803175fe66a2541ad7f286aae0addcbc3a2ac302859f853637f14da20d",
+      "dev/docweave/validation/DocxCorpusSourceTest.class" : "b948f6ab2990ff167a3559498dea01938e0ffe1b57af4a2346dea55188835258"
+    },
+    "index" : 0
+  }, {
+    "entry" : "classes",
+    "exists" : false,
+    "sha256" : { },
+    "index" : 1
+  }, {
+    "entry" : "docweave-0.1.0-SNAPSHOT.jar",
+    "exists" : true,
+    "sha256" : {
+      "docweave-0.1.0-SNAPSHOT.jar" : "3fc4c8e6a9028d867763fd0e5135e53b0351f3334fbc83b37fc7a20deb51dae8"
+    },
+    "index" : 2
+  }, {
+    "entry" : "docweave-core-0.1.0-SNAPSHOT.jar",
+    "exists" : true,
+    "sha256" : {
+      "docweave-core-0.1.0-SNAPSHOT.jar" : "466470fd8d13c2259b75c9e50ee45b4c1ae4c5471455809929e85af2700f6cce"
+    },
+    "index" : 3
+  }, {
+    "entry" : "docweave-json-0.1.0-SNAPSHOT.jar",
+    "exists" : true,
+    "sha256" : {
+      "docweave-json-0.1.0-SNAPSHOT.jar" : "4cae9296bbc580dc5e17c8ad2242f8da075afe0fffa4f837133e61611e9e6472"
+    },
+    "index" : 4
+  }, {
+    "entry" : "jackson-databind-3.1.5.jar",
+    "exists" : true,
+    "sha256" : {
+      "jackson-databind-3.1.5.jar" : "3a2338d996fd3056791df8d335fa9ba8a62a706ed4245ecf81b3e583df37d08a"
+    },
+    "index" : 5
+  }, {
+    "entry" : "jackson-annotations-2.21.jar",
+    "exists" : true,
+    "sha256" : {
+      "jackson-annotations-2.21.jar" : "53ca085f4a150f703f49e1aabd935bd03b43e1ea3d55d135438292af22cef56b"
+    },
+    "index" : 6
+  }, {
+    "entry" : "jackson-core-3.1.5.jar",
+    "exists" : true,
+    "sha256" : {
+      "jackson-core-3.1.5.jar" : "9431b7fa2673bbb618c11d865fe15e13222fd182a214ff998cb7e56afd8f35d2"
+    },
+    "index" : 7
+  }, {
+    "entry" : "docweave-chunking-0.1.0-SNAPSHOT.jar",
+    "exists" : true,
+    "sha256" : {
+      "docweave-chunking-0.1.0-SNAPSHOT.jar" : "fa1a6531e0b13578bd10df10ff44689ded390157c24fa60fa23fd2176c841b80"
+    },
+    "index" : 8
+  }, {
+    "entry" : "jsoup-1.23.2.jar",
+    "exists" : true,
+    "sha256" : {
+      "jsoup-1.23.2.jar" : "e9d8c856856680427f096d156f02a414289985c930998fcb519ce5be39b42003"
+    },
+    "index" : 9
+  }, {
+    "entry" : "docweave-batch-0.1.0-SNAPSHOT.jar",
+    "exists" : true,
+    "sha256" : {
+      "docweave-batch-0.1.0-SNAPSHOT.jar" : "cfe89f29a2dabf4f785073908da06e94f850294a6a134da8c77efa7e7065a91d"
+    },
+    "index" : 10
+  }, {
+    "entry" : "docweave-txt-0.1.0-SNAPSHOT.jar",
+    "exists" : true,
+    "sha256" : {
+      "docweave-txt-0.1.0-SNAPSHOT.jar" : "2c6f96efce33f40da9e2eb28c143ed45803913272f327814914b255e7efc6b75"
+    },
+    "index" : 11
+  }, {
+    "entry" : "docweave-html-0.1.0-SNAPSHOT.jar",
+    "exists" : true,
+    "sha256" : {
+      "docweave-html-0.1.0-SNAPSHOT.jar" : "33857c891c2e787e8f29f07f73a28b4ef77f44ea5d8b27469e6148a95b0d5bad"
+    },
+    "index" : 12
+  }, {
+    "entry" : "docweave-markdown-0.1.0-SNAPSHOT.jar",
+    "exists" : true,
+    "sha256" : {
+      "docweave-markdown-0.1.0-SNAPSHOT.jar" : "a7995f28534e865d217e005e59acd55576d44a6a6130053c752bb64ba6f3cf0f"
+    },
+    "index" : 13
+  }, {
+    "entry" : "commonmark-0.30.1.jar",
+    "exists" : true,
+    "sha256" : {
+      "commonmark-0.30.1.jar" : "9b0d20064975a17e876fcb4b599c6b3667f46a7739ed61e2f06c96f44b50629f"
+    },
+    "index" : 14
+  }, {
+    "entry" : "commonmark-ext-gfm-tables-0.30.1.jar",
+    "exists" : true,
+    "sha256" : {
+      "commonmark-ext-gfm-tables-0.30.1.jar" : "c375b6d5b71efe179e5763a6d83fcf10e303c0bf82031310a46769727ac90da0"
+    },
+    "index" : 15
+  }, {
+    "entry" : "docweave-csv-0.1.0-SNAPSHOT.jar",
+    "exists" : true,
+    "sha256" : {
+      "docweave-csv-0.1.0-SNAPSHOT.jar" : "1fd535e97ba514ce3e217b06821973441b379ebfd4bcca48f28980a202da7761"
+    },
+    "index" : 16
+  }, {
+    "entry" : "docweave-delimited-0.1.0-SNAPSHOT.jar",
+    "exists" : true,
+    "sha256" : {
+      "docweave-delimited-0.1.0-SNAPSHOT.jar" : "cd902ee401c31fa3b5a1c8cfee2931f54a71f7df8f75610ed7dbe3e22d7fe3ee"
+    },
+    "index" : 17
+  }, {
+    "entry" : "commons-csv-1.14.1.jar",
+    "exists" : true,
+    "sha256" : {
+      "commons-csv-1.14.1.jar" : "32be0e1e76673092f5d12cb790bd2acb6c2ab04c4ea6efc69ea5ee17911c24fe"
+    },
+    "index" : 18
+  }, {
+    "entry" : "docweave-tsv-0.1.0-SNAPSHOT.jar",
+    "exists" : true,
+    "sha256" : {
+      "docweave-tsv-0.1.0-SNAPSHOT.jar" : "3a34f1f6e08e92a64c319cfc36da522c4d65656779a66f308c213de0ab79e07e"
+    },
+    "index" : 19
+  }, {
+    "entry" : "docweave-xml-0.1.0-SNAPSHOT.jar",
+    "exists" : true,
+    "sha256" : {
+      "docweave-xml-0.1.0-SNAPSHOT.jar" : "8032e9415828ab2051f32f27bf4310e6baa229a4b0d2f8185381f723c02b449e"
+    },
+    "index" : 20
+  }, {
+    "entry" : "docweave-docx-0.1.0-SNAPSHOT.jar",
+    "exists" : true,
+    "sha256" : {
+      "docweave-docx-0.1.0-SNAPSHOT.jar" : "39a8fd7e5eb251219981487b0dc9980e2bedea74c2c741ece35677aa71e6c4a0"
+    },
+    "index" : 21
+  }, {
+    "entry" : "poi-ooxml-5.5.1.jar",
+    "exists" : true,
+    "sha256" : {
+      "poi-ooxml-5.5.1.jar" : "bd7be2fdfe3fd2c1684fa813351c2798fd636b44f6236e0674500d4f8ff1c2f9"
+    },
+    "index" : 22
+  }, {
+    "entry" : "poi-5.5.1.jar",
+    "exists" : true,
+    "sha256" : {
+      "poi-5.5.1.jar" : "6c52e876ca75775a11b56e4b36a7541f682827f56406725fcd87560b792ee3d8"
+    },
+    "index" : 23
+  }, {
+    "entry" : "commons-math3-3.6.1.jar",
+    "exists" : true,
+    "sha256" : {
+      "commons-math3-3.6.1.jar" : "1e56d7b058d28b65abd256b8458e3885b674c1d588fa43cd7d1cbb9c7ef2b308"
+    },
+    "index" : 24
+  }, {
+    "entry" : "SparseBitSet-1.3.jar",
+    "exists" : true,
+    "sha256" : {
+      "SparseBitSet-1.3.jar" : "f76b85adb0c00721ae267b7cfde4da7f71d3121cc2160c9fc00c0c89f8c53c8a"
+    },
+    "index" : 25
+  }, {
+    "entry" : "poi-ooxml-lite-5.5.1.jar",
+    "exists" : true,
+    "sha256" : {
+      "poi-ooxml-lite-5.5.1.jar" : "e6e37adeb6d6ee8b40ec491ad955d934d8f99827ab050f105b18286e59b1d9e7"
+    },
+    "index" : 26
+  }, {
+    "entry" : "xmlbeans-5.3.0.jar",
+    "exists" : true,
+    "sha256" : {
+      "xmlbeans-5.3.0.jar" : "6cc69da3b4d35b83c5e477cd4daba204e44109833e34af2b9a8a2c8788289917"
+    },
+    "index" : 27
+  }, {
+    "entry" : "commons-compress-1.28.0.jar",
+    "exists" : true,
+    "sha256" : {
+      "commons-compress-1.28.0.jar" : "e1522945218456f3649a39bc4afd70ce4bd466221519dba7d378f2141a4642ca"
+    },
+    "index" : 28
+  }, {
+    "entry" : "commons-lang3-3.18.0.jar",
+    "exists" : true,
+    "sha256" : {
+      "commons-lang3-3.18.0.jar" : "4eeeae8d20c078abb64b015ec158add383ac581571cddc45c68f0c9ae0230720"
+    },
+    "index" : 29
+  }, {
+    "entry" : "curvesapi-1.08.jar",
+    "exists" : true,
+    "sha256" : {
+      "curvesapi-1.08.jar" : "ad95b08b8bbf9d7d17e5e00814898fa23324f32bc5b62f1a37801e6a56ce0079"
+    },
+    "index" : 30
+  }, {
+    "entry" : "log4j-api-2.24.3.jar",
+    "exists" : true,
+    "sha256" : {
+      "log4j-api-2.24.3.jar" : "5b4a0a0cd0e751ded431c162442bdbdd53328d1f8bb2bae5fc1bbeee0f66d80f"
+    },
+    "index" : 31
+  }, {
+    "entry" : "commons-collections4-4.5.0.jar",
+    "exists" : true,
+    "sha256" : {
+      "commons-collections4-4.5.0.jar" : "00f93263c267be201b8ae521b44a7137271b16688435340bf629db1bac0a5845"
+    },
+    "index" : 32
+  }, {
+    "entry" : "commons-io-2.21.0.jar",
+    "exists" : true,
+    "sha256" : {
+      "commons-io-2.21.0.jar" : "7d643a2afea8b058b762aa6fb90e5b256f6c729739f8b3784c3370ddc609e88d"
+    },
+    "index" : 33
+  }, {
+    "entry" : "commons-codec-1.20.0.jar",
+    "exists" : true,
+    "sha256" : {
+      "commons-codec-1.20.0.jar" : "6af66595f9f6a7bb58ce66518d6888d40b547c366d2262f06676eee19528ff66"
+    },
+    "index" : 34
+  }, {
+    "entry" : "junit-jupiter-6.0.3.jar",
+    "exists" : true,
+    "sha256" : {
+      "junit-jupiter-6.0.3.jar" : "784b65815f479a0c99a9d3a573b142e2a525efb6025d97f751b19e72f90aeda3"
+    },
+    "index" : 35
+  }, {
+    "entry" : "junit-jupiter-api-6.0.3.jar",
+    "exists" : true,
+    "sha256" : {
+      "junit-jupiter-api-6.0.3.jar" : "d655d7e6f0c7ae07f10a2f3bbaaebb6d30e9b26204a068ad9e9b3950aa28792c"
+    },
+    "index" : 36
+  }, {
+    "entry" : "opentest4j-1.3.0.jar",
+    "exists" : true,
+    "sha256" : {
+      "opentest4j-1.3.0.jar" : "48e2df636cab6563ced64dcdff8abb2355627cb236ef0bf37598682ddf742f1b"
+    },
+    "index" : 37
+  }, {
+    "entry" : "junit-platform-commons-6.0.3.jar",
+    "exists" : true,
+    "sha256" : {
+      "junit-platform-commons-6.0.3.jar" : "39f262d09c3d52719fe0b77f080e90a3695e285d779a41b232e17963ae5da200"
+    },
+    "index" : 38
+  }, {
+    "entry" : "apiguardian-api-1.1.2.jar",
+    "exists" : true,
+    "sha256" : {
+      "apiguardian-api-1.1.2.jar" : "b509448ac506d607319f182537f0b35d71007582ec741832a1f111e5b5b70b38"
+    },
+    "index" : 39
+  }, {
+    "entry" : "jspecify-1.0.0.jar",
+    "exists" : true,
+    "sha256" : {
+      "jspecify-1.0.0.jar" : "1fad6e6be7557781e4d33729d49ae1cdc8fdda6fe477bb0cc68ce351eafdfbab"
+    },
+    "index" : 40
+  }, {
+    "entry" : "junit-jupiter-params-6.0.3.jar",
+    "exists" : true,
+    "sha256" : {
+      "junit-jupiter-params-6.0.3.jar" : "cf2947e2302b9f8c8a059259a277881c1cadae8fbc2514c16a925cfeb7beb2e5"
+    },
+    "index" : 41
+  }, {
+    "entry" : "junit-jupiter-engine-6.0.3.jar",
+    "exists" : true,
+    "sha256" : {
+      "junit-jupiter-engine-6.0.3.jar" : "1e2fab61ad27ea08fc7c70dd9677cf8c6d1ae5434d42dcfdd633b12c7e7c04d0"
+    },
+    "index" : 42
+  }, {
+    "entry" : "junit-platform-engine-6.0.3.jar",
+    "exists" : true,
+    "sha256" : {
+      "junit-platform-engine-6.0.3.jar" : "491e9e4f745f161b8a8e4186a1a7c6a450ea12c70930c9aedae427215301d947"
+    },
+    "index" : 43
+  } ],
+  "checks_passed" : true,
+  "documents" : [ {
+    "filename" : "law-commission-response-2025.docx",
+    "sha256" : "f93208f7b0d1943d627eba881ec9f1962d732a58c7dfe300b1afcff8d3977ea5",
+    "source_tables" : 8,
+    "inventory" : {
+      "maximum_table_depth" : 1,
+      "stored_parts" : { },
+      "substring_baseline_supported" : true,
+      "body" : {
+        "hyperlinks" : 6,
+        "paragraphs" : 88,
+        "content_controls" : 5,
+        "nested_paragraphs" : 0,
+        "nested_tables" : 0,
+        "tables" : 8
+      }
+    },
+    "java" : {
+      "defaults" : {
+        "element_count" : 64,
+        "text_code_points" : 7807,
+        "unmatched_paragraph_sha256" : [ ],
+        "body_paragraphs_checked" : 56,
+        "types" : {
+          "NarrativeText" : 43,
+          "Table" : 8,
+          "Title" : 13
+        },
+        "body_paragraphs_unmatched" : 0,
+        "required_text_present" : {
+          "Law Commission Supplementary Consultation on Contempt of Court" : true,
+          "Overview" : true
+        },
+        "warning_codes" : [ ],
+        "warning_codes_match" : true,
+        "stored_part_counts_match" : true,
+        "checks_passed" : true
+      },
+      "include_headers_footers" : {
+        "element_count" : 64,
+        "text_code_points" : 7807,
+        "unmatched_paragraph_sha256" : [ ],
+        "body_paragraphs_checked" : 56,
+        "types" : {
+          "NarrativeText" : 43,
+          "Table" : 8,
+          "Title" : 13
+        },
+        "body_paragraphs_unmatched" : 0,
+        "required_text_present" : {
+          "Law Commission Supplementary Consultation on Contempt of Court" : true,
+          "Overview" : true
+        },
+        "warning_codes" : [ ],
+        "warning_codes_match" : true,
+        "stored_part_counts_match" : true,
+        "checks_passed" : true
+      }
+    }
+  }, {
+    "filename" : "scottish-respondent-2023.docx",
+    "sha256" : "9ec220846a132b09e1bd518dcddb053dc071a7e90d937c5c075005167ce3decd",
+    "source_tables" : 0,
+    "inventory" : {
+      "maximum_table_depth" : 0,
+      "stored_parts" : {
+        "footer" : 3,
+        "footnotes" : 1,
+        "header" : 3,
+        "endnotes" : 1
+      },
+      "substring_baseline_supported" : true,
+      "body" : {
+        "content_controls" : 8,
+        "hyperlinks" : 2,
+        "nested_paragraphs" : 0,
+        "paragraphs" : 41
+      }
+    },
+    "java" : {
+      "defaults" : {
+        "element_count" : 25,
+        "text_code_points" : 2015,
+        "unmatched_paragraph_sha256" : [ ],
+        "body_paragraphs_checked" : 25,
+        "types" : {
+          "ListItem" : 7,
+          "NarrativeText" : 18
+        },
+        "body_paragraphs_unmatched" : 0,
+        "required_text_present" : {
+          "Respondent Information Form" : true,
+          "What is your name?" : true,
+          "What is your email address?" : true
+        },
+        "warning_codes" : [ ],
+        "warning_codes_match" : true,
+        "stored_part_counts_match" : true,
+        "checks_passed" : true
+      },
+      "include_headers_footers" : {
+        "element_count" : 29,
+        "text_code_points" : 2073,
+        "unmatched_paragraph_sha256" : [ ],
+        "body_paragraphs_checked" : 25,
+        "types" : {
+          "Footer" : 3,
+          "Image" : 1,
+          "ListItem" : 7,
+          "NarrativeText" : 18
+        },
+        "body_paragraphs_unmatched" : 0,
+        "required_text_present" : {
+          "Respondent Information Form" : true,
+          "What is your name?" : true,
+          "What is your email address?" : true
+        },
+        "warning_codes" : [ ],
+        "warning_codes_match" : true,
+        "stored_part_counts_match" : true,
+        "checks_passed" : true
+      }
+    }
+  } ]
+}

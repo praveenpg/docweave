@@ -1,0 +1,68 @@
+{
+  "frozen_at": "2026-10-19T22:16:52.387740+00:00",
+  "cases": [
+    {
+      "id": "recent",
+      "source_id": "recent",
+      "domain": "modern-scientific",
+      "pdf": "recent.pdf",
+      "bytes": 927934,
+      "sha256": "acb3af41357a960a9584f9ba0b0bf3319195af2ec4f3bc6074c2083d97d10bb8",
+      "native_public_text_sha256": "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+      "upstream_public_text_sha256": "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+    },
+    {
+      "id": "next",
+      "source_id": "next",
+      "domain": "modern-scientific",
+      "pdf": "next.pdf",
+      "bytes": 321008,
+      "sha256": "0c96e723535ee671eb0d263702adc9e986fb2817a5e16ab7b7235e593a39eff2",
+      "native_public_text_sha256": "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+      "upstream_public_text_sha256": "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+    },
+    {
+      "id": "elife",
+      "source_id": "elife",
+      "domain": "modern-scientific",
+      "pdf": "elife.pdf",
+      "bytes": 1641690,
+      "sha256": "ae3d00995f44bdd26fd0f60e760dc0fce44e84a0482fc64d2277ef4792413a4b",
+      "native_public_text_sha256": "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+      "upstream_public_text_sha256": "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+    },
+    {
+      "id": "holdout",
+      "source_id": "holdout",
+      "domain": "modern-scientific",
+      "pdf": "holdout.pdf",
+      "bytes": 2529842,
+      "sha256": "dcd83b90a257628b5a1f8beac96dd14cafcbefa50d7077d15cc4f48d86c2e3dc",
+      "native_public_text_sha256": "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+      "upstream_public_text_sha256": "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+    },
+    {
+      "id": "business",
+      "source_id": "amazon-q4-2025",
+      "domain": "modern-business",
+      "pdf": "amazon-q4-2025.pdf",
+      "bytes": 360510,
+      "sha256": "ad8d84cbcc0a4ce35b803b93e8186c29ea0b06b4455d04fb584ab5ad29c42915",
+      "native_public_text_sha256": "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+      "upstream_public_text_sha256": "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+    }
+  ],
+  "forks_per_runtime": 3,
+  "warmup_passes": 2,
+  "measured_passes": 5,
+  "cpu_set": "0-3",
+  "active_processors": 4,
+  "native_max_heap_mib": 512,
+  "fork_timeout_seconds": 300,
+  "runtimes": [
+    "java21",
+    "java25",
+    "unstructured028"
+  ],
+  "protocol": "Five unchanged original modern PDFs. Sequential in-memory whole-document native-text APIs: DocWeave default PDF without OCR/model, Unstructured0.27.28 explicitfast/English/no-table-inference/no-pagebreaks. Setup and first pass separate from2warmup+5measured passes.3independent forks/runtime with predeclared rotating runtime order, affinity4CPUs. Record all samples/process-wall/full-process highwaterRSS through zsh wait4 timing, including teardown. No model/OCR speed claim, equal semantic outputs assumption, retained-memory/per-document-RSS or general library ranking. Validate every output text hash against separately captured defaults and retain failed forks; no fastest/best sample selection. Native JVMheap512MiB explicit, PythonstandardGC; resource/GC strategies differ and are recorded."
+}

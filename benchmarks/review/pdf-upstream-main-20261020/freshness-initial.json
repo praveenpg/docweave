@@ -1,0 +1,76 @@
+{
+  "latest_release": "0.27.30",
+  "release_commit": "08d407ea5ab77dcc7f27775c22cc70bbedae7d58",
+  "responses": [
+    {
+      "sha256": "e62a8f63f4b002691c006193238b3c1277eb525d3d2ab148c9f3ee3c5cafe571",
+      "url": "https://api.github.com/repos/Unstructured-IO/unstructured/releases/latest",
+      "etag": "W/\"3d6553f9c19d23ce66f78d420c1ef82ea6777d1a4d963aa4262f6637c5958fe1\""
+    },
+    {
+      "sha256": "d2a1c4ab17c46a4d1c1ef10fc6997f562ba3748776f3d040fd2ef186727e2c3c",
+      "url": "https://api.github.com/repos/Unstructured-IO/unstructured/commits/main",
+      "etag": "W/\"5aa4ab42e3610bc11bfb1ac3da00ee0510e97cc20b0f8f2db30a16ff1f2cf57a\""
+    },
+    {
+      "sha256": "7c18629154f0f1615b3987e35ef9db31f1ea568859045fd404d36396cb8a5e53",
+      "url": "https://api.github.com/repos/Unstructured-IO/unstructured/compare/347fbbfd3e84e228017f125e5c5dbdc326ef7de2...50054e7f8350e237b3b177f798cc68cb3b27020a",
+      "etag": "W/\"c1a2a5305c2dd6acca795ef6ca104c0b8a81122e79ea9a45cbfeede801efe884\""
+    },
+    {
+      "sha256": "e6e1c379c06123d5ba8a44c83278618eb14703f16cec96cebd6a94d2ef0fb85c",
+      "url": "https://api.github.com/repos/Unstructured-IO/unstructured/commits/0.27.30",
+      "etag": "W/\"46d685602967b0f77b17b667858be2844e120cb562ba0ba3a05690d99011b809\""
+    }
+  ],
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "CHANGELOG.md",
+    "Makefile",
+    "example-docs/xlwt-padded-workbook.xls",
+    "pyproject.toml",
+    "scripts/performance/benchmark_chunking_memory.py",
+    "scripts/performance/benchmark_pdf_ocr_memory.py",
+    "test_unstructured/chunking/test_image_payload_memory.py",
+    "test_unstructured/file_utils/test_filetype.py",
+    "test_unstructured/partition/common/test_common.py",
+    "test_unstructured/partition/common/test_lang.py",
+    "test_unstructured/partition/html/test_convert.py",
+    "test_unstructured/partition/html/test_parser.py",
+    "test_unstructured/partition/html/test_partition.py",
+    "test_unstructured/partition/pdf_image/test_pdf_streaming_memory.py",
+    "test_unstructured/partition/test_auto.py",
+    "test_unstructured/partition/test_docx.py",
+    "test_unstructured/partition/test_email.py",
+    "test_unstructured/partition/test_pptx.py",
+    "test_unstructured/partition/test_xlsx.py",
+    "test_unstructured/partition/test_xlsx_reader.py",
+    "test_unstructured/partition/utils/ocr_models/test_ocr_interface.py",
+    "test_unstructured/partition/utils/test_config.py",
+    "test_unstructured/staging/test_streamed_orig_elements.py",
+    "unstructured/__version__.py",
+    "unstructured/chunking/base.py",
+    "unstructured/documents/html_sanitization.py",
+    "unstructured/file_utils/filetype.py",
+    "unstructured/partition/common/common.py",
+    "unstructured/partition/common/lang.py",
+    "unstructured/partition/docx.py",
+    "unstructured/partition/email.py",
+    "unstructured/partition/html/parser.py",
+    "unstructured/partition/pdf.py",
+    "unstructured/partition/pdf_image/ocr.py",
+    "unstructured/partition/pdf_image/pdf_image_utils.py",
+    "unstructured/partition/pptx.py",
+    "unstructured/partition/tsv.py",
+    "unstructured/partition/utils/config.py",
+    "unstructured/partition/utils/ocr_models/ocr_interface.py",
+    "unstructured/partition/xlsx.py",
+    "unstructured/partition/xml.py",
+    "unstructured/staging/base.py",
+    "uv.lock"
+  ],
+  "ahead_by": 13,
+  "checked_at": "2026-10-20T23:03:55.942094779Z",
+  "reference_commit": "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",
+  "main_commit": "50054e7f8350e237b3b177f798cc68cb3b27020a"
+}

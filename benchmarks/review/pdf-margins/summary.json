@@ -1,0 +1,24 @@
+{
+  "scope": "Single-publisher configured running-margin evidence, not general semantic/calibration accuracy",
+  "actual_java21_full_tests": 864,
+  "actual_java25_full_tests": 864,
+  "failures_errors_skips": [
+    0,
+    0,
+    0
+  ],
+  "strict_javadocs": true,
+  "installed_engine_families": 10,
+  "source_pages": 194,
+  "whole_selected_pages": 12,
+  "source_elements": 439,
+  "labelled_headers": 33,
+  "labelled_footers": 24,
+  "default_matches": 0,
+  "wider_footer_only_matches": 12,
+  "explicit_first_page_and_footer_matches": 57,
+  "extra_tags": 0,
+  "source_inventory_ids_text_coordinates_order_preserved": true,
+  "paired_result_entries_identical": true,
+  "default_policy_unchanged": true
+}

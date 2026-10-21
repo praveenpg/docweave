@@ -1,0 +1,196 @@
+{
+  "baseline_git_commit": "25cb362",
+  "license": {
+    "spdx": "Apache-2.0",
+    "owner_choice": "Apache",
+    "official_text": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+    "bytes": 11358,
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  "pom_sha256": "89a99b50e757ca9e32217132607a5b539d37e35ddd19da559e08efb2aea7d044",
+  "verification": {
+    "21": {
+      "log": "/tmp/docweave-license-java21.log",
+      "log_sha256": "5d553f89f12ef2dd893a57e49942f6ac9233332876ce8e6a1d9a3a9731ccb215",
+      "tests": 899,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "build_success": true,
+      "scope": "Full offline mvn verify and strict Javadocs; no explicit installed-engine properties selected"
+    },
+    "25": {
+      "log": "/tmp/docweave-license-java25.log",
+      "log_sha256": "0a0c29f4a0a1e0a82d86f704658b9ed61fa5d0d286faf003f07145e708373ddc",
+      "tests": 899,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "build_success": true,
+      "scope": "Full offline mvn verify and strict Javadocs; no explicit installed-engine properties selected"
+    }
+  },
+  "effective_model_check": {
+    "modules": 18,
+    "all_exact_project_and_scm_urls": true,
+    "all_inherit_apache_license": true,
+    "log": "/tmp/docweave-effective-metadata.log"
+  },
+  "post_java25_artifacts": [
+    {
+      "module": "docweave-core",
+      "jar": "docweave-core/target/docweave-core-0.1.0-SNAPSHOT.jar",
+      "sha256": "d74b6518c53cbca3ce037b4e424334f178d133ad1577409611efee9b71625e54",
+      "project_license_present": true,
+      "unchanged_module_resources": []
+    },
+    {
+      "module": "docweave-json",
+      "jar": "docweave-json/target/docweave-json-0.1.0-SNAPSHOT.jar",
+      "sha256": "ef014746bfd08a5285d7a9494f4b0f7019c5dea44e8bdd15c385dbae089c2a85",
+      "project_license_present": true,
+      "unchanged_module_resources": []
+    },
+    {
+      "module": "docweave-chunking",
+      "jar": "docweave-chunking/target/docweave-chunking-0.1.0-SNAPSHOT.jar",
+      "sha256": "a58692a8d3d805e5f62c9899d96d42e6753737a1be10092a27cc8cc458b7962b",
+      "project_license_present": true,
+      "unchanged_module_resources": []
+    },
+    {
+      "module": "docweave-batch",
+      "jar": "docweave-batch/target/docweave-batch-0.1.0-SNAPSHOT.jar",
+      "sha256": "877c5bd16193468ae2248266c9c6b160342341e7e4b4d0a2512505c97ff78c33",
+      "project_license_present": true,
+      "unchanged_module_resources": []
+    },
+    {
+      "module": "docweave-txt",
+      "jar": "docweave-txt/target/docweave-txt-0.1.0-SNAPSHOT.jar",
+      "sha256": "e69aacc4ba15ee850e2b9d37427b14962ef8913086a5402de1a4044c39fbb2fa",
+      "project_license_present": true,
+      "unchanged_module_resources": [
+        "META-INF/services/dev.docweave.partition.PartitionerProvider"
+      ]
+    },
+    {
+      "module": "docweave-html",
+      "jar": "docweave-html/target/docweave-html-0.1.0-SNAPSHOT.jar",
+      "sha256": "2dc0c6c6bb59d6c3102d7acfd36b794164f2bfcdf6b3578ee056a70ab24b8ff6",
+      "project_license_present": true,
+      "unchanged_module_resources": [
+        "META-INF/services/dev.docweave.partition.HtmlExtraction",
+        "META-INF/services/dev.docweave.partition.PartitionerProvider"
+      ]
+    },
+    {
+      "module": "docweave-markdown",
+      "jar": "docweave-markdown/target/docweave-markdown-0.1.0-SNAPSHOT.jar",
+      "sha256": "e863828f42474bdc793ed43712e0695f2f86af92f7f84c04bceb6ae8fa992635",
+      "project_license_present": true,
+      "unchanged_module_resources": [
+        "META-INF/services/dev.docweave.partition.PartitionerProvider"
+      ]
+    },
+    {
+      "module": "docweave-delimited",
+      "jar": "docweave-delimited/target/docweave-delimited-0.1.0-SNAPSHOT.jar",
+      "sha256": "9a305c18e4007f8f07ba829574989938ffe12016943fc260113119ec39f3b40f",
+      "project_license_present": true,
+      "unchanged_module_resources": []
+    },
+    {
+      "module": "docweave-csv",
+      "jar": "docweave-csv/target/docweave-csv-0.1.0-SNAPSHOT.jar",
+      "sha256": "9b18c2465afd15e4f23df4d7b1b2da4c9020362efeec94191bfaac0beeea6e1c",
+      "project_license_present": true,
+      "unchanged_module_resources": [
+        "META-INF/services/dev.docweave.partition.PartitionerProvider"
+      ]
+    },
+    {
+      "module": "docweave-tsv",
+      "jar": "docweave-tsv/target/docweave-tsv-0.1.0-SNAPSHOT.jar",
+      "sha256": "7e9a1d740daf6f297b7af620fefbb3a83b9a1e419c8475242e367b6d6f3b8407",
+      "project_license_present": true,
+      "unchanged_module_resources": [
+        "META-INF/services/dev.docweave.partition.PartitionerProvider"
+      ]
+    },
+    {
+      "module": "docweave-xml",
+      "jar": "docweave-xml/target/docweave-xml-0.1.0-SNAPSHOT.jar",
+      "sha256": "3e332dad37f16d274c1c48c0a28aa34775dc152e6fe37bbe9d94564b5fb2fabc",
+      "project_license_present": true,
+      "unchanged_module_resources": [
+        "META-INF/services/dev.docweave.partition.PartitionerProvider"
+      ]
+    },
+    {
+      "module": "docweave-docx",
+      "jar": "docweave-docx/target/docweave-docx-0.1.0-SNAPSHOT.jar",
+      "sha256": "53ef26033d80dfaf027d43ec76efcd7c681ddacda10e3cb48c9cf286afe249be",
+      "project_license_present": true,
+      "unchanged_module_resources": [
+        "META-INF/services/dev.docweave.partition.PartitionerProvider"
+      ]
+    },
+    {
+      "module": "docweave-pdf",
+      "jar": "docweave-pdf/target/docweave-pdf-0.1.0-SNAPSHOT.jar",
+      "sha256": "f87a6fe9ef1f4b4f7480fd8e4baede779573805fe98f8111039c5e3f66da0f55",
+      "project_license_present": true,
+      "unchanged_module_resources": [
+        "META-INF/services/dev.docweave.partition.PartitionerProvider"
+      ]
+    },
+    {
+      "module": "docweave-ocr-tesseract",
+      "jar": "docweave-ocr-tesseract/target/docweave-ocr-tesseract-0.1.0-SNAPSHOT.jar",
+      "sha256": "419ec1f814f6fb9f6e8ab3710163f9d70efc01c81d2840bb5cda3c0a931a4bf0",
+      "project_license_present": true,
+      "unchanged_module_resources": []
+    },
+    {
+      "module": "docweave-layout-onnx",
+      "jar": "docweave-layout-onnx/target/docweave-layout-onnx-0.1.0-SNAPSHOT.jar",
+      "sha256": "f403a906634373726bccd5512f13a0b2e1f0cc840294e10c7298f7ef459b190a",
+      "project_license_present": true,
+      "unchanged_module_resources": [
+        "META-INF/Microsoft-TATR-LICENSE.txt"
+      ]
+    },
+    {
+      "module": "docweave-all",
+      "jar": "docweave-all/target/docweave-0.1.0-SNAPSHOT.jar",
+      "sha256": "743ffdc87aa1a24ad2834ca7c182de3db63f4673c88f5adce49d4350d2589b28",
+      "project_license_present": true,
+      "unchanged_module_resources": []
+    },
+    {
+      "module": "docweave-integration-tests",
+      "jar": "docweave-integration-tests/target/docweave-integration-tests-0.1.0-SNAPSHOT.jar",
+      "sha256": "43dba76a1cab7d9ac6767d6ee48780b6e79d2db4bb415742dd62361bdf8bbe6f",
+      "project_license_present": true,
+      "unchanged_module_resources": []
+    },
+    {
+      "module": "docweave-validation",
+      "jar": "docweave-validation/target/docweave-validation-0.1.0-SNAPSHOT.jar",
+      "sha256": "6d8a460a353891203586ff98fa300300ccec35df5d1f5f3279408d8b578de3ee",
+      "project_license_present": true,
+      "unchanged_module_resources": []
+    }
+  ],
+  "pending": [
+    "Developer display name configured for publication; no name/email inferred from local Git credentials",
+    "Complete third-party redistribution review",
+    "Attached sources/Javadoc JARs, signatures and publishing profile",
+    "Verified namespace and actual release/publication instruction"
+  ],
+  "_public_projection": {
+    "original_sha256": "f32854de3ca848da6c0462138ed083c2287663f16308880e136bc2e4fd1bcc16",
+    "status": "Derived documentation/path projection; historical measurements and embedded fingerprints unchanged"
+  }
+}

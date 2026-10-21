@@ -1,0 +1,173 @@
+{
+  "scope": "Official source review plus owned Java policy regressions; no fresh upstream parser execution or rendering oracle",
+  "reference_commit": "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",
+  "reviewed_main": "3253c2b0f6b0a5f0808910c085675672aff718f3",
+  "latest_release": "0.27.27",
+  "ahead_by": 5,
+  "source_responses": [
+    {
+      "url": "https://api.github.com/repos/Unstructured-IO/unstructured/commits/804e8a10d488a9567b539c3424a891fcd07e252c",
+      "response_sha256": "2b61c2468ce39001d5abd85a0237a53c7f32d4c67afb7ff637e9aa1da734b4e5",
+      "files": [
+        {
+          "path": "CHANGELOG.md",
+          "patch_sha256": "b3611ac0c74d1c2f41e6047cc07cf749a8476115fa17f1808fef53e5940a2dcc"
+        },
+        {
+          "path": "test_unstructured/partition/html/test_parser.py",
+          "patch_sha256": "c53b6fcd261bd160051ee3bb30fca99104241de9b4dbd08631615c4b14224444"
+        },
+        {
+          "path": "test_unstructured/partition/html/test_partition.py",
+          "patch_sha256": "a11f807e8376f02c3e68f10e7d6ac6ea1cca86f363251b645d06f1d3a0693089"
+        },
+        {
+          "path": "unstructured/__version__.py",
+          "patch_sha256": "80975c1dcb3cbaf9dcc25c6bcd487f97b6e1ee5b86cd6d79d2fc9a17a282389e"
+        },
+        {
+          "path": "unstructured/partition/html/parser.py",
+          "patch_sha256": "ffa592d29f75ebacee0f67d73f4621a0867eb0a32de8b52fdf144042d84a9a73"
+        }
+      ]
+    },
+    {
+      "url": "https://api.github.com/repos/Unstructured-IO/unstructured/commits/d4008b99a12f2f417f3270711bd37d89d0d7f1be",
+      "response_sha256": "f72716c07f4a42b352a27ef7f8692c715bb8c1b624e3cc430effa75ef12ef45e",
+      "files": [
+        {
+          "path": "CHANGELOG.md",
+          "patch_sha256": "2094f387e005ce66a34719e439c8c5b0333aaa90dc934c36c0c754f6a1eab078"
+        },
+        {
+          "path": "test_unstructured/partition/html/test_convert.py",
+          "patch_sha256": "f98c6c90e06f8c8552ff269550ff6ae7adbdd420a90e61c747df90361f7e3b19"
+        },
+        {
+          "path": "test_unstructured/partition/html/test_partition.py",
+          "patch_sha256": "20a885dc65b9b009213433b8c015c06aa7534289e03ad9ba279ed2dcf1a2d3a7"
+        },
+        {
+          "path": "unstructured/__version__.py",
+          "patch_sha256": "85e91b0e1c25f8afec03b1029266193d772b07ed71e6cc7c38089a253bc0310d"
+        },
+        {
+          "path": "unstructured/documents/html_sanitization.py",
+          "patch_sha256": "47436ae31fa1cec50945cc01874a25bf62e3c53c553c573993ccfe0f1d9b739b"
+        },
+        {
+          "path": "unstructured/partition/html/parser.py",
+          "patch_sha256": "16b3e7b367de75694179aad0ac757bf9e988b619504db81a32260f9e1612cf56"
+        }
+      ]
+    },
+    {
+      "url": "https://api.github.com/repos/Unstructured-IO/unstructured/compare/347fbbfd3e84e228017f125e5c5dbdc326ef7de2...3253c2b0f6b0a5f0808910c085675672aff718f3",
+      "response_sha256": "4dc235e7bf3a3b13104471d521010cc267d446b3599aa91be9be9368d6d6d6e1",
+      "files": [
+        {
+          "path": ".github/workflows/ci.yml",
+          "patch_sha256": "a4de21d8f0cbe989b36fd7fda9babf3782479ab83705c75008426795f1dd270b"
+        },
+        {
+          "path": "CHANGELOG.md",
+          "patch_sha256": "5af92da5c72762c9aa8f3877aaf6ade8a35fc255e25947db67eb5bac25c90d24"
+        },
+        {
+          "path": "Makefile",
+          "patch_sha256": "92cbedafb33c439966cfe4b90b3cbbc0bbcffed62b1cde2ff1d743def099a3da"
+        },
+        {
+          "path": "pyproject.toml",
+          "patch_sha256": "6f15610852219896f985f6ae91832b03ec696a1a4c802c78eac094d925904a14"
+        },
+        {
+          "path": "test_unstructured/partition/common/test_lang.py",
+          "patch_sha256": "b168edc74de6f59f892c7dec2ba696cb8ac4bceca610098fb89457ad02c5d406"
+        },
+        {
+          "path": "test_unstructured/partition/html/test_convert.py",
+          "patch_sha256": "f98c6c90e06f8c8552ff269550ff6ae7adbdd420a90e61c747df90361f7e3b19"
+        },
+        {
+          "path": "test_unstructured/partition/html/test_parser.py",
+          "patch_sha256": "c53b6fcd261bd160051ee3bb30fca99104241de9b4dbd08631615c4b14224444"
+        },
+        {
+          "path": "test_unstructured/partition/html/test_partition.py",
+          "patch_sha256": "28daac45207da74a563121c29a28c077808d5a4b072060b27e970a248aeb33f8"
+        },
+        {
+          "path": "test_unstructured/partition/test_docx.py",
+          "patch_sha256": "77638b048eb03162ea525aba500590f87ca1520b109a235c29e6ac55a9c1ede8"
+        },
+        {
+          "path": "test_unstructured/partition/test_xlsx.py",
+          "patch_sha256": "7507e7162bf0f5ae1b02196dd9fe78f58c5f25fbb0b0d968f56ee3d352c8c0a1"
+        },
+        {
+          "path": "test_unstructured/partition/utils/test_config.py",
+          "patch_sha256": "b1a5ec4cc65948eed71683fc84ad7e8bac1f42de4443a67ba170ac16c4fc4036"
+        },
+        {
+          "path": "unstructured/__version__.py",
+          "patch_sha256": "5d1de8e23bb27a8562ccc8d899dd9677335f01b03a0a4b08ad8c4fa5781782bd"
+        },
+        {
+          "path": "unstructured/documents/html_sanitization.py",
+          "patch_sha256": "47436ae31fa1cec50945cc01874a25bf62e3c53c553c573993ccfe0f1d9b739b"
+        },
+        {
+          "path": "unstructured/partition/common/lang.py",
+          "patch_sha256": "911ca3e296c7d7e2e614b9e01109ffac856270da52e361f4ec7c37886eb34c2e"
+        },
+        {
+          "path": "unstructured/partition/docx.py",
+          "patch_sha256": "92d1f8b049a8ea77370c4ac5705082722de267e6ca8a4fd5ba213921b8a38048"
+        },
+        {
+          "path": "unstructured/partition/html/parser.py",
+          "patch_sha256": "d52d3d24f212d7b3ecf11832794d69e4ef17373f151d85e2c4e36fc6c16ef4f6"
+        },
+        {
+          "path": "unstructured/partition/utils/config.py",
+          "patch_sha256": "752885dd13228e29cf4210a9edc594181580b8c53a7bd03e7259b80cfb06fe63"
+        },
+        {
+          "path": "unstructured/partition/xlsx.py",
+          "patch_sha256": "7205af0c5db5d580d71849da59d8e1d85e222fdb9c8e81fa305a1abf7c4ffba5"
+        },
+        {
+          "path": "uv.lock",
+          "patch_sha256": "f547109d4407047a268b2a24b6fdae370e9809e81d83c3705f732dea8118be3a"
+        }
+      ]
+    }
+  ],
+  "java_source_sha256": {
+    "docweave-html/src/main/java/dev/docweave/partition/HtmlDomPolicy.java": "bc5df242676a4e3901dedbe998b592a0e5bfcf5f32be8c48a3e2579867442438",
+    "docweave-html/src/main/java/dev/docweave/partition/HtmlDomWalker.java": "a92cb33ee39a7154f2e005be99fa03bc6b51b531348c4784fdd16e7e17643be2",
+    "docweave-integration-tests/src/test/java/dev/docweave/partition/HtmlUpstreamReviewTest.java": "722cc5b73006f0cb480520bae577122aeee753457cbdb5aaf8c2cd4b288923bb"
+  },
+  "owned_test_methods": 8,
+  "java_tests": 603,
+  "python_reference_guard_tests": 12,
+  "adopted": [
+    "Unknown and legacy font wrappers are transparent, exposing block children while retaining inline adjacency.",
+    "Reviewed non-content subtrees are omitted before transparent wrappers are unwrapped.",
+    "Hidden content and original depth checks precede normalization.",
+    "Shared Markdown EXTRACT_DOM behavior and nested-table intervals remain tested."
+  ],
+  "retained_differences": [
+    "Root captions remain separate FigureCaption elements and are omitted from root Table text/HTML; caption-only input can emit a FigureCaption.",
+    "MathML/KaTeX and page-number propagation are unsupported; general known-inline-container block segmentation remains a gap.",
+    "jsoup can repair invalid head children into body content differently from lxml.",
+    "Other element/classification/metadata rules remain outside a full parity claim."
+  ],
+  "other_main_triage": [
+    "Optional langdetect-rs remains outside current language policy.",
+    "DOCX per-document style-name/numbering cache source change reviewed; upstream unchanged-output/performance claims were not rerun here.",
+    "XLSX sparse empty-row fix remains outside currently implemented formats."
+  ],
+  "reference_policy": "Released references and historical Word/corpus evidence are unchanged. No unreleased-main reference substitution."
+}

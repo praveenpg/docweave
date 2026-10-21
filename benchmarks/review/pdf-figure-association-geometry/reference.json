@@ -1,0 +1,99 @@
+{
+  "base_commit": "92c1bd3",
+  "scope": "Development original, all15pages/all7 independent Poppler raster occurrences; five visually reviewed main-body figure labels and two nonfigure icons. Frozen before this association evaluation, not an unseen source.",
+  "source": {
+    "id": "plos-0324609",
+    "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0324609&type=printable",
+    "bytes": 927934,
+    "sha256": "acb3af41357a960a9584f9ba0b0bf3319195af2ec4f3bc6074c2083d97d10bb8",
+    "pages": 15
+  },
+  "reference_method": "Poppler26.10.0 pdfimages -list and pdftohtml -xml -zoom1; independently rendered source pages1,5,8,9 visually reviewed before DocWeave extraction. Bounds integer-rounded PDF points, top-left origin. Remaining pages have no raster occurrences.",
+  "independent_xml_sha256": "606212a718bcb3c1d0fb928935d4bbc6a3d3f306133adce415151e7cc720625d",
+  "maximum_edge_difference_points": 2,
+  "profiles": [
+    "NATIVE_LINES",
+    "NATIVE_COLUMNS",
+    "SOURCE_TAGGED_LINES"
+  ],
+  "labels": [
+    {
+      "id": "crossmark",
+      "page": 1,
+      "figure": false,
+      "bounds": [
+        36,
+        283,
+        92,
+        339
+      ]
+    },
+    {
+      "id": "open-access",
+      "page": 1,
+      "figure": false,
+      "bounds": [
+        36,
+        385,
+        45,
+        397
+      ]
+    },
+    {
+      "id": "1",
+      "page": 5,
+      "figure": true,
+      "bounds": [
+        36,
+        97,
+        432,
+        439
+      ]
+    },
+    {
+      "id": "2",
+      "page": 5,
+      "figure": true,
+      "bounds": [
+        36,
+        492,
+        396,
+        646
+      ]
+    },
+    {
+      "id": "3",
+      "page": 8,
+      "figure": true,
+      "bounds": [
+        36,
+        97,
+        432,
+        380
+      ]
+    },
+    {
+      "id": "4",
+      "page": 8,
+      "figure": true,
+      "bounds": [
+        36,
+        433,
+        432,
+        652
+      ]
+    },
+    {
+      "id": "5",
+      "page": 9,
+      "figure": true,
+      "bounds": [
+        36,
+        97,
+        432,
+        311
+      ]
+    }
+  ],
+  "raw_sources_redistributed": false
+}

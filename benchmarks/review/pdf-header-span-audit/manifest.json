@@ -1,0 +1,7 @@
+{
+  "frozen_at": "2026-10-19T14:43:14.973061+00:00",
+  "baseline_commit": "d1bb203ba49417e8e23c902d3d40a62edb4e8210",
+  "source_manifest_sha256": "d8d4bb5d37d5bd9e35d3ff936ecd6f12ca29543fdd3f16d72962f4d260017b7a",
+  "replay_manifest_sha256": "a09fc54fa81eeaf9d775ae5d5afc3e0bae3b3c4f4a4de7f573f56c2cc491bfcf",
+  "protocol": "Audit unchanged original us-002 pages1/3 with same pinned models/fourthreads/150DPI/KEEP_HIGHER_SCORE; no reference ROI/text to inference. Inspect thresholded class5/span proposals versus emitted anchors and native glyph ownership; no threshold, label or production changes. Original2/214 and208/215 remain until independently rescored."
+}

@@ -1,0 +1,712 @@
+{
+  "scope": "Five hash-pinned external files: two NRS reports and three Apache POI samples. Original source coverage and instrumented conditional probes reported separately; no Word-rendering ground truth.",
+  "review": "Automated source inventory/metamorphic diagnostics; independent human/Word-rendered review pending",
+  "probe_version": 1,
+  "probe_tool_sha256": "ae5fdac5323593b8b9d2b021ead2c945c9d06a35678667d5ba548729cf305cd8",
+  "manifest_sha256": "ad22bce8cbaf6966b4137e401903fd2e267fd386c0e00415c365f6b3580cebdd",
+  "launcher_sha256": "6d38e2e66b428fd386d3fc0b68e049074064c194a92b98f154298f064211268e",
+  "runtime_classpath_entries": [
+    {
+      "name": "classes",
+      "kind": "class_directory",
+      "sha256": "579e5356229f615368be5aff0e8b17d7d9cb74f50a566c8749a1ef665f1ade24"
+    },
+    {
+      "name": "poi-ooxml-5.5.1.jar",
+      "kind": "file",
+      "sha256": "bd7be2fdfe3fd2c1684fa813351c2798fd636b44f6236e0674500d4f8ff1c2f9"
+    },
+    {
+      "name": "poi-5.5.1.jar",
+      "kind": "file",
+      "sha256": "6c52e876ca75775a11b56e4b36a7541f682827f56406725fcd87560b792ee3d8"
+    },
+    {
+      "name": "commons-math3-3.6.1.jar",
+      "kind": "file",
+      "sha256": "1e56d7b058d28b65abd256b8458e3885b674c1d588fa43cd7d1cbb9c7ef2b308"
+    },
+    {
+      "name": "SparseBitSet-1.3.jar",
+      "kind": "file",
+      "sha256": "f76b85adb0c00721ae267b7cfde4da7f71d3121cc2160c9fc00c0c89f8c53c8a"
+    },
+    {
+      "name": "poi-ooxml-lite-5.5.1.jar",
+      "kind": "file",
+      "sha256": "e6e37adeb6d6ee8b40ec491ad955d934d8f99827ab050f105b18286e59b1d9e7"
+    },
+    {
+      "name": "xmlbeans-5.3.0.jar",
+      "kind": "file",
+      "sha256": "6cc69da3b4d35b83c5e477cd4daba204e44109833e34af2b9a8a2c8788289917"
+    },
+    {
+      "name": "commons-compress-1.28.0.jar",
+      "kind": "file",
+      "sha256": "e1522945218456f3649a39bc4afd70ce4bd466221519dba7d378f2141a4642ca"
+    },
+    {
+      "name": "commons-lang3-3.18.0.jar",
+      "kind": "file",
+      "sha256": "4eeeae8d20c078abb64b015ec158add383ac581571cddc45c68f0c9ae0230720"
+    },
+    {
+      "name": "curvesapi-1.08.jar",
+      "kind": "file",
+      "sha256": "ad95b08b8bbf9d7d17e5e00814898fa23324f32bc5b62f1a37801e6a56ce0079"
+    },
+    {
+      "name": "log4j-api-2.24.3.jar",
+      "kind": "file",
+      "sha256": "5b4a0a0cd0e751ded431c162442bdbdd53328d1f8bb2bae5fc1bbeee0f66d80f"
+    },
+    {
+      "name": "commons-collections4-4.5.0.jar",
+      "kind": "file",
+      "sha256": "00f93263c267be201b8ae521b44a7137271b16688435340bf629db1bac0a5845"
+    },
+    {
+      "name": "commons-io-2.21.0.jar",
+      "kind": "file",
+      "sha256": "7d643a2afea8b058b762aa6fb90e5b256f6c729739f8b3784c3370ddc609e88d"
+    },
+    {
+      "name": "commons-codec-1.20.0.jar",
+      "kind": "file",
+      "sha256": "6af66595f9f6a7bb58ce66518d6888d40b547c366d2262f06676eee19528ff66"
+    },
+    {
+      "name": "commonmark-0.30.1.jar",
+      "kind": "file",
+      "sha256": "9b0d20064975a17e876fcb4b599c6b3667f46a7739ed61e2f06c96f44b50629f"
+    },
+    {
+      "name": "commonmark-ext-gfm-tables-0.30.1.jar",
+      "kind": "file",
+      "sha256": "c375b6d5b71efe179e5763a6d83fcf10e303c0bf82031310a46769727ac90da0"
+    },
+    {
+      "name": "commons-csv-1.14.1.jar",
+      "kind": "file",
+      "sha256": "32be0e1e76673092f5d12cb790bd2acb6c2ab04c4ea6efc69ea5ee17911c24fe"
+    },
+    {
+      "name": "jsoup-1.23.2.jar",
+      "kind": "file",
+      "sha256": "e9d8c856856680427f096d156f02a414289985c930998fcb519ce5be39b42003"
+    },
+    {
+      "name": "jackson-databind-3.1.5.jar",
+      "kind": "file",
+      "sha256": "3a2338d996fd3056791df8d335fa9ba8a62a706ed4245ecf81b3e583df37d08a"
+    },
+    {
+      "name": "jackson-annotations-2.21.jar",
+      "kind": "file",
+      "sha256": "53ca085f4a150f703f49e1aabd935bd03b43e1ea3d55d135438292af22cef56b"
+    },
+    {
+      "name": "jackson-core-3.1.5.jar",
+      "kind": "file",
+      "sha256": "9431b7fa2673bbb618c11d865fe15e13222fd182a214ff998cb7e56afd8f35d2"
+    },
+    {
+      "name": "jspecify-1.0.0.jar",
+      "kind": "file",
+      "sha256": "1fad6e6be7557781e4d33729d49ae1cdc8fdda6fe477bb0cc68ce351eafdfbab"
+    },
+    {
+      "name": "",
+      "kind": "class_directory",
+      "sha256": "b617381ff23a69cb04ebadbc39bc6acbcde0f76c2717536f9620d88c4a1021e5"
+    }
+  ],
+  "candidate_partition_source_sha256": "4a66e7dc278ead412f596c3dfa884a6d410e884c03b049bd344e39d11b692afc",
+  "java_version": "openjdk 25.0.4 2026-07-21 LTS\nOpenJDK Runtime Environment Corretto-25.0.4.7.1 (build 25.0.4+7-LTS)\nOpenJDK 64-Bit Server VM Corretto-25.0.4.7.1 (build 25.0.4+7-LTS, mixed mode, sharing)",
+  "checks_passed": true,
+  "documents": [
+    {
+      "filename": "north-lanarkshire-2025.docx",
+      "source_sha256": "6c8a2ff422ac764b1cc15490932f986e685944a26df4ece9db3902cfafd96938",
+      "source_inventory": {
+        "tables": 2,
+        "stored_table_paragraph_visits_nonblank": 184,
+        "paragraph_visit_limit": "Nested table paragraphs can be counted more than once; not unique ownership",
+        "conditional_definitions": {},
+        "semantic_conditional_definitions": 0,
+        "stored_cnf_flags": 0,
+        "grid_spans": 0,
+        "vertical_merge_markers": 0,
+        "horizontal_merge_markers": 0,
+        "producer_metadata": "Microsoft Office Word",
+        "producer_limit": "Self-reported package metadata, not proof of authorship/application"
+      },
+      "unchanged_original": {
+        "elements": 58,
+        "types": {
+          "ListItem": 4,
+          "NarrativeText": 44,
+          "Table": 2,
+          "Title": 8
+        },
+        "text_and_type_sha256": "248e8a933ae9f11d1d1a307d219aa6107a60880f0a6795c257772d6209b33d60",
+        "style_ranges": 0,
+        "outline_levels": {},
+        "region_memberships": {},
+        "warnings": []
+      },
+      "derived_probes": {
+        "enabled": {
+          "kind": "instrumented derivative, not an unchanged external sample",
+          "input_sha256": "b20dd2d41d6121afcf871047ed6c2af7a46a25ca045b00568a1c9fe658c6823c",
+          "observed": {
+            "elements": 58,
+            "types": {
+              "ListItem": 4,
+              "NarrativeText": 44,
+              "Table": 2,
+              "Title": 8
+            },
+            "text_and_type_sha256": "248e8a933ae9f11d1d1a307d219aa6107a60880f0a6795c257772d6209b33d60",
+            "style_ranges": 184,
+            "outline_levels": {
+              "0": 16,
+              "1": 13,
+              "2": 15,
+              "3": 19,
+              "4": 57,
+              "5": 63,
+              "8": 1
+            },
+            "region_memberships": {
+              "band1Horz": 72,
+              "band1Vert": 80,
+              "band2Horz": 80,
+              "band2Vert": 65,
+              "firstCol": 16,
+              "firstRow": 23,
+              "lastCol": 23,
+              "lastRow": 15,
+              "neCell": 3,
+              "nwCell": 2,
+              "seCell": 2,
+              "swCell": 2
+            },
+            "warnings": []
+          },
+          "checks": {
+            "text_and_types_unchanged": true,
+            "no_probe_warnings": true,
+            "conditional_outline_exercised": true
+          },
+          "positive_text_probe_applicable": true
+        },
+        "disabled": {
+          "kind": "instrumented derivative, not an unchanged external sample",
+          "input_sha256": "e1320bf0b07f8f58350074d669c37369c0f6152d306da9f116b66ec670229ee5",
+          "observed": {
+            "elements": 58,
+            "types": {
+              "ListItem": 4,
+              "NarrativeText": 44,
+              "Table": 2,
+              "Title": 8
+            },
+            "text_and_type_sha256": "248e8a933ae9f11d1d1a307d219aa6107a60880f0a6795c257772d6209b33d60",
+            "style_ranges": 184,
+            "outline_levels": {
+              "9": 184
+            },
+            "region_memberships": {},
+            "warnings": []
+          },
+          "checks": {
+            "text_and_types_unchanged": true,
+            "no_probe_warnings": true,
+            "only_whole_table_outline": true
+          },
+          "positive_text_probe_applicable": true
+        },
+        "direct_override": {
+          "kind": "instrumented derivative, not an unchanged external sample",
+          "input_sha256": "aab02ccd6f0edff50687832dbcdc90742ae29c815a25d50426ab41ed5634fb42",
+          "observed": {
+            "elements": 58,
+            "types": {
+              "ListItem": 4,
+              "NarrativeText": 44,
+              "Table": 2,
+              "Title": 8
+            },
+            "text_and_type_sha256": "248e8a933ae9f11d1d1a307d219aa6107a60880f0a6795c257772d6209b33d60",
+            "style_ranges": 0,
+            "outline_levels": {},
+            "region_memberships": {},
+            "warnings": []
+          },
+          "checks": {
+            "text_and_types_unchanged": true,
+            "no_probe_warnings": true,
+            "direct_outline_shields_table_layer": true
+          },
+          "positive_text_probe_applicable": true
+        }
+      }
+    },
+    {
+      "filename": "sqa-2024.docx",
+      "source_sha256": "c1345b2cfb860d6cce2b98253021b286de15e4a71e117100a67f8c7aea0fd40b",
+      "source_inventory": {
+        "tables": 3,
+        "stored_table_paragraph_visits_nonblank": 362,
+        "paragraph_visit_limit": "Nested table paragraphs can be counted more than once; not unique ownership",
+        "conditional_definitions": {},
+        "semantic_conditional_definitions": 0,
+        "stored_cnf_flags": 0,
+        "grid_spans": 0,
+        "vertical_merge_markers": 0,
+        "horizontal_merge_markers": 0,
+        "producer_metadata": "Microsoft Office Word",
+        "producer_limit": "Self-reported package metadata, not proof of authorship/application"
+      },
+      "unchanged_original": {
+        "elements": 61,
+        "types": {
+          "Image": 1,
+          "ListItem": 3,
+          "NarrativeText": 46,
+          "Table": 3,
+          "Title": 8
+        },
+        "text_and_type_sha256": "25a3ef64adf274ac0c707d77a91dbd109ea5eb6112760d5d8c7fa5e11976c78c",
+        "style_ranges": 0,
+        "outline_levels": {},
+        "region_memberships": {},
+        "warnings": []
+      },
+      "derived_probes": {
+        "enabled": {
+          "kind": "instrumented derivative, not an unchanged external sample",
+          "input_sha256": "ccda16918dce1ae96d479a28c09e0573b9939fde60407c5a68c662e8662d0333",
+          "observed": {
+            "elements": 61,
+            "types": {
+              "Image": 1,
+              "ListItem": 3,
+              "NarrativeText": 46,
+              "Table": 3,
+              "Title": 8
+            },
+            "text_and_type_sha256": "25a3ef64adf274ac0c707d77a91dbd109ea5eb6112760d5d8c7fa5e11976c78c",
+            "style_ranges": 362,
+            "outline_levels": {
+              "0": 30,
+              "1": 31,
+              "2": 24,
+              "3": 43,
+              "4": 120,
+              "5": 113,
+              "8": 1
+            },
+            "region_memberships": {
+              "band1Horz": 151,
+              "band1Vert": 138,
+              "band2Horz": 145,
+              "band2Vert": 150,
+              "firstCol": 24,
+              "firstRow": 37,
+              "lastCol": 50,
+              "lastRow": 35,
+              "neCell": 4,
+              "nwCell": 2,
+              "seCell": 4,
+              "swCell": 3
+            },
+            "warnings": []
+          },
+          "checks": {
+            "text_and_types_unchanged": true,
+            "no_probe_warnings": true,
+            "conditional_outline_exercised": true
+          },
+          "positive_text_probe_applicable": true
+        },
+        "disabled": {
+          "kind": "instrumented derivative, not an unchanged external sample",
+          "input_sha256": "f965ddd9569be6dbb47ab26ff47919ee1c5f834c15fab8283ee5286bb73fdb96",
+          "observed": {
+            "elements": 61,
+            "types": {
+              "Image": 1,
+              "ListItem": 3,
+              "NarrativeText": 46,
+              "Table": 3,
+              "Title": 8
+            },
+            "text_and_type_sha256": "25a3ef64adf274ac0c707d77a91dbd109ea5eb6112760d5d8c7fa5e11976c78c",
+            "style_ranges": 362,
+            "outline_levels": {
+              "9": 362
+            },
+            "region_memberships": {},
+            "warnings": []
+          },
+          "checks": {
+            "text_and_types_unchanged": true,
+            "no_probe_warnings": true,
+            "only_whole_table_outline": true
+          },
+          "positive_text_probe_applicable": true
+        },
+        "direct_override": {
+          "kind": "instrumented derivative, not an unchanged external sample",
+          "input_sha256": "3a1fb435f04220ef76e22ce40645f833c4d01dafff8d67158ad22c1b9bbdb1ac",
+          "observed": {
+            "elements": 61,
+            "types": {
+              "Image": 1,
+              "ListItem": 3,
+              "NarrativeText": 46,
+              "Table": 3,
+              "Title": 8
+            },
+            "text_and_type_sha256": "25a3ef64adf274ac0c707d77a91dbd109ea5eb6112760d5d8c7fa5e11976c78c",
+            "style_ranges": 0,
+            "outline_levels": {},
+            "region_memberships": {},
+            "warnings": []
+          },
+          "checks": {
+            "text_and_types_unchanged": true,
+            "no_probe_warnings": true,
+            "direct_outline_shields_table_layer": true
+          },
+          "positive_text_probe_applicable": true
+        }
+      }
+    },
+    {
+      "filename": "TestTableColumns.docx",
+      "source_sha256": "3b1965a295c4a5c24573a6d5f2ded93f7de3e7a46ffe26b881456f1c4ddd6335",
+      "source_inventory": {
+        "tables": 2,
+        "stored_table_paragraph_visits_nonblank": 0,
+        "paragraph_visit_limit": "Nested table paragraphs can be counted more than once; not unique ownership",
+        "conditional_definitions": {},
+        "semantic_conditional_definitions": 0,
+        "stored_cnf_flags": 0,
+        "grid_spans": 1,
+        "vertical_merge_markers": 0,
+        "horizontal_merge_markers": 0,
+        "producer_metadata": "Microsoft Office Word",
+        "producer_limit": "Self-reported package metadata, not proof of authorship/application"
+      },
+      "unchanged_original": {
+        "elements": 2,
+        "types": {
+          "Table": 2
+        },
+        "text_and_type_sha256": "e7d01c609c1b1b8452ba3486ea749d13cf0c40bb334fd63235cbb0ca05b445c1",
+        "style_ranges": 0,
+        "outline_levels": {},
+        "region_memberships": {},
+        "warnings": []
+      },
+      "derived_probes": {
+        "enabled": {
+          "kind": "instrumented derivative, not an unchanged external sample",
+          "input_sha256": "5ec626607c21c36396b4d7107317fcafb273554398ab4d80cfac2834234b3e74",
+          "observed": {
+            "elements": 2,
+            "types": {
+              "Table": 2
+            },
+            "text_and_type_sha256": "e7d01c609c1b1b8452ba3486ea749d13cf0c40bb334fd63235cbb0ca05b445c1",
+            "style_ranges": 0,
+            "outline_levels": {},
+            "region_memberships": {},
+            "warnings": []
+          },
+          "checks": {
+            "text_and_types_unchanged": true,
+            "no_probe_warnings": true,
+            "empty_source_has_no_style_ranges": true
+          },
+          "positive_text_probe_applicable": false
+        },
+        "disabled": {
+          "kind": "instrumented derivative, not an unchanged external sample",
+          "input_sha256": "4478ec6d1c17a297f86953a02317ade8bda8aa611c845a2901b3b11cb4bd0f48",
+          "observed": {
+            "elements": 2,
+            "types": {
+              "Table": 2
+            },
+            "text_and_type_sha256": "e7d01c609c1b1b8452ba3486ea749d13cf0c40bb334fd63235cbb0ca05b445c1",
+            "style_ranges": 0,
+            "outline_levels": {},
+            "region_memberships": {},
+            "warnings": []
+          },
+          "checks": {
+            "text_and_types_unchanged": true,
+            "no_probe_warnings": true,
+            "empty_source_has_no_style_ranges": true,
+            "only_whole_table_outline": true
+          },
+          "positive_text_probe_applicable": false
+        },
+        "direct_override": {
+          "kind": "instrumented derivative, not an unchanged external sample",
+          "input_sha256": "839a297c7c62e9904ce252159fcf9e978103de73986563411b8907354750a6b6",
+          "observed": {
+            "elements": 2,
+            "types": {
+              "Table": 2
+            },
+            "text_and_type_sha256": "e7d01c609c1b1b8452ba3486ea749d13cf0c40bb334fd63235cbb0ca05b445c1",
+            "style_ranges": 0,
+            "outline_levels": {},
+            "region_memberships": {},
+            "warnings": []
+          },
+          "checks": {
+            "text_and_types_unchanged": true,
+            "no_probe_warnings": true,
+            "empty_source_has_no_style_ranges": true,
+            "direct_outline_shields_table_layer": true
+          },
+          "positive_text_probe_applicable": false
+        }
+      }
+    },
+    {
+      "filename": "TestTableCellAlign.docx",
+      "source_sha256": "2968d4a5d5de21dce1cbeae3235e545cdf4bfd7ae508fe0eed3a9b032773ce17",
+      "source_inventory": {
+        "tables": 1,
+        "stored_table_paragraph_visits_nonblank": 3,
+        "paragraph_visit_limit": "Nested table paragraphs can be counted more than once; not unique ownership",
+        "conditional_definitions": {},
+        "semantic_conditional_definitions": 0,
+        "stored_cnf_flags": 0,
+        "grid_spans": 0,
+        "vertical_merge_markers": 0,
+        "horizontal_merge_markers": 0,
+        "producer_metadata": "Microsoft Office Word",
+        "producer_limit": "Self-reported package metadata, not proof of authorship/application"
+      },
+      "unchanged_original": {
+        "elements": 1,
+        "types": {
+          "Table": 1
+        },
+        "text_and_type_sha256": "41da641cb33c71b35f7299bbe480d59b0caf60af5da0c9e33fca8485b12183d2",
+        "style_ranges": 0,
+        "outline_levels": {},
+        "region_memberships": {},
+        "warnings": []
+      },
+      "derived_probes": {
+        "enabled": {
+          "kind": "instrumented derivative, not an unchanged external sample",
+          "input_sha256": "68495caeaae0db8146901adf28e21b3e406585c3f390b5789899e491bb6f0d4d",
+          "observed": {
+            "elements": 1,
+            "types": {
+              "Table": 1
+            },
+            "text_and_type_sha256": "41da641cb33c71b35f7299bbe480d59b0caf60af5da0c9e33fca8485b12183d2",
+            "style_ranges": 3,
+            "outline_levels": {
+              "0": 1,
+              "1": 1,
+              "8": 1
+            },
+            "region_memberships": {
+              "firstCol": 2,
+              "firstRow": 2,
+              "lastCol": 1,
+              "lastRow": 1,
+              "neCell": 1,
+              "nwCell": 1,
+              "swCell": 1
+            },
+            "warnings": []
+          },
+          "checks": {
+            "text_and_types_unchanged": true,
+            "no_probe_warnings": true,
+            "conditional_outline_exercised": true
+          },
+          "positive_text_probe_applicable": true
+        },
+        "disabled": {
+          "kind": "instrumented derivative, not an unchanged external sample",
+          "input_sha256": "9b22c8520521cebb24f3e2fd46489b3552d2a6baf1380bdb3195bb6d4d49f043",
+          "observed": {
+            "elements": 1,
+            "types": {
+              "Table": 1
+            },
+            "text_and_type_sha256": "41da641cb33c71b35f7299bbe480d59b0caf60af5da0c9e33fca8485b12183d2",
+            "style_ranges": 3,
+            "outline_levels": {
+              "9": 3
+            },
+            "region_memberships": {},
+            "warnings": []
+          },
+          "checks": {
+            "text_and_types_unchanged": true,
+            "no_probe_warnings": true,
+            "only_whole_table_outline": true
+          },
+          "positive_text_probe_applicable": true
+        },
+        "direct_override": {
+          "kind": "instrumented derivative, not an unchanged external sample",
+          "input_sha256": "f4af91045eadcc920e3ea36ddbff7b31fdcb6bedc4bc66edfdd0f7880e4628c9",
+          "observed": {
+            "elements": 1,
+            "types": {
+              "Table": 1
+            },
+            "text_and_type_sha256": "41da641cb33c71b35f7299bbe480d59b0caf60af5da0c9e33fca8485b12183d2",
+            "style_ranges": 0,
+            "outline_levels": {},
+            "region_memberships": {},
+            "warnings": []
+          },
+          "checks": {
+            "text_and_types_unchanged": true,
+            "no_probe_warnings": true,
+            "direct_outline_shields_table_layer": true
+          },
+          "positive_text_probe_applicable": true
+        }
+      }
+    },
+    {
+      "filename": "table-alignment.docx",
+      "source_sha256": "ee36729e0d050e529fea0b444006a194bea72b35cf8958ae58c6624c26156b41",
+      "source_inventory": {
+        "tables": 6,
+        "stored_table_paragraph_visits_nonblank": 54,
+        "paragraph_visit_limit": "Nested table paragraphs can be counted more than once; not unique ownership",
+        "conditional_definitions": {
+          "band1Horz": 1,
+          "band1Vert": 1,
+          "firstCol": 1,
+          "firstRow": 1,
+          "lastCol": 1,
+          "lastRow": 1
+        },
+        "semantic_conditional_definitions": 0,
+        "stored_cnf_flags": 0,
+        "grid_spans": 0,
+        "vertical_merge_markers": 0,
+        "horizontal_merge_markers": 0,
+        "producer_metadata": "Microsoft Office Word",
+        "producer_limit": "Self-reported package metadata, not proof of authorship/application"
+      },
+      "unchanged_original": {
+        "elements": 6,
+        "types": {
+          "Table": 6
+        },
+        "text_and_type_sha256": "51b3dbcd0a0c8d851e3cc1a2ea5081d8aeee78dbcdc3765ff649f6c307a5b8c2",
+        "style_ranges": 0,
+        "outline_levels": {},
+        "region_memberships": {},
+        "warnings": []
+      },
+      "derived_probes": {
+        "enabled": {
+          "kind": "instrumented derivative, not an unchanged external sample",
+          "input_sha256": "d31e89fd6964ea1ccb830c030b1bcfb96588e05f428d5839e48c7027940f0292",
+          "observed": {
+            "elements": 6,
+            "types": {
+              "Table": 6
+            },
+            "text_and_type_sha256": "51b3dbcd0a0c8d851e3cc1a2ea5081d8aeee78dbcdc3765ff649f6c307a5b8c2",
+            "style_ranges": 54,
+            "outline_levels": {
+              "0": 12,
+              "1": 12,
+              "2": 12,
+              "3": 6,
+              "4": 6,
+              "8": 6
+            },
+            "region_memberships": {
+              "band1Horz": 18,
+              "band1Vert": 18,
+              "firstCol": 18,
+              "firstRow": 18,
+              "lastCol": 18,
+              "lastRow": 18,
+              "neCell": 6,
+              "nwCell": 6,
+              "seCell": 6,
+              "swCell": 6
+            },
+            "warnings": []
+          },
+          "checks": {
+            "text_and_types_unchanged": true,
+            "no_probe_warnings": true,
+            "conditional_outline_exercised": true
+          },
+          "positive_text_probe_applicable": true
+        },
+        "disabled": {
+          "kind": "instrumented derivative, not an unchanged external sample",
+          "input_sha256": "a58d6833dd55414e537fc2d87ffe9786ca80f9d1417b6a9bbdf5317d6e308495",
+          "observed": {
+            "elements": 6,
+            "types": {
+              "Table": 6
+            },
+            "text_and_type_sha256": "51b3dbcd0a0c8d851e3cc1a2ea5081d8aeee78dbcdc3765ff649f6c307a5b8c2",
+            "style_ranges": 54,
+            "outline_levels": {
+              "9": 54
+            },
+            "region_memberships": {},
+            "warnings": []
+          },
+          "checks": {
+            "text_and_types_unchanged": true,
+            "no_probe_warnings": true,
+            "only_whole_table_outline": true
+          },
+          "positive_text_probe_applicable": true
+        },
+        "direct_override": {
+          "kind": "instrumented derivative, not an unchanged external sample",
+          "input_sha256": "1e15cdc89b3384b303434e835341aa2ecb54dd3e8fd099882a214c207dfedb6e",
+          "observed": {
+            "elements": 6,
+            "types": {
+              "Table": 6
+            },
+            "text_and_type_sha256": "51b3dbcd0a0c8d851e3cc1a2ea5081d8aeee78dbcdc3765ff649f6c307a5b8c2",
+            "style_ranges": 0,
+            "outline_levels": {},
+            "region_memberships": {},
+            "warnings": []
+          },
+          "checks": {
+            "text_and_types_unchanged": true,
+            "no_probe_warnings": true,
+            "direct_outline_shields_table_layer": true
+          },
+          "positive_text_probe_applicable": true
+        }
+      }
+    }
+  ]
+}

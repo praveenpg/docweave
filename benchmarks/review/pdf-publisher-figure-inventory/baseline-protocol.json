@@ -1,0 +1,21 @@
+{
+  "scope": "Complete10main-bodypublishercaptions under NATIVE_LINES,NATIVE_COLUMNS,SOURCE_TAGGED_LINES. AllthreewholeoriginalPDF/JATSpairs fromsameexistingfrozenmanifest. Text-presence and semanticFigureCaption-only presence separately scored. Directtitle/paragraph blocks have structural LF separators then ASCII-whitespace normalization; inlinecharacters/case/punctuation/Unicode/hyphens retained. No fuzzy matching, label/geometry-guided extraction, source-specific settings or dropped failures. Not a physical caption-box or image-association accuracy gate.",
+  "identities": {
+    "benchmarks/tools/ScorePublisherCaptions.java": "15da2ee385d0ecf84349e94f98909fa856d3732fefcaea19b7329e1e069873b3",
+    "docweave-validation/src/test/java/dev/docweave/validation/ScientificReadingEvaluation.java": "9e297d3238e0359bfa7ad4e2f2a12a2fc88b29eb563c1a6785bcfe9184c5e809",
+    "docweave-validation/src/test/java/dev/docweave/validation/ScientificPublisherXml.java": "8bcbf70641298d3d5d50d2bc83cf10a0db356ea9da5db3040ea771b798044abe",
+    "benchmarks/review/pdf-scientific-reading/manifest.json": "e146fb276c4397be24d6fdedeb13307f65a3012290bfafc96488d3d6673f12e2",
+    "benchmarks/review/pdf-publisher-figure-inventory/java21.json": "59e9ccc704ea4493c13822c494764bb3e7811ae6abeef61b4a5e5ef27e61b47d"
+  },
+  "expected_case_profiles": 9,
+  "reference_captions_per_profile": 10,
+  "source_manifest": "benchmarks/review/pdf-scientific-reading/manifest.json",
+  "initial_evaluated_identities": {
+    "benchmarks/tools/ScorePublisherCaptions.java": "17171ed8fc5695407091faf639dad6ad7b6691bcaeb6e7e73ab6dc2a052aac9f",
+    "docweave-validation/src/test/java/dev/docweave/validation/ScientificReadingEvaluation.java": "9e297d3238e0359bfa7ad4e2f2a12a2fc88b29eb563c1a6785bcfe9184c5e809",
+    "docweave-validation/src/test/java/dev/docweave/validation/ScientificPublisherXml.java": "8bcbf70641298d3d5d50d2bc83cf10a0db356ea9da5db3040ea771b798044abe",
+    "benchmarks/review/pdf-scientific-reading/manifest.json": "e146fb276c4397be24d6fdedeb13307f65a3012290bfafc96488d3d6673f12e2",
+    "benchmarks/review/pdf-publisher-figure-inventory/java21.json": "59e9ccc704ea4493c13822c494764bb3e7811ae6abeef61b4a5e5ef27e61b47d"
+  },
+  "harness_hardening": "Before final replay, add independent owned projection controls for block boundaries, inline adjacency, Unicode/NBSP, noninherited nested children, and ignoring XML comments/processing instructions. Initial results retained locally; require identical final per-reference identities and score results. No original/policy/scorer changes."
+}

@@ -1,0 +1,39 @@
+{
+  "scope": "One prospectively selected whole-original new-publisher transfer, code frozen before any DocWeave extraction. Authorized CC BY publisher-deposited published-version distribution from NIH NLM NCBI PMC Article Datasets; direct PeerJ landing/PDF/XML403 retained separately. No claim of byte equality to unavailable publisher URL. All main-body caption nodes retained before candidate scoring; no source-specific settings or winner selection.",
+  "code_commit": "4616a4d",
+  "source_distribution": "NIH NLM NCBI PubMed Central (PMC) Article Datasets - Full-Text Biomedical and Life Sciences Journal Articles on AWS, accessed 2026-10-20",
+  "distribution_documentation": "https://pmc.ncbi.nlm.nih.gov/tools/pmcaws/",
+  "metadata_url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13086023.1/PMC13086023.1.json",
+  "metadata_sha256": "464f669698b9029b3288a579fce8da7287868c86b609e196262363217e8dd089",
+  "source_version": 1,
+  "license_code": "CC BY",
+  "is_manuscript": false,
+  "is_retracted": false,
+  "pmcid": "PMC13086023",
+  "source_pdf_pages": 27,
+  "source_pdf_producer": "pdfTeX-1.40.21",
+  "source_pdf_creator": "River Valley",
+  "cases": [
+    {
+      "id": "peerj",
+      "doi": "10.7717/peerj.21002",
+      "pdf": "article.pdf",
+      "jats": "article.xml",
+      "inputs": [
+        {
+          "filename": "article.pdf",
+          "bytes": 3673103,
+          "sha256": "c6c9e6134bcb38ce3855ff48146cdfbf4473ecba76f0fe04d46c2d094c00a522",
+          "distribution_url": "s3://pmc-oa-opendata/PMC13086023.1/PMC13086023.1.pdf?md5=ecffcfced89cc365e6529ed2244a072c"
+        },
+        {
+          "filename": "article.xml",
+          "bytes": 182193,
+          "sha256": "6650e666eacd59296da0040978e1e62e9414258046be2e8b176047bfce3d510a",
+          "distribution_url": "s3://pmc-oa-opendata/PMC13086023.1/PMC13086023.1.xml?md5=703f098161f6cea3a77fba441ab35764"
+        }
+      ]
+    }
+  ],
+  "raw_sources_redistributed": false
+}

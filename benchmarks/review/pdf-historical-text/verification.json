@@ -1,0 +1,12 @@
+{
+  "java21": "21.0.12.1+12-LTS",
+  "java25": "25.0.4+7-LTS",
+  "full_clean_verify_each": {
+    "tests": 991,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "actual_ocr_cases_each": 4,
+  "paired_reports_equal_excluding_runtime_and_random_container_pdf_ids": true
+}

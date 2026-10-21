@@ -1,0 +1,15 @@
+{
+  "source_commit": "2addc7630bcf5b4754a36c955bec308fe4cf2f37",
+  "engine_version": "tesseract 5.5.3",
+  "leptonica_version": "1.87.0",
+  "files": {
+    "benchmarks/tools/CaptureBusinessCellText.java": "1764a0d4f4fc173c5da94b6faf97aecd68d426561a63d392ddc962c14e2409a6",
+    "benchmarks/tools/compare_business_cell_text.py": "992268ce231758a95fb2bb6ca750d8ef145b9aae9406f46038ee397b1452037e",
+    "benchmarks/tools/test_business_cell_text.py": "4ae921a4b7ed77696aa3a46c4af2776439e743d676d8d422618eab7aa029e57f",
+    "benchmarks/review/pdf-business-cell-text/manifest.json": "df8b9fcd50d77a61fe9b273aa0a2470932c922d5ada4b21c90fd02cc954cecbe",
+    "benchmarks/review/pdf-business-cell-text/cases.tsv": "faf47c49f78241b167c6accb6f5cc904008f1b91a7e866620833c197bfece2ce"
+  },
+  "paired_records_identical": true,
+  "ordinary_full_baseline_tests_per_jdk": 911,
+  "baseline_ci_run": 39173595771
+}

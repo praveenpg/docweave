@@ -1,0 +1,8 @@
+{
+  "frozen_at": "2026-10-19T16:47:34.180522+00:00",
+  "selection": "First official eLife result from domain-restricted query 2025 \"Table 1\" research; article90049 selected before source fetch and extraction. First ordinal table including appendix if no main-body table. Preserve unsupported/unavailable case, no replacement based on output.",
+  "article_url": "https://elifesciences.org/articles/90049",
+  "doi": "10.7554/eLife.90049",
+  "protocol": "Use original fixed publisher PDF/XML; verify publication/version and source pins, inspect page/ROI and sourceJATS before extraction; same explicit nativefirst/taggedfirst profiles and modelpins. If source unavailable retain discoveryfailure without inventing reference labels.",
+  "discovery": "Publisher web page returned a JavaScript client challenge through the browser fetch. Try the normal public publisher CDN/API resource links; no authentication or challenge automation."
+}

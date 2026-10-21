@@ -1,0 +1,49 @@
+{
+  "frozen_at": "2026-10-19T16:48:30.543793+00:00",
+  "selection_sha256": "762739b3334d50e852d42af9305db8603c90d006c56822080dee25a91858ce12",
+  "publication_date": "2026-02-20T00:00:00Z",
+  "doi": "10.7554/eLife.90049",
+  "doi_version": "10.7554/eLife.90049.4",
+  "publisher_version": 1,
+  "metadata_url": "https://api.elifesciences.org/articles/90049",
+  "metadata_sha256": "0fdb36362f24adfc2711d8c17defa5dc8d664d5420fd628ead413a9ce8a18446",
+  "inputs": [
+    {
+      "filename": "article.pdf",
+      "bytes": 1641690,
+      "sha256": "ae3d00995f44bdd26fd0f60e760dc0fce44e84a0482fc64d2277ef4792413a4b",
+      "git_blob_sha1": "99a1dad32ad4576596b65d8dd373a7a91f0812f1",
+      "url": "https://cdn.elifesciences.org/articles/90049/elife-90049-v1.pdf"
+    },
+    {
+      "filename": "article.xml",
+      "bytes": 259829,
+      "sha256": "367b0b049e4bd20e221490d5f8b1cdca2e09cc8242fae67fa6cbb17f1b9b7e18",
+      "git_blob_sha1": "5bd90f6277209f77a7eacc02a2b99da7f081e2fb",
+      "url": "https://cdn.elifesciences.org/articles/90049/elife-90049-v1.xml"
+    }
+  ],
+  "protocol": "First ordinal table includingappendix from preselected firstofficialeLiferesult. Originalpage12 independently rendered/inspected beforeDocWeave; one complete10x3logicaltable, allauthoredrowspans retained. Original29pagePDF inbothprofiles/JDKs, samepinnedmodels/options/datepolicy. StrictJATSlogicallabels withASCIIwhitespaceonly, noUnicode/punctuation/wordrepair; no labels/ROI to inference. FixedROIassociation>=.5 stablefirstties; missing/whole-documentfailure retains allanchors/headers. XMLlogicalspans are not physicalPDFbordertruth. Nochoosinganotherpaper/cropafteroutput.",
+  "cases": [
+    {
+      "id": "second-publisher",
+      "pdf": "article.pdf",
+      "source_page": 12,
+      "source_page_height": 792,
+      "jats": "article.xml",
+      "table_id": "app1table1",
+      "expected_rows": 10,
+      "expected_columns": 3,
+      "expected_anchors": 20,
+      "publisher_header_rows": 1,
+      "expected_header_anchors": 3,
+      "leading_row_window": 1,
+      "roi_left_top_right_bottom": [
+        168,
+        536,
+        576,
+        695
+      ]
+    }
+  ]
+}

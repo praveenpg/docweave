@@ -1,0 +1,4 @@
+[
+  {"type":"Title","element_id":"heading","text":"DocWeave sample","metadata":{"filename":"sample.txt"}},
+  {"type":"NarrativeText","element_id":"body","text":"Semantic elements preserve structure. Unicode includes 🧵 and 𐐀.","metadata":{"filename":"sample.txt","languages":["eng"]}}
+]

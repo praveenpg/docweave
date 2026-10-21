@@ -1,0 +1,18 @@
+{
+  "source_manifest": "../pdf-pubtabnet/manifest.json",
+  "baseline_report": "../pdf-provider-cell-ocr/pubtabnet-300-java21.json",
+  "profile": {
+    "layout_merge_conflicts": "KEEP_HIGHER_SCORE",
+    "render_dpi": 300,
+    "page_segmentation": "SINGLE_BLOCK",
+    "cell_segmentation": "SINGLE_BLOCK",
+    "cell_borders": "RETAIN",
+    "cell_context_pixels": 0,
+    "cell_scale_factor": 1,
+    "table_detection": "PROVIDER_LAYOUT_CELLS",
+    "layout_graph_sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detector_enabled": false,
+    "orientation_enabled": false
+  },
+  "selection": "All20 original images, fixed uniform option, no source/annotation repair or model/sample change; development-motivated by one rejected image"
+}

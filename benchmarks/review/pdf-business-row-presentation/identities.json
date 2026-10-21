@@ -1,0 +1,11 @@
+{
+  "code_commit": "2296d035f98770582fb39733a626e8788e7fd379",
+  "scope": "Post-hoc diagnostic, unchanged strict scores and source rows",
+  "sha256": {
+    "benchmarks/tools/AuditBusinessRowPresentation.java": "ad2e36f1984e4ebb48ed056de51e41fe0175d7747266492085bf55f151314043",
+    "benchmarks/review/pdf-unseen-business-amd/cell-envelopes-manifest.json": "4f14e0acc2da8cb30aa2c63c00ceed2ae716e64abb3ddd168774fb4032098c9e",
+    "benchmarks/review/pdf-tagged-reference-tables/caption-walmart-manifest.json": "0c8fd3d79d50845775aa0aa603e21d293358910f7e72f99d8cc67c7a0166361b",
+    "benchmarks/review/pdf-business-row-presentation/amd-java21.json": "da909de57b009a0e158ae3d60dd92d09aeeb83c0f6751923622858a644d46b94",
+    "benchmarks/review/pdf-business-row-presentation/walmart-java21.json": "5e4eea406efd6be8bfe08af9c5665173accafb22d18d364d0c40459ae571be62"
+  }
+}

@@ -1,0 +1,20 @@
+--- AuditCaptionEligibility.java
++++ AuditCaptionEligibility.java
+@@ -35,7 +35,7 @@
+         final var mapper = JsonMapper.builder().build();
+         final var manifestBytes = Files.readAllBytes(Path.of(args[0]));
+         final var manifest = mapper.readTree(manifestBytes);
+-        final var labelField = ImageAdjacentPdfFigureCaptions.class.getDeclaredField("LABEL");
++        final var labelField = ImageAdjacentPdfFigureCaptions.class.getDeclaredField("HORIZONTAL_LABEL");
+         labelField.setAccessible(true);
+         final var label = (Pattern) labelField.get(null);
+         final var adjacency = ImageAdjacentPdfFigureCaptions.class.getDeclaredMethod(
+@@ -125,7 +125,7 @@
+                         "source_images", imageCount, "label_cues", cues));
+             }
+         }
+-        require(results.size() == 9, "Incomplete original/profile audit");
++        require(results.size() == 3, "Incomplete original/profile audit");
+         Files.writeString(Path.of(args[2]),
+                 mapper.writerWithDefaultPrettyPrinter().writeValueAsString(Map.of("scope",
+                         "All original pages and Fig/FIG-prefixed native units with actual committed label/adjacency predicates; no source reference captions, tuning or extraction changes",

@@ -1,0 +1,18 @@
+{
+  "scorer_sha256": "ad95affca0fb0803a765b6d6883007ff120da11ee2c7b558dfed0e5e999ef217",
+  "java": 21,
+  "production_commit": "3d4105f",
+  "default_profiles": 3,
+  "default_failures": 3,
+  "oriented_successes": 1,
+  "image_reference_population": 106,
+  "figure_reference_population": 0,
+  "reference_order": "all pages visual-reviewed and references fixed before extraction; inverted-extent validator failed before inference; optional oriented profile declared after standard failures",
+  "known_limits": [
+    "No numbered-label distractors",
+    "No measured extraction gain",
+    "Image placement mismatches retained"
+  ],
+  "strict_private_doclint": "PASS",
+  "legacy_positive_results_tree": "EXACT"
+}

@@ -1,0 +1,128 @@
+{
+  "frozen_at": "2026-10-20T04:52:03.143198049Z",
+  "frozen_code_commit": "2c6de83 plus pinned financial-policy source changes",
+  "scope": "Frozen before first financial-policy original inference. All11originalpages, all12historical native/source-tagged profiles plus explicit financial aligned policy; unchanged 3 complete statements/110rows, fixed regions, source/reference identities and frozen8c4e990 scorer. Known development source, no row repair/profile omission.",
+  "source_pdf": "nvidia-fy26q4.pdf",
+  "source_html": "nvidia-fy26q4.html",
+  "source_pages": 11,
+  "candidate_case_profiles": 39,
+  "source_note": "Original publisher-served PDF is Qt4.8.6, A4 595x842, rotation0, untagged; not a reconstructed or locally printed HTML file. Reference is direct publisher HTML table content, not physical PDF topology. First complete core statements selected in original author order; all cross-page fragments retained. Microsoft FY26Q4 HTML discovery exposes XLSX rather than PDF statements and was not extracted; no alternate source used after observing DocWeave output.",
+  "inputs": [
+    {
+      "filename": "nvidia-fy26q4.pdf",
+      "bytes": 97444,
+      "sha256": "89de999d7155649197672bf490c519607f1abbcdc96e2e4c6718bf6ecbb13564",
+      "url": "https://nvidianews.nvidia.com/_gallery/download_pdf/699f6ab43d6332ccaa689907/"
+    },
+    {
+      "filename": "nvidia-fy26q4.html",
+      "bytes": 458484,
+      "sha256": "af7a052bcfb21400f804b5690683ac3ac7f482281f0d405a027483037d8636f5",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026"
+    }
+  ],
+  "cases": [
+    {
+      "id": "income",
+      "html_table_index": 2,
+      "reference_rows": 28,
+      "reference_rows_sha256": "f64a6ce8dc643ed3a48ee22e34a07c1d2f3cf8ab450eb2dd56c96084cddebef7",
+      "regions": [
+        {
+          "page": 4,
+          "roi_left_top_right_bottom": [
+            54,
+            390,
+            563,
+            816
+          ]
+        },
+        {
+          "page": 5,
+          "roi_left_top_right_bottom": [
+            54,
+            0,
+            563,
+            290
+          ]
+        }
+      ]
+    },
+    {
+      "id": "balance-sheet",
+      "html_table_index": 3,
+      "reference_rows": 33,
+      "reference_rows_sha256": "f8ba89d93c3cff77dcaf5ae416a4d284d5289477d3cdd86b16970866045602c1",
+      "regions": [
+        {
+          "page": 5,
+          "roi_left_top_right_bottom": [
+            54,
+            318,
+            563,
+            816
+          ]
+        },
+        {
+          "page": 6,
+          "roi_left_top_right_bottom": [
+            54,
+            0,
+            563,
+            297
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cash-flows",
+      "html_table_index": 4,
+      "reference_rows": 49,
+      "reference_rows_sha256": "256b88acb29941fd7affbca44b5a25de819f445858be3e199f3c16b58e4254b1",
+      "regions": [
+        {
+          "page": 6,
+          "roi_left_top_right_bottom": [
+            54,
+            328,
+            563,
+            816
+          ]
+        },
+        {
+          "page": 7,
+          "roi_left_top_right_bottom": [
+            54,
+            0,
+            563,
+            676
+          ]
+        }
+      ]
+    }
+  ],
+  "reference_rows_per_profile": 110,
+  "profiles": [
+    "RULED_ONLY",
+    "RULED_AND_ALIGNED_TEXT",
+    "RULED_AND_MULTILINE_ALIGNED_TEXT",
+    "RULED_AND_DOUBLE_BORDERS",
+    "RULED_AND_HORIZONTAL_TEXT",
+    "RULED_AND_PARTIAL_TEXT",
+    "RULED_AND_SEGMENTED_ROWS",
+    "RULED_AND_SHADED_ROWS",
+    "RULED_AND_SHADED_ROWS_COMPACT_PADDING",
+    "RULED_AND_SHADED_ROWS_INLINE_SCRIPTS",
+    "SOURCE_TAGGED_TABLES",
+    "SOURCE_TAGGED_LOGICAL_TABLES",
+    "RULED_AND_FINANCIAL_ALIGNED_TEXT"
+  ],
+  "validation_source_sha256": "f88af667ef1c160906003b3dc2b235107d3c34d7c2e4b7bb25b8d39de04c85f6",
+  "code_sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/AlignedPdfTableDetector.java": "f6a74dec5ed5c9f53afbc6e77abff6cf5085aed87a5c91de81e38fc30d81e73f",
+    "docweave-pdf/src/main/java/dev/docweave/partition/DefaultPdfPartitioner.java": "cca4f6cbe0969d21ce98074179de230b265a8401ec8bcf613747c071d192d4ce",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "7697185d64f978dc581d95969885dc35de4e380f57a6087cf86989d756441641",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageLayout.java": "75c8c9ff4344ce299b04d0374edb5e1c2862c7a19ef67ce509e35541a17e0d8c",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPartitioner.java": "342c13ea1bb93dc4acc9ec55c6c497f76c47d3b1948580d1ad721eaf17fe0a16"
+  }
+}

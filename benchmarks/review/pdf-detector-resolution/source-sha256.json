@@ -1,0 +1,20 @@
+{
+  "docweave-layout-onnx/src/main/java/dev/docweave/layout/OnnxTableOptions.java": "4a1d32e9b72eacf5955fdc1684eda70c0619f9dffbe41b88cf7ef2e261283134",
+  "docweave-layout-onnx/src/main/java/dev/docweave/layout/OnnxTableLayout.java": "174f97ab4ddf4044d36231f48b58f3c4bf54eed665a169c0d1cf983e2b4eb2b5",
+  "docweave-layout-onnx/src/main/java/dev/docweave/layout/LayoutDeadline.java": "b0153cdd1e88f1532ceb5d7b91d9fce7e894e1a3a5cc6a9fdda2da96dbbc6478",
+  "docweave-layout-onnx/src/main/java/dev/docweave/layout/TableImageTransform.java": "b4ced4593f82f558a3a50672b90fedb0595a0e211cbd14d53b8200c82ef9f926",
+  "docweave-layout-onnx/src/main/java/dev/docweave/layout/LayoutPixels.java": "01c11dbabd48611e2db1f16132bc7db4f6e14c4d6f1468e034260075b9af855b",
+  "docweave-layout-onnx/src/main/java/dev/docweave/layout/BilinearTableImageTransform.java": "f2962428d9a31e71548b1b3021fefaa05249c16b1f5ac62a9cec5b910450a4b9",
+  "docweave-layout-onnx/src/main/java/dev/docweave/layout/LayoutObject.java": "6c8ec73e19afc007feaac5b2c037185520fe1a5ff293eb1c66e4a2692f0a5f70",
+  "docweave-layout-onnx/src/main/java/dev/docweave/layout/LayoutWork.java": "02d403caf880ca6b3978071ef3946b4c82aa275011c24f97ca73e86b982de60f",
+  "docweave-layout-onnx/src/main/java/dev/docweave/layout/TableTopology.java": "120cee4fd297b07e32000a525cf7b02530abe8af08a5483c608414c2505a9ad9",
+  "docweave-layout-onnx/src/main/java/dev/docweave/layout/DefaultOnnxTableLayout.java": "f4619b2605a67404c50d7a752ccb3e61e2131d311e223d4f75373a7e4e9e5fe1",
+  "docweave-layout-onnx/src/main/java/dev/docweave/layout/ManagedTatrSession.java": "eba679bdb68b3d2386ad8dd69c0c21d4d4457d1e5b241291d8fb19193198e3cf",
+  "docweave-layout-onnx/src/main/java/dev/docweave/layout/TableObjectDecoder.java": "8c8adfa6fe0c2c5b35ca79fa139636080757d37487bea5c3f168e5d3b6aee611",
+  "docweave-layout-onnx/src/main/java/dev/docweave/layout/LayoutInference.java": "0cde84dec0af7fffe9aafc2a80f934160e80e4764b97d0b169a6172d39a1196c",
+  "docweave-layout-onnx/src/main/java/dev/docweave/layout/DetectionCrops.java": "fdfb3b72f7005191e3d83cd89495ae427f77533ba183ec84efaacc214fd20f6b",
+  "docweave-layout-onnx/src/main/java/dev/docweave/layout/DetectedOnnxTableLayout.java": "2b827319f003da433bbb8980dee37c6875e329f3ee823ac0b2434db6b9c8c0d0",
+  "docweave-validation/src/test/java/dev/docweave/validation/PdfPhysicalScanCorpusTest.java": "7a16c824011b38a726b1780a1aeed84a59a8544d15724a78f3e7aa0499ac2fb3",
+  "docweave-validation/src/test/java/dev/docweave/validation/PdfLayoutModels.java": "2fc53f3ba25ff16eea638d34ca57996a96a54b1de303ea221a96eda75041941d",
+  "docweave-validation/src/test/java/dev/docweave/validation/PdfCorpusOrientation.java": "e042f86dc808b1b864310b7e15507f1f19cd2d9cd056ccecc11e06fa41f7d794"
+}

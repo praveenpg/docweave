@@ -1,0 +1,55 @@
+{
+  "repository": "https://github.com/tabulapdf/tabula-java",
+  "commit": "2cdf3b4fd3f7e921dca8cc6814cdd9316be40f0f",
+  "scope": "ICDAR2013 published cell annotations; fetch-only native whole-PDF evaluation, not new human review",
+  "inputs": [
+    {
+      "filename": "eu-010.pdf",
+      "path": "src/test/resources/technology/tabula/icdar2013-dataset/competition-dataset-eu/eu-010.pdf",
+      "bytes": 35968,
+      "sha256": "a328ff297056c6da316d8033a8752e15cf20416b88ccb1f7f88d12627617307d",
+      "git_blob_sha1": "76f113e1e9aaa95da1eebf03919dd64df8ee25d1",
+      "url": "https://raw.githubusercontent.com/tabulapdf/tabula-java/2cdf3b4fd3f7e921dca8cc6814cdd9316be40f0f/src/test/resources/technology/tabula/icdar2013-dataset/competition-dataset-eu/eu-010.pdf"
+    },
+    {
+      "filename": "eu-010-str.xml",
+      "path": "src/test/resources/technology/tabula/icdar2013-dataset/competition-dataset-eu/eu-010-str.xml",
+      "bytes": 6999,
+      "sha256": "a1f793bbd507798a16b84a10c17d8362d3b57e025584100377f63617dea56b67",
+      "git_blob_sha1": "a5b5f3172cc58cab28c7271258763962413e0307",
+      "url": "https://raw.githubusercontent.com/tabulapdf/tabula-java/2cdf3b4fd3f7e921dca8cc6814cdd9316be40f0f/src/test/resources/technology/tabula/icdar2013-dataset/competition-dataset-eu/eu-010-str.xml"
+    },
+    {
+      "filename": "us-038.pdf",
+      "path": "src/test/resources/technology/tabula/icdar2013-dataset/competition-dataset-us/us-038.pdf",
+      "bytes": 10915,
+      "sha256": "5d01d12ccc6d5325b96fb181e6f50665e789c8e07da9a6a9c793fa339b841882",
+      "git_blob_sha1": "6233b8639e675e7f39dfae6d82b670a8e756139c",
+      "url": "https://raw.githubusercontent.com/tabulapdf/tabula-java/2cdf3b4fd3f7e921dca8cc6814cdd9316be40f0f/src/test/resources/technology/tabula/icdar2013-dataset/competition-dataset-us/us-038.pdf"
+    },
+    {
+      "filename": "us-038-str.xml",
+      "path": "src/test/resources/technology/tabula/icdar2013-dataset/competition-dataset-us/us-038-str.xml",
+      "bytes": 4536,
+      "sha256": "b5d88fe41e683593aa3c7250dffd970b18d2d8ecc89dc3585770f07813ac741c",
+      "git_blob_sha1": "071efd9f5290f78e101c3067fff3b11bd08d52bb",
+      "url": "https://raw.githubusercontent.com/tabulapdf/tabula-java/2cdf3b4fd3f7e921dca8cc6814cdd9316be40f0f/src/test/resources/technology/tabula/icdar2013-dataset/competition-dataset-us/us-038-str.xml"
+    },
+    {
+      "filename": "eu-011.pdf",
+      "path": "src/test/resources/technology/tabula/icdar2013-dataset/competition-dataset-eu/eu-011.pdf",
+      "bytes": 344949,
+      "sha256": "f3e94b7020e079dff7da367db7e6128181bf929e3cdbd6e98227f67f8eb96fd0",
+      "git_blob_sha1": "c18929d2b624acb2b89b3f7dcdd85d966e03bbe6",
+      "url": "https://raw.githubusercontent.com/tabulapdf/tabula-java/2cdf3b4fd3f7e921dca8cc6814cdd9316be40f0f/src/test/resources/technology/tabula/icdar2013-dataset/competition-dataset-eu/eu-011.pdf"
+    },
+    {
+      "filename": "eu-011-str.xml",
+      "path": "src/test/resources/technology/tabula/icdar2013-dataset/competition-dataset-eu/eu-011-str.xml",
+      "bytes": 9793,
+      "sha256": "a2c7fca15f2a7d8cfe40e13b115671fc234c6e30581082ac28ea1e15a0adeb6d",
+      "git_blob_sha1": "744f2f9568599be1314c20a51352979e1d85e057",
+      "url": "https://raw.githubusercontent.com/tabulapdf/tabula-java/2cdf3b4fd3f7e921dca8cc6814cdd9316be40f0f/src/test/resources/technology/tabula/icdar2013-dataset/competition-dataset-eu/eu-011-str.xml"
+    }
+  ]
+}

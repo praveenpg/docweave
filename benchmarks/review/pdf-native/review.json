@@ -1,0 +1,19 @@
+{
+  "review_kind": "source_only_not_upstream_PDF_execution",
+  "compare_url": "https://github.com/Unstructured-IO/unstructured/compare/3253c2b0f6b0a5f0808910c085675672aff718f3...1b02b4d189c260ed9b1aca29583203e233d853cb",
+  "response_sha256": "4cb8a1eacc48661cb855f5d1d9c762c6d9c961e2840f9ab6f9ce323ec014584e",
+  "commits": [
+    {
+      "commit": "1b02b4d189c260ed9b1aca29583203e233d853cb",
+      "title": "fix(ocr): include underlying error when loading OCR agent fails (#4491)",
+      "assessment": "OCR agent loading exception message/cause propagation; no native PDF table algorithm; relevant to future optional OCR adapter diagnostics"
+    }
+  ],
+  "reference_pin_retained": "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",
+  "changed_paths": [
+    "CHANGELOG.md",
+    "test_unstructured/partition/utils/ocr_models/test_ocr_interface.py",
+    "unstructured/__version__.py",
+    "unstructured/partition/utils/ocr_models/ocr_interface.py"
+  ]
+}

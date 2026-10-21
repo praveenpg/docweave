@@ -1,0 +1,47 @@
+{
+  "source_commit": "c8eb4a53bd1bc5d925cf22ed96f4d86df8f7314c",
+  "paired_metrics_equal_excluding_capture_sha256": true,
+  "parsed_captures_equal": true,
+  "runtime": {
+    "21": {
+      "executable_sha256": "9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917",
+      "english_model_sha256": "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047",
+      "java": "21.0.12.1+12-LTS"
+    },
+    "25": {
+      "executable_sha256": "9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917",
+      "english_model_sha256": "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047",
+      "java": "25.0.4+7-LTS"
+    }
+  },
+  "files": {
+    "benchmarks/tools/CaptureBusinessCellText.java": "c864983313c19c480b5a6cc81014d849c855669a114d080794129dae491652c6",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfCurrentBusinessRowsTest.java": "528737fe1bfb907c12aa0125ee62e9f922e47f7191ec57f642306aa752b707b2",
+    "benchmarks/review/pdf-current-business-model/manifest.json": "29a34aad2df0616ed35a6eb5ade9a6870f414cd77b31fad5ee82ba9cacabd836",
+    "benchmarks/review/pdf-current-business-model/cases.tsv": "0342c065eed4bc21e487666db2cd63678e32cbc233de366373445a9c1baccbd2",
+    "benchmarks/review/pdf-current-business-model/java21.json": "a50e254d033c8ca6637318ab3f26fd18a357bca45ce400c40957d3531869bcf9",
+    "benchmarks/review/pdf-current-business-model/java25.json": "67f69d4f845b4179878a5998709b76d4f1b8e1260521c5cfe422a75bd5b10b06"
+  },
+  "verification_logs_sha256": {
+    "21": "e565ac076c176e567dd445a82663584ade57b7ad4d6f0f0b734e745fcdacd00f",
+    "25": "9676e1b7aa00f1bfff11debdf6b2b671d3fdcf813474de36680b1d5461485c08"
+  },
+  "local_capture_identities": {
+    "21": {
+      "balance-sheet/cells.json": "c9adf419e95fecdc46903cd61565477d105b94a969a1c154740ab329fdddcc28",
+      "balance-sheet/page.json": "a28cd9b08f8863873630df2e9da52f4c5543e9aa17d31239615fae6d469e5e14",
+      "balance-sheet/source.json": "4460cca55663b8cc182642dd6df4185c8d66d81652956fcf44c38d03676642a3",
+      "operations/cells.json": "fea6fdccc6baa59cce60ded28f573ab45fb4eeba11bc1d9ee9ab13b5c7515504",
+      "operations/page.json": "47f24083ee6a6ce555c5834750a229c57ed8d120fb94197a7bdf8471762ca3f1",
+      "operations/source.json": "b68b36e7af928a9f90eeab70c2f261a5c086ac56223ea8a4695156171f478a43"
+    },
+    "25": {
+      "balance-sheet/cells.json": "5284102bf6808ef2b72a81e8b2c27fdfbed19e84f00860dc902e77278d63c9ef",
+      "balance-sheet/page.json": "e44d61314ac4c2178ef17607a745d0cd663bb4683742858219a68422ca61ac3a",
+      "balance-sheet/source.json": "4460cca55663b8cc182642dd6df4185c8d66d81652956fcf44c38d03676642a3",
+      "operations/cells.json": "a3bfe225d8074c7e3e3f514f51e9db57d5889e85dbfa6dcaa3166b94c89e86fe",
+      "operations/page.json": "c4bc28d73abd093347d3eddb17e30c57797cffd8d9e443ef0dfd1e01ba1127a9",
+      "operations/source.json": "b68b36e7af928a9f90eeab70c2f261a5c086ac56223ea8a4695156171f478a43"
+    }
+  }
+}

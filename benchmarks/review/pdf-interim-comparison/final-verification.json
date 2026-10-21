@@ -1,0 +1,36 @@
+{
+  "production_source_commit": "e557c43f6715cdb9b03d045b512b1c6d617e00b9",
+  "scope": "Validation/tools/evidence only; production algorithms, APIs, dependencies and defaults unchanged",
+  "java21": {
+    "version": "21.0.12.1+12-LTS",
+    "clean_verify": "SUCCESS",
+    "tests": 1036,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "build_log_sha256": "40f95fba3faaa20473d048369d428942f5afec9da66c6af0c855c0c25ee9db22",
+    "strict_public_and_touched_private_javadocs": "PASS"
+  },
+  "java25": {
+    "version": "25.0.4+7-LTS",
+    "clean_verify": "SUCCESS",
+    "tests": 1036,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "build_log_sha256": "b0c47a78e5d427c762f20ab731991b80e663bb540d6271752d78392755e6a309",
+    "strict_public_and_touched_private_javadocs": "PASS"
+  },
+  "final_build_optional_tracks": "Rescore pinned existing complete captures for paired tables, OCR text and documented defaults; earlier actual native OCR/source-raster extraction remains independently retained",
+  "final_table_cross_runtime_receipt_sha256": "107d3328fe1b32b915af1922ed326b758550d6cd4dec267779326c26181bb404",
+  "final_scan_cross_runtime_receipt_sha256": "8ab3a3045cb9d2a9b44b7df8bbe843c9fa8e5745598fde60e915c9886e48e031",
+  "final_default_cross_runtime_receipt_sha256": "bd80085774fd142b46ce8baee98cc377df8b47ae052f3d8ba9f55548e9ff908f",
+  "performance_forks": 9,
+  "performance_api_samples_verified": 360,
+  "performance_invalid_capture_controls_per_jdk": 8,
+  "performance_summaries_equal_on_both_actual_jdks": true,
+  "unstructured_measured_version": "0.27.28",
+  "unstructured_reviewed_version": "0.27.29",
+  "formatter_and_diff_checks": "PASS",
+  "limits": "Development corpus only. No general accuracy, semantic figure/caption/payload quality, held-out acceptance, confidence calibration or broad PDF completion claim. No release/tag/Central operation."
+}

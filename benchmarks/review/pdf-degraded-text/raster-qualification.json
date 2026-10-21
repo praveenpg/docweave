@@ -1,0 +1,7 @@
+{
+  "recorded_at": "2026-10-19T17:39:08.854180+00:00",
+  "initial_finding": "The pinned 1780 TIFF uses an embedded ICC color space. Direct LosslessFactory embedding preserves profile bytes, but rendered RGB differs from Java ImageIO getRGB. Initial reports retain false source_render_rgb_equal and are not pixel-identity baselines.",
+  "correction": "Copy each decoded opaque getRGB row into TYPE_INT_RGB before lossless embedding. This freezes the same independently decoded RGB pixel values used by source hashing, avoiding a second profile interpretation. No crop, scaling, binarization, contrast enhancement or OCR-output-dependent change. Assert source/render RGB equality on successful recognition. Owned controls cover RGB, grayscale and packed RGB.",
+  "ordering": "Both new references omit line reading order. Preserve XML order, retain geometry associations and label whole-sequence edits xml_sequence_*. No validated logical-page CER/WER.",
+  "corpus_limits": "Two prospectively selected pages with source condition labels, unknown model training overlap and no held-out acceptance claim."
+}

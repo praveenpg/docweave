@@ -1,0 +1,36 @@
+{
+  "results" : [ {
+    "runtime" : "21.0.12.1+12-LTS",
+    "outcome" : "SUCCESS",
+    "tables_on_page" : 1,
+    "associated" : true,
+    "association_iou" : 0.9108075461067535,
+    "expected_anchors" : 15,
+    "observed_anchors" : 15,
+    "expected_rows" : 5,
+    "expected_columns" : 3,
+    "observed_rows" : 5,
+    "observed_columns" : 3,
+    "extraction_method" : "tagged_structure_native_glyphs_v1",
+    "joined_soft_hyphens" : 2,
+    "matching_span_keys" : 15,
+    "exact_span_text_anchors" : 15,
+    "missing_reference_keys" : 0,
+    "extra_prediction_keys" : 0,
+    "complete_topology" : true,
+    "complete_span_text" : true,
+    "leading_row_window" : {
+      "expected_anchors" : 3,
+      "observed_anchors" : 3,
+      "matching_span_keys" : 3,
+      "exact_span_text_anchors" : 3,
+      "rows" : 1,
+      "extra_prediction_keys" : 0,
+      "complete_span_text" : true
+    },
+    "capture_sha256" : "4e16b9aead7a36ad518f1ad7eb6d86cedd63173c76bea704cb5d50187a3d9f9b",
+    "id" : "next-scientific",
+    "reference_kind" : "publisher_jats_logical_table"
+  } ],
+  "runtime" : "21.0.12.1+12-LTS"
+}

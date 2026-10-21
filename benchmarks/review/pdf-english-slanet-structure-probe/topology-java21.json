@@ -1,0 +1,312 @@
+{
+  "scope" : "Unrepaired model logical slots and enclosing quadrilateral bounds through existing provider validation; no native-text score",
+  "results" : [ {
+    "profile" : "tatr",
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 16,
+      "columns" : 6,
+      "anchors" : 86,
+      "topology" : "COMPLETE",
+      "validation" : "PROVIDER_VALID"
+    } ],
+    "page" : 1
+  }, {
+    "profile" : "yolox",
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 8,
+      "columns" : 6,
+      "anchors" : 43,
+      "topology" : "COMPLETE",
+      "validation" : "PROVIDER_VALID"
+    }, {
+      "crop" : 1,
+      "raw_outcome" : "OK",
+      "rows" : 7,
+      "columns" : 6,
+      "anchors" : 42,
+      "topology" : "COMPLETE",
+      "validation" : "PROVIDER_VALID"
+    } ],
+    "page" : 1
+  }, {
+    "profile" : "tatr",
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 16,
+      "columns" : 4,
+      "anchors" : 58,
+      "topology" : "COMPLETE",
+      "validation" : "PROVIDER_VALID"
+    } ],
+    "page" : 2
+  }, {
+    "profile" : "yolox",
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 7,
+      "columns" : 4,
+      "anchors" : 28,
+      "topology" : "COMPLETE",
+      "validation" : "PROVIDER_VALID"
+    }, {
+      "crop" : 1,
+      "raw_outcome" : "OK",
+      "rows" : 7,
+      "columns" : 4,
+      "anchors" : 28,
+      "topology" : "COMPLETE",
+      "validation" : "PROVIDER_VALID"
+    } ],
+    "page" : 2
+  }, {
+    "profile" : "tatr",
+    "captures" : [ ],
+    "page" : 3
+  }, {
+    "profile" : "yolox",
+    "captures" : [ ],
+    "page" : 3
+  }, {
+    "profile" : "tatr",
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 13,
+      "columns" : 9,
+      "anchors" : 107,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "page" : 4
+  }, {
+    "profile" : "yolox",
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 13,
+      "columns" : 9,
+      "anchors" : 107,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "page" : 4
+  }, {
+    "profile" : "tatr",
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 30,
+      "columns" : 9,
+      "anchors" : 244,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "page" : 5
+  }, {
+    "profile" : "yolox",
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 16,
+      "columns" : 4,
+      "anchors" : 57,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    }, {
+      "crop" : 1,
+      "raw_outcome" : "OK",
+      "rows" : 10,
+      "columns" : 9,
+      "anchors" : 90,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "page" : 5
+  }, {
+    "profile" : "tatr",
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 12,
+      "columns" : 6,
+      "anchors" : 72,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "page" : 6
+  }, {
+    "profile" : "yolox",
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 10,
+      "columns" : 4,
+      "anchors" : 40,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    }, {
+      "crop" : 1,
+      "raw_outcome" : "OK",
+      "rows" : 17,
+      "columns" : 9,
+      "anchors" : 143,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "page" : 6
+  }, {
+    "profile" : "tatr",
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 28,
+      "columns" : 8,
+      "anchors" : 145,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "page" : 7
+  }, {
+    "profile" : "yolox",
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 25,
+      "columns" : 6,
+      "anchors" : 150,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "page" : 7
+  }, {
+    "profile" : "tatr",
+    "captures" : [ ],
+    "page" : 8
+  }, {
+    "profile" : "yolox",
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 23,
+      "columns" : 11,
+      "anchors" : 248,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "page" : 8
+  }, {
+    "profile" : "tatr",
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 9,
+      "columns" : 11,
+      "anchors" : 73,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "page" : 9
+  }, {
+    "profile" : "yolox",
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 5,
+      "columns" : 11,
+      "anchors" : 55,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    }, {
+      "crop" : 1,
+      "raw_outcome" : "OK",
+      "rows" : 5,
+      "columns" : 11,
+      "anchors" : 42,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    }, {
+      "crop" : 2,
+      "raw_outcome" : "OK",
+      "rows" : 5,
+      "columns" : 11,
+      "anchors" : 42,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "page" : 9
+  }, {
+    "profile" : "tatr",
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 7,
+      "columns" : 3,
+      "anchors" : 17,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "page" : 10
+  }, {
+    "profile" : "yolox",
+    "captures" : [ ],
+    "page" : 10
+  }, {
+    "profile" : "tatr",
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 12,
+      "columns" : 3,
+      "anchors" : 28,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "page" : 11
+  }, {
+    "profile" : "yolox",
+    "captures" : [ ],
+    "page" : 11
+  } ],
+  "capture_sha256" : "1a68857e7029414234a086227a8987754dcb5de90f2113cf09bb6c456ae065b3",
+  "java_runtime" : "21.0.12.1+12-LTS"
+}

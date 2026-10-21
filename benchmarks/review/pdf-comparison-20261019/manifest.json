@@ -1,0 +1,32 @@
+{
+  "status": "Working version-pinned comparison; PDF acceptance remains open",
+  "docweave_development_implementation_commit": "f1d868a6bb2b4a272b5ee999b1aa9e3468b172df",
+  "historical_comparison_docweave_commit": "bb15f2b5a23844acc28531ba8bcbc6a92bcc5464",
+  "later_rule_preferred_docweave_commit": "cbcd298a99ea541e5970511afb4f6fa4bf35261d",
+  "unstructured_version": "0.27.28",
+  "unstructured_commit": "1b02b4d189c260ed9b1aca29583203e233d853cb",
+  "unstructured_inference_version": "1.6.13",
+  "historical_generic_reference_release": "0.27.27",
+  "historical_generic_reference_commit": "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",
+  "upstream_pdf_source_sha256": "0dec47c9dac28769a58f76576ccdc4795c81b4554e3d74a7329ed7e27238287e",
+  "paired_benchmark": "Fixed20 upstream-train table images embedded in PDFs; no held-out/general-library ranking",
+  "unmeasured_upstream_sources": [
+    "Original recent PLOS PDF",
+    "Second recent PLOS PDF",
+    "eLife90049 original PDF",
+    "Four selected historical/degraded scan pages"
+  ],
+  "evidence_sha256": {
+    "benchmarks/review/pdf-upstream-all20/comparison.json": "5aba6d529e5efa6d65a04efbb08a9234b051265080f8c3697443d8409e8c7273",
+    "benchmarks/review/pdf-upstream-all20/manifest.json": "035e68a3533492f53fe0d6f16e409c17f809fe828f4912ac516a59d1133ffcba",
+    "benchmarks/review/pdf-upstream-table/manifest.json": "7d2772aecc301b7052f9cd06c6c0d30a71745f468c5ce16372719599ffa6fe26",
+    "benchmarks/review/pdf-upstream-table/requirements.freeze.txt": "e0ff318f74000df51139bb19785c15c9ec79dc37def266c2e1122fbdf42fb973",
+    "benchmarks/review/pdf-ruled-preference/manifest.json": "4715ffd9ac1a128960d0579cf41b205673dbbdcf88fb406b54204f4b45636f81",
+    "benchmarks/review/pdf-source-soft-hyphens/verification.json": "7291f11d6047ef8338cdfb14ce9021f85e4ef3f8aa1cff6c0eab6a25bdcd6338",
+    "benchmarks/review/pdf-source-soft-hyphens/recent21.json": "5821e31acf70bca1daa5bf4f332f1046e8b1528966f5028763c365398c6cd725",
+    "benchmarks/review/pdf-source-soft-hyphens/next21.json": "9fbc1fc026551251c23cc84f7440b05191dffdf1c7f48684da2ce2f08b1917c8",
+    "benchmarks/review/pdf-source-soft-hyphens/second21.json": "b044ff8bbeb5cc410738129da89e93a7845bbe729bf21671174048edfec2aef5",
+    "benchmarks/review/pdf-scan-segmentation/java21.json": "3e46756d97d9e612ad4de159cd3ad22912bb4955ca71cdf87a77cdb9fd3d6629",
+    "benchmarks/review/pdf-scan-thresholding/java21.json": "c94023bb333da5596faf8f6f8e49fd7e6e00da33c2ff128b106457e4db321698"
+  }
+}

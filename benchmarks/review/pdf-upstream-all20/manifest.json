@@ -1,0 +1,36 @@
+{
+  "source_manifest": "../pdf-pubtabnet/manifest.json",
+  "runtime_and_model_manifest": "../pdf-upstream-table/manifest.json",
+  "requirements": "../pdf-upstream-table/requirements.freeze.txt",
+  "docweave_capture_commit": "bb15f2b5a23844acc28531ba8bcbc6a92bcc5464",
+  "capture_runtime_class_sha256": {
+    "BilinearTableImageTransform.class": "cd73965fd3415f34bbb2e0832bb0b0d29c14c8d9274400601489600dae43cc0d",
+    "TableImageTransform.class": "4f07c5d76b49c82e60bc37424f6cc4c56109661458ae37fcbc2be11d5eeed9e6",
+    "OnnxTableOptions$MergeConflicts.class": "e939f3a357a6975cc0b5ffd8ba822c3846199b6b6d8d51e97ead2b93d068f4bd",
+    "OnnxTableOptions.class": "b670dd80d36ab31da481823463a78db78436c02555eefecf379498bf65f316b1",
+    "LayoutDeadline.class": "abcb524a36abe1aee8bfa4cb7effb64ed88ee1717ffc4a4e02865ed05d0ed96d",
+    "LayoutPixels.class": "42d778a1c56317536a70b9e2f7055a1d25d6e6a1074465ad45702274dbfd2a6c",
+    "DefaultOnnxTableLayout.class": "8d237b547769bd3a1ab390e0d4af15ed6a3dbce2eb385041b1f319e260e8fdb2",
+    "OnnxTableLayout.class": "847bb3cc4ee37cab95406e22e036237e5a0b8e4813d4c359d80a4b2caf5791c1",
+    "ManagedTatrSession$NativeCancellation.class": "91df4f468f14aa3443615b39dbca974788df14da892f1845477c9f839cc8c2f9",
+    "ManagedTatrSession.class": "de8d16d59b644f1272f5488bc8b41fc98e236807c48b8cd97a489bc5e189c47a",
+    "LayoutInference.class": "db1fb6fc3395f262149142086d8cf420cbc3681cddb6e0a963f49dc706db6f5d",
+    "LayoutObject.class": "b922d162abc8c838651ce2f7522bda97388d8ad3fcca8cb705681455af4b351f",
+    "DetectedOnnxTableLayout.class": "b143787e655b3f21618bb1416dbd5cb7b30f0cbdbf3595a83fb1827ebd11a9dd",
+    "LayoutWork.class": "619b772da0f02d83bd100c9eea7a751efab891bdeccab945df1a325ae6b96c68",
+    "DetectionCrops$Crop.class": "312eb5aeab098e1247dd6a9dbcac7e7c0b348db01bf217f5126317ecd33a38d2",
+    "DetectionCrops.class": "ee3ee360ff2d58953216fce98aa2977912170079fe31487e7ceb9e7322fe045f",
+    "TableObjectDecoder.class": "938ac58b04b194f678cce68dcf04ef3358872c41546345b0c6e3d02f7c841728",
+    "TableTopology$Merge.class": "9fea661907e138a08f312dfcdce9eae5acfa93852da1bc6e29b7125be7a67a00",
+    "TableTopology.class": "3e4b8a56698761d88899f68f65def133f3fe04fa42f63e02712df16b80639cc9"
+  },
+  "source_policy": "All20 original upstream-train examples; no exclusions, crop repair, model change or per-input tuning. Entire images embedded at150DPI and rendered300DPI. Not held out from model training.",
+  "upstream_comparison_runtime": "Python3.12.15 on the Java25 captures; Java21 capture PNG/object bytes also verified identical for all20.",
+  "source_harness_sha256": {
+    "benchmarks/tools/CaptureTableReferenceInput.java": "f891bc33da24d576a9b3eb8e6cff9575801d3d5643380f2395cdaa2160c638a4",
+    "benchmarks/tools/compare_pdf_upstream.py": "b87e55a4bab620f8409de5209daa0caff769b586e451b62d71670e530266c5b2",
+    "benchmarks/tools/summarize_pdf_upstream.py": "828776b9e9a3a371a40350aeb66d4f90246b7a251599f60ac3c0d413319a17f0"
+  },
+  "capture_graph_sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+  "capture_graph_manifest": "../pdf-merge-conflicts/manifest.json"
+}

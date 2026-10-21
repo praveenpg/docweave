@@ -1,0 +1,814 @@
+{
+  "prefer_ruled" : true,
+  "java_version" : "21.0.12.1",
+  "harness_sha256" : "ca5b5594c5793e39c0da4a8383308d7bdb26bafd2ffb20aef186e4f8992ea4d3",
+  "runtime_classpath" : [ {
+    "sha256" : {
+      "dev/docweave/validation/DefaultWordCandidateCollector.class" : "72ed1730cf5f626aff3c4c3e434f640c3968b766ef4110fff8472b7dbd69f366",
+      "dev/docweave/validation/CodePointSimilarity.class" : "cc382a8556c8537c5eae4bb0b48ec54dac07a6f724832fb38cf8005c093dd16f",
+      "dev/docweave/validation/CorpusReview$Input.class" : "c5c1a621bc0828c4e9ba248ae0f1d626047bc718401d25b9c84fe7f1152939f5",
+      "dev/docweave/validation/SavedOutputComparator.class" : "b8dba23048c2208792ecb7a99d215a48baf6519de0d3c34efe88f653a3cb2d09",
+      "dev/docweave/validation/DocxOwnership$Report.class" : "590eb87b834247880078710bf93591ae5e1f4a2d85b2f0fa6609dea48d4d3f80",
+      "dev/docweave/validation/WordEvidenceComparator$Difference.class" : "151dabaa6f1266a38e2552a7808825a860a3667f95c22fc5e52221c0337bf43b",
+      "dev/docweave/validation/DefaultWordEvidenceReplay.class" : "058cea50eecbd37d9b31740e62cf435de935289ab6f1db8d814274e640314d61",
+      "dev/docweave/validation/CorpusInventory.class" : "5dd3f7e723c828ce6b0edca52c3dc61442f2a0765710399949d9b660eda2cfe6",
+      "dev/docweave/validation/FixturePackage.class" : "9a9435b18e7aaaa8309a388805781684fdbaa962022526621107dc75a21b38cd",
+      "dev/docweave/validation/PdfIndependentAngleTest.class" : "49f76fd0251e55b2f2903c15a99d78d646e8b9878a4d7f809c96528ea36ab68f",
+      "dev/docweave/validation/XmlOwnerReader$1.class" : "f93858beb70eb69e8693d2960f40001b2d7f91790176fc20ad219325eba320c3",
+      "dev/docweave/validation/CorpusFeatureChecks.class" : "5578473d617cc80dcc2a4a7b87f92ea210abe64aa6a0b630a6627df530923275",
+      "dev/docweave/validation/CorpusFeatureChecksTest.class" : "fe7c7e90afade48b52bb06c530fbab9d7ce4fb6c95c59ec199d8522f51cf34ff",
+      "dev/docweave/validation/WordEvidenceReplay$Report.class" : "efdcd84bb315eddf7262ccd860beb9f9fdfb166c6c61d0d3234e52bcdffd3a68",
+      "dev/docweave/validation/CodePointSimilarity$Block.class" : "e87135ec6eaeda6df5071ffce7bb762da8c5bf6769cca91cc0639c64b7a095f6",
+      "dev/docweave/validation/CorpusReviewTest.class" : "4a4482b41142fb3de818b7728ee174762520ac636ff2c3587dbd9b5c43b72eef",
+      "dev/docweave/validation/DefaultWordEvidenceReplay$Packet.class" : "4b247ff57ab578bb7e7e11353e09b1e41d3ced52a9ed9cb27eacef2fcb02cb6a",
+      "saved-output-comparison-vectors.json" : "52653382ecf611c488c79d584bb16cc53c3b6e09be6330f54a303dd94773e254",
+      "dev/docweave/validation/CodePointSimilarity$Window.class" : "c6d355172a303745810dde01c72a1eb143cff645c800adf0622c71461182d05b",
+      "dev/docweave/validation/DefaultWordFixtureGenerator.class" : "5ac512cfe76a1acb77e9bddd705a4be252b8db40d8bbfe7362d433ee4183d5b6",
+      "dev/docweave/validation/WordFixtureGenerator.class" : "c8fff3c3256dd4ce87f714235b30db5bc010fb902343120e9efa67192d3e1669",
+      "dev/docweave/validation/CorpusReview$Baseline.class" : "38f001d77370fd466143199f8b39e82c23a4a93ad7554dbd8a8657e98c36c4da",
+      "dev/docweave/validation/PdfFontCorpusTest.class" : "6ec3fc3be254dbb7e11811b5db859459f31275f871276f5916666db7cd195663",
+      "dev/docweave/validation/PdfIndependentMarginsTest.class" : "af7a68231f1fcb40df5156e5d6945cd36f48d18fb968626a2c508c1eee3d2058",
+      "dev/docweave/validation/PdfPubTabNetCorpusTest$Grid.class" : "dc6b2170ab67988a3bce3f83656ddd4a144ba069f22ff93b6d82a1b8fa74f8c3",
+      "dev/docweave/validation/CorpusOmissionSource.class" : "83a379c57998f124cd370f24111961974f9b993ded9bb2dd389debdf1759e02b",
+      "dev/docweave/validation/UpstreamStatusTest$Response.class" : "7ae2807ad9c888b228e5a76e2c74104a7a2e86947e7efb907d1e832391059df7",
+      "dev/docweave/validation/ValidationProvenance.class" : "e8612c7c3dff8d4d537d29d1bac269a9c3ccd3d8602d0977beef28a5899c7e2e",
+      "dev/docweave/validation/DocxStyleProbe.class" : "ae52f6637402f9f2131bd4c295f8e13548cf1369b2185efa3efe391ee2ebd76e",
+      "dev/docweave/validation/DefaultDocxOwnership$Lane.class" : "6ce2df57063d430210a47b9d6bd513d5a2b196d4367d3b142a629e8fb6ac3fd2",
+      "dev/docweave/validation/WordEvidenceComparator$CaseComparison.class" : "2c11569fa878204d9fe691c85e36b4798b599163feed259cfaf715ee793397e6",
+      "dev/docweave/validation/DocxOwnership$OwnerCheck.class" : "55b46fdccc258a3cd5853c2fcf5e35401dff35896385b57105a4e9c0fbc515f7",
+      "dev/docweave/validation/SavedOutputComparatorTest.class" : "e23f074f95d4e9d5f8319180f3283e351862f1a8985621e297f484aa8514892c",
+      "dev/docweave/validation/WordEvidenceComparator$Comparison.class" : "6794e95dcf9ed4c82936ea890da0a3337fcc0a1796f45e1bf0c137ef44176ed1",
+      "dev/docweave/validation/PdfUnicodeCorpusTest.class" : "7f9ffd90291f9fa7d8caea850c72273dc6e85069c0f2f48fd02204607cf2f017",
+      "dev/docweave/validation/PdfScannedTableCorpusTest.class" : "a97b6f352a6fa8a12439999112f15040e27c5b42e9fe9153ff7d0fe9dd6fc31e",
+      "dev/docweave/validation/DefaultWordFixtureGenerator$Generated.class" : "ff1ac108fc58d349f68c6028a9f29a0b1b06916e7174b6a776b9eb5c4b3c6ed9",
+      "dev/docweave/validation/PdfMultilineCorpusTest.class" : "05088b631e2ecad73c76409d90affbfb274198b67dec2e2d44608b3cf2b2b53b",
+      "dev/docweave/validation/CorpusWarningContractTest.class" : "33916d95a334ccaad9dbf872e802c78e3a79ae268ce3761a15231922212baea6",
+      "dev/docweave/validation/DefaultWordEvidenceComparator.class" : "744fd3faea83d6529c470ed5461759706046bd893ffb46c6942d19fae16d6975",
+      "dev/docweave/validation/StyleCorpusReview.class" : "54ea3c734f2e63c868f38c2227d6b405aab46a070dbf12b791bcdd9afb52b324",
+      "dev/docweave/validation/DefaultDocxCorpusSource.class" : "8d5ad5d0a28a2c966cd387ccc62908c0091cbb7d65af56612c9d9dc77defe098",
+      "dev/docweave/validation/SavedOutputComparisonCli.class" : "168c5864f8c6b58c32cee09eff8149ad9a536e4406893fde8c10feb5e65ee3c2",
+      "dev/docweave/validation/WordEvidenceReplay.class" : "3da1b1fb0ad967a78f426fe20e8b6b337b8bf40630ec3c276306ca2d7fb8d057",
+      "dev/docweave/validation/PdfLayoutModels.class" : "22b76a69b24c03294d3ccbe7cacfb27c066676e49d085ca073702d8badf83dea",
+      "dev/docweave/validation/PdfPubTabNetCorpusTest$Cell.class" : "9ba44ad9df3a86fb31c980d80f78814e3695db7505886e58928d4605dae8803e",
+      "dev/docweave/validation/CorpusReview.class" : "a81ec6714234f2de30bdf889f5de510295cf518797d0e389eb1ed68893c1df76",
+      "dev/docweave/validation/WordEvidenceComparator$Cell.class" : "c04e56b12538cf9b05d00af6b677af25267ee8e5d427c70a35ea0069aca84db1",
+      "dev/docweave/validation/DocxStyleProbe$Mode.class" : "80c335d88cbb896f6c064b5f18a346abc80a2a8bf86fac8a57feef0b77ffa901",
+      "dev/docweave/validation/WordEvidenceComparatorTest$Fixture.class" : "40881e928010eece6d83793f3551933b910b2c037da744329462147c386f3421",
+      "dev/docweave/validation/CorpusReference.class" : "e685deea9df12e9dca91c74a8a66ca070856161dcb5d78e476897493f684c585",
+      "dev/docweave/validation/PdfIndependentWordRotationTest.class" : "cef8b8b9b52dca6cc5808b7c153065d82859b280b8459bfc1dc74defcef9cb79",
+      "dev/docweave/validation/PdfPhysicalScanCorpusTest.class" : "7834ce6c75dc1120884c1587b73ab4151d44b2e35d2c4eba222d8e70b0765491",
+      "dev/docweave/validation/WordEvidenceReplayTest.class" : "ab18781724a42147a0eada1d7e6d1ac7925f5afb76b906dd9ae0686907d4c8fe",
+      "dev/docweave/validation/PdfLayoutModels$LocalLayout.class" : "5c755723411a0f8bad19c00ea3dfedf61d9e1251d2054b77bc8d43403a340206",
+      "dev/docweave/validation/DocxCorpusSource$TextElement.class" : "e34f1185d27be6531fb9cc81a1ff46c747aa84c726ff05e11a0e39ac276d1808",
+      "dev/docweave/validation/DocxCorpusSource$Snapshot.class" : "8079b3ebd38e600ff6f0ecc956adba403fb911b8a65d194356f1dd3162403919",
+      "dev/docweave/validation/UpstreamStatusTest.class" : "4aeceba703ec28aab1eb1af345822009ca760c1be5b9fb71474ce329009a9afb",
+      "dev/docweave/validation/DocxOwnership$Kind.class" : "300a6fa53741508a64c8c346cf5422c240a4938d651aee6f9920ee6ffd779651",
+      "dev/docweave/validation/DocxStyleProbeTest.class" : "9644d56f1759c10427d4e3ac4fc2ded61523206130009e683ade97a7f26abbce",
+      "dev/docweave/validation/PdfPubTabNetCorpusTest$EnvelopeCoverage.class" : "ee90048cf13f3335dc7d013eafaffd450626b287dcf00cf5e7859ac4528ff762",
+      "dev/docweave/validation/CorpusLegacyTest.class" : "7e447f64c1f3259702da11f21285b8a4fb5ffee99264c8a2c59dce8df65a5451",
+      "dev/docweave/validation/DocxOwnership.class" : "ae2caa561c0905ca878c62d751bedd1091b55e4d825ac91064c55ae2971e2cf4",
+      "dev/docweave/validation/DefaultDocxOwnership.class" : "3d041c21c7daedb51a787451039673c6660238494e885b38d6aa706ce8a151e0",
+      "dev/docweave/validation/DocxOwnership$Owner.class" : "75932058583a0deabdbd24e4347b826b7604b8480a046ef1b048c153e1114db2",
+      "dev/docweave/validation/PdfIndependentCellsTest.class" : "5a0743e91abbc478176330472772dc1410c02fbde72e01f3d3f1d86725c145b3",
+      "dev/docweave/validation/DefaultWordFixtureGenerator$Mode.class" : "c6fb6e951d5200c40ba0e24f0e057677d241e9d0ee688b1bc57ee0ce1bbf04c2",
+      "dev/docweave/validation/WordEvidenceComparatorTest.class" : "45f771a7f8aadac8cebb8f27caf47d19d2ea038b841688afde738695e5ef2a11",
+      "dev/docweave/validation/PdfCorpusOrientation.class" : "c39affbec2f77303c55b92c43fbbf309ee70e275bb8e6056ec0a7a7873b4e931",
+      "dev/docweave/validation/WordEvidenceComparator$Coordinate.class" : "2501189d5d82267f7fb4d3e9f385fd22c7e76ff4211655a8615ef93c6e59aa8f",
+      "dev/docweave/validation/PdfPubTabNetCorpusTest.class" : "006927feaed3ff346a4a8ca9fe6d90b5cc0faa22793d528ee02d32441e6cc669",
+      "dev/docweave/validation/WordEvidenceReplay$PacketSummary.class" : "e56e16adcc24b0ca93c54471f1f7f4b603f67e55ce796b29447089464a34beba",
+      "dev/docweave/validation/DocxCorpusSource.class" : "1d9f26eab38e00b34845fd442471d4a16c005a989df1821150c5f1acd2c3f13a",
+      "dev/docweave/validation/PdfRotationCorpusTest.class" : "3d24a207b9259cd2ee92674e839ed26d979b1fe0fbd7fa544e4f7de57ee069a2",
+      "dev/docweave/validation/WordCandidateCollector.class" : "a4c971d55e35309d7d94fbcf66c9a11164cab083c071f5b1df82725f25dd750a",
+      "dev/docweave/validation/WordFixtureGeneratorTest.class" : "e692ec1234485a95b84b1954baeae06bbe3331ab5e5b2339b9ca1f91302c1db8",
+      "dev/docweave/validation/WordEvidenceComparator.class" : "7ed37dde1eade12f8f739c2b9a687acd2131494e3c5b7bc7960b3ea0e168dabe",
+      "dev/docweave/validation/StandaloneSourceCompatibilityTest.class" : "32fee20a00299ba202129a69d287571fe1aade226b8ef19ab81700ab016fde09",
+      "dev/docweave/validation/DocxCorpusSourceTest.class" : "e32abae015acce9eec4ce3bd4372d7c7dba4c56b80ea85ae708af9a511784000",
+      "dev/docweave/validation/XmlOwnerReader$Child.class" : "c6b49acd3d966be2c9695432aba803702372942df147dbbf823c56f19f31eda8",
+      "dev/docweave/validation/DocxOwnershipTest.class" : "90e9fe4047e78b2fa2acb2ca361c9092b2df2dadf5bc07e8ff8683f2b1d6bebd",
+      "dev/docweave/validation/DefaultWordFixtureGenerator$Spec.class" : "c24f234672dc106063cf4fd404066f9435dc97142ede9db1741e742c15a7f459",
+      "dev/docweave/validation/DocxOwnership$Story.class" : "ee54567889467f715e18f5430624a17e46c257d82055a9ed9c622d77214ced16",
+      "dev/docweave/validation/XmlOwnerReader.class" : "3ca522d2b63d5b704c4d40eb263252ec28c8dc61766761c5b4226259798812c9",
+      "dev/docweave/validation/PdfReadingCorpusTest.class" : "b194f2b8551c2bb0075770133716c44e5ae57d00b75458b8ec2745826062aae2",
+      "dev/docweave/validation/DefaultSavedOutputComparator.class" : "d0078652fc8fd3f07a6b21738bf3d58694da6ad71cd4e162aa36cd0633d5ecb3",
+      "dev/docweave/validation/DefaultDocxStyleProbe.class" : "79d2dfcde9b524647118563df6be640f3e1841cb8cd66fd7dedffc2c80b6ef08",
+      "dev/docweave/validation/PdfPubTabNetCorpusTest$RasterPdf.class" : "76d1aa2785267d3320c431d1de88bea23148db11f8c0773a00e9eb69563044e5",
+      "dev/docweave/validation/PdfIndependentOrientationTest.class" : "b78f1e8679cbc3c7d6fca3727c0d69958c3242c4bbe90b94d8fc37760ae900e3",
+      "dev/docweave/validation/DefaultDocxOwnership$Interval.class" : "7d09a1149c12717b2cb45867814fb792a2633bb50413049591fe48b539c71043"
+    },
+    "index" : 0,
+    "entry" : "test-classes",
+    "exists" : true
+  }, {
+    "sha256" : { },
+    "index" : 1,
+    "entry" : "classes",
+    "exists" : false
+  }, {
+    "sha256" : {
+      "docweave-0.1.0-SNAPSHOT.jar" : "cd3b74104e81e3bfe21c85451cb6e64cf160399903eb51c48358285d758c2229"
+    },
+    "index" : 2,
+    "entry" : "docweave-0.1.0-SNAPSHOT.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "docweave-core-0.1.0-SNAPSHOT.jar" : "6e77805be8afc0041935177e6f21adb2f614ae6922d151e9f22b49cb6189bc7f"
+    },
+    "index" : 3,
+    "entry" : "docweave-core-0.1.0-SNAPSHOT.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "docweave-json-0.1.0-SNAPSHOT.jar" : "2b49ef5a24a62905f6c9e0e48698b80d487a9bea7119f44b95951fda278dc667"
+    },
+    "index" : 4,
+    "entry" : "docweave-json-0.1.0-SNAPSHOT.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "jackson-databind-3.1.5.jar" : "3a2338d996fd3056791df8d335fa9ba8a62a706ed4245ecf81b3e583df37d08a"
+    },
+    "index" : 5,
+    "entry" : "jackson-databind-3.1.5.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "jackson-annotations-2.21.jar" : "53ca085f4a150f703f49e1aabd935bd03b43e1ea3d55d135438292af22cef56b"
+    },
+    "index" : 6,
+    "entry" : "jackson-annotations-2.21.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "jackson-core-3.1.5.jar" : "9431b7fa2673bbb618c11d865fe15e13222fd182a214ff998cb7e56afd8f35d2"
+    },
+    "index" : 7,
+    "entry" : "jackson-core-3.1.5.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "docweave-chunking-0.1.0-SNAPSHOT.jar" : "e134e7e109e3e858a1a0915466b5406cebcebec3dae652281a4bcb0fce07ab4b"
+    },
+    "index" : 8,
+    "entry" : "docweave-chunking-0.1.0-SNAPSHOT.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "jsoup-1.23.2.jar" : "e9d8c856856680427f096d156f02a414289985c930998fcb519ce5be39b42003"
+    },
+    "index" : 9,
+    "entry" : "jsoup-1.23.2.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "docweave-batch-0.1.0-SNAPSHOT.jar" : "11165809825e04701f93b7de78d19d71b4e0f7c08796b212c4238292d35fe16b"
+    },
+    "index" : 10,
+    "entry" : "docweave-batch-0.1.0-SNAPSHOT.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "docweave-txt-0.1.0-SNAPSHOT.jar" : "060fbe7e982324117ddc2c9ce7a06268d5cabff295728fd596a5780710db57cd"
+    },
+    "index" : 11,
+    "entry" : "docweave-txt-0.1.0-SNAPSHOT.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "docweave-html-0.1.0-SNAPSHOT.jar" : "1c1d86e0f14a167c5415d1f91492254c017f3ab967e95c82419d7cc265827a70"
+    },
+    "index" : 12,
+    "entry" : "docweave-html-0.1.0-SNAPSHOT.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "docweave-markdown-0.1.0-SNAPSHOT.jar" : "dfc5b6a4886fdc8f3bc1998ea590be7bd9bdd30d38494957cbe181ec6b33740e"
+    },
+    "index" : 13,
+    "entry" : "docweave-markdown-0.1.0-SNAPSHOT.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "commonmark-0.30.1.jar" : "9b0d20064975a17e876fcb4b599c6b3667f46a7739ed61e2f06c96f44b50629f"
+    },
+    "index" : 14,
+    "entry" : "commonmark-0.30.1.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "commonmark-ext-gfm-tables-0.30.1.jar" : "c375b6d5b71efe179e5763a6d83fcf10e303c0bf82031310a46769727ac90da0"
+    },
+    "index" : 15,
+    "entry" : "commonmark-ext-gfm-tables-0.30.1.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "docweave-csv-0.1.0-SNAPSHOT.jar" : "385c91fc315f35ed33f5c45b90fcb66b3ad8ad4b3f692fa27fc55841240e160d"
+    },
+    "index" : 16,
+    "entry" : "docweave-csv-0.1.0-SNAPSHOT.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "docweave-delimited-0.1.0-SNAPSHOT.jar" : "76cba38c3fd51199c2b8865e295faf653b221887d81f30a1112e8fba22417005"
+    },
+    "index" : 17,
+    "entry" : "docweave-delimited-0.1.0-SNAPSHOT.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "commons-csv-1.14.1.jar" : "32be0e1e76673092f5d12cb790bd2acb6c2ab04c4ea6efc69ea5ee17911c24fe"
+    },
+    "index" : 18,
+    "entry" : "commons-csv-1.14.1.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "docweave-tsv-0.1.0-SNAPSHOT.jar" : "0724289d3844982e3bb0d7930868abd947b854f77b9b76c7ebd1156259ce6cf4"
+    },
+    "index" : 19,
+    "entry" : "docweave-tsv-0.1.0-SNAPSHOT.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "docweave-xml-0.1.0-SNAPSHOT.jar" : "5b76b96d048c384b8254228b10153fa5de4fbd1f6bf8d797b8b495f2d7b7db30"
+    },
+    "index" : 20,
+    "entry" : "docweave-xml-0.1.0-SNAPSHOT.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "docweave-docx-0.1.0-SNAPSHOT.jar" : "5788d2ec51f9327ba6f8c7c3804aa6a3629c2c8984abcc6396ddef23acf70a7b"
+    },
+    "index" : 21,
+    "entry" : "docweave-docx-0.1.0-SNAPSHOT.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "poi-ooxml-5.5.1.jar" : "bd7be2fdfe3fd2c1684fa813351c2798fd636b44f6236e0674500d4f8ff1c2f9"
+    },
+    "index" : 22,
+    "entry" : "poi-ooxml-5.5.1.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "poi-5.5.1.jar" : "6c52e876ca75775a11b56e4b36a7541f682827f56406725fcd87560b792ee3d8"
+    },
+    "index" : 23,
+    "entry" : "poi-5.5.1.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "commons-math3-3.6.1.jar" : "1e56d7b058d28b65abd256b8458e3885b674c1d588fa43cd7d1cbb9c7ef2b308"
+    },
+    "index" : 24,
+    "entry" : "commons-math3-3.6.1.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "SparseBitSet-1.3.jar" : "f76b85adb0c00721ae267b7cfde4da7f71d3121cc2160c9fc00c0c89f8c53c8a"
+    },
+    "index" : 25,
+    "entry" : "SparseBitSet-1.3.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "poi-ooxml-lite-5.5.1.jar" : "e6e37adeb6d6ee8b40ec491ad955d934d8f99827ab050f105b18286e59b1d9e7"
+    },
+    "index" : 26,
+    "entry" : "poi-ooxml-lite-5.5.1.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "xmlbeans-5.3.0.jar" : "6cc69da3b4d35b83c5e477cd4daba204e44109833e34af2b9a8a2c8788289917"
+    },
+    "index" : 27,
+    "entry" : "xmlbeans-5.3.0.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "commons-compress-1.28.0.jar" : "e1522945218456f3649a39bc4afd70ce4bd466221519dba7d378f2141a4642ca"
+    },
+    "index" : 28,
+    "entry" : "commons-compress-1.28.0.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "commons-lang3-3.18.0.jar" : "4eeeae8d20c078abb64b015ec158add383ac581571cddc45c68f0c9ae0230720"
+    },
+    "index" : 29,
+    "entry" : "commons-lang3-3.18.0.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "curvesapi-1.08.jar" : "ad95b08b8bbf9d7d17e5e00814898fa23324f32bc5b62f1a37801e6a56ce0079"
+    },
+    "index" : 30,
+    "entry" : "curvesapi-1.08.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "log4j-api-2.24.3.jar" : "5b4a0a0cd0e751ded431c162442bdbdd53328d1f8bb2bae5fc1bbeee0f66d80f"
+    },
+    "index" : 31,
+    "entry" : "log4j-api-2.24.3.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "commons-collections4-4.5.0.jar" : "00f93263c267be201b8ae521b44a7137271b16688435340bf629db1bac0a5845"
+    },
+    "index" : 32,
+    "entry" : "commons-collections4-4.5.0.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "commons-io-2.21.0.jar" : "7d643a2afea8b058b762aa6fb90e5b256f6c729739f8b3784c3370ddc609e88d"
+    },
+    "index" : 33,
+    "entry" : "commons-io-2.21.0.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "commons-codec-1.20.0.jar" : "6af66595f9f6a7bb58ce66518d6888d40b547c366d2262f06676eee19528ff66"
+    },
+    "index" : 34,
+    "entry" : "commons-codec-1.20.0.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "docweave-pdf-0.1.0-SNAPSHOT.jar" : "9ed304ca0e5ee64be031c28ac4c01f78f21312591f356ea933390d4e3e894533"
+    },
+    "index" : 35,
+    "entry" : "docweave-pdf-0.1.0-SNAPSHOT.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "pdfbox-3.0.8.jar" : "97647cfbde61ebcfc06b4cf8c9b0ffcaaee073396eceb4a7f6836a9b9128903c"
+    },
+    "index" : 36,
+    "entry" : "pdfbox-3.0.8.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "pdfbox-io-3.0.8.jar" : "36a0e04001010b4c764857817412b96339930b19755e728959805cc0352061b2"
+    },
+    "index" : 37,
+    "entry" : "pdfbox-io-3.0.8.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "fontbox-3.0.8.jar" : "a1915c24e3edbe0ecec93896dfbf6d41427810b663ade97bd4e8bae86ec3fdab"
+    },
+    "index" : 38,
+    "entry" : "fontbox-3.0.8.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "commons-logging-1.4.0.jar" : "d175dbd751dd782a63bde28c7a039520e971f25e84b79c19b8435edc3603e0dc"
+    },
+    "index" : 39,
+    "entry" : "commons-logging-1.4.0.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "docweave-ocr-tesseract-0.1.0-SNAPSHOT.jar" : "8d12186081487bafb0d8537fa50114851f35da4f04a3615256e00210489e0ac0"
+    },
+    "index" : 40,
+    "entry" : "docweave-ocr-tesseract-0.1.0-SNAPSHOT.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "docweave-layout-onnx-0.1.0-SNAPSHOT.jar" : "0ac0b97d3006f95560e755f8908347ae53185015422ff9a7272581d2d6cbc984"
+    },
+    "index" : 41,
+    "entry" : "docweave-layout-onnx-0.1.0-SNAPSHOT.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "onnxruntime-1.23.2.jar" : "e0ab4a1af57d2da09097202f2dfd691e390c82e81183314788ccde4cf7c3cc38"
+    },
+    "index" : 42,
+    "entry" : "onnxruntime-1.23.2.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "junit-jupiter-6.0.3.jar" : "784b65815f479a0c99a9d3a573b142e2a525efb6025d97f751b19e72f90aeda3"
+    },
+    "index" : 43,
+    "entry" : "junit-jupiter-6.0.3.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "junit-jupiter-api-6.0.3.jar" : "d655d7e6f0c7ae07f10a2f3bbaaebb6d30e9b26204a068ad9e9b3950aa28792c"
+    },
+    "index" : 44,
+    "entry" : "junit-jupiter-api-6.0.3.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "opentest4j-1.3.0.jar" : "48e2df636cab6563ced64dcdff8abb2355627cb236ef0bf37598682ddf742f1b"
+    },
+    "index" : 45,
+    "entry" : "opentest4j-1.3.0.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "junit-platform-commons-6.0.3.jar" : "39f262d09c3d52719fe0b77f080e90a3695e285d779a41b232e17963ae5da200"
+    },
+    "index" : 46,
+    "entry" : "junit-platform-commons-6.0.3.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "apiguardian-api-1.1.2.jar" : "b509448ac506d607319f182537f0b35d71007582ec741832a1f111e5b5b70b38"
+    },
+    "index" : 47,
+    "entry" : "apiguardian-api-1.1.2.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "jspecify-1.0.0.jar" : "1fad6e6be7557781e4d33729d49ae1cdc8fdda6fe477bb0cc68ce351eafdfbab"
+    },
+    "index" : 48,
+    "entry" : "jspecify-1.0.0.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "junit-jupiter-params-6.0.3.jar" : "cf2947e2302b9f8c8a059259a277881c1cadae8fbc2514c16a925cfeb7beb2e5"
+    },
+    "index" : 49,
+    "entry" : "junit-jupiter-params-6.0.3.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "junit-jupiter-engine-6.0.3.jar" : "1e2fab61ad27ea08fc7c70dd9677cf8c6d1ae5434d42dcfdd633b12c7e7c04d0"
+    },
+    "index" : 50,
+    "entry" : "junit-jupiter-engine-6.0.3.jar",
+    "exists" : true
+  }, {
+    "sha256" : {
+      "junit-platform-engine-6.0.3.jar" : "491e9e4f745f161b8a8e4186a1a7c6a450ea12c70930c9aedae427215301d947"
+    },
+    "index" : 51,
+    "entry" : "junit-platform-engine-6.0.3.jar",
+    "exists" : true
+  } ],
+  "source_commit" : "8ffde9024bd331f5a61c3c549fdf30dd3c3e43a5",
+  "scope" : "all20_published_train_text_envelopes_not_glyph_or_ocr_accuracy",
+  "records" : [ {
+    "full_inside_one_source_pixel" : 62,
+    "rounded_crop_full_inside" : 3,
+    "invalid_annotations" : 0,
+    "labeled" : 69,
+    "full_inside" : 3,
+    "label_area_fraction_sum" : 63.64717972402547,
+    "center_inside" : 69,
+    "missing_anchor_reasons" : { },
+    "unlabeled" : 43,
+    "rounded_crop_label_area_fraction_sum" : 64.87655700806172,
+    "missing_anchor" : 0,
+    "input" : "PMC4840965_004_00.png",
+    "published_anchors" : 112,
+    "emitted_layouts" : 1,
+    "render_width" : 971,
+    "render_height" : 790
+  }, {
+    "full_inside_one_source_pixel" : 20,
+    "rounded_crop_full_inside" : 17,
+    "invalid_annotations" : 0,
+    "labeled" : 28,
+    "full_inside" : 5,
+    "label_area_fraction_sum" : 25.685808333044797,
+    "center_inside" : 28,
+    "missing_anchor_reasons" : { },
+    "unlabeled" : 0,
+    "rounded_crop_label_area_fraction_sum" : 26.183334021036167,
+    "missing_anchor" : 0,
+    "input" : "PMC4517499_004_00.png",
+    "published_anchors" : 28,
+    "emitted_layouts" : 1,
+    "render_width" : 475,
+    "render_height" : 117
+  }, {
+    "full_inside_one_source_pixel" : 20,
+    "rounded_crop_full_inside" : 16,
+    "invalid_annotations" : 0,
+    "labeled" : 25,
+    "full_inside" : 16,
+    "label_area_fraction_sum" : 24.148466101068827,
+    "center_inside" : 25,
+    "missing_anchor_reasons" : { },
+    "unlabeled" : 0,
+    "rounded_crop_label_area_fraction_sum" : 24.181702580147125,
+    "missing_anchor" : 0,
+    "input" : "PMC4776821_005_00.png",
+    "published_anchors" : 25,
+    "emitted_layouts" : 1,
+    "render_width" : 792,
+    "render_height" : 171
+  }, {
+    "full_inside_one_source_pixel" : 89,
+    "rounded_crop_full_inside" : 82,
+    "invalid_annotations" : 0,
+    "labeled" : 97,
+    "full_inside" : 82,
+    "label_area_fraction_sum" : 95.2119765018388,
+    "center_inside" : 96,
+    "missing_anchor_reasons" : {
+      "different_span_at_origin" : 1
+    },
+    "unlabeled" : 3,
+    "rounded_crop_label_area_fraction_sum" : 95.43395191196016,
+    "missing_anchor" : 1,
+    "input" : "PMC1626454_002_00.png",
+    "published_anchors" : 100,
+    "emitted_layouts" : 1,
+    "render_width" : 1006,
+    "render_height" : 497
+  }, {
+    "full_inside_one_source_pixel" : 87,
+    "rounded_crop_full_inside" : 76,
+    "invalid_annotations" : 0,
+    "labeled" : 177,
+    "full_inside" : 40,
+    "label_area_fraction_sum" : 148.10736204362766,
+    "center_inside" : 168,
+    "missing_anchor_reasons" : {
+      "origin_covered_by_other_anchor" : 2,
+      "different_span_at_origin" : 7
+    },
+    "unlabeled" : 71,
+    "rounded_crop_label_area_fraction_sum" : 151.62782604979873,
+    "missing_anchor" : 9,
+    "input" : "PMC2838834_005_00.png",
+    "published_anchors" : 248,
+    "emitted_layouts" : 1,
+    "render_width" : 971,
+    "render_height" : 881
+  }, {
+    "full_inside_one_source_pixel" : 20,
+    "rounded_crop_full_inside" : 12,
+    "invalid_annotations" : 0,
+    "labeled" : 22,
+    "full_inside" : 3,
+    "label_area_fraction_sum" : 20.610825440268407,
+    "center_inside" : 22,
+    "missing_anchor_reasons" : { },
+    "unlabeled" : 0,
+    "rounded_crop_label_area_fraction_sum" : 21.1111125535613,
+    "missing_anchor" : 0,
+    "input" : "PMC5897438_004_00.png",
+    "published_anchors" : 22,
+    "emitted_layouts" : 1,
+    "render_width" : 502,
+    "render_height" : 271
+  }, {
+    "full_inside_one_source_pixel" : 18,
+    "rounded_crop_full_inside" : 15,
+    "invalid_annotations" : 0,
+    "labeled" : 20,
+    "full_inside" : 13,
+    "label_area_fraction_sum" : 19.537641846960256,
+    "center_inside" : 20,
+    "missing_anchor_reasons" : { },
+    "unlabeled" : 0,
+    "rounded_crop_label_area_fraction_sum" : 19.714781265965044,
+    "missing_anchor" : 0,
+    "input" : "PMC3907710_006_00.png",
+    "published_anchors" : 20,
+    "emitted_layouts" : 1,
+    "render_width" : 502,
+    "render_height" : 130
+  }, {
+    "full_inside_one_source_pixel" : 38,
+    "rounded_crop_full_inside" : 29,
+    "invalid_annotations" : 0,
+    "labeled" : 43,
+    "full_inside" : 29,
+    "label_area_fraction_sum" : 42.21968364796373,
+    "center_inside" : 43,
+    "missing_anchor_reasons" : { },
+    "unlabeled" : 1,
+    "rounded_crop_label_area_fraction_sum" : 42.34736855374749,
+    "missing_anchor" : 0,
+    "input" : "PMC3519711_003_00.png",
+    "published_anchors" : 44,
+    "emitted_layouts" : 1,
+    "render_width" : 971,
+    "render_height" : 300
+  }, {
+    "full_inside_one_source_pixel" : 13,
+    "rounded_crop_full_inside" : 2,
+    "invalid_annotations" : 0,
+    "labeled" : 17,
+    "full_inside" : 2,
+    "label_area_fraction_sum" : 15.872417580008156,
+    "center_inside" : 17,
+    "missing_anchor_reasons" : { },
+    "unlabeled" : 0,
+    "rounded_crop_label_area_fraction_sum" : 16.26589060528499,
+    "missing_anchor" : 0,
+    "input" : "PMC5198506_004_00.png",
+    "published_anchors" : 17,
+    "emitted_layouts" : 1,
+    "render_width" : 475,
+    "render_height" : 198
+  }, {
+    "full_inside_one_source_pixel" : 20,
+    "rounded_crop_full_inside" : 17,
+    "invalid_annotations" : 0,
+    "labeled" : 22,
+    "full_inside" : 17,
+    "label_area_fraction_sum" : 21.5939333397606,
+    "center_inside" : 22,
+    "missing_anchor_reasons" : { },
+    "unlabeled" : 0,
+    "rounded_crop_label_area_fraction_sum" : 21.6250021236652,
+    "missing_anchor" : 0,
+    "input" : "PMC5679144_002_01.png",
+    "published_anchors" : 22,
+    "emitted_layouts" : 1,
+    "render_width" : 475,
+    "render_height" : 315
+  }, {
+    "full_inside_one_source_pixel" : 8,
+    "rounded_crop_full_inside" : 7,
+    "invalid_annotations" : 0,
+    "labeled" : 72,
+    "full_inside" : 7,
+    "label_area_fraction_sum" : 59.19152167810213,
+    "center_inside" : 72,
+    "missing_anchor_reasons" : { },
+    "unlabeled" : 0,
+    "rounded_crop_label_area_fraction_sum" : 59.98936619089889,
+    "missing_anchor" : 0,
+    "input" : "PMC5134617_013_00.png",
+    "published_anchors" : 72,
+    "emitted_layouts" : 1,
+    "render_width" : 878,
+    "render_height" : 235
+  }, {
+    "full_inside_one_source_pixel" : 11,
+    "rounded_crop_full_inside" : 10,
+    "invalid_annotations" : 0,
+    "labeled" : 12,
+    "full_inside" : 10,
+    "label_area_fraction_sum" : 11.930119867802603,
+    "center_inside" : 12,
+    "missing_anchor_reasons" : { },
+    "unlabeled" : 0,
+    "rounded_crop_label_area_fraction_sum" : 11.942350218370633,
+    "missing_anchor" : 0,
+    "input" : "PMC2753619_002_00.png",
+    "published_anchors" : 12,
+    "emitted_layouts" : 1,
+    "render_width" : 1006,
+    "render_height" : 90
+  }, {
+    "full_inside_one_source_pixel" : 54,
+    "rounded_crop_full_inside" : 18,
+    "invalid_annotations" : 0,
+    "labeled" : 89,
+    "full_inside" : 7,
+    "label_area_fraction_sum" : 80.33127481735433,
+    "center_inside" : 89,
+    "missing_anchor_reasons" : { },
+    "unlabeled" : 1,
+    "rounded_crop_label_area_fraction_sum" : 82.58480313790527,
+    "missing_anchor" : 0,
+    "input" : "PMC3826085_003_00.png",
+    "published_anchors" : 90,
+    "emitted_layouts" : 1,
+    "render_width" : 502,
+    "render_height" : 453
+  }, {
+    "full_inside_one_source_pixel" : 17,
+    "rounded_crop_full_inside" : 16,
+    "invalid_annotations" : 0,
+    "labeled" : 18,
+    "full_inside" : 16,
+    "label_area_fraction_sum" : 17.946487008070477,
+    "center_inside" : 18,
+    "missing_anchor_reasons" : { },
+    "unlabeled" : 0,
+    "rounded_crop_label_area_fraction_sum" : 17.954955058965766,
+    "missing_anchor" : 0,
+    "input" : "PMC5577841_001_00.png",
+    "published_anchors" : 18,
+    "emitted_layouts" : 1,
+    "render_width" : 475,
+    "render_height" : 171
+  }, {
+    "full_inside_one_source_pixel" : 42,
+    "rounded_crop_full_inside" : 6,
+    "invalid_annotations" : 0,
+    "labeled" : 118,
+    "full_inside" : 6,
+    "label_area_fraction_sum" : 94.90256771065438,
+    "center_inside" : 114,
+    "missing_anchor_reasons" : {
+      "different_span_at_origin" : 4
+    },
+    "unlabeled" : 4,
+    "rounded_crop_label_area_fraction_sum" : 97.44997703322689,
+    "missing_anchor" : 4,
+    "input" : "PMC2759935_007_01.png",
+    "published_anchors" : 122,
+    "emitted_layouts" : 1,
+    "render_width" : 1006,
+    "render_height" : 360
+  }, {
+    "full_inside_one_source_pixel" : 15,
+    "rounded_crop_full_inside" : 15,
+    "invalid_annotations" : 0,
+    "labeled" : 69,
+    "full_inside" : 15,
+    "label_area_fraction_sum" : 56.56356279020035,
+    "center_inside" : 69,
+    "missing_anchor_reasons" : { },
+    "unlabeled" : 0,
+    "rounded_crop_label_area_fraction_sum" : 56.56356279020035,
+    "missing_anchor" : 0,
+    "input" : "PMC4003957_018_00.png",
+    "published_anchors" : 69,
+    "emitted_layouts" : 1,
+    "render_width" : 821,
+    "render_height" : 842
+  }, {
+    "full_inside_one_source_pixel" : 90,
+    "rounded_crop_full_inside" : 90,
+    "invalid_annotations" : 0,
+    "labeled" : 97,
+    "full_inside" : 25,
+    "label_area_fraction_sum" : 92.22892668521752,
+    "center_inside" : 95,
+    "missing_anchor_reasons" : {
+      "different_span_at_origin" : 2
+    },
+    "unlabeled" : 2,
+    "rounded_crop_label_area_fraction_sum" : 94.5833353657541,
+    "missing_anchor" : 2,
+    "input" : "PMC4682394_003_00.png",
+    "published_anchors" : 99,
+    "emitted_layouts" : 1,
+    "render_width" : 971,
+    "render_height" : 365
+  }, {
+    "full_inside_one_source_pixel" : 85,
+    "rounded_crop_full_inside" : 79,
+    "invalid_annotations" : 0,
+    "labeled" : 96,
+    "full_inside" : 77,
+    "label_area_fraction_sum" : 89.80206128107109,
+    "center_inside" : 92,
+    "missing_anchor_reasons" : {
+      "different_span_at_origin" : 4
+    },
+    "unlabeled" : 25,
+    "rounded_crop_label_area_fraction_sum" : 90.27264356215755,
+    "missing_anchor" : 4,
+    "input" : "PMC4172848_007_00.png",
+    "published_anchors" : 121,
+    "emitted_layouts" : 1,
+    "render_width" : 971,
+    "render_height" : 526
+  }, {
+    "full_inside_one_source_pixel" : 63,
+    "rounded_crop_full_inside" : 35,
+    "invalid_annotations" : 0,
+    "labeled" : 97,
+    "full_inside" : 29,
+    "label_area_fraction_sum" : 90.3860034208616,
+    "center_inside" : 97,
+    "missing_anchor_reasons" : { },
+    "unlabeled" : 0,
+    "rounded_crop_label_area_fraction_sum" : 92.28048736643308,
+    "missing_anchor" : 0,
+    "input" : "PMC5332562_005_00.png",
+    "published_anchors" : 97,
+    "emitted_layouts" : 1,
+    "render_width" : 488,
+    "render_height" : 951
+  }, {
+    "full_inside_one_source_pixel" : 7,
+    "rounded_crop_full_inside" : 6,
+    "invalid_annotations" : 0,
+    "labeled" : 42,
+    "full_inside" : 6,
+    "label_area_fraction_sum" : 35.53814612500951,
+    "center_inside" : 42,
+    "missing_anchor_reasons" : { },
+    "unlabeled" : 0,
+    "rounded_crop_label_area_fraction_sum" : 36.5833393386908,
+    "missing_anchor" : 0,
+    "input" : "PMC5402779_004_00.png",
+    "published_anchors" : 42,
+    "emitted_layouts" : 1,
+    "render_width" : 945,
+    "render_height" : 239
+  } ],
+  "layout_merge_conflicts" : "KEEP_HIGHER_SCORE",
+  "layout_graph_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+  "render_dpi" : 300
+}

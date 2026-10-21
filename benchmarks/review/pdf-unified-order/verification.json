@@ -1,0 +1,31 @@
+{
+  "tests_each": 756,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "strict_javadocs": "passed Java21/25",
+  "python_reference_guards": 12,
+  "actual_tesseract": "5.5.3; explicit installed English model; six owned report families on each JDK",
+  "physical_scans": "diagnostic misses remain open; see ../pdf-physical-scans",
+  "sha256": {
+    "benchmarks/review/pdf-unified-order/java21-tests.json": "5bf34667e0318d4df15f08a87d71b6f7c35b2337437de9d677d452e2a9d41761",
+    "benchmarks/review/pdf-unified-order/java21-native-corpus.json": "b72d2ff364b606cecd06375131188acbc2ff648f3ef0369cac6331adc8cbbb9d",
+    "benchmarks/review/pdf-unified-order/java25-tests.json": "5bf34667e0318d4df15f08a87d71b6f7c35b2337437de9d677d452e2a9d41761",
+    "benchmarks/review/pdf-unified-order/java25-native-corpus.json": "374388ba44a99cfda19939b87ce7baddbe3d21a0634ddb49cad1d08cef4c4338",
+    "benchmarks/review/pdf-unified-order/java21.xml": "a6059936186b06b465869a63959ec954163c15e999e68ea1b0bc0308a5b2ef76",
+    "benchmarks/review/pdf-unified-order/java21.xml.tables.xml": "5461b0d61958775e8091c141d391c3945dc81fa7f27be841c5fe09c0ff09a458",
+    "benchmarks/review/pdf-unified-order/java21.xml.mixed.xml": "c80802856fc999b38ddb3f3709c44cb2e66b0b4e53d084d238452a65b61b317f",
+    "benchmarks/review/pdf-unified-order/java21.xml.merged-tables.xml": "06dc0f191a34e7d6c9b0c4d7c2a887609cab832323ceaa8e26b6e034441755f5",
+    "benchmarks/review/pdf-unified-order/java21.xml.continuations.xml": "3082dba75addce159cc7b73764d34c8906b17a2e1541c270d21218f84fc28308",
+    "benchmarks/review/pdf-unified-order/java21.xml.cells.xml": "97a073cee40613240e570a81a74ca2dc8d8cac5533be15bdd124ca720712dd5b",
+    "benchmarks/review/pdf-unified-order/java25.xml.tables.xml": "0670b54e1b7d8cc291b2579bb04546ec4b00397ff264656aacb379feaaebae42",
+    "benchmarks/review/pdf-unified-order/java25.xml.mixed.xml": "f1ce9d37c7491078096c5ec824a86b7ba9f90d197bb26b933f8d25986995fcc3",
+    "benchmarks/review/pdf-unified-order/java25.xml.merged-tables.xml": "0f3c66953ac8c6c1be51678fba6301c6d0138b8c17b538b2ba60a62b644fb72b",
+    "benchmarks/review/pdf-unified-order/java25.xml": "8af1043ae919d8eee2f386fd38976eb8dc0536c25f45e648e66e85e1c52125b2",
+    "benchmarks/review/pdf-unified-order/java25.xml.continuations.xml": "e50f9801d2aa63c6dbea4ed2a10109d4d0fddaeacd83ec2bd2559dfde95c0f90",
+    "benchmarks/review/pdf-unified-order/java25.xml.cells.xml": "fea6e548d7fb62e678d4a43124d5928fa6c8f7bfd84923ab40429f25cc29fa6d",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageOutput.java": "fcc97c609afc4c9deba2ab4aedf587efebd1a2e4b3970a0988543e6591d14639",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOcrOptions.java": "101d5dd1be13b4b134c7864fa714a2c3fc574f107404690e0038b1a83b64d1c7",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfPhysicalScanCorpusTest.java": "565183471526133bb46f2e2c6e71822afb68c30adb3eddae1e9564f85137dca8"
+  }
+}

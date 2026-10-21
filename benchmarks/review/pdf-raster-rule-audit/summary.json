@@ -1,0 +1,1408 @@
+{
+  "scope": "Fixed150DPI raw rule prototypes only; no OCR/model composition/held-out accuracy claim",
+  "association": "One-to-one maximum-cardinality axis-aligned envelope IoU>=0.5, geometry only",
+  "prototype_identities": {
+    "baseline_source_sha256": "04475b2ef5b7803a89b7db097e31e6e3de200e623b7bb1a5155b1c3835b83825",
+    "profiles": {
+      "baseline": {
+        "source_sha256": "b2c9499661570ae7780048ac046d68c60fb62f2f58e4decc446ea7d2206f9a66",
+        "minimum_run": 64,
+        "minimum_column": 32,
+        "minimum_row": 24
+      },
+      "chromatic": {
+        "source_sha256": "7efb8ea07fe17cd63fb150b4e4a658810c4d0b4b396692843499d076c21477f1",
+        "minimum_run": 64,
+        "minimum_column": 32,
+        "minimum_row": 24
+      },
+      "chromatic_compact": {
+        "source_sha256": "2430c4e1759c1a42a6edaf1660aafaad1f268ad97c66777c29a94675d568f27b",
+        "minimum_run": 32,
+        "minimum_column": 16,
+        "minimum_row": 12
+      },
+      "compact": {
+        "source_sha256": "06fa1ab02d0cd2711d45334b146e5fbebbed74d4c84b9d99701ab6418d7f1077",
+        "minimum_run": 32,
+        "minimum_column": 16,
+        "minimum_row": 12
+      }
+    }
+  },
+  "paired_files_identical_per_jvm": 231,
+  "totals": {
+    "all": {
+      "inputs": 9,
+      "reference_tables": 20,
+      "baseline": {
+        "candidate_tables": 0,
+        "matched_reference_tables_at_iou_0_5": 0,
+        "exact_topologies_one_to_one_at_iou_0_5": 0,
+        "outcomes": {
+          "OK": 8,
+          "OCR_LIMIT": 1,
+          "TABLE_LIMIT": 0
+        }
+      },
+      "chromatic": {
+        "candidate_tables": 0,
+        "matched_reference_tables_at_iou_0_5": 0,
+        "exact_topologies_one_to_one_at_iou_0_5": 0,
+        "outcomes": {
+          "OK": 6,
+          "OCR_LIMIT": 1,
+          "TABLE_LIMIT": 2
+        }
+      },
+      "chromatic_compact": {
+        "candidate_tables": 2,
+        "matched_reference_tables_at_iou_0_5": 2,
+        "exact_topologies_one_to_one_at_iou_0_5": 2,
+        "outcomes": {
+          "OK": 5,
+          "OCR_LIMIT": 1,
+          "TABLE_LIMIT": 3
+        }
+      },
+      "compact": {
+        "candidate_tables": 2,
+        "matched_reference_tables_at_iou_0_5": 2,
+        "exact_topologies_one_to_one_at_iou_0_5": 2,
+        "outcomes": {
+          "OK": 8,
+          "OCR_LIMIT": 1,
+          "TABLE_LIMIT": 0
+        }
+      }
+    },
+    "modern": {
+      "inputs": 4,
+      "reference_tables": 12,
+      "baseline": {
+        "candidate_tables": 0,
+        "matched_reference_tables_at_iou_0_5": 0,
+        "exact_topologies_one_to_one_at_iou_0_5": 0,
+        "outcomes": {
+          "OK": 4,
+          "OCR_LIMIT": 0,
+          "TABLE_LIMIT": 0
+        }
+      },
+      "chromatic": {
+        "candidate_tables": 0,
+        "matched_reference_tables_at_iou_0_5": 0,
+        "exact_topologies_one_to_one_at_iou_0_5": 0,
+        "outcomes": {
+          "OK": 4,
+          "OCR_LIMIT": 0,
+          "TABLE_LIMIT": 0
+        }
+      },
+      "chromatic_compact": {
+        "candidate_tables": 2,
+        "matched_reference_tables_at_iou_0_5": 2,
+        "exact_topologies_one_to_one_at_iou_0_5": 2,
+        "outcomes": {
+          "OK": 4,
+          "OCR_LIMIT": 0,
+          "TABLE_LIMIT": 0
+        }
+      },
+      "compact": {
+        "candidate_tables": 2,
+        "matched_reference_tables_at_iou_0_5": 2,
+        "exact_topologies_one_to_one_at_iou_0_5": 2,
+        "outcomes": {
+          "OK": 4,
+          "OCR_LIMIT": 0,
+          "TABLE_LIMIT": 0
+        }
+      }
+    },
+    "historical": {
+      "inputs": 5,
+      "reference_tables": 8,
+      "baseline": {
+        "candidate_tables": 0,
+        "matched_reference_tables_at_iou_0_5": 0,
+        "exact_topologies_one_to_one_at_iou_0_5": 0,
+        "outcomes": {
+          "OK": 4,
+          "OCR_LIMIT": 1,
+          "TABLE_LIMIT": 0
+        }
+      },
+      "chromatic": {
+        "candidate_tables": 0,
+        "matched_reference_tables_at_iou_0_5": 0,
+        "exact_topologies_one_to_one_at_iou_0_5": 0,
+        "outcomes": {
+          "OK": 2,
+          "OCR_LIMIT": 1,
+          "TABLE_LIMIT": 2
+        }
+      },
+      "chromatic_compact": {
+        "candidate_tables": 0,
+        "matched_reference_tables_at_iou_0_5": 0,
+        "exact_topologies_one_to_one_at_iou_0_5": 0,
+        "outcomes": {
+          "OK": 1,
+          "OCR_LIMIT": 1,
+          "TABLE_LIMIT": 3
+        }
+      },
+      "compact": {
+        "candidate_tables": 0,
+        "matched_reference_tables_at_iou_0_5": 0,
+        "exact_topologies_one_to_one_at_iou_0_5": 0,
+        "outcomes": {
+          "OK": 4,
+          "OCR_LIMIT": 1,
+          "TABLE_LIMIT": 0
+        }
+      }
+    }
+  },
+  "results": [
+    {
+      "input": "cTDaR_s001",
+      "reference_tables": 1,
+      "domain": "historical",
+      "profiles": {
+        "baseline": {
+          "outcome": "OCR_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": null
+        },
+        "chromatic": {
+          "outcome": "OCR_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": null
+        },
+        "chromatic_compact": {
+          "outcome": "OCR_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": null
+        },
+        "compact": {
+          "outcome": "OCR_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": null
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s002",
+      "reference_tables": 3,
+      "domain": "historical",
+      "profiles": {
+        "baseline": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "141",
+            "vertical": "195",
+            "topology_candidates": "0",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        },
+        "chromatic": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "317",
+            "vertical": "549",
+            "topology_candidates": "0",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        },
+        "chromatic_compact": {
+          "outcome": "TABLE_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": null
+        },
+        "compact": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "253",
+            "vertical": "646",
+            "topology_candidates": "0",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s003",
+      "reference_tables": 2,
+      "domain": "historical",
+      "profiles": {
+        "baseline": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "250",
+            "vertical": "183",
+            "topology_candidates": "0",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        },
+        "chromatic": {
+          "outcome": "TABLE_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": null
+        },
+        "chromatic_compact": {
+          "outcome": "TABLE_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": null
+        },
+        "compact": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "427",
+            "vertical": "373",
+            "topology_candidates": "0",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s004",
+      "reference_tables": 1,
+      "domain": "historical",
+      "profiles": {
+        "baseline": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "324",
+            "vertical": "65",
+            "topology_candidates": "0",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        },
+        "chromatic": {
+          "outcome": "TABLE_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": null
+        },
+        "chromatic_compact": {
+          "outcome": "TABLE_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": null
+        },
+        "compact": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "783",
+            "vertical": "277",
+            "topology_candidates": "1",
+            "small_cell_rejections": "1",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s101",
+      "reference_tables": 1,
+      "domain": "modern",
+      "profiles": {
+        "baseline": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "9",
+            "vertical": "0",
+            "topology_candidates": "0",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        },
+        "chromatic": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "9",
+            "vertical": "0",
+            "topology_candidates": "0",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        },
+        "chromatic_compact": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "9",
+            "vertical": "0",
+            "topology_candidates": "0",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        },
+        "compact": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "9",
+            "vertical": "0",
+            "topology_candidates": "0",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s102",
+      "reference_tables": 2,
+      "domain": "modern",
+      "profiles": {
+        "baseline": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "26",
+            "vertical": "10",
+            "topology_candidates": "2",
+            "small_cell_rejections": "2",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        },
+        "chromatic": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "26",
+            "vertical": "10",
+            "topology_candidates": "2",
+            "small_cell_rejections": "2",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        },
+        "chromatic_compact": {
+          "outcome": "OK",
+          "candidate_tables": 2,
+          "matched_reference_tables_at_iou_0_5": 2,
+          "exact_topologies_one_to_one_at_iou_0_5": 2,
+          "matches": [
+            {
+              "reference": 0,
+              "candidate": 0,
+              "envelope_iou": 0.9951231490803722,
+              "reference_rows": 17,
+              "reference_columns": 4,
+              "predicted_rows": 17,
+              "predicted_columns": 4,
+              "reference_anchors": 68,
+              "predicted_anchors": 68,
+              "matching_anchors": 68,
+              "exact_topology": true
+            },
+            {
+              "reference": 1,
+              "candidate": 1,
+              "envelope_iou": 0.98155794565537,
+              "reference_rows": 5,
+              "reference_columns": 4,
+              "predicted_rows": 5,
+              "predicted_columns": 4,
+              "reference_anchors": 20,
+              "predicted_anchors": 20,
+              "matching_anchors": 20,
+              "exact_topology": true
+            }
+          ],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 2,
+              "best_iou": 0.9951231490803722,
+              "profile": "cTDaR_s102",
+              "predicted_rows": 17,
+              "predicted_columns": 4,
+              "predicted_anchors": 68,
+              "matching_anchors": 68,
+              "exact_topology": true
+            },
+            {
+              "candidates": 2,
+              "best_iou": 0.98155794565537,
+              "profile": "cTDaR_s102",
+              "predicted_rows": 5,
+              "predicted_columns": 4,
+              "predicted_anchors": 20,
+              "matching_anchors": 20,
+              "exact_topology": true
+            }
+          ],
+          "stages": {
+            "horizontal": "26",
+            "vertical": "10",
+            "topology_candidates": "2",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "2"
+          }
+        },
+        "compact": {
+          "outcome": "OK",
+          "candidate_tables": 2,
+          "matched_reference_tables_at_iou_0_5": 2,
+          "exact_topologies_one_to_one_at_iou_0_5": 2,
+          "matches": [
+            {
+              "reference": 0,
+              "candidate": 0,
+              "envelope_iou": 0.9951231490803722,
+              "reference_rows": 17,
+              "reference_columns": 4,
+              "predicted_rows": 17,
+              "predicted_columns": 4,
+              "reference_anchors": 68,
+              "predicted_anchors": 68,
+              "matching_anchors": 68,
+              "exact_topology": true
+            },
+            {
+              "reference": 1,
+              "candidate": 1,
+              "envelope_iou": 0.98155794565537,
+              "reference_rows": 5,
+              "reference_columns": 4,
+              "predicted_rows": 5,
+              "predicted_columns": 4,
+              "reference_anchors": 20,
+              "predicted_anchors": 20,
+              "matching_anchors": 20,
+              "exact_topology": true
+            }
+          ],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 2,
+              "best_iou": 0.9951231490803722,
+              "profile": "cTDaR_s102",
+              "predicted_rows": 17,
+              "predicted_columns": 4,
+              "predicted_anchors": 68,
+              "matching_anchors": 68,
+              "exact_topology": true
+            },
+            {
+              "candidates": 2,
+              "best_iou": 0.98155794565537,
+              "profile": "cTDaR_s102",
+              "predicted_rows": 5,
+              "predicted_columns": 4,
+              "predicted_anchors": 20,
+              "matching_anchors": 20,
+              "exact_topology": true
+            }
+          ],
+          "stages": {
+            "horizontal": "26",
+            "vertical": "10",
+            "topology_candidates": "2",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "2"
+          }
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s103",
+      "reference_tables": 1,
+      "domain": "modern",
+      "profiles": {
+        "baseline": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "3",
+            "vertical": "1",
+            "topology_candidates": "0",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        },
+        "chromatic": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "14",
+            "vertical": "5",
+            "topology_candidates": "0",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        },
+        "chromatic_compact": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "22",
+            "vertical": "11",
+            "topology_candidates": "0",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        },
+        "compact": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "3",
+            "vertical": "1",
+            "topology_candidates": "0",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s104",
+      "reference_tables": 8,
+      "domain": "modern",
+      "profiles": {
+        "baseline": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "0",
+            "vertical": "0",
+            "topology_candidates": "0",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        },
+        "chromatic": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "15",
+            "vertical": "11",
+            "topology_candidates": "0",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        },
+        "chromatic_compact": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "29",
+            "vertical": "12",
+            "topology_candidates": "0",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        },
+        "compact": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "0",
+            "vertical": "0",
+            "topology_candidates": "0",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        }
+      }
+    },
+    {
+      "input": "cTDaR_t00040",
+      "reference_tables": 1,
+      "domain": "historical",
+      "profiles": {
+        "baseline": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "90",
+            "vertical": "119",
+            "topology_candidates": "2",
+            "small_cell_rejections": "2",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        },
+        "chromatic": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "455",
+            "vertical": "475",
+            "topology_candidates": "0",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        },
+        "chromatic_compact": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "472",
+            "vertical": "487",
+            "topology_candidates": "0",
+            "small_cell_rejections": "0",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        },
+        "compact": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "stages": {
+            "horizontal": "166",
+            "vertical": "235",
+            "topology_candidates": "1",
+            "small_cell_rejections": "1",
+            "remnant_rejections": "0",
+            "accepted": "0"
+          }
+        }
+      }
+    }
+  ]
+}

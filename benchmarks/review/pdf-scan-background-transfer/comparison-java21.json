@@ -1,0 +1,140 @@
+{
+  "baseline_report_sha256" : "9a6590d85ccaf29ac79e468059be2549c7cc831ad3fbf153cb4b1ac6117b2af4",
+  "results" : [ {
+    "case" : "buerger_gedichte_1778_0066/deu",
+    "baseline_outcome" : "SUCCESS",
+    "candidate_outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "reference_lines" : {
+      "baseline" : 15,
+      "candidate" : 15
+    },
+    "associated_reference_lines" : {
+      "baseline" : 4,
+      "candidate" : 5
+    },
+    "exact_associated_lines" : {
+      "baseline" : 0,
+      "candidate" : 0
+    },
+    "missing_reference_lines" : {
+      "baseline" : 11,
+      "candidate" : 10
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 10,
+      "candidate" : 8
+    },
+    "joint_reference_line_character_errors" : {
+      "baseline" : 131,
+      "candidate" : 106
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 28,
+      "candidate" : 24
+    }
+  }, {
+    "case" : "buerger_gedichte_1778_0066/deu_latf",
+    "baseline_outcome" : "SUCCESS",
+    "candidate_outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "reference_lines" : {
+      "baseline" : 15,
+      "candidate" : 15
+    },
+    "associated_reference_lines" : {
+      "baseline" : 4,
+      "candidate" : 5
+    },
+    "exact_associated_lines" : {
+      "baseline" : 1,
+      "candidate" : 1
+    },
+    "missing_reference_lines" : {
+      "baseline" : 11,
+      "candidate" : 10
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 10,
+      "candidate" : 8
+    },
+    "joint_reference_line_character_errors" : {
+      "baseline" : 126,
+      "candidate" : 104
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 20,
+      "candidate" : 20
+    }
+  }, {
+    "case" : "nn_besuch_1780_00002/deu",
+    "baseline_outcome" : "SUCCESS",
+    "candidate_outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "reference_lines" : {
+      "baseline" : 26,
+      "candidate" : 26
+    },
+    "associated_reference_lines" : {
+      "baseline" : 26,
+      "candidate" : 26
+    },
+    "exact_associated_lines" : {
+      "baseline" : 2,
+      "candidate" : 2
+    },
+    "missing_reference_lines" : {
+      "baseline" : 0,
+      "candidate" : 0
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 0,
+      "candidate" : 0
+    },
+    "joint_reference_line_character_errors" : {
+      "baseline" : 116,
+      "candidate" : 112
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 116,
+      "candidate" : 112
+    }
+  }, {
+    "case" : "nn_besuch_1780_00002/deu_latf",
+    "baseline_outcome" : "SUCCESS",
+    "candidate_outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "reference_lines" : {
+      "baseline" : 26,
+      "candidate" : 26
+    },
+    "associated_reference_lines" : {
+      "baseline" : 26,
+      "candidate" : 26
+    },
+    "exact_associated_lines" : {
+      "baseline" : 3,
+      "candidate" : 3
+    },
+    "missing_reference_lines" : {
+      "baseline" : 0,
+      "candidate" : 0
+    },
+    "predicted_lines_without_reference" : {
+      "baseline" : 0,
+      "candidate" : 0
+    },
+    "joint_reference_line_character_errors" : {
+      "baseline" : 53,
+      "candidate" : 56
+    },
+    "xml_sequence_character_edits" : {
+      "baseline" : 53,
+      "candidate" : 56
+    }
+  } ],
+  "candidate_report_sha256" : "589128d751238018d04232f3fe4bbfc39c1097ecd7c4fa60072f51c84d2f7e3a",
+  "runtime" : "21.0.12.1+12-LTS",
+  "scope" : "Complete predeclared scan/model population; no source-specific selection, reference repair, extra normalization or whole-page CER claim where order is undeclared",
+  "all_source_model_reference_frames_unchanged" : true
+}

@@ -1,0 +1,4 @@
+name,id,note,empty
+"Doe, Jane",00123,"First
+second ""quoted"" line",
+"West & East",00456,"<tag> stays text",

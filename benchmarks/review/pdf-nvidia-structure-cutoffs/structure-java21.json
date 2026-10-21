@@ -1,0 +1,314 @@
+{
+  "results" : [ {
+    "source_page" : 1,
+    "profile" : "tatr",
+    "model_rows" : 16,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 1,
+    "profile" : "yolox",
+    "model_rows" : 15,
+    "tables" : 2,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 2,
+    "profile" : "tatr",
+    "model_rows" : 17,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 2,
+    "profile" : "yolox",
+    "model_rows" : 14,
+    "tables" : 2,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 3,
+    "profile" : "tatr",
+    "model_rows" : 0,
+    "tables" : 0,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 3,
+    "profile" : "yolox",
+    "model_rows" : 0,
+    "tables" : 0,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 4,
+    "profile" : "tatr",
+    "model_rows" : 12,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 4,
+    "profile" : "yolox",
+    "model_rows" : 13,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 5,
+    "profile" : "tatr",
+    "model_rows" : 32,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 5,
+    "profile" : "yolox",
+    "model_rows" : 26,
+    "tables" : 2,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 6,
+    "profile" : "tatr",
+    "model_rows" : 12,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 6,
+    "profile" : "yolox",
+    "model_rows" : 27,
+    "tables" : 2,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 7,
+    "profile" : "tatr",
+    "model_rows" : 26,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 7,
+    "profile" : "yolox",
+    "model_rows" : 24,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 8,
+    "profile" : "tatr",
+    "model_rows" : 0,
+    "tables" : 0,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 8,
+    "profile" : "yolox",
+    "model_rows" : 23,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 9,
+    "profile" : "tatr",
+    "model_rows" : 11,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 9,
+    "profile" : "yolox",
+    "model_rows" : 17,
+    "tables" : 3,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 10,
+    "profile" : "tatr",
+    "model_rows" : 7,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 10,
+    "profile" : "yolox",
+    "model_rows" : 0,
+    "tables" : 0,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 11,
+    "profile" : "tatr",
+    "model_rows" : 0,
+    "tables" : 0,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 11,
+    "profile" : "yolox",
+    "model_rows" : 0,
+    "tables" : 0,
+    "outcome" : "OK",
+    "score" : 0.5
+  }, {
+    "source_page" : 1,
+    "profile" : "tatr",
+    "model_rows" : 16,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 1,
+    "profile" : "yolox",
+    "model_rows" : 15,
+    "tables" : 2,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 2,
+    "profile" : "tatr",
+    "model_rows" : 17,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 2,
+    "profile" : "yolox",
+    "model_rows" : 14,
+    "tables" : 2,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 3,
+    "profile" : "tatr",
+    "model_rows" : 0,
+    "tables" : 0,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 3,
+    "profile" : "yolox",
+    "model_rows" : 0,
+    "tables" : 0,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 4,
+    "profile" : "tatr",
+    "model_rows" : 12,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 4,
+    "profile" : "yolox",
+    "model_rows" : 13,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 5,
+    "profile" : "tatr",
+    "model_rows" : 32,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 5,
+    "profile" : "yolox",
+    "model_rows" : 26,
+    "tables" : 2,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 6,
+    "profile" : "tatr",
+    "model_rows" : 12,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 6,
+    "profile" : "yolox",
+    "model_rows" : 27,
+    "tables" : 2,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 7,
+    "profile" : "tatr",
+    "model_rows" : 26,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 7,
+    "profile" : "yolox",
+    "model_rows" : 24,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 8,
+    "profile" : "tatr",
+    "model_rows" : 0,
+    "tables" : 0,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 8,
+    "profile" : "yolox",
+    "model_rows" : 23,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 9,
+    "profile" : "tatr",
+    "model_rows" : 11,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 9,
+    "profile" : "yolox",
+    "model_rows" : 17,
+    "tables" : 3,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 10,
+    "profile" : "tatr",
+    "model_rows" : 7,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 10,
+    "profile" : "yolox",
+    "model_rows" : 0,
+    "tables" : 0,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 11,
+    "profile" : "tatr",
+    "model_rows" : 6,
+    "tables" : 1,
+    "outcome" : "OK",
+    "score" : 0.25
+  }, {
+    "source_page" : 11,
+    "profile" : "yolox",
+    "model_rows" : 0,
+    "tables" : 0,
+    "outcome" : "OK",
+    "score" : 0.25
+  } ],
+  "runtime" : "21.0.12.1+12-LTS",
+  "default_control_observations_exactly_equal" : 22,
+  "all_proposal_and_crop_hashes_equal" : true
+}

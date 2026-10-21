@@ -1,0 +1,166 @@
+{
+  "java_runtime" : "21.0.12.1+12-LTS",
+  "reference_sha256" : "a74afb30827d55813c00adcf198a426eb93e277d70f227f31804cf422f937713",
+  "source_sha256" : "0c96e723535ee671eb0d263702adc9e986fb2817a5e16ab7b7235e593a39eff2",
+  "results" : [ {
+    "profile" : "NATIVE_LINES",
+    "outcome" : "SUCCESS",
+    "warnings" : [ {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "Native PDF extraction has no OCR or full table/layout fidelity guarantee"
+    } ],
+    "association_counts" : {
+      "correct" : 1,
+      "references" : 1,
+      "missed_reference" : 0,
+      "false_positive" : 0,
+      "predictions" : 1
+    },
+    "predictions" : [ {
+      "id" : "1",
+      "page" : 9,
+      "bounds" : [ 36.00001525878906, 541.0706176757812, 419.99951171875, 677.7449951171875 ]
+    } ],
+    "images" : [ {
+      "id" : "",
+      "page" : 1,
+      "bounds" : [ 36.047523498535156, 282.6190185546875, 91.96752166748047, 338.5390319824219 ]
+    }, {
+      "id" : "",
+      "page" : 1,
+      "bounds" : [ 36.047523498535156, 385.078857421875, 45.13722610473633, 397.03900146484375 ]
+    }, {
+      "id" : "",
+      "page" : 9,
+      "bounds" : [ 36.00001525878906, 541.0706176757812, 419.99951171875, 677.7449951171875 ]
+    } ],
+    "image_inventory" : {
+      "unmatched" : 0,
+      "matched" : 3,
+      "references" : 3,
+      "emitted" : 3,
+      "missing" : 0
+    }
+  }, {
+    "profile" : "NATIVE_COLUMNS",
+    "outcome" : "SUCCESS",
+    "warnings" : [ {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "Native PDF extraction has no OCR or full table/layout fidelity guarantee"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    } ],
+    "association_counts" : {
+      "correct" : 1,
+      "references" : 1,
+      "missed_reference" : 0,
+      "false_positive" : 0,
+      "predictions" : 1
+    },
+    "predictions" : [ {
+      "id" : "1",
+      "page" : 9,
+      "bounds" : [ 36.00001525878906, 541.0706176757812, 419.99951171875, 677.7449951171875 ]
+    } ],
+    "images" : [ {
+      "id" : "",
+      "page" : 1,
+      "bounds" : [ 36.047523498535156, 282.6190185546875, 91.96752166748047, 338.5390319824219 ]
+    }, {
+      "id" : "",
+      "page" : 1,
+      "bounds" : [ 36.047523498535156, 385.078857421875, 45.13722610473633, 397.03900146484375 ]
+    }, {
+      "id" : "",
+      "page" : 9,
+      "bounds" : [ 36.00001525878906, 541.0706176757812, 419.99951171875, 677.7449951171875 ]
+    } ],
+    "image_inventory" : {
+      "unmatched" : 0,
+      "matched" : 3,
+      "references" : 3,
+      "emitted" : 3,
+      "missing" : 0
+    }
+  }, {
+    "profile" : "SOURCE_TAGGED_LINES",
+    "outcome" : "SUCCESS",
+    "warnings" : [ {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "Source-tagged tables require complete single-page MCID ownership; unsupported tags use native fallback and no OCR is performed"
+    } ],
+    "association_counts" : {
+      "correct" : 1,
+      "references" : 1,
+      "missed_reference" : 0,
+      "false_positive" : 0,
+      "predictions" : 1
+    },
+    "predictions" : [ {
+      "id" : "1",
+      "page" : 9,
+      "bounds" : [ 36.00001525878906, 541.0706176757812, 419.99951171875, 677.7449951171875 ]
+    } ],
+    "images" : [ {
+      "id" : "",
+      "page" : 1,
+      "bounds" : [ 36.047523498535156, 282.6190185546875, 91.96752166748047, 338.5390319824219 ]
+    }, {
+      "id" : "",
+      "page" : 1,
+      "bounds" : [ 36.047523498535156, 385.078857421875, 45.13722610473633, 397.03900146484375 ]
+    }, {
+      "id" : "",
+      "page" : 9,
+      "bounds" : [ 36.00001525878906, 541.0706176757812, 419.99951171875, 677.7449951171875 ]
+    } ],
+    "image_inventory" : {
+      "unmatched" : 0,
+      "matched" : 3,
+      "references" : 3,
+      "emitted" : 3,
+      "missing" : 0
+    }
+  } ],
+  "limits" : "Development source; rounded placement association, not body completeness, pixel fidelity or semantic figure detection"
+}

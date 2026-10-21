@@ -1,0 +1,13 @@
+{
+  "frozen_at": "2026-10-19T15:09:52.016343+00:00",
+  "baseline_commit": "5187d20",
+  "kind": "authored synthetic regression controls, not external or held-out real-world accuracy",
+  "helper_sha256": "3adae2adf12ceec4d77f49283916193c998107fd475deab8c0d11d56071d70bd",
+  "references_sha256": "d2f02986d3667f27d8349a1378ee3fd592ace8954257a47256ee40d98f711b08",
+  "selection": "All ruled/borderless x wrapped/stacked/grouped/body-wrapped cases, six body rows; grouped includes rowspan2/colspan3. Definitions unchanged from exploratory generation.",
+  "protocol": "Same pinned detector/structure150DPI/fourthreads/KEEP_HIGHER_SCORE, native-first PARTIAL_TEXT. All original single-page PDFs and every anchor retained. Exact row/column/span AND ASCII-normalized cell content; no label input to extraction, shifts or failed-case removal. Missing/multiple tables fail exact case.",
+  "exploration_disclosure": "Earlier topology-only run observed split borderless headers despite matching initial header keys. That result is retained as exploratory-java21.json with its original references/manifest. Final protocol adds text to keys from unchanged authored cell definitions; final references frozen before final extraction. This is post-exploration protocol development, not blind validation.",
+  "detector_sha256": "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+  "structure_sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+  "development_note": "Initial content-scoring attempt rejected incomplete references (missing content_keys), producing no score. Fixed generator and added generated-reference serialization self-test. This final manifest and complete references precede the final runs."
+}

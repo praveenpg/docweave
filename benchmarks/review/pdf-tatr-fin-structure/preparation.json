@@ -1,0 +1,118 @@
+{
+  "checkpoint": "microsoft/table-transformer-structure-recognition-v1.1-fin",
+  "revision": "c8e8338b3aad32867e015e81a7a4fc48b4c955d1",
+  "loading": {
+    "missing_keys": [],
+    "unexpected_keys": [],
+    "mismatched_keys": [],
+    "error_msgs": []
+  },
+  "packages": {
+    "torch": "2.10.0+cpu",
+    "torchvision": "0.25.0+cpu",
+    "transformers": "4.57.6",
+    "onnx": "1.23.2",
+    "safetensors": "0.8.0",
+    "timm": "1.0.30",
+    "numpy": "2.5.2"
+  },
+  "opset": 17,
+  "inputs": [
+    {
+      "prefix": "parity-0",
+      "shape": [
+        1,
+        3,
+        800,
+        1000
+      ],
+      "logits_shape": [
+        1,
+        125,
+        7
+      ],
+      "boxes_shape": [
+        1,
+        125,
+        4
+      ]
+    },
+    {
+      "prefix": "parity-1",
+      "shape": [
+        1,
+        3,
+        1000,
+        667
+      ],
+      "logits_shape": [
+        1,
+        125,
+        7
+      ],
+      "boxes_shape": [
+        1,
+        125,
+        4
+      ]
+    }
+  ],
+  "files": {
+    "config.json": {
+      "bytes": 76761,
+      "sha256": "17a8a6edfb9e394263fa6ba9b82176ebccdfcc5d6cd29121ec91572c7d6be22c"
+    },
+    "export_fin.py": {
+      "bytes": 3225,
+      "sha256": "d693f5930bfe8a1cf82145db859e0b8422445de22fdbf88761a9ee6a782a4a41"
+    },
+    "model-metadata.json": {
+      "bytes": 1614,
+      "sha256": "db24565817c2ad5e5a089c18bd690545b978e990bf0a989af46bed414e11c65e"
+    },
+    "model.safetensors": {
+      "bytes": 115437156,
+      "sha256": "b9e576cd167f6f460aebb53afc0f799e876751b5c1073b593f929aea5c13e46b"
+    },
+    "parity-0-boxes.bin": {
+      "bytes": 2000,
+      "sha256": "62de9a762a75cb629df7de68cd9eb5df1a50c2733aedcdbfb012ed55d99d6846"
+    },
+    "parity-0-input.bin": {
+      "bytes": 9600000,
+      "sha256": "06f16a436e378aa5f1e55f846c905ca856b39dca8d7bd8d5f43f7baf1690da7d"
+    },
+    "parity-0-logits.bin": {
+      "bytes": 3500,
+      "sha256": "d52060ee49921c70a02f795f5346976d22d1620357ba4ecb1f3e0f718bdacaa2"
+    },
+    "parity-0-mask.bin": {
+      "bytes": 6400000,
+      "sha256": "12823c08dfbd334ca467c3d470d9648241b386ceef3d22673b84f20ecd0a1539"
+    },
+    "parity-1-boxes.bin": {
+      "bytes": 2000,
+      "sha256": "7b8f73abb5ae151cc2647cab1809632a880ba8cc007a6bdbf34fcab9bf29a554"
+    },
+    "parity-1-input.bin": {
+      "bytes": 8004000,
+      "sha256": "401b6523b24a228acb1f0a38bc7c922feefbfd3c851156b2c37462f90e08f7c9"
+    },
+    "parity-1-logits.bin": {
+      "bytes": 3500,
+      "sha256": "5377f20655d7148b54244a31fbef4c897ef02384c5cb20da6cce308b9829b93d"
+    },
+    "parity-1-mask.bin": {
+      "bytes": 5336000,
+      "sha256": "19525d5c4d4651136ed8e6687ec862a7002b160b6917baefd44c19eb745f0387"
+    },
+    "preprocessor_config.json": {
+      "bytes": 374,
+      "sha256": "eead409bb80e36ae85b8377642c54550f0504f65688ba3a4967950cafe461df2"
+    },
+    "structure-fin.onnx": {
+      "bytes": 115828335,
+      "sha256": "0d422609343b99a5c776aa1c17c7640e6c51414067bff5642038591e3702d813"
+    }
+  }
+}

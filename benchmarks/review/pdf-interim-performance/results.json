@@ -1,0 +1,2671 @@
+{
+  "manifest_sha256" : "370e48db142d27ed8b23424806aa9a1a40249fdd3f0399cb39e526c1b01a9e9e",
+  "native_worker_sha256" : "e1fae5f24b2565e32cf3998210bb68ec8de297bd34bdc2df86eb9a6e7948e59a",
+  "upstream_worker_sha256" : "cf4d6380c7ccfe24d6d3bdc54ece5672c06b57ecf376c39380a8a795d27fc0d0",
+  "orchestrator_sha256" : "3dd29e8d4dc3232dcb60a114336de580003172a2b50ca370a41920718dbe6f1f",
+  "taskset_executable_sha256" : "0b1215b87e625815ed53f47d99ec4083eb505eb1b0c3b403b077a6cbc02107a3",
+  "zsh_executable_sha256" : "14846ff02a25534afe9a892e89e81f3676ab06aab26eccfa71869a23fb35ec27",
+  "cpu_model" : "model name\t: 12th Gen Intel(R) Core(TM) i9-12900K",
+  "forks" : [ {
+    "id" : "java21-0",
+    "runtime" : "java21",
+    "round" : 0,
+    "whole_process_wall_ns" : 4395974101,
+    "outcome" : "SUCCESS",
+    "executable_sha256" : "e027b99986d1cf081e4ece5e05113653f545fda8e7cd71b4c4da233598bc311c",
+    "full_process_peak_rss_kib" : 506356,
+    "worker" : {
+      "java" : "21.0.12.1+12-LTS",
+      "setup_ns" : 165271852,
+      "available_processors" : 4,
+      "maximum_heap_bytes" : 536870912,
+      "cpu_affinity" : "Cpus_allowed_list:\t0-3",
+      "samples" : [ {
+        "pass" : 0,
+        "elapsed_ns" : 672789542,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "FIRST_PASS",
+        "id" : "recent"
+      }, {
+        "pass" : 0,
+        "elapsed_ns" : 156862476,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "FIRST_PASS",
+        "id" : "next"
+      }, {
+        "pass" : 0,
+        "elapsed_ns" : 326951379,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "FIRST_PASS",
+        "id" : "elife"
+      }, {
+        "pass" : 0,
+        "elapsed_ns" : 163677704,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "FIRST_PASS",
+        "id" : "holdout"
+      }, {
+        "pass" : 0,
+        "elapsed_ns" : 135604195,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "FIRST_PASS",
+        "id" : "business"
+      }, {
+        "pass" : 1,
+        "elapsed_ns" : 95516976,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "WARMUP",
+        "id" : "recent"
+      }, {
+        "pass" : 1,
+        "elapsed_ns" : 65162315,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "WARMUP",
+        "id" : "next"
+      }, {
+        "pass" : 1,
+        "elapsed_ns" : 125396958,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "WARMUP",
+        "id" : "elife"
+      }, {
+        "pass" : 1,
+        "elapsed_ns" : 151220649,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "WARMUP",
+        "id" : "holdout"
+      }, {
+        "pass" : 1,
+        "elapsed_ns" : 118324743,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "WARMUP",
+        "id" : "business"
+      }, {
+        "pass" : 2,
+        "elapsed_ns" : 124877637,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "WARMUP",
+        "id" : "recent"
+      }, {
+        "pass" : 2,
+        "elapsed_ns" : 86453639,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "WARMUP",
+        "id" : "next"
+      }, {
+        "pass" : 2,
+        "elapsed_ns" : 99928973,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "WARMUP",
+        "id" : "elife"
+      }, {
+        "pass" : 2,
+        "elapsed_ns" : 95685117,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "WARMUP",
+        "id" : "holdout"
+      }, {
+        "pass" : 2,
+        "elapsed_ns" : 60406581,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "WARMUP",
+        "id" : "business"
+      }, {
+        "pass" : 3,
+        "elapsed_ns" : 63382592,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "MEASURED",
+        "id" : "recent"
+      }, {
+        "pass" : 3,
+        "elapsed_ns" : 52662480,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "MEASURED",
+        "id" : "next"
+      }, {
+        "pass" : 3,
+        "elapsed_ns" : 88951457,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "MEASURED",
+        "id" : "elife"
+      }, {
+        "pass" : 3,
+        "elapsed_ns" : 92309078,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "MEASURED",
+        "id" : "holdout"
+      }, {
+        "pass" : 3,
+        "elapsed_ns" : 57718005,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "MEASURED",
+        "id" : "business"
+      }, {
+        "pass" : 4,
+        "elapsed_ns" : 90321173,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "MEASURED",
+        "id" : "recent"
+      }, {
+        "pass" : 4,
+        "elapsed_ns" : 57922919,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "MEASURED",
+        "id" : "next"
+      }, {
+        "pass" : 4,
+        "elapsed_ns" : 92082858,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "MEASURED",
+        "id" : "elife"
+      }, {
+        "pass" : 4,
+        "elapsed_ns" : 84904953,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "MEASURED",
+        "id" : "holdout"
+      }, {
+        "pass" : 4,
+        "elapsed_ns" : 49057822,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "MEASURED",
+        "id" : "business"
+      }, {
+        "pass" : 5,
+        "elapsed_ns" : 64075519,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "MEASURED",
+        "id" : "recent"
+      }, {
+        "pass" : 5,
+        "elapsed_ns" : 48125490,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "MEASURED",
+        "id" : "next"
+      }, {
+        "pass" : 5,
+        "elapsed_ns" : 78141440,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "MEASURED",
+        "id" : "elife"
+      }, {
+        "pass" : 5,
+        "elapsed_ns" : 87348860,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "MEASURED",
+        "id" : "holdout"
+      }, {
+        "pass" : 5,
+        "elapsed_ns" : 50411803,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "MEASURED",
+        "id" : "business"
+      }, {
+        "pass" : 6,
+        "elapsed_ns" : 58451046,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "MEASURED",
+        "id" : "recent"
+      }, {
+        "pass" : 6,
+        "elapsed_ns" : 48335920,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "MEASURED",
+        "id" : "next"
+      }, {
+        "pass" : 6,
+        "elapsed_ns" : 76745095,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "MEASURED",
+        "id" : "elife"
+      }, {
+        "pass" : 6,
+        "elapsed_ns" : 86093058,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "MEASURED",
+        "id" : "holdout"
+      }, {
+        "pass" : 6,
+        "elapsed_ns" : 46446386,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "MEASURED",
+        "id" : "business"
+      }, {
+        "pass" : 7,
+        "elapsed_ns" : 56539662,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "MEASURED",
+        "id" : "recent"
+      }, {
+        "pass" : 7,
+        "elapsed_ns" : 44790865,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "MEASURED",
+        "id" : "next"
+      }, {
+        "pass" : 7,
+        "elapsed_ns" : 78601182,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "MEASURED",
+        "id" : "elife"
+      }, {
+        "pass" : 7,
+        "elapsed_ns" : 81688559,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "MEASURED",
+        "id" : "holdout"
+      }, {
+        "pass" : 7,
+        "elapsed_ns" : 49289852,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "MEASURED",
+        "id" : "business"
+      } ]
+    }
+  }, {
+    "id" : "java25-0",
+    "runtime" : "java25",
+    "round" : 0,
+    "whole_process_wall_ns" : 4537408050,
+    "outcome" : "SUCCESS",
+    "executable_sha256" : "c2c5a5d1a1710d082d6732b09e918d7689754e8be62f1e4dcff197a985bd6928",
+    "full_process_peak_rss_kib" : 538312,
+    "worker" : {
+      "java" : "25.0.4+7-LTS",
+      "setup_ns" : 179512441,
+      "available_processors" : 4,
+      "maximum_heap_bytes" : 536870912,
+      "cpu_affinity" : "Cpus_allowed_list:\t0-3",
+      "samples" : [ {
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "elements" : 768,
+        "elapsed_ns" : 688397698,
+        "pass" : 0,
+        "id" : "recent",
+        "phase" : "FIRST_PASS"
+      }, {
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "elements" : 598,
+        "elapsed_ns" : 128355728,
+        "pass" : 0,
+        "id" : "next",
+        "phase" : "FIRST_PASS"
+      }, {
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "elements" : 3739,
+        "elapsed_ns" : 257335184,
+        "pass" : 0,
+        "id" : "elife",
+        "phase" : "FIRST_PASS"
+      }, {
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "elements" : 955,
+        "elapsed_ns" : 201947223,
+        "pass" : 0,
+        "id" : "holdout",
+        "phase" : "FIRST_PASS"
+      }, {
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "elements" : 1408,
+        "elapsed_ns" : 113310877,
+        "pass" : 0,
+        "id" : "business",
+        "phase" : "FIRST_PASS"
+      }, {
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "elements" : 768,
+        "elapsed_ns" : 87616176,
+        "pass" : 1,
+        "id" : "recent",
+        "phase" : "WARMUP"
+      }, {
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "elements" : 598,
+        "elapsed_ns" : 107947311,
+        "pass" : 1,
+        "id" : "next",
+        "phase" : "WARMUP"
+      }, {
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "elements" : 3739,
+        "elapsed_ns" : 204144677,
+        "pass" : 1,
+        "id" : "elife",
+        "phase" : "WARMUP"
+      }, {
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "elements" : 955,
+        "elapsed_ns" : 201849484,
+        "pass" : 1,
+        "id" : "holdout",
+        "phase" : "WARMUP"
+      }, {
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "elements" : 1408,
+        "elapsed_ns" : 92489738,
+        "pass" : 1,
+        "id" : "business",
+        "phase" : "WARMUP"
+      }, {
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "elements" : 768,
+        "elapsed_ns" : 111412233,
+        "pass" : 2,
+        "id" : "recent",
+        "phase" : "WARMUP"
+      }, {
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "elements" : 598,
+        "elapsed_ns" : 73358299,
+        "pass" : 2,
+        "id" : "next",
+        "phase" : "WARMUP"
+      }, {
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "elements" : 3739,
+        "elapsed_ns" : 134409759,
+        "pass" : 2,
+        "id" : "elife",
+        "phase" : "WARMUP"
+      }, {
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "elements" : 955,
+        "elapsed_ns" : 127502407,
+        "pass" : 2,
+        "id" : "holdout",
+        "phase" : "WARMUP"
+      }, {
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "elements" : 1408,
+        "elapsed_ns" : 59983831,
+        "pass" : 2,
+        "id" : "business",
+        "phase" : "WARMUP"
+      }, {
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "elements" : 768,
+        "elapsed_ns" : 98103163,
+        "pass" : 3,
+        "id" : "recent",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "elements" : 598,
+        "elapsed_ns" : 59679039,
+        "pass" : 3,
+        "id" : "next",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "elements" : 3739,
+        "elapsed_ns" : 92472494,
+        "pass" : 3,
+        "id" : "elife",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "elements" : 955,
+        "elapsed_ns" : 88552138,
+        "pass" : 3,
+        "id" : "holdout",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "elements" : 1408,
+        "elapsed_ns" : 55071767,
+        "pass" : 3,
+        "id" : "business",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "elements" : 768,
+        "elapsed_ns" : 62943242,
+        "pass" : 4,
+        "id" : "recent",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "elements" : 598,
+        "elapsed_ns" : 50660699,
+        "pass" : 4,
+        "id" : "next",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "elements" : 3739,
+        "elapsed_ns" : 89042367,
+        "pass" : 4,
+        "id" : "elife",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "elements" : 955,
+        "elapsed_ns" : 86461072,
+        "pass" : 4,
+        "id" : "holdout",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "elements" : 1408,
+        "elapsed_ns" : 52016084,
+        "pass" : 4,
+        "id" : "business",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "elements" : 768,
+        "elapsed_ns" : 74797412,
+        "pass" : 5,
+        "id" : "recent",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "elements" : 598,
+        "elapsed_ns" : 46729216,
+        "pass" : 5,
+        "id" : "next",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "elements" : 3739,
+        "elapsed_ns" : 78750928,
+        "pass" : 5,
+        "id" : "elife",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "elements" : 955,
+        "elapsed_ns" : 87557758,
+        "pass" : 5,
+        "id" : "holdout",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "elements" : 1408,
+        "elapsed_ns" : 47191778,
+        "pass" : 5,
+        "id" : "business",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "elements" : 768,
+        "elapsed_ns" : 58025249,
+        "pass" : 6,
+        "id" : "recent",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "elements" : 598,
+        "elapsed_ns" : 48004291,
+        "pass" : 6,
+        "id" : "next",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "elements" : 3739,
+        "elapsed_ns" : 77563007,
+        "pass" : 6,
+        "id" : "elife",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "elements" : 955,
+        "elapsed_ns" : 85304133,
+        "pass" : 6,
+        "id" : "holdout",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "elements" : 1408,
+        "elapsed_ns" : 46196060,
+        "pass" : 6,
+        "id" : "business",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "elements" : 768,
+        "elapsed_ns" : 61621236,
+        "pass" : 7,
+        "id" : "recent",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "elements" : 598,
+        "elapsed_ns" : 47933355,
+        "pass" : 7,
+        "id" : "next",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "elements" : 3739,
+        "elapsed_ns" : 79848665,
+        "pass" : 7,
+        "id" : "elife",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "elements" : 955,
+        "elapsed_ns" : 83485281,
+        "pass" : 7,
+        "id" : "holdout",
+        "phase" : "MEASURED"
+      }, {
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "elements" : 1408,
+        "elapsed_ns" : 44479611,
+        "pass" : 7,
+        "id" : "business",
+        "phase" : "MEASURED"
+      } ]
+    }
+  }, {
+    "id" : "unstructured028-0",
+    "runtime" : "unstructured028",
+    "round" : 0,
+    "whole_process_wall_ns" : 76821841426,
+    "outcome" : "SUCCESS",
+    "executable_sha256" : "eaaa308032c4aa063df5880c4c293cd458b4629d503fbc2c03ec163d71f7f790",
+    "full_process_peak_rss_kib" : 708188,
+    "worker" : {
+      "python" : "3.12.15 (main, Oct 14 2026, 01:05:27) [Clang 23.1.3 ]",
+      "setup_ns" : 1728778502,
+      "torch_threads" : 4,
+      "cpu_affinity" : [ 0, 1, 2, 3 ],
+      "samples" : [ {
+        "id" : "recent",
+        "phase" : "FIRST_PASS",
+        "pass" : 0,
+        "elapsed_ns" : 1439305340,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "FIRST_PASS",
+        "pass" : 0,
+        "elapsed_ns" : 870739607,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "FIRST_PASS",
+        "pass" : 0,
+        "elapsed_ns" : 3868464489,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "FIRST_PASS",
+        "pass" : 0,
+        "elapsed_ns" : 1509086085,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "FIRST_PASS",
+        "pass" : 0,
+        "elapsed_ns" : 2036384391,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "WARMUP",
+        "pass" : 1,
+        "elapsed_ns" : 1091410808,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "WARMUP",
+        "pass" : 1,
+        "elapsed_ns" : 844872240,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "WARMUP",
+        "pass" : 1,
+        "elapsed_ns" : 3783468227,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "WARMUP",
+        "pass" : 1,
+        "elapsed_ns" : 1470209863,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "WARMUP",
+        "pass" : 1,
+        "elapsed_ns" : 2006009789,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "WARMUP",
+        "pass" : 2,
+        "elapsed_ns" : 1089001308,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "WARMUP",
+        "pass" : 2,
+        "elapsed_ns" : 860592623,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "WARMUP",
+        "pass" : 2,
+        "elapsed_ns" : 3894345821,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "WARMUP",
+        "pass" : 2,
+        "elapsed_ns" : 1378060286,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "WARMUP",
+        "pass" : 2,
+        "elapsed_ns" : 2142219439,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "pass" : 3,
+        "elapsed_ns" : 991856912,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "MEASURED",
+        "pass" : 3,
+        "elapsed_ns" : 977007781,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "pass" : 3,
+        "elapsed_ns" : 3755974715,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "pass" : 3,
+        "elapsed_ns" : 1485481001,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "MEASURED",
+        "pass" : 3,
+        "elapsed_ns" : 2007716372,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "pass" : 4,
+        "elapsed_ns" : 1104550287,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "MEASURED",
+        "pass" : 4,
+        "elapsed_ns" : 856864014,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "pass" : 4,
+        "elapsed_ns" : 3845518715,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "pass" : 4,
+        "elapsed_ns" : 1473208578,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "MEASURED",
+        "pass" : 4,
+        "elapsed_ns" : 1999563843,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "pass" : 5,
+        "elapsed_ns" : 1104640933,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "MEASURED",
+        "pass" : 5,
+        "elapsed_ns" : 860426925,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "pass" : 5,
+        "elapsed_ns" : 3872212465,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "pass" : 5,
+        "elapsed_ns" : 1370607758,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "MEASURED",
+        "pass" : 5,
+        "elapsed_ns" : 2137710985,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "pass" : 6,
+        "elapsed_ns" : 981595103,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "MEASURED",
+        "pass" : 6,
+        "elapsed_ns" : 972600670,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "pass" : 6,
+        "elapsed_ns" : 3744228311,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "pass" : 6,
+        "elapsed_ns" : 1475321484,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "MEASURED",
+        "pass" : 6,
+        "elapsed_ns" : 2014897698,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "pass" : 7,
+        "elapsed_ns" : 1101286138,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "MEASURED",
+        "pass" : 7,
+        "elapsed_ns" : 859955775,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "pass" : 7,
+        "elapsed_ns" : 3812488207,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "pass" : 7,
+        "elapsed_ns" : 1475943970,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "MEASURED",
+        "pass" : 7,
+        "elapsed_ns" : 1976250475,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      } ]
+    }
+  }, {
+    "id" : "java25-1",
+    "runtime" : "java25",
+    "round" : 1,
+    "whole_process_wall_ns" : 4162368930,
+    "outcome" : "SUCCESS",
+    "executable_sha256" : "c2c5a5d1a1710d082d6732b09e918d7689754e8be62f1e4dcff197a985bd6928",
+    "full_process_peak_rss_kib" : 517172,
+    "worker" : {
+      "java" : "25.0.4+7-LTS",
+      "setup_ns" : 180503547,
+      "available_processors" : 4,
+      "maximum_heap_bytes" : 536870912,
+      "cpu_affinity" : "Cpus_allowed_list:\t0-3",
+      "samples" : [ {
+        "id" : "recent",
+        "pass" : 0,
+        "elapsed_ns" : 719770818,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "FIRST_PASS"
+      }, {
+        "id" : "next",
+        "pass" : 0,
+        "elapsed_ns" : 126386493,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "FIRST_PASS"
+      }, {
+        "id" : "elife",
+        "pass" : 0,
+        "elapsed_ns" : 209163408,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "FIRST_PASS"
+      }, {
+        "id" : "holdout",
+        "pass" : 0,
+        "elapsed_ns" : 161618290,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "FIRST_PASS"
+      }, {
+        "id" : "business",
+        "pass" : 0,
+        "elapsed_ns" : 119391205,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "FIRST_PASS"
+      }, {
+        "id" : "recent",
+        "pass" : 1,
+        "elapsed_ns" : 82324451,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "WARMUP"
+      }, {
+        "id" : "next",
+        "pass" : 1,
+        "elapsed_ns" : 100932538,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "WARMUP"
+      }, {
+        "id" : "elife",
+        "pass" : 1,
+        "elapsed_ns" : 176132683,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "WARMUP"
+      }, {
+        "id" : "holdout",
+        "pass" : 1,
+        "elapsed_ns" : 184405758,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "WARMUP"
+      }, {
+        "id" : "business",
+        "pass" : 1,
+        "elapsed_ns" : 91779164,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "WARMUP"
+      }, {
+        "id" : "recent",
+        "pass" : 2,
+        "elapsed_ns" : 88078211,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "WARMUP"
+      }, {
+        "id" : "next",
+        "pass" : 2,
+        "elapsed_ns" : 50482369,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "WARMUP"
+      }, {
+        "id" : "elife",
+        "pass" : 2,
+        "elapsed_ns" : 89051087,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "WARMUP"
+      }, {
+        "id" : "holdout",
+        "pass" : 2,
+        "elapsed_ns" : 88961737,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "WARMUP"
+      }, {
+        "id" : "business",
+        "pass" : 2,
+        "elapsed_ns" : 54709197,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "WARMUP"
+      }, {
+        "id" : "recent",
+        "pass" : 3,
+        "elapsed_ns" : 59363171,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "next",
+        "pass" : 3,
+        "elapsed_ns" : 54103809,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "elife",
+        "pass" : 3,
+        "elapsed_ns" : 97984867,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "holdout",
+        "pass" : 3,
+        "elapsed_ns" : 85801500,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "business",
+        "pass" : 3,
+        "elapsed_ns" : 46706388,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "recent",
+        "pass" : 4,
+        "elapsed_ns" : 60002979,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "next",
+        "pass" : 4,
+        "elapsed_ns" : 46908535,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "elife",
+        "pass" : 4,
+        "elapsed_ns" : 80226020,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "holdout",
+        "pass" : 4,
+        "elapsed_ns" : 83709221,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "business",
+        "pass" : 4,
+        "elapsed_ns" : 47951418,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "recent",
+        "pass" : 5,
+        "elapsed_ns" : 56958936,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "next",
+        "pass" : 5,
+        "elapsed_ns" : 47618499,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "elife",
+        "pass" : 5,
+        "elapsed_ns" : 77594325,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "holdout",
+        "pass" : 5,
+        "elapsed_ns" : 82322415,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "business",
+        "pass" : 5,
+        "elapsed_ns" : 47399078,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "recent",
+        "pass" : 6,
+        "elapsed_ns" : 56102554,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "next",
+        "pass" : 6,
+        "elapsed_ns" : 44385305,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "elife",
+        "pass" : 6,
+        "elapsed_ns" : 75573040,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "holdout",
+        "pass" : 6,
+        "elapsed_ns" : 80102880,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "business",
+        "pass" : 6,
+        "elapsed_ns" : 44849435,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "recent",
+        "pass" : 7,
+        "elapsed_ns" : 56363682,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "next",
+        "pass" : 7,
+        "elapsed_ns" : 43608592,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "elife",
+        "pass" : 7,
+        "elapsed_ns" : 72848289,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "holdout",
+        "pass" : 7,
+        "elapsed_ns" : 81617611,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "MEASURED"
+      }, {
+        "id" : "business",
+        "pass" : 7,
+        "elapsed_ns" : 44372345,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "MEASURED"
+      } ]
+    }
+  }, {
+    "id" : "unstructured028-1",
+    "runtime" : "unstructured028",
+    "round" : 1,
+    "whole_process_wall_ns" : 77026435553,
+    "outcome" : "SUCCESS",
+    "executable_sha256" : "eaaa308032c4aa063df5880c4c293cd458b4629d503fbc2c03ec163d71f7f790",
+    "full_process_peak_rss_kib" : 706704,
+    "worker" : {
+      "python" : "3.12.15 (main, Oct 14 2026, 01:05:27) [Clang 23.1.3 ]",
+      "setup_ns" : 1717494225,
+      "torch_threads" : 4,
+      "cpu_affinity" : [ 0, 1, 2, 3 ],
+      "samples" : [ {
+        "id" : "recent",
+        "phase" : "FIRST_PASS",
+        "pass" : 0,
+        "elapsed_ns" : 1428813820,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "FIRST_PASS",
+        "pass" : 0,
+        "elapsed_ns" : 857389655,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "FIRST_PASS",
+        "pass" : 0,
+        "elapsed_ns" : 3850968584,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "FIRST_PASS",
+        "pass" : 0,
+        "elapsed_ns" : 1506166608,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "FIRST_PASS",
+        "pass" : 0,
+        "elapsed_ns" : 2031644787,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "WARMUP",
+        "pass" : 1,
+        "elapsed_ns" : 1112929307,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "WARMUP",
+        "pass" : 1,
+        "elapsed_ns" : 865554904,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "WARMUP",
+        "pass" : 1,
+        "elapsed_ns" : 3874759137,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "WARMUP",
+        "pass" : 1,
+        "elapsed_ns" : 1356365778,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "WARMUP",
+        "pass" : 1,
+        "elapsed_ns" : 2114532494,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "WARMUP",
+        "pass" : 2,
+        "elapsed_ns" : 979528522,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "WARMUP",
+        "pass" : 2,
+        "elapsed_ns" : 968865674,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "WARMUP",
+        "pass" : 2,
+        "elapsed_ns" : 3725829229,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "WARMUP",
+        "pass" : 2,
+        "elapsed_ns" : 1491122375,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "WARMUP",
+        "pass" : 2,
+        "elapsed_ns" : 2129441583,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "pass" : 3,
+        "elapsed_ns" : 989581819,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "MEASURED",
+        "pass" : 3,
+        "elapsed_ns" : 973190773,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "pass" : 3,
+        "elapsed_ns" : 3776661307,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "pass" : 3,
+        "elapsed_ns" : 1493284771,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "MEASURED",
+        "pass" : 3,
+        "elapsed_ns" : 2007347507,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "pass" : 4,
+        "elapsed_ns" : 1107648508,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "MEASURED",
+        "pass" : 4,
+        "elapsed_ns" : 868650451,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "pass" : 4,
+        "elapsed_ns" : 3885728135,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "pass" : 4,
+        "elapsed_ns" : 1497152519,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "MEASURED",
+        "pass" : 4,
+        "elapsed_ns" : 2003741847,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "pass" : 5,
+        "elapsed_ns" : 1095891419,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "MEASURED",
+        "pass" : 5,
+        "elapsed_ns" : 845404861,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "pass" : 5,
+        "elapsed_ns" : 3852066619,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "pass" : 5,
+        "elapsed_ns" : 1490219997,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "MEASURED",
+        "pass" : 5,
+        "elapsed_ns" : 2008689743,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "pass" : 6,
+        "elapsed_ns" : 1111862257,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "MEASURED",
+        "pass" : 6,
+        "elapsed_ns" : 857246955,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "pass" : 6,
+        "elapsed_ns" : 3865408600,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "pass" : 6,
+        "elapsed_ns" : 1370486594,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "MEASURED",
+        "pass" : 6,
+        "elapsed_ns" : 2135126117,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "pass" : 7,
+        "elapsed_ns" : 977752170,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "MEASURED",
+        "pass" : 7,
+        "elapsed_ns" : 964175527,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "pass" : 7,
+        "elapsed_ns" : 3749079603,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "pass" : 7,
+        "elapsed_ns" : 1493165066,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "MEASURED",
+        "pass" : 7,
+        "elapsed_ns" : 2027186016,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      } ]
+    }
+  }, {
+    "id" : "java21-1",
+    "runtime" : "java21",
+    "round" : 1,
+    "whole_process_wall_ns" : 4656793194,
+    "outcome" : "SUCCESS",
+    "executable_sha256" : "e027b99986d1cf081e4ece5e05113653f545fda8e7cd71b4c4da233598bc311c",
+    "full_process_peak_rss_kib" : 509792,
+    "worker" : {
+      "java" : "21.0.12.1+12-LTS",
+      "setup_ns" : 176188976,
+      "available_processors" : 4,
+      "maximum_heap_bytes" : 536870912,
+      "cpu_affinity" : "Cpus_allowed_list:\t0-3",
+      "samples" : [ {
+        "id" : "recent",
+        "phase" : "FIRST_PASS",
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "elements" : 768,
+        "elapsed_ns" : 701158249,
+        "pass" : 0
+      }, {
+        "id" : "next",
+        "phase" : "FIRST_PASS",
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "elements" : 598,
+        "elapsed_ns" : 162995012,
+        "pass" : 0
+      }, {
+        "id" : "elife",
+        "phase" : "FIRST_PASS",
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "elements" : 3739,
+        "elapsed_ns" : 366745707,
+        "pass" : 0
+      }, {
+        "id" : "holdout",
+        "phase" : "FIRST_PASS",
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "elements" : 955,
+        "elapsed_ns" : 228635523,
+        "pass" : 0
+      }, {
+        "id" : "business",
+        "phase" : "FIRST_PASS",
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "elements" : 1408,
+        "elapsed_ns" : 181759808,
+        "pass" : 0
+      }, {
+        "id" : "recent",
+        "phase" : "WARMUP",
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "elements" : 768,
+        "elapsed_ns" : 134918192,
+        "pass" : 1
+      }, {
+        "id" : "next",
+        "phase" : "WARMUP",
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "elements" : 598,
+        "elapsed_ns" : 97623405,
+        "pass" : 1
+      }, {
+        "id" : "elife",
+        "phase" : "WARMUP",
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "elements" : 3739,
+        "elapsed_ns" : 193185077,
+        "pass" : 1
+      }, {
+        "id" : "holdout",
+        "phase" : "WARMUP",
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "elements" : 955,
+        "elapsed_ns" : 168110705,
+        "pass" : 1
+      }, {
+        "id" : "business",
+        "phase" : "WARMUP",
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "elements" : 1408,
+        "elapsed_ns" : 92211587,
+        "pass" : 1
+      }, {
+        "id" : "recent",
+        "phase" : "WARMUP",
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "elements" : 768,
+        "elapsed_ns" : 106464212,
+        "pass" : 2
+      }, {
+        "id" : "next",
+        "phase" : "WARMUP",
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "elements" : 598,
+        "elapsed_ns" : 82965270,
+        "pass" : 2
+      }, {
+        "id" : "elife",
+        "phase" : "WARMUP",
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "elements" : 3739,
+        "elapsed_ns" : 89656789,
+        "pass" : 2
+      }, {
+        "id" : "holdout",
+        "phase" : "WARMUP",
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "elements" : 955,
+        "elapsed_ns" : 113011666,
+        "pass" : 2
+      }, {
+        "id" : "business",
+        "phase" : "WARMUP",
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "elements" : 1408,
+        "elapsed_ns" : 63419965,
+        "pass" : 2
+      }, {
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "elements" : 768,
+        "elapsed_ns" : 76913933,
+        "pass" : 3
+      }, {
+        "id" : "next",
+        "phase" : "MEASURED",
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "elements" : 598,
+        "elapsed_ns" : 56317008,
+        "pass" : 3
+      }, {
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "elements" : 3739,
+        "elapsed_ns" : 80689200,
+        "pass" : 3
+      }, {
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "elements" : 955,
+        "elapsed_ns" : 85800593,
+        "pass" : 3
+      }, {
+        "id" : "business",
+        "phase" : "MEASURED",
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "elements" : 1408,
+        "elapsed_ns" : 48419570,
+        "pass" : 3
+      }, {
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "elements" : 768,
+        "elapsed_ns" : 58414638,
+        "pass" : 4
+      }, {
+        "id" : "next",
+        "phase" : "MEASURED",
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "elements" : 598,
+        "elapsed_ns" : 49671039,
+        "pass" : 4
+      }, {
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "elements" : 3739,
+        "elapsed_ns" : 82726265,
+        "pass" : 4
+      }, {
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "elements" : 955,
+        "elapsed_ns" : 83410911,
+        "pass" : 4
+      }, {
+        "id" : "business",
+        "phase" : "MEASURED",
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "elements" : 1408,
+        "elapsed_ns" : 61521449,
+        "pass" : 4
+      }, {
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "elements" : 768,
+        "elapsed_ns" : 65924896,
+        "pass" : 5
+      }, {
+        "id" : "next",
+        "phase" : "MEASURED",
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "elements" : 598,
+        "elapsed_ns" : 46789266,
+        "pass" : 5
+      }, {
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "elements" : 3739,
+        "elapsed_ns" : 81298166,
+        "pass" : 5
+      }, {
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "elements" : 955,
+        "elapsed_ns" : 83205906,
+        "pass" : 5
+      }, {
+        "id" : "business",
+        "phase" : "MEASURED",
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "elements" : 1408,
+        "elapsed_ns" : 47357243,
+        "pass" : 5
+      }, {
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "elements" : 768,
+        "elapsed_ns" : 59540883,
+        "pass" : 6
+      }, {
+        "id" : "next",
+        "phase" : "MEASURED",
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "elements" : 598,
+        "elapsed_ns" : 45247666,
+        "pass" : 6
+      }, {
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "elements" : 3739,
+        "elapsed_ns" : 75450170,
+        "pass" : 6
+      }, {
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "elements" : 955,
+        "elapsed_ns" : 84426839,
+        "pass" : 6
+      }, {
+        "id" : "business",
+        "phase" : "MEASURED",
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "elements" : 1408,
+        "elapsed_ns" : 46270038,
+        "pass" : 6
+      }, {
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "elements" : 768,
+        "elapsed_ns" : 59316194,
+        "pass" : 7
+      }, {
+        "id" : "next",
+        "phase" : "MEASURED",
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "elements" : 598,
+        "elapsed_ns" : 44576245,
+        "pass" : 7
+      }, {
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "elements" : 3739,
+        "elapsed_ns" : 74409227,
+        "pass" : 7
+      }, {
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "elements" : 955,
+        "elapsed_ns" : 84298269,
+        "pass" : 7
+      }, {
+        "id" : "business",
+        "phase" : "MEASURED",
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "elements" : 1408,
+        "elapsed_ns" : 45564470,
+        "pass" : 7
+      } ]
+    }
+  }, {
+    "id" : "unstructured028-2",
+    "runtime" : "unstructured028",
+    "round" : 2,
+    "whole_process_wall_ns" : 76666121360,
+    "outcome" : "SUCCESS",
+    "executable_sha256" : "eaaa308032c4aa063df5880c4c293cd458b4629d503fbc2c03ec163d71f7f790",
+    "full_process_peak_rss_kib" : 707032,
+    "worker" : {
+      "python" : "3.12.15 (main, Oct 14 2026, 01:05:27) [Clang 23.1.3 ]",
+      "setup_ns" : 1743396204,
+      "torch_threads" : 4,
+      "cpu_affinity" : [ 0, 1, 2, 3 ],
+      "samples" : [ {
+        "id" : "recent",
+        "phase" : "FIRST_PASS",
+        "pass" : 0,
+        "elapsed_ns" : 1443729090,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "FIRST_PASS",
+        "pass" : 0,
+        "elapsed_ns" : 868451096,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "FIRST_PASS",
+        "pass" : 0,
+        "elapsed_ns" : 3913957418,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "FIRST_PASS",
+        "pass" : 0,
+        "elapsed_ns" : 1521576771,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "FIRST_PASS",
+        "pass" : 0,
+        "elapsed_ns" : 2055225360,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "WARMUP",
+        "pass" : 1,
+        "elapsed_ns" : 1102071284,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "WARMUP",
+        "pass" : 1,
+        "elapsed_ns" : 851715759,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "WARMUP",
+        "pass" : 1,
+        "elapsed_ns" : 3859859939,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "WARMUP",
+        "pass" : 1,
+        "elapsed_ns" : 1339461666,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "WARMUP",
+        "pass" : 1,
+        "elapsed_ns" : 2103387329,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "WARMUP",
+        "pass" : 2,
+        "elapsed_ns" : 983745921,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "WARMUP",
+        "pass" : 2,
+        "elapsed_ns" : 981449775,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "WARMUP",
+        "pass" : 2,
+        "elapsed_ns" : 3762070791,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "WARMUP",
+        "pass" : 2,
+        "elapsed_ns" : 1479362040,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "WARMUP",
+        "pass" : 2,
+        "elapsed_ns" : 2105643055,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "pass" : 3,
+        "elapsed_ns" : 991188368,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "MEASURED",
+        "pass" : 3,
+        "elapsed_ns" : 974554563,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "pass" : 3,
+        "elapsed_ns" : 3726210776,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "pass" : 3,
+        "elapsed_ns" : 1467952321,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "MEASURED",
+        "pass" : 3,
+        "elapsed_ns" : 1978999035,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "pass" : 4,
+        "elapsed_ns" : 1095301032,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "MEASURED",
+        "pass" : 4,
+        "elapsed_ns" : 850875513,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "pass" : 4,
+        "elapsed_ns" : 3857879326,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "pass" : 4,
+        "elapsed_ns" : 1476307552,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "MEASURED",
+        "pass" : 4,
+        "elapsed_ns" : 1965823648,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "pass" : 5,
+        "elapsed_ns" : 1088649619,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "MEASURED",
+        "pass" : 5,
+        "elapsed_ns" : 844459431,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "pass" : 5,
+        "elapsed_ns" : 3853119720,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "pass" : 5,
+        "elapsed_ns" : 1474503356,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "MEASURED",
+        "pass" : 5,
+        "elapsed_ns" : 1974016632,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "pass" : 6,
+        "elapsed_ns" : 1092908198,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "MEASURED",
+        "pass" : 6,
+        "elapsed_ns" : 848105338,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "pass" : 6,
+        "elapsed_ns" : 3815671468,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "pass" : 6,
+        "elapsed_ns" : 1457907209,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "MEASURED",
+        "pass" : 6,
+        "elapsed_ns" : 1970511881,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      }, {
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "pass" : 7,
+        "elapsed_ns" : 985854159,
+        "elements" : 363,
+        "text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6"
+      }, {
+        "id" : "next",
+        "phase" : "MEASURED",
+        "pass" : 7,
+        "elapsed_ns" : 969138628,
+        "elements" : 295,
+        "text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74"
+      }, {
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "pass" : 7,
+        "elapsed_ns" : 3801503531,
+        "elements" : 3343,
+        "text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277"
+      }, {
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "pass" : 7,
+        "elapsed_ns" : 1333839438,
+        "elements" : 259,
+        "text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0"
+      }, {
+        "id" : "business",
+        "phase" : "MEASURED",
+        "pass" : 7,
+        "elapsed_ns" : 2098887709,
+        "elements" : 1504,
+        "text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273"
+      } ]
+    }
+  }, {
+    "id" : "java21-2",
+    "runtime" : "java21",
+    "round" : 2,
+    "whole_process_wall_ns" : 4612123016,
+    "outcome" : "SUCCESS",
+    "executable_sha256" : "e027b99986d1cf081e4ece5e05113653f545fda8e7cd71b4c4da233598bc311c",
+    "full_process_peak_rss_kib" : 508768,
+    "worker" : {
+      "java" : "21.0.12.1+12-LTS",
+      "setup_ns" : 175692121,
+      "available_processors" : 4,
+      "maximum_heap_bytes" : 536870912,
+      "cpu_affinity" : "Cpus_allowed_list:\t0-3",
+      "samples" : [ {
+        "pass" : 0,
+        "elapsed_ns" : 710784338,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "FIRST_PASS",
+        "id" : "recent"
+      }, {
+        "pass" : 0,
+        "elapsed_ns" : 203725162,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "FIRST_PASS",
+        "id" : "next"
+      }, {
+        "pass" : 0,
+        "elapsed_ns" : 309419902,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "FIRST_PASS",
+        "id" : "elife"
+      }, {
+        "pass" : 0,
+        "elapsed_ns" : 234642503,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "FIRST_PASS",
+        "id" : "holdout"
+      }, {
+        "pass" : 0,
+        "elapsed_ns" : 159177215,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "FIRST_PASS",
+        "id" : "business"
+      }, {
+        "pass" : 1,
+        "elapsed_ns" : 123172350,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "WARMUP",
+        "id" : "recent"
+      }, {
+        "pass" : 1,
+        "elapsed_ns" : 60984325,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "WARMUP",
+        "id" : "next"
+      }, {
+        "pass" : 1,
+        "elapsed_ns" : 116036090,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "WARMUP",
+        "id" : "elife"
+      }, {
+        "pass" : 1,
+        "elapsed_ns" : 153925942,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "WARMUP",
+        "id" : "holdout"
+      }, {
+        "pass" : 1,
+        "elapsed_ns" : 108136285,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "WARMUP",
+        "id" : "business"
+      }, {
+        "pass" : 2,
+        "elapsed_ns" : 113652900,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "WARMUP",
+        "id" : "recent"
+      }, {
+        "pass" : 2,
+        "elapsed_ns" : 77123487,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "WARMUP",
+        "id" : "next"
+      }, {
+        "pass" : 2,
+        "elapsed_ns" : 144281506,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "WARMUP",
+        "id" : "elife"
+      }, {
+        "pass" : 2,
+        "elapsed_ns" : 147313535,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "WARMUP",
+        "id" : "holdout"
+      }, {
+        "pass" : 2,
+        "elapsed_ns" : 52905984,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "WARMUP",
+        "id" : "business"
+      }, {
+        "pass" : 3,
+        "elapsed_ns" : 68489128,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "MEASURED",
+        "id" : "recent"
+      }, {
+        "pass" : 3,
+        "elapsed_ns" : 49554451,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "MEASURED",
+        "id" : "next"
+      }, {
+        "pass" : 3,
+        "elapsed_ns" : 93687144,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "MEASURED",
+        "id" : "elife"
+      }, {
+        "pass" : 3,
+        "elapsed_ns" : 85213964,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "MEASURED",
+        "id" : "holdout"
+      }, {
+        "pass" : 3,
+        "elapsed_ns" : 52073771,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "MEASURED",
+        "id" : "business"
+      }, {
+        "pass" : 4,
+        "elapsed_ns" : 64082597,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "MEASURED",
+        "id" : "recent"
+      }, {
+        "pass" : 4,
+        "elapsed_ns" : 60634336,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "MEASURED",
+        "id" : "next"
+      }, {
+        "pass" : 4,
+        "elapsed_ns" : 85661232,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "MEASURED",
+        "id" : "elife"
+      }, {
+        "pass" : 4,
+        "elapsed_ns" : 84130624,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "MEASURED",
+        "id" : "holdout"
+      }, {
+        "pass" : 4,
+        "elapsed_ns" : 49718264,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "MEASURED",
+        "id" : "business"
+      }, {
+        "pass" : 5,
+        "elapsed_ns" : 63301670,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "MEASURED",
+        "id" : "recent"
+      }, {
+        "pass" : 5,
+        "elapsed_ns" : 47001067,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "MEASURED",
+        "id" : "next"
+      }, {
+        "pass" : 5,
+        "elapsed_ns" : 77270336,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "MEASURED",
+        "id" : "elife"
+      }, {
+        "pass" : 5,
+        "elapsed_ns" : 100600057,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "MEASURED",
+        "id" : "holdout"
+      }, {
+        "pass" : 5,
+        "elapsed_ns" : 50112012,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "MEASURED",
+        "id" : "business"
+      }, {
+        "pass" : 6,
+        "elapsed_ns" : 56373799,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "MEASURED",
+        "id" : "recent"
+      }, {
+        "pass" : 6,
+        "elapsed_ns" : 46252776,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "MEASURED",
+        "id" : "next"
+      }, {
+        "pass" : 6,
+        "elapsed_ns" : 75695108,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "MEASURED",
+        "id" : "elife"
+      }, {
+        "pass" : 6,
+        "elapsed_ns" : 83300404,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "MEASURED",
+        "id" : "holdout"
+      }, {
+        "pass" : 6,
+        "elapsed_ns" : 45823969,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "MEASURED",
+        "id" : "business"
+      }, {
+        "pass" : 7,
+        "elapsed_ns" : 56334541,
+        "elements" : 768,
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+        "phase" : "MEASURED",
+        "id" : "recent"
+      }, {
+        "pass" : 7,
+        "elapsed_ns" : 45116058,
+        "elements" : 598,
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+        "phase" : "MEASURED",
+        "id" : "next"
+      }, {
+        "pass" : 7,
+        "elapsed_ns" : 80376942,
+        "elements" : 3739,
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+        "phase" : "MEASURED",
+        "id" : "elife"
+      }, {
+        "pass" : 7,
+        "elapsed_ns" : 81330043,
+        "elements" : 955,
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+        "phase" : "MEASURED",
+        "id" : "holdout"
+      }, {
+        "pass" : 7,
+        "elapsed_ns" : 48882629,
+        "elements" : 1408,
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+        "phase" : "MEASURED",
+        "id" : "business"
+      } ]
+    }
+  }, {
+    "id" : "java25-2",
+    "runtime" : "java25",
+    "round" : 2,
+    "whole_process_wall_ns" : 4253681746,
+    "outcome" : "SUCCESS",
+    "executable_sha256" : "c2c5a5d1a1710d082d6732b09e918d7689754e8be62f1e4dcff197a985bd6928",
+    "full_process_peak_rss_kib" : 518464,
+    "worker" : {
+      "java" : "25.0.4+7-LTS",
+      "setup_ns" : 178435519,
+      "available_processors" : 4,
+      "maximum_heap_bytes" : 536870912,
+      "cpu_affinity" : "Cpus_allowed_list:\t0-3",
+      "samples" : [ {
+        "elements" : 768,
+        "elapsed_ns" : 702030445,
+        "pass" : 0,
+        "id" : "recent",
+        "phase" : "FIRST_PASS",
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c"
+      }, {
+        "elements" : 598,
+        "elapsed_ns" : 151601621,
+        "pass" : 0,
+        "id" : "next",
+        "phase" : "FIRST_PASS",
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9"
+      }, {
+        "elements" : 3739,
+        "elapsed_ns" : 292481851,
+        "pass" : 0,
+        "id" : "elife",
+        "phase" : "FIRST_PASS",
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007"
+      }, {
+        "elements" : 955,
+        "elapsed_ns" : 231403699,
+        "pass" : 0,
+        "id" : "holdout",
+        "phase" : "FIRST_PASS",
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d"
+      }, {
+        "elements" : 1408,
+        "elapsed_ns" : 151150782,
+        "pass" : 0,
+        "id" : "business",
+        "phase" : "FIRST_PASS",
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55"
+      }, {
+        "elements" : 768,
+        "elapsed_ns" : 130148859,
+        "pass" : 1,
+        "id" : "recent",
+        "phase" : "WARMUP",
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c"
+      }, {
+        "elements" : 598,
+        "elapsed_ns" : 60903797,
+        "pass" : 1,
+        "id" : "next",
+        "phase" : "WARMUP",
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9"
+      }, {
+        "elements" : 3739,
+        "elapsed_ns" : 124746814,
+        "pass" : 1,
+        "id" : "elife",
+        "phase" : "WARMUP",
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007"
+      }, {
+        "elements" : 955,
+        "elapsed_ns" : 111776809,
+        "pass" : 1,
+        "id" : "holdout",
+        "phase" : "WARMUP",
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d"
+      }, {
+        "elements" : 1408,
+        "elapsed_ns" : 59082758,
+        "pass" : 1,
+        "id" : "business",
+        "phase" : "WARMUP",
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55"
+      }, {
+        "elements" : 768,
+        "elapsed_ns" : 68493479,
+        "pass" : 2,
+        "id" : "recent",
+        "phase" : "WARMUP",
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c"
+      }, {
+        "elements" : 598,
+        "elapsed_ns" : 50426884,
+        "pass" : 2,
+        "id" : "next",
+        "phase" : "WARMUP",
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9"
+      }, {
+        "elements" : 3739,
+        "elapsed_ns" : 90967444,
+        "pass" : 2,
+        "id" : "elife",
+        "phase" : "WARMUP",
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007"
+      }, {
+        "elements" : 955,
+        "elapsed_ns" : 89026506,
+        "pass" : 2,
+        "id" : "holdout",
+        "phase" : "WARMUP",
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d"
+      }, {
+        "elements" : 1408,
+        "elapsed_ns" : 54396973,
+        "pass" : 2,
+        "id" : "business",
+        "phase" : "WARMUP",
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55"
+      }, {
+        "elements" : 768,
+        "elapsed_ns" : 67977925,
+        "pass" : 3,
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c"
+      }, {
+        "elements" : 598,
+        "elapsed_ns" : 61982044,
+        "pass" : 3,
+        "id" : "next",
+        "phase" : "MEASURED",
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9"
+      }, {
+        "elements" : 3739,
+        "elapsed_ns" : 88591902,
+        "pass" : 3,
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007"
+      }, {
+        "elements" : 955,
+        "elapsed_ns" : 115158598,
+        "pass" : 3,
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d"
+      }, {
+        "elements" : 1408,
+        "elapsed_ns" : 50757564,
+        "pass" : 3,
+        "id" : "business",
+        "phase" : "MEASURED",
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55"
+      }, {
+        "elements" : 768,
+        "elapsed_ns" : 58598749,
+        "pass" : 4,
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c"
+      }, {
+        "elements" : 598,
+        "elapsed_ns" : 47712078,
+        "pass" : 4,
+        "id" : "next",
+        "phase" : "MEASURED",
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9"
+      }, {
+        "elements" : 3739,
+        "elapsed_ns" : 75258330,
+        "pass" : 4,
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007"
+      }, {
+        "elements" : 955,
+        "elapsed_ns" : 84014159,
+        "pass" : 4,
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d"
+      }, {
+        "elements" : 1408,
+        "elapsed_ns" : 52455916,
+        "pass" : 4,
+        "id" : "business",
+        "phase" : "MEASURED",
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55"
+      }, {
+        "elements" : 768,
+        "elapsed_ns" : 58892808,
+        "pass" : 5,
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c"
+      }, {
+        "elements" : 598,
+        "elapsed_ns" : 48099618,
+        "pass" : 5,
+        "id" : "next",
+        "phase" : "MEASURED",
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9"
+      }, {
+        "elements" : 3739,
+        "elapsed_ns" : 78375881,
+        "pass" : 5,
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007"
+      }, {
+        "elements" : 955,
+        "elapsed_ns" : 81536414,
+        "pass" : 5,
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d"
+      }, {
+        "elements" : 1408,
+        "elapsed_ns" : 54765899,
+        "pass" : 5,
+        "id" : "business",
+        "phase" : "MEASURED",
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55"
+      }, {
+        "elements" : 768,
+        "elapsed_ns" : 56188758,
+        "pass" : 6,
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c"
+      }, {
+        "elements" : 598,
+        "elapsed_ns" : 43730379,
+        "pass" : 6,
+        "id" : "next",
+        "phase" : "MEASURED",
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9"
+      }, {
+        "elements" : 3739,
+        "elapsed_ns" : 75597410,
+        "pass" : 6,
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007"
+      }, {
+        "elements" : 955,
+        "elapsed_ns" : 85972022,
+        "pass" : 6,
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d"
+      }, {
+        "elements" : 1408,
+        "elapsed_ns" : 45887515,
+        "pass" : 6,
+        "id" : "business",
+        "phase" : "MEASURED",
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55"
+      }, {
+        "elements" : 768,
+        "elapsed_ns" : 57841013,
+        "pass" : 7,
+        "id" : "recent",
+        "phase" : "MEASURED",
+        "text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c"
+      }, {
+        "elements" : 598,
+        "elapsed_ns" : 44186750,
+        "pass" : 7,
+        "id" : "next",
+        "phase" : "MEASURED",
+        "text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9"
+      }, {
+        "elements" : 3739,
+        "elapsed_ns" : 74216696,
+        "pass" : 7,
+        "id" : "elife",
+        "phase" : "MEASURED",
+        "text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007"
+      }, {
+        "elements" : 955,
+        "elapsed_ns" : 85914809,
+        "pass" : 7,
+        "id" : "holdout",
+        "phase" : "MEASURED",
+        "text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d"
+      }, {
+        "elements" : 1408,
+        "elapsed_ns" : 45608441,
+        "pass" : 7,
+        "id" : "business",
+        "phase" : "MEASURED",
+        "text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55"
+      } ]
+    }
+  } ]
+}

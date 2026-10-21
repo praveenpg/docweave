@@ -1,0 +1,13 @@
+{
+  "runtime": "openjdk version \"25.0.4\" 2026-07-21 LTS\nOpenJDK Runtime Environment Corretto-25.0.4.7.1 (build 25.0.4+7-LTS)\nOpenJDK 64-Bit Server VM Corretto-25.0.4.7.1 (build 25.0.4+7-LTS, mixed mode, sharing)\n",
+  "build_and_runtime": "Maven verify on JDK25, production targeting release21; real OCR properties enabled",
+  "tests": 706,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "production_class_count": 221,
+  "production_class_major_versions": [
+    65
+  ],
+  "standalone_sources_compiled_with_release21": 15
+}

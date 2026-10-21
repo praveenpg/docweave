@@ -1,0 +1,38 @@
+{
+  "java_version": "21.0.12.1",
+  "full_tests": {
+    "tests": 1233,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "focused_tests": 12,
+  "owned_raster_equivalent_pairs": 100,
+  "owned_restored_paint_controls": 12,
+  "source_files": [
+    {
+      "path": "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java",
+      "sha256": "2bc8a4d9357308e4009b864099ec9bb8e73196efcc8d722f700322e5c4a406a1"
+    },
+    {
+      "path": "docweave-pdf/src/test/java/dev/docweave/partition/PdfEmptyFormClipTest.java",
+      "sha256": "28bb704da6176e94dc7f6ba618ad2ccb4014e00b26dc6d3e456fd530faedfc81"
+    }
+  ],
+  "regression": [
+    {
+      "baseline": "benchmarks/review/pdf-source-image-corners/scientific-after-java21.json",
+      "baseline_sha256": "28b0bbeb4fd27aab6e28c8e7c7c108b03b9867428a20e292152a55c66a5d6eb2",
+      "candidate_report_sha256": "28b0bbeb4fd27aab6e28c8e7c7c108b03b9867428a20e292152a55c66a5d6eb2",
+      "observations": 15,
+      "results_tree_exact": true
+    },
+    {
+      "baseline": "benchmarks/review/pdf-source-image-corners/nvidia-java21.json",
+      "baseline_sha256": "cf0659102c295fc003ffd279827b4eef2b838ca9b8dd8744e64f6eba0129669b",
+      "candidate_report_sha256": "711d01c5598d1a37964c7d51d7c45ac36f6112ca4e2bd8d6cffdba34d429b475",
+      "observations": 39,
+      "results_tree_exact": true
+    }
+  ]
+}

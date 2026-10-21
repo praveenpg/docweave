@@ -1,0 +1,136 @@
+{
+  "frozen_at": "2026-10-20T22:52:41.247737+00:00",
+  "selection_sha256": "7110dcd68db67ea332b5cfaca6e28712bff9082b764bdf1acdcdf62978e1c2a6",
+  "profiles": [
+    {
+      "language": "deu",
+      "filename": "deu.traineddata",
+      "bytes": 8628461,
+      "sha256": "8407331d6aa0229dc927685c01a7938fc5a641d1a9524f74838cdac599f0d06e",
+      "git_blob_sha1": "6dd654880db617f3edfa00bc2ed9c9e3107b8fd0",
+      "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/deu.traineddata",
+      "page_segmentation": "AUTO",
+      "thresholding": "ENGINE_DEFAULT"
+    },
+    {
+      "language": "deu_latf",
+      "filename": "deu_latf.traineddata",
+      "bytes": 12938047,
+      "sha256": "429b8c33d37e1a4823a2bb082a644ff13e252f735b7945e08a518d22ddcc459e",
+      "git_blob_sha1": "cc64c41d469dd0d2791e26d6da8c0fa5d4ef94c0",
+      "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/deu_latf.traineddata",
+      "page_segmentation": "AUTO",
+      "thresholding": "ENGINE_DEFAULT"
+    }
+  ],
+  "cases": [
+    {
+      "id": "arnimb_goethe03_1835",
+      "year": 1835,
+      "image": "arnimb_goethe03_1835.tif",
+      "xml": "arnimb_goethe03_1835.xml",
+      "width": 1675,
+      "height": 2286,
+      "expected_lines": 22,
+      "reference_code_points": 1059,
+      "reference_text_sha256": "5e76b0630d86aa651978057208e87159031c788fc347d11f6c9648b2cd86cb20",
+      "inputs": [
+        {
+          "filename": "arnimb_goethe03_1835.tif",
+          "bytes": 12156546,
+          "sha256": "ad0320478393bf50cfecfeaa957cf84937a6aadae25deac29d028a925f30e264",
+          "git_blob_sha1": "d989fd0c9ded1916cc89313f4a10d55f1e7688c5"
+        },
+        {
+          "filename": "arnimb_goethe03_1835.xml",
+          "bytes": 78215,
+          "sha256": "7204b05a4b4ca99b790f93baf2def833690aa48abb93a123d75c20b77b291713",
+          "git_blob_sha1": "4965d7544104a49eedd28037753aa2e1439aea0c"
+        }
+      ],
+      "source_dpi": 300
+    },
+    {
+      "id": "bebel_frau_1879",
+      "year": 1879,
+      "image": "bebel_frau_1879.tif",
+      "xml": "bebel_frau_1879.xml",
+      "width": 3068,
+      "height": 4660,
+      "expected_lines": 50,
+      "reference_code_points": 3049,
+      "reference_text_sha256": "8cedf62f0111a95d1c5a63d62303086acb25c5a4be572d9dbfd0fbfae80def7d",
+      "inputs": [
+        {
+          "filename": "bebel_frau_1879.tif",
+          "bytes": 268414,
+          "sha256": "261b727a9175152eab3b1175497f07e15f4ba35942e5a4322996a7745f0c89ea",
+          "git_blob_sha1": "ce63a3d731fd64ef5da1c253691c7843ffd1fa6b"
+        },
+        {
+          "filename": "bebel_frau_1879.xml",
+          "bytes": 177176,
+          "sha256": "c604c931b76195730b61513208d9998162331b4f841eba153d0ca8b629696315",
+          "git_blob_sha1": "0155f803add9f249ce99fa8e9002c72ef2f83ebb"
+        }
+      ],
+      "source_dpi": 600
+    },
+    {
+      "id": "buerger_gedichte_1778_0039",
+      "year": 1778,
+      "image": "buerger_gedichte_1778_0039.tif",
+      "xml": "buerger_gedichte_1778_0039.xml",
+      "width": 1440,
+      "height": 1929,
+      "expected_lines": 38,
+      "reference_code_points": 948,
+      "reference_text_sha256": "4a77b9fff1a8858b2381601798ba9a0a4192af5a5b5f6fbf0a46664c8394bf7e",
+      "inputs": [
+        {
+          "filename": "buerger_gedichte_1778_0039.xml",
+          "bytes": 40761,
+          "sha256": "1c6c94ff6dd2823d3ce0197ace5973cae356540c9768de5d05aeb99bd560179d",
+          "git_blob_sha1": "983e7be65b38e96eaee34978c77cd9ec7033debd"
+        },
+        {
+          "filename": "buerger_gedichte_1778_0039.tif",
+          "bytes": 9002676,
+          "sha256": "e391f6e2347fa85fb9a0c1a3379b641874e0d771fbd8775cf0a0979e0ead07c5",
+          "git_blob_sha1": "7bdae065d2ca94da2efe9fee54c5059e6233560f"
+        }
+      ],
+      "source_dpi": 300
+    },
+    {
+      "id": "nn_besuch_1780_00001",
+      "year": 1780,
+      "image": "nn_besuch_1780_00001.tif",
+      "xml": "nn_besuch_1780_00001.xml",
+      "width": 2000,
+      "height": 2271,
+      "expected_lines": 10,
+      "reference_code_points": 322,
+      "reference_text_sha256": "c71649df20ebaac27a621710a0994fab3e14c6bdc135dc52145c6f0be89438e7",
+      "inputs": [
+        {
+          "filename": "nn_besuch_1780_00001.xml",
+          "bytes": 13105,
+          "sha256": "be5429a9c1a3555406664ebdf3fe40fea9ecbbc38915a63f965bff29a8e7a551",
+          "git_blob_sha1": "ad9616622f8b8575cb38cd782589f692ebd16648"
+        },
+        {
+          "filename": "nn_besuch_1780_00001.tif",
+          "bytes": 13648136,
+          "sha256": "5728ea1277fd3521ec2d5088584f6e749f67d99891d4f9e7b8362ddea8e8390a",
+          "git_blob_sha1": "83a79d7fd54c60630812c6b55c2420e26d96b49d"
+        }
+      ],
+      "source_dpi": 300
+    }
+  ],
+  "evaluation_resolution": "explicit original TIFF inch DPI, physical PDF page dimensions, unchanged exact rendered RGB, public PDF coordinates mapped to source pixels",
+  "prior_manifest_sha256": "4a903f4c7a80e80c6c814f73c10161db52078d71275f6c4689f6b7565498d2d8",
+  "prior_selection_sha256": "5bb929c65d363e94e2e5fab1e1f25ebba81e191c09754754f2d39eee419a5c57",
+  "experiment": "Uniform evaluation-only contrast-limited histograms, tile64pixels at300DPI scaled to actualsourceDPI, clip2timesmeanbin, deterministic mass redistribution, bilinear CDF maps, uniform-tile identity, alphaoverwhite. All4fixed original sources/bothfixedmodels/8calls, full5378referencecodepoints permodel, unchangedAUTO/ENGINE_DEFAULT, no sourcewinner/crop/text/reference normalization or composition."
+}

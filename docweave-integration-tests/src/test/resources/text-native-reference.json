@@ -1,0 +1,532 @@
+{
+  "reference": {
+    "upstream_commit": "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",
+    "python": "3.13.16",
+    "scope": "Eight synthetic TXT/CSV/TSV runs; no full option/parser parity claim",
+    "source_verification": "Selected pinned files verified before import, not the entire Git tree",
+    "source_sha256": {
+      "unstructured/chunking/base.py": "076daa0ba00212217d6d9bef60156a364f3b50684ce5d5c8168f7ea8cd97ea42",
+      "unstructured/chunking/basic.py": "68d6fde873e5f744ab0527717f029bfe0c8b232df03bcba25359b466d5d77159",
+      "unstructured/chunking/title.py": "f5305324030bb77100584bb8b432b8b2110f3c280b1d697dcc2b41f65dce2f23",
+      "unstructured/documents/elements.py": "94f0f5eca1d987b2e1e5c574417e62305fae4556bb572bf95918861047954d0c",
+      "unstructured/common/html_table.py": "741e09b2b057438e1044c33b2592179e055f75e5664600657b000310caa85bd5",
+      "unstructured/partition/docx.py": "623ef4c7d41dc8ad227a4524c0fe7b58b9688bad86623e81739c6def67f59f2a",
+      "unstructured/partition/text_type.py": "a423f9917c8740a00c04fa4aad6e8794ba9dd8d6e1071377c42878d3d3b20ac5",
+      "unstructured/nlp/tokenize.py": "22347992441136da156a6df38ad6298eda24944918e5edef581415c8bab84d42",
+      "unstructured/partition/common/metadata.py": "f9955fe62a7a695acdfd54b7a1874ed8c4b547de15e1f668bb6b7a1f124cd5d9",
+      "unstructured/partition/common/lang.py": "9c1f7d17c37c59a98b25b047e420ef1ba9f08d3edda74b93761ad7081c6be32c",
+      "unstructured/partition/text.py": "dc1ec9c0899333e44f20516725c85074d5321d6cce953111461068e1222cb84f",
+      "unstructured/partition/csv.py": "cc52699294f4b21e6383aa261ad42e2d48085f6a73b31172a54327eeabb2d546",
+      "unstructured/partition/tsv.py": "01eb4adf1550d14679f26bebc4f64b163dcb865f09e0c96a1ec9a97f4f14f247",
+      "unstructured/cleaners/core.py": "290b210370a38b3cdd0d30e5e20f8ea9e41ba69dcaa9aa371477b3dd9f6dd362"
+    },
+    "model": {
+      "name": "en_core_web_sm",
+      "version": "3.8.0",
+      "wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+      "installed_package_verified": true
+    },
+    "dependencies": {
+      "pandas": "3.0.6",
+      "python-dateutil": "2.9.0.post0",
+      "nh3": "0.3.7",
+      "Markdown": "3.11.1",
+      "soupsieve": "3.0.3",
+      "beautifulsoup4": "4.15.0",
+      "en_core_web_sm": "3.8.0",
+      "catalogue": "2.0.10",
+      "shellingham": "1.5.4",
+      "langdetect": "1.0.9",
+      "spacy": "3.8.16",
+      "spacy-loggers": "1.0.5",
+      "numpy": "2.5.4",
+      "installer": "1.1.0",
+      "tqdm": "4.70.1",
+      "confection": "1.3.3",
+      "thinc": "8.3.13",
+      "httpx": "0.28.1",
+      "cymem": "2.0.13",
+      "blis": "1.3.3",
+      "httpcore": "1.0.9",
+      "weasel": "1.0.0",
+      "python-iso639": "2026.7.23",
+      "rich": "15.0.0",
+      "annotated-doc": "0.0.5",
+      "python-docx": "1.2.0",
+      "filelock": "4.2.0",
+      "typer": "0.27.3",
+      "MarkupSafe": "3.0.4",
+      "setuptools": "84.0.0",
+      "srsly": "2.5.4",
+      "Pygments": "2.21.0",
+      "preshed": "3.0.13",
+      "typing-inspection": "0.4.4",
+      "click": "8.5.0",
+      "pydantic": "2.14.1",
+      "markdown-it-py": "4.2.0",
+      "spacy-legacy": "3.0.12",
+      "pydantic_core": "2.50.1",
+      "h11": "0.16.0",
+      "smart_open": "8.0.3",
+      "cloudpathlib": "0.26.0",
+      "Jinja2": "3.1.6",
+      "mdurl": "0.1.2",
+      "packaging": "26.3",
+      "wasabi": "1.1.3",
+      "annotated-types": "0.8.0",
+      "anyio": "4.15.1",
+      "six": "1.17.0",
+      "murmurhash": "1.0.15",
+      "python-magic": "0.4.27",
+      "wrapt": "2.5.1",
+      "urllib3": "2.8.0",
+      "charset-normalizer": "3.5.2",
+      "lxml": "6.1.3",
+      "typing_extensions": "4.16.0",
+      "idna": "3.20",
+      "psutil": "7.2.2",
+      "regex": "2026.9.29",
+      "emoji": "2.16.0",
+      "requests": "2.34.2",
+      "certifi": "2026.7.22"
+    }
+  },
+  "cases": [
+    {
+      "name": "plain-default",
+      "input": "plain.txt",
+      "input_sha256": "0acee5d30a974818d20cdf250e83149e9ee78416102d7a200692fdee4f60c25c",
+      "entrypoint": "public partition_text",
+      "upstream_options": {
+        "metadata_filename": "plain.txt",
+        "languages": [
+          "eng"
+        ]
+      },
+      "upstream_output": [
+        {
+          "type": "Title",
+          "element_id": "ab27705d4f57bf13dbfbe9275f6d3d0c",
+          "text": "DocWeave sample",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "plain.txt",
+            "filetype": "text/plain"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "f8fcda89397b4fe87881e16e8ea40b90",
+          "text": "This document contains two paragraphs. It is a synthetic fixture for checking text extraction.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "plain.txt",
+            "filetype": "text/plain",
+            "parent_id": "ab27705d4f57bf13dbfbe9275f6d3d0c"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "0447ab5ba384ff92bac8a8e705bf28dc",
+          "text": "The second paragraph contains supplementary Unicode: 🧵 and 𐐀. Chunk sizes must count Unicode code points.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "plain.txt",
+            "filetype": "text/plain",
+            "parent_id": "ab27705d4f57bf13dbfbe9275f6d3d0c"
+          }
+        }
+      ]
+    },
+    {
+      "name": "text-auto",
+      "input": "text-policies.txt",
+      "input_sha256": "57d6a05774f673439186753df043a31cdcbd5ea6e469427e4f0b5cf2bc0d5e95",
+      "entrypoint": "public partition_text",
+      "upstream_options": {
+        "metadata_filename": "text-policies.txt",
+        "languages": [
+          "eng"
+        ]
+      },
+      "upstream_output": [
+        {
+          "type": "Title",
+          "element_id": "1fefe62a1316adbc58583df9ac30286c",
+          "text": "Report",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "text-policies.txt",
+            "filetype": "text/plain"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "c92401b90a6480d8f5f0be2d327589ab",
+          "text": "This sentence wraps",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "text-policies.txt",
+            "filetype": "text/plain",
+            "parent_id": "1fefe62a1316adbc58583df9ac30286c"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "67fae57c149a46e4da1fd345432fc86b",
+          "text": "onto a second line.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "text-policies.txt",
+            "filetype": "text/plain"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "f34bd3c25fd97e2d094dfb9bc16c47e2",
+          "text": "Another sentence ends.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "text-policies.txt",
+            "filetype": "text/plain",
+            "parent_id": "67fae57c149a46e4da1fd345432fc86b"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "8f5109443f40b71bc75e10464685c741",
+          "text": "First item continues here",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "text-policies.txt",
+            "filetype": "text/plain",
+            "parent_id": "67fae57c149a46e4da1fd345432fc86b"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "fddc3a40551dde22ccf7ecb8748257b6",
+          "text": "Second item",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "text-policies.txt",
+            "filetype": "text/plain",
+            "parent_id": "67fae57c149a46e4da1fd345432fc86b"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "cdcbcebfb72d14687271326e75b4db78",
+          "text": "Last paragraph.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "text-policies.txt",
+            "filetype": "text/plain"
+          }
+        }
+      ]
+    },
+    {
+      "name": "text-no-grouper",
+      "input": "text-policies.txt",
+      "input_sha256": "57d6a05774f673439186753df043a31cdcbd5ea6e469427e4f0b5cf2bc0d5e95",
+      "entrypoint": "public partition_text",
+      "upstream_options": {
+        "metadata_filename": "text-policies.txt",
+        "languages": [
+          "eng"
+        ],
+        "paragraph_grouper": false
+      },
+      "upstream_output": [
+        {
+          "type": "Title",
+          "element_id": "1fefe62a1316adbc58583df9ac30286c",
+          "text": "Report",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "text-policies.txt",
+            "filetype": "text/plain"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "c92401b90a6480d8f5f0be2d327589ab",
+          "text": "This sentence wraps",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "text-policies.txt",
+            "filetype": "text/plain",
+            "parent_id": "1fefe62a1316adbc58583df9ac30286c"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "67fae57c149a46e4da1fd345432fc86b",
+          "text": "onto a second line.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "text-policies.txt",
+            "filetype": "text/plain"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "f34bd3c25fd97e2d094dfb9bc16c47e2",
+          "text": "Another sentence ends.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "text-policies.txt",
+            "filetype": "text/plain",
+            "parent_id": "67fae57c149a46e4da1fd345432fc86b"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "a91872dfdfcdab4c8969f87932e4015e",
+          "text": "First item",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "text-policies.txt",
+            "filetype": "text/plain",
+            "parent_id": "67fae57c149a46e4da1fd345432fc86b"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "4b999264d404a75a090685dc07734502",
+          "text": "continues here",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "text-policies.txt",
+            "filetype": "text/plain",
+            "parent_id": "67fae57c149a46e4da1fd345432fc86b"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "f703982a7f90bbd4eff4df606739d35e",
+          "text": "Second item",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "text-policies.txt",
+            "filetype": "text/plain",
+            "parent_id": "67fae57c149a46e4da1fd345432fc86b"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "918ee494b6728729a46c7c2209002467",
+          "text": "Last paragraph.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "text-policies.txt",
+            "filetype": "text/plain"
+          }
+        }
+      ]
+    },
+    {
+      "name": "text-size-keywords",
+      "input": "plain.txt",
+      "input_sha256": "0acee5d30a974818d20cdf250e83149e9ee78416102d7a200692fdee4f60c25c",
+      "entrypoint": "public partition_text",
+      "upstream_options": {
+        "metadata_filename": "plain.txt",
+        "languages": [
+          "eng"
+        ],
+        "min_partition": 10,
+        "max_partition": 30
+      },
+      "upstream_output": [
+        {
+          "type": "Title",
+          "element_id": "ab27705d4f57bf13dbfbe9275f6d3d0c",
+          "text": "DocWeave sample",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "plain.txt",
+            "filetype": "text/plain"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "f8fcda89397b4fe87881e16e8ea40b90",
+          "text": "This document contains two paragraphs. It is a synthetic fixture for checking text extraction.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "plain.txt",
+            "filetype": "text/plain",
+            "parent_id": "ab27705d4f57bf13dbfbe9275f6d3d0c"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "0447ab5ba384ff92bac8a8e705bf28dc",
+          "text": "The second paragraph contains supplementary Unicode: 🧵 and 𐐀. Chunk sizes must count Unicode code points.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "plain.txt",
+            "filetype": "text/plain",
+            "parent_id": "ab27705d4f57bf13dbfbe9275f6d3d0c"
+          }
+        }
+      ]
+    },
+    {
+      "name": "csv-header-false",
+      "input": "quoted.csv",
+      "input_sha256": "ce7ce935f9d620308af1ef10050afa3cf88110033117c1636d023c68bcbd8333",
+      "entrypoint": "public partition_csv",
+      "upstream_options": {
+        "metadata_filename": "quoted.csv",
+        "languages": [
+          "eng"
+        ],
+        "include_header": false
+      },
+      "upstream_output": [
+        {
+          "type": "Table",
+          "element_id": "55e5573d2b18a6fe5c7eb13342555435",
+          "text": "name id note empty Doe, Jane 00123 First\\nsecond \"quoted\" line West & East 00456 <tag> stays text",
+          "metadata": {
+            "text_as_html": "<table><tr><td>name</td><td>id</td><td>note</td><td>empty</td></tr><tr><td>Doe, Jane</td><td>00123</td><td>First\\nsecond \"quoted\" line</td><td/></tr><tr><td>West &amp; East</td><td>00456</td><td>&lt;tag&gt; stays text</td><td/></tr></table>",
+            "languages": [
+              "eng"
+            ],
+            "filename": "quoted.csv",
+            "filetype": "text/csv"
+          }
+        }
+      ]
+    },
+    {
+      "name": "csv-header-true",
+      "input": "quoted.csv",
+      "input_sha256": "ce7ce935f9d620308af1ef10050afa3cf88110033117c1636d023c68bcbd8333",
+      "entrypoint": "public partition_csv",
+      "upstream_options": {
+        "metadata_filename": "quoted.csv",
+        "languages": [
+          "eng"
+        ],
+        "include_header": true
+      },
+      "upstream_output": [
+        {
+          "type": "Table",
+          "element_id": "d35552fd338bde9a09ff827bf888f43f",
+          "text": "name id note empty Doe, Jane 123 First\\nsecond \"quoted\" line West & East 456 <tag> stays text",
+          "metadata": {
+            "text_as_html": "<table><tr><td>name</td><td>id</td><td>note</td><td>empty</td></tr><tr><td>Doe, Jane</td><td>123</td><td>First\\nsecond \"quoted\" line</td><td/></tr><tr><td>West &amp; East</td><td>456</td><td>&lt;tag&gt; stays text</td><td/></tr></table>",
+            "languages": [
+              "eng"
+            ],
+            "filename": "quoted.csv",
+            "filetype": "text/csv"
+          }
+        }
+      ]
+    },
+    {
+      "name": "tsv-header-false",
+      "input": "quoted.tsv",
+      "input_sha256": "fd855d1b7a0a9826d7b0436ff5b9416e655b34b1d26a73eb3bbe8cc340e3ffb7",
+      "entrypoint": "public partition_tsv",
+      "upstream_options": {
+        "metadata_filename": "quoted.tsv",
+        "languages": [
+          "eng"
+        ],
+        "include_header": false
+      },
+      "upstream_output": [
+        {
+          "type": "Table",
+          "element_id": "c43f8a2671ea3d06b4504a7f4e2f2c7f",
+          "text": "name id note West 00123 A\\tB East 00456 First\\nsecond line",
+          "metadata": {
+            "text_as_html": "<table><tr><td>name</td><td>id</td><td>note</td></tr><tr><td>West</td><td>00123</td><td>A\\tB</td></tr><tr><td>East</td><td>00456</td><td>First\\nsecond line</td></tr></table>",
+            "languages": [
+              "eng"
+            ],
+            "filename": "quoted.tsv",
+            "filetype": "text/tsv"
+          }
+        }
+      ]
+    },
+    {
+      "name": "tsv-header-true",
+      "input": "quoted.tsv",
+      "input_sha256": "fd855d1b7a0a9826d7b0436ff5b9416e655b34b1d26a73eb3bbe8cc340e3ffb7",
+      "entrypoint": "public partition_tsv",
+      "upstream_options": {
+        "metadata_filename": "quoted.tsv",
+        "languages": [
+          "eng"
+        ],
+        "include_header": true
+      },
+      "upstream_output": [
+        {
+          "type": "Table",
+          "element_id": "16a05541b3ac196408479dbe10b88b6d",
+          "text": "name id note West 123 A\\tB East 456 First\\nsecond line",
+          "metadata": {
+            "text_as_html": "<table><tr><td>name</td><td>id</td><td>note</td></tr><tr><td>West</td><td>123</td><td>A\\tB</td></tr><tr><td>East</td><td>456</td><td>First\\nsecond line</td></tr></table>",
+            "languages": [
+              "eng"
+            ],
+            "filename": "quoted.tsv",
+            "filetype": "text/tsv"
+          }
+        }
+      ]
+    }
+  ]
+}

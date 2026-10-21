@@ -1,0 +1,67 @@
+{
+  "java_runtime" : "21.0.12.1+12-LTS",
+  "reference_sha256" : "bb103f1b38c79be1d15711219de2783208c8a7c1c4cc0150ff312805d0214a3e",
+  "source_sha256" : "fcbbb6b34a2d9c2b0b3acb546d0dc1ba100e7ed486d2dc7d3b0516fbdec03497",
+  "results" : [ {
+    "profile" : "NATIVE_LINES",
+    "outcome" : "FAILURE",
+    "failure_class" : "dev.docweave.partition.PartitionException",
+    "association_counts" : {
+      "references" : 0,
+      "correct" : 0,
+      "predictions" : 0,
+      "false_positive" : 0,
+      "missed_reference" : 0
+    },
+    "predictions" : [ ],
+    "images" : [ ],
+    "image_inventory" : {
+      "references" : 106,
+      "matched" : 0,
+      "unmatched" : 0,
+      "missing" : 106,
+      "emitted" : 0
+    }
+  }, {
+    "profile" : "NATIVE_COLUMNS",
+    "outcome" : "FAILURE",
+    "failure_class" : "dev.docweave.partition.PartitionException",
+    "association_counts" : {
+      "references" : 0,
+      "correct" : 0,
+      "predictions" : 0,
+      "false_positive" : 0,
+      "missed_reference" : 0
+    },
+    "predictions" : [ ],
+    "images" : [ ],
+    "image_inventory" : {
+      "references" : 106,
+      "matched" : 0,
+      "unmatched" : 0,
+      "missing" : 106,
+      "emitted" : 0
+    }
+  }, {
+    "profile" : "SOURCE_TAGGED_LINES",
+    "outcome" : "FAILURE",
+    "failure_class" : "dev.docweave.partition.PartitionException",
+    "association_counts" : {
+      "references" : 0,
+      "correct" : 0,
+      "predictions" : 0,
+      "false_positive" : 0,
+      "missed_reference" : 0
+    },
+    "predictions" : [ ],
+    "images" : [ ],
+    "image_inventory" : {
+      "references" : 106,
+      "matched" : 0,
+      "unmatched" : 0,
+      "missing" : 106,
+      "emitted" : 0
+    }
+  } ],
+  "limits" : "Development source; rounded placement association, not body completeness, pixel fidelity or semantic figure detection"
+}

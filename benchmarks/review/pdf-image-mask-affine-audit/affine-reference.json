@@ -1,0 +1,81 @@
+{
+  "source_sha256": "fcbbb6b34a2d9c2b0b3acb546d0dc1ba100e7ed486d2dc7d3b0516fbdec03497",
+  "poppler_version": "26.10.0",
+  "page8_svg_sha256": "7fe0f006445e4c296329bd25514ebd14234237c564c090b8f7bcb5cb12e79cbd",
+  "maximum_edge_difference_points": 2,
+  "selection": "Retrospective diagnosis of all four unmatched emitted placements from the frozen complete106-reference inventory; these do not replace that reference or establish held-out accuracy. Numeric dimensions/matrices copied from independent Cairo SVG source definitions and uses.",
+  "cases": [
+    {
+      "id": "source-98",
+      "page": 8,
+      "width": 79,
+      "height": 386,
+      "matrix": [
+        0.497058,
+        0.0478612,
+        -0.0478038,
+        0.496462,
+        420.944249,
+        519.485663
+      ],
+      "parent_translation": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "source-117",
+      "page": 8,
+      "width": 79,
+      "height": 387,
+      "matrix": [
+        0.498792,
+        -0.00870645,
+        0.00869601,
+        0.498194,
+        290.390927,
+        497.859042
+      ],
+      "parent_translation": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "source-152",
+      "page": 8,
+      "width": 251,
+      "height": 222,
+      "matrix": [
+        0.49594,
+        0.0477536,
+        -0.0478637,
+        0.497083,
+        366.109851,
+        519.150264
+      ],
+      "parent_translation": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "source-168",
+      "page": 8,
+      "width": 276,
+      "height": 108,
+      "matrix": [
+        -0.495462,
+        -0.0477076,
+        0.0478034,
+        -0.496457,
+        149.302284,
+        67.239074
+      ],
+      "parent_translation": [
+        350,
+        450
+      ]
+    }
+  ]
+}

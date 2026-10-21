@@ -1,0 +1,8 @@
+{
+  "prior_rows_unchanged" : 36,
+  "paired_case_profiles" : 44,
+  "reference_order_pairs_per_profile" : 111,
+  "paired_results_equal" : true,
+  "reference_paragraphs_per_profile" : 28,
+  "all_failures_and_denominators_retained" : true
+}

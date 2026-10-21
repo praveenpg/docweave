@@ -1,0 +1,7 @@
+{
+  "frozen_at": "2026-10-19T15:28:50.335297+00:00",
+  "baseline_commit": "4c53394",
+  "selection": "Next two ordinal US ICDAR2013 documents us-003/us-004 in existing pinned Camelot tree92777b852e00933a5c4b9ba642601784604356cd. All published regions, no candidate output consulted.",
+  "annotation_boundary": "Original published XML cell indices/spans/content. Fixed top-two logical-row window is a positional diagnostic, NOT an invented semantic header role. Also score every cell/fulltable. Missing references or failed downloads retained as unavailable; no substitute selection.",
+  "protocol": "Whole original PDF native-first PARTIAL_TEXT150DPI/16M/1024anchors/fourthreads/KEEP_HIGHER_SCORE, same graph pins. Freeze source identities and cases before extraction. No source labels/ROIs supplied to inference; geometric maxIoU>=.5 stable first tie selects table after extraction; allmisses/failures retained."
+}

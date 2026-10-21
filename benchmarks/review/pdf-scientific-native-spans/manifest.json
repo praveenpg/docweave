@@ -1,0 +1,66 @@
+{
+  "repository": "https://github.com/camelot-dev/camelot",
+  "commit": "92777b852e00933a5c4b9ba642601784604356cd",
+  "inputs": [
+    {
+      "path": "tests/files/tabula/icdar2013-dataset/competition-dataset-us/us-030.pdf",
+      "url": "https://raw.githubusercontent.com/camelot-dev/camelot/92777b852e00933a5c4b9ba642601784604356cd/tests/files/tabula/icdar2013-dataset/competition-dataset-us/us-030.pdf",
+      "bytes": 130115,
+      "sha256": "5445100424603942b94d42db86e5cac43ed11a227253483643a51dc7c6b74d53",
+      "git_blob_sha1": "17dea229b583a8d6448891e4a8c0561c390f1f06",
+      "filename": "us-030.pdf"
+    },
+    {
+      "path": "tests/files/tabula/icdar2013-dataset/competition-dataset-us/us-030-str.xml",
+      "url": "https://raw.githubusercontent.com/camelot-dev/camelot/92777b852e00933a5c4b9ba642601784604356cd/tests/files/tabula/icdar2013-dataset/competition-dataset-us/us-030-str.xml",
+      "bytes": 23950,
+      "sha256": "4cf06c94a95f723c5df4c43361d9de33b07f3aa429676c9175c8ae0f4a2fc658",
+      "git_blob_sha1": "bb875681c5afcc63650732c9673cd7d7ec909d2a",
+      "filename": "us-030-str.xml"
+    },
+    {
+      "path": "tests/files/tabula/icdar2013-dataset/competition-dataset-us/us-030-reg.xml",
+      "url": "https://raw.githubusercontent.com/camelot-dev/camelot/92777b852e00933a5c4b9ba642601784604356cd/tests/files/tabula/icdar2013-dataset/competition-dataset-us/us-030-reg.xml",
+      "bytes": 13628,
+      "sha256": "2db38f4dffc871f5d253eb07320305b097e1810951759ddc90d18fcdf24dfb01",
+      "git_blob_sha1": "3c23fd4e61151c353ffd68ce17e9f39659c62c2d",
+      "filename": "us-030-reg.xml"
+    }
+  ],
+  "case": {
+    "id": "scientific-cycle",
+    "pdf": "us-030.pdf",
+    "source_page": 2,
+    "source_pages": 3,
+    "region_id": "1",
+    "regions": "us-030-reg.xml",
+    "cells": "us-030-str.xml",
+    "expected_rows": 7,
+    "expected_columns": 7,
+    "expected_anchors": 43,
+    "source_page_height": 792,
+    "roi_left_top_right_bottom": [
+      125,
+      560,
+      486,
+      671
+    ]
+  },
+  "scope": "One previously unscored native scientific engineering table from the historical ICDAR2013/Camelot fixture set; not a recent-publication business sample, physical scan or held-out estimate. Original published XML span/text labels; no source-label rewrite.",
+  "selection": "Fixed source/page/region/shape/labels before candidate extraction. Camelot test_lattice identifies the original us-030.pdf page2; published XML gives independent geometric association and rectangular spans.",
+  "protocol": {
+    "profiles": [
+      "RULED_ONLY",
+      "RULED_AND_ALIGNED_TEXT",
+      "RULED_AND_MULTILINE_ALIGNED_TEXT",
+      "RULED_AND_DOUBLE_BORDERS",
+      "RULED_AND_HORIZONTAL_TEXT",
+      "RULED_AND_PARTIAL_TEXT"
+    ],
+    "extraction": "Complete original PDF; score selected source page after extraction, request cell geometry, otherwise default native policies. No OCR/model, cropping, source repair or per-case thresholds.",
+    "association": "Maximum source-frame parent ROI IoU >=0.5, stable first-index tie break; source ROI from original region XML, never enters extraction.",
+    "comparison": "Exact zero-based row/column/rowSpan/columnSpan keys, ASCII-whitespace-only text collapse, no case/punctuation/numeric changes. Keep missing and extra keys.",
+    "annotation_origin": "Original XML row/column labels start at1; subtract common minimum indices, preserve all spans and strings.",
+    "prediction_safety": "Do not select a table or rewrite labels based on text similarity."
+  }
+}

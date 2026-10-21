@@ -1,0 +1,35 @@
+{
+  "results" : [ {
+    "runtime" : "21.0.12.1+12-LTS",
+    "outcome" : "SUCCESS",
+    "tables_on_page" : 1,
+    "associated" : true,
+    "association_iou" : 0.9811871382077654,
+    "expected_anchors" : 20,
+    "observed_anchors" : 20,
+    "expected_rows" : 10,
+    "expected_columns" : 3,
+    "observed_rows" : 10,
+    "observed_columns" : 3,
+    "extraction_method" : "segmented_rule_text_heuristic",
+    "matching_span_keys" : 20,
+    "exact_span_text_anchors" : 20,
+    "missing_reference_keys" : 0,
+    "extra_prediction_keys" : 0,
+    "complete_topology" : true,
+    "complete_span_text" : true,
+    "leading_row_window" : {
+      "matching_span_keys" : 3,
+      "observed_anchors" : 3,
+      "expected_anchors" : 3,
+      "complete_span_text" : true,
+      "extra_prediction_keys" : 0,
+      "rows" : 1,
+      "exact_span_text_anchors" : 3
+    },
+    "capture_sha256" : "d2109a9e75a9b5e2c5f3ff779551cc0ced4b11aeb61885485e67194befe06dc9",
+    "id" : "second-publisher",
+    "reference_kind" : "publisher_jats_logical_table"
+  } ],
+  "runtime" : "21.0.12.1+12-LTS"
+}

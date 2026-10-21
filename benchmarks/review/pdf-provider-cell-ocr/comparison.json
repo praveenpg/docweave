@@ -1,0 +1,41 @@
+[
+  {
+    "policy": "PAGE words300",
+    "tables": 19,
+    "complete_span_topologies": 14,
+    "emitted_anchors": 1221,
+    "positional_span_text_matches": 342,
+    "complete_shape_text_tables": 0,
+    "token_overlap": {
+      "matched": 724,
+      "observed": 1751,
+      "reference": 2070
+    }
+  },
+  {
+    "policy": "CELL300",
+    "tables": 19,
+    "complete_span_topologies": 14,
+    "emitted_anchors": 1221,
+    "positional_span_text_matches": 336,
+    "complete_shape_text_tables": 0,
+    "token_overlap": {
+      "matched": 791,
+      "observed": 1765,
+      "reference": 2070
+    }
+  },
+  {
+    "policy": "CELL600",
+    "tables": 19,
+    "complete_span_topologies": 14,
+    "emitted_anchors": 1227,
+    "positional_span_text_matches": 272,
+    "complete_shape_text_tables": 0,
+    "token_overlap": {
+      "matched": 671,
+      "observed": 1886,
+      "reference": 2070
+    }
+  }
+]

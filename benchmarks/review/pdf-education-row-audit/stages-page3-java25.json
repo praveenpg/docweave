@@ -1,0 +1,31 @@
+{
+  "model_height": 800,
+  "decoded_objects": 51,
+  "source_height": 1013,
+  "row_filter_stages": [
+    {
+      "member_rows": 32,
+      "decoded_rows": 32,
+      "retained_after_suppression": 32,
+      "excluded_by_membership": 0,
+      "suppressed_rows": 0
+    }
+  ],
+  "decoded_positive_classes_0_through_5": [
+    1,
+    8,
+    32,
+    1,
+    6,
+    3
+  ],
+  "tables": [
+    {
+      "rows": 32,
+      "columns": 8,
+      "anchors": 222
+    }
+  ],
+  "source_width": 983,
+  "model_width": 776
+}

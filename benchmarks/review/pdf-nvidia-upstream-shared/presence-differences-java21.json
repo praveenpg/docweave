@@ -1,0 +1,27 @@
+{
+  "baseline_sha256" : "52fd0cb7bd33510e15d3ab7b7585aee898e8ad8febb82b72cec2d8c8ae311625",
+  "candidate_sha256" : "707156c1cdbb7718c665e42432607b2577655814fc3668c4475c43a0ae3a138a",
+  "reference_manifest_sha256" : "2c0ad481b1a42eb5edfc7e6af2d8ec6c76f5e1ab206d7d539c492b156dabb3b6",
+  "results" : [ {
+    "neither_present" : 7,
+    "references" : 28,
+    "case" : "income",
+    "both_present" : 14,
+    "docweave_only_reference_indices" : [ 7, 18, 21, 23, 24, 25, 27 ],
+    "upstream_only_reference_indices" : [ ]
+  }, {
+    "neither_present" : 8,
+    "references" : 33,
+    "case" : "balance-sheet",
+    "both_present" : 23,
+    "docweave_only_reference_indices" : [ 6, 32 ],
+    "upstream_only_reference_indices" : [ ]
+  }, {
+    "neither_present" : 29,
+    "references" : 49,
+    "case" : "cash-flows",
+    "both_present" : 14,
+    "docweave_only_reference_indices" : [ 8, 21, 27, 33, 36, 46 ],
+    "upstream_only_reference_indices" : [ ]
+  } ]
+}

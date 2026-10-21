@@ -1,0 +1,119 @@
+{
+  "runtime" : "21.0.12.1+12-LTS",
+  "scope" : "Source-only raw PDFBox structure inventory before any DocWeave extraction; no output accuracy evaluation",
+  "results" : [ {
+    "pages" : 1,
+    "filename" : "8.2.5.26-t01-pass-a.pdf",
+    "sha256" : "085618a372d2b5ba5c9a61904d10a5c76a470d6f848c4c35ce58e8fedb3075c0",
+    "class_definitions" : 0,
+    "source_roles" : {
+      "Document" : 1,
+      "TD" : 10,
+      "TH" : 6,
+      "TR" : 5,
+      "Table" : 1
+    },
+    "cells_with_classes" : 0,
+    "class_span_fields_greater_one" : 0,
+    "class_spans_without_direct_override" : 0
+  }, {
+    "pages" : 1,
+    "filename" : "8.2.5.26-t01-pass-b.pdf",
+    "sha256" : "5f19af878750ddf6c41bbbe2def73c74783e1f7c30156ed85a52fe69e267f7f9",
+    "class_definitions" : 0,
+    "source_roles" : {
+      "Caption" : 1,
+      "Document" : 1,
+      "H1" : 1,
+      "TBody" : 1,
+      "TD" : 3,
+      "TH" : 5,
+      "THead" : 1,
+      "TR" : 4,
+      "Table" : 1
+    },
+    "cells_with_classes" : 0,
+    "class_span_fields_greater_one" : 0,
+    "class_spans_without_direct_override" : 0
+  }, {
+    "pages" : 1,
+    "filename" : "8.2.5.26-t05-pass-a.pdf",
+    "sha256" : "ee5fa4b0883f5a0cf36c2800a2b2f18048a4e4a71c493c9872cc927fbe97e20c",
+    "class_definitions" : 0,
+    "source_roles" : {
+      "Document" : 1,
+      "H1" : 1,
+      "TD" : 4,
+      "TH" : 6,
+      "TR" : 2,
+      "Table" : 1
+    },
+    "cells_with_classes" : 0,
+    "class_span_fields_greater_one" : 0,
+    "class_spans_without_direct_override" : 0
+  }, {
+    "pages" : 1,
+    "filename" : "8.2.5.26-t05-pass-b.pdf",
+    "sha256" : "26396e7544976587b4ea8d4f77df73658b32d16dfbfab1a39dbf5f0295eedb23",
+    "class_definitions" : 0,
+    "source_roles" : {
+      "Document" : 1,
+      "H1" : 1,
+      "TD" : 4,
+      "TH" : 6,
+      "TR" : 2,
+      "Table" : 1
+    },
+    "cells_with_classes" : 0,
+    "class_span_fields_greater_one" : 0,
+    "class_spans_without_direct_override" : 0
+  }, {
+    "pages" : 1,
+    "filename" : "8.2.5.26-t05-pass-c.pdf",
+    "sha256" : "97d81fd836770790930677840a0742dc4aa26c757ec7d4c27bf1a1c2856927c3",
+    "class_definitions" : 0,
+    "source_roles" : {
+      "Document" : 1,
+      "H1" : 1,
+      "TD" : 4,
+      "TH" : 6,
+      "TR" : 2,
+      "Table" : 1
+    },
+    "cells_with_classes" : 0,
+    "class_span_fields_greater_one" : 0,
+    "class_spans_without_direct_override" : 0
+  }, {
+    "pages" : 1,
+    "filename" : "8.2.5.26-t05-pass-d.pdf",
+    "sha256" : "cd1aa04628e28a72423fa9fd402446215cc8cf481b4c62d52f48ec9048119eac",
+    "class_definitions" : 0,
+    "source_roles" : {
+      "Document" : 1,
+      "H1" : 1,
+      "TD" : 4,
+      "TH" : 6,
+      "TR" : 2,
+      "Table" : 1
+    },
+    "cells_with_classes" : 0,
+    "class_span_fields_greater_one" : 0,
+    "class_spans_without_direct_override" : 0
+  }, {
+    "pages" : 1,
+    "filename" : "8.2.5.26-t05-pass-e.pdf",
+    "sha256" : "4f9442c84d3394e4cbdf07564b71183c0b339da3ae14f7b1ae53e3bbb39b8ba5",
+    "class_definitions" : 0,
+    "source_roles" : {
+      "Document" : 1,
+      "H1" : 1,
+      "TD" : 4,
+      "TH" : 6,
+      "TR" : 2,
+      "Table" : 1
+    },
+    "cells_with_classes" : 0,
+    "class_span_fields_greater_one" : 0,
+    "class_spans_without_direct_override" : 0
+  } ]
+}

@@ -1,0 +1,496 @@
+{
+  "candidate_partition_source_sha256": "f2f1905830ef4d366cedd246ac803718da812fbee7094d71c300232a42f6c282",
+  "scope": "Project-owned DOCX ownership probes, not Word rendering evidence",
+  "review": "XML diagnostic review only; independent human review pending",
+  "metric_limit": "Stored body/text-box ownership and disjoint normalized substrings only; no table cell/order, exact-text, glyph, layout or rendering claim. Ambiguous greedy substring allocation may fail; unsupported story selection rejects.",
+  "comparison_mode": "candidate_only",
+  "paragraph_baseline": "ownership-v1",
+  "manifest_sha256": "7b7548916e84c2f3f4bf151cd80e20e574526b1e6a2bc2ab15e7bdc6476a60d0",
+  "review_tool_sha256": "a28b50ed5b1a76c66b4c842dceae2e89d1c80a03ff899edce149c5cc53983af9",
+  "launcher_sha256": "00b4a8a40b61971e4c92b67408381441aa6e86af70eff569d4c3920c6ffdeb5a",
+  "runtime_jars": [
+    {
+      "filename": "docweave-core-0.1.0-SNAPSHOT.jar",
+      "sha256": "466470fd8d13c2259b75c9e50ee45b4c1ae4c5471455809929e85af2700f6cce"
+    },
+    {
+      "filename": "docweave-json-0.1.0-SNAPSHOT.jar",
+      "sha256": "4cae9296bbc580dc5e17c8ad2242f8da075afe0fffa4f837133e61611e9e6472"
+    },
+    {
+      "filename": "jackson-databind-3.1.5.jar",
+      "sha256": "3a2338d996fd3056791df8d335fa9ba8a62a706ed4245ecf81b3e583df37d08a"
+    },
+    {
+      "filename": "jackson-annotations-2.21.jar",
+      "sha256": "53ca085f4a150f703f49e1aabd935bd03b43e1ea3d55d135438292af22cef56b"
+    },
+    {
+      "filename": "jackson-core-3.1.5.jar",
+      "sha256": "9431b7fa2673bbb618c11d865fe15e13222fd182a214ff998cb7e56afd8f35d2"
+    },
+    {
+      "filename": "docweave-chunking-0.1.0-SNAPSHOT.jar",
+      "sha256": "fa1a6531e0b13578bd10df10ff44689ded390157c24fa60fa23fd2176c841b80"
+    },
+    {
+      "filename": "jsoup-1.23.2.jar",
+      "sha256": "e9d8c856856680427f096d156f02a414289985c930998fcb519ce5be39b42003"
+    },
+    {
+      "filename": "docweave-batch-0.1.0-SNAPSHOT.jar",
+      "sha256": "cfe89f29a2dabf4f785073908da06e94f850294a6a134da8c77efa7e7065a91d"
+    },
+    {
+      "filename": "docweave-txt-0.1.0-SNAPSHOT.jar",
+      "sha256": "2c6f96efce33f40da9e2eb28c143ed45803913272f327814914b255e7efc6b75"
+    },
+    {
+      "filename": "docweave-html-0.1.0-SNAPSHOT.jar",
+      "sha256": "33857c891c2e787e8f29f07f73a28b4ef77f44ea5d8b27469e6148a95b0d5bad"
+    },
+    {
+      "filename": "docweave-markdown-0.1.0-SNAPSHOT.jar",
+      "sha256": "a7995f28534e865d217e005e59acd55576d44a6a6130053c752bb64ba6f3cf0f"
+    },
+    {
+      "filename": "commonmark-0.30.1.jar",
+      "sha256": "9b0d20064975a17e876fcb4b599c6b3667f46a7739ed61e2f06c96f44b50629f"
+    },
+    {
+      "filename": "commonmark-ext-gfm-tables-0.30.1.jar",
+      "sha256": "c375b6d5b71efe179e5763a6d83fcf10e303c0bf82031310a46769727ac90da0"
+    },
+    {
+      "filename": "docweave-csv-0.1.0-SNAPSHOT.jar",
+      "sha256": "1fd535e97ba514ce3e217b06821973441b379ebfd4bcca48f28980a202da7761"
+    },
+    {
+      "filename": "docweave-delimited-0.1.0-SNAPSHOT.jar",
+      "sha256": "cd902ee401c31fa3b5a1c8cfee2931f54a71f7df8f75610ed7dbe3e22d7fe3ee"
+    },
+    {
+      "filename": "commons-csv-1.14.1.jar",
+      "sha256": "32be0e1e76673092f5d12cb790bd2acb6c2ab04c4ea6efc69ea5ee17911c24fe"
+    },
+    {
+      "filename": "docweave-tsv-0.1.0-SNAPSHOT.jar",
+      "sha256": "3a34f1f6e08e92a64c319cfc36da522c4d65656779a66f308c213de0ab79e07e"
+    },
+    {
+      "filename": "docweave-xml-0.1.0-SNAPSHOT.jar",
+      "sha256": "8032e9415828ab2051f32f27bf4310e6baa229a4b0d2f8185381f723c02b449e"
+    },
+    {
+      "filename": "docweave-docx-0.1.0-SNAPSHOT.jar",
+      "sha256": "39a8fd7e5eb251219981487b0dc9980e2bedea74c2c741ece35677aa71e6c4a0"
+    },
+    {
+      "filename": "poi-ooxml-5.5.1.jar",
+      "sha256": "bd7be2fdfe3fd2c1684fa813351c2798fd636b44f6236e0674500d4f8ff1c2f9"
+    },
+    {
+      "filename": "poi-5.5.1.jar",
+      "sha256": "6c52e876ca75775a11b56e4b36a7541f682827f56406725fcd87560b792ee3d8"
+    },
+    {
+      "filename": "commons-math3-3.6.1.jar",
+      "sha256": "1e56d7b058d28b65abd256b8458e3885b674c1d588fa43cd7d1cbb9c7ef2b308"
+    },
+    {
+      "filename": "SparseBitSet-1.3.jar",
+      "sha256": "f76b85adb0c00721ae267b7cfde4da7f71d3121cc2160c9fc00c0c89f8c53c8a"
+    },
+    {
+      "filename": "poi-ooxml-lite-5.5.1.jar",
+      "sha256": "e6e37adeb6d6ee8b40ec491ad955d934d8f99827ab050f105b18286e59b1d9e7"
+    },
+    {
+      "filename": "xmlbeans-5.3.0.jar",
+      "sha256": "6cc69da3b4d35b83c5e477cd4daba204e44109833e34af2b9a8a2c8788289917"
+    },
+    {
+      "filename": "commons-compress-1.28.0.jar",
+      "sha256": "e1522945218456f3649a39bc4afd70ce4bd466221519dba7d378f2141a4642ca"
+    },
+    {
+      "filename": "commons-lang3-3.18.0.jar",
+      "sha256": "4eeeae8d20c078abb64b015ec158add383ac581571cddc45c68f0c9ae0230720"
+    },
+    {
+      "filename": "curvesapi-1.08.jar",
+      "sha256": "ad95b08b8bbf9d7d17e5e00814898fa23324f32bc5b62f1a37801e6a56ce0079"
+    },
+    {
+      "filename": "log4j-api-2.24.3.jar",
+      "sha256": "5b4a0a0cd0e751ded431c162442bdbdd53328d1f8bb2bae5fc1bbeee0f66d80f"
+    },
+    {
+      "filename": "commons-collections4-4.5.0.jar",
+      "sha256": "00f93263c267be201b8ae521b44a7137271b16688435340bf629db1bac0a5845"
+    },
+    {
+      "filename": "commons-io-2.21.0.jar",
+      "sha256": "7d643a2afea8b058b762aa6fb90e5b256f6c729739f8b3784c3370ddc609e88d"
+    },
+    {
+      "filename": "commons-codec-1.20.0.jar",
+      "sha256": "6af66595f9f6a7bb58ce66518d6888d40b547c366d2262f06676eee19528ff66"
+    }
+  ],
+  "java_version": "openjdk 25.0.4 2026-07-21 LTS\nOpenJDK Runtime Environment Corretto-25.0.4.7.1 (build 25.0.4+7-LTS)\nOpenJDK 64-Bit Server VM Corretto-25.0.4.7.1 (build 25.0.4+7-LTS, mixed mode, sharing)",
+  "checks_passed": true,
+  "documents": [
+    {
+      "filename": "content-ownership.docx",
+      "sha256": "68a1f45410c36462d34e104a7e9dda1b0aa8bd4f0533e2afa217677118ef6194",
+      "source_tables": 2,
+      "java": {
+        "defaults": {
+          "element_count": 13,
+          "types": {
+            "Image": 1,
+            "NarrativeText": 8,
+            "Table": 2,
+            "Title": 2
+          },
+          "text_code_points": 266,
+          "body_paragraphs_checked": 13,
+          "body_paragraphs_unmatched": 0,
+          "unmatched_paragraph_sha256": [],
+          "ownership": {
+            "baseline": "ownership_v1",
+            "paragraphs_checked": 13,
+            "paragraphs_unmatched": 0,
+            "unmatched_paragraph_sha256": [],
+            "owners_checked": 9,
+            "owners_failed": 0,
+            "unexpected_elements": 0,
+            "checks_passed": true,
+            "owners": [
+              {
+                "source_owner": "body/0",
+                "story": "body",
+                "kind": "paragraph",
+                "paragraphs_checked": 1,
+                "kind_matches": true,
+                "checks_passed": true,
+                "unmatched_paragraph_sha256": []
+              },
+              {
+                "source_owner": "body/1",
+                "story": "body",
+                "kind": "paragraph",
+                "paragraphs_checked": 1,
+                "kind_matches": true,
+                "checks_passed": true,
+                "unmatched_paragraph_sha256": []
+              },
+              {
+                "source_owner": "body/2",
+                "story": "body",
+                "kind": "paragraph",
+                "paragraphs_checked": 1,
+                "kind_matches": true,
+                "checks_passed": true,
+                "unmatched_paragraph_sha256": []
+              },
+              {
+                "source_owner": "body/3/0/0",
+                "story": "body",
+                "kind": "paragraph",
+                "paragraphs_checked": 1,
+                "kind_matches": true,
+                "checks_passed": true,
+                "unmatched_paragraph_sha256": []
+              },
+              {
+                "source_owner": "body/3/0/1",
+                "story": "body",
+                "kind": "table",
+                "paragraphs_checked": 2,
+                "kind_matches": true,
+                "checks_passed": true,
+                "unmatched_paragraph_sha256": []
+              },
+              {
+                "source_owner": "body/4",
+                "story": "body",
+                "kind": "table",
+                "paragraphs_checked": 4,
+                "kind_matches": true,
+                "checks_passed": true,
+                "unmatched_paragraph_sha256": []
+              },
+              {
+                "source_owner": "body/5",
+                "story": "body",
+                "kind": "paragraph",
+                "paragraphs_checked": 1,
+                "kind_matches": true,
+                "checks_passed": true,
+                "unmatched_paragraph_sha256": []
+              },
+              {
+                "source_owner": "body/5/2/0/0/0/0/0",
+                "story": "textbox",
+                "kind": "paragraph",
+                "paragraphs_checked": 1,
+                "kind_matches": true,
+                "checks_passed": true,
+                "unmatched_paragraph_sha256": []
+              },
+              {
+                "source_owner": "body/6",
+                "story": "body",
+                "kind": "paragraph",
+                "paragraphs_checked": 1,
+                "kind_matches": true,
+                "checks_passed": true,
+                "unmatched_paragraph_sha256": []
+              }
+            ]
+          },
+          "warnings": [],
+          "warning_codes_match": true,
+          "required_text_present": {
+            "Content report": true,
+            "Text box paragraph.": true
+          },
+          "stored_part_counts_match": true,
+          "checks_passed": true
+        },
+        "include_headers_footers": {
+          "element_count": 13,
+          "types": {
+            "Image": 1,
+            "NarrativeText": 8,
+            "Table": 2,
+            "Title": 2
+          },
+          "text_code_points": 266,
+          "body_paragraphs_checked": 13,
+          "body_paragraphs_unmatched": 0,
+          "unmatched_paragraph_sha256": [],
+          "ownership": {
+            "baseline": "ownership_v1",
+            "paragraphs_checked": 13,
+            "paragraphs_unmatched": 0,
+            "unmatched_paragraph_sha256": [],
+            "owners_checked": 9,
+            "owners_failed": 0,
+            "unexpected_elements": 0,
+            "checks_passed": true,
+            "owners": [
+              {
+                "source_owner": "body/0",
+                "story": "body",
+                "kind": "paragraph",
+                "paragraphs_checked": 1,
+                "kind_matches": true,
+                "checks_passed": true,
+                "unmatched_paragraph_sha256": []
+              },
+              {
+                "source_owner": "body/1",
+                "story": "body",
+                "kind": "paragraph",
+                "paragraphs_checked": 1,
+                "kind_matches": true,
+                "checks_passed": true,
+                "unmatched_paragraph_sha256": []
+              },
+              {
+                "source_owner": "body/2",
+                "story": "body",
+                "kind": "paragraph",
+                "paragraphs_checked": 1,
+                "kind_matches": true,
+                "checks_passed": true,
+                "unmatched_paragraph_sha256": []
+              },
+              {
+                "source_owner": "body/3/0/0",
+                "story": "body",
+                "kind": "paragraph",
+                "paragraphs_checked": 1,
+                "kind_matches": true,
+                "checks_passed": true,
+                "unmatched_paragraph_sha256": []
+              },
+              {
+                "source_owner": "body/3/0/1",
+                "story": "body",
+                "kind": "table",
+                "paragraphs_checked": 2,
+                "kind_matches": true,
+                "checks_passed": true,
+                "unmatched_paragraph_sha256": []
+              },
+              {
+                "source_owner": "body/4",
+                "story": "body",
+                "kind": "table",
+                "paragraphs_checked": 4,
+                "kind_matches": true,
+                "checks_passed": true,
+                "unmatched_paragraph_sha256": []
+              },
+              {
+                "source_owner": "body/5",
+                "story": "body",
+                "kind": "paragraph",
+                "paragraphs_checked": 1,
+                "kind_matches": true,
+                "checks_passed": true,
+                "unmatched_paragraph_sha256": []
+              },
+              {
+                "source_owner": "body/5/2/0/0/0/0/0",
+                "story": "textbox",
+                "kind": "paragraph",
+                "paragraphs_checked": 1,
+                "kind_matches": true,
+                "checks_passed": true,
+                "unmatched_paragraph_sha256": []
+              },
+              {
+                "source_owner": "body/6",
+                "story": "body",
+                "kind": "paragraph",
+                "paragraphs_checked": 1,
+                "kind_matches": true,
+                "checks_passed": true,
+                "unmatched_paragraph_sha256": []
+              }
+            ]
+          },
+          "warnings": [],
+          "warning_codes_match": true,
+          "required_text_present": {
+            "Content report": true,
+            "Text box paragraph.": true
+          },
+          "stored_part_counts_match": true,
+          "checks_passed": true
+        }
+      }
+    },
+    {
+      "filename": "nested.docx",
+      "sha256": "140fbdecee3b7dd6adf0bb6459375f0fc02ef88bd1819586244dd6e1834c5da8",
+      "source_tables": 4,
+      "java": {
+        "defaults": {
+          "element_count": 1,
+          "types": {
+            "Table": 1
+          },
+          "text_code_points": 84,
+          "body_paragraphs_checked": 9,
+          "body_paragraphs_unmatched": 0,
+          "unmatched_paragraph_sha256": [],
+          "ownership": {
+            "baseline": "ownership_v1",
+            "paragraphs_checked": 9,
+            "paragraphs_unmatched": 0,
+            "unmatched_paragraph_sha256": [],
+            "owners_checked": 1,
+            "owners_failed": 0,
+            "unexpected_elements": 0,
+            "checks_passed": true,
+            "owners": [
+              {
+                "source_owner": "body/0",
+                "story": "body",
+                "kind": "table",
+                "paragraphs_checked": 9,
+                "kind_matches": true,
+                "checks_passed": true,
+                "unmatched_paragraph_sha256": []
+              }
+            ]
+          },
+          "warnings": [
+            {
+              "message": "DOCX nested table text and links were retained in its containing cell",
+              "code": "NESTED_TABLE_FLATTENED"
+            },
+            {
+              "message": "DOCX nested table text and links were retained in its containing cell",
+              "code": "NESTED_TABLE_FLATTENED"
+            },
+            {
+              "message": "DOCX nested table text and links were retained in its containing cell",
+              "code": "NESTED_TABLE_FLATTENED"
+            }
+          ],
+          "warning_codes_match": true,
+          "required_text_present": {
+            "Repeated": true,
+            "Grandchild": true
+          },
+          "stored_part_counts_match": true,
+          "checks_passed": true
+        },
+        "include_headers_footers": {
+          "element_count": 1,
+          "types": {
+            "Table": 1
+          },
+          "text_code_points": 84,
+          "body_paragraphs_checked": 9,
+          "body_paragraphs_unmatched": 0,
+          "unmatched_paragraph_sha256": [],
+          "ownership": {
+            "baseline": "ownership_v1",
+            "paragraphs_checked": 9,
+            "paragraphs_unmatched": 0,
+            "unmatched_paragraph_sha256": [],
+            "owners_checked": 1,
+            "owners_failed": 0,
+            "unexpected_elements": 0,
+            "checks_passed": true,
+            "owners": [
+              {
+                "source_owner": "body/0",
+                "story": "body",
+                "kind": "table",
+                "paragraphs_checked": 9,
+                "kind_matches": true,
+                "checks_passed": true,
+                "unmatched_paragraph_sha256": []
+              }
+            ]
+          },
+          "warnings": [
+            {
+              "message": "DOCX nested table text and links were retained in its containing cell",
+              "code": "NESTED_TABLE_FLATTENED"
+            },
+            {
+              "message": "DOCX nested table text and links were retained in its containing cell",
+              "code": "NESTED_TABLE_FLATTENED"
+            },
+            {
+              "message": "DOCX nested table text and links were retained in its containing cell",
+              "code": "NESTED_TABLE_FLATTENED"
+            }
+          ],
+          "warning_codes_match": true,
+          "required_text_present": {
+            "Repeated": true,
+            "Grandchild": true
+          },
+          "stored_part_counts_match": true,
+          "checks_passed": true
+        }
+      }
+    }
+  ],
+  "ownership_tool_sha256": "a5a4a07e886f27ed7747da23a91ddbf2a63c40470b1626c671a8a3b6e01ea46d",
+  "_public_projection": {
+    "original_sha256": "4fa707235af1eb1ac8a8f29d96f4f186e15fb2a1394997a5abf63988f17ecad3",
+    "status": "Derived documentation/path projection; historical measurements and embedded fingerprints unchanged"
+  }
+}

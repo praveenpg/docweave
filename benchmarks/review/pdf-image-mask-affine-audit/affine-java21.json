@@ -1,0 +1,37 @@
+{
+  "extraction_sha256" : "da6b8dee6a76f6d33edc39a8069f4ea3c25e96987c90a1d6cf2a1001957dc6cc",
+  "reference_sha256" : "efd1e14b49aa4a296a5318678fab258101d76756d1ab533c1902583dd37985e7",
+  "scope" : "Retrospective source-transform diagnosis of four placements; unchanged complete inventory and scoring, no pixel-fidelity or held-out quality claim.",
+  "source_sha256" : "fcbbb6b34a2d9c2b0b3acb546d0dc1ba100e7ed486d2dc7d3b0516fbdec03497",
+  "results" : [ {
+    "page" : 8,
+    "match" : true,
+    "emitted_bounds" : [ 402.98150634765625, 519.6605224609375, 460.77154541015625, 715.3134155273438 ],
+    "expected_cairo_bounds" : [ 402.4919822, 519.485663, 460.211831, 714.9010298000001 ],
+    "id" : "source-98",
+    "candidate_count" : 1
+  }, {
+    "page" : 8,
+    "match" : true,
+    "emitted_bounds" : [ 290.7441101074219, 497.3189697265625, 333.5660705566406, 691.043212890625 ],
+    "expected_cairo_bounds" : [ 290.390927, 497.17123245, 333.16085087, 690.66012 ],
+    "id" : "source-117",
+    "candidate_count" : 1
+  }, {
+    "page" : 8,
+    "match" : true,
+    "emitted_bounds" : [ 355.9164733886719, 519.32470703125, 491.18756103515625, 641.8120727539062 ],
+    "expected_cairo_bounds" : [ 355.4841096, 519.150264, 490.59079099999997, 641.4888436 ],
+    "id" : "source-152",
+    "candidate_count" : 1
+  }, {
+    "page" : 8,
+    "match" : true,
+    "emitted_bounds" : [ 362.9957275390625, 450.5453186035156, 505.07861328125, 517.4111938476562 ],
+    "expected_cairo_bounds" : [ 362.55477199999996, 450.45442039999995, 504.4650512, 517.239074 ],
+    "id" : "source-168",
+    "candidate_count" : 1
+  } ],
+  "retained_original_reference_population" : 106,
+  "full_emitted_image_population" : 94
+}

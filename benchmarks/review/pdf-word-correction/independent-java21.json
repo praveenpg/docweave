@@ -1,0 +1,37 @@
+{
+  "runtime" : "21.0.12.1+12-LTS",
+  "render_dpi" : 72,
+  "results" : [ {
+    "word_and_line_source_bounds_valid" : true,
+    "explicit_published_correction" : 0,
+    "input" : "phototest.tif",
+    "source_images" : 1,
+    "retained_actual_words" : 60,
+    "exact_normalized_transcription" : true
+  }, {
+    "word_and_line_source_bounds_valid" : true,
+    "explicit_published_correction" : 270,
+    "input" : "phototest-rotated-R.png",
+    "source_images" : 1,
+    "retained_actual_words" : 60,
+    "exact_normalized_transcription" : true
+  }, {
+    "word_and_line_source_bounds_valid" : true,
+    "explicit_published_correction" : 180,
+    "input" : "phototest-rotated-180.png",
+    "source_images" : 1,
+    "retained_actual_words" : 60,
+    "exact_normalized_transcription" : true
+  }, {
+    "word_and_line_source_bounds_valid" : true,
+    "explicit_published_correction" : 90,
+    "input" : "phototest-rotated-L.png",
+    "source_images" : 1,
+    "retained_actual_words" : 60,
+    "exact_normalized_transcription" : true
+  } ],
+  "eng_sha256" : "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047",
+  "engine_sha256" : "9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917",
+  "scope" : "Official OCR fixtures with supplied published corrections; actual-word integration, not automatic estimation/calibration/physical-scan accuracy",
+  "source_revision" : "232ff181c66516116ec0e84c4963f70de15050fd"
+}

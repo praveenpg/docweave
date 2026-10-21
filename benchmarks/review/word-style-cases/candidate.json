@@ -1,0 +1,812 @@
+{
+  "kind": "DocWeave observations only; not independent Word expectations",
+  "cases": [
+    {
+      "elements": [
+        {
+          "type": "Table",
+          "element_id": "97ef79c041a582142d11fae37ff19514",
+          "text": "unsized-bands-r0c0\tunsized-bands-r0c1\tunsized-bands-r0c2\nunsized-bands-r1c0\tunsized-bands-r1c1\tunsized-bands-r1c2\nunsized-bands-r2c0\tunsized-bands-r2c1\tunsized-bands-r2c2",
+          "metadata": {
+            "filename": "unsized-bands.docx",
+            "filetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "table_row_count": 3,
+            "docx_table_style_paragraphs": [
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 18,
+                "regions": [
+                  "band1Horz"
+                ],
+                "outline_level": 0,
+                "start_index": 0,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 37,
+                "regions": [
+                  "band1Horz"
+                ],
+                "outline_level": 0,
+                "start_index": 19,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 56,
+                "regions": [
+                  "band1Horz"
+                ],
+                "outline_level": 0,
+                "start_index": 38,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 75,
+                "regions": [
+                  "band2Horz"
+                ],
+                "outline_level": 1,
+                "start_index": 57,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 94,
+                "regions": [
+                  "band2Horz"
+                ],
+                "outline_level": 1,
+                "start_index": 76,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 113,
+                "regions": [
+                  "band2Horz"
+                ],
+                "outline_level": 1,
+                "start_index": 95,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 132,
+                "regions": [
+                  "band1Horz"
+                ],
+                "outline_level": 0,
+                "start_index": 114,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 151,
+                "regions": [
+                  "band1Horz"
+                ],
+                "outline_level": 0,
+                "start_index": 133,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 170,
+                "regions": [
+                  "band1Horz"
+                ],
+                "outline_level": 0,
+                "start_index": 152,
+                "properties": [
+                  "outline_level"
+                ]
+              }
+            ],
+            "table_column_count": 3,
+            "text_as_html": "<table><tr><td>unsized-bands-r0c0</td><td>unsized-bands-r0c1</td><td>unsized-bands-r0c2</td></tr><tr><td>unsized-bands-r1c0</td><td>unsized-bands-r1c1</td><td>unsized-bands-r1c2</td></tr><tr><td>unsized-bands-r2c0</td><td>unsized-bands-r2c1</td><td>unsized-bands-r2c2</td></tr></table>",
+            "docx_merge_content_policy": "append_to_origin",
+            "table_header_rows": 0,
+            "docx_table_style": "ReviewStyle",
+            "docx_part": "body"
+          }
+        }
+      ],
+      "warnings": [],
+      "file": "unsized-bands.docx",
+      "sha256": "000100279167f1c6b9368d73c37a4ae1a502a2ff5d6633e3a20cfb330df9f399"
+    },
+    {
+      "elements": [
+        {
+          "type": "Table",
+          "element_id": "4c9e4dcea67c7d14d1b4aa2b76e35b5f",
+          "text": "edge-flag-without-branch-r0c0\tedge-flag-without-branch-r0c1\tedge-flag-without-branch-r0c2\nedge-flag-without-branch-r1c0\tedge-flag-without-branch-r1c1\tedge-flag-without-branch-r1c2\nedge-flag-without-branch-r2c0\tedge-flag-without-branch-r2c1\tedge-flag-without-branch-r2c2",
+          "metadata": {
+            "filename": "edge-flag-without-branch.docx",
+            "filetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "table_row_count": 3,
+            "docx_table_style_paragraphs": [
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 29,
+                "regions": [
+                  "firstRow"
+                ],
+                "outline_level": 9,
+                "start_index": 0,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 59,
+                "regions": [
+                  "firstRow"
+                ],
+                "outline_level": 9,
+                "start_index": 30,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 89,
+                "regions": [
+                  "firstRow"
+                ],
+                "outline_level": 9,
+                "start_index": 60,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 119,
+                "regions": [
+                  "band1Horz"
+                ],
+                "outline_level": 0,
+                "start_index": 90,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 149,
+                "regions": [
+                  "band1Horz"
+                ],
+                "outline_level": 0,
+                "start_index": 120,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 179,
+                "regions": [
+                  "band1Horz"
+                ],
+                "outline_level": 0,
+                "start_index": 150,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 209,
+                "regions": [
+                  "band2Horz"
+                ],
+                "outline_level": 1,
+                "start_index": 180,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 239,
+                "regions": [
+                  "band2Horz"
+                ],
+                "outline_level": 1,
+                "start_index": 210,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 269,
+                "regions": [
+                  "band2Horz"
+                ],
+                "outline_level": 1,
+                "start_index": 240,
+                "properties": [
+                  "outline_level"
+                ]
+              }
+            ],
+            "table_column_count": 3,
+            "text_as_html": "<table><tr><td>edge-flag-without-branch-r0c0</td><td>edge-flag-without-branch-r0c1</td><td>edge-flag-without-branch-r0c2</td></tr><tr><td>edge-flag-without-branch-r1c0</td><td>edge-flag-without-branch-r1c1</td><td>edge-flag-without-branch-r1c2</td></tr><tr><td>edge-flag-without-branch-r2c0</td><td>edge-flag-without-branch-r2c1</td><td>edge-flag-without-branch-r2c2</td></tr></table>",
+            "docx_merge_content_policy": "append_to_origin",
+            "table_header_rows": 0,
+            "docx_table_style": "ReviewStyle",
+            "docx_part": "body"
+          }
+        }
+      ],
+      "warnings": [],
+      "file": "edge-flag-without-branch.docx",
+      "sha256": "7c05b6bed5fe7dcbe9b2ca71ac2f4bd2e0d29fc90d2e7f0ebee0f12235a14410"
+    },
+    {
+      "elements": [
+        {
+          "type": "Table",
+          "element_id": "fc880c051a82f9d2a3ccdafd3afca790",
+          "text": "row-column-overlap-r0c0\trow-column-overlap-r0c1\trow-column-overlap-r0c2\nrow-column-overlap-r1c0\trow-column-overlap-r1c1\trow-column-overlap-r1c2\nrow-column-overlap-r2c0\trow-column-overlap-r2c1\trow-column-overlap-r2c2",
+          "metadata": {
+            "filename": "row-column-overlap.docx",
+            "filetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "table_row_count": 3,
+            "docx_table_style_paragraphs": [
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 23,
+                "regions": [
+                  "firstRow",
+                  "firstCol",
+                  "nwCell"
+                ],
+                "outline_level": 5,
+                "start_index": 0,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 47,
+                "regions": [
+                  "firstRow"
+                ],
+                "outline_level": 4,
+                "start_index": 24,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 71,
+                "regions": [
+                  "firstRow"
+                ],
+                "outline_level": 4,
+                "start_index": 48,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 95,
+                "regions": [
+                  "firstCol"
+                ],
+                "outline_level": 5,
+                "start_index": 72,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 119,
+                "regions": [],
+                "outline_level": 9,
+                "start_index": 96,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 143,
+                "regions": [],
+                "outline_level": 9,
+                "start_index": 120,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 167,
+                "regions": [
+                  "firstCol"
+                ],
+                "outline_level": 5,
+                "start_index": 144,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 191,
+                "regions": [],
+                "outline_level": 9,
+                "start_index": 168,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 215,
+                "regions": [],
+                "outline_level": 9,
+                "start_index": 192,
+                "properties": [
+                  "outline_level"
+                ]
+              }
+            ],
+            "table_column_count": 3,
+            "text_as_html": "<table><tr><td>row-column-overlap-r0c0</td><td>row-column-overlap-r0c1</td><td>row-column-overlap-r0c2</td></tr><tr><td>row-column-overlap-r1c0</td><td>row-column-overlap-r1c1</td><td>row-column-overlap-r1c2</td></tr><tr><td>row-column-overlap-r2c0</td><td>row-column-overlap-r2c1</td><td>row-column-overlap-r2c2</td></tr></table>",
+            "docx_merge_content_policy": "append_to_origin",
+            "table_header_rows": 0,
+            "docx_table_style": "ReviewStyle",
+            "docx_part": "body"
+          }
+        }
+      ],
+      "warnings": [],
+      "file": "row-column-overlap.docx",
+      "sha256": "75e8681c5c383e121742bb8224b968fc740d29e92b6f632fbc9beb93a1fd1c1b"
+    },
+    {
+      "elements": [
+        {
+          "type": "Table",
+          "element_id": "47bb7e64d3afcef02053eb47741f30cf",
+          "text": "whole-table-branch-r0c0\twhole-table-branch-r0c1\twhole-table-branch-r0c2\nwhole-table-branch-r1c0\twhole-table-branch-r1c1\twhole-table-branch-r1c2\nwhole-table-branch-r2c0\twhole-table-branch-r2c1\twhole-table-branch-r2c2",
+          "metadata": {
+            "filename": "whole-table-branch.docx",
+            "filetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "table_row_count": 3,
+            "docx_table_style_paragraphs": [
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 23,
+                "regions": [],
+                "outline_level": 6,
+                "start_index": 0,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 47,
+                "regions": [],
+                "outline_level": 6,
+                "start_index": 24,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 71,
+                "regions": [],
+                "outline_level": 6,
+                "start_index": 48,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 95,
+                "regions": [],
+                "outline_level": 6,
+                "start_index": 72,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 119,
+                "regions": [],
+                "outline_level": 6,
+                "start_index": 96,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 143,
+                "regions": [],
+                "outline_level": 6,
+                "start_index": 120,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 167,
+                "regions": [],
+                "outline_level": 6,
+                "start_index": 144,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 191,
+                "regions": [],
+                "outline_level": 6,
+                "start_index": 168,
+                "properties": [
+                  "outline_level"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 215,
+                "regions": [],
+                "outline_level": 6,
+                "start_index": 192,
+                "properties": [
+                  "outline_level"
+                ]
+              }
+            ],
+            "table_column_count": 3,
+            "text_as_html": "<table><tr><td>whole-table-branch-r0c0</td><td>whole-table-branch-r0c1</td><td>whole-table-branch-r0c2</td></tr><tr><td>whole-table-branch-r1c0</td><td>whole-table-branch-r1c1</td><td>whole-table-branch-r1c2</td></tr><tr><td>whole-table-branch-r2c0</td><td>whole-table-branch-r2c1</td><td>whole-table-branch-r2c2</td></tr></table>",
+            "docx_merge_content_policy": "append_to_origin",
+            "table_header_rows": 0,
+            "docx_table_style": "ReviewStyle",
+            "docx_part": "body"
+          }
+        }
+      ],
+      "warnings": [],
+      "file": "whole-table-branch.docx",
+      "sha256": "1d773982b0f1ef84853e635f7e3acecbb02821d71370ebd5fcb7508b4073932d"
+    },
+    {
+      "elements": [
+        {
+          "type": "Table",
+          "element_id": "215aab7bfa1c44a61f8c2907be47da90",
+          "text": "table-style-numbering-r0c0\ttable-style-numbering-r0c1\ttable-style-numbering-r0c2\ntable-style-numbering-r1c0\ttable-style-numbering-r1c1\ttable-style-numbering-r1c2\ntable-style-numbering-r2c0\ttable-style-numbering-r2c1\ttable-style-numbering-r2c2",
+          "metadata": {
+            "filename": "table-style-numbering.docx",
+            "filetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "docx_merge_content_policy": "append_to_origin",
+            "docx_table_style": "ReviewStyle",
+            "docx_table_style_paragraphs": [
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 26,
+                "regions": [
+                  "firstRow"
+                ],
+                "outline_level": 4,
+                "start_index": 0,
+                "properties": [
+                  "outline_level",
+                  "num_id"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 53,
+                "regions": [
+                  "firstRow"
+                ],
+                "outline_level": 4,
+                "start_index": 27,
+                "properties": [
+                  "outline_level",
+                  "num_id"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 80,
+                "regions": [
+                  "firstRow"
+                ],
+                "outline_level": 4,
+                "start_index": 54,
+                "properties": [
+                  "outline_level",
+                  "num_id"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 107,
+                "regions": [],
+                "outline_level": 9,
+                "start_index": 81,
+                "properties": [
+                  "outline_level",
+                  "num_id"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 134,
+                "regions": [],
+                "outline_level": 9,
+                "start_index": 108,
+                "properties": [
+                  "outline_level",
+                  "num_id"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 161,
+                "regions": [],
+                "outline_level": 9,
+                "start_index": 135,
+                "properties": [
+                  "outline_level",
+                  "num_id"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 188,
+                "regions": [],
+                "outline_level": 9,
+                "start_index": 162,
+                "properties": [
+                  "outline_level",
+                  "num_id"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 215,
+                "regions": [],
+                "outline_level": 9,
+                "start_index": 189,
+                "properties": [
+                  "outline_level",
+                  "num_id"
+                ]
+              },
+              {
+                "docx_table_style": "ReviewStyle",
+                "end_index": 242,
+                "regions": [],
+                "outline_level": 9,
+                "start_index": 216,
+                "properties": [
+                  "outline_level",
+                  "num_id"
+                ]
+              }
+            ],
+            "text_as_html": "<table><tr><td>table-style-numbering-r0c0</td><td>table-style-numbering-r0c1</td><td>table-style-numbering-r0c2</td></tr><tr><td>table-style-numbering-r1c0</td><td>table-style-numbering-r1c1</td><td>table-style-numbering-r1c2</td></tr><tr><td>table-style-numbering-r2c0</td><td>table-style-numbering-r2c1</td><td>table-style-numbering-r2c2</td></tr></table>",
+            "table_column_count": 3,
+            "table_row_count": 3,
+            "table_header_rows": 0,
+            "docx_list_items": [
+              {
+                "docx_list_label": "1.",
+                "docx_numbering_level_text": "%1.",
+                "docx_numbering_counter": "1",
+                "docx_table_style_properties": [
+                  "outline_level",
+                  "num_id"
+                ],
+                "docx_table_style": "ReviewStyle",
+                "end_index": 26,
+                "start_index": 0,
+                "docx_list_suffix": "tab",
+                "docx_num_id": "2",
+                "category_depth": 0,
+                "docx_numbering_format": "decimal"
+              },
+              {
+                "docx_list_label": "2.",
+                "docx_numbering_level_text": "%1.",
+                "docx_numbering_counter": "2",
+                "docx_table_style_properties": [
+                  "outline_level",
+                  "num_id"
+                ],
+                "docx_table_style": "ReviewStyle",
+                "end_index": 53,
+                "start_index": 27,
+                "docx_list_suffix": "tab",
+                "docx_num_id": "2",
+                "category_depth": 0,
+                "docx_numbering_format": "decimal"
+              },
+              {
+                "docx_list_label": "3.",
+                "docx_numbering_level_text": "%1.",
+                "docx_numbering_counter": "3",
+                "docx_table_style_properties": [
+                  "outline_level",
+                  "num_id"
+                ],
+                "docx_table_style": "ReviewStyle",
+                "end_index": 80,
+                "start_index": 54,
+                "docx_list_suffix": "tab",
+                "docx_num_id": "2",
+                "category_depth": 0,
+                "docx_numbering_format": "decimal"
+              },
+              {
+                "docx_list_label": "1.",
+                "docx_numbering_level_text": "%1.",
+                "docx_numbering_counter": "1",
+                "docx_table_style_properties": [
+                  "outline_level",
+                  "num_id"
+                ],
+                "docx_table_style": "ReviewStyle",
+                "end_index": 107,
+                "start_index": 81,
+                "docx_list_suffix": "tab",
+                "docx_num_id": "1",
+                "category_depth": 0,
+                "docx_numbering_format": "decimal"
+              },
+              {
+                "docx_list_label": "2.",
+                "docx_numbering_level_text": "%1.",
+                "docx_numbering_counter": "2",
+                "docx_table_style_properties": [
+                  "outline_level",
+                  "num_id"
+                ],
+                "docx_table_style": "ReviewStyle",
+                "end_index": 134,
+                "start_index": 108,
+                "docx_list_suffix": "tab",
+                "docx_num_id": "1",
+                "category_depth": 0,
+                "docx_numbering_format": "decimal"
+              },
+              {
+                "docx_list_label": "3.",
+                "docx_numbering_level_text": "%1.",
+                "docx_numbering_counter": "3",
+                "docx_table_style_properties": [
+                  "outline_level",
+                  "num_id"
+                ],
+                "docx_table_style": "ReviewStyle",
+                "end_index": 161,
+                "start_index": 135,
+                "docx_list_suffix": "tab",
+                "docx_num_id": "1",
+                "category_depth": 0,
+                "docx_numbering_format": "decimal"
+              },
+              {
+                "docx_list_label": "4.",
+                "docx_numbering_level_text": "%1.",
+                "docx_numbering_counter": "4",
+                "docx_table_style_properties": [
+                  "outline_level",
+                  "num_id"
+                ],
+                "docx_table_style": "ReviewStyle",
+                "end_index": 188,
+                "start_index": 162,
+                "docx_list_suffix": "tab",
+                "docx_num_id": "1",
+                "category_depth": 0,
+                "docx_numbering_format": "decimal"
+              },
+              {
+                "docx_list_label": "5.",
+                "docx_numbering_level_text": "%1.",
+                "docx_numbering_counter": "5",
+                "docx_table_style_properties": [
+                  "outline_level",
+                  "num_id"
+                ],
+                "docx_table_style": "ReviewStyle",
+                "end_index": 215,
+                "start_index": 189,
+                "docx_list_suffix": "tab",
+                "docx_num_id": "1",
+                "category_depth": 0,
+                "docx_numbering_format": "decimal"
+              },
+              {
+                "docx_list_label": "6.",
+                "docx_numbering_level_text": "%1.",
+                "docx_numbering_counter": "6",
+                "docx_table_style_properties": [
+                  "outline_level",
+                  "num_id"
+                ],
+                "docx_table_style": "ReviewStyle",
+                "end_index": 242,
+                "start_index": 216,
+                "docx_list_suffix": "tab",
+                "docx_num_id": "1",
+                "category_depth": 0,
+                "docx_numbering_format": "decimal"
+              }
+            ],
+            "docx_part": "body"
+          }
+        }
+      ],
+      "warnings": [],
+      "file": "table-style-numbering.docx",
+      "sha256": "1e2d24d3ebd759df98e8b7883b3d15786d1cefac9c96d7ed9366181c58b85083"
+    },
+    {
+      "elements": [
+        {
+          "type": "Table",
+          "element_id": "1dda3fcc8b2ce55df1f7fd19042b916d",
+          "text": "direct-override-control-r0c0\tdirect-override-control-r0c1\tdirect-override-control-r0c2\ndirect-override-control-r1c0\tdirect-override-control-r1c1\tdirect-override-control-r1c2\ndirect-override-control-r2c0\tdirect-override-control-r2c1\tdirect-override-control-r2c2",
+          "metadata": {
+            "filename": "direct-override-control.docx",
+            "filetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "docx_merge_content_policy": "append_to_origin",
+            "docx_table_style": "ReviewStyle",
+            "table_header_rows": 0,
+            "table_row_count": 3,
+            "text_as_html": "<table><tr><td>direct-override-control-r0c0</td><td>direct-override-control-r0c1</td><td>direct-override-control-r0c2</td></tr><tr><td>direct-override-control-r1c0</td><td>direct-override-control-r1c1</td><td>direct-override-control-r1c2</td></tr><tr><td>direct-override-control-r2c0</td><td>direct-override-control-r2c1</td><td>direct-override-control-r2c2</td></tr></table>",
+            "table_column_count": 3,
+            "docx_part": "body"
+          }
+        }
+      ],
+      "warnings": [],
+      "file": "direct-override-control.docx",
+      "sha256": "8f5071b94f306a2761e464533d1ae51ec60e5e2783af5867833cbc7ad2b5c4cd"
+    }
+  ]
+}

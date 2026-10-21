@@ -1,0 +1,11 @@
+--- /tmp/docweave-caption-edge21/transfer-sources/ScorePublisherCaptions.java
++++ /tmp/docweave-native-compound21/transfer-sources/ScorePublisherCaptions.java
+@@ -83,7 +83,7 @@
+                                                                   ? PdfOptions.UnicodeNormalization.PRESENTATION_FORMS
+                                                                   : PdfOptions.UnicodeNormalization.RAW)
+                                 .withTextLayout(profile.equals("NATIVE_COLUMNS")
+-                                                        ? PdfOptions.TextLayout.COLUMN_PARAGRAPHS
++                                                        ? PdfOptions.TextLayout.COLUMN_PARAGRAPHS_COMPOUND_WRAPS
+                                                         : PdfOptions.TextLayout.LINES);
+                 final var partitioner = profile.equals("SOURCE_TAGGED_LINES")
+                                                 ? PdfPartitioner.createWithTaggedTables(options)

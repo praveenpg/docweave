@@ -1,0 +1,314 @@
+{
+  "runtime" : "21.0.12.1+12-LTS",
+  "manifest_sha256" : "5ded274dc78dfdd2db6d5fedad11ec261e035ad4148c137570fd72b1244c38eb",
+  "results" : [ {
+    "source_page" : 1,
+    "render_png_sha256" : "00cebfb356f9d9b4bc54e934b795ed104de8908f1d417baea89d6f9b504bb886",
+    "profile" : "managed_yolox_proposals",
+    "outcome" : "SUCCESS",
+    "expected_proposals" : 2,
+    "actual_proposals" : 2,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 2,
+    "render_png_sha256" : "061c7b85f584da9034a767b914e5fc87d5f1bf7d9bd5a5613b9fef081ba47918",
+    "profile" : "managed_yolox_proposals",
+    "outcome" : "SUCCESS",
+    "expected_proposals" : 2,
+    "actual_proposals" : 2,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 3,
+    "render_png_sha256" : "0808c5bdcd4c6443b81e6b11651b2559bc21774f89e6b571e2058ec2cc56c512",
+    "profile" : "managed_yolox_proposals",
+    "outcome" : "SUCCESS",
+    "expected_proposals" : 0,
+    "actual_proposals" : 0,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 4,
+    "render_png_sha256" : "d70ee45946f9dfdb281d5fa17718f942a7d843ceedc1921acf0da20279452fcc",
+    "profile" : "managed_yolox_proposals",
+    "outcome" : "SUCCESS",
+    "expected_proposals" : 1,
+    "actual_proposals" : 1,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 5,
+    "render_png_sha256" : "24f50db57471b54442a8d1994c60e2bb4d3ce657f2d573a958bb8dbbe6d8c793",
+    "profile" : "managed_yolox_proposals",
+    "outcome" : "SUCCESS",
+    "expected_proposals" : 2,
+    "actual_proposals" : 2,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 6,
+    "render_png_sha256" : "e95cd7f1926834de0fe8666c083a1cd04be0275f509a3b4bac7a6649e5a9145b",
+    "profile" : "managed_yolox_proposals",
+    "outcome" : "SUCCESS",
+    "expected_proposals" : 2,
+    "actual_proposals" : 2,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 7,
+    "render_png_sha256" : "f0b93bd5e577d7e46fa990edb865d475c5e7f5ff4d1792c40e0e7d8f2f34adb4",
+    "profile" : "managed_yolox_proposals",
+    "outcome" : "SUCCESS",
+    "expected_proposals" : 1,
+    "actual_proposals" : 1,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 8,
+    "render_png_sha256" : "b44930b184996692cdde9a9a894d0d2c78f7bd0507a62781a2d082d1e7589fec",
+    "profile" : "managed_yolox_proposals",
+    "outcome" : "SUCCESS",
+    "expected_proposals" : 1,
+    "actual_proposals" : 1,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 9,
+    "render_png_sha256" : "ea1acb5a60b92ad59069d3ddc76c8e6c77f9bdee51edf825561faa71a502ca71",
+    "profile" : "managed_yolox_proposals",
+    "outcome" : "SUCCESS",
+    "expected_proposals" : 3,
+    "actual_proposals" : 3,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 10,
+    "render_png_sha256" : "168581fdcd40a8964f7a97ef6ae1d2017ee252718f747f52995b7b6fe304b769",
+    "profile" : "managed_yolox_proposals",
+    "outcome" : "SUCCESS",
+    "expected_proposals" : 0,
+    "actual_proposals" : 0,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 11,
+    "render_png_sha256" : "49277a634535f18d1dfd3d0e32b1c438b9e010f4e686478c7590dcb93b32579c",
+    "profile" : "managed_yolox_proposals",
+    "outcome" : "SUCCESS",
+    "expected_proposals" : 0,
+    "actual_proposals" : 0,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 1,
+    "render_png_sha256" : "00cebfb356f9d9b4bc54e934b795ed104de8908f1d417baea89d6f9b504bb886",
+    "profile" : "public_tatr_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 1,
+    "actual_tables" : 1,
+    "actual_anchors" : 91,
+    "declared_header_tables" : 1,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 2,
+    "render_png_sha256" : "061c7b85f584da9034a767b914e5fc87d5f1bf7d9bd5a5613b9fef081ba47918",
+    "profile" : "public_tatr_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 1,
+    "actual_tables" : 1,
+    "actual_anchors" : 59,
+    "declared_header_tables" : 1,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 3,
+    "render_png_sha256" : "0808c5bdcd4c6443b81e6b11651b2559bc21774f89e6b571e2058ec2cc56c512",
+    "profile" : "public_tatr_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 0,
+    "actual_tables" : 0,
+    "actual_anchors" : 0,
+    "declared_header_tables" : 0,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 4,
+    "render_png_sha256" : "d70ee45946f9dfdb281d5fa17718f942a7d843ceedc1921acf0da20279452fcc",
+    "profile" : "public_tatr_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 1,
+    "actual_tables" : 1,
+    "actual_anchors" : 56,
+    "declared_header_tables" : 1,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 5,
+    "render_png_sha256" : "24f50db57471b54442a8d1994c60e2bb4d3ce657f2d573a958bb8dbbe6d8c793",
+    "profile" : "public_tatr_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 1,
+    "actual_tables" : 1,
+    "actual_anchors" : 126,
+    "declared_header_tables" : 1,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 6,
+    "render_png_sha256" : "e95cd7f1926834de0fe8666c083a1cd04be0275f509a3b4bac7a6649e5a9145b",
+    "profile" : "public_tatr_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 1,
+    "actual_tables" : 1,
+    "actual_anchors" : 48,
+    "declared_header_tables" : 1,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 7,
+    "render_png_sha256" : "f0b93bd5e577d7e46fa990edb865d475c5e7f5ff4d1792c40e0e7d8f2f34adb4",
+    "profile" : "public_tatr_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 1,
+    "actual_tables" : 1,
+    "actual_anchors" : 118,
+    "declared_header_tables" : 1,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 8,
+    "render_png_sha256" : "b44930b184996692cdde9a9a894d0d2c78f7bd0507a62781a2d082d1e7589fec",
+    "profile" : "public_tatr_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 0,
+    "actual_tables" : 0,
+    "actual_anchors" : 0,
+    "declared_header_tables" : 0,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 9,
+    "render_png_sha256" : "ea1acb5a60b92ad59069d3ddc76c8e6c77f9bdee51edf825561faa71a502ca71",
+    "profile" : "public_tatr_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 1,
+    "actual_tables" : 1,
+    "actual_anchors" : 60,
+    "declared_header_tables" : 1,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 10,
+    "render_png_sha256" : "168581fdcd40a8964f7a97ef6ae1d2017ee252718f747f52995b7b6fe304b769",
+    "profile" : "public_tatr_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 1,
+    "actual_tables" : 1,
+    "actual_anchors" : 14,
+    "declared_header_tables" : 1,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 11,
+    "render_png_sha256" : "49277a634535f18d1dfd3d0e32b1c438b9e010f4e686478c7590dcb93b32579c",
+    "profile" : "public_tatr_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 0,
+    "actual_tables" : 0,
+    "actual_anchors" : 0,
+    "declared_header_tables" : 0,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 1,
+    "render_png_sha256" : "00cebfb356f9d9b4bc54e934b795ed104de8908f1d417baea89d6f9b504bb886",
+    "profile" : "public_yolox_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 2,
+    "actual_tables" : 2,
+    "actual_anchors" : 85,
+    "declared_header_tables" : 2,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 2,
+    "render_png_sha256" : "061c7b85f584da9034a767b914e5fc87d5f1bf7d9bd5a5613b9fef081ba47918",
+    "profile" : "public_yolox_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 2,
+    "actual_tables" : 2,
+    "actual_anchors" : 56,
+    "declared_header_tables" : 2,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 3,
+    "render_png_sha256" : "0808c5bdcd4c6443b81e6b11651b2559bc21774f89e6b571e2058ec2cc56c512",
+    "profile" : "public_yolox_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 0,
+    "actual_tables" : 0,
+    "actual_anchors" : 0,
+    "declared_header_tables" : 0,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 4,
+    "render_png_sha256" : "d70ee45946f9dfdb281d5fa17718f942a7d843ceedc1921acf0da20279452fcc",
+    "profile" : "public_yolox_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 1,
+    "actual_tables" : 1,
+    "actual_anchors" : 59,
+    "declared_header_tables" : 1,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 5,
+    "render_png_sha256" : "24f50db57471b54442a8d1994c60e2bb4d3ce657f2d573a958bb8dbbe6d8c793",
+    "profile" : "public_yolox_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 2,
+    "actual_tables" : 2,
+    "actual_anchors" : 86,
+    "declared_header_tables" : 2,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 6,
+    "render_png_sha256" : "e95cd7f1926834de0fe8666c083a1cd04be0275f509a3b4bac7a6649e5a9145b",
+    "profile" : "public_yolox_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 2,
+    "actual_tables" : 2,
+    "actual_anchors" : 97,
+    "declared_header_tables" : 2,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 7,
+    "render_png_sha256" : "f0b93bd5e577d7e46fa990edb865d475c5e7f5ff4d1792c40e0e7d8f2f34adb4",
+    "profile" : "public_yolox_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 1,
+    "actual_tables" : 1,
+    "actual_anchors" : 112,
+    "declared_header_tables" : 1,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 8,
+    "render_png_sha256" : "b44930b184996692cdde9a9a894d0d2c78f7bd0507a62781a2d082d1e7589fec",
+    "profile" : "public_yolox_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 1,
+    "actual_tables" : 1,
+    "actual_anchors" : 128,
+    "declared_header_tables" : 1,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 9,
+    "render_png_sha256" : "ea1acb5a60b92ad59069d3ddc76c8e6c77f9bdee51edf825561faa71a502ca71",
+    "profile" : "public_yolox_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 3,
+    "actual_tables" : 3,
+    "actual_anchors" : 88,
+    "declared_header_tables" : 3,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 10,
+    "render_png_sha256" : "168581fdcd40a8964f7a97ef6ae1d2017ee252718f747f52995b7b6fe304b769",
+    "profile" : "public_yolox_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 0,
+    "actual_tables" : 0,
+    "actual_anchors" : 0,
+    "declared_header_tables" : 0,
+    "exact_numeric_match" : true
+  }, {
+    "source_page" : 11,
+    "render_png_sha256" : "49277a634535f18d1dfd3d0e32b1c438b9e010f4e686478c7590dcb93b32579c",
+    "profile" : "public_yolox_structures",
+    "outcome" : "SUCCESS",
+    "expected_tables" : 0,
+    "actual_tables" : 0,
+    "actual_anchors" : 0,
+    "declared_header_tables" : 0,
+    "exact_numeric_match" : true
+  } ],
+  "scope" : "All original-page rasters; exact raw YOLOX proposals and declared legacy geometry projection; no row-text or header accuracy claim"
+}

@@ -1,0 +1,14 @@
+{
+  "frozen_at": "2026-10-19T16:38:38.137391+00:00",
+  "baseline_commit": "078020aadecf3f33c1f96788e8c778b88afa484f",
+  "protocol": "Preserve existing PDFBox content-stream ActualText output and exact retained position identity; only validate the known expected source substitution, never guess arbitrary later mutations. Structure-element ActualText still unused. Same21 fixed original regions, same source/reference labels/models/options and explicit date policy, both actualJDKs. No reference/ROI enters extraction; development evidence, not heldout accuracy.",
+  "reference_manifest_sha256": "4f495b6d0686a55d583c9206aa968fdf5c80e90d860c6d267f84ad3349b6876d",
+  "owned_controls": [
+    "content-stream ActualText first/subsequent positions",
+    "nested wrappers and resource properties",
+    "source structure ActualText ignored",
+    "cross-cell diacritic invalidation retained",
+    "empty or malformed source replacement fallback",
+    "unchanged default extraction and ownership limits"
+  ]
+}

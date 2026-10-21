@@ -1,0 +1,11 @@
+--- VerifySourceFigureImages.java
++++ VerifySourceFigureImages.java
+@@ -60,7 +60,7 @@
+                     final var d = PdfOptions.defaults();
+                     final var options = new PdfOptions(d.maxPages(), d.maxGlyphsPerPage(), d.maxOperatorsPerPage(),
+                             d.maxImagePixels(), d.maxImageBytes(), true, d.tableLimits())
+-                                                .withTextRendering(rendering);
++                                                .withFigureCaptions(PdfOptions.FigureCaptions.IMAGE_ADJACENT_LABELS).withTextRendering(rendering);
+                     final var partitioner =
+                             tagged ? PdfPartitioner.createWithTaggedTables(options) : PdfPartitioner.create(options);
+                     try {

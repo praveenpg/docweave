@@ -1,0 +1,75 @@
+{
+  "frozen_at": "2026-10-19T17:36:24.659025+00:00",
+  "selection_sha256": "b6ca698f9014e460ade1e6e05c6c4d942e73ec4839473946d50d738f6d0c5d10",
+  "commit": "559892f099b32710c83d0dddbd21cde3128293a4",
+  "profiles": [
+    {
+      "language": "deu",
+      "filename": "deu.traineddata",
+      "bytes": 8628461,
+      "sha256": "8407331d6aa0229dc927685c01a7938fc5a641d1a9524f74838cdac599f0d06e",
+      "git_blob_sha1": "6dd654880db617f3edfa00bc2ed9c9e3107b8fd0",
+      "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/deu.traineddata"
+    },
+    {
+      "language": "deu_latf",
+      "filename": "deu_latf.traineddata",
+      "bytes": 12938047,
+      "sha256": "429b8c33d37e1a4823a2bb082a644ff13e252f735b7945e08a518d22ddcc459e",
+      "git_blob_sha1": "cc64c41d469dd0d2791e26d6da8c0fa5d4ef94c0",
+      "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/deu_latf.traineddata"
+    }
+  ],
+  "cases": [
+    {
+      "id": "buerger_gedichte_1778_0039",
+      "year": 1778,
+      "image": "buerger_gedichte_1778_0039.tif",
+      "xml": "buerger_gedichte_1778_0039.xml",
+      "width": 1440,
+      "height": 1929,
+      "expected_lines": 38,
+      "reference_code_points": 948,
+      "reference_text_sha256": "4a77b9fff1a8858b2381601798ba9a0a4192af5a5b5f6fbf0a46664c8394bf7e",
+      "inputs": [
+        {
+          "filename": "buerger_gedichte_1778_0039.xml",
+          "bytes": 40761,
+          "sha256": "1c6c94ff6dd2823d3ce0197ace5973cae356540c9768de5d05aeb99bd560179d",
+          "git_blob_sha1": "983e7be65b38e96eaee34978c77cd9ec7033debd"
+        },
+        {
+          "filename": "buerger_gedichte_1778_0039.tif",
+          "bytes": 9002676,
+          "sha256": "e391f6e2347fa85fb9a0c1a3379b641874e0d771fbd8775cf0a0979e0ead07c5",
+          "git_blob_sha1": "7bdae065d2ca94da2efe9fee54c5059e6233560f"
+        }
+      ]
+    },
+    {
+      "id": "nn_besuch_1780_00001",
+      "year": 1780,
+      "image": "nn_besuch_1780_00001.tif",
+      "xml": "nn_besuch_1780_00001.xml",
+      "width": 2000,
+      "height": 2271,
+      "expected_lines": 10,
+      "reference_code_points": 322,
+      "reference_text_sha256": "c71649df20ebaac27a621710a0994fab3e14c6bdc135dc52145c6f0be89438e7",
+      "inputs": [
+        {
+          "filename": "nn_besuch_1780_00001.xml",
+          "bytes": 13105,
+          "sha256": "be5429a9c1a3555406664ebdf3fe40fea9ecbbc38915a63f965bff29a8e7a551",
+          "git_blob_sha1": "ad9616622f8b8575cb38cd782589f692ebd16648"
+        },
+        {
+          "filename": "nn_besuch_1780_00001.tif",
+          "bytes": 13648136,
+          "sha256": "5728ea1277fd3521ec2d5088584f6e749f67d99891d4f9e7b8362ddea8e8390a",
+          "git_blob_sha1": "83a79d7fd54c60630812c6b55c2420e26d96b49d"
+        }
+      ]
+    }
+  ]
+}

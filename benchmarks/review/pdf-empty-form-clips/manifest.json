@@ -1,0 +1,18 @@
+{
+  "base_commit": "31db924",
+  "java_release": 21,
+  "identities": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java": "91cc9ffcf0daa1457c94e29ade956262e71b3877a2c1c0063586a48527ca362c",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfEmptyFormClipTest.java": "b4e4338d6b50f1fbe176265522ebf908478f3e841c4732812c3ca903057ab705",
+    "benchmarks/tools/HashNativePartitionResults.java": "844ba574aa06d20e7b2cffc2232a5399f2ce82a41df4b2d199a47464b4aa8460",
+    "benchmarks/review/pdf-stroke-opacity/new-results-java21.json": "b6d3299ad7d6892d9990a21416c9bc6269f0f46ebb87636e7ee912de5031c0ef",
+    "benchmarks/review/pdf-stroke-opacity/nvidia-java21.json": "6f6e3c045c3e5793b28dc7a761970b6a93a0a0ef966cbabfa699fd52d47a7d2c"
+  },
+  "validation": {
+    "full_tests": 1193,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "final_focused_tests": 13
+  }
+}

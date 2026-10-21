@@ -1,0 +1,45 @@
+{
+  "repository": "https://github.com/tesseract-ocr/test",
+  "revision": "232ff181c66516116ec0e84c4963f70de15050fd",
+  "source_directory": "testing",
+  "license": "Apache-2.0; fetch-only",
+  "orientation_oracle": "https://github.com/tesseract-ocr/tesseract/blob/5.5.3/unittest/osd_test.cc",
+  "orientation_oracle_sha256": "2c1f63ef6e90c82bb833eeee65d89118f1f2bd9f3617c204e13311b025dc8ce2",
+  "scope": "Official OCR regression fixtures with source orientation labels and transcription; model-training overlap unknown; not physical-scan provenance or calibration",
+  "inputs": [
+    {
+      "filename": "phototest.tif",
+      "bytes": 38668,
+      "sha256": "d2241a1eb6d6cd2eb6544b8e228c2862c852b7467d16ed636caa32179b780692",
+      "git_blob_sha1": "adac046dba073285f945446d5ad557894da82c9b",
+      "clockwise_source_degrees": 0
+    },
+    {
+      "filename": "phototest-rotated-R.png",
+      "bytes": 6862,
+      "sha256": "8b78f03821e57eec1c3ea3e15f1decb0cd1114322ffceaa1e27c4db91c3eb658",
+      "git_blob_sha1": "ec93edeb5168550b4e5eab4a1051dd877edb44f0",
+      "clockwise_source_degrees": 90
+    },
+    {
+      "filename": "phototest-rotated-180.png",
+      "bytes": 5276,
+      "sha256": "9a2ceaab3685a36a2041ef49b5683db2bedb4ff82d87136be4b52afa030e8114",
+      "git_blob_sha1": "399df148705b4d6954b4a19fd44c87b7289d79c2",
+      "clockwise_source_degrees": 180
+    },
+    {
+      "filename": "phototest-rotated-L.png",
+      "bytes": 6793,
+      "sha256": "f9c80afb481abc07fdc6ff013df3048ef31141e7b1b90ec90ccbee8c3eddbea7",
+      "git_blob_sha1": "1a279213fb5eac244022da27915b81972525f4f6",
+      "clockwise_source_degrees": 270
+    },
+    {
+      "filename": "phototest.gold.txt",
+      "bytes": 286,
+      "sha256": "76ef157baeb6ab275b7d90f310477a8060d5822aea2b2e05d480f459b016a6ed",
+      "git_blob_sha1": "02d3a77cbb52326e0a1e5eef78f8e28f20eb122b"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "scope": "Fixed maintained-reference correspondence; not general font/bidi/author accuracy",
+  "actual_java21_full_tests": 869,
+  "actual_java25_full_tests": 869,
+  "failures_errors_skips": [
+    0,
+    0,
+    0
+  ],
+  "strict_javadocs": true,
+  "installed_engine_families": 10,
+  "source_pdfs": 5,
+  "pinned_assets": 15,
+  "raw_exact_text_correspondences": 3,
+  "explicit_presentation_forms_exact_correspondences": 5,
+  "source_geometry_and_types_preserved": true,
+  "mathematical_supplementary_and_diacritic_preserved": true,
+  "raw_default_unchanged": true,
+  "paired_result_entries_identical": true,
+  "blanket_nfkc_used": false,
+  "ocr_text_normalized": false
+}

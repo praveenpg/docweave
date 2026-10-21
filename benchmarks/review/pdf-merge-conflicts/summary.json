@@ -1,0 +1,26 @@
+{
+  "scope": "All20 fixed upstream-train images; explicit KEEP_HIGHER_SCORE versus default REJECT_TABLE; not a held-out/general accuracy estimate",
+  "baseline": {
+    "tables": 19,
+    "exact_cells": 336,
+    "positional_span_matches": 1182,
+    "complete_topologies": 14,
+    "whole_exact_tables": 0,
+    "matched_tokens": 791,
+    "observed_tokens": 1765
+  },
+  "selected": {
+    "tables": 20,
+    "exact_cells": 369,
+    "positional_span_matches": 1280,
+    "complete_topologies": 14,
+    "whole_exact_tables": 0,
+    "matched_tokens": 792,
+    "observed_tokens": 1769
+  },
+  "changed_inputs": [
+    "PMC1626454_002_00.png"
+  ],
+  "unchanged_inputs": 19,
+  "typed_failures": 0
+}

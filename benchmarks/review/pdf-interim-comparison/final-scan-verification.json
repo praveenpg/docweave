@@ -1,0 +1,9 @@
+{
+  "reference_code_points_per_single_model_profile" : 5378,
+  "all_shared_container_model_and_failed_denominators_retained" : true,
+  "paired_case_profiles" : 16,
+  "sources_with_declared_logical_line_order" : 1,
+  "all_numeric_and_reference_results_equal" : true,
+  "other_sources_keep_xml_sequence_qualification" : 3,
+  "native_complete_line_metrics_unchanged" : 8
+}

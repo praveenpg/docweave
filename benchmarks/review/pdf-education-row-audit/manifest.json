@@ -1,0 +1,10 @@
+{
+  "frozen_at": "2026-10-19T05:36:56.147988+00:00",
+  "references": {
+    "benchmarks/review/pdf-native-first-independent/manifest.json": "d8d4bb5d37d5bd9e35d3ff936ecd6f12ca29543fdd3f16d72962f4d260017b7a",
+    "benchmarks/review/pdf-native-first-independent/java21.json": "8a7eb68c30d615811908ab11c300e4084f968083611d469a2a0f1e2e4605c5d0",
+    "benchmarks/tools/CaptureDetectedTableInput.java": "569fa7cfb90903bb9a198b73d4cc254960d0414a7fe493db9898cc71b0cd5127"
+  },
+  "selection": "Diagnose education-first source page1 plus education-second page3 control from the SAME pinned original us-002.pdf. Existing outcomes retained; no new quality score or source exclusion.",
+  "protocol": "Same pinned detector/structure graphs,150DPI,fourthreads,KEEP_HIGHER_SCORE; original-page capture without reference ROI/text. Numeric decoded row membership/suppression counts. Compare original XML single-row text bounding envelopes to unchanged full-document model row bands afterward; text envelopes are NOT cell edges. No threshold/default/label/prediction changes. Paired actualJava21/25."
+}

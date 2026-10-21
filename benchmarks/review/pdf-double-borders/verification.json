@@ -1,0 +1,28 @@
+{
+  "java21": "21.0.12.1+12-LTS",
+  "java25": "25.0.4+7-LTS",
+  "tests_each": {
+    "tests": 747,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "strict_javadocs": "passed on both JDKs",
+  "python_reference_guards": 12,
+  "formatter": "clang-format23.1.1 passed",
+  "same_corpus_results": true,
+  "class_major": 65,
+  "sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/DoublePdfRuleNormalizer.java": "ebac0c7e6abe1d950581f347339f269de541b8393f87262a3eb54c7487009368",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageLayout.java": "7c3ca05f6a903764f03cb7bf9d6c3dd39f3bab48e30f35b2b5287734bf4b7208",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "12f81b66bb7e4e9fd0e714c7f23205c8b5d32ef23084d40d0d09c5990fbd8edc",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfDoubleBorderTest.java": "ca99c8e6dd7c1dbd80a26d41addba8a20f8f9d7222a898ee1f1f1aa6da726103",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfIndependentCellsTest.java": "dcdeb0ffa1c03a8277e7d96f846b7d60130c4cc414d717bd29299ee3475baf35",
+    "benchmarks/review/pdf-double-borders/java21-corpus.json": "2641470cc607705dcd452dc9fa030a07397fe1ebde9d4de2697fcdf951d9e445",
+    "benchmarks/review/pdf-double-borders/java21-tests.json": "bb114eaefc18b3738e248e2e2cb7bdd89890ae220c5ae050075e21cb85d69bc7",
+    "benchmarks/review/pdf-double-borders/java25-corpus.json": "2ff8feb735eb520b7b0b030e87f535a48fc794845284d321ee127a8e4fa2b9f5",
+    "benchmarks/review/pdf-double-borders/java25-tests.json": "bb114eaefc18b3738e248e2e2cb7bdd89890ae220c5ae050075e21cb85d69bc7",
+    "benchmarks/review/pdf-double-borders/upstream-status.json": "954e193afcd218679682f8131dc9915408278dca08cbb919213186110ec2063d",
+    "docweave-pdf/target/classes/dev/docweave/partition/DoublePdfRuleNormalizer.class": "0a5315db2fb04b601c1f52907533ed0310ffd26fd42301bf589b8dc65743f976"
+  }
+}

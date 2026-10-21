@@ -1,0 +1,14 @@
+{
+  "java": "25",
+  "dependencies": [
+    "io/docweave/docweave-pdf/0.1.0-SNAPSHOT/docweave-pdf-0.1.0-SNAPSHOT.jar",
+    "io/docweave/docweave-core/0.1.0-SNAPSHOT/docweave-core-0.1.0-SNAPSHOT.jar",
+    "org/apache/pdfbox/pdfbox/3.0.8/pdfbox-3.0.8.jar",
+    "org/apache/pdfbox/pdfbox-io/3.0.8/pdfbox-io-3.0.8.jar",
+    "org/apache/pdfbox/fontbox/3.0.8/fontbox-3.0.8.jar",
+    "commons-logging/commons-logging/1.4.0/commons-logging-1.4.0.jar"
+  ],
+  "stdout": "PDF-only ServiceLoader discovery and text extraction passed on 25.0.4+7-LTS\n",
+  "stderr": "",
+  "source_class_major_version": 65
+}

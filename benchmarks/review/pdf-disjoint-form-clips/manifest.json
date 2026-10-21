@@ -1,0 +1,15 @@
+{
+  "base_commit": "122cb69",
+  "java_release": 21,
+  "identities": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java": "a8ce1dd6526f90ffb0f6831412d9f71b998831fc05c0fdd864da9dd1200e2844",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfInheritedRuleClip.java": "8cb96c8a772ee0c64f00424216bfda0befc13e451013d3d736c8ec2fdd3a0946",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfEmptyFormClipTest.java": "569d9be33e7a264a242d62e352fba88061104831a70c72494ffeb0ce97ca634f",
+    "benchmarks/review/pdf-empty-form-clips/scientific-java21.json": "b6d3299ad7d6892d9990a21416c9bc6269f0f46ebb87636e7ee912de5031c0ef",
+    "benchmarks/review/pdf-empty-form-clips/nvidia-java21.json": "fc1bbec21cf249c02a85ec5143ff4d1e6c8c1ad8d2c5c7f4a147ea5f06672776"
+  },
+  "full_tests": 1195,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+}

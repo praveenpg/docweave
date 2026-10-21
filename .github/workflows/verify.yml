@@ -1,0 +1,101 @@
+name: Verify
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      include_java25:
+        description: Include Java 25 for final PDF compatibility verification
+        type: boolean
+        default: false
+      check_upstream:
+        description: Check official Unstructured release and main freshness
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Java ${{ matrix.java }} and saved Word evidence
+    strategy:
+      fail-fast: false
+      matrix:
+        java: ${{ fromJSON(github.event_name == 'workflow_dispatch' && inputs.include_java25 && '["21","25"]' || '["21"]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Java ${{ matrix.java }}
+        uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6
+        with:
+          distribution: temurin
+          java-version: '${{ matrix.java }}'
+          cache: maven
+          cache-dependency-path: '**/pom.xml'
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.13'
+
+      - name: Verify Java tests and Javadocs
+        run: mvn -B -ntp verify
+
+      - name: Rehearse release profiles without signing
+        run: mvn -B -ntp -Prelease-artifacts,release-signing -Dgpg.skip=true -DskipTests verify
+
+      - name: Verify standalone optional-adapter consumers
+        run: |
+          mvn -B -ntp -pl docweave-ocr-tesseract,docweave-layout-onnx -am -DskipTests install
+          bash benchmarks/review/adapter-consumers/run.sh "$HOME/.m2/repository" "$RUNNER_TEMP/docweave-adapter-consumers"
+
+      - name: Verify release archive licenses and contents
+        run: |
+          java benchmarks/tools/CheckReleaseArchives.java . --checksums
+          sha256sum -c target/release-checksums.sha256
+          sha512sum -c target/release-checksums.sha512
+
+      - name: Check upstream freshness
+        if: github.event_name == 'workflow_dispatch' && inputs.check_upstream
+        run: >-
+          mvn -B -ntp -pl docweave-validation -am test
+          -Dtest=UpstreamStatusTest -Dsurefire.failIfNoSpecifiedTests=false
+          -Ddocweave.upstream.check=true
+
+      - name: Verify benchmark tooling
+        run: python3 -m unittest discover -s benchmarks/tools -p 'test_*.py'
+
+      - name: Retain test and comparison reports
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: verification-java${{ matrix.java }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            */target/surefire-reports/
+            */target/*-sources.jar
+            */target/*-javadoc.jar
+            target/release-checksums.sha256
+            target/release-checksums.sha512
+            ${{ runner.temp }}/docweave-adapter-consumers/*/run.log
+            ${{ runner.temp }}/docweave-adapter-consumers/*/build.log
+            ${{ runner.temp }}/docweave-adapter-consumers/*/runtime-dependencies.txt
+            docweave-validation/target/word-evidence/
+            docweave-validation/target/docx-ownership/
+            docweave-validation/target/docx-styles/
+            docweave-validation/target/word-fixtures/
+            docweave-validation/target/saved-output-comparison/
+            docweave-validation/target/upstream-status/
+          retention-days: 7
+          if-no-files-found: warn

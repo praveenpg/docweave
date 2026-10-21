@@ -1,0 +1,85 @@
+{
+  "baseline_commit": "a6ba5345db0ff771236702a6306bf4a51cafdffd",
+  "paired_metrics_equal_excluding_runtime_capture_byte_identity": true,
+  "parsed_captures_equal": true,
+  "tests_per_jdk": 949,
+  "new_owned_tests": 9,
+  "tooling_guards": 36,
+  "files": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageLayout.java": "8f6f71f1391619adb843b65312b0862ccff3027fd0325b7b04372c0d276740dc",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfNativeProviderTables.java": "b0f9c5d9a5e34de881d179bb900c14d75e6be104a6f46f36d773ae5a499cd05f",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPartitioner.java": "af2c59bac3ba235e3cf32b95b762b3a68ef0dc1e629ef565c0b02dd14fcbcd3c",
+    "docweave-pdf/src/main/java/dev/docweave/partition/DefaultPdfPartitioner.java": "004c04b70392b9751c418b6f3baae82f12eb87b483fc914dde7439a3bbb5f449",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTableWork.java": "573321ece08d2cbee7efcbf1fa6f19676f0535d7d8d3bd358288890e30b3bf13",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfNativeLayoutOptions.java": "e923aa0800d43092b68f99fb70ee7e84b37dcc0f59e8b0dd8099a96df954de62",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfNativeFirstTest.java": "480ad466d918733491aecd8930ac25d601d090b93795e9e80db2ab356059ebc8",
+    "benchmarks/tools/CaptureNativeModelTables.java": "6a9a44af9a242a39c63bee8fbab0112b444e8a6aeaf431f430ec3cb40524c70e",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfCurrentBusinessRowsTest.java": "c89c8ebb46437f6337d4128d64db6ce536f39c7ce41397691845203b48b5a614",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfScientificSpanTest.java": "2c9eda4bea043c177e38d73b296044dbabe83148302debed633a172fec8004ae",
+    "benchmarks/review/pdf-native-first/manifest.json": "780bbd659c681d1e642800e34aa46ec065ba51b9eb094d05caf767b2c620bbc1",
+    "benchmarks/review/pdf-native-first/business-java21.json": "c79ef7397e9b5f6dea71098b40584e8971d6ec52566c6e634abdeb2f6a6513ed",
+    "benchmarks/review/pdf-native-first/business-java25.json": "1ab7c1b32149c44f1d40f2ecdc3d2f2a9e740529a9601ed7216ad72ae0251e52",
+    "benchmarks/review/pdf-native-first/current-java21.json": "27ce07b6cac7e90d9ebb3dbcf9607b47271c48a34842c1b5ff5822b0f4fb72fb",
+    "benchmarks/review/pdf-native-first/current-java25.json": "82323a47492984dce35e26a0b8e4d4a384d47735311d3cc042857e9e344c8472",
+    "benchmarks/review/pdf-native-first/scientific-java21.json": "8abea1683a3308f06f9620c78de6e83700382dab6cc5b9242651a74e4c73238c",
+    "benchmarks/review/pdf-native-first/scientific-java25.json": "658aba0b7f45897ed864a95dfee8aff68f3573d86f102f59d211e3ac39d40d16"
+  },
+  "local_captures": {
+    "21": {
+      "business": {
+        "runtime.json": "24c3ae2397ba867adf2d54efe0dde33498af525e0c0183cd64414a4147bb431f",
+        "education-statistics/source.json": "eeff25a85133e550927a3d9d1b7c7b0f106c3748c3fef3b8271c28c2bb4fbd68",
+        "education-statistics/native-first.json": "a70e547ae6d179546dd59a833cb0a319dbfb296a49d94cd0da54589505d6ffaf",
+        "transport-procurement/source.json": "40e979cca99c8e4f50fad130918b9fed331ca6e990c2cd6576f63baafa8e3a93",
+        "transport-procurement/native-first.json": "712d85dc8c20aa8bd84c6182b79897f8ba87eea62767d5a9e9000b7207b448b6",
+        "financial-disclosure/source.json": "755d3e4d27c55b823a69e730c9bd1ccef8d89b8ca89306eecd423e6148ac8408",
+        "financial-disclosure/native-first.json": "c0b269daf454cc791def0a7bd83fd9641b6e8578b06e666cf15819313a7c444b"
+      },
+      "current": {
+        "runtime.json": "84b0b398add2730f4752b1888680ea719377c03dfa7dc2ce805ec1274603a85b",
+        "balance-sheet/source.json": "6f16d64f7a10036321948f685d5fbf3dd9e0ef1e80e51fcf9ffc53280b882dd3",
+        "balance-sheet/native-first.json": "108afc56a5a0dc9b29787133f3bc8ce77599469a912d4ad30dd70582da9da0d3",
+        "operations/source.json": "e295b4bcc97f3ad5abaf15027151bb154eecf66f8214defe400886f49ae0e501",
+        "operations/native-first.json": "33d9732afe90c88ba4946900363826b08e49326527ade724c5297447384dce07"
+      },
+      "scientific": {
+        "runtime.json": "8e3ac41b55f10ab17e0c6631302ef0f425f8eb553a914270b53de5743e619b34",
+        "scientific-cycle/source.json": "c910f025ab6c56c0cf88376ff85aaa050563188c37c8260331d840e2c8d27b0a",
+        "scientific-cycle/native-first.json": "9a803eb68257607b4852fb9b92a17e7b4d17d63deee9d48ee3c44261e9132f4a"
+      }
+    },
+    "25": {
+      "business": {
+        "runtime.json": "3f4424bfd3b8325524fdf322e72e753675975bea16dff010a2542338b6cc464a",
+        "education-statistics/source.json": "68c0979e0a7c28cc0c1291263c4102f8e783576be29adfa98f662299ba0b978e",
+        "education-statistics/native-first.json": "f1089e3dbd136020b653747940d87d4e6c1ebbf9197abda569cfd1f5ab3b8bd5",
+        "transport-procurement/source.json": "741a7970bc556b7d796bc335372aaf56ecdd4bd537dfc6432650d551e7e268e1",
+        "transport-procurement/native-first.json": "bc1dc753d5cda28123e79141aa7e1b85cafd2774def246e82eafe475ca963f5c",
+        "financial-disclosure/source.json": "cbbca9dddf5e4729655cf8929cae4ec9a9505d46e822069eff667a12d3819c7a",
+        "financial-disclosure/native-first.json": "6581093650efd527fc0ba5bc560800b5118ac637350dbf4ce1444646f5f8ef53"
+      },
+      "current": {
+        "runtime.json": "463528e6327724687e2249701b2f9354d337ee4279cb0c708e26ca8db00d5524",
+        "balance-sheet/source.json": "ad86b9cd5857ac6c03d15f28dc20811e5a99b5925f6b805b31244d846b15a84b",
+        "balance-sheet/native-first.json": "6c49ed878ebdd93f1c4e3575799e313bcdea8a3710d3479a76b47eb1e35b5ec8",
+        "operations/source.json": "a80a677c31701f9360031a7a570771e19a41b9fba76876b0b967be2a40ff48d2",
+        "operations/native-first.json": "d1c4ede88d8837987b84dd98aa485e300d88910d86943b6b05363a58a1b94fb1"
+      },
+      "scientific": {
+        "runtime.json": "a25390245a0f61cf9d544b69099d43ebb1c87c197a7cf47ef20e89b066115ef3",
+        "scientific-cycle/source.json": "8614e49c5dbee20e617830ef82421c73b1a2a95d557a801018088c5416d9bb24",
+        "scientific-cycle/native-first.json": "dd920aac593a1277deff8521372a4f37aa2ff3fe02fea3582cf0b8205ff72d92"
+      }
+    }
+  },
+  "verification_logs": {
+    "21": {
+      "full_verify_sha256": "26687a0238ebfa6b8ddb86009882d693cf10ad611f9444d56e20497007c6283b",
+      "capture_private_javadocs_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "25": {
+      "full_verify_sha256": "5e7863c4f2b74a858638866268566cfa389b7d709224c1e80e172a84a5ef8fc2",
+      "capture_private_javadocs_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

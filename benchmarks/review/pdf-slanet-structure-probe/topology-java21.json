@@ -1,0 +1,304 @@
+{
+  "scope" : "Unrepaired model logical slots and enclosing quadrilateral bounds through existing provider validation; no native-text score",
+  "java_runtime" : "21.0.12.1+12-LTS",
+  "capture_sha256" : "45b2fee5ce4b4034655815af90b3367ded29dcc74567828abbbb17e665055070",
+  "results" : [ {
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 16,
+      "columns" : 6,
+      "anchors" : 86,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "profile" : "tatr",
+    "page" : 1
+  }, {
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 8,
+      "columns" : 6,
+      "anchors" : 43,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    }, {
+      "crop" : 1,
+      "raw_outcome" : "OK",
+      "rows" : 8,
+      "columns" : 6,
+      "anchors" : 43,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "profile" : "yolox",
+    "page" : 1
+  }, {
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 16,
+      "columns" : 4,
+      "anchors" : 58,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "profile" : "tatr",
+    "page" : 2
+  }, {
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 7,
+      "columns" : 4,
+      "anchors" : 28,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    }, {
+      "crop" : 1,
+      "raw_outcome" : "OK",
+      "rows" : 7,
+      "columns" : 4,
+      "anchors" : 28,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "profile" : "yolox",
+    "page" : 2
+  }, {
+    "captures" : [ ],
+    "profile" : "tatr",
+    "page" : 3
+  }, {
+    "captures" : [ ],
+    "profile" : "yolox",
+    "page" : 3
+  }, {
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 16,
+      "columns" : 5,
+      "anchors" : 70,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "profile" : "tatr",
+    "page" : 4
+  }, {
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 15,
+      "columns" : 7,
+      "anchors" : 81,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "profile" : "yolox",
+    "page" : 4
+  }, {
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 32,
+      "columns" : 8,
+      "anchors" : 253,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "profile" : "tatr",
+    "page" : 5
+  }, {
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "validation" : "REJECTED",
+      "failure_class" : "java.lang.IllegalStateException",
+      "code" : "MISSING_LOGICAL_SLOT"
+    }, {
+      "crop" : 1,
+      "raw_outcome" : "OK",
+      "rows" : 10,
+      "columns" : 8,
+      "anchors" : 74,
+      "topology" : "COMPLETE",
+      "validation" : "PROVIDER_VALID"
+    } ],
+    "profile" : "yolox",
+    "page" : 5
+  }, {
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 13,
+      "columns" : 7,
+      "anchors" : 88,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "profile" : "tatr",
+    "page" : 6
+  }, {
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 11,
+      "columns" : 3,
+      "anchors" : 33,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    }, {
+      "crop" : 1,
+      "raw_outcome" : "OK",
+      "rows" : 17,
+      "columns" : 6,
+      "anchors" : 97,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "profile" : "yolox",
+    "page" : 6
+  }, {
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 27,
+      "columns" : 5,
+      "anchors" : 135,
+      "topology" : "COMPLETE",
+      "validation" : "PROVIDER_VALID"
+    } ],
+    "profile" : "tatr",
+    "page" : 7
+  }, {
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 26,
+      "columns" : 5,
+      "anchors" : 130,
+      "topology" : "COMPLETE",
+      "validation" : "PROVIDER_VALID"
+    } ],
+    "profile" : "yolox",
+    "page" : 7
+  }, {
+    "captures" : [ ],
+    "profile" : "tatr",
+    "page" : 8
+  }, {
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 23,
+      "columns" : 11,
+      "anchors" : 248,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "profile" : "yolox",
+    "page" : 8
+  }, {
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "validation" : "REJECTED",
+      "failure_class" : "java.lang.IllegalStateException",
+      "code" : "MISSING_LOGICAL_SLOT"
+    } ],
+    "profile" : "tatr",
+    "page" : 9
+  }, {
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 6,
+      "columns" : 8,
+      "anchors" : 48,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    }, {
+      "crop" : 1,
+      "raw_outcome" : "OK",
+      "validation" : "REJECTED",
+      "failure_class" : "java.lang.IllegalStateException",
+      "code" : "MISSING_LOGICAL_SLOT"
+    }, {
+      "crop" : 2,
+      "raw_outcome" : "OK",
+      "rows" : 6,
+      "columns" : 9,
+      "anchors" : 43,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "profile" : "yolox",
+    "page" : 9
+  }, {
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 8,
+      "columns" : 2,
+      "anchors" : 16,
+      "topology" : "COMPLETE",
+      "validation" : "REJECTED",
+      "failure_class" : "dev.docweave.partition.PartitionException",
+      "code" : "OCR_FAILURE"
+    } ],
+    "profile" : "tatr",
+    "page" : 10
+  }, {
+    "captures" : [ ],
+    "profile" : "yolox",
+    "page" : 10
+  }, {
+    "captures" : [ {
+      "crop" : 0,
+      "raw_outcome" : "OK",
+      "rows" : 1,
+      "columns" : 1,
+      "anchors" : 1,
+      "topology" : "COMPLETE",
+      "validation" : "PROVIDER_VALID"
+    } ],
+    "profile" : "tatr",
+    "page" : 11
+  }, {
+    "captures" : [ ],
+    "profile" : "yolox",
+    "page" : 11
+  } ]
+}

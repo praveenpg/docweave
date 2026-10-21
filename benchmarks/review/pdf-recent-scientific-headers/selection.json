@@ -1,0 +1,7 @@
+{
+  "frozen_at": "2026-10-19T15:31:55.594502+00:00",
+  "doi": "10.1371/journal.pone.0324609",
+  "selection": "First search result with explicit2025 publication and original printable PDF in primary PLOS ONE results for2025 Table1 DataAvailability. Select first ordinal main-article table with publisher JATS/HTML header labels, before candidate extraction. Do not replace on failure.",
+  "boundary": "Publisher logical HTML/JATS header rows/spans/content are independent of predictions but are not automatically physical PDF atomic spans. Inspect original PDF and freeze source page/ROI before extraction. Repeated PDF page headers and split tables require explicit mapping; no invented physical oracle.",
+  "priorities": "Recent scientific breadth after ordinal external cellspan controls. Fetch-only source assets, commit identities/numeric evidence only."
+}

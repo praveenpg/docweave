@@ -1,0 +1,213 @@
+{
+  "frozen_at": "2026-10-19T21:50:09.226233+00:00",
+  "docweave_commit": "5a435bf698e45e5feb8152c6f1785495b3776fc8",
+  "unstructured_version": "0.27.28",
+  "document_timeout_seconds": 300,
+  "cases": [
+    {
+      "id": "business",
+      "pdf": "amazon-q4-2025.pdf",
+      "bytes": 360510,
+      "sha256": "ad8d84cbcc0a4ce35b803b93e8186c29ea0b06b4455d04fb584ab5ad29c42915",
+      "reference_manifest": "benchmarks/review/pdf-current-business-rows/manifest.json",
+      "reference_manifest_sha256": "3656667adb4345c0b7ff0ac74f07b255cf4aa923ce7ab55a7ad13d747a732898",
+      "regions": [
+        {
+          "id": "operations",
+          "page": 7,
+          "html_table_index": 1,
+          "reference_rows": 27,
+          "reference_rows_sha256": "c48c557b5401161ab5e1691d753806f33f0a5dc9479c16529e4c13c86ba0ac61",
+          "roi_left_top_right_bottom": [
+            48,
+            90,
+            564,
+            535
+          ]
+        },
+        {
+          "id": "balance-sheet",
+          "page": 10,
+          "html_table_index": 4,
+          "reference_rows": 32,
+          "reference_rows_sha256": "2896db58a4b699302d28fd6ab84d6b8308775770ca1139a35ee864a0e21b144b",
+          "roi_left_top_right_bottom": [
+            48,
+            100,
+            564,
+            620
+          ]
+        }
+      ]
+    },
+    {
+      "id": "recent",
+      "pdf": "recent.pdf",
+      "bytes": 927934,
+      "sha256": "acb3af41357a960a9584f9ba0b0bf3319195af2ec4f3bc6074c2083d97d10bb8",
+      "reference_manifest": "benchmarks/review/pdf-recent-scientific-headers/manifest.json",
+      "reference_manifest_sha256": "4b0906008a5e8f2ae5be45358fcc8eaa77a94b4189ed03b7009f5314d84d5449",
+      "regions": [
+        {
+          "id": "recent-scientific",
+          "pdf": "article.pdf",
+          "source_page": 7,
+          "source_page_height": 792,
+          "jats": "article.xml",
+          "table_id": "pone.0324609.t001",
+          "expected_rows": 16,
+          "expected_columns": 9,
+          "expected_anchors": 136,
+          "publisher_header_rows": 1,
+          "expected_header_anchors": 9,
+          "leading_row_window": 1,
+          "roi_left_top_right_bottom": [
+            36,
+            107,
+            576,
+            573
+          ]
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "pdf": "next.pdf",
+      "bytes": 321008,
+      "sha256": "0c96e723535ee671eb0d263702adc9e986fb2817a5e16ab7b7235e593a39eff2",
+      "reference_manifest": "benchmarks/review/pdf-scientific-next-source/manifest.json",
+      "reference_manifest_sha256": "d3e9fb72127a8ceeed619e4d086585b7249af033cef32f8d183a1b704d7c1793",
+      "regions": [
+        {
+          "id": "next-scientific",
+          "pdf": "article.pdf",
+          "source_page": 7,
+          "source_page_height": 792,
+          "jats": "article.xml",
+          "table_id": "pone.0330904.t001",
+          "expected_rows": 5,
+          "expected_columns": 3,
+          "expected_anchors": 15,
+          "publisher_header_rows": 1,
+          "expected_header_anchors": 3,
+          "leading_row_window": 1,
+          "roi_left_top_right_bottom": [
+            36,
+            594,
+            576,
+            699
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elife",
+      "pdf": "elife.pdf",
+      "bytes": 1641690,
+      "sha256": "ae3d00995f44bdd26fd0f60e760dc0fce44e84a0482fc64d2277ef4792413a4b",
+      "reference_manifest": "benchmarks/review/pdf-scientific-second-publisher/manifest.json",
+      "reference_manifest_sha256": "3aa0657b56d12f60d99a855196171ae5b3edf2930c105ef077e752272f5d552e",
+      "regions": [
+        {
+          "id": "second-publisher",
+          "pdf": "article.pdf",
+          "source_page": 12,
+          "source_page_height": 792,
+          "jats": "article.xml",
+          "table_id": "app1table1",
+          "expected_rows": 10,
+          "expected_columns": 3,
+          "expected_anchors": 20,
+          "publisher_header_rows": 1,
+          "expected_header_anchors": 3,
+          "leading_row_window": 1,
+          "roi_left_top_right_bottom": [
+            168,
+            536,
+            576,
+            695
+          ]
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "purpose": "default_table",
+      "repository": "microsoft/table-transformer-structure-recognition",
+      "revision": "f4d4bdc85c3fe4b1fa49658882a5d38bbdd0f343",
+      "filename": "model.safetensors",
+      "sha256": "f581da65a586591124cac9545b09b93e4e8bf28ce3a8357af6ac15ce94fce16b",
+      "bytes": 115434268,
+      "url": "https://huggingface.co/microsoft/table-transformer-structure-recognition/resolve/f4d4bdc85c3fe4b1fa49658882a5d38bbdd0f343/model.safetensors",
+      "local_path": "default-table/model.safetensors"
+    },
+    {
+      "purpose": "default_table",
+      "repository": "microsoft/table-transformer-structure-recognition",
+      "revision": "f4d4bdc85c3fe4b1fa49658882a5d38bbdd0f343",
+      "filename": "config.json",
+      "sha256": "9fa1108c9fbfac69086d23bdd26b9a2242a56a72766fed98c6dfaeaae59ebf76",
+      "bytes": 1469,
+      "url": "https://huggingface.co/microsoft/table-transformer-structure-recognition/resolve/f4d4bdc85c3fe4b1fa49658882a5d38bbdd0f343/config.json",
+      "local_path": "default-table/config.json"
+    },
+    {
+      "purpose": "default_table",
+      "repository": "microsoft/table-transformer-structure-recognition",
+      "revision": "f4d4bdc85c3fe4b1fa49658882a5d38bbdd0f343",
+      "filename": "preprocessor_config.json",
+      "sha256": "4bd6700976c66662678a521e529b06dca36df041c9d411884cb92e81bc5a6818",
+      "bytes": 274,
+      "url": "https://huggingface.co/microsoft/table-transformer-structure-recognition/resolve/f4d4bdc85c3fe4b1fa49658882a5d38bbdd0f343/preprocessor_config.json",
+      "local_path": "default-table/preprocessor_config.json"
+    },
+    {
+      "purpose": "default_layout",
+      "repository": "unstructuredio/yolo_x_layout",
+      "revision": "7680d6f857780bcf8d49916aa2e8881bd49dee3e",
+      "filename": "yolox_l0.05.onnx",
+      "sha256": "134301ca94fb0df8027be9a6dad1908fe6218af8ffa4d34f0819c7c2226195f3",
+      "bytes": 216625723,
+      "url": "https://huggingface.co/unstructuredio/yolo_x_layout/resolve/7680d6f857780bcf8d49916aa2e8881bd49dee3e/yolox_l0.05.onnx",
+      "local_path": "layout/yolox_l0.05.onnx"
+    },
+    {
+      "purpose": "default_backbone_initialization",
+      "repository": "timm/resnet18.a1_in1k",
+      "revision": "491b427b45c94c7fb0e78b5474cc919aff584bbf",
+      "filename": "pytorch_model.bin",
+      "sha256": "1d92fca7bc19313523ad23dff7f89800791baa592f40366537a829bd436e5e14",
+      "bytes": 46836469,
+      "url": "https://huggingface.co/timm/resnet18.a1_in1k/resolve/491b427b45c94c7fb0e78b5474cc919aff584bbf/pytorch_model.bin",
+      "local_path": "hf/hub/models--timm--resnet18.a1_in1k/snapshots/491b427b45c94c7fb0e78b5474cc919aff584bbf/pytorch_model.bin"
+    }
+  ],
+  "docweave_profile": {
+    "name": "TAGGED_SEGMENTED_SOURCE_SOFT_HYPHENS_NATIVE_FIRST",
+    "dpi": 150,
+    "minimum_table_cells": 1024,
+    "detector_sha256": "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "structure_sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "threads": 4,
+    "native_first": true,
+    "tagged_first": true,
+    "segmented_rows": true,
+    "source_soft_hyphens": true
+  },
+  "upstream_profile": {
+    "strategy": "hi_res",
+    "infer_table_structure": true,
+    "languages": [
+      "eng"
+    ],
+    "pdf_image_dpi": 300,
+    "hi_res_model_name": "yolox",
+    "torch_threads": 4,
+    "device": "cpu",
+    "ocr_agent": "unstructured.partition.utils.ocr_models.tesseract_ocr.OCRAgentTesseract",
+    "engine_sha256": "9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917",
+    "english_model_sha256": "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047"
+  },
+  "protocol": "Whole original PDFs, no reference crop/page truncation/labels to extraction. All four documents and all five reference regions retained including missing/extra/failed predictions. Fixed post-extraction IoU>=.5 stablefirsttie and unchanged issuer-row/JATSspan-text protocols. Two distinct explicitly configured pipelines, not default-vs-default or sharedweights. Degraded/historical later. Fourth scientific document lacks independent table labels, so no table score is fabricated."
+}

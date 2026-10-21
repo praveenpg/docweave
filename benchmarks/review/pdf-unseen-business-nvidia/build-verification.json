@@ -1,0 +1,14 @@
+{
+  "java21_tests": 1109,
+  "java25_tests": 1109,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "strict_public_javadocs": true,
+  "strict_private_javadocs": true,
+  "formatter_check": true,
+  "production_changes": false,
+  "new_jvm_controls": 4,
+  "corrupted_report_controls_rejected": 7,
+  "unchanged_business_observations": 124
+}

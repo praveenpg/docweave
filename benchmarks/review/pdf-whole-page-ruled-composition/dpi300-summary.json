@@ -1,0 +1,1311 @@
+{
+  "scope": "Fixed whole-page public layout strategies only; no OCR/held-out/end-to-end accuracy claim",
+  "association": "Maximum-cardinality one-to-one envelope IoU>=0.5, geometry only",
+  "render_dpi": 300,
+  "control_dpi": 150,
+  "paired_capture_files_identical": 63,
+  "totals": {
+    "all": {
+      "inputs": 9,
+      "reference_tables": 20,
+      "reference_anchor_keys": 1311,
+      "model": {
+        "candidate_tables": 10,
+        "matched_reference_tables_at_iou_0_5": 10,
+        "exact_topologies_one_to_one_at_iou_0_5": 2,
+        "matching_anchor_keys": 251,
+        "ruled_tables": 0,
+        "model_tables": 10,
+        "non_ok_inputs": 4
+      },
+      "rules": {
+        "candidate_tables": 2,
+        "matched_reference_tables_at_iou_0_5": 2,
+        "exact_topologies_one_to_one_at_iou_0_5": 2,
+        "matching_anchor_keys": 88,
+        "ruled_tables": 2,
+        "model_tables": 0,
+        "non_ok_inputs": 4
+      },
+      "composed": {
+        "candidate_tables": 10,
+        "matched_reference_tables_at_iou_0_5": 10,
+        "exact_topologies_one_to_one_at_iou_0_5": 2,
+        "matching_anchor_keys": 251,
+        "ruled_tables": 2,
+        "model_tables": 8,
+        "non_ok_inputs": 4
+      }
+    },
+    "modern": {
+      "inputs": 4,
+      "reference_tables": 12,
+      "reference_anchor_keys": 320,
+      "model": {
+        "candidate_tables": 10,
+        "matched_reference_tables_at_iou_0_5": 10,
+        "exact_topologies_one_to_one_at_iou_0_5": 2,
+        "matching_anchor_keys": 251,
+        "ruled_tables": 0,
+        "model_tables": 10,
+        "non_ok_inputs": 0
+      },
+      "rules": {
+        "candidate_tables": 2,
+        "matched_reference_tables_at_iou_0_5": 2,
+        "exact_topologies_one_to_one_at_iou_0_5": 2,
+        "matching_anchor_keys": 88,
+        "ruled_tables": 2,
+        "model_tables": 0,
+        "non_ok_inputs": 0
+      },
+      "composed": {
+        "candidate_tables": 10,
+        "matched_reference_tables_at_iou_0_5": 10,
+        "exact_topologies_one_to_one_at_iou_0_5": 2,
+        "matching_anchor_keys": 251,
+        "ruled_tables": 2,
+        "model_tables": 8,
+        "non_ok_inputs": 0
+      }
+    },
+    "historical": {
+      "inputs": 5,
+      "reference_tables": 8,
+      "reference_anchor_keys": 991,
+      "model": {
+        "candidate_tables": 0,
+        "matched_reference_tables_at_iou_0_5": 0,
+        "exact_topologies_one_to_one_at_iou_0_5": 0,
+        "matching_anchor_keys": 0,
+        "ruled_tables": 0,
+        "model_tables": 0,
+        "non_ok_inputs": 4
+      },
+      "rules": {
+        "candidate_tables": 0,
+        "matched_reference_tables_at_iou_0_5": 0,
+        "exact_topologies_one_to_one_at_iou_0_5": 0,
+        "matching_anchor_keys": 0,
+        "ruled_tables": 0,
+        "model_tables": 0,
+        "non_ok_inputs": 4
+      },
+      "composed": {
+        "candidate_tables": 0,
+        "matched_reference_tables_at_iou_0_5": 0,
+        "exact_topologies_one_to_one_at_iou_0_5": 0,
+        "matching_anchor_keys": 0,
+        "ruled_tables": 0,
+        "model_tables": 0,
+        "non_ok_inputs": 4
+      }
+    }
+  },
+  "results": [
+    {
+      "input": "cTDaR_s001",
+      "reference_tables": 1,
+      "reference_anchor_keys": 286,
+      "domain": "historical",
+      "outcome": "OCR_LIMIT",
+      "same_original_placement_verified": true,
+      "model_control_reproduced": null,
+      "profiles": {
+        "model": {
+          "outcome": "OCR_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "matching_anchor_keys": 0,
+          "ruled_tables": 0,
+          "model_tables": 0
+        },
+        "rules": {
+          "outcome": "OCR_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "matching_anchor_keys": 0,
+          "ruled_tables": 0,
+          "model_tables": 0
+        },
+        "composed": {
+          "outcome": "OCR_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "matching_anchor_keys": 0,
+          "ruled_tables": 0,
+          "model_tables": 0
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s002",
+      "reference_tables": 3,
+      "reference_anchor_keys": 454,
+      "domain": "historical",
+      "outcome": "OCR_LIMIT",
+      "same_original_placement_verified": true,
+      "model_control_reproduced": null,
+      "profiles": {
+        "model": {
+          "outcome": "OCR_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "matching_anchor_keys": 0,
+          "ruled_tables": 0,
+          "model_tables": 0
+        },
+        "rules": {
+          "outcome": "OCR_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "matching_anchor_keys": 0,
+          "ruled_tables": 0,
+          "model_tables": 0
+        },
+        "composed": {
+          "outcome": "OCR_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "matching_anchor_keys": 0,
+          "ruled_tables": 0,
+          "model_tables": 0
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s003",
+      "reference_tables": 2,
+      "reference_anchor_keys": 28,
+      "domain": "historical",
+      "outcome": "OCR_LIMIT",
+      "same_original_placement_verified": true,
+      "model_control_reproduced": null,
+      "profiles": {
+        "model": {
+          "outcome": "OCR_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "matching_anchor_keys": 0,
+          "ruled_tables": 0,
+          "model_tables": 0
+        },
+        "rules": {
+          "outcome": "OCR_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "matching_anchor_keys": 0,
+          "ruled_tables": 0,
+          "model_tables": 0
+        },
+        "composed": {
+          "outcome": "OCR_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "matching_anchor_keys": 0,
+          "ruled_tables": 0,
+          "model_tables": 0
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s004",
+      "reference_tables": 1,
+      "reference_anchor_keys": 131,
+      "domain": "historical",
+      "outcome": "OCR_LIMIT",
+      "same_original_placement_verified": true,
+      "model_control_reproduced": null,
+      "profiles": {
+        "model": {
+          "outcome": "OCR_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "matching_anchor_keys": 0,
+          "ruled_tables": 0,
+          "model_tables": 0
+        },
+        "rules": {
+          "outcome": "OCR_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "matching_anchor_keys": 0,
+          "ruled_tables": 0,
+          "model_tables": 0
+        },
+        "composed": {
+          "outcome": "OCR_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "matching_anchor_keys": 0,
+          "ruled_tables": 0,
+          "model_tables": 0
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s101",
+      "reference_tables": 1,
+      "reference_anchor_keys": 29,
+      "domain": "modern",
+      "outcome": "OK",
+      "same_original_placement_verified": true,
+      "model_control_reproduced": null,
+      "profiles": {
+        "model": {
+          "outcome": "OK",
+          "candidate_tables": 1,
+          "matched_reference_tables_at_iou_0_5": 1,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [
+            {
+              "reference": 0,
+              "candidate": 0,
+              "envelope_iou": 0.94100901103716,
+              "reference_rows": 18,
+              "reference_columns": 4,
+              "predicted_rows": 30,
+              "predicted_columns": 4,
+              "reference_anchors": 29,
+              "predicted_anchors": 105,
+              "matching_anchors": 19,
+              "exact_topology": false
+            }
+          ],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 1,
+              "best_iou": 0.94100901103716,
+              "profile": "model",
+              "predicted_rows": 30,
+              "predicted_columns": 4,
+              "predicted_anchors": 105,
+              "matching_anchors": 19,
+              "exact_topology": false
+            }
+          ],
+          "matching_anchor_keys": 19,
+          "ruled_tables": 0,
+          "model_tables": 1
+        },
+        "rules": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "matching_anchor_keys": 0,
+          "ruled_tables": 0,
+          "model_tables": 0
+        },
+        "composed": {
+          "outcome": "OK",
+          "candidate_tables": 1,
+          "matched_reference_tables_at_iou_0_5": 1,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [
+            {
+              "reference": 0,
+              "candidate": 0,
+              "envelope_iou": 0.94100901103716,
+              "reference_rows": 18,
+              "reference_columns": 4,
+              "predicted_rows": 30,
+              "predicted_columns": 4,
+              "reference_anchors": 29,
+              "predicted_anchors": 105,
+              "matching_anchors": 19,
+              "exact_topology": false
+            }
+          ],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 1,
+              "best_iou": 0.94100901103716,
+              "profile": "composed",
+              "predicted_rows": 30,
+              "predicted_columns": 4,
+              "predicted_anchors": 105,
+              "matching_anchors": 19,
+              "exact_topology": false
+            }
+          ],
+          "matching_anchor_keys": 19,
+          "ruled_tables": 0,
+          "model_tables": 1
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s102",
+      "reference_tables": 2,
+      "reference_anchor_keys": 88,
+      "domain": "modern",
+      "outcome": "OK",
+      "same_original_placement_verified": true,
+      "model_control_reproduced": null,
+      "profiles": {
+        "model": {
+          "outcome": "OK",
+          "candidate_tables": 2,
+          "matched_reference_tables_at_iou_0_5": 2,
+          "exact_topologies_one_to_one_at_iou_0_5": 2,
+          "matches": [
+            {
+              "reference": 0,
+              "candidate": 1,
+              "envelope_iou": 0.9022131279575204,
+              "reference_rows": 17,
+              "reference_columns": 4,
+              "predicted_rows": 17,
+              "predicted_columns": 4,
+              "reference_anchors": 68,
+              "predicted_anchors": 68,
+              "matching_anchors": 68,
+              "exact_topology": true
+            },
+            {
+              "reference": 1,
+              "candidate": 0,
+              "envelope_iou": 0.8909193870293198,
+              "reference_rows": 5,
+              "reference_columns": 4,
+              "predicted_rows": 5,
+              "predicted_columns": 4,
+              "reference_anchors": 20,
+              "predicted_anchors": 20,
+              "matching_anchors": 20,
+              "exact_topology": true
+            }
+          ],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 2,
+              "best_iou": 0.9022131279575204,
+              "profile": "model",
+              "predicted_rows": 17,
+              "predicted_columns": 4,
+              "predicted_anchors": 68,
+              "matching_anchors": 68,
+              "exact_topology": true
+            },
+            {
+              "candidates": 2,
+              "best_iou": 0.8909193870293198,
+              "profile": "model",
+              "predicted_rows": 5,
+              "predicted_columns": 4,
+              "predicted_anchors": 20,
+              "matching_anchors": 20,
+              "exact_topology": true
+            }
+          ],
+          "matching_anchor_keys": 88,
+          "ruled_tables": 0,
+          "model_tables": 2
+        },
+        "rules": {
+          "outcome": "OK",
+          "candidate_tables": 2,
+          "matched_reference_tables_at_iou_0_5": 2,
+          "exact_topologies_one_to_one_at_iou_0_5": 2,
+          "matches": [
+            {
+              "reference": 0,
+              "candidate": 0,
+              "envelope_iou": 0.9951231490803722,
+              "reference_rows": 17,
+              "reference_columns": 4,
+              "predicted_rows": 17,
+              "predicted_columns": 4,
+              "reference_anchors": 68,
+              "predicted_anchors": 68,
+              "matching_anchors": 68,
+              "exact_topology": true
+            },
+            {
+              "reference": 1,
+              "candidate": 1,
+              "envelope_iou": 0.9824159068921441,
+              "reference_rows": 5,
+              "reference_columns": 4,
+              "predicted_rows": 5,
+              "predicted_columns": 4,
+              "reference_anchors": 20,
+              "predicted_anchors": 20,
+              "matching_anchors": 20,
+              "exact_topology": true
+            }
+          ],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 2,
+              "best_iou": 0.9951231490803722,
+              "profile": "rules",
+              "predicted_rows": 17,
+              "predicted_columns": 4,
+              "predicted_anchors": 68,
+              "matching_anchors": 68,
+              "exact_topology": true
+            },
+            {
+              "candidates": 2,
+              "best_iou": 0.9824159068921441,
+              "profile": "rules",
+              "predicted_rows": 5,
+              "predicted_columns": 4,
+              "predicted_anchors": 20,
+              "matching_anchors": 20,
+              "exact_topology": true
+            }
+          ],
+          "matching_anchor_keys": 88,
+          "ruled_tables": 2,
+          "model_tables": 0
+        },
+        "composed": {
+          "outcome": "OK",
+          "candidate_tables": 2,
+          "matched_reference_tables_at_iou_0_5": 2,
+          "exact_topologies_one_to_one_at_iou_0_5": 2,
+          "matches": [
+            {
+              "reference": 0,
+              "candidate": 0,
+              "envelope_iou": 0.9951231490803722,
+              "reference_rows": 17,
+              "reference_columns": 4,
+              "predicted_rows": 17,
+              "predicted_columns": 4,
+              "reference_anchors": 68,
+              "predicted_anchors": 68,
+              "matching_anchors": 68,
+              "exact_topology": true
+            },
+            {
+              "reference": 1,
+              "candidate": 1,
+              "envelope_iou": 0.9824159068921441,
+              "reference_rows": 5,
+              "reference_columns": 4,
+              "predicted_rows": 5,
+              "predicted_columns": 4,
+              "reference_anchors": 20,
+              "predicted_anchors": 20,
+              "matching_anchors": 20,
+              "exact_topology": true
+            }
+          ],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 2,
+              "best_iou": 0.9951231490803722,
+              "profile": "composed",
+              "predicted_rows": 17,
+              "predicted_columns": 4,
+              "predicted_anchors": 68,
+              "matching_anchors": 68,
+              "exact_topology": true
+            },
+            {
+              "candidates": 2,
+              "best_iou": 0.9824159068921441,
+              "profile": "composed",
+              "predicted_rows": 5,
+              "predicted_columns": 4,
+              "predicted_anchors": 20,
+              "matching_anchors": 20,
+              "exact_topology": true
+            }
+          ],
+          "matching_anchor_keys": 88,
+          "ruled_tables": 2,
+          "model_tables": 0
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s103",
+      "reference_tables": 1,
+      "reference_anchor_keys": 9,
+      "domain": "modern",
+      "outcome": "OK",
+      "same_original_placement_verified": true,
+      "model_control_reproduced": null,
+      "profiles": {
+        "model": {
+          "outcome": "OK",
+          "candidate_tables": 1,
+          "matched_reference_tables_at_iou_0_5": 1,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [
+            {
+              "reference": 0,
+              "candidate": 0,
+              "envelope_iou": 0.7190862450291745,
+              "reference_rows": 4,
+              "reference_columns": 3,
+              "predicted_rows": 4,
+              "predicted_columns": 3,
+              "reference_anchors": 9,
+              "predicted_anchors": 11,
+              "matching_anchors": 8,
+              "exact_topology": false
+            }
+          ],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 1,
+              "best_iou": 0.7190862450291745,
+              "profile": "model",
+              "predicted_rows": 4,
+              "predicted_columns": 3,
+              "predicted_anchors": 11,
+              "matching_anchors": 8,
+              "exact_topology": false
+            }
+          ],
+          "matching_anchor_keys": 8,
+          "ruled_tables": 0,
+          "model_tables": 1
+        },
+        "rules": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "matching_anchor_keys": 0,
+          "ruled_tables": 0,
+          "model_tables": 0
+        },
+        "composed": {
+          "outcome": "OK",
+          "candidate_tables": 1,
+          "matched_reference_tables_at_iou_0_5": 1,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [
+            {
+              "reference": 0,
+              "candidate": 0,
+              "envelope_iou": 0.7190862450291745,
+              "reference_rows": 4,
+              "reference_columns": 3,
+              "predicted_rows": 4,
+              "predicted_columns": 3,
+              "reference_anchors": 9,
+              "predicted_anchors": 11,
+              "matching_anchors": 8,
+              "exact_topology": false
+            }
+          ],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 1,
+              "best_iou": 0.7190862450291745,
+              "profile": "composed",
+              "predicted_rows": 4,
+              "predicted_columns": 3,
+              "predicted_anchors": 11,
+              "matching_anchors": 8,
+              "exact_topology": false
+            }
+          ],
+          "matching_anchor_keys": 8,
+          "ruled_tables": 0,
+          "model_tables": 1
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s104",
+      "reference_tables": 8,
+      "reference_anchor_keys": 194,
+      "domain": "modern",
+      "outcome": "OK",
+      "same_original_placement_verified": true,
+      "model_control_reproduced": null,
+      "profiles": {
+        "model": {
+          "outcome": "OK",
+          "candidate_tables": 6,
+          "matched_reference_tables_at_iou_0_5": 6,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [
+            {
+              "reference": 2,
+              "candidate": 4,
+              "envelope_iou": 0.7845551252064522,
+              "reference_rows": 6,
+              "reference_columns": 6,
+              "predicted_rows": 5,
+              "predicted_columns": 6,
+              "reference_anchors": 34,
+              "predicted_anchors": 30,
+              "matching_anchors": 29,
+              "exact_topology": false
+            },
+            {
+              "reference": 3,
+              "candidate": 0,
+              "envelope_iou": 0.7940911763060435,
+              "reference_rows": 6,
+              "reference_columns": 6,
+              "predicted_rows": 5,
+              "predicted_columns": 6,
+              "reference_anchors": 34,
+              "predicted_anchors": 30,
+              "matching_anchors": 29,
+              "exact_topology": false
+            },
+            {
+              "reference": 4,
+              "candidate": 1,
+              "envelope_iou": 0.9578949204148236,
+              "reference_rows": 5,
+              "reference_columns": 5,
+              "predicted_rows": 5,
+              "predicted_columns": 5,
+              "reference_anchors": 24,
+              "predicted_anchors": 25,
+              "matching_anchors": 24,
+              "exact_topology": false
+            },
+            {
+              "reference": 5,
+              "candidate": 2,
+              "envelope_iou": 0.9411401473399759,
+              "reference_rows": 5,
+              "reference_columns": 5,
+              "predicted_rows": 5,
+              "predicted_columns": 5,
+              "reference_anchors": 24,
+              "predicted_anchors": 25,
+              "matching_anchors": 24,
+              "exact_topology": false
+            },
+            {
+              "reference": 6,
+              "candidate": 3,
+              "envelope_iou": 0.8351696475620428,
+              "reference_rows": 4,
+              "reference_columns": 4,
+              "predicted_rows": 4,
+              "predicted_columns": 4,
+              "reference_anchors": 15,
+              "predicted_anchors": 16,
+              "matching_anchors": 15,
+              "exact_topology": false
+            },
+            {
+              "reference": 7,
+              "candidate": 5,
+              "envelope_iou": 0.8992560034534761,
+              "reference_rows": 4,
+              "reference_columns": 4,
+              "predicted_rows": 4,
+              "predicted_columns": 4,
+              "reference_anchors": 15,
+              "predicted_anchors": 16,
+              "matching_anchors": 15,
+              "exact_topology": false
+            }
+          ],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 6,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 6,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 6,
+              "best_iou": 0.7845551252064522,
+              "profile": "model",
+              "predicted_rows": 5,
+              "predicted_columns": 6,
+              "predicted_anchors": 30,
+              "matching_anchors": 29,
+              "exact_topology": false
+            },
+            {
+              "candidates": 6,
+              "best_iou": 0.7940911763060435,
+              "profile": "model",
+              "predicted_rows": 5,
+              "predicted_columns": 6,
+              "predicted_anchors": 30,
+              "matching_anchors": 29,
+              "exact_topology": false
+            },
+            {
+              "candidates": 6,
+              "best_iou": 0.9578949204148236,
+              "profile": "model",
+              "predicted_rows": 5,
+              "predicted_columns": 5,
+              "predicted_anchors": 25,
+              "matching_anchors": 24,
+              "exact_topology": false
+            },
+            {
+              "candidates": 6,
+              "best_iou": 0.9411401473399759,
+              "profile": "model",
+              "predicted_rows": 5,
+              "predicted_columns": 5,
+              "predicted_anchors": 25,
+              "matching_anchors": 24,
+              "exact_topology": false
+            },
+            {
+              "candidates": 6,
+              "best_iou": 0.8351696475620428,
+              "profile": "model",
+              "predicted_rows": 4,
+              "predicted_columns": 4,
+              "predicted_anchors": 16,
+              "matching_anchors": 15,
+              "exact_topology": false
+            },
+            {
+              "candidates": 6,
+              "best_iou": 0.8992560034534761,
+              "profile": "model",
+              "predicted_rows": 4,
+              "predicted_columns": 4,
+              "predicted_anchors": 16,
+              "matching_anchors": 15,
+              "exact_topology": false
+            }
+          ],
+          "matching_anchor_keys": 136,
+          "ruled_tables": 0,
+          "model_tables": 6
+        },
+        "rules": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "matching_anchor_keys": 0,
+          "ruled_tables": 0,
+          "model_tables": 0
+        },
+        "composed": {
+          "outcome": "OK",
+          "candidate_tables": 6,
+          "matched_reference_tables_at_iou_0_5": 6,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [
+            {
+              "reference": 2,
+              "candidate": 4,
+              "envelope_iou": 0.7845551252064522,
+              "reference_rows": 6,
+              "reference_columns": 6,
+              "predicted_rows": 5,
+              "predicted_columns": 6,
+              "reference_anchors": 34,
+              "predicted_anchors": 30,
+              "matching_anchors": 29,
+              "exact_topology": false
+            },
+            {
+              "reference": 3,
+              "candidate": 0,
+              "envelope_iou": 0.7940911763060435,
+              "reference_rows": 6,
+              "reference_columns": 6,
+              "predicted_rows": 5,
+              "predicted_columns": 6,
+              "reference_anchors": 34,
+              "predicted_anchors": 30,
+              "matching_anchors": 29,
+              "exact_topology": false
+            },
+            {
+              "reference": 4,
+              "candidate": 1,
+              "envelope_iou": 0.9578949204148236,
+              "reference_rows": 5,
+              "reference_columns": 5,
+              "predicted_rows": 5,
+              "predicted_columns": 5,
+              "reference_anchors": 24,
+              "predicted_anchors": 25,
+              "matching_anchors": 24,
+              "exact_topology": false
+            },
+            {
+              "reference": 5,
+              "candidate": 2,
+              "envelope_iou": 0.9411401473399759,
+              "reference_rows": 5,
+              "reference_columns": 5,
+              "predicted_rows": 5,
+              "predicted_columns": 5,
+              "reference_anchors": 24,
+              "predicted_anchors": 25,
+              "matching_anchors": 24,
+              "exact_topology": false
+            },
+            {
+              "reference": 6,
+              "candidate": 3,
+              "envelope_iou": 0.8351696475620428,
+              "reference_rows": 4,
+              "reference_columns": 4,
+              "predicted_rows": 4,
+              "predicted_columns": 4,
+              "reference_anchors": 15,
+              "predicted_anchors": 16,
+              "matching_anchors": 15,
+              "exact_topology": false
+            },
+            {
+              "reference": 7,
+              "candidate": 5,
+              "envelope_iou": 0.8992560034534761,
+              "reference_rows": 4,
+              "reference_columns": 4,
+              "predicted_rows": 4,
+              "predicted_columns": 4,
+              "reference_anchors": 15,
+              "predicted_anchors": 16,
+              "matching_anchors": 15,
+              "exact_topology": false
+            }
+          ],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 6,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 6,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 6,
+              "best_iou": 0.7845551252064522,
+              "profile": "composed",
+              "predicted_rows": 5,
+              "predicted_columns": 6,
+              "predicted_anchors": 30,
+              "matching_anchors": 29,
+              "exact_topology": false
+            },
+            {
+              "candidates": 6,
+              "best_iou": 0.7940911763060435,
+              "profile": "composed",
+              "predicted_rows": 5,
+              "predicted_columns": 6,
+              "predicted_anchors": 30,
+              "matching_anchors": 29,
+              "exact_topology": false
+            },
+            {
+              "candidates": 6,
+              "best_iou": 0.9578949204148236,
+              "profile": "composed",
+              "predicted_rows": 5,
+              "predicted_columns": 5,
+              "predicted_anchors": 25,
+              "matching_anchors": 24,
+              "exact_topology": false
+            },
+            {
+              "candidates": 6,
+              "best_iou": 0.9411401473399759,
+              "profile": "composed",
+              "predicted_rows": 5,
+              "predicted_columns": 5,
+              "predicted_anchors": 25,
+              "matching_anchors": 24,
+              "exact_topology": false
+            },
+            {
+              "candidates": 6,
+              "best_iou": 0.8351696475620428,
+              "profile": "composed",
+              "predicted_rows": 4,
+              "predicted_columns": 4,
+              "predicted_anchors": 16,
+              "matching_anchors": 15,
+              "exact_topology": false
+            },
+            {
+              "candidates": 6,
+              "best_iou": 0.8992560034534761,
+              "profile": "composed",
+              "predicted_rows": 4,
+              "predicted_columns": 4,
+              "predicted_anchors": 16,
+              "matching_anchors": 15,
+              "exact_topology": false
+            }
+          ],
+          "matching_anchor_keys": 136,
+          "ruled_tables": 0,
+          "model_tables": 6
+        }
+      }
+    },
+    {
+      "input": "cTDaR_t00040",
+      "reference_tables": 1,
+      "reference_anchor_keys": 92,
+      "domain": "historical",
+      "outcome": "OK",
+      "same_original_placement_verified": true,
+      "model_control_reproduced": null,
+      "profiles": {
+        "model": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "matching_anchor_keys": 0,
+          "ruled_tables": 0,
+          "model_tables": 0
+        },
+        "rules": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "matching_anchor_keys": 0,
+          "ruled_tables": 0,
+          "model_tables": 0
+        },
+        "composed": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ],
+          "matching_anchor_keys": 0,
+          "ruled_tables": 0,
+          "model_tables": 0
+        }
+      }
+    }
+  ]
+}

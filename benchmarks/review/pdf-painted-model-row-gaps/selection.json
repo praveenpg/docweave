@@ -1,0 +1,10 @@
+{
+  "source_sha256": "89de999d7155649197672bf490c519607f1abbcdc96e2e4c6718bf6ecbb13564",
+  "hypothesis": "A single supported horizontal source-painted segment must span the complete candidate cell frame within existing0.5point ruled tolerance and lie strictly inside every frozen open native glyph gap. No stitched missing strokes or text/reference-based routing. All original11pages/22profile records/292rows/5candidates remain. No production promotion from owned controls alone.",
+  "identities": {
+    "benchmarks/review/pdf-synchronized-model-rows/gate-java21.json": "a71d56197022eaf421ad27a0be450cf03acf92394fcb20528359d975c0598b20",
+    "benchmarks/tools/RefineSynchronizedModelRows.java": "95505399b246f2f8e4106868735420c8d6fc1962a64b72f30d7a57d4e1e0e510",
+    "benchmarks/tools/ProbeNativeRowAmbiguity.java": "eb37465af7b18ce00ff62269283a152015c3b6052f7a52351b5d4f91d2cf10e5",
+    "benchmarks/review/pdf-nvidia-proposal-structures/replay-manifest.json": "5ded274dc78dfdd2db6d5fedad11ec261e035ad4148c137570fd72b1244c38eb"
+  }
+}

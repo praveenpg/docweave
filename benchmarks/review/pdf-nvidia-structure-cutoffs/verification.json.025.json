@@ -1,0 +1,8 @@
+{
+  "report_sha256" : "04da5285089c0b7a7c4633c10ed817dda250f47ce19295b3e3002c0fdb0b366d",
+  "reference_rows_per_profile" : 110,
+  "region_profiles" : 12,
+  "complete_populations_retained" : true,
+  "runtime" : "Java 21 only",
+  "case_profiles" : 6
+}

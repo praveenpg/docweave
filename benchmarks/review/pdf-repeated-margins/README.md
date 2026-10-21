@@ -1,0 +1,3 @@
+# Repeated PDF margin controls
+
+Opt-in post-extraction tagging preserves source IDs, text, geometry and sequence. Real owned four-page native PDF plus analytical controls cover exact support, physical blank-page denominator, repeated body veto, duplicate/position ambiguity, rotated/structural exclusions, converted frames, idempotence, concurrency, budgets and cancellation. JSON/chunk source provenance covered. Full actual Java21/25 verify/Javadocs passed; no broad independent semantic classification/accuracy or calibrated probability claim. Official upstream remains release/main0.27.28, six commits beyond historical0.27.27; opt-in historical freshness assertion remains intentionally explicit, no pin rewrite.

@@ -1,0 +1,227 @@
+{
+  "java_runtime" : "21.0.12.1+12-LTS",
+  "reference_sha256" : "7c3b8c1e5e4c4c122012ed39d25dc42621e88caa13af2f2069fed394185472d0",
+  "source_sha256" : "2f92f07c33b2290b8f3ad0e8933eb57ce27d545d61829e59cc9c00dfb9357360",
+  "results" : [ {
+    "profile" : "NATIVE_LINES",
+    "outcome" : "SUCCESS",
+    "warnings" : [ {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "Native PDF extraction has no OCR or full table/layout fidelity guarantee"
+    } ],
+    "association_counts" : {
+      "false_positive" : 0,
+      "predictions" : 4,
+      "correct" : 4,
+      "references" : 5,
+      "missed_reference" : 1
+    },
+    "predictions" : [ {
+      "id" : "1",
+      "page" : 4,
+      "bounds" : [ 155.905517578125, 50.49896240234375, 291.2655029296875, 271.5389709472656 ]
+    }, {
+      "id" : "2",
+      "page" : 4,
+      "bounds" : [ 124.69322204589844, 363.1053771972656, 554.1732177734375, 592.1853637695312 ]
+    }, {
+      "id" : "3",
+      "page" : 5,
+      "bounds" : [ 155.90548706054688, 425.6690673828125, 557.7854614257812, 691.4690551757812 ]
+    }, {
+      "id" : "5",
+      "page" : 7,
+      "bounds" : [ 155.90548706054688, 50.49896240234375, 454.2254943847656, 249.218994140625 ]
+    } ],
+    "images" : [ {
+      "id" : "",
+      "page" : 4,
+      "bounds" : [ 155.905517578125, 50.49896240234375, 291.2655029296875, 271.5389709472656 ]
+    }, {
+      "id" : "",
+      "page" : 4,
+      "bounds" : [ 124.69322204589844, 363.1053771972656, 554.1732177734375, 592.1853637695312 ]
+    }, {
+      "id" : "",
+      "page" : 5,
+      "bounds" : [ 155.90548706054688, 425.6690673828125, 557.7854614257812, 691.4690551757812 ]
+    }, {
+      "id" : "",
+      "page" : 6,
+      "bounds" : [ 116.1732177734375, 50.4990234375, 554.1732177734375, 575.8590087890625 ]
+    }, {
+      "id" : "",
+      "page" : 7,
+      "bounds" : [ 155.90548706054688, 50.49896240234375, 454.2254943847656, 249.218994140625 ]
+    }, {
+      "id" : "",
+      "page" : 8,
+      "bounds" : [ 155.90557861328125, 475.22613525390625, 287.90557861328125, 486.026123046875 ]
+    } ],
+    "image_inventory" : {
+      "unmatched" : 0,
+      "matched" : 6,
+      "references" : 6,
+      "emitted" : 6,
+      "missing" : 0
+    }
+  }, {
+    "profile" : "NATIVE_COLUMNS",
+    "outcome" : "SUCCESS",
+    "warnings" : [ {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "Native PDF extraction has no OCR or full table/layout fidelity guarantee"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    } ],
+    "association_counts" : {
+      "false_positive" : 0,
+      "predictions" : 5,
+      "correct" : 5,
+      "references" : 5,
+      "missed_reference" : 0
+    },
+    "predictions" : [ {
+      "id" : "1",
+      "page" : 4,
+      "bounds" : [ 155.905517578125, 50.49896240234375, 291.2655029296875, 271.5389709472656 ]
+    }, {
+      "id" : "2",
+      "page" : 4,
+      "bounds" : [ 124.69322204589844, 363.1053771972656, 554.1732177734375, 592.1853637695312 ]
+    }, {
+      "id" : "3",
+      "page" : 5,
+      "bounds" : [ 155.90548706054688, 425.6690673828125, 557.7854614257812, 691.4690551757812 ]
+    }, {
+      "id" : "4",
+      "page" : 6,
+      "bounds" : [ 116.1732177734375, 50.4990234375, 554.1732177734375, 575.8590087890625 ]
+    }, {
+      "id" : "5",
+      "page" : 7,
+      "bounds" : [ 155.90548706054688, 50.49896240234375, 454.2254943847656, 249.218994140625 ]
+    } ],
+    "images" : [ {
+      "id" : "",
+      "page" : 4,
+      "bounds" : [ 155.905517578125, 50.49896240234375, 291.2655029296875, 271.5389709472656 ]
+    }, {
+      "id" : "",
+      "page" : 4,
+      "bounds" : [ 124.69322204589844, 363.1053771972656, 554.1732177734375, 592.1853637695312 ]
+    }, {
+      "id" : "",
+      "page" : 5,
+      "bounds" : [ 155.90548706054688, 425.6690673828125, 557.7854614257812, 691.4690551757812 ]
+    }, {
+      "id" : "",
+      "page" : 6,
+      "bounds" : [ 116.1732177734375, 50.4990234375, 554.1732177734375, 575.8590087890625 ]
+    }, {
+      "id" : "",
+      "page" : 7,
+      "bounds" : [ 155.90548706054688, 50.49896240234375, 454.2254943847656, 249.218994140625 ]
+    }, {
+      "id" : "",
+      "page" : 8,
+      "bounds" : [ 155.90557861328125, 475.22613525390625, 287.90557861328125, 486.026123046875 ]
+    } ],
+    "image_inventory" : {
+      "unmatched" : 0,
+      "matched" : 6,
+      "references" : 6,
+      "emitted" : 6,
+      "missing" : 0
+    }
+  }, {
+    "profile" : "SOURCE_TAGGED_LINES",
+    "outcome" : "SUCCESS",
+    "warnings" : [ {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "Source-tagged tables require complete single-page MCID ownership; unsupported tags use native fallback and no OCR is performed"
+    } ],
+    "association_counts" : {
+      "false_positive" : 0,
+      "predictions" : 4,
+      "correct" : 4,
+      "references" : 5,
+      "missed_reference" : 1
+    },
+    "predictions" : [ {
+      "id" : "1",
+      "page" : 4,
+      "bounds" : [ 155.905517578125, 50.49896240234375, 291.2655029296875, 271.5389709472656 ]
+    }, {
+      "id" : "2",
+      "page" : 4,
+      "bounds" : [ 124.69322204589844, 363.1053771972656, 554.1732177734375, 592.1853637695312 ]
+    }, {
+      "id" : "3",
+      "page" : 5,
+      "bounds" : [ 155.90548706054688, 425.6690673828125, 557.7854614257812, 691.4690551757812 ]
+    }, {
+      "id" : "5",
+      "page" : 7,
+      "bounds" : [ 155.90548706054688, 50.49896240234375, 454.2254943847656, 249.218994140625 ]
+    } ],
+    "images" : [ {
+      "id" : "",
+      "page" : 4,
+      "bounds" : [ 155.905517578125, 50.49896240234375, 291.2655029296875, 271.5389709472656 ]
+    }, {
+      "id" : "",
+      "page" : 4,
+      "bounds" : [ 124.69322204589844, 363.1053771972656, 554.1732177734375, 592.1853637695312 ]
+    }, {
+      "id" : "",
+      "page" : 5,
+      "bounds" : [ 155.90548706054688, 425.6690673828125, 557.7854614257812, 691.4690551757812 ]
+    }, {
+      "id" : "",
+      "page" : 6,
+      "bounds" : [ 116.1732177734375, 50.4990234375, 554.1732177734375, 575.8590087890625 ]
+    }, {
+      "id" : "",
+      "page" : 7,
+      "bounds" : [ 155.90548706054688, 50.49896240234375, 454.2254943847656, 249.218994140625 ]
+    }, {
+      "id" : "",
+      "page" : 8,
+      "bounds" : [ 155.90557861328125, 475.22613525390625, 287.90557861328125, 486.026123046875 ]
+    } ],
+    "image_inventory" : {
+      "unmatched" : 0,
+      "matched" : 6,
+      "references" : 6,
+      "emitted" : 6,
+      "missing" : 0
+    }
+  } ],
+  "limits" : "Development source; rounded placement association, not body completeness, pixel fidelity or semantic figure detection"
+}

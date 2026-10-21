@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Actual Tesseract owned merged-table control</comment>
+<entry key="cell_coordinates_verified">true</entry>
+<entry key="eng_model_sha256">daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047</entry>
+<entry key="checked_at">2026-10-17T08:27:48.529444526Z</entry>
+<entry key="ordinary_text">Owned merged table</entry>
+<entry key="cell_geometry">rule_centerlines/PDFUserSpace</entry>
+<entry key="anchors">6</entry>
+<entry key="java">21.0.12.1+12-LTS</entry>
+<entry key="executable_sha256">9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917</entry>
+<entry key="recognized_html">&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td rowspan="2" colspan="2"&gt;Alpha 001 Second line&lt;/td&gt;&lt;td&gt;Beta 002&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Gamma 003&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Delta 004&lt;/td&gt;&lt;td&gt;Echo 005&lt;/td&gt;&lt;td&gt;Foxtrot 006&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</entry>
+<entry key="atomic_slots">9</entry>
+<entry key="scope">owned raster 3x3 atomic grid with 2x2 merged anchor; no independent scan accuracy claim</entry>
+<entry key="pdf_sha256">f08ee954b40919b2947de44d99374d9b8698f1e9766d4871186474b6b6d6b680</entry>
+</properties>

@@ -1,0 +1,28 @@
+{
+  "builds": [
+    {
+      "jdk": "21",
+      "tests": 979,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "strict_public_javadocs": "PASS",
+      "log_sha256": "f609fc16a192496e9fa812fc85f2e89fe37d54ce193b7cbecbff7a6ac25becab"
+    },
+    {
+      "jdk": "25",
+      "tests": 979,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "strict_public_javadocs": "PASS",
+      "log_sha256": "1e72f02969fe63c438fc1107c2c24fe6b1a50e29d061a96d8faa1dcf1c9f174c"
+    }
+  ],
+  "pdfbox_version": "3.0.8",
+  "pdfbox_source_jar_sha256": "eaed642d27599c78229857e4ab571805979f828f5ec8c695e3135ca933766132",
+  "scoring_scope": "All136 publisher logical anchors and9headers, same frozenROI and wholeoriginal; exact comparison, no wordrepair or labelchanges",
+  "strict_new_helper_private_javadocs": "PASS actual21/25",
+  "formatter": "clang-format23.1.1 PASS",
+  "diff_check": "PASS"
+}

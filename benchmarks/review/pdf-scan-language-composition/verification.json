@@ -1,0 +1,399 @@
+{
+  "complete_ordered_model_diagnostics" : [ {
+    "reference_line_order_explicit" : true,
+    "outcome" : "SUCCESS",
+    "case" : "arnimb_goethe03_1835/deu+deu_latf",
+    "against_each_single_language" : [ {
+      "single_language" : "deu",
+      "associated_reference_lines" : {
+        "combined" : 21,
+        "single" : 21
+      },
+      "exact_associated_lines" : {
+        "combined" : 3,
+        "single" : 0
+      },
+      "missing_reference_lines" : {
+        "combined" : 1,
+        "single" : 1
+      },
+      "predicted_lines_without_reference" : {
+        "combined" : 0,
+        "single" : 0
+      },
+      "global_character_edits" : {
+        "combined" : 43,
+        "single" : 104
+      }
+    }, {
+      "single_language" : "deu_latf",
+      "associated_reference_lines" : {
+        "combined" : 21,
+        "single" : 21
+      },
+      "exact_associated_lines" : {
+        "combined" : 3,
+        "single" : 4
+      },
+      "missing_reference_lines" : {
+        "combined" : 1,
+        "single" : 1
+      },
+      "predicted_lines_without_reference" : {
+        "combined" : 0,
+        "single" : 0
+      },
+      "global_character_edits" : {
+        "combined" : 43,
+        "single" : 51
+      }
+    } ]
+  }, {
+    "reference_line_order_explicit" : true,
+    "outcome" : "SUCCESS",
+    "case" : "arnimb_goethe03_1835/deu_latf+deu",
+    "against_each_single_language" : [ {
+      "single_language" : "deu_latf",
+      "associated_reference_lines" : {
+        "combined" : 21,
+        "single" : 21
+      },
+      "exact_associated_lines" : {
+        "combined" : 3,
+        "single" : 4
+      },
+      "missing_reference_lines" : {
+        "combined" : 1,
+        "single" : 1
+      },
+      "predicted_lines_without_reference" : {
+        "combined" : 0,
+        "single" : 0
+      },
+      "global_character_edits" : {
+        "combined" : 43,
+        "single" : 51
+      }
+    }, {
+      "single_language" : "deu",
+      "associated_reference_lines" : {
+        "combined" : 21,
+        "single" : 21
+      },
+      "exact_associated_lines" : {
+        "combined" : 3,
+        "single" : 0
+      },
+      "missing_reference_lines" : {
+        "combined" : 1,
+        "single" : 1
+      },
+      "predicted_lines_without_reference" : {
+        "combined" : 0,
+        "single" : 0
+      },
+      "global_character_edits" : {
+        "combined" : 43,
+        "single" : 104
+      }
+    } ]
+  }, {
+    "reference_line_order_explicit" : false,
+    "outcome" : "SUCCESS",
+    "case" : "bebel_frau_1879/deu+deu_latf",
+    "against_each_single_language" : [ {
+      "single_language" : "deu",
+      "associated_reference_lines" : {
+        "combined" : 49,
+        "single" : 49
+      },
+      "exact_associated_lines" : {
+        "combined" : 41,
+        "single" : 42
+      },
+      "missing_reference_lines" : {
+        "combined" : 1,
+        "single" : 1
+      },
+      "predicted_lines_without_reference" : {
+        "combined" : 1,
+        "single" : 1
+      },
+      "xml_sequence_character_edits" : {
+        "combined" : 291,
+        "single" : 291
+      }
+    }, {
+      "single_language" : "deu_latf",
+      "associated_reference_lines" : {
+        "combined" : 49,
+        "single" : 49
+      },
+      "exact_associated_lines" : {
+        "combined" : 41,
+        "single" : 18
+      },
+      "missing_reference_lines" : {
+        "combined" : 1,
+        "single" : 1
+      },
+      "predicted_lines_without_reference" : {
+        "combined" : 1,
+        "single" : 1
+      },
+      "xml_sequence_character_edits" : {
+        "combined" : 291,
+        "single" : 334
+      }
+    } ]
+  }, {
+    "reference_line_order_explicit" : false,
+    "outcome" : "SUCCESS",
+    "case" : "bebel_frau_1879/deu_latf+deu",
+    "against_each_single_language" : [ {
+      "single_language" : "deu_latf",
+      "associated_reference_lines" : {
+        "combined" : 49,
+        "single" : 49
+      },
+      "exact_associated_lines" : {
+        "combined" : 41,
+        "single" : 18
+      },
+      "missing_reference_lines" : {
+        "combined" : 1,
+        "single" : 1
+      },
+      "predicted_lines_without_reference" : {
+        "combined" : 1,
+        "single" : 1
+      },
+      "xml_sequence_character_edits" : {
+        "combined" : 291,
+        "single" : 334
+      }
+    }, {
+      "single_language" : "deu",
+      "associated_reference_lines" : {
+        "combined" : 49,
+        "single" : 49
+      },
+      "exact_associated_lines" : {
+        "combined" : 41,
+        "single" : 42
+      },
+      "missing_reference_lines" : {
+        "combined" : 1,
+        "single" : 1
+      },
+      "predicted_lines_without_reference" : {
+        "combined" : 1,
+        "single" : 1
+      },
+      "xml_sequence_character_edits" : {
+        "combined" : 291,
+        "single" : 291
+      }
+    } ]
+  }, {
+    "reference_line_order_explicit" : false,
+    "outcome" : "SUCCESS",
+    "case" : "buerger_gedichte_1778_0039/deu+deu_latf",
+    "against_each_single_language" : [ {
+      "single_language" : "deu",
+      "associated_reference_lines" : {
+        "combined" : 17,
+        "single" : 17
+      },
+      "exact_associated_lines" : {
+        "combined" : 3,
+        "single" : 0
+      },
+      "missing_reference_lines" : {
+        "combined" : 21,
+        "single" : 21
+      },
+      "predicted_lines_without_reference" : {
+        "combined" : 11,
+        "single" : 11
+      },
+      "xml_sequence_character_edits" : {
+        "combined" : 374,
+        "single" : 419
+      }
+    }, {
+      "single_language" : "deu_latf",
+      "associated_reference_lines" : {
+        "combined" : 17,
+        "single" : 18
+      },
+      "exact_associated_lines" : {
+        "combined" : 3,
+        "single" : 3
+      },
+      "missing_reference_lines" : {
+        "combined" : 21,
+        "single" : 20
+      },
+      "predicted_lines_without_reference" : {
+        "combined" : 11,
+        "single" : 10
+      },
+      "xml_sequence_character_edits" : {
+        "combined" : 374,
+        "single" : 371
+      }
+    } ]
+  }, {
+    "reference_line_order_explicit" : false,
+    "outcome" : "SUCCESS",
+    "case" : "buerger_gedichte_1778_0039/deu_latf+deu",
+    "against_each_single_language" : [ {
+      "single_language" : "deu_latf",
+      "associated_reference_lines" : {
+        "combined" : 18,
+        "single" : 18
+      },
+      "exact_associated_lines" : {
+        "combined" : 3,
+        "single" : 3
+      },
+      "missing_reference_lines" : {
+        "combined" : 20,
+        "single" : 20
+      },
+      "predicted_lines_without_reference" : {
+        "combined" : 10,
+        "single" : 10
+      },
+      "xml_sequence_character_edits" : {
+        "combined" : 372,
+        "single" : 371
+      }
+    }, {
+      "single_language" : "deu",
+      "associated_reference_lines" : {
+        "combined" : 18,
+        "single" : 17
+      },
+      "exact_associated_lines" : {
+        "combined" : 3,
+        "single" : 0
+      },
+      "missing_reference_lines" : {
+        "combined" : 20,
+        "single" : 21
+      },
+      "predicted_lines_without_reference" : {
+        "combined" : 10,
+        "single" : 11
+      },
+      "xml_sequence_character_edits" : {
+        "combined" : 372,
+        "single" : 419
+      }
+    } ]
+  }, {
+    "reference_line_order_explicit" : false,
+    "outcome" : "SUCCESS",
+    "case" : "nn_besuch_1780_00001/deu+deu_latf",
+    "against_each_single_language" : [ {
+      "single_language" : "deu",
+      "associated_reference_lines" : {
+        "combined" : 9,
+        "single" : 9
+      },
+      "exact_associated_lines" : {
+        "combined" : 3,
+        "single" : 1
+      },
+      "missing_reference_lines" : {
+        "combined" : 1,
+        "single" : 1
+      },
+      "predicted_lines_without_reference" : {
+        "combined" : 9,
+        "single" : 9
+      },
+      "xml_sequence_character_edits" : {
+        "combined" : 83,
+        "single" : 103
+      }
+    }, {
+      "single_language" : "deu_latf",
+      "associated_reference_lines" : {
+        "combined" : 9,
+        "single" : 9
+      },
+      "exact_associated_lines" : {
+        "combined" : 3,
+        "single" : 3
+      },
+      "missing_reference_lines" : {
+        "combined" : 1,
+        "single" : 1
+      },
+      "predicted_lines_without_reference" : {
+        "combined" : 9,
+        "single" : 9
+      },
+      "xml_sequence_character_edits" : {
+        "combined" : 83,
+        "single" : 82
+      }
+    } ]
+  }, {
+    "reference_line_order_explicit" : false,
+    "outcome" : "SUCCESS",
+    "case" : "nn_besuch_1780_00001/deu_latf+deu",
+    "against_each_single_language" : [ {
+      "single_language" : "deu_latf",
+      "associated_reference_lines" : {
+        "combined" : 9,
+        "single" : 9
+      },
+      "exact_associated_lines" : {
+        "combined" : 3,
+        "single" : 3
+      },
+      "missing_reference_lines" : {
+        "combined" : 1,
+        "single" : 1
+      },
+      "predicted_lines_without_reference" : {
+        "combined" : 9,
+        "single" : 9
+      },
+      "xml_sequence_character_edits" : {
+        "combined" : 79,
+        "single" : 82
+      }
+    }, {
+      "single_language" : "deu",
+      "associated_reference_lines" : {
+        "combined" : 9,
+        "single" : 9
+      },
+      "exact_associated_lines" : {
+        "combined" : 3,
+        "single" : 1
+      },
+      "missing_reference_lines" : {
+        "combined" : 1,
+        "single" : 1
+      },
+      "predicted_lines_without_reference" : {
+        "combined" : 9,
+        "single" : 9
+      },
+      "xml_sequence_character_edits" : {
+        "combined" : 79,
+        "single" : 103
+      }
+    } ]
+  } ],
+  "jvm_results_equal_except_random_pdf_identity" : true,
+  "unchanged_single_model_baselines" : 8,
+  "paired_case_profiles" : 16,
+  "source_and_render_frames_unchanged" : true
+}

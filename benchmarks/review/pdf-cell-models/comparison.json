@@ -1,0 +1,330 @@
+{
+  "scope": "Fixed CELL-only model comparison; no general or held-out-model accuracy claim",
+  "baseline": {
+    "tables": 19,
+    "complete_span_topologies": 14,
+    "exact_cells": 336,
+    "exact_tables": 0,
+    "matched_tokens": 791,
+    "observed_tokens": 1765
+  },
+  "alternative": {
+    "tables": 19,
+    "complete_span_topologies": 14,
+    "exact_cells": 322,
+    "exact_tables": 0,
+    "matched_tokens": 769,
+    "observed_tokens": 1759
+  },
+  "paired_alternative_results_identical": true,
+  "default_baseline_entries_preserved": true,
+  "default_optional_cell_fields_absent": true,
+  "full_verify_tests_java21_java25": 874,
+  "positive_exact_cell_inputs": 3,
+  "negative_exact_cell_inputs": 7,
+  "unchanged_exact_cell_inputs": 10,
+  "reference_anchors": 1380,
+  "reference_tokens": 2070,
+  "per_input": [
+    {
+      "input": "PMC4840965_004_00.png",
+      "baseline_exact_cells": 52,
+      "alternative_exact_cells": 52,
+      "baseline_token_overlap": {
+        "observed": 88,
+        "reference": 95,
+        "matched": 22
+      },
+      "alternative_token_overlap": {
+        "reference": 95,
+        "observed": 87,
+        "matched": 25
+      }
+    },
+    {
+      "input": "PMC4517499_004_00.png",
+      "baseline_exact_cells": 6,
+      "alternative_exact_cells": 5,
+      "baseline_token_overlap": {
+        "observed": 32,
+        "reference": 35,
+        "matched": 12
+      },
+      "alternative_token_overlap": {
+        "reference": 35,
+        "observed": 32,
+        "matched": 10
+      }
+    },
+    {
+      "input": "PMC4776821_005_00.png",
+      "baseline_exact_cells": 17,
+      "alternative_exact_cells": 17,
+      "baseline_token_overlap": {
+        "observed": 24,
+        "reference": 28,
+        "matched": 21
+      },
+      "alternative_token_overlap": {
+        "reference": 28,
+        "observed": 24,
+        "matched": 21
+      }
+    },
+    {
+      "input": "PMC1626454_002_00.png",
+      "baseline_exact_cells": 0,
+      "alternative_exact_cells": 0,
+      "baseline_token_overlap": {
+        "observed": 181,
+        "reference": 190,
+        "matched": 105
+      },
+      "alternative_token_overlap": {
+        "reference": 190,
+        "observed": 181,
+        "matched": 105
+      }
+    },
+    {
+      "input": "PMC2838834_005_00.png",
+      "baseline_exact_cells": 62,
+      "alternative_exact_cells": 57,
+      "baseline_token_overlap": {
+        "observed": 298,
+        "reference": 316,
+        "matched": 109
+      },
+      "alternative_token_overlap": {
+        "reference": 316,
+        "observed": 296,
+        "matched": 111
+      }
+    },
+    {
+      "input": "PMC5897438_004_00.png",
+      "baseline_exact_cells": 0,
+      "alternative_exact_cells": 0,
+      "baseline_token_overlap": {
+        "observed": 34,
+        "reference": 35,
+        "matched": 4
+      },
+      "alternative_token_overlap": {
+        "reference": 35,
+        "observed": 34,
+        "matched": 4
+      }
+    },
+    {
+      "input": "PMC3907710_006_00.png",
+      "baseline_exact_cells": 4,
+      "alternative_exact_cells": 3,
+      "baseline_token_overlap": {
+        "observed": 22,
+        "reference": 36,
+        "matched": 5
+      },
+      "alternative_token_overlap": {
+        "reference": 36,
+        "observed": 22,
+        "matched": 4
+      }
+    },
+    {
+      "input": "PMC3519711_003_00.png",
+      "baseline_exact_cells": 2,
+      "alternative_exact_cells": 3,
+      "baseline_token_overlap": {
+        "observed": 67,
+        "reference": 145,
+        "matched": 37
+      },
+      "alternative_token_overlap": {
+        "reference": 145,
+        "observed": 68,
+        "matched": 37
+      }
+    },
+    {
+      "input": "PMC5198506_004_00.png",
+      "baseline_exact_cells": 0,
+      "alternative_exact_cells": 0,
+      "baseline_token_overlap": {
+        "observed": 40,
+        "reference": 45,
+        "matched": 5
+      },
+      "alternative_token_overlap": {
+        "reference": 45,
+        "observed": 43,
+        "matched": 5
+      }
+    },
+    {
+      "input": "PMC5679144_002_01.png",
+      "baseline_exact_cells": 1,
+      "alternative_exact_cells": 2,
+      "baseline_token_overlap": {
+        "observed": 28,
+        "reference": 32,
+        "matched": 8
+      },
+      "alternative_token_overlap": {
+        "reference": 32,
+        "observed": 28,
+        "matched": 9
+      }
+    },
+    {
+      "input": "PMC5134617_013_00.png",
+      "baseline_exact_cells": 42,
+      "alternative_exact_cells": 40,
+      "baseline_token_overlap": {
+        "observed": 81,
+        "reference": 92,
+        "matched": 52
+      },
+      "alternative_token_overlap": {
+        "reference": 92,
+        "observed": 81,
+        "matched": 50
+      }
+    },
+    {
+      "input": "PMC2753619_002_00.png",
+      "baseline_exact_cells": 9,
+      "alternative_exact_cells": 9,
+      "baseline_token_overlap": {
+        "observed": 15,
+        "reference": 16,
+        "matched": 13
+      },
+      "alternative_token_overlap": {
+        "reference": 16,
+        "observed": 15,
+        "matched": 13
+      }
+    },
+    {
+      "input": "PMC3826085_003_00.png",
+      "baseline_exact_cells": 43,
+      "alternative_exact_cells": 45,
+      "baseline_token_overlap": {
+        "observed": 89,
+        "reference": 89,
+        "matched": 44
+      },
+      "alternative_token_overlap": {
+        "reference": 89,
+        "observed": 89,
+        "matched": 46
+      }
+    },
+    {
+      "input": "PMC5577841_001_00.png",
+      "baseline_exact_cells": 3,
+      "alternative_exact_cells": 3,
+      "baseline_token_overlap": {
+        "observed": 44,
+        "reference": 47,
+        "matched": 22
+      },
+      "alternative_token_overlap": {
+        "reference": 47,
+        "observed": 44,
+        "matched": 20
+      }
+    },
+    {
+      "input": "PMC2759935_007_01.png",
+      "baseline_exact_cells": 29,
+      "alternative_exact_cells": 25,
+      "baseline_token_overlap": {
+        "observed": 75,
+        "reference": 124,
+        "matched": 39
+      },
+      "alternative_token_overlap": {
+        "reference": 124,
+        "observed": 75,
+        "matched": 35
+      }
+    },
+    {
+      "input": "PMC4003957_018_00.png",
+      "baseline_exact_cells": 11,
+      "alternative_exact_cells": 11,
+      "baseline_token_overlap": {
+        "observed": 163,
+        "reference": 165,
+        "matched": 122
+      },
+      "alternative_token_overlap": {
+        "reference": 165,
+        "observed": 163,
+        "matched": 123
+      }
+    },
+    {
+      "input": "PMC4682394_003_00.png",
+      "baseline_exact_cells": 4,
+      "alternative_exact_cells": 4,
+      "baseline_token_overlap": {
+        "observed": 167,
+        "reference": 189,
+        "matched": 36
+      },
+      "alternative_token_overlap": {
+        "reference": 189,
+        "observed": 164,
+        "matched": 32
+      }
+    },
+    {
+      "input": "PMC4172848_007_00.png",
+      "baseline_exact_cells": 17,
+      "alternative_exact_cells": 15,
+      "baseline_token_overlap": {
+        "observed": 185,
+        "reference": 208,
+        "matched": 67
+      },
+      "alternative_token_overlap": {
+        "reference": 208,
+        "observed": 183,
+        "matched": 59
+      }
+    },
+    {
+      "input": "PMC5332562_005_00.png",
+      "baseline_exact_cells": 9,
+      "alternative_exact_cells": 9,
+      "baseline_token_overlap": {
+        "observed": 52,
+        "reference": 102,
+        "matched": 13
+      },
+      "alternative_token_overlap": {
+        "reference": 102,
+        "observed": 51,
+        "matched": 12
+      }
+    },
+    {
+      "input": "PMC5402779_004_00.png",
+      "baseline_exact_cells": 25,
+      "alternative_exact_cells": 22,
+      "baseline_token_overlap": {
+        "observed": 80,
+        "reference": 81,
+        "matched": 55
+      },
+      "alternative_token_overlap": {
+        "reference": 81,
+        "observed": 79,
+        "matched": 48
+      }
+    }
+  ]
+}

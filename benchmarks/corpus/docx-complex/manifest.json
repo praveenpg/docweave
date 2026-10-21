@@ -1,0 +1,144 @@
+{
+  "scope": "Four independently maintained regression samples with nested tables, revisions and a main-body textbox. Not representative published-document or human/Word rendering evidence.",
+  "binary_policy": "Fetch-only; no external binaries/full extracted text/raw XML committed.",
+  "documents": [
+    {
+      "filename": "drawing.docx",
+      "sha256": "5e83462dd7ac3cf0a333fe09cf0837602dbd41775cdcec813a6e288b5d55dff8",
+      "bytes": 95247,
+      "source_commit": "094968cfc3d48224db08f0b7f0a6fc341b035114",
+      "source_git_blob": "23546b7f2cf38843260864e650314997fb0cc680",
+      "publisher": "Apache POI test-data repository",
+      "source_page": "https://github.com/apache/poi/blob/094968cfc3d48224db08f0b7f0a6fc341b035114/test-data/document/drawing.docx",
+      "download_url": "https://raw.githubusercontent.com/apache/poi/094968cfc3d48224db08f0b7f0a6fc341b035114/test-data/document/drawing.docx",
+      "retrieved_on": "2026-10-16",
+      "human_review": "pending",
+      "required_source_features": {
+        "maximum_table_depth": 4,
+        "nested_tables": 7
+      },
+      "required_text": [],
+      "minimum_tables": 5,
+      "expected_warning_codes": [
+        "NESTED_TABLE_FLATTENED",
+        "NESTED_TABLE_FLATTENED",
+        "NESTED_TABLE_FLATTENED",
+        "NESTED_TABLE_FLATTENED",
+        "NESTED_TABLE_FLATTENED",
+        "NESTED_TABLE_FLATTENED",
+        "NESTED_TABLE_FLATTENED",
+        "DOCX_CONTENT_OMITTED",
+        "DOCX_CONTENT_OMITTED",
+        "DOCX_CONTENT_OMITTED",
+        "DOCX_CONTENT_OMITTED",
+        "DOCX_CONTENT_OMITTED"
+      ],
+      "expected_stored_parts": {
+        "Header": 0,
+        "Footer": 0
+      },
+      "licence_notice": "Pinned Apache POI legal/LICENSE and legal/NOTICE; fetch-only sample, original authorship not independently verified",
+      "licence_url": "https://github.com/apache/poi/blob/094968cfc3d48224db08f0b7f0a6fc341b035114/legal/LICENSE",
+      "notice_url": "https://github.com/apache/poi/blob/094968cfc3d48224db08f0b7f0a6fc341b035114/legal/NOTICE",
+      "expected_nested_descriptors": 7
+    },
+    {
+      "filename": "delins.docx",
+      "sha256": "7ecad102602586be7f1371f117fc567ea47f3ed0ca703b353e003002f1ff8d3f",
+      "bytes": 17720,
+      "source_commit": "094968cfc3d48224db08f0b7f0a6fc341b035114",
+      "source_git_blob": "b53069135b573f226bc594a47ff368bdb8de8c6f",
+      "publisher": "Apache POI test-data repository",
+      "source_page": "https://github.com/apache/poi/blob/094968cfc3d48224db08f0b7f0a6fc341b035114/test-data/document/delins.docx",
+      "download_url": "https://raw.githubusercontent.com/apache/poi/094968cfc3d48224db08f0b7f0a6fc341b035114/test-data/document/delins.docx",
+      "retrieved_on": "2026-10-16",
+      "human_review": "pending",
+      "required_source_features": {
+        "insertions": 32,
+        "deletions": 4
+      },
+      "required_text": [],
+      "minimum_tables": 0,
+      "expected_warning_codes": [],
+      "expected_stored_parts": {
+        "Header": 0,
+        "Footer": 0
+      },
+      "licence_notice": "Pinned Apache POI legal/LICENSE and legal/NOTICE; fetch-only sample, original authorship not independently verified",
+      "licence_url": "https://github.com/apache/poi/blob/094968cfc3d48224db08f0b7f0a6fc341b035114/legal/LICENSE",
+      "notice_url": "https://github.com/apache/poi/blob/094968cfc3d48224db08f0b7f0a6fc341b035114/legal/NOTICE",
+      "minimum_deleted_fragments_checked": 1
+    },
+    {
+      "filename": "table-auto-nested.docx",
+      "sha256": "72370bc44654bab1bb76ef058c9a8641c937e98f1ab03e1a396211c0c2d64654",
+      "bytes": 10297,
+      "source_commit": "54047653041915e595ad4e45cccea684809c77b5",
+      "source_git_blob": "85f47dbba0b3392d391008f7ac8f093a76ca707c",
+      "publisher": "LibreOffice core test repository",
+      "source_page": "https://github.com/LibreOffice/core/blob/54047653041915e595ad4e45cccea684809c77b5/sw/qa/extras/ooxmlexport/data/table-auto-nested.docx",
+      "download_url": "https://raw.githubusercontent.com/LibreOffice/core/54047653041915e595ad4e45cccea684809c77b5/sw/qa/extras/ooxmlexport/data/table-auto-nested.docx",
+      "retrieved_on": "2026-10-16",
+      "human_review": "pending",
+      "required_source_features": {
+        "maximum_table_depth": 2,
+        "nested_tables": 1
+      },
+      "required_text": [],
+      "minimum_tables": 1,
+      "expected_warning_codes": [
+        "DOCX_CONTENT_OMITTED",
+        "NESTED_TABLE_FLATTENED"
+      ],
+      "expected_stored_parts": {
+        "Header": 0,
+        "Footer": 0
+      },
+      "licence_notice": "Pinned LibreOffice COPYING.MPL and repository README; fetch-only sample, original authorship not independently verified",
+      "licence_url": "https://github.com/LibreOffice/core/blob/54047653041915e595ad4e45cccea684809c77b5/COPYING.MPL",
+      "repository_readme_url": "https://github.com/LibreOffice/core/blob/54047653041915e595ad4e45cccea684809c77b5/README.md",
+      "expected_nested_descriptors": 1
+    },
+    {
+      "filename": "tdf108973_foregroundTextbox.docx",
+      "sha256": "4885bf762fd1bb323e6d1aa635f4edcf9ea8e101a2ccb9ef31f8c639740d01b7",
+      "bytes": 10478,
+      "source_commit": "54047653041915e595ad4e45cccea684809c77b5",
+      "source_git_blob": "fb81047c392a21a16799ba6ebbf3d3da145f8148",
+      "publisher": "LibreOffice core test repository",
+      "source_page": "https://github.com/LibreOffice/core/blob/54047653041915e595ad4e45cccea684809c77b5/sw/qa/extras/ooxmlexport/data/tdf108973_foregroundTextbox.docx",
+      "download_url": "https://raw.githubusercontent.com/LibreOffice/core/54047653041915e595ad4e45cccea684809c77b5/sw/qa/extras/ooxmlexport/data/tdf108973_foregroundTextbox.docx",
+      "retrieved_on": "2026-10-16",
+      "human_review": "pending",
+      "required_source_features": {
+        "text_boxes": 1,
+        "nested_paragraphs": 1
+      },
+      "required_text": [],
+      "minimum_tables": 0,
+      "expected_warning_codes": [],
+      "expected_stored_parts": {
+        "Header": 0,
+        "Footer": 0
+      },
+      "licence_notice": "Pinned LibreOffice COPYING.MPL and repository README; fetch-only sample, original authorship not independently verified",
+      "licence_url": "https://github.com/LibreOffice/core/blob/54047653041915e595ad4e45cccea684809c77b5/COPYING.MPL",
+      "repository_readme_url": "https://github.com/LibreOffice/core/blob/54047653041915e595ad4e45cccea684809c77b5/README.md"
+    }
+  ],
+  "selection_limit": "LibreOffice directory catalog returned 1000 entries; only the selected pinned files were reviewed, not the full repository.",
+  "repository_notices": {
+    "libreoffice_COPYING.MPL": {
+      "url": "https://raw.githubusercontent.com/LibreOffice/core/54047653041915e595ad4e45cccea684809c77b5/COPYING.MPL",
+      "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5"
+    },
+    "libreoffice_README.md": {
+      "url": "https://raw.githubusercontent.com/LibreOffice/core/54047653041915e595ad4e45cccea684809c77b5/README.md",
+      "sha256": "cfe3ab7a0db5c3944ef3ef6439c8a9d802aadf6f0c9328a713f68a264de0da39"
+    }
+  },
+  "selection_exclusions": [
+    "deep-table-cell.docx: 5000-level intentional stress sample; not positive source coverage and not submitted to the bounded ownership reader.",
+    "checkboxes.docx: no stored main-body textbox; wording alone does not establish the requested feature."
+  ]
+}

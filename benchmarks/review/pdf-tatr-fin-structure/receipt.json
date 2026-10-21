@@ -1,0 +1,19 @@
+{
+  "java": 21,
+  "production_commit": "ef89e98",
+  "production_test_count": 1224,
+  "selection_sha256": "661311ab86b257ce7de42935917056e2c71cef3e6c786e512449ff8dcea1d607",
+  "parity_tool_sha256": "baa1f43288469ecc717a627c00f6603c8f65b08ab822fb22131d7802de005d12",
+  "complete_pages": 11,
+  "capture_profiles": 22,
+  "capture_outcomes_ok": 22,
+  "baseline_reference_scorer": "8c4e990",
+  "strict_reference_rows_per_detector": 110,
+  "tatr_presence_before": 39,
+  "tatr_presence_after": 35,
+  "yolox_presence_before": 66,
+  "yolox_presence_after": 66,
+  "production_promotion": false,
+  "new_python_dependencies": 0,
+  "docweave_evaluation_runtime": "JVM only"
+}

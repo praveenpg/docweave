@@ -1,0 +1,17 @@
+# Java layout inferred from praveenpg/unleash-starter; see docs/java-style.md.
+BasedOnStyle: LLVM
+Language: Java
+IndentWidth: 4
+ContinuationIndentWidth: 8
+ColumnLimit: 120
+BreakBeforeBraces: Attach
+AllowShortFunctionsOnASingleLine: None
+AllowShortBlocksOnASingleLine: Never
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+BreakBeforeBinaryOperators: NonAssignment
+AlignAfterOpenBracket: DontAlign
+SpaceAfterCStyleCast: true
+SeparateDefinitionBlocks: Always
+SortIncludes: Never
+BreakStringLiterals: false

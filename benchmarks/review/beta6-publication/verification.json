@@ -1,0 +1,15 @@
+{
+  "version": "0.1.0-beta.6",
+  "zip": "docweave-0.1.0-beta.6-central.zip",
+  "sha256": "7207f666bb9e853a09972cb39a2674c04d8c865d2ed76891e377e23767f147c1",
+  "signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9",
+  "canonical_files": 65,
+  "zip_entries": 260,
+  "status": "PUBLISHED",
+  "published_status_source": "Owner confirmation",
+  "verified_date": "2026-10-19",
+  "source_commit": "fedf209cba9ded60d7ae715e2008ead1a0176274",
+  "public_repository": "https://repo.maven.apache.org/maven2",
+  "public_artifact_hashes_verified": 65,
+  "public_artifact_hashes_equal_to_signed_candidate": true
+}

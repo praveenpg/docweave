@@ -1,0 +1,196 @@
+{
+  "version": "0.1.0-SNAPSHOT",
+  "status": "UNSIGNED LOCAL REVIEW ONLY",
+  "baseline": "47843d8e95df8e566d9065a9336bd85975d60ae5",
+  "source_files": 1159,
+  "canonical_project_files": 65,
+  "library_coordinates": 16,
+  "parent_coordinates": 1,
+  "canonical_build_jdk": "21",
+  "binary_classes_checked": 319,
+  "class_major": 65,
+  "payload_files": 78,
+  "checksum_covered_files": 79,
+  "archive_members": 81,
+  "outer_archive_sha256": "49b676b268276610d454622f79f0f62bd881b48720e97523ef8fd3760a2ba51c",
+  "outer_archive_bytes": 13414400,
+  "bundle_manifest_sha256": "019e5b0ccc2c845a4f72f60a45b886505956013b8b57fcae8a7e373e8a06b994",
+  "source_manifest_sha256": "37661448ec149ff5c5c859e5f2382379bd295f29fe003ea9635ef3189353096e",
+  "source_archive_sha256": "c2c0ffa18f93d0f0565cefb13421eabf61794ef9b8ab85062e5ca17ca53374d4",
+  "repeat_outer_archive_identical": true,
+  "verification": {
+    "source_archive_sha256": "c2c0ffa18f93d0f0565cefb13421eabf61794ef9b8ab85062e5ca17ca53374d4",
+    "source_manifest_sha256": "37661448ec149ff5c5c859e5f2382379bd295f29fe003ea9635ef3189353096e",
+    "source_files_verified": 1159,
+    "source_original_baseline": "47843d8e95df8e566d9065a9336bd85975d60ae5",
+    "version": "0.1.0-SNAPSHOT",
+    "canonical_artifact_build_jdk": "21",
+    "fresh_source_builds": {
+      "21": {
+        "tests": 899,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0,
+        "strict_javadocs": "passed",
+        "library_archives_checked": 48,
+        "artifact_sha256_and_sha512_files_checked": 65,
+        "log_sha256": "e0a38476dc589ad582e7b42de587707380444edfb53087675f5d635150f21243",
+        "signing": "disabled with gpg.skip=true"
+      },
+      "25": {
+        "tests": 899,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0,
+        "strict_javadocs": "passed",
+        "library_archives_checked": 48,
+        "artifact_sha256_and_sha512_files_checked": 65,
+        "log_sha256": "31dee129b21fe03d6a4227983d6f5ebaad4f3466ea2e1dc572dc1c392852b68e",
+        "signing": "disabled with gpg.skip=true"
+      }
+    },
+    "consumers": {
+      "canonical_build_jdk": "21",
+      "same_canonical_artifact_set_on_both_jvms": true,
+      "network": "Consumers resolve only staged project artifacts and cached file-mirror dependencies/plugins",
+      "installed_tesseract_selected": false,
+      "model": "Explicit owned constant graph only",
+      "runs": {
+        "21": {
+          "tesseract": {
+            "outcome": "passed",
+            "dependencies": [
+              "docweave-ocr-tesseract-0.1.0-SNAPSHOT.jar",
+              "docweave-pdf-0.1.0-SNAPSHOT.jar",
+              "docweave-core-0.1.0-SNAPSHOT.jar",
+              "pdfbox-3.0.8.jar",
+              "pdfbox-io-3.0.8.jar",
+              "fontbox-3.0.8.jar",
+              "commons-logging-1.4.0.jar"
+            ],
+            "canonical_project_jar_sha256": {
+              "docweave-ocr-tesseract-0.1.0-SNAPSHOT.jar": "4c08116eedbd72411b9e53c79374e561354ab906f97b6fa9b174eb22f57fad66",
+              "docweave-pdf-0.1.0-SNAPSHOT.jar": "73efa6a3febc21637f624ddf663c733c7d85339adfa56dc13f3c3b4f6886eff3",
+              "docweave-core-0.1.0-SNAPSHOT.jar": "d9badbd9fc61fbf54c5201e5d6ceed537522ba537e99769327b7bbd8ba205e09"
+            },
+            "run_log_sha256": "10472978755980700e11bc54590d75a23c411ceb9ba8b4fc3c31c85e67435cad",
+            "class_major": 65
+          },
+          "onnx": {
+            "outcome": "passed",
+            "dependencies": [
+              "docweave-layout-onnx-0.1.0-SNAPSHOT.jar",
+              "docweave-pdf-0.1.0-SNAPSHOT.jar",
+              "docweave-core-0.1.0-SNAPSHOT.jar",
+              "pdfbox-3.0.8.jar",
+              "pdfbox-io-3.0.8.jar",
+              "fontbox-3.0.8.jar",
+              "commons-logging-1.4.0.jar",
+              "onnxruntime-1.23.2.jar"
+            ],
+            "canonical_project_jar_sha256": {
+              "docweave-layout-onnx-0.1.0-SNAPSHOT.jar": "b5875e2e77bddbd5f30e1e48efa78f3f15be3bfea9e967087054e80a4e7619f6",
+              "docweave-pdf-0.1.0-SNAPSHOT.jar": "73efa6a3febc21637f624ddf663c733c7d85339adfa56dc13f3c3b4f6886eff3",
+              "docweave-core-0.1.0-SNAPSHOT.jar": "d9badbd9fc61fbf54c5201e5d6ceed537522ba537e99769327b7bbd8ba205e09"
+            },
+            "run_log_sha256": "686d56e8e01ab673c225ed8637233dd4ab21d3b71bb0e4b5b2068668cf616557",
+            "class_major": 65
+          },
+          "pdf": {
+            "outcome": "passed",
+            "dependencies": [
+              "docweave-pdf-0.1.0-SNAPSHOT.jar",
+              "docweave-core-0.1.0-SNAPSHOT.jar",
+              "pdfbox-3.0.8.jar",
+              "pdfbox-io-3.0.8.jar",
+              "fontbox-3.0.8.jar",
+              "commons-logging-1.4.0.jar"
+            ],
+            "canonical_project_jar_sha256": {
+              "docweave-pdf-0.1.0-SNAPSHOT.jar": "73efa6a3febc21637f624ddf663c733c7d85339adfa56dc13f3c3b4f6886eff3",
+              "docweave-core-0.1.0-SNAPSHOT.jar": "d9badbd9fc61fbf54c5201e5d6ceed537522ba537e99769327b7bbd8ba205e09"
+            },
+            "run_log_sha256": "1a0e2648c2c03bc65f02aba65560e36d7003d3941437b50c0333632bd0beb72b",
+            "class_major": 65
+          }
+        },
+        "25": {
+          "tesseract": {
+            "outcome": "passed",
+            "dependencies": [
+              "docweave-ocr-tesseract-0.1.0-SNAPSHOT.jar",
+              "docweave-pdf-0.1.0-SNAPSHOT.jar",
+              "docweave-core-0.1.0-SNAPSHOT.jar",
+              "pdfbox-3.0.8.jar",
+              "pdfbox-io-3.0.8.jar",
+              "fontbox-3.0.8.jar",
+              "commons-logging-1.4.0.jar"
+            ],
+            "canonical_project_jar_sha256": {
+              "docweave-ocr-tesseract-0.1.0-SNAPSHOT.jar": "4c08116eedbd72411b9e53c79374e561354ab906f97b6fa9b174eb22f57fad66",
+              "docweave-pdf-0.1.0-SNAPSHOT.jar": "73efa6a3febc21637f624ddf663c733c7d85339adfa56dc13f3c3b4f6886eff3",
+              "docweave-core-0.1.0-SNAPSHOT.jar": "d9badbd9fc61fbf54c5201e5d6ceed537522ba537e99769327b7bbd8ba205e09"
+            },
+            "run_log_sha256": "7fbc029ce4dc3b28d6501d03b36bac7682739413fe0882af27f1c7baf0a2f22a",
+            "class_major": 65
+          },
+          "onnx": {
+            "outcome": "passed",
+            "dependencies": [
+              "docweave-layout-onnx-0.1.0-SNAPSHOT.jar",
+              "docweave-pdf-0.1.0-SNAPSHOT.jar",
+              "docweave-core-0.1.0-SNAPSHOT.jar",
+              "pdfbox-3.0.8.jar",
+              "pdfbox-io-3.0.8.jar",
+              "fontbox-3.0.8.jar",
+              "commons-logging-1.4.0.jar",
+              "onnxruntime-1.23.2.jar"
+            ],
+            "canonical_project_jar_sha256": {
+              "docweave-layout-onnx-0.1.0-SNAPSHOT.jar": "b5875e2e77bddbd5f30e1e48efa78f3f15be3bfea9e967087054e80a4e7619f6",
+              "docweave-pdf-0.1.0-SNAPSHOT.jar": "73efa6a3febc21637f624ddf663c733c7d85339adfa56dc13f3c3b4f6886eff3",
+              "docweave-core-0.1.0-SNAPSHOT.jar": "d9badbd9fc61fbf54c5201e5d6ceed537522ba537e99769327b7bbd8ba205e09"
+            },
+            "run_log_sha256": "7572be39719c0b9478871c3fc98ad3935685f1ea8cfa36599601754e848ef0c5",
+            "class_major": 65
+          },
+          "pdf": {
+            "outcome": "passed",
+            "dependencies": [
+              "docweave-pdf-0.1.0-SNAPSHOT.jar",
+              "docweave-core-0.1.0-SNAPSHOT.jar",
+              "pdfbox-3.0.8.jar",
+              "pdfbox-io-3.0.8.jar",
+              "fontbox-3.0.8.jar",
+              "commons-logging-1.4.0.jar"
+            ],
+            "canonical_project_jar_sha256": {
+              "docweave-pdf-0.1.0-SNAPSHOT.jar": "73efa6a3febc21637f624ddf663c733c7d85339adfa56dc13f3c3b4f6886eff3",
+              "docweave-core-0.1.0-SNAPSHOT.jar": "d9badbd9fc61fbf54c5201e5d6ceed537522ba537e99769327b7bbd8ba205e09"
+            },
+            "run_log_sha256": "978df9d27354ac38ce03a97ee3ae4ae0a5e9d861c6402faa6f0007cd5c658f85",
+            "class_major": 65
+          }
+        }
+      }
+    },
+    "scope": "Unsigned local review of source/artifacts and API plumbing on Linux; not PDF accuracy, broad platform certification, legal clearance or Central publishing readiness",
+    "bundle_checked_path_patterns": "zero matches in staged payload bytes/ZIP members up to2MB; source tree checked independently",
+    "staged_zip_members_checked": 1839
+  },
+  "remaining_holds": [
+    "Owner/wider evidence-rights approval",
+    "Final beta version/signatures/bundle",
+    "Namespace/Portal verification and explicit publication instruction"
+  ],
+  "independent_verification": {
+    "outer_tar_members_matched": 81,
+    "system_sha256_files": 79,
+    "system_sha512_files": 79,
+    "tampered_temporary_parent_pom": "both algorithms reject; restored extraction passes; original stage untouched",
+    "preserved_snapshot_and_consolidated_source_file_hashes": 3469,
+    "no_signatures_or_internal_artifacts": true,
+    "benchmark_tooling_tests": 12,
+    "changed_markdown_links": "passed"
+  }
+}

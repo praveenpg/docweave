@@ -1,0 +1,69 @@
+{
+  "java_version": "21.0.12.1+12-LTS",
+  "full_tests": {
+    "tests": 1255,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "focused_methods": 12,
+  "new_methods": 10,
+  "native_formats": 8,
+  "strategies": 2,
+  "format_strategy_compositions": 16,
+  "private_doclint_files": 8,
+  "provider_model_calls": "owned deterministic JVM controls only; no live model",
+  "retrieval_quality": "NOT_EVALUATED",
+  "source_files": [
+    {
+      "path": "docweave-chunking/src/main/java/dev/docweave/chunking/ChunkContextProvider.java",
+      "sha256": "f30c8e95b4f70a9747772aa2d51bef290c26130f8cdaf56a0ff0de93a21584fd"
+    },
+    {
+      "path": "docweave-chunking/src/main/java/dev/docweave/chunking/ContextualChunk.java",
+      "sha256": "96b730882514b7b96b9a59987979f26a8cc79c60075692c439f69a377ea70121"
+    },
+    {
+      "path": "docweave-chunking/src/main/java/dev/docweave/chunking/ContextualChunkOptions.java",
+      "sha256": "1fa57fe60d51778aa9f06ff5d516e740d20308516dd1eb4f07345bab234fa211"
+    },
+    {
+      "path": "docweave-chunking/src/main/java/dev/docweave/chunking/ContextualChunker.java",
+      "sha256": "c59029ff571cf3fb57cf851a1a7c35e7f741e28059a136300d796c9e017fd90c"
+    },
+    {
+      "path": "docweave-chunking/src/main/java/dev/docweave/chunking/DefaultContextualChunker.java",
+      "sha256": "51d15a82fa00dbb431d3368fe410298d317c8bbe9ef8bcdcfcceee676b40762c"
+    },
+    {
+      "path": "docweave-chunking/src/test/java/dev/docweave/chunking/ContextualChunkerTest.java",
+      "sha256": "b65f1f9ddffc264f65755229e6c2702c7668e9f3debc93706694f15ea5c37f03"
+    },
+    {
+      "path": "docweave-integration-tests/src/test/java/dev/docweave/chunking/ContextualChunkingIntegrationTest.java",
+      "sha256": "ea4c53fc507d43d8edf853fd9132c8d4567ce169b612321508b690adfb15f639"
+    }
+  ],
+  "packaged_consumer": {
+    "passed": true,
+    "classpath_entries": [
+      {
+        "path": "docweave-core/target/docweave-core-0.1.0-SNAPSHOT.jar",
+        "bytes": 94678,
+        "sha256": "d419cbc8fb3d3f18d2b3681df056740d4fe09cb531e4e1a3292274d795b42c81"
+      },
+      {
+        "path": "docweave-chunking/target/docweave-chunking-0.1.0-SNAPSHOT.jar",
+        "bytes": 64631,
+        "sha256": "305db8f69ad4a0075f95d7044bb31a5080bdb8c7b6f5e48d86169ca9301702ef"
+      }
+    ],
+    "excluded_runtimes": [
+      "PDFBox",
+      "POI",
+      "jsoup",
+      "Jackson"
+    ],
+    "qualification": "built snapshot jars, not installed or signed release artifacts; this does not alter declared module dependencies"
+  }
+}

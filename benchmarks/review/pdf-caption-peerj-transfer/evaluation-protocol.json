@@ -1,0 +1,44 @@
+{
+  "scope": "Frozen-code transfer, code4616a4d before new-publisher selection/extraction. Full27pagePMC-publishedPeerJoriginal, all6main-bodycaptionreferences and all3uniformprofiles. Factorial nativecaption NONE/HORIZONTAL and existing nativeUnicode RAW/PRESENTATION_FORMS policies; reference/scores unchanged, ASCII-whitespace-only, no body/label repair, cropped reconstruction, per-case winner or strategy tuning. Every typed failure/missing/duplicate caption retained.",
+  "code_commit": "4616a4d",
+  "source_freeze_commit": "97bfe25",
+  "identities": {
+    "benchmarks/tools/ScorePublisherCaptions.java": "15da2ee385d0ecf84349e94f98909fa856d3732fefcaea19b7329e1e069873b3",
+    "benchmarks/review/pdf-caption-peerj-transfer/transfer-configuration.patch": "cbb3dbb945cfac57442b8e7f1913e3fbf0d6c878e0e2cb9fa6bcf8901dd989b0",
+    "benchmarks/review/pdf-caption-peerj-transfer/source-manifest.json": "b67dc50a40047bdbfe2a7c47d37e188fe02275a46103a67af3b0f9db4200da7f",
+    "benchmarks/review/pdf-caption-peerj-transfer/qualification.json": "cda0b6670ba7210ded4f3a86f07964f9a0b337fddba2a35bf43c4ebf5060c419",
+    "benchmarks/review/pdf-caption-peerj-transfer/source-inventory.json": "d7325eb15af80ffa096740a38a12ca42f53a40c4ba44b3ff460a71c924ca22a7",
+    "docweave-validation/src/test/java/dev/docweave/validation/ScientificReadingEvaluation.java": "9e297d3238e0359bfa7ad4e2f2a12a2fc88b29eb563c1a6785bcfe9184c5e809",
+    "docweave-validation/src/test/java/dev/docweave/validation/ScientificPublisherXml.java": "8bcbf70641298d3d5d50d2bc83cf10a0db356ea9da5db3040ea771b798044abe"
+  },
+  "profiles": [
+    "NATIVE_LINES",
+    "NATIVE_COLUMNS",
+    "SOURCE_TAGGED_LINES"
+  ],
+  "reference_captions_per_profile": 6,
+  "expected_case_profiles": 12,
+  "jobs": [
+    {
+      "id": "none_raw",
+      "horizontal": false,
+      "presentation": false
+    },
+    {
+      "id": "horizontal_raw",
+      "horizontal": true,
+      "presentation": false
+    },
+    {
+      "id": "none_presentation",
+      "horizontal": false,
+      "presentation": true
+    },
+    {
+      "id": "horizontal_presentation",
+      "horizontal": true,
+      "presentation": true
+    }
+  ],
+  "raw_sources_redistributed": false
+}

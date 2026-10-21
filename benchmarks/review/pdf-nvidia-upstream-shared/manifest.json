@@ -1,0 +1,87 @@
+{
+  "frozen_at": "2026-10-21T00:55:15.412Z",
+  "unstructured_version": "0.27.28",
+  "document_timeout_seconds": 300,
+  "cases": [
+    {
+      "id": "nvidia",
+      "pdf": "nvidia-fy26q4.pdf",
+      "bytes": 97444,
+      "sha256": "89de999d7155649197672bf490c519607f1abbcdc96e2e4c6718bf6ecbb13564",
+      "reference_manifest": "benchmarks/review/pdf-unseen-business-nvidia/manifest.json",
+      "reference_manifest_sha256": "2c0ad481b1a42eb5edfc7e6af2d8ec6c76f5e1ab206d7d539c492b156dabb3b6",
+      "source_pages": 11,
+      "reference_rows": 110
+    }
+  ],
+  "resources": [
+    {
+      "purpose": "shared_table",
+      "repository": "microsoft/table-transformer-structure-recognition-v1.1-all",
+      "revision": "7587a7ef111d9dcbf8ac695f1376ab7014340a0c",
+      "filename": "model.safetensors",
+      "sha256": "9df416575a3a36ebd0129342d4f597f14d6e5170268f3d52d28584ab4466a501",
+      "bytes": 115437156,
+      "url": "https://huggingface.co/microsoft/table-transformer-structure-recognition-v1.1-all/resolve/7587a7ef111d9dcbf8ac695f1376ab7014340a0c/model.safetensors",
+      "local_path": "default-table/model.safetensors"
+    },
+    {
+      "purpose": "shared_table",
+      "repository": "microsoft/table-transformer-structure-recognition-v1.1-all",
+      "revision": "7587a7ef111d9dcbf8ac695f1376ab7014340a0c",
+      "filename": "config.json",
+      "sha256": "17a8a6edfb9e394263fa6ba9b82176ebccdfcc5d6cd29121ec91572c7d6be22c",
+      "bytes": 76761,
+      "url": "https://huggingface.co/microsoft/table-transformer-structure-recognition-v1.1-all/resolve/7587a7ef111d9dcbf8ac695f1376ab7014340a0c/config.json",
+      "local_path": "default-table/config.json"
+    },
+    {
+      "purpose": "shared_table",
+      "repository": "microsoft/table-transformer-structure-recognition-v1.1-all",
+      "revision": "7587a7ef111d9dcbf8ac695f1376ab7014340a0c",
+      "filename": "preprocessor_config.json",
+      "sha256": "eead409bb80e36ae85b8377642c54550f0504f65688ba3a4967950cafe461df2",
+      "bytes": 374,
+      "url": "https://huggingface.co/microsoft/table-transformer-structure-recognition-v1.1-all/resolve/7587a7ef111d9dcbf8ac695f1376ab7014340a0c/preprocessor_config.json",
+      "local_path": "default-table/preprocessor_config.json"
+    },
+    {
+      "purpose": "default_layout",
+      "repository": "unstructuredio/yolo_x_layout",
+      "revision": "7680d6f857780bcf8d49916aa2e8881bd49dee3e",
+      "filename": "yolox_l0.05.onnx",
+      "sha256": "134301ca94fb0df8027be9a6dad1908fe6218af8ffa4d34f0819c7c2226195f3",
+      "bytes": 216625723,
+      "url": "https://huggingface.co/unstructuredio/yolo_x_layout/resolve/7680d6f857780bcf8d49916aa2e8881bd49dee3e/yolox_l0.05.onnx",
+      "local_path": "layout/yolox_l0.05.onnx"
+    },
+    {
+      "purpose": "default_backbone_initialization",
+      "repository": "timm/resnet18.a1_in1k",
+      "revision": "491b427b45c94c7fb0e78b5474cc919aff584bbf",
+      "filename": "pytorch_model.bin",
+      "sha256": "1d92fca7bc19313523ad23dff7f89800791baa592f40366537a829bd436e5e14",
+      "bytes": 46836469,
+      "url": "https://huggingface.co/timm/resnet18.a1_in1k/resolve/491b427b45c94c7fb0e78b5474cc919aff584bbf/pytorch_model.bin",
+      "local_path": "hf/hub/models--timm--resnet18.a1_in1k/snapshots/491b427b45c94c7fb0e78b5474cc919aff584bbf/pytorch_model.bin"
+    }
+  ],
+  "upstream_profile": {
+    "strategy": "hi_res",
+    "infer_table_structure": true,
+    "languages": [
+      "eng"
+    ],
+    "pdf_image_dpi": 300,
+    "hi_res_model_name": "yolox",
+    "torch_threads": 4,
+    "device": "cpu",
+    "ocr_agent": "unstructured.partition.utils.ocr_models.tesseract_ocr.OCRAgentTesseract",
+    "engine_sha256": "9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917",
+    "english_model_sha256": "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047"
+  },
+  "protocol": "Same complete original source, all 11 pages and 110 reference rows. Explicit optional upstream hi_res profile using v1.1-All source weights separately from the default upstream table model. No reference ROI in extraction, no threshold search, same 300DPI and public pipeline. Shared source weights do not establish identical ONNX preprocessing, model conversion or table postprocessing. Original default-model report remains unchanged.",
+  "scorer_commit": "8c4e990",
+  "scorer_sha256": "f88af667ef1c160906003b3dc2b235107d3c34d7c2e4b7bb25b8d39de04c85f6",
+  "model_profile": "EXPLICIT_V1_1_ALL_SOURCE_WEIGHTS"
+}

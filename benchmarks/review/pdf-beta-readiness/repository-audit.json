@@ -1,0 +1,111 @@
+{
+  "evaluated_git_commit": "227c4a01e29fffe5bed0ccd28ab1bb2c42b493e6",
+  "scope": "Local repository/POM/current cached JAR inspection; no release build, upload, portal or DNS verification",
+  "coordinates": {
+    "group_id": "io.docweave",
+    "parent_artifact_id": "docweave-parent",
+    "version": "0.1.0-SNAPSHOT",
+    "compiler_release": "21"
+  },
+  "explicit_root_metadata": {
+    "name": true,
+    "description": true,
+    "url": false,
+    "licenses": false,
+    "developers": false,
+    "scm": false
+  },
+  "root_license_files": [],
+  "reactor_plugin_artifact_ids": [
+    "maven-compiler-plugin",
+    "maven-jar-plugin",
+    "maven-javadoc-plugin",
+    "maven-resources-plugin",
+    "maven-surefire-plugin"
+  ],
+  "release_plugins_declared": {
+    "maven-source-plugin": false,
+    "maven-gpg-plugin": false,
+    "central-publishing-maven-plugin": false
+  },
+  "javadoc_execution_goals": [
+    "javadoc-no-fork"
+  ],
+  "reactor_modules": [
+    "docweave-core",
+    "docweave-json",
+    "docweave-chunking",
+    "docweave-batch",
+    "docweave-txt",
+    "docweave-html",
+    "docweave-markdown",
+    "docweave-delimited",
+    "docweave-csv",
+    "docweave-tsv",
+    "docweave-xml",
+    "docweave-docx",
+    "docweave-pdf",
+    "docweave-ocr-tesseract",
+    "docweave-layout-onnx",
+    "docweave-all",
+    "docweave-integration-tests",
+    "docweave-validation"
+  ],
+  "internal_harness_deploy_skip_explicit": {
+    "docweave-integration-tests": "true",
+    "docweave-validation": "true"
+  },
+  "inspected_cached_artifacts": [
+    {
+      "path": "docweave-core/target/docweave-core-0.1.0-SNAPSHOT.jar",
+      "sha256": "6e77805be8afc0041935177e6f21adb2f614ae6922d151e9f22b49cb6189bc7f",
+      "base_class_major_versions": [
+        65
+      ],
+      "microsoft_notice_present": false
+    },
+    {
+      "path": "docweave-pdf/target/docweave-pdf-0.1.0-SNAPSHOT.jar",
+      "sha256": "9ed304ca0e5ee64be031c28ac4c01f78f21312591f356ea933390d4e3e894533",
+      "base_class_major_versions": [
+        65
+      ],
+      "microsoft_notice_present": false
+    },
+    {
+      "path": "docweave-layout-onnx/target/docweave-layout-onnx-0.1.0-SNAPSHOT.jar",
+      "sha256": "0ac0b97d3006f95560e755f8908347ae53185015422ff9a7272581d2d6cbc984",
+      "base_class_major_versions": [
+        65
+      ],
+      "microsoft_notice_present": true
+    }
+  ],
+  "not_verified": [
+    "Owner license decision and complete dependency/model/fixture redistribution review",
+    "Central Portal io.docweave namespace ownership and account access",
+    "Release artifact set and version approval",
+    "Signed source/Javadoc/POM/JAR bundle and clean consumer resolution",
+    "Candidate commit platform/native OCR/model smoke tests and fresh upstream drift review"
+  ],
+  "historical_full_verification": {
+    "21": {
+      "log": "/tmp/docweave-ruled-preference-full-java21.log",
+      "tests": 899,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "build_success": true,
+      "scope": "Historical full verification for unchanged production snapshot; not a beta release build"
+    },
+    "25": {
+      "log": "/tmp/docweave-ruled-preference-baseline-full-java25.log",
+      "tests": 899,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "build_success": true,
+      "scope": "Historical full verification for unchanged production snapshot; not a beta release build"
+    }
+  }
+}

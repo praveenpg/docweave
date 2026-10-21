@@ -1,0 +1,37 @@
+{
+  "source_sha256" : {
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfScannedTableCorpusTest.java" : "f484439c21877024d16622177fc01c4641327b0e5f2c1d205cd8cee1abc812bc",
+    "docweave-pdf/src/main/java/dev/docweave/partition/RasterPdfTableDetector.java" : "29a77b5ca9031b21978983b5c81045daf2a6a13657cf1241b7415fbb5af64f44",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfScannedTables.java" : "68b36b4f1240306b5cb86e393976ab43294b0fc5fd1c20d44b66fbb7001409d7",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTableCells.java" : "f08627df1dc761a096a091a6e3307637811ab671431307ea434ebabf134c0728",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageOcr.java" : "6a245f4029322ad4eb52cc33572917723403663cd448407d138887d5c9ae73f0",
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/DefaultTesseractOcr.java" : "5ede4b835a49aa313d24aeda827de10738e1a03dcddeb0a280343b3b7db8161c"
+  },
+  "checked_at" : "2026-10-17T06:30:52.061890660Z",
+  "dpi" : 300,
+  "cell_segmentation" : "SINGLE_BLOCK",
+  "java" : "25.0.4+7-LTS",
+  "scope" : "Schools page 1 top six rows at configured DPI; independent published Tabula cells, not human scan accuracy",
+  "manifest_sha256" : "d3d2886e84a128b15756fc677ad92d8b380ad55c1315e2ea139d7c09065cd9d1",
+  "executable_sha256" : "9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917",
+  "model_sha256" : "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047",
+  "schools" : {
+    "mismatching_cell_indexes" : [ 42 ],
+    "actual_cells" : 60,
+    "tables" : 1,
+    "expected_normalized_sha256" : "ea376344496b47db8fc692804d8b87dc42b19ee3010842d3bed2172cf71e92a5",
+    "actual_normalized_sha256" : "bdafb10630a750a76e8c9fdd7002a1e7810567c13b43ce6c631aafb5d30ff57a",
+    "expected_cells" : 60
+  },
+  "row_widths" : [ 10, 10, 10, 10, 10, 10 ],
+  "cell_geometry" : [ {
+    "rows" : 6,
+    "coordinates" : "PDFUserSpace",
+    "columns" : 10,
+    "anchors" : 60
+  } ],
+  "animal" : {
+    "tables" : 0,
+    "ordinary_ocr_elements" : 17
+  }
+}

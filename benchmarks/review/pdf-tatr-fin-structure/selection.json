@@ -1,0 +1,11 @@
+{
+  "experiment": "Microsoft v1.1-Fin structure checkpoint with all original NVIDIA pages and both frozen detector proposals; unchanged minimumScore0.5, bounded crop planning,KEEP_HIGHER_SCORE, graphCPU4threads and original strict reference scorer. No oracle ROI crops/reference strings, no threshold tuning. All failed/empty records stay. Candidate chosen before source inference.",
+  "model_revision": "c8e8338b3aad32867e015e81a7a4fc48b4c955d1",
+  "graph_sha256": "0d422609343b99a5c776aa1c17c7640e6c51414067bff5642038591e3702d813",
+  "preparation_sha256": "ea9ccbf5fc0d28b28a0b475260e5aeea42a910cb0f17bcfa70a06cfc559b0f28",
+  "capture_tool_commit": "15299fd",
+  "capture_tool_sha256": "65774c98f7b5866e8c4c378ed0333d47cd4a046559bd9e5fbfc4645b685739a1",
+  "baseline_manifest_sha256": "e41c7a8c6584288d3afa0821e1ae62281e16422331b477e853763ca185ffd9d4",
+  "source_reference_replay_sha256": "5ded274dc78dfdd2db6d5fedad11ec261e035ad4148c137570fd72b1244c38eb",
+  "runtime_difference": "Source conversion packages differ from historical v1.1-All export. Separate two-shape Java-vs-source-tensor parity passes; do not claim identical export environment. JVM preprocessing/crops/scorer remain pinned."
+}

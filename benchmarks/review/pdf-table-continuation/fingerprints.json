@@ -1,0 +1,43 @@
+{
+  "source_sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageOutput.java": "bb4ab2d31f2103ea53086cf10af188ebfcce0a0032267877f4aa7835e5be7e0f",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTableSignature.java": "84c177fdfcf11cc57f8fe511eac03277cd67deeb67e7bb4bb36d2844c25885ce",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "2eb333fc081af7ff909e88dca7f61c892f9b112788009155acd004c74719a9b3",
+    "docweave-pdf/src/main/java/dev/docweave/partition/DefaultPdfPartitioner.java": "e422153d9347cecefc44894f767caf537b9992837bc034d1240d38e8a3784188",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageLayout.java": "289102ec4e8840bea5e2663e8b7e37601f728bbec6fb257cac43cdaa7647dacc",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfScannedTables.java": "68b36b4f1240306b5cb86e393976ab43294b0fc5fd1c20d44b66fbb7001409d7",
+    "docweave-chunking/src/main/java/dev/docweave/chunking/MetadataConsolidator.java": "2386d6a599e6784fb37409f3e88141a0d11408ac8987b1231b251da9c65052f2",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfTableContinuationTest.java": "b2655340c6e2c601dd09d158a9bc65a871d3986ed31eba9397e7c07e4c6381ce",
+    "docweave-integration-tests/src/test/java/dev/docweave/partition/PdfPipelineTest.java": "0f871e9ac36247a32b3f441e321feb73eea51abf9cdfe5ae70aff61601522012",
+    "docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractContinuationInstalledTest.java": "84655bd9caee4a7509ae160a80d192769ddc71b8f95a38a54067cf5b5b0e0cf5"
+  },
+  "release21_class_sha256": {
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfPageOutput$Pending.class": "817a47ef621eafef6f212698dd35282058a269d3e81c00fd64aa2b1351c31c44",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfPageOutput$Previous.class": "4a0d3d2aca549b622bc0ff25d8c9ca86a1ae5588474b8d2d930a28069d01aec6",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfPageOutput.class": "10b34e778e8063605139a9a679b6e8cc1ec426f0f1f0aa55bd96660f9a9bfa6f",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfTableSignature.class": "a49e5cb5ea00a5f9c1e595e0aacc7c4c0d19013ed542cacce638d0df5231d229",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfOptions$TableDetection.class": "77fb75ba2edc0ee61b90337617910fff42a56c5753aa045951ea247b3a0b461a",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfOptions$TableContinuation.class": "70f4ae36ea43b9c76a718ff55d0ac32f2eddecf248dd409b34a4777ecbbaf51c",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfOptions$TextLayout.class": "c7b0bf958a7d2ecc7f9b4218cbb40a84aae76aad0e5794fd6a9741920c550b9f",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfOptions.class": "627699e40952128a1ce0fa7f1af612074032401f93ff0c00bbe2c25df70aca85",
+    "docweave-pdf/target/classes/dev/docweave/partition/DefaultPdfPartitioner.class": "5cf72f0d965051bc89e0f8f3148a5ff3f19c67d1dac4b6a43170ddc712edd465",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfPageLayout.class": "829515317bf4e0cdec4c9f59682f948eab058c58d7b5fcd6329ea310549c3a0d",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfScannedTables$Crop.class": "54b1efd46bb04df95ead83290b5f6ea9c6df4a5cefdc5d02bd607712e6af9122",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfScannedTables.class": "666054bb1f475c65f60264d193f02f5906fad3232523006dc69e056dc49e3242",
+    "docweave-chunking/target/classes/dev/docweave/chunking/MetadataConsolidator.class": "a6052ed33e34bd471d44dbe62f56616383629147f4cf0568cf6d844afd0a1848",
+    "docweave-pdf/target/test-classes/dev/docweave/partition/PdfTableContinuationTest$1.class": "a63906fad054ecacb713c507de5661bceeb60e54cd46a649ca2c92d02189dc24",
+    "docweave-pdf/target/test-classes/dev/docweave/partition/PdfTableContinuationTest$Spec.class": "b590610d9dab3f62caaa0b8c8fb40591d8494d6165bc4f89cbfacfba95067ad8",
+    "docweave-pdf/target/test-classes/dev/docweave/partition/PdfTableContinuationTest$OwnedContext.class": "82fc748c49217a9054c62d2e99d2dd2b37e119f635f0209035b888c6e603ad1c",
+    "docweave-pdf/target/test-classes/dev/docweave/partition/PdfTableContinuationTest.class": "bb17b750a2c4806e09718badc50d315dfb0dc239cb0f4cf67b425d4189975fbc",
+    "docweave-integration-tests/target/test-classes/dev/docweave/partition/PdfPipelineTest.class": "3aa2e7834179acb42460c54a55d1a1b0aeb43a04a7d458d90d1b68d93e36ed65",
+    "docweave-ocr-tesseract/target/test-classes/dev/docweave/ocr/TesseractContinuationInstalledTest.class": "47a6c61a79015826aae2cc8c492e7ff41e357104cf0b80f2adbc26d97181d533"
+  },
+  "report_sha256": {
+    "java21-control.xml": "cb1e6ff997019f1c693cb5d450a9aae9c81927aa04e41bffa2ac5c0f208e6cb1",
+    "java21-corpus-recheck.json": "8b2df7114df342c7fb04b86db8c547938f55365ac82440c18cdd37ed818a3306",
+    "java25-control.xml": "67a881a167a498a9e3044a3c26ab50b1f3ffff40a9b0dab10a7e6b9b8b71460f",
+    "java25-corpus-recheck.json": "37cd241ed22da115a25141e6833b61109a8cac143d63a4236d0b289ac535232b",
+    "upstream-status.json": "901fae0e228340822adf858e9942817e0d6375abdf06ed6afc5f6f3f2bc93d5b"
+  },
+  "scope": "Local actual-engine Java21/25 owned controls; independent single-page regression only, not continuation accuracy"
+}

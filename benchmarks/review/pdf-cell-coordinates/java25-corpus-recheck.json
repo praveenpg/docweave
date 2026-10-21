@@ -1,0 +1,37 @@
+{
+  "source_sha256" : {
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfScannedTableCorpusTest.java" : "f484439c21877024d16622177fc01c4641327b0e5f2c1d205cd8cee1abc812bc",
+    "docweave-pdf/src/main/java/dev/docweave/partition/RasterPdfTableDetector.java" : "29a77b5ca9031b21978983b5c81045daf2a6a13657cf1241b7415fbb5af64f44",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfScannedTables.java" : "cb96a65fe0b4fdcc7f9cf10b5203f11c59e6f3f887a3686b1ee07d12d1d25cc7",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTableCells.java" : "657ca0d0bbdd09e6f0bc34749c99958ec3b896c4509600cdd521f34f5da8d849",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageOcr.java" : "234b9fa56dd1f94a41205145bcdbac73636ddd5779d3725771849e4d4e9ae47e",
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/DefaultTesseractOcr.java" : "5ede4b835a49aa313d24aeda827de10738e1a03dcddeb0a280343b3b7db8161c"
+  },
+  "checked_at" : "2026-10-17T06:13:19.702023734Z",
+  "dpi" : 300,
+  "cell_segmentation" : "SINGLE_BLOCK",
+  "java" : "25.0.4+7-LTS",
+  "scope" : "Schools page 1 top six rows at configured DPI; independent published Tabula cells, not human scan accuracy",
+  "manifest_sha256" : "d3d2886e84a128b15756fc677ad92d8b380ad55c1315e2ea139d7c09065cd9d1",
+  "executable_sha256" : "9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917",
+  "model_sha256" : "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047",
+  "schools" : {
+    "actual_normalized_sha256" : "bdafb10630a750a76e8c9fdd7002a1e7810567c13b43ce6c631aafb5d30ff57a",
+    "expected_normalized_sha256" : "ea376344496b47db8fc692804d8b87dc42b19ee3010842d3bed2172cf71e92a5",
+    "tables" : 1,
+    "actual_cells" : 60,
+    "mismatching_cell_indexes" : [ 42 ],
+    "expected_cells" : 60
+  },
+  "row_widths" : [ 10, 10, 10, 10, 10, 10 ],
+  "cell_geometry" : [ {
+    "rows" : 6,
+    "anchors" : 60,
+    "columns" : 10,
+    "coordinates" : "PDFUserSpace"
+  } ],
+  "animal" : {
+    "ordinary_ocr_elements" : 17,
+    "tables" : 0
+  }
+}

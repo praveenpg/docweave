@@ -1,0 +1,105 @@
+{
+  "baseline_git_commit": "a8c83faea1ba2d2d252b1bdf44f7b33eff71969a",
+  "scope": "Maven runtime-union metadata and artifact attribution review; broader source-publication rights review separate",
+  "runtime_artifacts": 25,
+  "main_declared_license_counts": {
+    "Apache-2.0": 20,
+    "MIT": 2,
+    "BSD-2-Clause": 2,
+    "BSD-3-Clause": 1
+  },
+  "jars_without_embedded_license_or_notice": [
+    "com.zaxxer:SparseBitSet:1.3",
+    "com.github.virtuald:curvesapi:1.08"
+  ],
+  "supplemental_licenses": [
+    {
+      "path": "docweave-docx/src/main/resources/META-INF/CurvesAPI-LICENSE.txt",
+      "coordinate": "com.github.virtuald:curvesapi:1.08",
+      "source": "https://raw.githubusercontent.com/virtuald/curvesapi/a39c6d234bd1b70a324a8cf4f5a2b0e1f2780c7f/license.txt",
+      "git_blob_sha1": "972b1c1b9c0996ea232786a478d8c5d2caca9374",
+      "sha256": "41d082bdc9a223799e90d6e0bf4da4cdc2da2babf361985ea7bfcdc587154f21",
+      "bytes": 1498
+    },
+    {
+      "path": "docweave-docx/src/main/resources/META-INF/SparseBitSet-LICENSE.txt",
+      "coordinate": "com.zaxxer:SparseBitSet:1.3",
+      "source": "https://raw.githubusercontent.com/brettwooldridge/SparseBitSet/46c1f7412b992aa8c72f5ce4601013b9160110a4/LICENSE",
+      "sha256": "977abb22c66dec2147faca33904213ccf767e44c6c546c64ba9c00171a01fbc3",
+      "bytes": 9145
+    },
+    {
+      "path": "docweave-layout-onnx/src/main/resources/META-INF/ONNX-Runtime-LICENSE.txt",
+      "coordinate": "com.microsoft.onnxruntime:onnxruntime:1.23.2",
+      "source": "https://raw.githubusercontent.com/microsoft/onnxruntime/a83fc4d58cb48eb68890dd689f94f28288cf2278/LICENSE",
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "bytes": 1073
+    }
+  ],
+  "verification": {
+    "21": {
+      "tests": 899,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "log": "/tmp/docweave-attribution-java21.log",
+      "sha256": "7bca8f38d807fc85084a6069dd452975e189166688398ed7fbe73d78753e70e7",
+      "command": "mvn -B -ntp -o -Dmaven.repo.local=/tmp/docweave-m2 -Prelease-artifacts clean verify"
+    },
+    "25": {
+      "tests": 899,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "log": "/tmp/docweave-attribution-java25.log",
+      "sha256": "fd1dd567448b6f63378562a4779d7c1fb0aa032d9043727abfaa48c6d4cc97cb",
+      "command": "mvn -B -ntp -o -Dmaven.repo.local=/tmp/docweave-m2 -Prelease-artifacts clean verify"
+    }
+  },
+  "dependencies_unchanged": true,
+  "tracked_binary_counts": {
+    "docx": 27,
+    "synthetic_onnx": 3
+  },
+  "attribution_guide_sha256": "ade660a4cf9bfdaf65ee3b0b2666b9f1b37a1458a73d8ec8c9a8086b9d818d61",
+  "artifact_check_source": "import hashlib,json,sys,zipfile,xml.etree.ElementTree as ET\nfrom pathlib import Path\nroot=Path('__LOCAL_HOME__/Projects/JavaProjects/docweave');ns={'m':'http://maven.apache.org/POM/4.0.0'};parent=ET.parse(root/'pom.xml').getroot();license=(root/'LICENSE').read_bytes();rows=[]\nfor element in parent.findall('m:modules/m:module',ns):\n module=element.text;p=root/module;model=ET.parse(p/'pom.xml').getroot();artifact=model.findtext('m:artifactId',namespaces=ns);stem=p/'target'/f'{artifact}-0.1.0-SNAPSHOT'\n if model.findtext('m:properties/m:maven.deploy.skip',namespaces=ns)=='true':\n  assert not Path(str(stem)+'-sources.jar').exists(),module\n  assert not Path(str(stem)+'-javadoc.jar').exists(),module\n  continue\n archives={}\n for classifier in ('','-sources','-javadoc'):\n  jar=Path(str(stem)+classifier+'.jar')\n  with zipfile.ZipFile(jar) as z:\n   names=z.namelist();licensepath='resources/META-INF/LICENSE' if classifier=='-javadoc' and module!='docweave-all' else 'META-INF/LICENSE';assert z.read(licensepath)==license,(module,classifier,licensepath)\n   prefix='resources/' if classifier=='-javadoc' and module!='docweave-all' else ''\n   assert z.read(prefix+'META-INF/THIRD_PARTY_NOTICES.md')==(root/'THIRD_PARTY_NOTICES.md').read_bytes(),(module,classifier)\n   for notice in (p/'src/main/resources/META-INF').glob('*'):\n    if notice.is_file() and ('LICENSE' in notice.name or 'NOTICE' in notice.name):\n     assert z.read(prefix+'META-INF/'+notice.name)==notice.read_bytes(),(module,classifier,notice.name)\n   if classifier=='-sources':\n    for source in (p/'src/main/java').rglob('*.java'):assert z.read(source.relative_to(p/'src/main/java').as_posix())==source.read_bytes(),source\n   if classifier=='-javadoc':\n    assert 'META-INF/README.md' in names if module=='docweave-all' else 'index.html' in names,module\n   if module=='docweave-layout-onnx':\n    notice='META-INF/Microsoft-TATR-LICENSE.txt';entry='resources/'+notice if classifier=='-javadoc' else notice;assert z.read(entry)==(p/'src/main/resources'/notice).read_bytes(),classifier\n   assert not any(n.endswith(('.onnx','.traineddata','.pdf','.docx')) for n in names),(module,classifier)\n   archives[classifier or 'binary']=dict(sha256=hashlib.sha256(jar.read_bytes()).hexdigest(),bytes=jar.stat().st_size,entries=len(names),license_entry=licensepath)\n rows.append(dict(module=module,artifact=artifact,archives=archives))\nassert len(rows)==16,len(rows)\nPath(sys.argv[1]).write_text(json.dumps(dict(runtime=sys.argv[2],publishable_jar_modules=len(rows),internal_harness_attachments_absent=True,artifacts=rows),indent=2)+'\\n')\nprint('Verified binary/source/documentation archives for all16 publishable JAR modules; internal attachments absent.')\n",
+  "effective_license_reader_source": "import java.nio.file.*;\nimport java.util.*;\nimport org.apache.maven.model.*;\nimport org.apache.maven.model.building.*;\nimport org.apache.maven.model.resolution.*;\npublic final class ReadPomLicenses {\n static final class CachedResolver implements ModelResolver {\n  final Path root;\n  CachedResolver(Path root){this.root=root;}\n  public ModelSource resolveModel(String g,String a,String v) throws UnresolvableModelException {\n   var p=root.resolve(g.replace('.','/')).resolve(a).resolve(v).resolve(a+\"-\"+v+\".pom\");\n   if(!Files.isRegularFile(p)) throw new UnresolvableModelException(\"Uncached parent/BOM\",g,a,v);\n   System.err.println(\"MODEL_SOURCE\\t\"+p);\n   return new FileModelSource(p.toFile());\n  }\n  public ModelSource resolveModel(Parent p)throws UnresolvableModelException{return resolveModel(p.getGroupId(),p.getArtifactId(),p.getVersion());}\n  public ModelSource resolveModel(Dependency p)throws UnresolvableModelException{return resolveModel(p.getGroupId(),p.getArtifactId(),p.getVersion());}\n  public void addRepository(Repository r){}\n  public void addRepository(Repository r,boolean replace){}\n  public ModelResolver newCopy(){return new CachedResolver(root);}\n }\n public static void main(String[] args)throws Exception {\n  var builder=new DefaultModelBuilderFactory().newInstance();\n  for(var line:Files.readAllLines(Path.of(args[1]))) {\n   var request=new DefaultModelBuildingRequest().setPomFile(Path.of(line).toFile()).setSystemProperties(System.getProperties()).setProcessPlugins(false).setModelResolver(new CachedResolver(Path.of(args[0])));\n   var model=builder.build(request).getEffectiveModel();\n   if(model.getLicenses().isEmpty())throw new AssertionError(\"No license metadata: \"+line);\n   for(var license:model.getLicenses())System.out.println(model.getGroupId()+\":\"+model.getArtifactId()+\":\"+model.getVersion()+\"\\t\"+license.getName()+\"\\t\"+license.getUrl());\n  }\n }\n}\n",
+  "runtime_inventory_pom": "<project xmlns=\"http://maven.apache.org/POM/4.0.0\">\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>local.docweave.check</groupId>\n    <artifactId>runtime-inventory</artifactId>\n    <version>1.0</version>\n    <properties><maven.compiler.release>21</maven.compiler.release></properties>\n    <dependencies>\n        <dependency><groupId>io.docweave</groupId><artifactId>docweave-pdf</artifactId><version>0.1.0-SNAPSHOT</version></dependency>\n        <dependency><groupId>io.docweave</groupId><artifactId>docweave</artifactId><version>0.1.0-SNAPSHOT</version></dependency>\n        <dependency><groupId>io.docweave</groupId><artifactId>docweave-ocr-tesseract</artifactId><version>0.1.0-SNAPSHOT</version></dependency>\n        <dependency><groupId>io.docweave</groupId><artifactId>docweave-layout-onnx</artifactId><version>0.1.0-SNAPSHOT</version></dependency>\n    </dependencies>\n    <build><plugins>\n        <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.15.0</version></plugin>\n        <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-resources-plugin</artifactId><version>3.4.0</version></plugin>\n        <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><version>3.5.6</version></plugin>\n        <plugin>\n            <groupId>org.apache.maven.plugins</groupId><artifactId>maven-jar-plugin</artifactId><version>3.5.0</version>\n            <configuration><archive><manifest><addClasspath>true</addClasspath><mainClass>PdfConsumer</mainClass></manifest></archive></configuration>\n        </plugin>\n    </plugins></build>\n</project>\n",
+  "resolution": "Locally installed all-formats plus explicit Tesseract/ONNX adapters; Maven Jar manifest runtime Class-Path; cached-only effective POM model resolution.",
+  "not_done": [
+    "Vulnerability audit",
+    "Blanket legal rights clearance for all repository evidence/excerpts or external inputs",
+    "Signing, Portal verification, release tag/version, upload or publication"
+  ],
+  "reference_licenses_verified": [
+    {
+      "source": "https://raw.githubusercontent.com/Unstructured-IO/unstructured/347fbbfd3e84e228017f125e5c5dbdc326ef7de2/LICENSE.md",
+      "sha256": "4b190a3ffeb6b8800a6fd99bd5e1fb147e0a9f66984f4f5f8232a926de4fc939",
+      "claim": "Historical reference license is Apache2.0; no upstream implementation bundled"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/microsoft/table-transformer/16d124f616109746b7785f03085100f1f6247575/LICENSE",
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "exact_packaged_notice_match": true
+    }
+  ],
+  "archive_guard_source": "benchmarks/tools/CheckReleaseArchives.java",
+  "archive_guard_sha256": "9efd71a565c198673e590d0531e678b9baa0a38baa4f1b3399620577c4e8d955",
+  "negative_guard_checks": [
+    {
+      "java": 21,
+      "rejected_missing_attribution": true,
+      "original_artifacts_unchanged": true
+    },
+    {
+      "java": 25,
+      "rejected_missing_attribution": true,
+      "original_artifacts_unchanged": true
+    }
+  ],
+  "ci_workflow_sha256": "aa51c25d9e91464b9d24ad0924e025cae1a31bbf1a5e3c84e598711673dc3b2b",
+  "_public_projection": {
+    "original_sha256": "beae0c0d0a2e0aa67e90c5a8f509bfec160cb731724a9d1cc7a5087a9e8916c8",
+    "status": "Derived documentation/path projection; historical measurements and embedded fingerprints unchanged"
+  }
+}

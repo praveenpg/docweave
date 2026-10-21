@@ -1,0 +1,5 @@
+java=25.0.4+7-LTS
+case=1 input_code_points=49152 output_code_points=49152 allocated_bytes_per_call=196864
+case=2 input_code_points=53248 output_code_points=53248 allocated_bytes_per_call=401672
+case=3 input_code_points=40960 output_code_points=40960 allocated_bytes_per_call=590088
+case=4 input_code_points=45056 output_code_points=192512 allocated_bytes_per_call=1868072

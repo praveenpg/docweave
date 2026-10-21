@@ -1,0 +1,32 @@
+{
+  "source_sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOcrProvider.java": "aba61e97688f8ba5418be9059f25847a71b31c1d7d10e66a1cd3d97f637be62e",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOcrOptions.java": "cae35eb8b25af561d8adf614be4a4a00baec825dedf79781f281082358c277fd",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOcrRegions.java": "3d6be10c16eaca6b7915915c359068623d8ad8ab0541d2b17bcc582b4b74d457",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOcrBudget.java": "87ccf54292d3a18ab78f71f240512d4627b9ef1aabde95c27d00488001bc6699",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOcrElement.java": "a7a90bb6b9c39c7f6a63848c4300d62d96837ec7bf909a7c355f8e28cb5a05b8",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfScannedTables.java": "22cab21b5c448eca89d3c3fd4e4930ce8d273cdbe6fbddc63050f868cc23980e",
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractOptions.java": "cbdef221584384377a44e38d6f5bb54690733425c509c467bce215d02c4dd0d5",
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractOcr.java": "1d77cd9200b5f86722ea0a412fd776b52375f6be78351dcd87599d1b3ad6d441",
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/OcrDeadline.java": "182ed84abb54fc0caf208e1ad4deb482d6a1a3bf04cc6895e6322367afc8758c",
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractImage.java": "d459989b8e66d30a5e415a5d27a7c670c6e652f0169e487ae66c9a6d9316aeeb",
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractProcess.java": "fe393b6789b8dc76a7519df799dfc655d9f547438c85d03306431ae2452e389c",
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractTsv.java": "00e72c662f8d2b0bdadd328e988bc398a49225bdb7975c77bb5694408f7c1d20",
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/DefaultTesseractOcr.java": "5ede4b835a49aa313d24aeda827de10738e1a03dcddeb0a280343b3b7db8161c",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfScannedTableCorpusTest.java": "5a4f486fabeea5d49a34ee98babec045ba34f9c21a6041432346c8a9f9cb4bdd",
+    "docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractCellInstalledTest.java": "de38e5f49d79314ca5ea3ffed3f0b6295e80e240709213444e248a474d8de6bd"
+  },
+  "report_sha256": {
+    "java21-block-200dpi.json": "16f61eec1bd7a94d315069173fb7e36fd1b0754b67ec800e9a3b5a05dfa8ddb6",
+    "java21-owned-cells.xml": "714e4f7d61cb39cc23bcf998707818dc25d9f3e99608c79ca50103ae62fef7e7",
+    "java25-auto-200dpi.json": "695905c39e2f13a700fdd7a10034b34174316648fbe636d2ca46b512b3c92ba7",
+    "java25-auto-300dpi.json": "349d083f376c953b086030441aaafce121b55c135a7fe9d1f9c3b9c0132f8927",
+    "java25-block-300dpi.json": "1fa40a039685b5d2d0181239fdde916ae98b029a407aa8c28afa29b7db83ff62",
+    "java25-line-300dpi.json": "9733bd585b7a43ca6a5ce2f92e4f13a176990887a3add433782d8fb2a960fdc0",
+    "java25-owned-cells.xml": "8363a462344462855956f36808d17faa25875e90c267c82a33bc0880b2c8d74b",
+    "upstream-status.json": "40287f60f95fec8245e6dfeb4e17e0f8297fe0791b94fc7e21ea6116d7b1d5e4"
+  },
+  "formatter": "clang-format23.1.1 extracted into /tmp/docweave-clang23 from existing cached package; system23.1.3 unchanged",
+  "formatter_archive_sha256": "19d48ca962de9aafc63667b171c640a8e7d1e34bf5516eb7b77be5bcbea69f6f",
+  "scope": "Local actual-engine controls; hosted CI has owned subprocess controls only"
+}

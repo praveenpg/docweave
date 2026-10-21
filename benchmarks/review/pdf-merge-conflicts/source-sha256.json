@@ -1,0 +1,7 @@
+{
+  "docweave-layout-onnx/src/main/java/dev/docweave/layout/OnnxTableOptions.java": "4a1d32e9b72eacf5955fdc1684eda70c0619f9dffbe41b88cf7ef2e261283134",
+  "docweave-layout-onnx/src/main/java/dev/docweave/layout/TableTopology.java": "120cee4fd297b07e32000a525cf7b02530abe8af08a5483c608414c2505a9ad9",
+  "docweave-layout-onnx/src/test/java/dev/docweave/layout/TableTopologyTest.java": "bb22c1b6ec2db549cdbe6680829533375e5818f434fd85c09d0945e49efbc8b4",
+  "docweave-validation/src/test/java/dev/docweave/validation/PdfLayoutModels.java": "a4690dfa0be6fbf3b2b9d34d7f4a33739e4dfd8bf3a7a9e1bb9ffb9aacf5fda8",
+  "docweave-validation/src/test/java/dev/docweave/validation/PdfPubTabNetCorpusTest.java": "b86f86ab6172d8242db2f3ad1dc9f89f5d75a809ee06bdf95a1d0c2ff1308b2c"
+}

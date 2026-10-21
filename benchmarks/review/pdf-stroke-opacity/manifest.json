@@ -1,0 +1,17 @@
+{
+  "base_commit": "a0b16ff",
+  "old_graphics_source_sha256": "0ac90b6135dad6a134f0e349b1969eb214ec8641e28711022edf28efad044c64",
+  "identities": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java": "6c86d981389777dd84239931d9b9a6c5646a6e3784a593fd3ae2249b8faa8511",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfStrokeOpacityTest.java": "e267326e5b348d147954af0bcf8a7180af8b4a80d71d24f3f1833c10286d2bb4",
+    "benchmarks/tools/HashNativePartitionResults.java": "844ba574aa06d20e7b2cffc2232a5399f2ce82a41df4b2d199a47464b4aa8460",
+    "benchmarks/tools/CompareNativeCompoundText.java": "f4340049ba6bbaf98330da0e5919a70b3f41436f8e9fdc81fbe0cafeebd5a77d",
+    "benchmarks/tools/ReplayNativeLayoutCaptures.java": "9fc39919def458a9ddab98cfb69964ab2aa564cdd15294e943abda6b4e6473b9"
+  },
+  "scope": "Exclude exactly zero-opacity stroke evidence, retain prior nonzero interpretation and existing supported fill fallback. Not clipping, dash, occlusion, redaction or rendered-visibility guarantees.",
+  "scorer_git_commit": "8c4e990",
+  "scorer_source_sha256": "f88af667ef1c160906003b3dc2b235107d3c34d7c2e4b7bb25b8d39de04c85f6",
+  "java21_tests": 1188,
+  "java25_deferred": true,
+  "raw_sources_redistributed": false
+}

@@ -1,0 +1,399 @@
+{
+  "version": "0.1.0-beta.1",
+  "scope": "LOCAL SIGNED CANDIDATE; no publication or keyserver lookup",
+  "signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9",
+  "signatures_verified": 65,
+  "modified_pom_rejected": true,
+  "artifacts": [
+    {
+      "artifact": "io/docweave/docweave-parent/0.1.0-beta.1/docweave-parent-0.1.0-beta.1.pom",
+      "artifact_sha256": "9a9f2ee29886dbcd58ad80434a72252a3ef5a1176fd381b69eecf8197e775e65",
+      "signature_sha256": "d9faf6285ff389872eb79ba5fccf7b058ba5131ecea07dd75a3b33908674e7ee",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-core/0.1.0-beta.1/docweave-core-0.1.0-beta.1.pom",
+      "artifact_sha256": "c28217774818381a1fa5787452d2d2b11c0ea6bbf7e15e55be38e2c13b3f8c66",
+      "signature_sha256": "700e5652bc564cda3f0d2cf127bd420a79393fd28dfb1c264015cce40b8842a5",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-core/0.1.0-beta.1/docweave-core-0.1.0-beta.1.jar",
+      "artifact_sha256": "6bdc8c02f45d399921afffe09cf86e3ac76c6f79162d7fc23a747e52d86e5b05",
+      "signature_sha256": "559bae821b8f3e4bb1e979301269d11c1d32cb6120dbd893e5b54fc42fea94eb",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-core/0.1.0-beta.1/docweave-core-0.1.0-beta.1-sources.jar",
+      "artifact_sha256": "f86e6f5aa21b17b622c2c680baee0c2884cc5dcd78df48499c2d1313a1ac5001",
+      "signature_sha256": "41b0592ae0205eae8511ba9e38476d3f288430e84480c8c71961fe2fc86d7513",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-core/0.1.0-beta.1/docweave-core-0.1.0-beta.1-javadoc.jar",
+      "artifact_sha256": "efb713669d7140f46ee03e88551ce9b1f99d3557878ef07f90fd51ca8223354a",
+      "signature_sha256": "dabfe1312e16d3ab792cce530d5cee3ce5f3bd1a239ca331224d0508641f1309",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-json/0.1.0-beta.1/docweave-json-0.1.0-beta.1.pom",
+      "artifact_sha256": "d3872fd9e865139e2e67b8316fd9f669de1a368cfa4ff68e94c06989b8194e85",
+      "signature_sha256": "e0d13f06eb63e324d82f27b4ba0b86402c6368462c0fe2eaf10b83dc98028bbf",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-json/0.1.0-beta.1/docweave-json-0.1.0-beta.1.jar",
+      "artifact_sha256": "2b0c5b795434197d09187e8c76fd0aadbe7cb8ac23221e5205e620f97cc14b43",
+      "signature_sha256": "88c8883bb950375186bec63396011dadc79c9e90dc797e9fa21fd6c3258d77c6",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-json/0.1.0-beta.1/docweave-json-0.1.0-beta.1-sources.jar",
+      "artifact_sha256": "a21ae2b3bf043962201bc7bd835b8d06107a2aa997665690d89d05648426f8de",
+      "signature_sha256": "41b0cb4c6ecc82125e75ea3d3ed749d1e840b3a5157759151b0e6caf58045a91",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-json/0.1.0-beta.1/docweave-json-0.1.0-beta.1-javadoc.jar",
+      "artifact_sha256": "da861e05630244725c711949c9e7cc4d74d3501310be83689560b47afd7862a7",
+      "signature_sha256": "be7a16b7f521f6f514e82b92455129120e386d4fcb675d1c56ec88755cbca4ec",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-chunking/0.1.0-beta.1/docweave-chunking-0.1.0-beta.1.pom",
+      "artifact_sha256": "65cdfde0b79809f4eb28116b00f57a0cdc7ce623ace3074a598280e5155f1f82",
+      "signature_sha256": "d2d7c17312642fe5db49cda7c068e2d28d37815b0e6b4bc0dc9012e80f6e4da3",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-chunking/0.1.0-beta.1/docweave-chunking-0.1.0-beta.1.jar",
+      "artifact_sha256": "e9be122b6795d857c94cc96d70eb832c4f567c205e37722e46ec8fb9c8c8a6ae",
+      "signature_sha256": "8b4d4399c5514fb1b44c99661e85226e652406d1fd8fe8fd7ed39d311dec73d3",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-chunking/0.1.0-beta.1/docweave-chunking-0.1.0-beta.1-sources.jar",
+      "artifact_sha256": "579eb0203338da92733e1bf65a41f5ec0fba4b80b2ae50a9f0c7bf9c02498acb",
+      "signature_sha256": "de2274cb5a7965cf457fdf38ea5569a2e96f2637e92ddf87303786a5c852892c",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-chunking/0.1.0-beta.1/docweave-chunking-0.1.0-beta.1-javadoc.jar",
+      "artifact_sha256": "eb215869e8a9cc2b1ffd18a8d523e2bae8a43c43a601a352fe76b6f7b03a05be",
+      "signature_sha256": "8a49121d9dc778f4fd1a30d4a6acbf773cd1b907829ec312df54f0f825640614",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-batch/0.1.0-beta.1/docweave-batch-0.1.0-beta.1.pom",
+      "artifact_sha256": "994096912f21b8af1685ac7615e346c7048a7ed48778e73f2e5bb6345fd15e06",
+      "signature_sha256": "38ba5192db9e79ee61ba80053a7b787c2deb624756d511ca6815261477083996",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-batch/0.1.0-beta.1/docweave-batch-0.1.0-beta.1.jar",
+      "artifact_sha256": "8d98b309f8829813eba669fd71bc65f080399101556875f0738e272757e2c7ca",
+      "signature_sha256": "5e867922d6ec8bd0dce3c1adda4251d875d93a19e025691577328b98ad37b411",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-batch/0.1.0-beta.1/docweave-batch-0.1.0-beta.1-sources.jar",
+      "artifact_sha256": "4956b0750478d08ed85fb611a4506f10b4d05aed82bde792b1db4bd24f5df7f2",
+      "signature_sha256": "f05f64c97930e04ee031f05f3522d2c7e57996998a4f4462c9dfef8eb9b94f9a",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-batch/0.1.0-beta.1/docweave-batch-0.1.0-beta.1-javadoc.jar",
+      "artifact_sha256": "c94114420d9eba0b96c874c327b4f104a4609868d86551d056924edd37ad1c4f",
+      "signature_sha256": "805201ac457a8bf711c7a2b1b343f47c5450120aa91417e1dd17a8478de743a9",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-txt/0.1.0-beta.1/docweave-txt-0.1.0-beta.1.pom",
+      "artifact_sha256": "730890b4ab478d66f49fe2e1c0b8c48629ec340b0f2aa871b316313c4b14962c",
+      "signature_sha256": "b63d9a8359c975630fb2919c7b82c6a16ec052ca4ffc285a8d0bf80dff46cb0b",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-txt/0.1.0-beta.1/docweave-txt-0.1.0-beta.1.jar",
+      "artifact_sha256": "c8ce68ec8df7f42d242a700aef27fa9a1468311c4dcd9b8c271a92e6a3378214",
+      "signature_sha256": "0abcfff40adbf5a1c70701c1b5f94e867aa2c1bc5f07e8cf24643a4a12bca078",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-txt/0.1.0-beta.1/docweave-txt-0.1.0-beta.1-sources.jar",
+      "artifact_sha256": "c5d5573d69c6307405299a2f6f9b902db7dcda84097fa7a24ec95df7f9c4ab53",
+      "signature_sha256": "d5ac50465494417818e663268a881e54f87626721d37e2b27165fa3aa90f53e1",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-txt/0.1.0-beta.1/docweave-txt-0.1.0-beta.1-javadoc.jar",
+      "artifact_sha256": "76db70d570aadcbdf375e9a16c9c3f552545911cd8176a2b25863ea4764cf6f9",
+      "signature_sha256": "4363ed969dded0db7e77199ed7b1b2a0393e4dbfc370f0681d5d0d4674b570be",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-html/0.1.0-beta.1/docweave-html-0.1.0-beta.1.pom",
+      "artifact_sha256": "f3440df9a905eb8917f888fc4942e2be907d65143f712ed1518f4122d6a71733",
+      "signature_sha256": "6298d7009509996f4145dd2369040b2fa448341c21593d7f5561d60d959e1a71",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-html/0.1.0-beta.1/docweave-html-0.1.0-beta.1.jar",
+      "artifact_sha256": "2217f9ff8a9b40a09ef3bb2d9596e7f152f3ca7da4b29d7f795d082e29ef3896",
+      "signature_sha256": "133fb58817b0094c58bd74e4ffb241f8a4c945b2bfac985cd474a37e37b5a56d",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-html/0.1.0-beta.1/docweave-html-0.1.0-beta.1-sources.jar",
+      "artifact_sha256": "41a89ee74cafe8d8fadd72c17b1b503365a6fec13900005b848ecb676a6aef03",
+      "signature_sha256": "8903f94eb3c628b2a96bdd325c4e1c3c18b176f5236a6fa6a3dfe516741789a0",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-html/0.1.0-beta.1/docweave-html-0.1.0-beta.1-javadoc.jar",
+      "artifact_sha256": "230c300a9c2637f94403975634296c682f6b09f2016ba72e3e77a8f953de5d53",
+      "signature_sha256": "dcd9bc04f56795ab3992e6df510a3af438d2b991fdf4161be20e825c0babbd4b",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-markdown/0.1.0-beta.1/docweave-markdown-0.1.0-beta.1.pom",
+      "artifact_sha256": "0169e4621131770930487b9ddebfd49f866d6c56824513eaa8bc0d3d8fa024e2",
+      "signature_sha256": "bbd345d4cf4fc71804a9d27de2d2d6a7620fce00f232624e710f1c8b1a3c4352",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-markdown/0.1.0-beta.1/docweave-markdown-0.1.0-beta.1.jar",
+      "artifact_sha256": "f415a8f691af832b711efda8af536bbde28c0ae2c19786c5cb32eb7ff491a55a",
+      "signature_sha256": "02654c13cb01335e509f567d72af3ae46b8dcd5516ec8ef8dfeec104dcc93e99",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-markdown/0.1.0-beta.1/docweave-markdown-0.1.0-beta.1-sources.jar",
+      "artifact_sha256": "f7850091b2fca92c4884cc71c172de45ae3893664b19265be5451419e8a0949b",
+      "signature_sha256": "4751bec77b96af597aed0cc244d59fb1f7da2736c3db0eb311de952322f883c9",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-markdown/0.1.0-beta.1/docweave-markdown-0.1.0-beta.1-javadoc.jar",
+      "artifact_sha256": "41b8bfc9925038be612423bc79ca9f50d3d1504fe8e0f3ed110c7066415da776",
+      "signature_sha256": "45c903a802d729ee5829f1102f035f1f54a66252808470bd6b589bebda01c1ee",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-delimited/0.1.0-beta.1/docweave-delimited-0.1.0-beta.1.pom",
+      "artifact_sha256": "f32fe1832bafa951d58e9e952902106e3ed1be096d11df4f94904dd6fbe21698",
+      "signature_sha256": "da5d0ce4addd807590134d86398b7f5b1295d285aaee089fefcf2214d1882695",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-delimited/0.1.0-beta.1/docweave-delimited-0.1.0-beta.1.jar",
+      "artifact_sha256": "e89f2caf49f1c7ef7594fe36dcb432ef53363f5e2d6c9f606d300dadd6e315f8",
+      "signature_sha256": "cb4dcf68e9cb1a140d6cf08328a39ff5972df819a1e1e9a2b0ca0bb2929b36b4",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-delimited/0.1.0-beta.1/docweave-delimited-0.1.0-beta.1-sources.jar",
+      "artifact_sha256": "b5b058b0251e7cc22d8082796071c65e8164a8bc5fe3426144e181cf14b0b823",
+      "signature_sha256": "ca31dc25ce3a763a8f4508dec550536ab7ff43acea1b23e53cc5271faf87f018",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-delimited/0.1.0-beta.1/docweave-delimited-0.1.0-beta.1-javadoc.jar",
+      "artifact_sha256": "724b8a7753b5110fac721f83cdfd61a76b9c3cf4fa512b22e656920b55f1383f",
+      "signature_sha256": "3ce43012eeb52b6012c18a00461861813b82cf64793a9ed304e879296ade1b75",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-csv/0.1.0-beta.1/docweave-csv-0.1.0-beta.1.pom",
+      "artifact_sha256": "a28529d448bc0a3e5570b419d5a7b366c5db7d246b3cd98f8efba4d1d25e1960",
+      "signature_sha256": "92fe39a123ff5dc7f6ae2dfa991172492974b885dbaf0ff8b8c2b4565680add6",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-csv/0.1.0-beta.1/docweave-csv-0.1.0-beta.1.jar",
+      "artifact_sha256": "4881d024c98efa94667040340d1e9dd22776125a3ff0d47e7498711065b51422",
+      "signature_sha256": "0439a6540711cf99a1a701ee37faba7b7529e281f732551d01b858bad64509f2",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-csv/0.1.0-beta.1/docweave-csv-0.1.0-beta.1-sources.jar",
+      "artifact_sha256": "34eb6a6f3c552341d93cbc0b220fc0e938487c04e89dce9b6e6785aa6f7f23ee",
+      "signature_sha256": "986d7b43c6391e821683aeafacc2b93781108569c0a3d0b703bcb849bc2b802c",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-csv/0.1.0-beta.1/docweave-csv-0.1.0-beta.1-javadoc.jar",
+      "artifact_sha256": "ac27802ddb455921aba45077ddb7a50e2e1fcb59e3d10f46613e1629df56826f",
+      "signature_sha256": "f11a18d22ae82cbf56e94a09542c539e7899bd91da045a81927e5d9b98ed66b7",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-tsv/0.1.0-beta.1/docweave-tsv-0.1.0-beta.1.pom",
+      "artifact_sha256": "052cc8f57c001e5cb3db07d8ab4101489ee7c4224480f220de9f424433f81563",
+      "signature_sha256": "c3ac0eace667f27d3acfcfb6184873086279730e3ea08f22555fde5e1f85ff67",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-tsv/0.1.0-beta.1/docweave-tsv-0.1.0-beta.1.jar",
+      "artifact_sha256": "55d2118c07e293faf53a2a2c8dd937be3034dd41564a4b67805943e0d02178c2",
+      "signature_sha256": "a92e81930776d4a6e9c944189ed0ffa048bd05405224d0846c013bce55fdead5",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-tsv/0.1.0-beta.1/docweave-tsv-0.1.0-beta.1-sources.jar",
+      "artifact_sha256": "5f22dc5d5ffea2dc5f19b2a23e1132ddbe965972155855906e4eefe29a2392f7",
+      "signature_sha256": "ed3a748b5ca8684770adc040c16880866fc6d0f80e42d3b00bb637bbc8283c60",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-tsv/0.1.0-beta.1/docweave-tsv-0.1.0-beta.1-javadoc.jar",
+      "artifact_sha256": "0db66ead4ca1e6c850ba6945f57b1538949208d814495dd3d43d6296a073863f",
+      "signature_sha256": "63e74873d2c06acc32f6a2a676d1fd595f4228683c4ec2370ee3808b23903fce",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-xml/0.1.0-beta.1/docweave-xml-0.1.0-beta.1.pom",
+      "artifact_sha256": "e3a7fbe21044a0bd07fee53f2f1edd29a6e81973e256ceeae034f5b09b2a601e",
+      "signature_sha256": "b2328e0e6388689c4d9323994fd72c81058ea5bfb8916ac6747941d23ae90406",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-xml/0.1.0-beta.1/docweave-xml-0.1.0-beta.1.jar",
+      "artifact_sha256": "3436c198e5dc0a7c6ad1fb6ebaef7942638ea01fe55b05a154e75b3e50a265a8",
+      "signature_sha256": "025c831e3a299d109542dc74eb068491f3d961d0aa623e5c7f3799835d66119b",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-xml/0.1.0-beta.1/docweave-xml-0.1.0-beta.1-sources.jar",
+      "artifact_sha256": "a96cfcba8b218b9adbe70eef321332f0354b98f9d20e71fd8e198eb8cbe0ddce",
+      "signature_sha256": "8cc77184a32396fc31adb117f286e562205afb4e795350978d8efe20a507b9e9",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-xml/0.1.0-beta.1/docweave-xml-0.1.0-beta.1-javadoc.jar",
+      "artifact_sha256": "c9c662e3dee1a1d1435fc3de69530bd2ecac5779fa4ac1f18b69fcde4f89ab50",
+      "signature_sha256": "b4e359a3281ee27d852b040f8f63475f94d1779cc95ad35ad95020f369c905f2",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-docx/0.1.0-beta.1/docweave-docx-0.1.0-beta.1.pom",
+      "artifact_sha256": "752d57e877c8a97c172803f09f3d847b4a42eb6fc6c38733d1d8bbffc6c205dd",
+      "signature_sha256": "7ea80e457eb9f7226a06b1daa31dc7c5aaa6fec5a9cb10811141e3f52a96985d",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-docx/0.1.0-beta.1/docweave-docx-0.1.0-beta.1.jar",
+      "artifact_sha256": "38350f7d5a5ae6a18e9ed5a8c44c37e46e0f26f02cbba301e7dcb0087cc83b2c",
+      "signature_sha256": "05dea08136ea7e63cafd500ab6934fa8bb89973c882d453ebfdce90654f0b5bc",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-docx/0.1.0-beta.1/docweave-docx-0.1.0-beta.1-sources.jar",
+      "artifact_sha256": "f9b5186eac4db239adde305ad94e63c2f3fa3868e6d7f61d357416c8faf0ffb2",
+      "signature_sha256": "7288959970547246ff6faa78f7352beb6289b9d443a3dd9cfbc7cc5526943a60",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-docx/0.1.0-beta.1/docweave-docx-0.1.0-beta.1-javadoc.jar",
+      "artifact_sha256": "15658252eac986534ab350ddaf58ba1aa82abc58337abb17e50d740742cae962",
+      "signature_sha256": "c3495c62e547d79202ba7351ba10b229d7cdc078313e0ce8132aac5059139ed3",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-pdf/0.1.0-beta.1/docweave-pdf-0.1.0-beta.1.pom",
+      "artifact_sha256": "a22ad77ae9fb76ee078dab7436e20a2340970dee4c0a32b9a5981a17d60a2a7b",
+      "signature_sha256": "d117ed5036f1acc3fb734126ac9a4a5fca0dbb5904cc06c4f9bd1c1b9882ebf3",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-pdf/0.1.0-beta.1/docweave-pdf-0.1.0-beta.1.jar",
+      "artifact_sha256": "a1326de590c8e67b461cf176937f11413fb5386aa1c5d7fb410569753506eb5f",
+      "signature_sha256": "0455e70ce2c1feed11c89e31e68d10aa8c52619f8e9cea32f106a1e089eaa627",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-pdf/0.1.0-beta.1/docweave-pdf-0.1.0-beta.1-sources.jar",
+      "artifact_sha256": "fddd22cf916f031ad6989be19a81ef2d8366e93e47b3fb34b71638fdd3c6f858",
+      "signature_sha256": "d8f462134fa9b41d65d753bdd92aded5a5ef6c98fc5ffd04b15ec8723685ac9a",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-pdf/0.1.0-beta.1/docweave-pdf-0.1.0-beta.1-javadoc.jar",
+      "artifact_sha256": "48700a4761b38d2b1af5cdb85a8bd41aba7d24aca847b18097514e99197adff7",
+      "signature_sha256": "5d52db28089818364df92b474d8aeeb150e0bc7239764eb1db402c6e81a093a9",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-ocr-tesseract/0.1.0-beta.1/docweave-ocr-tesseract-0.1.0-beta.1.pom",
+      "artifact_sha256": "c118f69eb0034017455017df070df19beeb0ee389ed4c36ca920a32daf7f15aa",
+      "signature_sha256": "d1e5d58512bca137f48400649b6bee8286240b38a3cc5ce98ed9a07ce88466a7",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-ocr-tesseract/0.1.0-beta.1/docweave-ocr-tesseract-0.1.0-beta.1.jar",
+      "artifact_sha256": "223ef1c2b5359e984a66c27e8e4a602c04ba3dadb825da7cd575378160c65c7f",
+      "signature_sha256": "00e3555111fb0065aef94098e199cf9073a848ae113b04b20df2ab8d57cf18ba",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-ocr-tesseract/0.1.0-beta.1/docweave-ocr-tesseract-0.1.0-beta.1-sources.jar",
+      "artifact_sha256": "784f92d9443c51346adb96ad9b274ecc76e8f8c59a43c4c6ab885519a48f3bb5",
+      "signature_sha256": "30a88398eecb2a874db1f8bd22a085dac352dcf8bf3aba2d5467dc878583e48c",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-ocr-tesseract/0.1.0-beta.1/docweave-ocr-tesseract-0.1.0-beta.1-javadoc.jar",
+      "artifact_sha256": "bb50ae8162b420200c3a53c03d95bd30ee9d5b2d2721ba6d6bd3eb78f90363fc",
+      "signature_sha256": "f212d3bdbb327fdad97ce8fc2e4afc31fcedd2837f58d1d183f3dbbf3362d688",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-layout-onnx/0.1.0-beta.1/docweave-layout-onnx-0.1.0-beta.1.pom",
+      "artifact_sha256": "b8cf611b8212ec956f754cae98814de834bbde10970db404101c841aa96072fd",
+      "signature_sha256": "1debd6ee6d9e68761316832a6da54d8e63ef733b71e09d15f0c579633449ce7a",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-layout-onnx/0.1.0-beta.1/docweave-layout-onnx-0.1.0-beta.1.jar",
+      "artifact_sha256": "5037a212d6be166c24f5f017b395e6968c5918e353e01c0a331d5ba477fe559d",
+      "signature_sha256": "c3ecee727bad78d560337cf816c04330efd540be15d74f3822584442acf94464",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-layout-onnx/0.1.0-beta.1/docweave-layout-onnx-0.1.0-beta.1-sources.jar",
+      "artifact_sha256": "7ce747472fec1bc10017ff6dd526f2de9170146601633e2d5fb1c47ecd41cebc",
+      "signature_sha256": "f6c0e775a62ce07e9bf65f30bb13f28faeeffa2161d0de81ddb9522b88612b60",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave-layout-onnx/0.1.0-beta.1/docweave-layout-onnx-0.1.0-beta.1-javadoc.jar",
+      "artifact_sha256": "8ed49e1c199cf6522cec2e9e8329020c8207e560ece290d285cad4d330877f55",
+      "signature_sha256": "ad47f4ae9dfe01b3bb6a52bc64a4ccd4cf6a5c5b998c4715855c143c970bcc3b",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave/0.1.0-beta.1/docweave-0.1.0-beta.1.pom",
+      "artifact_sha256": "fc48f9fcf4705cd3f99cf77e370082225a0668db7741259d6f0467ba216852fc",
+      "signature_sha256": "e954bf6aa89e3de1bb2cdf506eb538e741fb6d8b7fa3fee81909fcc1e88d0aa0",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave/0.1.0-beta.1/docweave-0.1.0-beta.1.jar",
+      "artifact_sha256": "77fcd876dc5eadc57d578f22b317713e134a2b4cae7207fc807c0ea91ee30224",
+      "signature_sha256": "c80e350d551f436cb50992e0ca20169763e05a9ebbbcae1820ca8a695a5aa9aa",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave/0.1.0-beta.1/docweave-0.1.0-beta.1-sources.jar",
+      "artifact_sha256": "d3d3389e4346cb9deb08d9dff8d072978503961cb873de17862d82cce20e59d9",
+      "signature_sha256": "8758169a1c03ad226d506e35bd01e93dc486119081b0247ab4a8621ba36e6d8d",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    },
+    {
+      "artifact": "io/docweave/docweave/0.1.0-beta.1/docweave-0.1.0-beta.1-javadoc.jar",
+      "artifact_sha256": "77fcd876dc5eadc57d578f22b317713e134a2b4cae7207fc807c0ea91ee30224",
+      "signature_sha256": "c80e350d551f436cb50992e0ca20169763e05a9ebbbcae1820ca8a695a5aa9aa",
+      "verified_signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9"
+    }
+  ]
+}

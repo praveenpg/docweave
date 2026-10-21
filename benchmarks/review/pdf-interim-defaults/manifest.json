@@ -1,0 +1,81 @@
+{
+  "frozen_at": "2026-10-19T22:09:37.868739+00:00",
+  "unstructured_version": "0.27.28",
+  "cases": [
+    {
+      "id": "recent",
+      "source_id": "recent",
+      "domain": "modern-scientific",
+      "pdf": "recent.pdf",
+      "bytes": 927934,
+      "sha256": "acb3af41357a960a9584f9ba0b0bf3319195af2ec4f3bc6074c2083d97d10bb8"
+    },
+    {
+      "id": "next",
+      "source_id": "next",
+      "domain": "modern-scientific",
+      "pdf": "next.pdf",
+      "bytes": 321008,
+      "sha256": "0c96e723535ee671eb0d263702adc9e986fb2817a5e16ab7b7235e593a39eff2"
+    },
+    {
+      "id": "elife",
+      "source_id": "elife",
+      "domain": "modern-scientific",
+      "pdf": "elife.pdf",
+      "bytes": 1641690,
+      "sha256": "ae3d00995f44bdd26fd0f60e760dc0fce44e84a0482fc64d2277ef4792413a4b"
+    },
+    {
+      "id": "holdout",
+      "source_id": "holdout",
+      "domain": "modern-scientific",
+      "pdf": "holdout.pdf",
+      "bytes": 2529842,
+      "sha256": "dcd83b90a257628b5a1f8beac96dd14cafcbefa50d7077d15cc4f48d86c2e3dc"
+    },
+    {
+      "id": "business",
+      "source_id": "amazon-q4-2025",
+      "domain": "modern-business",
+      "pdf": "amazon-q4-2025.pdf",
+      "bytes": 360510,
+      "sha256": "ad8d84cbcc0a4ce35b803b93e8186c29ea0b06b4455d04fb584ab5ad29c42915"
+    },
+    {
+      "id": "arnimb_goethe03_1835",
+      "source_id": "arnimb_goethe03_1835",
+      "domain": "historical",
+      "pdf": "arnimb_goethe03_1835.pdf",
+      "bytes": 5938963,
+      "sha256": "ad9aa0fff0e4c4b8b4ac010673abd0e00f7d4c48711f60014a8ad2849e4e3b92"
+    },
+    {
+      "id": "bebel_frau_1879",
+      "source_id": "bebel_frau_1879",
+      "domain": "historical",
+      "pdf": "bebel_frau_1879.pdf",
+      "bytes": 355895,
+      "sha256": "babf3114bcf3259acd1b16142fa8a9fd2888bb00706b64c8abb875906a6a76e7"
+    },
+    {
+      "id": "buerger_gedichte_1778_0039",
+      "source_id": "buerger_gedichte_1778_0039",
+      "domain": "degraded",
+      "pdf": "buerger_gedichte_1778_0039.pdf",
+      "bytes": 4038735,
+      "sha256": "18bf200d9ea13b87b871842cd0bbdd6e97cc474ccf211a792291f0a073b58e2c"
+    },
+    {
+      "id": "nn_besuch_1780_00001",
+      "source_id": "nn_besuch_1780_00001",
+      "domain": "degraded",
+      "pdf": "nn_besuch_1780_00001.pdf",
+      "bytes": 7357900,
+      "sha256": "f03ddf7afa2305cf347f935625e2164f6bac0b7afe98c3b15584a8d994b1acd2"
+    }
+  ],
+  "protocol": "Documented/default APIs in fixed installed environment, without per-source language, model or strategy overrides. DocWeave PdfOptions.defaults() and no OCR provider versus Unstructured partition_pdf(filename=...) auto. All9sharedwholePDFs, no ROI/reference input. Default differences are measured behavior, not equal optional dependencies or equal OCR/model capability. Offline dependencies/assets preinstalled; no automatic downloads. Natural region/caption quality not labelled. Image placement count/dimensions compared independently with installed Poppler pdfimages -list; Image detections are a different contract.",
+  "upstream_timeout_seconds": 120,
+  "poppler_image_reference": "Count ordinary image entries by original page/source width/source height. Record masks separately; do not call source rasters semantic figures or use count agreement as region/bounding-box/payload accuracy."
+}

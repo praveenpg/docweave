@@ -1,0 +1,11 @@
+--- /tmp/docweave-peerj-caption21/sources/AuditCaptionEligibility.java
++++ /tmp/docweave-scirep-caption21/sources/AuditCaptionEligibility.java
+@@ -35,7 +35,7 @@
+         final var mapper = JsonMapper.builder().build();
+         final var manifestBytes = Files.readAllBytes(Path.of(args[0]));
+         final var manifest = mapper.readTree(manifestBytes);
+-        final var labelField = ImageAdjacentPdfFigureCaptions.class.getDeclaredField("HORIZONTAL_LABEL");
++        final var labelField = ImageAdjacentPdfFigureCaptions.class.getDeclaredField("TITLE_LABEL");
+         labelField.setAccessible(true);
+         final var label = (Pattern) labelField.get(null);
+         final var adjacency = ImageAdjacentPdfFigureCaptions.class.getDeclaredMethod(

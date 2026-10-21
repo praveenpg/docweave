@@ -1,0 +1,59 @@
+{
+  "frozen_at" : "2026-10-20T04:03:56.326610364Z",
+  "scope" : "Development addition: stage explicit page-stream MCIDs outside source Table/TR cell roles, at most4096/table. Require single-page unique references, no alternate text/form/child reference, one unambiguous declaration and zero retained glyphs before table acceptance; no glyph claims or topology invented for auxiliary content. All existing profiles run uniformly on complete original bytes with earlier declared limits. Preserve original source/reference identities, ROIs, scoring, all failures and native observations; only SOURCE_TAGGED_TABLES is a declared change candidate on Walmart. Other source populations remain unchanged. Not independent broad acceptance or best-of selection.",
+  "source_pdf" : "walmart-fy26q4-complete-filing.pdf",
+  "source_html" : "walmart-fy26q4-filing.html",
+  "source_pages" : 59,
+  "max_input_bytes" : 67108864,
+  "candidate_case_profiles" : 33,
+  "reference_rows_per_profile" : 105,
+  "source_note" : "Publisher links this complete Equisolve filing PDF from its own SEC-exhibit page. Alphabet candidate PDF was available from issuer CDN, matching HTML was unavailable after HTTP403; deferred before extraction. Walmart complete filing deliberately retains its59pages/49.7MB original; no crops or source bytes reconstructed. Independent Poppler page inventory and rendered statement pages select document pages11/12/13 (printed release8/9/10) before first DocWeave extraction.",
+  "inputs" : [ {
+    "filename" : "walmart-fy26q4-complete-filing.pdf",
+    "bytes" : 49737746,
+    "sha256" : "7d27263c8592cc1f3e9ca21893b0789c34e81c87a8bf4d0e1b349e115d2d42b1",
+    "url" : "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000032/0000104169-26-000032.pdf"
+  }, {
+    "filename" : "walmart-fy26q4-filing.html",
+    "bytes" : 806610,
+    "sha256" : "da7dbb7b7193a095cb95af7cd44e93b40898c64dd4b5c32cfda1a7164ba57b03",
+    "url" : "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000032/earningsreleasefy26q4.htm"
+  } ],
+  "cases" : [ {
+    "id" : "operations",
+    "page" : 11,
+    "html_table_index" : 14,
+    "reference_rows" : 29,
+    "reference_rows_sha256" : "ed0b5c52afc9d9b8e67218892670e206414d999ea3eb71edfb79f11eee66d1b9",
+    "roi_left_top_right_bottom" : [ 44, 106, 566, 392 ]
+  }, {
+    "id" : "balance-sheet",
+    "page" : 12,
+    "html_table_index" : 16,
+    "reference_rows" : 40,
+    "reference_rows_sha256" : "7a2ddfd2b6edc72ea8b5ac9c573e04fe35267b386b56d8f42ed31e6532bb181c",
+    "roi_left_top_right_bottom" : [ 58, 114, 552, 528 ]
+  }, {
+    "id" : "cash-flows",
+    "page" : 13,
+    "html_table_index" : 18,
+    "reference_rows" : 36,
+    "reference_rows_sha256" : "cda7b2c8302c94da44c3dfeeda0f5af6d714cdebf9717d13ecaee07f63e0ef5b",
+    "roi_left_top_right_bottom" : [ 58, 114, 552, 470 ]
+  } ],
+  "profiles" : [ "RULED_ONLY", "RULED_AND_ALIGNED_TEXT", "RULED_AND_MULTILINE_ALIGNED_TEXT", "RULED_AND_DOUBLE_BORDERS", "RULED_AND_HORIZONTAL_TEXT", "RULED_AND_PARTIAL_TEXT", "RULED_AND_SEGMENTED_ROWS", "RULED_AND_SHADED_ROWS", "RULED_AND_SHADED_ROWS_COMPACT_PADDING", "RULED_AND_SHADED_ROWS_INLINE_SCRIPTS", "SOURCE_TAGGED_TABLES" ],
+  "validation_source_sha256" : "aacebb794894ef2270f42c319dbb9fe78cc57048121126af0353a42f2f870f9c",
+  "source_tag_profile_frozen_at" : "2026-10-20T04:07:28.194671598Z",
+  "baseline_manifest" : "benchmarks/review/pdf-walmart-source-tags/manifest.json",
+  "baseline_manifest_sha256" : "6de7ae5121ee693a456bce99215dbf2bd1276b4ac0a95de2c125c26c4245af82",
+  "baseline_report" : "benchmarks/review/pdf-walmart-source-tags/java21.json",
+  "baseline_report_sha256" : "52591946dd63800b7e3e494de2edefbc55ac4332291f7118563ad26a6be739ca",
+  "baseline_case_profiles" : 33,
+  "nontext_policy_frozen_at" : "2026-10-20T04:18:31.867745042Z",
+  "candidate_base_commit" : "414de950623aea5029f7c60b3ea2ca63bc3211a8",
+  "changed_profiles" : [ "SOURCE_TAGGED_TABLES" ],
+  "candidate_source_sha256" : {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTaggedStructure.java" : "c728aec3fc3879cc909c6084955adcf62c4db8240aad9295e5bd267ae3621f21",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTaggedTables.java" : "a67ac6bc1ec913b8aa93e95677c73444ed91e202774c3f88b4a13ed4ea898f6f"
+  }
+}

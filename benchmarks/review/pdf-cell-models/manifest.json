@@ -1,0 +1,24 @@
+{
+  "scope": "Fixed uniform CELL-only English model comparison; PAGE model/layout/raster/source labels held fixed; not general or held-out accuracy",
+  "source_manifest": "../pdf-pubtabnet/manifest.json",
+  "baseline_report": "../pdf-provider-cell-ocr/pubtabnet-300-java21.json",
+  "cell_model": {
+    "source": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/eng.traineddata",
+    "revision": "e12c65a915945e4c28e237a9b52bc4a8f39a0cec",
+    "bytes": 15400601,
+    "sha256": "8280aed0782fe27257a68ea10fe7ef324ca0f8d85bd2fd145d1c2b560bcb66ba",
+    "git_blob_sha1": "176dc3220de7db34d3b3aecbfa42043a6038348b"
+  },
+  "page_model_sha256": "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047",
+  "layout_graph_sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+  "profile": {
+    "dpi": 300,
+    "page_segmentation": "SINGLE_BLOCK",
+    "cell_segmentation": "SINGLE_BLOCK",
+    "cell_borders": "RETAIN",
+    "table_detection": "PROVIDER_LAYOUT_CELLS",
+    "detector_enabled": false,
+    "orientation_enabled": false
+  },
+  "limitations": "All20 upstream train examples, unknown model-training overlap; no per-case tuning, source crop/repair, sample exclusions or default changes. Model provenance checked against official Git tree; no source/model binaries redistributed."
+}

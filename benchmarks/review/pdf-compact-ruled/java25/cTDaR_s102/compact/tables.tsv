@@ -1,0 +1,3 @@
+crop	table	rows	columns	left	top	right	bottom	provenance
+0	0	17	4	112.5	361.5	686.5	715.0	raster_ruled_interiors_v1;inset_pixels=5;precedence=ruled_first_v1;rule_profile=compact_dark_v1
+0	1	5	4	112.5	892.5	681.0	997.0	raster_ruled_interiors_v1;inset_pixels=5;precedence=ruled_first_v1;rule_profile=compact_dark_v1

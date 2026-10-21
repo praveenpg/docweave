@@ -1,0 +1,10 @@
+{
+  "poppler_object_number" : 937,
+  "unmatched_poppler_key" : "1:image:669x97",
+  "classification" : "Raster in a graphics-state soft-mask form; current direct source-image path does not emit it as a standalone Image",
+  "source_dictionary_path" : "Page1/Resources/ExtGState/GS82(543:0)/SMask(737:0)/G(846:0)/Resources/XObject/Im0(937:0)",
+  "standalone_image_or_figure_geometry_not_inferred" : true,
+  "case" : "pdfbox-6077-2",
+  "retained_in_reference_population" : true,
+  "scope" : "Source-only dictionary ownership inspection after inventory mismatch; not source-pixel truth or a reason to remove the unmatched reference"
+}

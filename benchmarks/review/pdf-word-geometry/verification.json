@@ -1,0 +1,18 @@
+{
+  "21": {
+    "tests": 792,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "build_success": true,
+    "installed_control_sha256": "29c2bccd18d8b974e758b3df71e266c4e6b3b8079a1f56e5b9955657fcec5497"
+  },
+  "25": {
+    "tests": 792,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "build_success": true,
+    "installed_control_sha256": "1dd3d4f68c38f391bfcbb6cf0155d57e4732e13535324cb0ed6b0385c6cb5f34"
+  }
+}

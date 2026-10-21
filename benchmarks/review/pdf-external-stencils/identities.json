@@ -1,0 +1,15 @@
+{
+  "code_commit" : "9584553",
+  "corrupted_report_retains_all_cases" : 3,
+  "sha256" : {
+    "selection.json" : "9535ceb48aff80adc9139e676975f2a371bc7122a1fe2f387eaf6854f0f50d8b",
+    "source-inventory-java21.json" : "d66e69e8e81e0cb8bfe21e6b59cc00b5fa867c386791cde943fe3da9c95d4043",
+    "manifest.json" : "1f5468f804170d3eedaca92386b56b7d85056576b939b3b18e6dc33fc0503e00",
+    "java21.json" : "c065f3d07e5a120ec3202febbd46012d0db93c6058f578c01334d6c5c5718ba9",
+    "VerifyPayloadRegression.java" : "98c48ad79a358fcf6e31b6e3ef715c6a19b8e210df9c09c522a9dbf0cf44f564",
+    "auxiliary-raster-qualification.json" : "2f2c807a0ba672a3dc9e355c81e21f9a3f3912bae614f002127505a519249eb2",
+    "capture_tool" : "b797b3aa6338d550fa35cab00fb23be53ee216aac518ef132b34d396e2b266bd"
+  },
+  "valid_png_one_pixel_mutation_rejected" : true,
+  "corrupted_report_retains_source_references" : 187
+}

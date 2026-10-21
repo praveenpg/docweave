@@ -1,0 +1,26 @@
+{
+  "java": {
+    "21": {
+      "tests": 760,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "25": {
+      "tests": 760,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "strict_javadocs": "passed both JDKs",
+  "python_reference_guards": 12,
+  "formatter": "clang-format23.1.1 passed",
+  "actual_ocr_replayed": false,
+  "sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfCoordinateConverter.java": "b6744642c4917cd9d1c461526f3057551e17aba5e1510ed56a8b9ea0a295be04",
+    "docweave-pdf/src/main/java/dev/docweave/partition/DefaultPdfCoordinateConverter.java": "ea9a355fe2325a28222896790431c69b1d826f73426717a77ce6d342a7070801",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfCoordinateConverterTest.java": "9b1a8e4b40c2ea0613d99941e088cba2767bfab6c19acd076d3a925dc7f9016c",
+    "docweave-integration-tests/src/test/java/dev/docweave/partition/PdfPipelineTest.java": "015ccaddd8b74da008e329b55ed09ac7b2d1c96e2dd8ad2adc4488d0e530c9c9"
+  }
+}

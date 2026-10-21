@@ -1,0 +1,42 @@
+{
+  "seed" : 13682089,
+  "cases" : [ {
+    "bytes" : 59107,
+    "format" : "HTML",
+    "children" : 128,
+    "name" : "wide.html",
+    "sha256" : "23b51276929bb1625ff0f7063622059e8e6a9118883d9815a697bfb3eaf35e38"
+  }, {
+    "bytes" : 59117,
+    "format" : "MARKDOWN",
+    "children" : 128,
+    "name" : "wide.md",
+    "sha256" : "fc27e4e55aee771aee0e077a0e31dad9f5c7473772727f4b0e4164b3ba0ef88b"
+  }, {
+    "bytes" : 22928,
+    "format" : "DOCX",
+    "children" : 128,
+    "name" : "wide.docx",
+    "sha256" : "28acf035b0907011ad5b9b34d04022e4dd59f22d001c34f223851dbdf43897bb"
+  }, {
+    "bytes" : 6043,
+    "format" : "HTML",
+    "children" : 12,
+    "name" : "deep.html",
+    "sha256" : "ce2112b4c3f50e34a11c58c4b077797ffcbfbf6408500aca42996a32aad796b1"
+  }, {
+    "bytes" : 6053,
+    "format" : "MARKDOWN",
+    "children" : 12,
+    "name" : "deep.md",
+    "sha256" : "65917668d6d0b4a09b94ec9e35501cb9c6dfe3db15690a9461774aa1ffcb1c50"
+  }, {
+    "bytes" : 4417,
+    "format" : "DOCX",
+    "children" : 12,
+    "name" : "deep.docx",
+    "sha256" : "a1670fee082849c0c12125c323e8f4f1f239fffa23aec1b50d3c5fc33d95737f"
+  } ],
+  "kind" : "Owned generated memory fixtures; not rendering evidence",
+  "leaf_code_points" : 256
+}

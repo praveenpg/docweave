@@ -1,0 +1,18 @@
+{
+  "source": "https://raw.githubusercontent.com/mozilla/pdf.js/157d30e833e5afbd282db5b1280aae4843f55c0a/test/pdfs/rotated.pdf",
+  "revision": "157d30e833e5afbd282db5b1280aae4843f55c0a",
+  "bytes": 12963,
+  "sha256": "08c31db1ebd2345d1dcdcd3ee2baffe47845db76e9911a823ad9ed8638b5a294",
+  "git_blob_sha1": "3da0186e9c58d816bd5363506aab34bbf2840ebb",
+  "angled_text": "test",
+  "clockwise_displayed_degrees": 315.0,
+  "visual_inventory": "Rotated text test test test t e s t Page 1",
+  "source_matrix": [
+    0.7071,
+    0.7071,
+    -0.7071,
+    0.7071
+  ],
+  "oracle": "Visual inspection of original page1 confirms three whole test words and one upright stacked-letter test. Original content matrix rotates one word +45 degrees in bottom-left space, hence315 clockwise displayed. No extracted-output oracle, source edits or expected logical order.",
+  "limitations": "One upstream regression fixture, not physical scan or general layout/font/cell geometry accuracy. Source PDF remains fetch-only."
+}

@@ -1,0 +1,65 @@
+{
+  "baseline_commit": "da5211147c4ea749b3a016ef9c63944841ddd3ac",
+  "paired_geometry_equal_excluding_capture_byte_identity": true,
+  "paired_stage_counts_equal": true,
+  "files": {
+    "benchmarks/review/pdf-education-row-audit/manifest.json": "f19002ab83dfaa3f8ead78883995bf3c29f3bb9eef138b12b4d087cd57271859",
+    "benchmarks/review/pdf-education-row-audit/education-first-java21.json": "d9998be96436c57ca099f316567f4423672cbe2a18b8c3ff29b0d67acf61edb0",
+    "benchmarks/review/pdf-education-row-audit/stages-page1-java21.json": "74f670f42218f46ce940dea995cafbde7a91137268b80c2c300dbb4b2c80e418",
+    "benchmarks/review/pdf-education-row-audit/education-second-java21.json": "4559b9578d2a13d090f31ac4470dd2ef5f0273997fa67b6177418d48b9dda746",
+    "benchmarks/review/pdf-education-row-audit/stages-page3-java21.json": "e52ee3facc3813cf45192be94d14fc64b5df88f82e81aca5670421c053742ed4",
+    "benchmarks/review/pdf-education-row-audit/education-first-java25.json": "fbc61c04d2f93b47e53a5b364b9fc463ce8db200f8913b04c7c1ec2df3f91b42",
+    "benchmarks/review/pdf-education-row-audit/stages-page1-java25.json": "c3d73b1d6e19790a3d7857f97eca4652845fc02cf4763608f422642a308c09c9",
+    "benchmarks/review/pdf-education-row-audit/education-second-java25.json": "000c086abfa356d7dc17165feb5c2c11acf9fd507ec79dc6567a958994d53d2e",
+    "benchmarks/review/pdf-education-row-audit/stages-page3-java25.json": "e1161eab964613ae7238cb19c72d39b8b39274fa4664d5f9b5d67ed8dd4937ad",
+    "benchmarks/review/pdf-education-row-audit/README.md": "a5f3bebd335652f58eabf46982b5c6049f241ebcaaefec54fc19cd5b21f65bde",
+    "benchmarks/tools/AuditPublishedRowBands.java": "41a5a47732279e08ec181333816e98fad0570b3b241603176b0d8c32813bb235",
+    "docweave-validation/src/test/java/dev/docweave/validation/StandaloneSourceCompatibilityTest.java": "9b6e10d16431ddb5d53f033dc39601d8cb25d4f5da6a04c20e042e721693109e"
+  },
+  "local_stage_inputs": {
+    "21-page1": {
+      "crop-0-anchors.tsv": "183ff60ec1189b84fca629cc1b09bcfeaf105d5cbb863269a18a9b07f2cb1862",
+      "crop-0-objects.tsv": "2e089809131743f8f25a2b46130c694aa879e99dd0d9f7a5f2cb28525fd69b91",
+      "crop-0-stages.json": "499a673f140b7ecc729f28b9686fcf57bcfbb427d070ce2c415974a641df2cb5",
+      "crops.tsv": "a336651caf8848ffd3c88f3c9cc3aab14f33ba900928a3a2fd3e16f0186d08b4",
+      "detections.tsv": "108f4afd09b441a2fe3a65b3a192691501cf0eb545f07064e9cf09555e3cb829",
+      "java-runtime.txt": "071ecc0de67ca13822d6a8c072238637463b663ab79eb29844a5153b8028643b",
+      "original-frame.json": "6313fef2f18c30d8be6fc42d8ece629e2dfe321c0dd25486558496287b65eed8",
+      "source.sha256": "5d7fcad989b3ba645bdc37be6f3cf8fd2e1cffd0fd1cec4bbaa0d8457b338248"
+    },
+    "25-page1": {
+      "crop-0-anchors.tsv": "183ff60ec1189b84fca629cc1b09bcfeaf105d5cbb863269a18a9b07f2cb1862",
+      "crop-0-objects.tsv": "2e089809131743f8f25a2b46130c694aa879e99dd0d9f7a5f2cb28525fd69b91",
+      "crop-0-stages.json": "fbd5091ebad0cee6bc42acf2668f27dfdd520c0ca9d29b35b8a672e423cf4f18",
+      "crops.tsv": "a336651caf8848ffd3c88f3c9cc3aab14f33ba900928a3a2fd3e16f0186d08b4",
+      "detections.tsv": "108f4afd09b441a2fe3a65b3a192691501cf0eb545f07064e9cf09555e3cb829",
+      "java-runtime.txt": "859b3ffb9c425b712f3601ec41cdb1dbb1838cf3b8853f926e7be2813850af6e",
+      "original-frame.json": "b90b674fbf55c4c4b918575619724927cbf02c56f292c6b8011a47710a054512",
+      "source.sha256": "5d7fcad989b3ba645bdc37be6f3cf8fd2e1cffd0fd1cec4bbaa0d8457b338248"
+    },
+    "21-page3": {
+      "crop-0-anchors.tsv": "8f97d80270a64b13b869a055ec0a5420d955835ad95365ab2d68f47367ca3ba7",
+      "crop-0-objects.tsv": "64cdcd2326d48c3437167463210fdff8316380d82f76ee8eaccd1bee74b85bd1",
+      "crop-0-stages.json": "21a6bfc0c9f7c5024539bd1da5f89d3fe5236fdaca5231d3e1cd81143b8e6b1e",
+      "crops.tsv": "dbfea8ab4f3004f0a2da78db00bec40ef393cf0c32a79e29224d3a0389d919c2",
+      "detections.tsv": "fc57ab1dded6954070f08b5787edc18e9bef578ba6b07a515f2ce331adf60c26",
+      "java-runtime.txt": "071ecc0de67ca13822d6a8c072238637463b663ab79eb29844a5153b8028643b",
+      "original-frame.json": "d5aa3802e6348c6a08a3aa31616de07d587bc922bdf4b61a8b320e9ec22e66be",
+      "source.sha256": "5d7fcad989b3ba645bdc37be6f3cf8fd2e1cffd0fd1cec4bbaa0d8457b338248"
+    },
+    "25-page3": {
+      "crop-0-anchors.tsv": "8f97d80270a64b13b869a055ec0a5420d955835ad95365ab2d68f47367ca3ba7",
+      "crop-0-objects.tsv": "64cdcd2326d48c3437167463210fdff8316380d82f76ee8eaccd1bee74b85bd1",
+      "crop-0-stages.json": "3af1afc6b07f5805a78c59c1bd8ded691d825ab1049abd4dfd31acf3b1c34a3a",
+      "crops.tsv": "dbfea8ab4f3004f0a2da78db00bec40ef393cf0c32a79e29224d3a0389d919c2",
+      "detections.tsv": "fc57ab1dded6954070f08b5787edc18e9bef578ba6b07a515f2ce331adf60c26",
+      "java-runtime.txt": "859b3ffb9c425b712f3601ec41cdb1dbb1838cf3b8853f926e7be2813850af6e",
+      "original-frame.json": "c3386103fca8dbe568329820dffba86faba584610a071c49683df606028c1df1",
+      "source.sha256": "5d7fcad989b3ba645bdc37be6f3cf8fd2e1cffd0fd1cec4bbaa0d8457b338248"
+    }
+  },
+  "tests_per_jdk": {
+    "21": 950,
+    "25": 950
+  }
+}

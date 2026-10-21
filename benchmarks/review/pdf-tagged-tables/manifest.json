@@ -1,0 +1,14 @@
+{
+  "frozen_at": "2026-10-19T16:16:17.981450+00:00",
+  "baseline_commit": "bc875615917b926b7465dff3c60424a54131a3f0",
+  "protocol": "Explicit supported tagged source tables, then unchanged glyph-owning native fallback, then disjoint provider in paired source replay. Both actual21/25, same source/reference pins, DPI150/fourthreads/KEEP_HIGHER_SCORE/PARTIAL_TEXT and explicit WRAPPED_ISO_DATE. Source TR/TH/TD/direct spans and page MCIDs only; no reference/ROI inputs to extraction, model threshold/weights or reference rewrites. Accept/reject whole candidates before glyph claims; all unsupported/failures retained. Cell geometry is native text envelope, not physical borders. Development controls, not held-out quality.",
+  "reference_manifests": {
+    "pdf-native-iso-dates": "67b84fd4c0e33ff8415dcc3408a1ea873bbd34c2368f1d133fabe17abee0d275",
+    "pdf-recent-scientific-headers": "4b0906008a5e8f2ae5be45358fcc8eaa77a94b4189ed03b7009f5314d84d5449",
+    "pdf-external-header-windows": "5ca1bb6ec2f7e55f0f0c4994327f7c0da866f1e207a88fe42acad546b9b7852e",
+    "pdf-authored-header-spans": "5ac53ff4855c7af8debb54989e8a4108b41c991de5bbbe60e8122b581f69f859",
+    "pdf-header-evidence-replay": "a09fc54fa81eeaf9d775ae5d5afc3e0bae3b3c4f4a4de7f573f56c2cc491bfcf"
+  },
+  "case_scope": "All21existing selected regions: recent publisher1, prior10, nextordinal2, authored8. Whole originals; preserve published logical indices/content and sparse references; separately record sourceTH semantic header truth when publisher provides it.",
+  "owned_controls": "Direct/current-revision spans, source roles/aliases, exact source claims, allpagequarterturns, malformed/cyclic/cross-page/empty/missing/duplicate identifiers, form scope, links without external navigation, fallback disjointness, typed source/operator/glyph/table/work budgets, provider errors and raw discarded anchors, unchanged factories, JSON/chunk semantics."
+}

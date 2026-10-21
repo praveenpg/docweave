@@ -1,0 +1,394 @@
+{
+  "runtime" : "25.0.4+7-LTS",
+  "results" : [ {
+    "outcome" : "SUCCESS",
+    "elements" : 768,
+    "element_types" : {
+      "Image" : 7,
+      "UncategorizedText" : 761
+    },
+    "text_code_points" : 54162,
+    "public_text_sha256" : "7889b46353f47a589bd17ad77c3f0b284ff0c21d3e990d334d1d589a471f077c",
+    "id" : "recent",
+    "profile" : "DOCWEAVE_DEFAULT_NATIVE",
+    "source_sha256" : "acb3af41357a960a9584f9ba0b0bf3319195af2ec4f3bc6074c2083d97d10bb8",
+    "capture_sha256" : "d264867ebcd459d26d33d7640733278148d890afc0861046b6aad4304785d4e5",
+    "source_ordinary_raster_placements" : 7,
+    "source_mask_entries" : 0,
+    "native_raster_placements" : 7,
+    "source_page_dimension_multiplicity_agreement" : true,
+    "source_raster_bag" : {
+      "1:233x233" : 1,
+      "1:38x50" : 1,
+      "5:1549x662" : 1,
+      "5:1705x1472" : 1,
+      "8:1705x1218" : 1,
+      "8:1705x944" : 1,
+      "9:1650x891" : 1
+    },
+    "native_raster_bag" : {
+      "1:233x233" : 1,
+      "1:38x50" : 1,
+      "5:1549x662" : 1,
+      "5:1705x1472" : 1,
+      "8:1705x1218" : 1,
+      "8:1705x944" : 1,
+      "9:1650x891" : 1
+    },
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION" ]
+  }, {
+    "outcome" : "SUCCESS",
+    "elements" : 363,
+    "element_types" : {
+      "Footer" : 30,
+      "ListItem" : 80,
+      "NarrativeText" : 82,
+      "Title" : 97,
+      "UncategorizedText" : 74
+    },
+    "text_code_points" : 54141,
+    "public_text_sha256" : "b92caceedc5ff93c81400908fcf684dcc76caec2ae37375fe97f9c7cc255e4a6",
+    "id" : "recent",
+    "profile" : "UNSTRUCTURED_DEFAULT_AUTO",
+    "source_sha256" : "acb3af41357a960a9584f9ba0b0bf3319195af2ec4f3bc6074c2083d97d10bb8",
+    "capture_sha256" : "dd9950fe7e76bdad967818c7cf3d7a4dcd470ac5141a6f7566a3741d529f7c4a"
+  }, {
+    "outcome" : "SUCCESS",
+    "elements" : 598,
+    "element_types" : {
+      "Image" : 3,
+      "UncategorizedText" : 595
+    },
+    "text_code_points" : 51149,
+    "public_text_sha256" : "5b1d9c215ca20e05b9fa8d2983fe60319c7da4d9bf73a783ed01630820e0bbd9",
+    "id" : "next",
+    "profile" : "DOCWEAVE_DEFAULT_NATIVE",
+    "source_sha256" : "0c96e723535ee671eb0d263702adc9e986fb2817a5e16ab7b7235e593a39eff2",
+    "capture_sha256" : "baa877d1622364e76ab7d1918ed4be907ef8b7b7be8240571bbb282f8b8ff78a",
+    "source_ordinary_raster_placements" : 3,
+    "source_mask_entries" : 0,
+    "native_raster_placements" : 3,
+    "source_page_dimension_multiplicity_agreement" : true,
+    "source_raster_bag" : {
+      "1:233x233" : 1,
+      "1:38x50" : 1,
+      "9:1933x688" : 1
+    },
+    "native_raster_bag" : {
+      "1:233x233" : 1,
+      "1:38x50" : 1,
+      "9:1933x688" : 1
+    },
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION" ]
+  }, {
+    "outcome" : "SUCCESS",
+    "elements" : 295,
+    "element_types" : {
+      "Footer" : 28,
+      "ListItem" : 27,
+      "NarrativeText" : 171,
+      "Title" : 60,
+      "UncategorizedText" : 9
+    },
+    "text_code_points" : 51134,
+    "public_text_sha256" : "890d7828c18c971ae6486b4c7d5d3a561568520913db099686cf227d0a15dc74",
+    "id" : "next",
+    "profile" : "UNSTRUCTURED_DEFAULT_AUTO",
+    "source_sha256" : "0c96e723535ee671eb0d263702adc9e986fb2817a5e16ab7b7235e593a39eff2",
+    "capture_sha256" : "bb01861bb74fb92b8c932a4a6e80f258b4faaa8b83a54fe8595ecb50559bad35"
+  }, {
+    "outcome" : "SUCCESS",
+    "elements" : 3739,
+    "element_types" : {
+      "Image" : 9,
+      "UncategorizedText" : 3730
+    },
+    "text_code_points" : 80023,
+    "public_text_sha256" : "d5d40066c8534e00af9664a3b05414036638b488e8853033532446d7a4eaa007",
+    "id" : "elife",
+    "profile" : "DOCWEAVE_DEFAULT_NATIVE",
+    "source_sha256" : "ae3d00995f44bdd26fd0f60e760dc0fce44e84a0482fc64d2277ef4792413a4b",
+    "capture_sha256" : "2c26dd91ca755557cfc0169591b7cb09bf5968bc35aa98f1f907a4a874076ca4",
+    "source_ordinary_raster_placements" : 9,
+    "source_mask_entries" : 0,
+    "native_raster_placements" : 9,
+    "source_page_dimension_multiplicity_agreement" : true,
+    "source_raster_bag" : {
+      "3:2205x1132" : 1,
+      "4:2205x1035" : 1,
+      "5:2205x1119" : 1,
+      "5:2205x763" : 1,
+      "8:33x32" : 5
+    },
+    "native_raster_bag" : {
+      "3:2205x1132" : 1,
+      "4:2205x1035" : 1,
+      "5:2205x1119" : 1,
+      "5:2205x763" : 1,
+      "8:33x32" : 5
+    },
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION" ]
+  }, {
+    "outcome" : "SUCCESS",
+    "elements" : 3343,
+    "element_types" : {
+      "Footer" : 58,
+      "Header" : 29,
+      "ListItem" : 6,
+      "NarrativeText" : 241,
+      "Title" : 780,
+      "UncategorizedText" : 2229
+    },
+    "text_code_points" : 79504,
+    "public_text_sha256" : "14f5997a3ba1a6b3dbc204b0e05bb362644a68d94c1f55f5dfa1b1ab584dc277",
+    "id" : "elife",
+    "profile" : "UNSTRUCTURED_DEFAULT_AUTO",
+    "source_sha256" : "ae3d00995f44bdd26fd0f60e760dc0fce44e84a0482fc64d2277ef4792413a4b",
+    "capture_sha256" : "05b6bd028954c46d7b7d5df386db003e04c0065dfd48bd49f9e1c4c52c4635d6"
+  }, {
+    "outcome" : "SUCCESS",
+    "elements" : 955,
+    "element_types" : {
+      "Image" : 9,
+      "UncategorizedText" : 946
+    },
+    "text_code_points" : 85092,
+    "public_text_sha256" : "9fad3483a604512c88a9774741bd79404247199d2108ec6ff08fb6ca9a9b8c1d",
+    "id" : "holdout",
+    "profile" : "DOCWEAVE_DEFAULT_NATIVE",
+    "source_sha256" : "dcd83b90a257628b5a1f8beac96dd14cafcbefa50d7077d15cc4f48d86c2e3dc",
+    "capture_sha256" : "b3f831d0ce168b80637958c1ecc8ba1c94efec643f8e8912affeaf475a93f0b9",
+    "source_ordinary_raster_placements" : 9,
+    "source_mask_entries" : 0,
+    "native_raster_placements" : 9,
+    "source_page_dimension_multiplicity_agreement" : true,
+    "source_raster_bag" : {
+      "10:1830x1837" : 1,
+      "11:1808x1878" : 1,
+      "12:1560x2180" : 1,
+      "14:1627x2064" : 1,
+      "15:1779x1994" : 1,
+      "1:233x233" : 1,
+      "1:38x50" : 1,
+      "7:1830x1866" : 1,
+      "8:1627x2091" : 1
+    },
+    "native_raster_bag" : {
+      "10:1830x1837" : 1,
+      "11:1808x1878" : 1,
+      "12:1560x2180" : 1,
+      "14:1627x2064" : 1,
+      "15:1779x1994" : 1,
+      "1:233x233" : 1,
+      "1:38x50" : 1,
+      "7:1830x1866" : 1,
+      "8:1627x2091" : 1
+    },
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION" ]
+  }, {
+    "outcome" : "SUCCESS",
+    "elements" : 259,
+    "element_types" : {
+      "Footer" : 46,
+      "ListItem" : 79,
+      "NarrativeText" : 80,
+      "Title" : 37,
+      "UncategorizedText" : 17
+    },
+    "text_code_points" : 84963,
+    "public_text_sha256" : "09cd3aa4a2b07f34b7a64659051fb6d84d667383509ced2393c67253316a22d0",
+    "id" : "holdout",
+    "profile" : "UNSTRUCTURED_DEFAULT_AUTO",
+    "source_sha256" : "dcd83b90a257628b5a1f8beac96dd14cafcbefa50d7077d15cc4f48d86c2e3dc",
+    "capture_sha256" : "42706c27c0ad0fd5c9f8c64234cdf1fb8b0353b9f1cef380f52fa6cb9620ae84"
+  }, {
+    "outcome" : "SUCCESS",
+    "elements" : 1408,
+    "element_types" : {
+      "Image" : 1,
+      "UncategorizedText" : 1407
+    },
+    "text_code_points" : 36236,
+    "public_text_sha256" : "472d0fa9ef51e755e865e652dbf2085a1383255ff2c2210d115e584f6c8d5c55",
+    "id" : "business",
+    "profile" : "DOCWEAVE_DEFAULT_NATIVE",
+    "source_sha256" : "ad8d84cbcc0a4ce35b803b93e8186c29ea0b06b4455d04fb584ab5ad29c42915",
+    "capture_sha256" : "6b3b83f616317ef12b0468772e37f13653d773389582ab4dcfd1a0059ea76a9c",
+    "source_ordinary_raster_placements" : 1,
+    "source_mask_entries" : 0,
+    "native_raster_placements" : 1,
+    "source_page_dimension_multiplicity_agreement" : true,
+    "source_raster_bag" : {
+      "1:1250x458" : 1
+    },
+    "native_raster_bag" : {
+      "1:1250x458" : 1
+    },
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION" ]
+  }, {
+    "outcome" : "SUCCESS",
+    "elements" : 1504,
+    "element_types" : {
+      "Header" : 6,
+      "ListItem" : 68,
+      "NarrativeText" : 129,
+      "Title" : 216,
+      "UncategorizedText" : 1085
+    },
+    "text_code_points" : 36154,
+    "public_text_sha256" : "8bc35501217aa7a12f8060c54a22056a3a154ba4fe6126d85495c58f5ff94273",
+    "id" : "business",
+    "profile" : "UNSTRUCTURED_DEFAULT_AUTO",
+    "source_sha256" : "ad8d84cbcc0a4ce35b803b93e8186c29ea0b06b4455d04fb584ab5ad29c42915",
+    "capture_sha256" : "ee71ca838aa0d57188adfc88b1f79cb5b2bdeca16ec54d4e860687dd1df69ae9"
+  }, {
+    "outcome" : "SUCCESS",
+    "elements" : 1,
+    "element_types" : {
+      "Image" : 1
+    },
+    "text_code_points" : 0,
+    "public_text_sha256" : "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "id" : "arnimb_goethe03_1835",
+    "profile" : "DOCWEAVE_DEFAULT_NATIVE",
+    "source_sha256" : "ad9aa0fff0e4c4b8b4ac010673abd0e00f7d4c48711f60014a8ad2849e4e3b92",
+    "capture_sha256" : "5697b5f4e01b7e9ab1d349a0bad896b7c355c400738c82503b79b7fa5128cfe9",
+    "source_ordinary_raster_placements" : 1,
+    "source_mask_entries" : 0,
+    "native_raster_placements" : 1,
+    "source_page_dimension_multiplicity_agreement" : true,
+    "source_raster_bag" : {
+      "1:1675x2286" : 1
+    },
+    "native_raster_bag" : {
+      "1:1675x2286" : 1
+    },
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION" ]
+  }, {
+    "outcome" : "SUCCESS",
+    "elements" : 7,
+    "element_types" : {
+      "NarrativeText" : 5,
+      "Title" : 1,
+      "UncategorizedText" : 1
+    },
+    "text_code_points" : 1067,
+    "public_text_sha256" : "e59eb8538ae3e99910884989e809bdc1424f2bc170dbbfd4d8e23d6da9d7c7cb",
+    "id" : "arnimb_goethe03_1835",
+    "profile" : "UNSTRUCTURED_DEFAULT_AUTO",
+    "source_sha256" : "ad9aa0fff0e4c4b8b4ac010673abd0e00f7d4c48711f60014a8ad2849e4e3b92",
+    "capture_sha256" : "087cde1f36022785d93897c27b489127190fa07e983688de45ac50db80ee9f88"
+  }, {
+    "outcome" : "SUCCESS",
+    "elements" : 1,
+    "element_types" : {
+      "Image" : 1
+    },
+    "text_code_points" : 0,
+    "public_text_sha256" : "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "id" : "bebel_frau_1879",
+    "profile" : "DOCWEAVE_DEFAULT_NATIVE",
+    "source_sha256" : "babf3114bcf3259acd1b16142fa8a9fd2888bb00706b64c8abb875906a6a76e7",
+    "capture_sha256" : "f1a8f5a64744279e4cde8054de00f4dad0eb2920b3c1573d46796bb5213e4e62",
+    "source_ordinary_raster_placements" : 1,
+    "source_mask_entries" : 0,
+    "native_raster_placements" : 1,
+    "source_page_dimension_multiplicity_agreement" : true,
+    "source_raster_bag" : {
+      "1:3068x4660" : 1
+    },
+    "native_raster_bag" : {
+      "1:3068x4660" : 1
+    },
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION" ]
+  }, {
+    "outcome" : "SUCCESS",
+    "elements" : 8,
+    "element_types" : {
+      "ListItem" : 4,
+      "NarrativeText" : 2,
+      "Title" : 1,
+      "UncategorizedText" : 1
+    },
+    "text_code_points" : 3074,
+    "public_text_sha256" : "7841c2677bfeaa4d4ac55872e3f3c21a153e7d0adb4766dbe454591af2e6cfa0",
+    "id" : "bebel_frau_1879",
+    "profile" : "UNSTRUCTURED_DEFAULT_AUTO",
+    "source_sha256" : "babf3114bcf3259acd1b16142fa8a9fd2888bb00706b64c8abb875906a6a76e7",
+    "capture_sha256" : "0f21952eaf317f576888ecbd36442fb8d955b6cc9d70a4a017e2acbf0cdcb7aa"
+  }, {
+    "outcome" : "SUCCESS",
+    "elements" : 1,
+    "element_types" : {
+      "Image" : 1
+    },
+    "text_code_points" : 0,
+    "public_text_sha256" : "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "id" : "buerger_gedichte_1778_0039",
+    "profile" : "DOCWEAVE_DEFAULT_NATIVE",
+    "source_sha256" : "18bf200d9ea13b87b871842cd0bbdd6e97cc474ccf211a792291f0a073b58e2c",
+    "capture_sha256" : "c68d6ba60322f41e670cb1b77a48eb73d7406bbd4ad6190db748148bbf187e1c",
+    "source_ordinary_raster_placements" : 1,
+    "source_mask_entries" : 0,
+    "native_raster_placements" : 1,
+    "source_page_dimension_multiplicity_agreement" : true,
+    "source_raster_bag" : {
+      "1:1440x1929" : 1
+    },
+    "native_raster_bag" : {
+      "1:1440x1929" : 1
+    },
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION" ]
+  }, {
+    "outcome" : "SUCCESS",
+    "elements" : 5,
+    "element_types" : {
+      "ListItem" : 1,
+      "NarrativeText" : 1,
+      "Title" : 3
+    },
+    "text_code_points" : 950,
+    "public_text_sha256" : "3001e135f5d8bcf730e55a04176e030a90e9f4dd17e737bb9f344cd8f95af6f8",
+    "id" : "buerger_gedichte_1778_0039",
+    "profile" : "UNSTRUCTURED_DEFAULT_AUTO",
+    "source_sha256" : "18bf200d9ea13b87b871842cd0bbdd6e97cc474ccf211a792291f0a073b58e2c",
+    "capture_sha256" : "3863c6a04092da523fb3291cfa6a7d747964b75bc9dfeb2d5178191c7ef72d74"
+  }, {
+    "outcome" : "SUCCESS",
+    "elements" : 1,
+    "element_types" : {
+      "Image" : 1
+    },
+    "text_code_points" : 0,
+    "public_text_sha256" : "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "id" : "nn_besuch_1780_00001",
+    "profile" : "DOCWEAVE_DEFAULT_NATIVE",
+    "source_sha256" : "f03ddf7afa2305cf347f935625e2164f6bac0b7afe98c3b15584a8d994b1acd2",
+    "capture_sha256" : "f4e9381f2a0a38c1223ef1dbd1027106e6d02d466a01d4fe01358f339923b003",
+    "source_ordinary_raster_placements" : 1,
+    "source_mask_entries" : 0,
+    "native_raster_placements" : 1,
+    "source_page_dimension_multiplicity_agreement" : true,
+    "source_raster_bag" : {
+      "1:2000x2271" : 1
+    },
+    "native_raster_bag" : {
+      "1:2000x2271" : 1
+    },
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION" ]
+  }, {
+    "outcome" : "SUCCESS",
+    "elements" : 6,
+    "element_types" : {
+      "NarrativeText" : 1,
+      "Title" : 4,
+      "UncategorizedText" : 1
+    },
+    "text_code_points" : 358,
+    "public_text_sha256" : "c51708d53e933b24ab9b3ea34e9e8f81799ac5f4ed2e35c6287f7f192a29023d",
+    "id" : "nn_besuch_1780_00001",
+    "profile" : "UNSTRUCTURED_DEFAULT_AUTO",
+    "source_sha256" : "f03ddf7afa2305cf347f935625e2164f6bac0b7afe98c3b15584a8d994b1acd2",
+    "capture_sha256" : "5a070c3cda964f9f632636bdce44e670ee24de33f6872ec884853bab91d50d00"
+  } ]
+}

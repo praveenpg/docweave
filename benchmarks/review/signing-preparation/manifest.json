@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-17",
+  "baseline": "0640a48b9689ab65aae08bf5c13f4e45a34c6b02",
+  "scope": "Local signing-disabled configuration/build rehearsal; no keys, signatures or upload",
+  "model_check_source": "import java.nio.file.Path;\nimport java.util.List;\nimport org.apache.maven.model.building.DefaultModelBuilderFactory;\nimport org.apache.maven.model.building.DefaultModelBuildingRequest;\nimport org.codehaus.plexus.util.xml.Xpp3Dom;\npublic final class CheckDocweaveSigning {\n public static void main(String[] args) throws Exception {\n  var root=Path.of(args[0]); var builder=new DefaultModelBuilderFactory().newInstance();\n  var raw=builder.build(new DefaultModelBuildingRequest().setPomFile(root.resolve(\"pom.xml\").toFile()).setSystemProperties(System.getProperties())).getEffectiveModel();\n  var paths=new java.util.ArrayList<String>(); paths.add(\"\"); paths.addAll(raw.getModules());\n  int checks=0;\n  for(var profiles:List.of(List.<String>of(),List.of(\"release-artifacts\"),List.of(\"release-artifacts\",\"release-signing\"))) {\n   for(var path:paths) {\n    var model=builder.build(new DefaultModelBuildingRequest().setPomFile(root.resolve(path).resolve(\"pom.xml\").toFile()).setSystemProperties(System.getProperties()).setActiveProfileIds(profiles)).getEffectiveModel();\n    var sign=model.getBuild().getPlugins().stream().filter(p->p.getArtifactId().equals(\"maven-gpg-plugin\")).findFirst();\n    if(!profiles.contains(\"release-signing\")) { if(sign.isPresent()) throw new AssertionError(\"Signing active by default\"); }\n    else {\n     var p=sign.orElseThrow();var c=(Xpp3Dom)p.getConfiguration();\n     boolean internal=path.equals(\"docweave-validation\")||path.equals(\"docweave-integration-tests\");\n     if(!p.getVersion().equals(\"3.2.8\") || !c.getChild(\"bestPractices\").getValue().equals(\"true\") || !c.getChild(\"skip\").getValue().equals(Boolean.toString(internal))) throw new AssertionError(path+\" \"+c);\n     var e=p.getExecutions().getFirst(); if(!e.getPhase().equals(\"verify\")||!e.getGoals().equals(List.of(\"sign\")))throw new AssertionError(path);\n    }\n    checks++;\n   }\n  }\n  System.out.println(\"PASS: \"+checks+\" effective models; default/attachment builds unsigned, 17 publishable POMs sign, 2 internal harnesses skip\");\n }\n}\n",
+  "model_checks_per_jvm": 57,
+  "negative_digest_controls": {
+    "sha256": {
+      "unchanged_copy_passed": true,
+      "changed_copy_rejected": true
+    },
+    "sha512": {
+      "unchanged_copy_passed": true,
+      "changed_copy_rejected": true
+    }
+  },
+  "verification": {
+    "21": {
+      "tests": [
+        899,
+        0,
+        0,
+        0
+      ],
+      "log_sha256": "b4178db0c1d66954d3ca8974bc220d7ec8c9df07cc71a56bad5fbbf8fe0f478d",
+      "gpg_goal_executions_with_skip_true": 19,
+      "strict_reactor_and_standalone_javadocs": "passed",
+      "system_sha256_sha512_verification": "65 files each passed"
+    },
+    "25": {
+      "tests": [
+        899,
+        0,
+        0,
+        0
+      ],
+      "log_sha256": "715e8035e99ed0d17096b7f2acad71591720432cdf93073da11289ca8fc96d79",
+      "gpg_goal_executions_with_skip_true": 19,
+      "strict_reactor_and_standalone_javadocs": "passed",
+      "system_sha256_sha512_verification": "65 files each passed"
+    }
+  },
+  "sources": {
+    "pom.xml": "8fc3019b957dafa6c8cb9b75c9d01d662fc388cef1f77949421c67c9a091cb51",
+    "benchmarks/tools/CheckReleaseArchives.java": "55f6b3f4069d352c11c46499f839511a87369b7b6e28781fcae8f7cf8387b7c1",
+    ".github/workflows/verify.yml": "17f0a5a8f47a36738c9d951f548eb87f324da1de1297abf04b8a246bbf8f56fb"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "scope": "All published cTDaR sample rasters plus historical test00040; no transcription/cell-geometry oracle or general accuracy claim",
+  "samples": 9,
+  "source_assets": 18,
+  "paired_java21_java25_result_entries_identical": true,
+  "candidate_tables": 12,
+  "typed_limit_inputs": [
+    "cTDaR_s001"
+  ],
+  "orientation_observations": 8,
+  "orientation_accepted": 0,
+  "exact_anchor_set_and_dimensions_at_best_envelope": [
+    {
+      "input": "cTDaR_s002",
+      "rows": 2,
+      "columns": 5,
+      "reference_index": 0,
+      "envelope_iou": 0.825579981084257
+    },
+    {
+      "input": "cTDaR_s102",
+      "rows": 5,
+      "columns": 4,
+      "reference_index": 1,
+      "envelope_iou": 0.8939228209592953
+    },
+    {
+      "input": "cTDaR_s102",
+      "rows": 17,
+      "columns": 4,
+      "reference_index": 0,
+      "envelope_iou": 0.9085918818725953
+    }
+  ],
+  "boundaries": [
+    "Envelope IoU is not polygon/cell/text accuracy",
+    "Modern raster provenance is not necessarily a physical scan",
+    "Missing empty-cell labels and duplicate records preserved",
+    "All cases retained, including OCR_LIMIT, misses and partial topology",
+    "No engine/model limits or defaults tuned for cases"
+  ]
+}

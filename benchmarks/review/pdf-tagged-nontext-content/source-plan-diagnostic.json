@@ -1,0 +1,23 @@
+{
+  "scope": "Source-only planning and original marked-glyph inspection; not recognized table row accuracy",
+  "original_source_table_nodes": 31,
+  "accepted_structure_plans_before": 11,
+  "accepted_structure_plans_after": 19,
+  "rejected_structure_plans_before": 20,
+  "rejected_structure_plans_after": 12,
+  "selected_auxiliary_references": [
+    {"page": 11, "id": 558, "declared": true, "retained_glyphs": 0},
+    {"page": 12, "id": 325, "declared": true, "retained_glyphs": 0},
+    {"page": 13, "id": 279, "declared": true, "retained_glyphs": 0}
+  ],
+  "selected_statement_structure_plans": [
+    {"page": 11, "rows": 32, "columns": 39, "anchors": 535},
+    {"page": 12, "rows": 46, "columns": 15, "anchors": 302},
+    {"page": 13, "rows": 40, "columns": 15, "anchors": 256}
+  ],
+  "assembly_still_rejects_unlocated_empty_axes": true,
+  "recognized_statement_tables": 0,
+  "exact_statement_rows": 0,
+  "reference_statement_rows": 105,
+  "no_source_geometry_or_text_invented": true
+}

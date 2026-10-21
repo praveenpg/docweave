@@ -1,0 +1,16 @@
+{
+  "full_clean_verify_each_jdk": {
+    "tests": 997,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "official_online_checker": "PASS actual21/25",
+  "private_javadocs": "PASS actual21/25",
+  "historical_fixture_and_seven_golden_pins": "unchanged",
+  "new_owned_guard": "accept reviewed release ahead of reference; reject collapsed/malformed/missing reference tracks",
+  "log_sha256": {
+    "21": "60eb90832a2baca8a05a7057da6bd10f6288a77a79c65f7344d897f1f3b89edf",
+    "25": "1d28479b659439430b21c8093eabeedc166b84e4a214620e189f66d8c90127ce"
+  }
+}

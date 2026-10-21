@@ -1,0 +1,26 @@
+{
+  "cases" : [ {
+    "id" : "PDFBOX-6077-1",
+    "url" : "https://issues.apache.org/jira/secure/attachment/13078553/example.pdf",
+    "outputFileName" : "PDFBOX-6077-example.pdf",
+    "sha512" : "f4faaa68062073ffdfd48119563f1e1a6eff6d9a063188dc2ec59ccc747277fcaa6139936cebf2f3f7b1b99b80ca13934fb4568658a169e0bf25bf4e748de101"
+  }, {
+    "id" : "PDFBOX-6077-2",
+    "url" : "https://issues.apache.org/jira/secure/attachment/13078557/PDFBOX-5842-reduced.pdf",
+    "outputFileName" : "PDFBOX-5842-reduced.pdf",
+    "sha512" : "c66b13230d343d6b0a2de81680f5d1ae7f8d92713acbc453ff36fe085831fa89127e0428d297e7494b87fc932ca8a721744db1fe79a41cc5c3cf7d631fc209fc"
+  }, {
+    "id" : "PDFBOX-5403",
+    "url" : "https://issues.apache.org/jira/secure/attachment/13041734/bad+rendering.pdf",
+    "outputFileName" : "PDFBOX-5403-bad-rendering.pdf",
+    "sha512" : "0d7160a4af04bf2f785bf4155f69876da4b7ff7a196e7eda1eb904c02c35aa03c31041d9339fda90322cb58bde16b87bae8460c617bfe5b8dc0670ddab102f62"
+  } ],
+  "source_commit" : "276388d0c2ce3f26fafcb2f6e7da2acdd8a73c9e",
+  "scope" : "Source-only prospective discovery before fixture fetch or DocWeave extraction. All three original attachments named by the pinned official stencil-pattern regression tests. Verify original published SHA512, at most8MiB per file. Original whole PDFs only, no repair/labels from candidate. First inspect source paint and image inventory; pattern/page-composited render expectations are not a PNG source-mask oracle. Preserve unavailable/no-eligible/unsupported outcomes. Issue samples, not random or heldout business accuracy.",
+  "code_commit" : "9584553",
+  "frozen_at" : "2026-10-20T14:14:09.191701158Z",
+  "repository" : "https://github.com/apache/pdfbox",
+  "source_test_sha256" : "f3a292322208707ee7f413f86020af4a4b103413d0b59941c7f4794e4c7a03a9",
+  "source_pom_sha256" : "9c43a45508be4907fac8672cdf2fc81d7b6034bd9d80c20bc304c29ac0d13cff",
+  "originals_policy" : "Fetch-only public issue attachments, no redistribution or assumed attachment license"
+}

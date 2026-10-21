@@ -1,0 +1,10 @@
+{
+  "reference_header_anchors_per_profile" : 41,
+  "case_profiles" : 28,
+  "runtime" : "Java 21 only",
+  "manifest_sha256" : "380ef78fab6afd47cb5ac009d319a9e4e12e6efebe2427a881414d25b115d146",
+  "unchanged_case_profiles" : 25,
+  "all_cases_failures_and_denominators_retained" : true,
+  "reference_anchors_per_profile" : 74,
+  "report_sha256" : "a386f27b659640b84b5f39eceb8c1d9bb4b31d13e1c9db7fef7406a731fa5bd6"
+}

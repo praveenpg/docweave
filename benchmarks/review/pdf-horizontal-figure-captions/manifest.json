@@ -1,0 +1,25 @@
+{
+  "scope": "Pre-evaluation separate explicit Unicode-horizontal cue after source separator attribution. Original ASCII policy/provenance preserved. Same10completecaptionreferences, all9positivecase/profiles and18logo/Alt/ActualTextnegativecases; fulltext/rawUnicode unchanged. Same strict complete-unit metric retained separately, even when publisher label punctuation or source separator differs. No changedgeometrythresholds/crops/scorer/references or source-specific strategy selection.",
+  "base_commit": "01cea18",
+  "identities": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "1a046af9f56a7538e8b3a1cb4e3f505f169038d5b0e313d433cc96c2f51822cf",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfFigureCaptionDetection.java": "34f48333c4f9905497c099681a0553d8f35c737612dc6bb5b07dbdc89f0bf0cc",
+    "docweave-pdf/src/main/java/dev/docweave/partition/ImageAdjacentPdfFigureCaptions.java": "0ce5ea230084d7a0b08011a2fcda56159a76da05e05c02eebae49cfe631f9eb4",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfFigureCaptionTest.java": "0a42afe8ecfa11bd08d88f3fa8f698f1bb42fc962335d6a42887a3bd9bdf7adf",
+    "benchmarks/tools/ScorePublisherCaptions.java": "15da2ee385d0ecf84349e94f98909fa856d3732fefcaea19b7329e1e069873b3",
+    "benchmarks/tools/VerifySourceFigureImages.java": "66252fde1d87318ab496ffe863324dc93ef87ba65bf4368ea0f0f146c99c3a79",
+    "benchmarks/tools/AuditCaptionUnitBoundaries.java": "ac5b3fa5d9e3cc968871ed3ea2a852b1bdb19840dd23409a9349794ca3540a5c",
+    "benchmarks/review/pdf-publisher-figure-inventory/baseline-java21.json": "9d65a2b15d5157e138e59864869a7de164103eecb44d51ad5da723de538ebb8d",
+    "benchmarks/review/pdf-source-figure-discovery/qualified.json": "87d1e11aa7cc184a201c9ab804abb707b416ea94acc880ada3843d893a17acaf",
+    "benchmarks/review/pdf-native-figure-captions/eligibility-audit-java21.json": "dc3c1755c0ded32056ac5a526dc2d34903f8ab18c8eb643f86586de5dac8e3b8",
+    "benchmarks/review/pdf-horizontal-figure-captions/AuditCaptionUnitBoundaries.patch": "2d0e28991899f252c50a86a015867879962eb7981340bd2599ccc85ffda5fdd9",
+    "benchmarks/review/pdf-horizontal-figure-captions/ScorePublisherCaptions.patch": "0c13cb0c8ea62b46d8e4e79078c9aa92b9bb211a12b022ce7989be0c62cf69ea",
+    "benchmarks/review/pdf-horizontal-figure-captions/VerifySourceFigureImages.patch": "d9b94452220626dae36410b32bfc0d5e50e3bcc0809b298bea8fba26567ab85c"
+  },
+  "figure_caption_policy": "IMAGE_ADJACENT_HORIZONTAL_LABELS",
+  "separator_contract": "tab or Unicode Zs only; no line/paragraph separators or empty body",
+  "expected_positive_case_profiles": 9,
+  "expected_negative_case_profiles": 18,
+  "caption_references_per_profile": 10,
+  "raw_sources_redistributed": false
+}

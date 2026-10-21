@@ -1,0 +1,38 @@
+{
+  "results" : [ {
+    "header_band_fraction" : 0.08,
+    "footer_band_fraction" : 0.08,
+    "first_page_body_text_allowed" : false,
+    "matched_headers" : 0,
+    "matched_footers" : 0,
+    "missed_labelled_margins" : 57,
+    "extra_tags" : 0,
+    "source_inventory_identity_coordinates_preserved" : true
+  }, {
+    "header_band_fraction" : 0.08,
+    "footer_band_fraction" : 0.16,
+    "first_page_body_text_allowed" : false,
+    "matched_headers" : 0,
+    "matched_footers" : 12,
+    "missed_labelled_margins" : 45,
+    "extra_tags" : 0,
+    "source_inventory_identity_coordinates_preserved" : true
+  }, {
+    "header_band_fraction" : 0.08,
+    "footer_band_fraction" : 0.16,
+    "first_page_body_text_allowed" : true,
+    "matched_headers" : 33,
+    "matched_footers" : 24,
+    "missed_labelled_margins" : 0,
+    "extra_tags" : 0,
+    "source_inventory_identity_coordinates_preserved" : true
+  } ],
+  "source_elements" : 439,
+  "selected_pages" : 12,
+  "scope" : "Single-publisher native running-margin labels; no broad semantic/layout accuracy or calibration claim",
+  "labelled_footers" : 24,
+  "runtime" : "25.0.4+7-LTS",
+  "source_sha256" : "60b30efa1048900833d1758440247fe8ac85a3134f2327388dcb24e07d814c89",
+  "labelled_headers" : 33,
+  "source_pages" : 194
+}

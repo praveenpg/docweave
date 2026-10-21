@@ -1,0 +1,207 @@
+{
+  "scope" : "Exact entire classified unit equals original publisher label plus complete frozen caption; no extra prefix/suffix tolerance, geometry oracle or semantic precision claim",
+  "results" : [ {
+    "case" : "recent",
+    "profile" : "NATIVE_LINES",
+    "outcome" : "SUCCESS",
+    "reference_captions" : 5,
+    "emitted_caption_units" : 0,
+    "uniquely_exact_complete_units" : 0,
+    "nonexact_emitted_units" : 0,
+    "references" : [ {
+      "expected_unit_sha256" : "0c4a5170fae186cb1e1473cd73f5582a82dffd0ca56151f14f7d92187c0aad1b",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 0
+    }, {
+      "expected_unit_sha256" : "1f293c65d874d3fd095e0f22b2701794b654746f7c05214c20688dbc24b7e202",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 1
+    }, {
+      "expected_unit_sha256" : "8b069ddae441b9ec68c35ebf46d98872f754f71b8f9e8746d6ba86ccfe08fdc9",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 2
+    }, {
+      "expected_unit_sha256" : "3efbc7706ed4158f0e459647ad0be31d431587956a65008a54a4b3ed4372a926",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 3
+    }, {
+      "expected_unit_sha256" : "ad326f3151b4cf515e8cb1e5e5f69be1ff52c9d5ca928b173848415ac61763b4",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 4
+    } ]
+  }, {
+    "case" : "recent",
+    "profile" : "NATIVE_COLUMNS",
+    "outcome" : "SUCCESS",
+    "reference_captions" : 5,
+    "emitted_caption_units" : 0,
+    "uniquely_exact_complete_units" : 0,
+    "nonexact_emitted_units" : 0,
+    "references" : [ {
+      "expected_unit_sha256" : "0c4a5170fae186cb1e1473cd73f5582a82dffd0ca56151f14f7d92187c0aad1b",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 0
+    }, {
+      "expected_unit_sha256" : "1f293c65d874d3fd095e0f22b2701794b654746f7c05214c20688dbc24b7e202",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 1
+    }, {
+      "expected_unit_sha256" : "8b069ddae441b9ec68c35ebf46d98872f754f71b8f9e8746d6ba86ccfe08fdc9",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 2
+    }, {
+      "expected_unit_sha256" : "3efbc7706ed4158f0e459647ad0be31d431587956a65008a54a4b3ed4372a926",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 3
+    }, {
+      "expected_unit_sha256" : "ad326f3151b4cf515e8cb1e5e5f69be1ff52c9d5ca928b173848415ac61763b4",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 4
+    } ]
+  }, {
+    "case" : "recent",
+    "profile" : "SOURCE_TAGGED_LINES",
+    "outcome" : "SUCCESS",
+    "reference_captions" : 5,
+    "emitted_caption_units" : 0,
+    "uniquely_exact_complete_units" : 0,
+    "nonexact_emitted_units" : 0,
+    "references" : [ {
+      "expected_unit_sha256" : "0c4a5170fae186cb1e1473cd73f5582a82dffd0ca56151f14f7d92187c0aad1b",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 0
+    }, {
+      "expected_unit_sha256" : "1f293c65d874d3fd095e0f22b2701794b654746f7c05214c20688dbc24b7e202",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 1
+    }, {
+      "expected_unit_sha256" : "8b069ddae441b9ec68c35ebf46d98872f754f71b8f9e8746d6ba86ccfe08fdc9",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 2
+    }, {
+      "expected_unit_sha256" : "3efbc7706ed4158f0e459647ad0be31d431587956a65008a54a4b3ed4372a926",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 3
+    }, {
+      "expected_unit_sha256" : "ad326f3151b4cf515e8cb1e5e5f69be1ff52c9d5ca928b173848415ac61763b4",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 4
+    } ]
+  }, {
+    "case" : "next",
+    "profile" : "NATIVE_LINES",
+    "outcome" : "SUCCESS",
+    "reference_captions" : 1,
+    "emitted_caption_units" : 0,
+    "uniquely_exact_complete_units" : 0,
+    "nonexact_emitted_units" : 0,
+    "references" : [ {
+      "expected_unit_sha256" : "521f4123cd058dbb7e459344f3203422b6fc6d4722db121ee5e4c32c2fbdd598",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 0
+    } ]
+  }, {
+    "case" : "next",
+    "profile" : "NATIVE_COLUMNS",
+    "outcome" : "SUCCESS",
+    "reference_captions" : 1,
+    "emitted_caption_units" : 0,
+    "uniquely_exact_complete_units" : 0,
+    "nonexact_emitted_units" : 0,
+    "references" : [ {
+      "expected_unit_sha256" : "521f4123cd058dbb7e459344f3203422b6fc6d4722db121ee5e4c32c2fbdd598",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 0
+    } ]
+  }, {
+    "case" : "next",
+    "profile" : "SOURCE_TAGGED_LINES",
+    "outcome" : "SUCCESS",
+    "reference_captions" : 1,
+    "emitted_caption_units" : 0,
+    "uniquely_exact_complete_units" : 0,
+    "nonexact_emitted_units" : 0,
+    "references" : [ {
+      "expected_unit_sha256" : "521f4123cd058dbb7e459344f3203422b6fc6d4722db121ee5e4c32c2fbdd598",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 0
+    } ]
+  }, {
+    "case" : "elife",
+    "profile" : "NATIVE_LINES",
+    "outcome" : "SUCCESS",
+    "reference_captions" : 4,
+    "emitted_caption_units" : 4,
+    "uniquely_exact_complete_units" : 0,
+    "nonexact_emitted_units" : 4,
+    "references" : [ {
+      "expected_unit_sha256" : "7a3ce9af3319b74f53aef29ea3c3b384b74616fe15bba6a218d669b8b584803b",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 0
+    }, {
+      "expected_unit_sha256" : "b2fcc6edaddec90299d978bd70864708bb281dab2957f2007b245ff5059525c0",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 1
+    }, {
+      "expected_unit_sha256" : "48f20790cf875878ff1a947c88f7ff97035b6c7ab8e2e33ed44af07f8bbfe551",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 2
+    }, {
+      "expected_unit_sha256" : "1a905ab306b71b09c8817abbfa18260d25dc6538276db346c55f99a89643d1ad",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 3
+    } ]
+  }, {
+    "case" : "elife",
+    "profile" : "NATIVE_COLUMNS",
+    "outcome" : "SUCCESS",
+    "reference_captions" : 4,
+    "emitted_caption_units" : 4,
+    "uniquely_exact_complete_units" : 4,
+    "nonexact_emitted_units" : 0,
+    "references" : [ {
+      "expected_unit_sha256" : "7a3ce9af3319b74f53aef29ea3c3b384b74616fe15bba6a218d669b8b584803b",
+      "exact_complete_unit_matches" : 1,
+      "ordinal" : 0
+    }, {
+      "expected_unit_sha256" : "b2fcc6edaddec90299d978bd70864708bb281dab2957f2007b245ff5059525c0",
+      "exact_complete_unit_matches" : 1,
+      "ordinal" : 1
+    }, {
+      "expected_unit_sha256" : "48f20790cf875878ff1a947c88f7ff97035b6c7ab8e2e33ed44af07f8bbfe551",
+      "exact_complete_unit_matches" : 1,
+      "ordinal" : 2
+    }, {
+      "expected_unit_sha256" : "1a905ab306b71b09c8817abbfa18260d25dc6538276db346c55f99a89643d1ad",
+      "exact_complete_unit_matches" : 1,
+      "ordinal" : 3
+    } ]
+  }, {
+    "case" : "elife",
+    "profile" : "SOURCE_TAGGED_LINES",
+    "outcome" : "SUCCESS",
+    "reference_captions" : 4,
+    "emitted_caption_units" : 4,
+    "uniquely_exact_complete_units" : 0,
+    "nonexact_emitted_units" : 4,
+    "references" : [ {
+      "expected_unit_sha256" : "7a3ce9af3319b74f53aef29ea3c3b384b74616fe15bba6a218d669b8b584803b",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 0
+    }, {
+      "expected_unit_sha256" : "b2fcc6edaddec90299d978bd70864708bb281dab2957f2007b245ff5059525c0",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 1
+    }, {
+      "expected_unit_sha256" : "48f20790cf875878ff1a947c88f7ff97035b6c7ab8e2e33ed44af07f8bbfe551",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 2
+    }, {
+      "expected_unit_sha256" : "1a905ab306b71b09c8817abbfa18260d25dc6538276db346c55f99a89643d1ad",
+      "exact_complete_unit_matches" : 0,
+      "ordinal" : 3
+    } ]
+  } ],
+  "runtime" : "21.0.12.1+12-LTS",
+  "baseline_sha256" : "9d65a2b15d5157e138e59864869a7de164103eecb44d51ad5da723de538ebb8d"
+}

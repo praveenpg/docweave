@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Real Tesseract mixed-page integration evidence</comment>
+<entry key="eng_model_sha256">daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047</entry>
+<entry key="checked_at">2026-10-17T04:46:48.444211492Z</entry>
+<entry key="independent_transcription_accuracy">not measured; handwritten source, no approved oracle</entry>
+<entry key="independent_ocr_line_count">3</entry>
+<entry key="owned_native_elements_preserved">true</entry>
+<entry key="owned_pdf_sha256">e8424277350e310f3dfa87023770f28b12d355309e310da6d2d23c796ba27a9d</entry>
+<entry key="independent_native_elements_preserved">true</entry>
+<entry key="independent_ocr_text_sha256">9505f3ea04d0942ef2c537414a897e447cc1e14bd346877574ba39884401d9cb</entry>
+<entry key="independent_original_sha256">e21174353d5a330ed41bcc4e234943a6527c635dec2a4be1a4fe701827bd0b1c</entry>
+<entry key="owned_image_occurrences">2</entry>
+<entry key="executable_sha256">9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917</entry>
+<entry key="scope">owned mixed PDF and optional independent scan with an owned native heading; no accuracy claim</entry>
+<entry key="independent_modified_sha256">bf0c1536f49c0426600f4289a2e04d50296cae79088ef443ad8d0077086a5616</entry>
+<entry key="owned_ocr_lines">2</entry>
+<entry key="independent_ocr_utf16_units">37</entry>
+<entry key="owned_distinct_regions">1</entry>
+</properties>

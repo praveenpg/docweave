@@ -1,0 +1,59 @@
+{
+  "scope": "Two publicly published reports from one publisher/template; XML diagnostic review, independent human review pending.",
+  "retrieved_on": "2026-10-14",
+  "binary_policy": "Fetch-only local cache; do not commit source binaries or excluded graphic assets.",
+  "documents": [
+    {
+      "filename": "north-lanarkshire-2025.docx",
+      "title": "North Lanarkshire Council and Licensing Board",
+      "publisher": "National Records of Scotland",
+      "source_page": "https://www.nrscotland.gov.uk/publications/progress-update-review-north-lanarkshire-council-and-licensing-board-october-2025/",
+      "download_url": "https://www.nrscotland.gov.uk/media/4gmleqaw/nrs-public-records-scotland-act-prsa-north-lanarkshire-council-and-licensing-board-progress-update-review-pur-2025-final-report-03-october-2025.docx",
+      "sha256": "6c8a2ff422ac764b1cc15490932f986e685944a26df4ece9db3902cfafd96938",
+      "bytes": 60016,
+      "licence": "Open Government Licence v3.0; graphic assets and other stated exceptions excluded",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information licensed under the Open Government Licence v3.0. © Crown Copyright, National Records of Scotland.",
+      "human_review": "pending",
+      "required_text": [
+        "North Lanarkshire Council and Licensing Board",
+        "The Public Records (Scotland) Act 2011",
+        "Assessment Process",
+        "Public Records Officer"
+      ],
+      "minimum_tables": 2,
+      "expected_stored_parts": {
+        "Header": 1,
+        "Footer": 1
+      }
+    },
+    {
+      "filename": "sqa-2024.docx",
+      "title": "Scottish Qualifications Authority",
+      "publisher": "National Records of Scotland",
+      "source_page": "https://www.nrscotland.gov.uk/publications/progress-update-review-scottish-qualifications-authority/",
+      "download_url": "https://www.nrscotland.gov.uk/media/03wpgknp/nrs-public-records-scotland-act-prsa-scottish-qualifications-authority-progress-update-review-pur-2024-final-report-27-may-2025.docx",
+      "sha256": "c1345b2cfb860d6cce2b98253021b286de15e4a71e117100a67f8c7aea0fd40b",
+      "bytes": 59223,
+      "licence": "Open Government Licence v3.0; graphic assets and other stated exceptions excluded",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information licensed under the Open Government Licence v3.0. © Crown Copyright, National Records of Scotland.",
+      "human_review": "pending",
+      "required_text": [
+        "Scottish Qualifications Authority",
+        "The Public Records (Scotland) Act 2011",
+        "Assessment Process",
+        "Public Records Officer"
+      ],
+      "minimum_tables": 2,
+      "expected_stored_parts": {
+        "Header": 1,
+        "Footer": 1
+      }
+    }
+  ],
+  "_public_projection": {
+    "original_sha256": "c920c4b75cc1b7ea546bbbca72493378eefc2849ed6375071b5242e6e5608512",
+    "status": "Derived documentation/path projection; historical measurements and embedded fingerprints unchanged"
+  }
+}

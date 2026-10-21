@@ -1,0 +1,8 @@
+{
+  "baseline_commit": "e385ff70cb6a28129bcb5170920513cd73281431",
+  "scope": "Preserve provider/model-declared contiguous top header-row prefix only. No row or anchor merges, text changes, th conversion, model downloads or learned-source quality claims. Synthetic native fixture plumbing and caller-controlled integration.",
+  "upstream_source": "https://raw.githubusercontent.com/microsoft/table-transformer/16d124f616109746b7785f03085100f1f6247575/src/postprocess.py",
+  "upstream_source_sha256": "a7b3bdf0b0f9ea4b2ccd04bb0acca4bb05b1809d120edf556526a6d976d027db",
+  "policy": "Class3 header object >=50% aligned atomic row HEIGHT; retain only qualified contiguous prefix starting at row0. Never fill a missing leading row or cross a gap. No claim of parity with Microsoft align_headers (which can extend upward). Model scores are not semantic confidence.",
+  "compatibility": "Original Table(rows,columns,bounds,anchors,provenance) constructor retained and defaults headerRows0; new six-component record affects record-pattern/reflection/serialization consumers. Prior compiled constructor/accessors smoke-tested actual21/25. Zero means absent/unknown, not proof of no headers."
+}

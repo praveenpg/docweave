@@ -1,0 +1,63 @@
+{
+  "frozen_at": "2026-10-19T18:40:33.924669377Z",
+  "selection_sha256": "7110dcd68db67ea332b5cfaca6e28712bff9082b764bdf1acdcdf62978e1c2a6",
+  "profiles": [
+    {
+      "language": "deu",
+      "filename": "deu.traineddata",
+      "bytes": 8628461,
+      "sha256": "8407331d6aa0229dc927685c01a7938fc5a641d1a9524f74838cdac599f0d06e",
+      "git_blob_sha1": "6dd654880db617f3edfa00bc2ed9c9e3107b8fd0",
+      "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/deu.traineddata",
+      "page_segmentation": "AUTO",
+      "thresholding": "ENGINE_DEFAULT"
+    },
+    {
+      "language": "deu_latf",
+      "filename": "deu_latf.traineddata",
+      "bytes": 12938047,
+      "sha256": "429b8c33d37e1a4823a2bb082a644ff13e252f735b7945e08a518d22ddcc459e",
+      "git_blob_sha1": "cc64c41d469dd0d2791e26d6da8c0fa5d4ef94c0",
+      "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/deu_latf.traineddata",
+      "page_segmentation": "AUTO",
+      "thresholding": "ENGINE_DEFAULT"
+    }
+  ],
+  "cases": [
+    {
+      "id": "bebel_frau_1879",
+      "year": 1879,
+      "image": "bebel_frau_1879.tif",
+      "xml": "bebel_frau_1879.xml",
+      "width": 3068,
+      "height": 4660,
+      "expected_lines": 50,
+      "reference_code_points": 3049,
+      "reference_text_sha256": "8cedf62f0111a95d1c5a63d62303086acb25c5a4be572d9dbfd0fbfae80def7d",
+      "inputs": [
+        {
+          "filename": "bebel_frau_1879.tif",
+          "bytes": 268414,
+          "sha256": "261b727a9175152eab3b1175497f07e15f4ba35942e5a4322996a7745f0c89ea",
+          "git_blob_sha1": "ce63a3d731fd64ef5da1c253691c7843ffd1fa6b"
+        },
+        {
+          "filename": "bebel_frau_1879.xml",
+          "bytes": 177176,
+          "sha256": "c604c931b76195730b61513208d9998162331b4f841eba153d0ca8b629696315",
+          "git_blob_sha1": "0155f803add9f249ce99fa8e9002c72ef2f83ebb"
+        }
+      ],
+      "source_dpi": 600,
+      "reviewed_order": {
+        "file": "benchmarks/review/pdf-reviewed-historical-order/reviewed-order.json",
+        "sha256": "0ca1e0a61f9df408d31e946a5b2d10de11ec1268bca0e10ea8d68461a6e6056b"
+      }
+    }
+  ],
+  "evaluation_resolution": "explicit original TIFF inch DPI, physical PDF page dimensions, unchanged exact rendered RGB, public PDF coordinates mapped to source pixels",
+  "prior_manifest_sha256": "4a903f4c7a80e80c6c814f73c10161db52078d71275f6c4689f6b7565498d2d8",
+  "prior_selection_sha256": "5bb929c65d363e94e2e5fab1e1f25ebba81e191c09754754f2d39eee419a5c57",
+  "experiment": "Uniform evaluation-only local background normalization; all four original scans, both pinned models, AUTO/ENGINE_DEFAULT, source TIFF DPI, no case-specific tuning.95th luminance percentile in tiles64px at300DPI scaled to source DPI, bilinear whitepoint interpolation, clamp borders, gray output. No spatial transforms, crops, reference edits or new matching rules.",
+  "scope": "Both pinned models on the explicitly deferred1879 source-order review, AUTO/ENGINE_DEFAULT/sourceDPI/no added preprocessing. Original reference text/XML order preserved; optional separately source-image-reviewed global metrics only."
+}

@@ -1,0 +1,24 @@
+{
+  "full_clean_verify_each_jdk": {
+    "tests": 996,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "java21": "21.0.12.1+12-LTS",
+  "java25": "25.0.4+7-LTS",
+  "actual_ocr_calls_each": 24,
+  "successful_outcomes_each": 24,
+  "all_paired_text_geometry_raster_metrics_equal": true,
+  "all_source_render_rgb_hashes_equal": true,
+  "legacy_engine_default_cases_unchanged_each": 8,
+  "strict_public_javadocs": "PASS both",
+  "strict_changed_production_and_harness_private_javadocs": "PASS both",
+  "public_options_record_shape": "unchanged",
+  "dependencies": "unchanged",
+  "engine_parameters_sha256": "efc16feec4398a138ae148932174098cb518abfd47ccda557be614c822b69c1e",
+  "logs_sha256": {
+    "21": "f51d830b7b98a3323844c483aedb11a2a2fd685893f251031bad5f49ae7519cf",
+    "25": "6c890b20af42be80cc7c322777d26e3f2870739b95cd80772a94f87b36710cb3"
+  }
+}

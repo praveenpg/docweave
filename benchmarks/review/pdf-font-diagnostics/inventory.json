@@ -1,0 +1,269 @@
+{
+  "source_commit": "2cdf3b4fd3f7e921dca8cc6814cdd9316be40f0f",
+  "scope": "Three pinned original native PDFs; observed used-font/mapping inventory only, no font or semantic accuracy oracle",
+  "results": [
+    {
+      "fonts": [
+        {
+          "id": 1,
+          "name": "Arial-BoldMT",
+          "subtype": "TrueType",
+          "embedded": false,
+          "damaged": false,
+          "vertical": false,
+          "standard14": true,
+          "to_unicode_declared": false,
+          "glyphs": 150,
+          "unmapped_glyphs": 0,
+          "replacement_glyphs": 0,
+          "pages": [
+            1
+          ]
+        },
+        {
+          "id": 2,
+          "name": "FLDFEH+Arial",
+          "subtype": "TrueType",
+          "embedded": true,
+          "damaged": false,
+          "vertical": false,
+          "standard14": false,
+          "to_unicode_declared": false,
+          "glyphs": 832,
+          "unmapped_glyphs": 0,
+          "replacement_glyphs": 0,
+          "pages": [
+            1
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Arial-ItalicMT",
+          "subtype": "TrueType",
+          "embedded": false,
+          "damaged": false,
+          "vertical": false,
+          "standard14": true,
+          "to_unicode_declared": false,
+          "glyphs": 23,
+          "unmapped_glyphs": 0,
+          "replacement_glyphs": 0,
+          "pages": [
+            1
+          ]
+        },
+        {
+          "id": 4,
+          "name": "TimesNewRomanPSMT",
+          "subtype": "TrueType",
+          "embedded": false,
+          "damaged": false,
+          "vertical": false,
+          "standard14": false,
+          "to_unicode_declared": false,
+          "glyphs": 57,
+          "unmapped_glyphs": 0,
+          "replacement_glyphs": 0,
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "physical_pages": 1,
+      "input": "eu-010.pdf",
+      "sha256": "a328ff297056c6da316d8033a8752e15cf20416b88ccb1f7f88d12627617307d"
+    },
+    {
+      "fonts": [
+        {
+          "id": 1,
+          "name": "Times-Roman",
+          "subtype": "Type1",
+          "embedded": false,
+          "damaged": false,
+          "vertical": false,
+          "standard14": false,
+          "to_unicode_declared": false,
+          "glyphs": 10096,
+          "unmapped_glyphs": 0,
+          "replacement_glyphs": 0,
+          "pages": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Times-Bold",
+          "subtype": "Type1",
+          "embedded": false,
+          "damaged": false,
+          "vertical": false,
+          "standard14": true,
+          "to_unicode_declared": false,
+          "glyphs": 481,
+          "unmapped_glyphs": 0,
+          "replacement_glyphs": 0,
+          "pages": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": 3,
+          "name": "OJIXHX+MSTT31c4fe00",
+          "subtype": "Type1",
+          "embedded": true,
+          "damaged": false,
+          "vertical": false,
+          "standard14": false,
+          "to_unicode_declared": false,
+          "glyphs": 1,
+          "unmapped_glyphs": 1,
+          "replacement_glyphs": 0,
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "physical_pages": 3,
+      "input": "us-038.pdf",
+      "sha256": "5d01d12ccc6d5325b96fb181e6f50665e789c8e07da9a6a9c793fa339b841882"
+    },
+    {
+      "fonts": [
+        {
+          "id": 1,
+          "name": "TimesNewRomanPSMT",
+          "subtype": "TrueType",
+          "embedded": false,
+          "damaged": false,
+          "vertical": false,
+          "standard14": false,
+          "to_unicode_declared": false,
+          "glyphs": 63,
+          "unmapped_glyphs": 0,
+          "replacement_glyphs": 0,
+          "pages": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "id": 2,
+          "name": "HHILFL+CenturySchoolbook",
+          "subtype": "TrueType",
+          "embedded": true,
+          "damaged": false,
+          "vertical": false,
+          "standard14": false,
+          "to_unicode_declared": false,
+          "glyphs": 7982,
+          "unmapped_glyphs": 0,
+          "replacement_glyphs": 0,
+          "pages": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "id": 3,
+          "name": "HHILGN+CenturySchoolbook-Bold",
+          "subtype": "TrueType",
+          "embedded": true,
+          "damaged": false,
+          "vertical": false,
+          "standard14": false,
+          "to_unicode_declared": false,
+          "glyphs": 304,
+          "unmapped_glyphs": 0,
+          "replacement_glyphs": 0,
+          "pages": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "id": 4,
+          "name": "HIBPNE+CenturySchoolbook-Italic",
+          "subtype": "TrueType",
+          "embedded": true,
+          "damaged": false,
+          "vertical": false,
+          "standard14": false,
+          "to_unicode_declared": false,
+          "glyphs": 3000,
+          "unmapped_glyphs": 0,
+          "replacement_glyphs": 0,
+          "pages": [
+            1,
+            3,
+            4
+          ]
+        },
+        {
+          "id": 5,
+          "name": "HIFBLG+CenturySchoolbook-BoldItalic",
+          "subtype": "TrueType",
+          "embedded": true,
+          "damaged": false,
+          "vertical": false,
+          "standard14": false,
+          "to_unicode_declared": false,
+          "glyphs": 65,
+          "unmapped_glyphs": 0,
+          "replacement_glyphs": 0,
+          "pages": [
+            2,
+            3
+          ]
+        },
+        {
+          "id": 6,
+          "name": "HHMCJL+SymbolMT",
+          "subtype": "Type0",
+          "embedded": true,
+          "damaged": false,
+          "vertical": false,
+          "standard14": false,
+          "to_unicode_declared": true,
+          "glyphs": 7,
+          "unmapped_glyphs": 0,
+          "replacement_glyphs": 0,
+          "pages": [
+            3,
+            4
+          ]
+        },
+        {
+          "id": 7,
+          "name": "ArialMT",
+          "subtype": "TrueType",
+          "embedded": false,
+          "damaged": false,
+          "vertical": false,
+          "standard14": true,
+          "to_unicode_declared": false,
+          "glyphs": 7,
+          "unmapped_glyphs": 0,
+          "replacement_glyphs": 0,
+          "pages": [
+            3,
+            4
+          ]
+        }
+      ],
+      "physical_pages": 4,
+      "input": "eu-011.pdf",
+      "sha256": "f3e94b7020e079dff7da367db7e6128181bf929e3cdbd6e98227f67f8eb96fd0"
+    }
+  ]
+}

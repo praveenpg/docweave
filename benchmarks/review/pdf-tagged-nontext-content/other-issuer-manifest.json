@@ -1,0 +1,58 @@
+{
+  "frozen_at" : "2026-10-19T03:24:48.543257+00:00",
+  "scope" : "Development addition: stage explicit page-stream MCIDs outside source Table/TR cell roles, at most4096/table. Require single-page unique references, no alternate text/form/child reference, one unambiguous declaration and zero retained glyphs before table acceptance; no glyph claims or topology invented for auxiliary content. All existing profiles run uniformly on complete original bytes with earlier declared limits. Preserve original source/reference identities, ROIs, scoring, all failures and native observations; only SOURCE_TAGGED_TABLES is a declared change candidate on Walmart. Other source populations remain unchanged. Not independent broad acceptance or best-of selection.",
+  "inputs" : [ {
+    "filename" : "amazon-q4-2025.pdf",
+    "url" : "https://s2.q4cdn.com/299287126/files/doc_earnings/2025/q4/earnings-result/AMZN-Q4-2025-Earnings-Release.pdf",
+    "bytes" : 360510,
+    "sha256" : "ad8d84cbcc0a4ce35b803b93e8186c29ea0b06b4455d04fb584ab5ad29c42915"
+  }, {
+    "filename" : "amazon-q4-2025-sec.html",
+    "url" : "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000002/amzn-20251231xex991.htm",
+    "bytes" : 629437,
+    "sha256" : "48446f283debb99562001c1b8456f00fd9bd5e6c5b142827653753c840e473c2"
+  } ],
+  "source_pdf" : "amazon-q4-2025.pdf",
+  "source_html" : "amazon-q4-2025-sec.html",
+  "source_pages" : 14,
+  "cases" : [ {
+    "id" : "operations",
+    "page" : 7,
+    "html_table_index" : 1,
+    "reference_rows" : 27,
+    "reference_rows_sha256" : "c48c557b5401161ab5e1691d753806f33f0a5dc9479c16529e4c13c86ba0ac61",
+    "roi_left_top_right_bottom" : [ 48, 90, 564, 535 ]
+  }, {
+    "id" : "balance-sheet",
+    "page" : 10,
+    "html_table_index" : 4,
+    "reference_rows" : 32,
+    "reference_rows_sha256" : "2896db58a4b699302d28fd6ab84d6b8308775770ca1139a35ee864a0e21b144b",
+    "roi_left_top_right_bottom" : [ 48, 100, 564, 620 ]
+  } ],
+  "profiles" : [ "RULED_ONLY", "RULED_AND_ALIGNED_TEXT", "RULED_AND_MULTILINE_ALIGNED_TEXT", "RULED_AND_DOUBLE_BORDERS", "RULED_AND_HORIZONTAL_TEXT", "RULED_AND_PARTIAL_TEXT", "RULED_AND_SEGMENTED_ROWS", "RULED_AND_SHADED_ROWS", "RULED_AND_SHADED_ROWS_COMPACT_PADDING", "RULED_AND_SHADED_ROWS_INLINE_SCRIPTS" ],
+  "protocol" : {
+    "extraction" : "Complete original PDF per mode, native defaults plus cell geometry. No reference/page/ROI inputs to extraction; source-dependent failures retain both cases in denominator.",
+    "references" : "Issuer-authored SEC HTML tables by fixed document-order index. Direct tr rows for that table, direct td/th wholeText joined by ASCII space. Map NBSP to display space, collapse ASCII whitespace only, trim only those spaces, drop wholly blank rows. Preserve punctuation/case/numeric formatting and all other Unicode. SHA256 of newline-joined normalized nonblank rows without trailing newline.",
+    "selection" : "Fixed source pages and displayed ROIs from PDF page rendering before DocWeave extraction. Max parent IoU >=0.5, stable first-index tie; never text-based association.",
+    "comparison" : "Exact nonblank row text at original nonblank row index. Do not shift rows, join fragments, fuzzy match, fix parentheses/currency/numbers or use content to choose a table. Keep missing/extra rows separate.",
+    "limits" : "HTML presentational cells/spans are NOT labels for PDF physical topology. No physical-span accuracy, cell-box accuracy or semantic-merge claim."
+  },
+  "discovery_failures" : [ "Investor-relations HTML download returnedHTTP403, including standard user-agent attempt; switched to public issuer-authored SEC exhibit before freezing or extraction." ],
+  "transfer_frozen_at" : "2026-10-20T03:31:51.900531331Z",
+  "reference_rows_per_profile" : 59,
+  "candidate_case_profiles" : 20,
+  "candidate_base_commit" : "414de950623aea5029f7c60b3ea2ca63bc3211a8",
+  "baseline_manifest" : "benchmarks/review/pdf-clipped-header-bounds-v2/other-issuer-manifest.json",
+  "baseline_manifest_sha256" : "5a433e4d97a5c75f6851821ddda69acbee537be926de1119cdaae661fac48362",
+  "baseline_report" : "benchmarks/review/pdf-clipped-header-bounds-v2/other-issuer-java21.json",
+  "baseline_report_sha256" : "59520c884265da2ac2368958a7075fd60bc6ed29e939c688e387eacabcc12831",
+  "baseline_case_profiles" : 20,
+  "changed_profiles" : [ ],
+  "candidate_source_sha256" : {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTaggedStructure.java" : "c728aec3fc3879cc909c6084955adcf62c4db8240aad9295e5bd267ae3621f21",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTaggedTables.java" : "a67ac6bc1ec913b8aa93e95677c73444ed91e202774c3f88b4a13ed4ea898f6f"
+  },
+  "header_bounds_frozen_at" : "2026-10-20T03:47:10.734911528Z",
+  "nontext_policy_frozen_at" : "2026-10-20T04:18:31.889020603Z"
+}

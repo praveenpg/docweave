@@ -1,0 +1,20 @@
+{
+  "scope": "Whole-original diagnostic after fixed first caption trial. Expanded read-only inventory to all native units starting Fig/FIG, recording actual committed label predicate and one separator codepoint; does not change any product predicate, geometry, reference or score. All9cases and same-page image relations retained. Initial strict-cue inventory retained separately; no source captions/ROIs or threshold tuning.",
+  "code_commit": "2dc6afb",
+  "identities": {
+    "benchmarks/tools/AuditCaptionEligibility.java": "46f12b291bf2ac93316fb6aee35d3a3468b18e83fbc7a2fea27fa0d6c48f6508",
+    "docweave-pdf/src/main/java/dev/docweave/partition/ImageAdjacentPdfFigureCaptions.java": "83ffc9d5a3360e45dd12c2be7aaeba6bb7df312ab9b8564eccad708d9406368f",
+    "benchmarks/review/pdf-scientific-reading/manifest.json": "e146fb276c4397be24d6fdedeb13307f65a3012290bfafc96488d3d6673f12e2"
+  },
+  "initial_evaluated_identities": {
+    "benchmarks/tools/AuditCaptionEligibility.java": "16eaabe80d7012e8afb85e05dc2cb4aed8d61c0515e93cb6a4ede96ab1c2e5d1",
+    "docweave-pdf/src/main/java/dev/docweave/partition/ImageAdjacentPdfFigureCaptions.java": "83ffc9d5a3360e45dd12c2be7aaeba6bb7df312ab9b8564eccad708d9406368f",
+    "benchmarks/review/pdf-scientific-reading/manifest.json": "e146fb276c4397be24d6fdedeb13307f65a3012290bfafc96488d3d6673f12e2"
+  },
+  "expanded_evaluated_identities": {
+    "benchmarks/tools/AuditCaptionEligibility.java": "04ad78fd9d380d48b553ef4835cfe58d8638c7416fdcd142240238987683ebaf",
+    "docweave-pdf/src/main/java/dev/docweave/partition/ImageAdjacentPdfFigureCaptions.java": "83ffc9d5a3360e45dd12c2be7aaeba6bb7df312ab9b8564eccad708d9406368f",
+    "benchmarks/review/pdf-scientific-reading/manifest.json": "e146fb276c4397be24d6fdedeb13307f65a3012290bfafc96488d3d6673f12e2"
+  },
+  "final_scope_correction": "Correct scope text to Fig/FIG-prefixed units and add numeric codepoint after the label period. Product predicates/source bytes/reference scores unchanged. Initial and expanded audit tool hashes retained."
+}

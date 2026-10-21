@@ -1,0 +1,67 @@
+{
+  "commit" : "171934db38a9e230e23b87a5afe86f8c83edaa95",
+  "runtime" : "21.0.12.1+12-LTS",
+  "scope" : "Original cTDaR raster embedded whole at150DPI; structural diagnostics, no OCR transcription oracle",
+  "results" : [ {
+    "input" : "cTDaR_s003",
+    "published_structure" : [ {
+      "unique_anchors" : 22,
+      "merged_records" : 3,
+      "rows" : 5,
+      "duplicate_anchor_records" : 0,
+      "columns" : 5,
+      "cell_records" : 22
+    }, {
+      "unique_anchors" : 6,
+      "merged_records" : 0,
+      "rows" : 2,
+      "duplicate_anchor_records" : 0,
+      "columns" : 3,
+      "cell_records" : 6
+    } ],
+    "emitted_tables" : [ ],
+    "ordinary_ocr_lines" : 66,
+    "source_images" : 1
+  }, {
+    "input" : "cTDaR_s004",
+    "published_structure" : [ {
+      "unique_anchors" : 131,
+      "merged_records" : 1,
+      "rows" : 13,
+      "duplicate_anchor_records" : 0,
+      "columns" : 11,
+      "cell_records" : 131
+    } ],
+    "emitted_tables" : [ ],
+    "ordinary_ocr_lines" : 24,
+    "source_images" : 1
+  }, {
+    "input" : "cTDaR_s101",
+    "published_structure" : [ {
+      "unique_anchors" : 29,
+      "merged_records" : 5,
+      "rows" : 18,
+      "duplicate_anchor_records" : 76,
+      "columns" : 4,
+      "cell_records" : 105
+    } ],
+    "emitted_tables" : [ ],
+    "ordinary_ocr_lines" : 123,
+    "source_images" : 1
+  }, {
+    "input" : "cTDaR_t00040",
+    "published_structure" : [ {
+      "unique_anchors" : 92,
+      "merged_records" : 0,
+      "rows" : 23,
+      "duplicate_anchor_records" : 0,
+      "columns" : 4,
+      "cell_records" : 92
+    } ],
+    "emitted_tables" : [ ],
+    "ordinary_ocr_lines" : 34,
+    "source_images" : 1
+  } ],
+  "executable_sha256" : "9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917",
+  "model_sha256" : "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047"
+}

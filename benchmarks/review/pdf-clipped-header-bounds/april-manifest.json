@@ -1,0 +1,66 @@
+{
+  "frozen_at" : "2026-10-20T00:25:11.726948815Z",
+  "scope" : "Development correction: complete an already-clipped top header line only when all independent first-level source rule spans support the same baseline. Cap extension by half the painted header pitch and12units; reject unrelated ink, missing spans or competing baselines. All native policies run uniformly on complete originals. Retain source/reference hashes, ROIs, ordinal scoring and every failure. No generic top-padding increase, source text repair or best-of selection. Same known-source development populations, not independent acceptance.",
+  "inputs" : [ {
+    "filename" : "apple-q2-2026.pdf",
+    "url" : "https://www.apple.com/newsroom/pdfs/fy2026q2/FY26_Q2_Consolidated_Financial_Statements.pdf",
+    "bytes" : 110402,
+    "sha256" : "28fa56187d6fd8fe8b0a67185f62b51fd0bb3932d8413a93f29c7455fc06b4dd"
+  }, {
+    "filename" : "apple-q2-2026-filing.html",
+    "url" : "https://d18rn0p25nwr6d.cloudfront.net/CIK-0000320193/beb2c243-4eda-4029-b91d-123de22558be.html",
+    "bytes" : 202154,
+    "sha256" : "106ee0799091055fc27c984d403e63474279891a476eb86adfa704c0f30c95d7"
+  } ],
+  "source_pdf" : "apple-q2-2026.pdf",
+  "source_html" : "apple-q2-2026-filing.html",
+  "source_pages" : 3,
+  "cases" : [ {
+    "id" : "operations",
+    "page" : 1,
+    "html_table_index" : 14,
+    "reference_rows" : 40,
+    "reference_rows_sha256" : "9c2d8c34cc97250b12334e47687613071ebabceff1bc92a47fecb1a61e322d12",
+    "roi_left_top_right_bottom" : [ 48, 90, 565, 755 ]
+  }, {
+    "id" : "balance-sheet",
+    "page" : 2,
+    "html_table_index" : 15,
+    "reference_rows" : 37,
+    "reference_rows_sha256" : "a4a62f5ae3febff6d6a121403d9cb039a48d2b86fb7d333a367efbe61348edb0",
+    "roi_left_top_right_bottom" : [ 48, 100, 565, 735 ]
+  }, {
+    "id" : "cash-flows",
+    "page" : 3,
+    "html_table_index" : 16,
+    "reference_rows" : 36,
+    "reference_rows_sha256" : "c1c6f62df61fc0e68c18ea1bfb49f228bc3897383334ed4fcd1379efbc07ec41",
+    "roi_left_top_right_bottom" : [ 48, 95, 565, 720 ]
+  } ],
+  "profiles" : [ "RULED_ONLY", "RULED_AND_ALIGNED_TEXT", "RULED_AND_MULTILINE_ALIGNED_TEXT", "RULED_AND_DOUBLE_BORDERS", "RULED_AND_HORIZONTAL_TEXT", "RULED_AND_PARTIAL_TEXT", "RULED_AND_SEGMENTED_ROWS", "RULED_AND_SHADED_ROWS", "RULED_AND_SHADED_ROWS_COMPACT_PADDING", "RULED_AND_SHADED_ROWS_INLINE_SCRIPTS" ],
+  "protocol" : {
+    "extraction" : "Complete original PDF per mode, native defaults plus cell geometry. No reference/page/ROI inputs to extraction; source-dependent failures retain both cases in denominator.",
+    "references" : "Issuer-authored SEC HTML tables by fixed document-order index. Direct tr rows for that table, direct td/th wholeText joined by ASCII space. Map NBSP to display space, collapse ASCII whitespace only, trim only those spaces, drop wholly blank rows. Preserve punctuation/case/numeric formatting and all other Unicode. SHA256 of newline-joined normalized nonblank rows without trailing newline.",
+    "selection" : "Fixed source pages and displayed ROIs from PDF page rendering before DocWeave extraction. Max parent IoU >=0.5, stable first-index tie; never text-based association.",
+    "comparison" : "Exact nonblank row text at original nonblank row index. Do not shift rows, join fragments, fuzzy match, fix parentheses/currency/numbers or use content to choose a table. Keep missing/extra rows separate.",
+    "limits" : "HTML presentational cells/spans are NOT labels for PDF physical topology. No physical-span accuracy, cell-box accuracy or semantic-merge claim."
+  },
+  "discovery_failures" : [ "Investor-relations HTML download returnedHTTP403, including standard user-agent attempt; switched to public issuer-authored SEC exhibit before freezing or extraction." ],
+  "publisher_page" : "https://www.apple.com/newsroom/2026/04/apple-reports-second-quarter-results/",
+  "source_note" : "Direct SEC exhibit fetch returnedHTTP403. Use unchanged issuer-hosted filing HTML publicly available on its reporting CDN; no source text reconstructed from PDFs.",
+  "reference_rows_per_profile" : 113,
+  "baseline_manifest" : "benchmarks/review/pdf-tall-cell-paint/april-manifest.json",
+  "baseline_manifest_sha256" : "feba648d7bacc63159caff5278c7766df04652afa6a0393cea1741185254de39",
+  "baseline_report" : "benchmarks/review/pdf-tall-cell-paint/april-java21.json",
+  "baseline_report_sha256" : "55e3cbc8f83b32f3bc05d4039d187a1949a45df1a2af3afd756411f3d25345b2",
+  "baseline_case_profiles" : 30,
+  "candidate_case_profiles" : 30,
+  "candidate_source_sha256" : {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfShadedHeaderBounds.java" : "2274429ba7ff8bc877c37fc9d53a49ae02489abeb88130807e7a5c36984fa6e8",
+    "docweave-pdf/src/main/java/dev/docweave/partition/ShadedRowsPdfTableDetector.java" : "13fff0a6ddd8262b5fb664395422312fd4ad024140b174ad9ba1f1fe35479c1b"
+  },
+  "script_runs_frozen_at" : "2026-10-20T03:27:10.882442021Z",
+  "candidate_base_commit" : "791892091d33628043e33f951166b7c4a7fbba98",
+  "changed_profiles" : [ ],
+  "header_bounds_frozen_at" : "2026-10-20T03:44:50.522465505Z"
+}

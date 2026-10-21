@@ -1,0 +1,181 @@
+{
+  "source_manifest_sha256" : "e146fb276c4397be24d6fdedeb13307f65a3012290bfafc96488d3d6673f12e2",
+  "scope" : "All source main-body fig nodes, exact DOM text identities only; no PDF geometry, extraction, semantic alignment or accuracy score",
+  "results" : [ {
+    "doi" : "10.1371/journal.pone.0324609",
+    "figures" : [ {
+      "caption_identities" : [ {
+        "code_points" : 64,
+        "utf8_sha256" : "5872da299f93dc28e1bb310ea9f5e3cde16bf1a4ff3b893b8068bb61099e333f",
+        "utf16_units" : 64
+      } ],
+      "label_identities" : [ {
+        "code_points" : 5,
+        "utf8_sha256" : "48cb798cc7bb6b6e7c8d7824e79260889dfcc03e5cebe5e3e98dfc6d7e8a46f4",
+        "utf16_units" : 5
+      } ],
+      "direct_labels" : 1,
+      "source_id" : "pone.0324609.g001",
+      "direct_captions" : 1,
+      "ordinal" : 0,
+      "graphic_descendants" : 1
+    }, {
+      "caption_identities" : [ {
+        "code_points" : 68,
+        "utf8_sha256" : "4e04066169b9e22b19dd6c36e4468c436e17e37f3471f0c9457618c55070bbc3",
+        "utf16_units" : 68
+      } ],
+      "label_identities" : [ {
+        "code_points" : 5,
+        "utf8_sha256" : "3ccdcb748892e35e762c4218e4fee154783d7fec5e76c8230b7983650b000df8",
+        "utf16_units" : 5
+      } ],
+      "direct_labels" : 1,
+      "source_id" : "pone.0324609.g002",
+      "direct_captions" : 1,
+      "ordinal" : 1,
+      "graphic_descendants" : 1
+    }, {
+      "caption_identities" : [ {
+        "code_points" : 73,
+        "utf8_sha256" : "681f7580bdf60b64baf8fa60aa0b11438155dee1263b59e569c75f6489419862",
+        "utf16_units" : 73
+      } ],
+      "label_identities" : [ {
+        "code_points" : 5,
+        "utf8_sha256" : "866a00557082fcae693790b99a76b2debf921c5f9b8bbdfa2572d79d2c8e10ff",
+        "utf16_units" : 5
+      } ],
+      "direct_labels" : 1,
+      "source_id" : "pone.0324609.g003",
+      "direct_captions" : 1,
+      "ordinal" : 2,
+      "graphic_descendants" : 1
+    }, {
+      "caption_identities" : [ {
+        "code_points" : 66,
+        "utf8_sha256" : "c5f1bce3b769981c55073f28edc5999c7aae10152635f169107f8f4f5184eb38",
+        "utf16_units" : 66
+      } ],
+      "label_identities" : [ {
+        "code_points" : 5,
+        "utf8_sha256" : "aa66628c1eb55098fbfe53c29542a36b30c7dccea7d46e3eb216a9553d47ed2d",
+        "utf16_units" : 5
+      } ],
+      "direct_labels" : 1,
+      "source_id" : "pone.0324609.g004",
+      "direct_captions" : 1,
+      "ordinal" : 3,
+      "graphic_descendants" : 1
+    }, {
+      "caption_identities" : [ {
+        "code_points" : 74,
+        "utf8_sha256" : "2fd8f66fe97d5aaa1ae509297e3af7cbae814efd67a3269a7bc3c432e83cfefc",
+        "utf16_units" : 74
+      } ],
+      "label_identities" : [ {
+        "code_points" : 5,
+        "utf8_sha256" : "132677e103bf8f5e3a25052cac3c0d4f5105661df71e3e99be7884ca871c117d",
+        "utf16_units" : 5
+      } ],
+      "direct_labels" : 1,
+      "source_id" : "pone.0324609.g005",
+      "direct_captions" : 1,
+      "ordinal" : 4,
+      "graphic_descendants" : 1
+    } ],
+    "case" : "recent",
+    "main_body_figures" : 5
+  }, {
+    "doi" : "10.1371/journal.pone.0330904",
+    "figures" : [ {
+      "caption_identities" : [ {
+        "code_points" : 135,
+        "utf8_sha256" : "a282c7ed2450952f4db953ff8cfda8e2437ac596f00ae5aa630145095adbbbc2",
+        "utf16_units" : 135
+      } ],
+      "label_identities" : [ {
+        "code_points" : 5,
+        "utf8_sha256" : "48cb798cc7bb6b6e7c8d7824e79260889dfcc03e5cebe5e3e98dfc6d7e8a46f4",
+        "utf16_units" : 5
+      } ],
+      "direct_labels" : 1,
+      "source_id" : "pone.0330904.g001",
+      "direct_captions" : 1,
+      "ordinal" : 0,
+      "graphic_descendants" : 1
+    } ],
+    "case" : "next",
+    "main_body_figures" : 1
+  }, {
+    "doi" : "10.7554/eLife.90049",
+    "figures" : [ {
+      "caption_identities" : [ {
+        "code_points" : 695,
+        "utf8_sha256" : "cc40b787a6162deff55b663466732f9dcad0250bdcfedea9e11c75d0964ceda2",
+        "utf16_units" : 695
+      } ],
+      "label_identities" : [ {
+        "code_points" : 9,
+        "utf8_sha256" : "c1f4ad59adc459616a40cff1414475a996f444f4eec767fa4b4203c3b2bf693c",
+        "utf16_units" : 9
+      } ],
+      "direct_labels" : 1,
+      "source_id" : "fig1",
+      "direct_captions" : 1,
+      "ordinal" : 0,
+      "graphic_descendants" : 1
+    }, {
+      "caption_identities" : [ {
+        "code_points" : 460,
+        "utf8_sha256" : "df653b39153866794c4864c1fd4d7bfbcd4abbb160b1da42bd6d5aada918c1ca",
+        "utf16_units" : 460
+      } ],
+      "label_identities" : [ {
+        "code_points" : 9,
+        "utf8_sha256" : "ac1aed397520328dbf562479d4f0113b22beb070bf00471a1eb8b529f3923f2c",
+        "utf16_units" : 9
+      } ],
+      "direct_labels" : 1,
+      "source_id" : "fig2",
+      "direct_captions" : 1,
+      "ordinal" : 1,
+      "graphic_descendants" : 1
+    }, {
+      "caption_identities" : [ {
+        "code_points" : 435,
+        "utf8_sha256" : "8e251d9919e7bd54f8a74fcca367606fbb9f3147c073aef213904ad83990ba53",
+        "utf16_units" : 435
+      } ],
+      "label_identities" : [ {
+        "code_points" : 9,
+        "utf8_sha256" : "df647f8eb2bd978b828636ba13ebe28d8af7a0c399a8984bdf115aecc342f215",
+        "utf16_units" : 9
+      } ],
+      "direct_labels" : 1,
+      "source_id" : "fig3",
+      "direct_captions" : 1,
+      "ordinal" : 2,
+      "graphic_descendants" : 1
+    }, {
+      "caption_identities" : [ {
+        "code_points" : 472,
+        "utf8_sha256" : "69e078a577e9640ddbb9f455619d0da4a240131fd5a0a242022a13052191d118",
+        "utf16_units" : 472
+      } ],
+      "label_identities" : [ {
+        "code_points" : 9,
+        "utf8_sha256" : "21798bd3aa0750a533bb3063bbdcaedc15caf16325930927ae0177860a27ab63",
+        "utf16_units" : 9
+      } ],
+      "direct_labels" : 1,
+      "source_id" : "fig4",
+      "direct_captions" : 1,
+      "ordinal" : 3,
+      "graphic_descendants" : 1
+    } ],
+    "case" : "elife",
+    "main_body_figures" : 4
+  } ],
+  "runtime" : "21.0.12.1+12-LTS"
+}

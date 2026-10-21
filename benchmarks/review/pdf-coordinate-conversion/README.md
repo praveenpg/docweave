@@ -1,0 +1,3 @@
+# Explicit PDF coordinate conversion
+
+Analytical controls cover physical scale, pixel DPI changes, UserUnit, all four displayed crop rotations, cell-only table chunks, merged anchor spans, source immutability/concurrent reuse, malformed geometry and arithmetic overflow. Existing actual native and fake-provider OCR pipeline fixtures verify converted cell geometry through JSON/whole/split chunk provenance. Provenance parent rounding remains the existing codec policy; this is not a new OCR/table recognition claim. Full Java21/25 verification and strict Javadocs passed. No external engine or downloaded corpus replay was required for this post-extraction service.

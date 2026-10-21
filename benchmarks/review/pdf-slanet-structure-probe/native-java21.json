@@ -1,0 +1,211 @@
+{
+  "results" : [ {
+    "case" : "income",
+    "mode" : "tatr",
+    "outcome" : "SUCCESS",
+    "document_elements" : 999,
+    "source_pages" : [ 4, 5 ],
+    "regions" : [ {
+      "associated" : false,
+      "observed_content_rows" : 0,
+      "association_iou" : 0.0,
+      "tables_on_page" : 0,
+      "source_page" : 4,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 89
+    }, {
+      "associated" : false,
+      "observed_content_rows" : 0,
+      "association_iou" : 0.0,
+      "tables_on_page" : 0,
+      "source_page" : 5,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 97
+    } ],
+    "associated_regions" : 0,
+    "all_regions_associated" : false,
+    "reference_content_rows" : 28,
+    "observed_content_rows" : 0,
+    "exact_ordinal_rows" : 0,
+    "missing_row_positions" : 28,
+    "extra_row_positions" : 0,
+    "complete_row_content" : false,
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION" ]
+  }, {
+    "case" : "balance-sheet",
+    "mode" : "tatr",
+    "outcome" : "SUCCESS",
+    "document_elements" : 999,
+    "source_pages" : [ 5, 6 ],
+    "regions" : [ {
+      "associated" : false,
+      "observed_content_rows" : 0,
+      "association_iou" : 0.0,
+      "tables_on_page" : 0,
+      "source_page" : 5,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 97
+    }, {
+      "associated" : false,
+      "observed_content_rows" : 0,
+      "association_iou" : 0.0,
+      "tables_on_page" : 0,
+      "source_page" : 6,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 106
+    } ],
+    "associated_regions" : 0,
+    "all_regions_associated" : false,
+    "reference_content_rows" : 33,
+    "observed_content_rows" : 0,
+    "exact_ordinal_rows" : 0,
+    "missing_row_positions" : 33,
+    "extra_row_positions" : 0,
+    "complete_row_content" : false,
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION" ]
+  }, {
+    "case" : "cash-flows",
+    "mode" : "tatr",
+    "outcome" : "SUCCESS",
+    "document_elements" : 999,
+    "source_pages" : [ 6, 7 ],
+    "regions" : [ {
+      "associated" : false,
+      "observed_content_rows" : 0,
+      "association_iou" : 0.0,
+      "tables_on_page" : 0,
+      "source_page" : 6,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 106
+    }, {
+      "associated" : true,
+      "observed_content_rows" : 25,
+      "association_iou" : 0.8571413623423844,
+      "tables_on_page" : 1,
+      "source_page" : 7,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 86
+    } ],
+    "associated_regions" : 1,
+    "all_regions_associated" : false,
+    "reference_content_rows" : 49,
+    "observed_content_rows" : 25,
+    "exact_ordinal_rows" : 0,
+    "missing_row_positions" : 24,
+    "extra_row_positions" : 0,
+    "complete_row_content" : false,
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION" ]
+  }, {
+    "case" : "income",
+    "mode" : "yolox",
+    "outcome" : "SUCCESS",
+    "document_elements" : 951,
+    "source_pages" : [ 4, 5 ],
+    "regions" : [ {
+      "associated" : false,
+      "observed_content_rows" : 0,
+      "association_iou" : 0.0,
+      "tables_on_page" : 0,
+      "source_page" : 4,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 89
+    }, {
+      "associated" : true,
+      "observed_content_rows" : 10,
+      "association_iou" : 0.8572770394900837,
+      "tables_on_page" : 1,
+      "source_page" : 5,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 78
+    } ],
+    "associated_regions" : 1,
+    "all_regions_associated" : false,
+    "reference_content_rows" : 28,
+    "observed_content_rows" : 10,
+    "exact_ordinal_rows" : 0,
+    "missing_row_positions" : 18,
+    "extra_row_positions" : 0,
+    "complete_row_content" : false,
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION" ]
+  }, {
+    "case" : "balance-sheet",
+    "mode" : "yolox",
+    "outcome" : "SUCCESS",
+    "document_elements" : 951,
+    "source_pages" : [ 5, 6 ],
+    "regions" : [ {
+      "associated" : false,
+      "observed_content_rows" : 0,
+      "association_iou" : 0.0,
+      "tables_on_page" : 1,
+      "source_page" : 5,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 78
+    }, {
+      "associated" : false,
+      "observed_content_rows" : 0,
+      "association_iou" : 0.0,
+      "tables_on_page" : 0,
+      "source_page" : 6,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 106
+    } ],
+    "associated_regions" : 0,
+    "all_regions_associated" : false,
+    "reference_content_rows" : 33,
+    "observed_content_rows" : 0,
+    "exact_ordinal_rows" : 0,
+    "missing_row_positions" : 33,
+    "extra_row_positions" : 0,
+    "complete_row_content" : false,
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION" ]
+  }, {
+    "case" : "cash-flows",
+    "mode" : "yolox",
+    "outcome" : "SUCCESS",
+    "document_elements" : 951,
+    "source_pages" : [ 6, 7 ],
+    "regions" : [ {
+      "associated" : false,
+      "observed_content_rows" : 0,
+      "association_iou" : 0.0,
+      "tables_on_page" : 0,
+      "source_page" : 6,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 106
+    }, {
+      "associated" : true,
+      "observed_content_rows" : 26,
+      "association_iou" : 0.8131162613109908,
+      "tables_on_page" : 1,
+      "source_page" : 7,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 57
+    } ],
+    "associated_regions" : 1,
+    "all_regions_associated" : false,
+    "reference_content_rows" : 49,
+    "observed_content_rows" : 26,
+    "exact_ordinal_rows" : 0,
+    "missing_row_positions" : 23,
+    "extra_row_positions" : 0,
+    "complete_row_content" : false,
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION" ]
+  } ],
+  "documents" : [ {
+    "outcome" : "SUCCESS",
+    "profile" : "tatr",
+    "original_pages" : 11,
+    "document_elements" : 999,
+    "layout_calls" : 11
+  }, {
+    "outcome" : "SUCCESS",
+    "profile" : "yolox",
+    "original_pages" : 11,
+    "document_elements" : 951,
+    "layout_calls" : 11
+  } ],
+  "scope" : "All11pages/bothdetectors, only strict provider-compatible raw candidates; every rejected candidate retained separately and all110reference rows remain. No repaired spans/geometry or source winner.",
+  "runtime" : "21.0.12.1+12-LTS",
+  "replay_manifest_sha256" : "7f138e508504275da95f1f6a2c09f68bbd4c6bc2249541350a6422bc9de9b7ef"
+}

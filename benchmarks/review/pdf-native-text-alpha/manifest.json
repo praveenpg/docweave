@@ -1,0 +1,53 @@
+{
+  "scope": "Explicit nonzero-alpha native policy. Frozen complete originals, all three rendering policies and both native/source-tagged factories. No cropping, oracle visibility labels, source-specific options or expected equality assumption; every typed failure remains. Exact element regression removes only declared rendering-policy metadata.",
+  "base_commit": "b9c6fd0",
+  "identities": {
+    "benchmarks/tools/CompareNativeTextAlpha.java": "69a9a77c33e02c4fc578695fc5db499a7ee18edb04c14c4374730e7ba213b9d3",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "7ee8281b27c479295b731258570df7e18474e3168214bd707749684fc44db4be",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageText.java": "5d02c4a78e645ed336b796f41cd26b8c3df687ccf454303d20693dec747c8299",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageLayout.java": "6e786af97def3cbac24df04b9a6121805407f67ae3988ad08b0c2582213a5dde",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfTextAlphaTest.java": "04160bb31d6e72ffb4384517bf240e20820790e638cf97901eeb6fca21afcb65"
+  },
+  "input_tsv_sha256": "8261b8f38a0ce94086b641072bb65fb27c9952c098546550e2fc40e4f981f86f",
+  "inputs": [
+    {
+      "case": "plos-0324609",
+      "bytes": 927934,
+      "sha256": "acb3af41357a960a9584f9ba0b0bf3319195af2ec4f3bc6074c2083d97d10bb8"
+    },
+    {
+      "case": "plos-0330904",
+      "bytes": 321008,
+      "sha256": "0c96e723535ee671eb0d263702adc9e986fb2817a5e16ab7b7235e593a39eff2"
+    },
+    {
+      "case": "elife-90049",
+      "bytes": 1641690,
+      "sha256": "ae3d00995f44bdd26fd0f60e760dc0fce44e84a0482fc64d2277ef4792413a4b"
+    },
+    {
+      "case": "nvidia-fy26q4",
+      "bytes": 97444,
+      "sha256": "89de999d7155649197672bf490c519607f1abbcdc96e2e4c6718bf6ecbb13564"
+    }
+  ],
+  "policies": [
+    "ALL",
+    "PAINTED_MODES",
+    "NONZERO_ALPHA_PAINTED_MODES"
+  ],
+  "factories": [
+    "NATIVE",
+    "SOURCE_TAGGED"
+  ],
+  "expected_case_profiles": 24,
+  "raw_sources_redistributed": false,
+  "evaluated_identities": {
+    "benchmarks/tools/CompareNativeTextAlpha.java": "69a9a77c33e02c4fc578695fc5db499a7ee18edb04c14c4374730e7ba213b9d3",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "7ee8281b27c479295b731258570df7e18474e3168214bd707749684fc44db4be",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageText.java": "e5302b0d942f0cba7422548c40ee7608989a03e9b800aed125b3d55d55a1254e",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageLayout.java": "6e786af97def3cbac24df04b9a6121805407f67ae3988ad08b0c2582213a5dde",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfTextAlphaTest.java": "04160bb31d6e72ffb4384517bf240e20820790e638cf97901eeb6fca21afcb65"
+  },
+  "post_evaluation_change": "Add missing private Glyph component Javadocs only after strict private doclint found seven pre-existing missing-parameter warnings. No executable code changes."
+}

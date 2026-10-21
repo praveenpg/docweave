@@ -1,0 +1,30 @@
+{
+  "base_commit": "f768283",
+  "java21_full_verify": {
+    "tests": 1196,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "focused_tests": 8,
+  "private_doclint": "PASS",
+  "scientific_profiles_exact": 15,
+  "nvidia_statement_records_exact": 6,
+  "nvidia_document_summaries_exact": 2,
+  "owned_grid_rgb_pairs": 72,
+  "owned_visible_restored_table_cases": 96,
+  "scope": "Single axis-aligned re clips only; no partial trimming, general clips, dash filter, text/image policy or public API change",
+  "source_and_evidence_sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java": "06de1f1c20543456ee1af0092d3e91dcb30bfc8893b50d55c3dcb41953494c53",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfEmptyFormClipTest.java": "ddc65d0faae1bcdf6c0ac80215c54ca4b373761708fef9454b14982b0fa71a31",
+    "benchmarks/review/pdf-explicit-rectangle-clips/scientific-java21.json": "b6d3299ad7d6892d9990a21416c9bc6269f0f46ebb87636e7ee912de5031c0ef",
+    "benchmarks/review/pdf-explicit-rectangle-clips/nvidia-java21.json": "7b60d691432f2e2ee9fdf2f5632399058d51e6d77a9e70c12b4a207483b68e32"
+  },
+  "local_log_sha256": {
+    "docweave-explicit-clip-before21.log": "a007ae700062621486fb21f374463b8b03c1f3f8705905eccd4fb5b9a9dcccc6",
+    "docweave-explicit-clip-final-focused21.log": "a5b7e395f10a067f550c98fe0a7a214054d240316c0a6e9eba49b5b870f63b8d",
+    "docweave-explicit-clip-verify21.log": "ae1be371fdd39b1e36efaaa65f55613b5538736b254ce64393e0dd0be4abcea2",
+    "docweave-explicit-clip-doclint.log": "a3d747a6448f265f117a829c7dc630e1185a0e6a42fdf933e056f4bc12abc07e",
+    "docweave-zero-dash-before-final21.log": "a6318a016acdf7ed7675764ebbdfddf632bcfb72990e6206f8bee2448d74880a"
+  }
+}

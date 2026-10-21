@@ -1,0 +1,35 @@
+{
+  "base_commit": "2c6de83",
+  "full_java21": {
+    "tests": 1200,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "focused_tests": 25,
+  "private_doclint": "PASS",
+  "scientific_fingerprints_exact": 15,
+  "historical_nvidia_observations_exact": 36,
+  "new_nvidia_observations": 3,
+  "new_nvidia_strict_rows": 0,
+  "reference_rows_per_profile": 110,
+  "production_source_sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/AlignedPdfTableDetector.java": "f6a74dec5ed5c9f53afbc6e77abff6cf5085aed87a5c91de81e38fc30d81e73f",
+    "docweave-pdf/src/main/java/dev/docweave/partition/DefaultPdfPartitioner.java": "cca4f6cbe0969d21ce98074179de230b265a8401ec8bcf613747c071d192d4ce",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "7697185d64f978dc581d95969885dc35de4e380f57a6087cf86989d756441641",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageLayout.java": "75c8c9ff4344ce299b04d0374edb5e1c2862c7a19ef67ce509e35541a17e0d8c",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPartitioner.java": "342c13ea1bb93dc4acc9ec55c6c497f76c47d3b1948580d1ad721eaf17fe0a16"
+  },
+  "artifacts": {
+    "README.md": "f496ed796413641589ca7c41a2b8622ce598a1379f23b0a964e148903732ff62",
+    "manifest.json": "8b5c0692718eb3776b91c0b18d4708c0f5f49d4632c159cc0150072c73c1a524",
+    "nvidia-java21.json": "18b04fd4dcaa7bd6a1738457f06bb22caf30dfd695a6058acf621bf76dc2558a",
+    "scientific-java21.json": "b6d3299ad7d6892d9990a21416c9bc6269f0f46ebb87636e7ee912de5031c0ef"
+  },
+  "local_log_sha256": {
+    "full_java21": "e2d398d5cfc96bd2310a77696473098b01455dd3a081ffbf2819aed7db2346f6",
+    "focused": "04a5deba2615cccfe1d6d9ad9486f619fde310b5f1484c5a0f7d023ab3eed439",
+    "private_docs": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "historical_comparison": "998358468dc7705c3765327e83f1d1c128cc06814677a5f2bc3d3eb9d229f7a2"
+  }
+}

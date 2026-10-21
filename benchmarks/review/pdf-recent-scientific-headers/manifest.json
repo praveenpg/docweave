@@ -1,0 +1,45 @@
+{
+  "frozen_at": "2026-10-19T15:35:15.594082+00:00",
+  "selection_sha256": "4f867a40796aacebee352c78073bb80168b4b2a1fa2340ad5040e85e7f2c7f65",
+  "publication_date": "2025-05-20",
+  "doi": "10.1371/journal.pone.0324609",
+  "inputs": [
+    {
+      "filename": "article.pdf",
+      "bytes": 927934,
+      "sha256": "acb3af41357a960a9584f9ba0b0bf3319195af2ec4f3bc6074c2083d97d10bb8",
+      "git_blob_sha1": "b87ec2291c17c0d30901d9a8dcaa86799558e3b4",
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0324609&type=printable"
+    },
+    {
+      "filename": "article.xml",
+      "bytes": 127737,
+      "sha256": "2b691f82a7dc50ea051448861b852783a6be9069a61dc777d8871382d2bff9cd",
+      "git_blob_sha1": "a1009116401b6a564b89b5303058883063f32b22",
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0324609&type=manuscript"
+    }
+  ],
+  "protocol": "Publisher JATS logical table/thead truth. All136anchor text+logicalspan keys, nine header anchors scored separately. Full original15pagePDF extraction, maxROI IoU>=.5 stablefirsttie after extraction, no sourcecrop/referenceinputs to inference. ASCIIwhitespace only plus explicit JATSbreak->space, no punctuation/Unicode/hyphenrepair. Original renderedpage7 visuallyinspected before extraction: single complete table, no crosspage mapping; JATSlogical spans neednot equal every physical PDFborder; no physicalspan accuracyclaim. Missing/failedtable keeps all136anchors/nineheaders.",
+  "cases": [
+    {
+      "id": "recent-scientific",
+      "pdf": "article.pdf",
+      "source_page": 7,
+      "source_page_height": 792,
+      "jats": "article.xml",
+      "table_id": "pone.0324609.t001",
+      "expected_rows": 16,
+      "expected_columns": 9,
+      "expected_anchors": 136,
+      "publisher_header_rows": 1,
+      "expected_header_anchors": 9,
+      "leading_row_window": 1,
+      "roi_left_top_right_bottom": [
+        36,
+        107,
+        576,
+        573
+      ]
+    }
+  ]
+}

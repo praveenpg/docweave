@@ -1,0 +1,16 @@
+{
+  "scope": "Whole-input two-stage pipeline diagnostics, not held-out-model/general accuracy",
+  "pubtabnet_samples": 20,
+  "pubtabnet_tables": 19,
+  "pubtabnet_complete_positional_span_topologies": 14,
+  "pubtabnet_exact_positional_span_text_cells": 320,
+  "pubtabnet_complete_shape_text_tables": 0,
+  "pubtabnet_token_overlap": {
+    "matched": 724,
+    "observed": 1751,
+    "reference": 2070
+  },
+  "physical_samples": 4,
+  "physical_candidate_tables": 2,
+  "physical_complete_annotated_tables": 0
+}

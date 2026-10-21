@@ -1,0 +1,199 @@
+{
+  "source_and_render_frames_unchanged" : true,
+  "jvm_results_equal_except_random_pdf_identity" : true,
+  "complete_mode_diagnostics" : [ {
+    "case" : "arnimb_goethe03_1835/deu",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : true,
+    "associated_reference_lines" : {
+      "auto" : 21,
+      "single_column" : 22
+    },
+    "exact_associated_lines" : {
+      "auto" : 0,
+      "single_column" : 1
+    },
+    "missing_reference_lines" : {
+      "auto" : 1,
+      "single_column" : 0
+    },
+    "predicted_lines_without_reference" : {
+      "auto" : 0,
+      "single_column" : 0
+    },
+    "global_character_edits" : {
+      "auto" : 104,
+      "single_column" : 101
+    }
+  }, {
+    "case" : "arnimb_goethe03_1835/deu_latf",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : true,
+    "associated_reference_lines" : {
+      "auto" : 21,
+      "single_column" : 22
+    },
+    "exact_associated_lines" : {
+      "auto" : 4,
+      "single_column" : 5
+    },
+    "missing_reference_lines" : {
+      "auto" : 1,
+      "single_column" : 0
+    },
+    "predicted_lines_without_reference" : {
+      "auto" : 0,
+      "single_column" : 0
+    },
+    "global_character_edits" : {
+      "auto" : 51,
+      "single_column" : 48
+    }
+  }, {
+    "case" : "bebel_frau_1879/deu",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "auto" : 49,
+      "single_column" : 49
+    },
+    "exact_associated_lines" : {
+      "auto" : 42,
+      "single_column" : 42
+    },
+    "missing_reference_lines" : {
+      "auto" : 1,
+      "single_column" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "auto" : 1,
+      "single_column" : 1
+    },
+    "xml_sequence_character_edits" : {
+      "auto" : 291,
+      "single_column" : 291
+    }
+  }, {
+    "case" : "bebel_frau_1879/deu_latf",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "auto" : 49,
+      "single_column" : 49
+    },
+    "exact_associated_lines" : {
+      "auto" : 18,
+      "single_column" : 18
+    },
+    "missing_reference_lines" : {
+      "auto" : 1,
+      "single_column" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "auto" : 1,
+      "single_column" : 1
+    },
+    "xml_sequence_character_edits" : {
+      "auto" : 334,
+      "single_column" : 334
+    }
+  }, {
+    "case" : "buerger_gedichte_1778_0039/deu",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "auto" : 17,
+      "single_column" : 18
+    },
+    "exact_associated_lines" : {
+      "auto" : 0,
+      "single_column" : 0
+    },
+    "missing_reference_lines" : {
+      "auto" : 21,
+      "single_column" : 20
+    },
+    "predicted_lines_without_reference" : {
+      "auto" : 11,
+      "single_column" : 10
+    },
+    "xml_sequence_character_edits" : {
+      "auto" : 419,
+      "single_column" : 423
+    }
+  }, {
+    "case" : "buerger_gedichte_1778_0039/deu_latf",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "auto" : 18,
+      "single_column" : 18
+    },
+    "exact_associated_lines" : {
+      "auto" : 3,
+      "single_column" : 4
+    },
+    "missing_reference_lines" : {
+      "auto" : 20,
+      "single_column" : 20
+    },
+    "predicted_lines_without_reference" : {
+      "auto" : 10,
+      "single_column" : 10
+    },
+    "xml_sequence_character_edits" : {
+      "auto" : 371,
+      "single_column" : 389
+    }
+  }, {
+    "case" : "nn_besuch_1780_00001/deu",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "auto" : 9,
+      "single_column" : 9
+    },
+    "exact_associated_lines" : {
+      "auto" : 1,
+      "single_column" : 1
+    },
+    "missing_reference_lines" : {
+      "auto" : 1,
+      "single_column" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "auto" : 9,
+      "single_column" : 1
+    },
+    "xml_sequence_character_edits" : {
+      "auto" : 103,
+      "single_column" : 48
+    }
+  }, {
+    "case" : "nn_besuch_1780_00001/deu_latf",
+    "outcome" : "SUCCESS",
+    "reference_line_order_explicit" : false,
+    "associated_reference_lines" : {
+      "auto" : 9,
+      "single_column" : 9
+    },
+    "exact_associated_lines" : {
+      "auto" : 3,
+      "single_column" : 3
+    },
+    "missing_reference_lines" : {
+      "auto" : 1,
+      "single_column" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "auto" : 9,
+      "single_column" : 1
+    },
+    "xml_sequence_character_edits" : {
+      "auto" : 82,
+      "single_column" : 24
+    }
+  } ],
+  "paired_case_profiles" : 16,
+  "unchanged_auto_baselines" : 8
+}

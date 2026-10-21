@@ -1,0 +1,15 @@
+{
+  "base_commit": "ca48a8f",
+  "java_release": 21,
+  "evidence": "owned deterministic integration, not external OCR/model accuracy",
+  "files": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "f93c9969b064ccc0b784455977974f79ebd228614d508455ea42ab4b5e587dd1",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfProviderHeaderLayout.java": "73e8932f2fed42ca708ea9a016694e0e625523b8a75d5e11182ee5fcebe57788",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTableCells.java": "172556527c661f03751ffe0faaaa246222658c220e853549cb2f2d65f9ac85bf",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageOutput.java": "20b4e742f77be23671761ea842e64370569c86a75246b44a8a35e194a630f6e3",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageOcr.java": "92c5f5f062b8fc358e6cfdcd2fccbb3c9e412f99625ed2f865dd21ab59560726",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfNativeProviderTables.java": "058f59ef272fe104655066c674d76b5206a63814fac0e761e94476d04484dc1d",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPartitioner.java": "c43adf8d8331d6b4c5ebe216f8d3822add0263b11dcef4477cda885c8faeaadf",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfProviderContinuationTest.java": "3d8f1abecf5ea823fd7891e3d53f1d96a35718cbbfe161047a553904b22b87c1"
+  }
+}

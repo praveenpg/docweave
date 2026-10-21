@@ -1,0 +1,57 @@
+{
+  "production_source_commit": "0459fbb33e7fbddf5f6eb9c30906da45c43661b3",
+  "paired_metrics_equal_excluding_capture_sha256": true,
+  "native_text_geometry_and_counts_equal_excluding_geometry_capture_identity": true,
+  "files": {
+    "benchmarks/tools/ProbeNativeModelText.java": "09c46082b84bbc7236ef82e4e8896084224fb9e32173a1d8afc78d155eabfa45",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfCurrentBusinessRowsTest.java": "e271fd28ff31a2f6b295098b95c79a665214275d472f0c8fce74333f22efcc74",
+    "docweave-validation/src/test/java/dev/docweave/validation/StandaloneSourceCompatibilityTest.java": "4c54f4f785ff1d007ab60777ef61b383c9eb82a8c982df226ef3f5253952a889",
+    "benchmarks/review/pdf-native-model-probe/manifest.json": "c761f13a010ff43c4145f0ad60b870ad70213e6bd0e24d197156c44808e6a151",
+    "benchmarks/review/pdf-native-model-probe/java21.json": "5ca9a7bf154231f92a17aac6af2c163b35fe7d4d2de8e56cf5386d4fb949b551",
+    "benchmarks/review/pdf-native-model-probe/java25.json": "4d73fbd5b1a29fd8829f1714b2e11927a0f3845af38b9fa941afcc35ef30812c"
+  },
+  "captures": {
+    "21": {
+      "operations": {
+        "source_glyphs": 1473,
+        "claimed_glyphs": 1370,
+        "unclaimed_glyphs": 103,
+        "geometry_capture_sha256": "47f24083ee6a6ce555c5834750a229c57ed8d120fb94197a7bdf8471762ca3f1",
+        "capture_sha256": "bced76acb95294f0725f10c34b8c9a505120c7cae64e19edf8ba6c02630adde6"
+      },
+      "balance-sheet": {
+        "source_glyphs": 1395,
+        "claimed_glyphs": 1303,
+        "unclaimed_glyphs": 92,
+        "geometry_capture_sha256": "a28cd9b08f8863873630df2e9da52f4c5543e9aa17d31239615fae6d469e5e14",
+        "capture_sha256": "ffa497b9244ca0ecb98d52be05d09105b350b9fa97879fba090fb9a50eefb080"
+      }
+    },
+    "25": {
+      "operations": {
+        "source_glyphs": 1473,
+        "claimed_glyphs": 1370,
+        "unclaimed_glyphs": 103,
+        "geometry_capture_sha256": "c4bc28d73abd093347d3eddb17e30c57797cffd8d9e443ef0dfd1e01ba1127a9",
+        "capture_sha256": "97c5eb391a9f4383b48516b78dddb938a4c4c967f7d1a45afc9de7193ed20f6e"
+      },
+      "balance-sheet": {
+        "source_glyphs": 1395,
+        "claimed_glyphs": 1303,
+        "unclaimed_glyphs": 92,
+        "geometry_capture_sha256": "e44d61314ac4c2178ef17607a745d0cd663bb4683742858219a68422ca61ac3a",
+        "capture_sha256": "8309f8989c495ffa8b7b697c220d0185372c904d6e995b907f88bc52951a17c7"
+      }
+    }
+  },
+  "full_verify_log_sha256": {
+    "21": "424a4633987a38aad68eb6c14845e8335a6c3e883a199b2dabc293ae62aea311",
+    "25": "18b99d5bd64a0c3b3340c71c90636a94b5e5b51f7167dc40820df276dd325d12"
+  },
+  "tests_per_jdk": 928,
+  "tooling_guards": 36,
+  "strict_public_private_probe_javadocs_passed": [
+    "21",
+    "25"
+  ]
+}

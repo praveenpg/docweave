@@ -1,0 +1,9 @@
+{
+  "base_manifest_sha256": "5d1c00475fda12e12240546ce478d4192ab0a5035c1132a43385c69d3dc1c6c9",
+  "baseline_report_sha256": "74e6aa0294bfeb3a0b1a7c742f1868c1db09bd63e17376bce5af5012751a5a02",
+  "manifest_sha256": "1ac42cb4159668fccce9c7ef36e42b0941c6de0ac00ce685e2b4ea9ccb7abece",
+  "production_base_commit": "f205287",
+  "engine_threads": 1,
+  "actual_ocr_calls": 8,
+  "defaults_change": false
+}

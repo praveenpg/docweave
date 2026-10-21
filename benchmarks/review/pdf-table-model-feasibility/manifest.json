@@ -1,0 +1,178 @@
+{
+  "scope": "Local numerical/preprocessing and raw-object feasibility; no integrated extraction or calibrated accuracy claim",
+  "models": [
+    {
+      "model": "microsoft/table-transformer-structure-recognition",
+      "revision": "f4d4bdc85c3fe4b1fa49658882a5d38bbdd0f343",
+      "files": {
+        "model.safetensors": {
+          "bytes": 115434268,
+          "sha256": "f581da65a586591124cac9545b09b93e4e8bf28ce3a8357af6ac15ce94fce16b"
+        },
+        "config.json": {
+          "bytes": 1469,
+          "sha256": "9fa1108c9fbfac69086d23bdd26b9a2242a56a72766fed98c6dfaeaae59ebf76"
+        },
+        "preprocessor_config.json": {
+          "bytes": 274,
+          "sha256": "4bd6700976c66662678a521e529b06dca36df041c9d411884cb92e81bc5a6818"
+        },
+        "structure.onnx": {
+          "bytes": 115820383,
+          "sha256": "8779159bcf23fa7782f1734faac8684d9a83cf298d0bfe2995c89b36ff6f06f1"
+        }
+      },
+      "conversion": {
+        "source_revision": "f4d4bdc85c3fe4b1fa49658882a5d38bbdd0f343",
+        "source_sha256": "f581da65a586591124cac9545b09b93e4e8bf28ce3a8357af6ac15ce94fce16b",
+        "onnx_sha256": "8779159bcf23fa7782f1734faac8684d9a83cf298d0bfe2995c89b36ff6f06f1",
+        "packages": {
+          "torch": "2.9.1+cpu",
+          "torchvision": "0.24.1+cpu",
+          "transformers": "4.57.3",
+          "timm": "1.0.22",
+          "onnx": "1.19.1",
+          "safetensors": "0.8.0"
+        },
+        "opset": 17,
+        "inputs": [
+          {
+            "prefix": "/tmp/docweave-table-models/structure/parity-0",
+            "shape": [
+              1,
+              3,
+              800,
+              1000
+            ],
+            "logits_shape": [
+              1,
+              125,
+              7
+            ],
+            "boxes_shape": [
+              1,
+              125,
+              4
+            ]
+          },
+          {
+            "prefix": "/tmp/docweave-table-models/structure/parity-1",
+            "shape": [
+              1,
+              3,
+              1000,
+              667
+            ],
+            "logits_shape": [
+              1,
+              125,
+              7
+            ],
+            "boxes_shape": [
+              1,
+              125,
+              4
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "model": "microsoft/table-transformer-structure-recognition-v1.1-all",
+      "revision": "7587a7ef111d9dcbf8ac695f1376ab7014340a0c",
+      "files": {
+        "model.safetensors": {
+          "bytes": 115437156,
+          "sha256": "9df416575a3a36ebd0129342d4f597f14d6e5170268f3d52d28584ab4466a501"
+        },
+        "config.json": {
+          "bytes": 76761,
+          "sha256": "17a8a6edfb9e394263fa6ba9b82176ebccdfcc5d6cd29121ec91572c7d6be22c"
+        },
+        "preprocessor_config.json": {
+          "bytes": 374,
+          "sha256": "eead409bb80e36ae85b8377642c54550f0504f65688ba3a4967950cafe461df2"
+        },
+        "structure.onnx": {
+          "bytes": 115828334,
+          "sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990"
+        }
+      },
+      "conversion": {
+        "source_revision": "7587a7ef111d9dcbf8ac695f1376ab7014340a0c",
+        "source_sha256": "9df416575a3a36ebd0129342d4f597f14d6e5170268f3d52d28584ab4466a501",
+        "onnx_sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+        "packages": {
+          "torch": "2.9.1+cpu",
+          "torchvision": "0.24.1+cpu",
+          "transformers": "4.57.3",
+          "timm": "1.0.22",
+          "onnx": "1.19.1",
+          "safetensors": "0.8.0"
+        },
+        "opset": 17,
+        "loading": {
+          "missing_keys": [],
+          "unexpected_keys": [],
+          "mismatched_keys": [],
+          "error_msgs": []
+        },
+        "inputs": [
+          {
+            "prefix": "/tmp/docweave-table-models/structure-all/parity-0",
+            "shape": [
+              1,
+              3,
+              800,
+              1000
+            ],
+            "logits_shape": [
+              1,
+              125,
+              7
+            ],
+            "boxes_shape": [
+              1,
+              125,
+              4
+            ]
+          },
+          {
+            "prefix": "/tmp/docweave-table-models/structure-all/parity-1",
+            "shape": [
+              1,
+              3,
+              1000,
+              667
+            ],
+            "logits_shape": [
+              1,
+              125,
+              7
+            ],
+            "boxes_shape": [
+              1,
+              125,
+              4
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "runtime": {
+    "artifact": "com.microsoft.onnxruntime:onnxruntime:1.23.2",
+    "bytes": 75255976,
+    "sha1": "98997ea42fb000cfe57200bed6712464acb4d4e7",
+    "sha256": "e0ab4a1af57d2da09097202f2dfd691e390c82e81183314788ccde4cf7c3cc38"
+  },
+  "original_inference_source_commit": "16d124f616109746b7785f03085100f1f6247575",
+  "temporary_probe_sources": {
+    "/tmp/docweave-table-export-model.py": "ce25dd1df03dddf7c9b99786dd864e78442d7f88083c2b12798896ac96d986ee",
+    "/tmp/docweave-table-export-all.py": "4980243f95b9d6f16899588cd3697fbccd8a83046b72f49029e7bf3fc847f344",
+    "/tmp/DocWeaveTableParity.java": "717aa469530eaab5ec84d6eee604f508929e32e7f2989adda86e171f9508f49c",
+    "/tmp/DocWeaveStructureProbe.java": "e1e2a6964d91f51eeff85e93e652dc9d7fc6820c79e9a367d1db9d36c9f1f53f",
+    "/tmp/DocWeaveStructureAllProbe.java": "c34f9e2a8febfbc8fdaa313b4d13c99f4523bd8230b2a8a36526607e6b6a2f99",
+    "/tmp/DocWeaveStructureCounts.java": "ec111eb56642b29c7100379d5a2b424466ba37765226dc0808d3d88fe4ff2bdf"
+  }
+}

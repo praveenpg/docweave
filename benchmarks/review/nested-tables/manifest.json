@@ -1,0 +1,14 @@
+{
+  "kind": "Owned baseline fixtures, not Word or upstream expectations",
+  "cases": [
+    {
+      "file": "nested.html",
+      "sha256": "7b90c97d85e93eebd31bbba5c40998b8fa86734da76c0f9f8605d714cc289649"
+    },
+    {
+      "file": "nested.docx",
+      "sha256": "140fbdecee3b7dd6adf0bb6459375f0fc02ef88bd1819586244dd6e1834c5da8"
+    }
+  ],
+  "baseline_sha256": "e434bb7ab6fbe6f1a2e1ff561ec3aa1e1b4fc1c440d41dac3c23a23176828b5e"
+}

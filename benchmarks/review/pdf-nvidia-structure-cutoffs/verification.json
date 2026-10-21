@@ -1,0 +1,8 @@
+{
+  "captured_page_profile_cutoffs" : 44,
+  "default_native_replay_observations_equal" : true,
+  "all_proposal_and_crop_hashes_equal" : true,
+  "manifest_sha256" : "91a5fe4918606f4d0b3fa7716133bffa3a40f83f1e12ee04915759db2f8643f5",
+  "complete_populations_retained" : true,
+  "default_control_observations_exactly_equal" : 22
+}

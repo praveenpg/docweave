@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Explicit installed Tesseract OSD controls</comment>
+<entry key="blank">undetermined</entry>
+<entry key="sans.90.raw_score">11.92</entry>
+<entry key="sans.0.correction">0</entry>
+<entry key="serif.180.raw_score">27.46</entry>
+<entry key="serif.90.raw_score">26.55</entry>
+<entry key="sans.90.correction">0</entry>
+<entry key="sans.90.accepted">false</entry>
+<entry key="serif.180.accepted">true</entry>
+<entry key="sans.0.accepted">false</entry>
+<entry key="serif.180.correction">180</entry>
+<entry key="sans.180.correction">180</entry>
+<entry key="scope">Owned serif and sans orientation observations; serif exact six-cell pipeline controls; not independent scan accuracy/calibration</entry>
+<entry key="serif.90.accepted">true</entry>
+<entry key="osd_sha256">e19f2ae860792fdf372cf48d8ce70ae5da3c4052962fe22e9de1f680c374bb0e</entry>
+<entry key="positive_table_profiles">RULED/RETAIN;PROVIDER_LAYOUT_CELLS/REMOVE_EDGE_RULES;SEPARATE_PAGE_RETAIN_CELL_REMOVE_EDGE_RULES</entry>
+<entry key="sans.270.accepted">false</entry>
+<entry key="serif.0.correction">0</entry>
+<entry key="sans.270.correction">0</entry>
+<entry key="minimum_score">15.0</entry>
+<entry key="sans.0.raw_score">13.86</entry>
+<entry key="serif.0.raw_score">25.31</entry>
+<entry key="serif.270.accepted">true</entry>
+<entry key="sans.180.accepted">true</entry>
+<entry key="serif.270.correction">90</entry>
+<entry key="serif.90.correction">270</entry>
+<entry key="runtime">25.0.4+7-LTS</entry>
+<entry key="sans.180.raw_score">16.72</entry>
+<entry key="serif.0.accepted">true</entry>
+<entry key="engine_sha256">9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917</entry>
+<entry key="sans.270.raw_score">10.58</entry>
+<entry key="serif.270.raw_score">27.79</entry>
+</properties>

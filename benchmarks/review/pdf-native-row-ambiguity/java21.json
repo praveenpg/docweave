@@ -1,0 +1,22 @@
+{
+  "runtime" : "21.0.12.1+12-LTS",
+  "results" : [ {
+    "gate" : "SYNCHRONIZED_CANDIDATE",
+    "experimental_source_gap_separators" : 1,
+    "authored_logical_rows" : 1,
+    "false_split_under_authored_truth" : true,
+    "owned_pdf_sha256" : "1901de622f42799cbc371263dd311861556557ceb27c041a5ef5c43e33175ce9",
+    "would_emit_rows" : 2,
+    "case" : "single_row_wrapped_cells"
+  }, {
+    "gate" : "SYNCHRONIZED_CANDIDATE",
+    "experimental_source_gap_separators" : 1,
+    "authored_logical_rows" : 2,
+    "false_split_under_authored_truth" : false,
+    "owned_pdf_sha256" : "eebfa2889307c16c34057404a97f474f91070e96862106690476d8ca41766a52",
+    "would_emit_rows" : 2,
+    "case" : "two_painted_rows"
+  } ],
+  "same_native_text_and_geometry" : true,
+  "scope" : "Owned independent semantic ambiguity control; no production change or original-source accuracy score"
+}

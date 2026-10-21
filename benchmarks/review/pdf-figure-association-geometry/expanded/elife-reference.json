@@ -1,0 +1,123 @@
+{
+  "base_commit": "4185fe4",
+  "scope": "All original pages and every independently inventoried raster occurrence; main-body figure/auxiliary roles visually reviewed before expanded association extraction. Observed development source, not held-out.",
+  "source": {
+    "id": "elife",
+    "distribution_url": "https://cdn.elifesciences.org/articles/90049/elife-90049-v1.pdf",
+    "bytes": 1641690,
+    "sha256": "ae3d00995f44bdd26fd0f60e760dc0fce44e84a0482fc64d2277ef4792413a4b",
+    "pages": 29
+  },
+  "reference_method": "Poppler26.10.0 independent image inventory and XML zoom1 geometry; all image-bearing source pages rendered and visually reviewed before this association run. Integer-rounded top-left PDF points.",
+  "independent_xml_sha256": "01026fe7d7c5a4c65b0d44296e6f2e09b960ec14cc60aac9b7262a17ed90a8fe",
+  "maximum_edge_difference_points": 2,
+  "expected_images": 9,
+  "expected_figures": 4,
+  "profiles": [
+    "NATIVE_LINES",
+    "NATIVE_COLUMNS",
+    "SOURCE_TAGGED_LINES"
+  ],
+  "labels": [
+    {
+      "id": "1",
+      "page": 3,
+      "figure": true,
+      "bounds": [
+        43,
+        60,
+        497,
+        293
+      ]
+    },
+    {
+      "id": "2",
+      "page": 4,
+      "figure": true,
+      "bounds": [
+        43,
+        60,
+        497,
+        273
+      ]
+    },
+    {
+      "id": "3",
+      "page": 5,
+      "figure": true,
+      "bounds": [
+        43,
+        60,
+        497,
+        217
+      ]
+    },
+    {
+      "id": "4",
+      "page": 5,
+      "figure": true,
+      "bounds": [
+        43,
+        436,
+        497,
+        666
+      ]
+    },
+    {
+      "id": "orcid-1",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        220,
+        392,
+        228,
+        400
+      ]
+    },
+    {
+      "id": "orcid-2",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        225,
+        404,
+        233,
+        412
+      ]
+    },
+    {
+      "id": "orcid-3",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        234,
+        415,
+        242,
+        423
+      ]
+    },
+    {
+      "id": "orcid-4",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        238,
+        427,
+        246,
+        435
+      ]
+    },
+    {
+      "id": "orcid-5",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        238,
+        438,
+        246,
+        446
+      ]
+    }
+  ],
+  "raw_sources_redistributed": false
+}

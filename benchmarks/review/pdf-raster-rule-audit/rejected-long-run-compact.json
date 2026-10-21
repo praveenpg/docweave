@@ -1,0 +1,11 @@
+{
+  "profile": "compact cell minimum16x12 with old MIN_RUN64, dark predicate unchanged",
+  "status": "Rejected before corpus evaluation",
+  "failure": "Authored broken_outer control emitted a table despite expected0",
+  "runtimes": [
+    "Java21",
+    "Java25"
+  ],
+  "variant_sha256": "9ca7b08d6f3e2218f790ed77cd4167aec6a5d6c9845da1c4a2059e9b82c3a428",
+  "replacement": "Final compact prototype additionally retains runs>=32 to preserve shorter partial-edge evidence; seven controls pass on both JDKs"
+}

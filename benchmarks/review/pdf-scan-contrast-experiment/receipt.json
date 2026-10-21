@@ -1,0 +1,24 @@
+{
+  "base_commit": "797e405",
+  "production_changed": false,
+  "promoted": false,
+  "owned_and_historical_controls": 13,
+  "real_ocr_calls": 8,
+  "real_ocr_success": 8,
+  "reference_codepoints_per_model": 5378,
+  "private_doclint": "PASS",
+  "all_source_model_reference_frames_unchanged": true,
+  "artifacts": {
+    "README.md": "f30df04b63788174920650eea4564ce565604d6f0ac369aa4c019aea998d15ef",
+    "baseline-comparison-java21.json": "d528ad82fc204faddedc5aa576b5bb2ed15627321b920cae822c2f2314f407f6",
+    "java21.json": "b4e68a14d220abe1e9ba1e9bfed514ee72f40e2b5576cc41488d8e56a45f2d2b",
+    "manifest.json": "6834cc3ebf786a380491319e27d66a4be6b10ea52c411f0cfa9e407f91fa1a43",
+    "selection.json": "0d314c7430f07b4f869139cc188dae8075c19e774e5e9c72aca8bc3fe92268d5",
+    "whitepoint-comparison-java21.json": "8ab39d8ce6c8a45f84b23dae32d0740f3c544ec07386e4916d258a94e05bae25"
+  },
+  "local_log_sha256": {
+    "docweave-contrast-probe-final-owned21.log": "0f679a212108cfebd8782ffb5893822c2cf6c2987b73ee6d19dd2bc14e859e41",
+    "docweave-contrast-real21.log": "48eb4edfec2ff4a41fac19ac719c7d33bf48547190a9c9ac0bd2066c3fe7b4e6",
+    "docweave-contrast-private-doclint.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

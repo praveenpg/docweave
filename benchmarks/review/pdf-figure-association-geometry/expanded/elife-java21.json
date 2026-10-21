@@ -1,0 +1,319 @@
+{
+  "java_runtime" : "21.0.12.1+12-LTS",
+  "reference_sha256" : "a078867bfc40752498beaafa984d02029a174b5ee2a89741692e1581a9852461",
+  "source_sha256" : "ae3d00995f44bdd26fd0f60e760dc0fce44e84a0482fc64d2277ef4792413a4b",
+  "results" : [ {
+    "profile" : "NATIVE_LINES",
+    "outcome" : "SUCCESS",
+    "warnings" : [ {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "Native PDF extraction has no OCR or full table/layout fidelity guarantee"
+    } ],
+    "association_counts" : {
+      "missed_reference" : 0,
+      "false_positive" : 0,
+      "predictions" : 4,
+      "correct" : 4,
+      "references" : 4
+    },
+    "predictions" : [ {
+      "id" : "1",
+      "page" : 3,
+      "bounds" : [ 42.62791442871094, 60.12506103515625, 496.2279052734375, 292.9936218261719 ]
+    }, {
+      "id" : "2",
+      "page" : 4,
+      "bounds" : [ 42.62791442871094, 60.125, 496.2279052734375, 273.039306640625 ]
+    }, {
+      "id" : "3",
+      "page" : 5,
+      "bounds" : [ 42.62791442871094, 60.12506103515625, 496.2279052734375, 217.0850830078125 ]
+    }, {
+      "id" : "4",
+      "page" : 5,
+      "bounds" : [ 42.62791442871094, 436.18072509765625, 496.2279052734375, 666.375 ]
+    } ],
+    "images" : [ {
+      "id" : "",
+      "page" : 3,
+      "bounds" : [ 42.62791442871094, 60.12506103515625, 496.2279052734375, 292.9936218261719 ]
+    }, {
+      "id" : "",
+      "page" : 4,
+      "bounds" : [ 42.62791442871094, 60.125, 496.2279052734375, 273.039306640625 ]
+    }, {
+      "id" : "",
+      "page" : 5,
+      "bounds" : [ 42.62791442871094, 60.12506103515625, 496.2279052734375, 217.0850830078125 ]
+    }, {
+      "id" : "",
+      "page" : 5,
+      "bounds" : [ 42.62791442871094, 436.18072509765625, 496.2279052734375, 666.375 ]
+    }, {
+      "id" : "",
+      "page" : 8,
+      "bounds" : [ 219.5557098388672, 392.4278869628906, 227.4757080078125, 400.1078796386719 ]
+    }, {
+      "id" : "",
+      "page" : 8,
+      "bounds" : [ 225.39645385742188, 403.81787109375, 233.3164520263672, 411.49786376953125 ]
+    }, {
+      "id" : "",
+      "page" : 8,
+      "bounds" : [ 234.3964385986328, 415.2078857421875, 242.31643676757812, 422.88787841796875 ]
+    }, {
+      "id" : "",
+      "page" : 8,
+      "bounds" : [ 238.3743133544922, 426.5978698730469, 246.2943115234375, 434.2778625488281 ]
+    }, {
+      "id" : "",
+      "page" : 8,
+      "bounds" : [ 237.7173309326172, 437.9878845214844, 245.6373291015625, 445.6678771972656 ]
+    } ],
+    "image_inventory" : {
+      "missing" : 0,
+      "unmatched" : 0,
+      "matched" : 9,
+      "references" : 9,
+      "emitted" : 9
+    }
+  }, {
+    "profile" : "NATIVE_COLUMNS",
+    "outcome" : "SUCCESS",
+    "warnings" : [ {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "Native PDF extraction has no OCR or full table/layout fidelity guarantee"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    }, {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees"
+    } ],
+    "association_counts" : {
+      "missed_reference" : 0,
+      "false_positive" : 0,
+      "predictions" : 4,
+      "correct" : 4,
+      "references" : 4
+    },
+    "predictions" : [ {
+      "id" : "1",
+      "page" : 3,
+      "bounds" : [ 42.62791442871094, 60.12506103515625, 496.2279052734375, 292.9936218261719 ]
+    }, {
+      "id" : "2",
+      "page" : 4,
+      "bounds" : [ 42.62791442871094, 60.125, 496.2279052734375, 273.039306640625 ]
+    }, {
+      "id" : "3",
+      "page" : 5,
+      "bounds" : [ 42.62791442871094, 60.12506103515625, 496.2279052734375, 217.0850830078125 ]
+    }, {
+      "id" : "4",
+      "page" : 5,
+      "bounds" : [ 42.62791442871094, 436.18072509765625, 496.2279052734375, 666.375 ]
+    } ],
+    "images" : [ {
+      "id" : "",
+      "page" : 3,
+      "bounds" : [ 42.62791442871094, 60.12506103515625, 496.2279052734375, 292.9936218261719 ]
+    }, {
+      "id" : "",
+      "page" : 4,
+      "bounds" : [ 42.62791442871094, 60.125, 496.2279052734375, 273.039306640625 ]
+    }, {
+      "id" : "",
+      "page" : 5,
+      "bounds" : [ 42.62791442871094, 60.12506103515625, 496.2279052734375, 217.0850830078125 ]
+    }, {
+      "id" : "",
+      "page" : 5,
+      "bounds" : [ 42.62791442871094, 436.18072509765625, 496.2279052734375, 666.375 ]
+    }, {
+      "id" : "",
+      "page" : 8,
+      "bounds" : [ 219.5557098388672, 392.4278869628906, 227.4757080078125, 400.1078796386719 ]
+    }, {
+      "id" : "",
+      "page" : 8,
+      "bounds" : [ 225.39645385742188, 403.81787109375, 233.3164520263672, 411.49786376953125 ]
+    }, {
+      "id" : "",
+      "page" : 8,
+      "bounds" : [ 234.3964385986328, 415.2078857421875, 242.31643676757812, 422.88787841796875 ]
+    }, {
+      "id" : "",
+      "page" : 8,
+      "bounds" : [ 238.3743133544922, 426.5978698730469, 246.2943115234375, 434.2778625488281 ]
+    }, {
+      "id" : "",
+      "page" : 8,
+      "bounds" : [ 237.7173309326172, 437.9878845214844, 245.6373291015625, 445.6678771972656 ]
+    } ],
+    "image_inventory" : {
+      "missing" : 0,
+      "unmatched" : 0,
+      "matched" : 9,
+      "references" : 9,
+      "emitted" : 9
+    }
+  }, {
+    "profile" : "SOURCE_TAGGED_LINES",
+    "outcome" : "SUCCESS",
+    "warnings" : [ {
+      "code" : "PDF_EXTRACTION_LIMITATION",
+      "message" : "Source-tagged tables require complete single-page MCID ownership; unsupported tags use native fallback and no OCR is performed"
+    } ],
+    "association_counts" : {
+      "missed_reference" : 0,
+      "false_positive" : 0,
+      "predictions" : 4,
+      "correct" : 4,
+      "references" : 4
+    },
+    "predictions" : [ {
+      "id" : "1",
+      "page" : 3,
+      "bounds" : [ 42.62791442871094, 60.12506103515625, 496.2279052734375, 292.9936218261719 ]
+    }, {
+      "id" : "2",
+      "page" : 4,
+      "bounds" : [ 42.62791442871094, 60.125, 496.2279052734375, 273.039306640625 ]
+    }, {
+      "id" : "3",
+      "page" : 5,
+      "bounds" : [ 42.62791442871094, 60.12506103515625, 496.2279052734375, 217.0850830078125 ]
+    }, {
+      "id" : "4",
+      "page" : 5,
+      "bounds" : [ 42.62791442871094, 436.18072509765625, 496.2279052734375, 666.375 ]
+    } ],
+    "images" : [ {
+      "id" : "",
+      "page" : 3,
+      "bounds" : [ 42.62791442871094, 60.12506103515625, 496.2279052734375, 292.9936218261719 ]
+    }, {
+      "id" : "",
+      "page" : 4,
+      "bounds" : [ 42.62791442871094, 60.125, 496.2279052734375, 273.039306640625 ]
+    }, {
+      "id" : "",
+      "page" : 5,
+      "bounds" : [ 42.62791442871094, 60.12506103515625, 496.2279052734375, 217.0850830078125 ]
+    }, {
+      "id" : "",
+      "page" : 5,
+      "bounds" : [ 42.62791442871094, 436.18072509765625, 496.2279052734375, 666.375 ]
+    }, {
+      "id" : "",
+      "page" : 8,
+      "bounds" : [ 219.5557098388672, 392.4278869628906, 227.4757080078125, 400.1078796386719 ]
+    }, {
+      "id" : "",
+      "page" : 8,
+      "bounds" : [ 225.39645385742188, 403.81787109375, 233.3164520263672, 411.49786376953125 ]
+    }, {
+      "id" : "",
+      "page" : 8,
+      "bounds" : [ 234.3964385986328, 415.2078857421875, 242.31643676757812, 422.88787841796875 ]
+    }, {
+      "id" : "",
+      "page" : 8,
+      "bounds" : [ 238.3743133544922, 426.5978698730469, 246.2943115234375, 434.2778625488281 ]
+    }, {
+      "id" : "",
+      "page" : 8,
+      "bounds" : [ 237.7173309326172, 437.9878845214844, 245.6373291015625, 445.6678771972656 ]
+    } ],
+    "image_inventory" : {
+      "missing" : 0,
+      "unmatched" : 0,
+      "matched" : 9,
+      "references" : 9,
+      "emitted" : 9
+    }
+  } ],
+  "limits" : "Development source; rounded placement association, not body completeness, pixel fidelity or semantic figure detection"
+}

@@ -1,0 +1,8 @@
+{"java_version":"21.0.12.1","library_jars":6,"provider_discovery":"PASS","source_images":2,"affine_corner_conversion":"PASS","unrelated_dependency_absence":"PASS","artifacts":[
+{"name":"docweave-core-0.1.0-SNAPSHOT.jar","bytes":94678,"sha256":"484195366c190cf47121d9cc97d8ed59eb2ca1fe671029de86682b6affaceaf7"},
+{"name":"docweave-pdf-0.1.0-SNAPSHOT.jar","bytes":434196,"sha256":"23c719d402f0c64378b46c821cbdbdc5009927a93b8048c9c5350b5418c55f34"},
+{"name":"pdfbox-3.0.8.jar","bytes":2070583,"sha256":"97647cfbde61ebcfc06b4cf8c9b0ffcaaee073396eceb4a7f6836a9b9128903c"},
+{"name":"pdfbox-io-3.0.8.jar","bytes":51906,"sha256":"36a0e04001010b4c764857817412b96339930b19755e728959805cc0352061b2"},
+{"name":"fontbox-3.0.8.jar","bytes":1647000,"sha256":"a1915c24e3edbe0ecec93896dfbf6d41427810b663ade97bd4e8bae86ec3fdab"},
+{"name":"commons-logging-1.4.0.jar","bytes":75828,"sha256":"d175dbd751dd782a63bde28c7a039520e971f25e84b79c19b8435edc3603e0dc"}
+]}

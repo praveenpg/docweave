@@ -1,0 +1,46 @@
+{
+  "version": "0.1.0-beta.1",
+  "status": "LOCAL SIGNED CANDIDATE; NOT PUBLISHED",
+  "source_files": 1159,
+  "version_only_changes": 23,
+  "canonical_files": 65,
+  "detached_signatures": 65,
+  "signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9",
+  "source_archive_sha256": "f8aab53270bcd71871a39c16c3394e0544747b41da2803f9c3d95471d539747f",
+  "source_manifest_sha256": "af46fd0e7d391b09668f3b396237ff7dc5279eb0d1a7124a45db1e84e1513ca6",
+  "outer_archive_sha256": "a289342fb2a4cad003d96d18218021fe7ecec9840f3f1304907eda03309643ea",
+  "outer_archive_bytes": 13281280,
+  "public_key_only_gpgv_verified": 65,
+  "modified_pom_rejected": true,
+  "actual_jdk_runs": {
+    "21": {
+      "tests": 899,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "strict_javadocs": "passed",
+      "log_sha256": "740596bf82bffebd46808d90d008a1fc39599f2cfe627deab2ec803c4d795768",
+      "archive_guard": "passed"
+    },
+    "25": {
+      "tests": 899,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "strict_javadocs": "passed",
+      "log_sha256": "45fde81a92a069fb04eb5c21eb6de7c91e8020912d0d9185ba26823fb4c1f972",
+      "archive_guard": "passed"
+    }
+  },
+  "consumers_both_jdks": [
+    "pdf",
+    "tesseract-missing-engine",
+    "onnx-owned-graph"
+  ],
+  "parent_source_manifest_sha256": "37661448ec149ff5c5c859e5f2382379bd295f29fe003ea9635ef3189353096e",
+  "independent_archive_check": {
+    "members": 141,
+    "both_digest_lists": "passed",
+    "source_members_verified": 1159
+  }
+}

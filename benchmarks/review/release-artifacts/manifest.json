@@ -1,0 +1,54 @@
+{
+  "baseline_commit": "6030b602812a9e78ea4fffa1eab3ed443106be02",
+  "scope": "Local snapshot packaging and native PDF-only consumer checks; no signed or uploaded beta",
+  "profile": "release-artifacts",
+  "maven_source_plugin": "3.4.0",
+  "maven_javadoc_plugin": "3.12.0",
+  "verification": {
+    "21": {
+      "tests": 899,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "log": "/tmp/docweave-release-artifacts-java21.log",
+      "log_sha256": "9685b56cf3d6a2ae32032ba6944049e271529cd27729d7fdbae7fcd0fbe770d7",
+      "command": "mvn -B -ntp -o -Dmaven.repo.local=/tmp/docweave-m2 -Prelease-artifacts clean verify"
+    },
+    "25": {
+      "tests": 899,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "log": "/tmp/docweave-release-artifacts-java25.log",
+      "log_sha256": "9279d326e904c0eed773902966b7551b5950a9cf614a34ce1d23657da793148b",
+      "command": "mvn -B -ntp -o -Dmaven.repo.local=/tmp/docweave-m2 -Prelease-artifacts clean verify"
+    }
+  },
+  "changed_inputs_sha256": {
+    "pom.xml": "6919a2749f9426194120530a04bd4e3bd4c827dff1257e5a42724092474ea876",
+    "docweave-all/pom.xml": "5f51cf1e6f561f944faab7871af0ea8ec47fb333e2950c6d69ef68b51bcd8914",
+    "docweave-all/src/main/resources/META-INF/README.md": "c3611326bfa25c59f6afd4d5a8dce66bcaa0d923a74074d10ceaa91579a1cf60",
+    ".github/workflows/verify.yml": "51fd75eb7aa1a76c5b92b0373d3d9e069ac71dd868d7e495fe5ec29496daebd5"
+  },
+  "artifact_check_source": "import hashlib,json,sys,zipfile,xml.etree.ElementTree as ET\nfrom pathlib import Path\nroot=Path('__LOCAL_HOME__/Projects/JavaProjects/docweave');ns={'m':'http://maven.apache.org/POM/4.0.0'};parent=ET.parse(root/'pom.xml').getroot();license=(root/'LICENSE').read_bytes();rows=[]\nfor element in parent.findall('m:modules/m:module',ns):\n module=element.text;p=root/module;model=ET.parse(p/'pom.xml').getroot();artifact=model.findtext('m:artifactId',namespaces=ns);stem=p/'target'/f'{artifact}-0.1.0-SNAPSHOT'\n if model.findtext('m:properties/m:maven.deploy.skip',namespaces=ns)=='true':\n  assert not Path(str(stem)+'-sources.jar').exists(),module\n  assert not Path(str(stem)+'-javadoc.jar').exists(),module\n  continue\n archives={}\n for classifier in ('','-sources','-javadoc'):\n  jar=Path(str(stem)+classifier+'.jar')\n  with zipfile.ZipFile(jar) as z:\n   names=z.namelist();licensepath='resources/META-INF/LICENSE' if classifier=='-javadoc' and module!='docweave-all' else 'META-INF/LICENSE';assert z.read(licensepath)==license,(module,classifier,licensepath)\n   if classifier=='-sources':\n    for source in (p/'src/main/java').rglob('*.java'):assert z.read(source.relative_to(p/'src/main/java').as_posix())==source.read_bytes(),source\n   if classifier=='-javadoc':\n    assert 'META-INF/README.md' in names if module=='docweave-all' else 'index.html' in names,module\n   if module=='docweave-layout-onnx':\n    notice='META-INF/Microsoft-TATR-LICENSE.txt';entry='resources/'+notice if classifier=='-javadoc' else notice;assert z.read(entry)==(p/'src/main/resources'/notice).read_bytes(),classifier\n   assert not any(n.endswith(('.onnx','.traineddata','.pdf','.docx')) for n in names),(module,classifier)\n   archives[classifier or 'binary']=dict(sha256=hashlib.sha256(jar.read_bytes()).hexdigest(),bytes=jar.stat().st_size,entries=len(names),license_entry=licensepath)\n rows.append(dict(module=module,artifact=artifact,archives=archives))\nassert len(rows)==16,len(rows)\nPath(sys.argv[1]).write_text(json.dumps(dict(runtime=sys.argv[2],publishable_jar_modules=len(rows),internal_harness_attachments_absent=True,artifacts=rows),indent=2)+'\\n')\nprint('Verified binary/source/documentation archives for all16 publishable JAR modules; internal attachments absent.')\n",
+  "consumer_execution_script": "#!/bin/bash\nset -euo pipefail\nfor version in 21 25; do\n repo=\"/tmp/docweave-consumer-m2-java${version}\"\n mkdir -p \"$repo/io/docweave\"\n for artifact in docweave-parent docweave-core docweave-pdf; do cp -a \"/tmp/docweave-m2/io/docweave/$artifact\" \"$repo/io/docweave/\"; done\n if [ \"$version\" = 21 ]; then export JAVA_HOME=/tmp/docweave-jdk21; else export JAVA_HOME=__LOCAL_HOME__/.sdkman/candidates/java/25.0.4-amzn; fi\n export PATH=\"$JAVA_HOME/bin:__LOCAL_HOME__/.sdkman/candidates/maven/current/bin:/usr/bin:/bin\"\n mvn -B -ntp -s /tmp/docweave-pdf-consumer/settings.xml -Dmaven.repo.local=\"$repo\" -f /tmp/docweave-pdf-consumer/pom.xml clean package > \"/tmp/docweave-consumer-build-java${version}.log\" 2>&1\n python3 /tmp/docweave-consumer-run.py \"$version\" \"$repo\" \"$JAVA_HOME\"\ndone\n",
+  "consumer_classpath_check_source": "import json,subprocess,sys,zipfile\nfrom pathlib import Path\nversion,repo,jdk=sys.argv[1:];repo=Path(repo);jar=Path('/tmp/docweave-pdf-consumer/target/pdf-consumer-1.0.jar')\nwith zipfile.ZipFile(jar) as z:\n raw=z.read('META-INF/MANIFEST.MF').decode().replace('\\r\\n','\\n').replace('\\n ','')\n manifest=dict(line.split(': ',1) for line in raw.splitlines() if ': ' in line)\n names=manifest['Class-Path'].split();paths=[]\n for name in names:\n  matches=list(repo.rglob(name));assert len(matches)==1,(name,matches);paths.append(matches[0])\n projects=sorted(p.name for p in paths if '/io/docweave/' in str(p))\n assert projects==['docweave-core-0.1.0-SNAPSHOT.jar','docweave-pdf-0.1.0-SNAPSHOT.jar'],projects\n assert not any(any(forbidden in str(p).lower() for forbidden in ['poi','jackson','jsoup','tesseract','onnxruntime']) for p in paths),paths\n classpath=':'.join(map(str,[jar,*paths]))\n result=subprocess.run([jdk+'/bin/java','-Djava.awt.headless=true','-cp',classpath,'PdfConsumer'],check=True,capture_output=True,text=True)\n Path(f'/tmp/docweave-consumer-run-java{version}.log').write_text(result.stdout+result.stderr)\n Path(f'/tmp/docweave-consumer-java{version}.json').write_text(json.dumps(dict(java=version,dependencies=[str(p.relative_to(repo)) for p in paths],stdout=result.stdout,stderr=result.stderr,source_class_major_version=int.from_bytes(z.read('PdfConsumer.class')[6:8],'big')),indent=2)+'\\n')\n print(result.stdout.strip())\n",
+  "consumer_settings": "<settings xmlns=\"http://maven.apache.org/SETTINGS/1.2.0\">\n    <mirrors><mirror><id>local-cache</id><mirrorOf>*</mirrorOf><url>file:///tmp/docweave-m2</url></mirror></mirrors>\n    <profiles><profile><id>local-cache</id>\n        <repositories><repository><id>central</id><url>file:///tmp/docweave-m2</url><releases><checksumPolicy>ignore</checksumPolicy></releases><snapshots><enabled>true</enabled><checksumPolicy>ignore</checksumPolicy></snapshots></repository></repositories>\n        <pluginRepositories><pluginRepository><id>central</id><url>file:///tmp/docweave-m2</url><releases><checksumPolicy>ignore</checksumPolicy></releases><snapshots><enabled>true</enabled><checksumPolicy>ignore</checksumPolicy></snapshots></pluginRepository></pluginRepositories>\n    </profile></profiles><activeProfiles><activeProfile>local-cache</activeProfile></activeProfiles>\n</settings>\n",
+  "consumer_sources_sha256": {
+    "consumer/pom.xml": "aa2ddf306a8f047a900a1a95c89e5afb24f48637a91b50b4cf1e93c62187a5e1",
+    "consumer/src/main/java/PdfConsumer.java": "25f1480d0845a5600f95a2e0cfdfb218088d9e8cb8e569dc16a534b0eda5a56c"
+  },
+  "consumer_scope": "Separate POM with only docweave-pdf dependency, independent local repositories containing only parent/core/pdf project coordinates; third-party dependencies/plugins fetched from file mirror of existing Maven cache. Both consumer JDKs use the Java25-built/Java21-target locally installed libraries.",
+  "source_install": "mvn -B -ntp -Dmaven.repo.local=/tmp/docweave-m2 -Prelease-artifacts -pl docweave-pdf -am install -DskipTests",
+  "not_done": [
+    "Optional OCR/ONNX external-consumer smoke checks",
+    "Signing/checksum bundle and release version/tag",
+    "Central namespace/account verification, upload and publication",
+    "Complete dependency/third-party redistribution review",
+    "PDF broad recognition/held-out completion gates"
+  ],
+  "_public_projection": {
+    "original_sha256": "3fc4ce7cf447974a9801f1e8a9b8769d8503ef160dfa84a8066d8fecd4079371",
+    "status": "Derived documentation/path projection; historical measurements and embedded fingerprints unchanged"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "pdf_sha256" : "d884d32bd2a1d620e0c7b5446e4d0b58ba67dab04e884839b2640b9a35749e99",
+  "source_page" : 2,
+  "source_pages" : 6,
+  "rotation" : 0,
+  "glyphs" : 1529,
+  "ordinary_runs" : 334,
+  "segments" : 126,
+  "images" : 0,
+  "ruled_tables" : 0,
+  "aligned_tables" : 0,
+  "multiline_tables" : 0,
+  "horizontal_tables" : 0,
+  "aligned_blocks" : [ {
+    "baselines" : [ 41.059998 ],
+    "run_counts" : [ 1 ],
+    "first_cardinality_mismatch_row" : -1,
+    "passes_cardinality_prerequisite" : false
+  }, {
+    "baselines" : [ 47.059998 ],
+    "run_counts" : [ 1 ],
+    "first_cardinality_mismatch_row" : -1,
+    "passes_cardinality_prerequisite" : false
+  }, {
+    "baselines" : [ 85.56 ],
+    "run_counts" : [ 1 ],
+    "first_cardinality_mismatch_row" : -1,
+    "passes_cardinality_prerequisite" : false
+  }, {
+    "baselines" : [ 97.56 ],
+    "run_counts" : [ 1 ],
+    "first_cardinality_mismatch_row" : -1,
+    "passes_cardinality_prerequisite" : false
+  }, {
+    "baselines" : [ 112.28693 ],
+    "run_counts" : [ 1 ],
+    "first_cardinality_mismatch_row" : -1,
+    "passes_cardinality_prerequisite" : false
+  }, {
+    "baselines" : [ 121.586975, 130.88696, 140.18695, 149.487, 160.83807, 171.388, 182.18799, 192.98798, 203.78802, 214.58801, 225.388, 236.18799, 246.98798, 257.78802, 268.588, 279.388, 290.188, 300.988, 311.788, 322.588, 333.388, 344.188, 354.988, 365.788, 376.588, 387.388, 398.188, 408.988, 419.788, 430.588, 441.388, 452.188, 462.988, 473.788, 484.588, 495.388, 506.188, 516.98804, 527.78796, 538.588, 549.388, 560.188, 570.98804, 581.78796, 592.588, 603.388, 614.188, 624.98804, 636.133 ],
+    "run_counts" : [ 2, 2, 2, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7 ],
+    "first_cardinality_mismatch_row" : 3,
+    "passes_cardinality_prerequisite" : false
+  }, {
+    "baselines" : [ 649.08813 ],
+    "run_counts" : [ 1 ],
+    "first_cardinality_mismatch_row" : -1,
+    "passes_cardinality_prerequisite" : false
+  }, {
+    "baselines" : [ 775.8801 ],
+    "run_counts" : [ 1 ],
+    "first_cardinality_mismatch_row" : -1,
+    "passes_cardinality_prerequisite" : false
+  } ],
+  "horizontal_rules" : [ {
+    "y" : 104.07001,
+    "spans" : [ [ 36.0, 558.72003 ] ]
+  }, {
+    "y" : 152.367,
+    "spans" : [ [ 36.0, 144.0 ], [ 144.0, 213.12 ], [ 213.12, 282.24 ], [ 282.24, 351.36002 ], [ 351.36002, 420.47998 ], [ 420.47998, 489.6 ], [ 489.6, 558.72003 ] ],
+    "gap_from_previous" : 48.296997
+  }, {
+    "y" : 639.807,
+    "spans" : [ [ 36.0, 144.0 ], [ 144.0, 213.12 ], [ 213.12, 282.24 ], [ 282.24, 351.36002 ], [ 351.36002, 420.47998 ], [ 420.47998, 489.6 ], [ 489.6, 558.72003 ] ],
+    "gap_from_previous" : 487.44
+  } ],
+  "vertical_segments" : 111
+}

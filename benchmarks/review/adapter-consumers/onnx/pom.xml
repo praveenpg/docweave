@@ -1,0 +1,19 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>local.docweave.check</groupId>
+    <artifactId>onnx-consumer</artifactId>
+    <version>1.0</version>
+    <properties><maven.compiler.release>21</maven.compiler.release></properties>
+    <dependencies>
+        <dependency><groupId>io.docweave</groupId><artifactId>docweave-layout-onnx</artifactId><version>0.1.0-SNAPSHOT</version></dependency>
+    </dependencies>
+    <build><plugins>
+        <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.15.0</version></plugin>
+        <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-resources-plugin</artifactId><version>3.4.0</version></plugin>
+        <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><version>3.5.6</version></plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId><artifactId>maven-jar-plugin</artifactId><version>3.5.0</version>
+            <configuration><archive><manifest><addClasspath>true</addClasspath><mainClass>OnnxConsumer</mainClass></manifest></archive></configuration>
+        </plugin>
+    </plugins></build>
+</project>

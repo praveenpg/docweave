@@ -1,0 +1,5 @@
+DocWeave sample
+
+This document contains two paragraphs. It is a synthetic fixture for checking text extraction.
+
+The second paragraph contains supplementary Unicode: 🧵 and 𐐀. Chunk sizes must count Unicode code points.

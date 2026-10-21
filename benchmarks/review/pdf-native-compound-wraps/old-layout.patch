@@ -1,0 +1,11 @@
+--- /tmp/docweave-caption-edge21/old-sources/ScorePublisherCaptions.java
++++ /tmp/docweave-native-compound21/old-sources/ScorePublisherCaptions.java
+@@ -75,7 +75,7 @@
+                             selected.get("pdf").asString());
+             for (final String profile : List.of("NATIVE_LINES", "NATIVE_COLUMNS", "SOURCE_TAGGED_LINES")) {
+                 final var options = PdfOptions.defaults().withFigureCaptions(PdfOptions.FigureCaptions.IMAGE_EDGE_ALIGNED_NUMBERED_TITLES).withTextLayout(
+-                        profile.equals("NATIVE_COLUMNS") ? PdfOptions.TextLayout.COLUMN_PARAGRAPHS
++                        profile.equals("NATIVE_COLUMNS") ? PdfOptions.TextLayout.COLUMN_PARAGRAPHS_COMPOUND_WRAPS
+                                                          : PdfOptions.TextLayout.LINES);
+                 final var partitioner = profile.equals("SOURCE_TAGGED_LINES")
+                                                 ? PdfPartitioner.createWithTaggedTables(options)

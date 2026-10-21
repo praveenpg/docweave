@@ -1,0 +1,9 @@
+{
+  "frozen_at": "2026-10-19T15:07:17.309005+00:00",
+  "baseline_commit": "5187d20",
+  "kind": "authored synthetic controls; NOT external corpus or human-reviewed real-world header truth",
+  "generator_sha256": "cee9bf195fde3563f584fcec6875e8347e61af425a29a854d739279df407b4f6",
+  "references_sha256": "7de2ba6db2ca2b2aee0ac981cee581ab48c858ab56edfd77c886a0a4b8696045",
+  "selection": "All eight predetermined Cartesian cases: ruled/borderless x wrapped/stacked/grouped/body-wrapped. Six body rows and all authored anchor keys retained. Grouped includes rowspan2 and colspan3.",
+  "protocol": "Generate references before inference. Same pinned detector/structure150DPI/fourthreads/KEEP_HIGHER_SCORE native-first PARTIAL_TEXT. Whole single-page original PDFs, one table each. Exact emitted HTML anchor indices/spans; no text scoring, row shifts or reference-fed extraction. Missing/multiple tables fail whole exact topology. Preserve all cases regardless outcome. No production changes."
+}

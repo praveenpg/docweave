@@ -1,0 +1,46 @@
+{
+  "frozen_at": "2026-10-20T07:21:40.493Z",
+  "scope": "Source-only prospective discovery, before any DocWeave extraction. Inspect all seven pass PDFs in the pinned veraPDF PDF/UA-2 table clause, lexical order. Do not modify sources. Look for cell class-defined positive spans greater than one without a direct override; if present nominate the first lexical eligible original/table for visual reference review before product extraction. Retain missing/unsupported/no-eligible outcomes. These are independent authors' synthetic validation samples, not business-document or general accuracy evidence.",
+  "repository": "https://github.com/veraPDF/veraPDF-corpus",
+  "commit": "377728596647e40edf16003d68d620773ce96ec5",
+  "code_commit": "ef110cd",
+  "license": "CC BY 4.0 per repository README, blob ba99282ba8c565fcbbf60ba614a6d8ed34a383d9; originals remain fetch-only",
+  "discovery_note": "Official PDF Association reference archive returned HTTP403; no access-control workaround used. Switched to public official veraPDF corpus before product extraction. Repository default is staging; discovery explicitly pins the published master revision above.",
+  "inputs": [
+    {
+      "path": "PDF_UA-2/8.2 Logical structure/8.2.5 Additional requirements for specific structure types/8.2.5.26 Table (Table, TR, TH, TD, THead, TBody, TFoot)/8.2.5.26-t01-pass-a.pdf",
+      "sha": "f4e8906a935d0bf93775af56347b3f357cf28680",
+      "size": 26749
+    },
+    {
+      "path": "PDF_UA-2/8.2 Logical structure/8.2.5 Additional requirements for specific structure types/8.2.5.26 Table (Table, TR, TH, TD, THead, TBody, TFoot)/8.2.5.26-t01-pass-b.pdf",
+      "sha": "26724ed5b45614b08023dbab23d184810fe6e787",
+      "size": 94611
+    },
+    {
+      "path": "PDF_UA-2/8.2 Logical structure/8.2.5 Additional requirements for specific structure types/8.2.5.26 Table (Table, TR, TH, TD, THead, TBody, TFoot)/8.2.5.26-t05-pass-a.pdf",
+      "sha": "3da29a5fe93d48a03cfb14aebc701e05abe185f5",
+      "size": 41982
+    },
+    {
+      "path": "PDF_UA-2/8.2 Logical structure/8.2.5 Additional requirements for specific structure types/8.2.5.26 Table (Table, TR, TH, TD, THead, TBody, TFoot)/8.2.5.26-t05-pass-b.pdf",
+      "sha": "7afeae0b99a33c96b15415c01ef95d8f7031e14c",
+      "size": 42229
+    },
+    {
+      "path": "PDF_UA-2/8.2 Logical structure/8.2.5 Additional requirements for specific structure types/8.2.5.26 Table (Table, TR, TH, TD, THead, TBody, TFoot)/8.2.5.26-t05-pass-c.pdf",
+      "sha": "deec10070b0d2fc64f0a903c368b00ddb110439e",
+      "size": 42142
+    },
+    {
+      "path": "PDF_UA-2/8.2 Logical structure/8.2.5 Additional requirements for specific structure types/8.2.5.26 Table (Table, TR, TH, TD, THead, TBody, TFoot)/8.2.5.26-t05-pass-d.pdf",
+      "sha": "10bbd42079ed3242667a834193b463b4ebac535f",
+      "size": 42487
+    },
+    {
+      "path": "PDF_UA-2/8.2 Logical structure/8.2.5 Additional requirements for specific structure types/8.2.5.26 Table (Table, TR, TH, TD, THead, TBody, TFoot)/8.2.5.26-t05-pass-e.pdf",
+      "sha": "f78a286c0504bebcc8c87549524d8ee527aa1c07",
+      "size": 42307
+    }
+  ]
+}

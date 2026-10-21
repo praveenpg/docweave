@@ -1,0 +1,160 @@
+{
+  "repository": "apache/pdfbox",
+  "commit": "9286e47d89d6877005c9d2d0f2fd38793a62519a",
+  "tag": "3.0.8",
+  "scope": "All five named native Unicode/ligature regression PDFs and both saved expectation variants; correspondence to external maintained goldens, not author/application or broad script/layout accuracy",
+  "selection": "Pinned input paths containing ligatures, Empty-ToUnicode, bidi-ligature and unicode-surrogate-with-diacritic; no outcome-based exclusions",
+  "expectation_transport": "UTF-8; remove only the recorded leading UTF-8 BOM from expectation files, never from extracted PDF text",
+  "inputs": [
+    {
+      "filename": "PDFBOX-3044-010197-p5-ligatures.pdf",
+      "path": "pdfbox/src/test/resources/input/PDFBOX-3044-010197-p5-ligatures.pdf",
+      "bytes": 24624,
+      "sha256": "79f6d8bf755e3d39409f50b62b7de3b0e3592ba2b6904fd60e06e340554cc7b5",
+      "git_blob_sha1": "b9d7eb23e6ed5c82437b9b55109eccce7baeec72",
+      "role": "pdf",
+      "utf8_bom": false,
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-3044-010197-p5-ligatures.pdf"
+    },
+    {
+      "filename": "PDFBOX-3044-010197-p5-ligatures.pdf-sorted.txt",
+      "path": "pdfbox/src/test/resources/input/PDFBOX-3044-010197-p5-ligatures.pdf-sorted.txt",
+      "bytes": 5151,
+      "sha256": "0279bc9654a4dba256955dff1950a56d472cbf5ad2edb19419b9837165aee841",
+      "git_blob_sha1": "56975fd593fe508423f61991ba00bb58ac610042",
+      "role": "expectation",
+      "utf8_bom": true,
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-3044-010197-p5-ligatures.pdf-sorted.txt"
+    },
+    {
+      "filename": "PDFBOX-3044-010197-p5-ligatures.pdf.txt",
+      "path": "pdfbox/src/test/resources/input/PDFBOX-3044-010197-p5-ligatures.pdf.txt",
+      "bytes": 5151,
+      "sha256": "0279bc9654a4dba256955dff1950a56d472cbf5ad2edb19419b9837165aee841",
+      "git_blob_sha1": "56975fd593fe508423f61991ba00bb58ac610042",
+      "role": "expectation",
+      "utf8_bom": true,
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-3044-010197-p5-ligatures.pdf.txt"
+    },
+    {
+      "filename": "PDFBOX-4322-Empty-ToUnicode-reduced.pdf",
+      "path": "pdfbox/src/test/resources/input/PDFBOX-4322-Empty-ToUnicode-reduced.pdf",
+      "bytes": 21387,
+      "sha256": "c3b4a465b7664677f13aa3079ef4e5223eac9a1cf82719a863d07034388d2798",
+      "git_blob_sha1": "644bd752f45157d5e3f3cb81ad98f092de87fa71",
+      "role": "pdf",
+      "utf8_bom": false,
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-4322-Empty-ToUnicode-reduced.pdf"
+    },
+    {
+      "filename": "PDFBOX-4322-Empty-ToUnicode-reduced.pdf-sorted.txt",
+      "path": "pdfbox/src/test/resources/input/PDFBOX-4322-Empty-ToUnicode-reduced.pdf-sorted.txt",
+      "bytes": 10,
+      "sha256": "f34f2c605f9afc71ce636ef3ede754f728e7fb7df7590ed8956d85c2815769b0",
+      "git_blob_sha1": "1ec7b784ec65ce5c8e6b6bacfc1e6158dc79db53",
+      "role": "expectation",
+      "utf8_bom": true,
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-4322-Empty-ToUnicode-reduced.pdf-sorted.txt"
+    },
+    {
+      "filename": "PDFBOX-4322-Empty-ToUnicode-reduced.pdf.txt",
+      "path": "pdfbox/src/test/resources/input/PDFBOX-4322-Empty-ToUnicode-reduced.pdf.txt",
+      "bytes": 10,
+      "sha256": "f34f2c605f9afc71ce636ef3ede754f728e7fb7df7590ed8956d85c2815769b0",
+      "git_blob_sha1": "1ec7b784ec65ce5c8e6b6bacfc1e6158dc79db53",
+      "role": "expectation",
+      "utf8_bom": true,
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-4322-Empty-ToUnicode-reduced.pdf.txt"
+    },
+    {
+      "filename": "PDFBOX-4531-bidi-ligature-1.pdf",
+      "path": "pdfbox/src/test/resources/input/PDFBOX-4531-bidi-ligature-1.pdf",
+      "bytes": 5622,
+      "sha256": "05449b36c6b147652ef3c0b5404ae84b9d8c4352a43f96ec27cef8714f99b13f",
+      "git_blob_sha1": "736da02b129d6df926cadec4e4f3ebc5a6524959",
+      "role": "pdf",
+      "utf8_bom": false,
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-4531-bidi-ligature-1.pdf"
+    },
+    {
+      "filename": "PDFBOX-4531-bidi-ligature-1.pdf-sorted.txt",
+      "path": "pdfbox/src/test/resources/input/PDFBOX-4531-bidi-ligature-1.pdf-sorted.txt",
+      "bytes": 19,
+      "sha256": "e299650173cfa6888afce45e0f26636b900a7573eb3269d2e4a71205fafc7ac3",
+      "git_blob_sha1": "80560c6ad339c5953e6ba174ca9a1360a14f8b68",
+      "role": "expectation",
+      "utf8_bom": true,
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-4531-bidi-ligature-1.pdf-sorted.txt"
+    },
+    {
+      "filename": "PDFBOX-4531-bidi-ligature-1.pdf.txt",
+      "path": "pdfbox/src/test/resources/input/PDFBOX-4531-bidi-ligature-1.pdf.txt",
+      "bytes": 19,
+      "sha256": "e299650173cfa6888afce45e0f26636b900a7573eb3269d2e4a71205fafc7ac3",
+      "git_blob_sha1": "80560c6ad339c5953e6ba174ca9a1360a14f8b68",
+      "role": "expectation",
+      "utf8_bom": true,
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-4531-bidi-ligature-1.pdf.txt"
+    },
+    {
+      "filename": "PDFBOX-4531-bidi-ligature-2.pdf",
+      "path": "pdfbox/src/test/resources/input/PDFBOX-4531-bidi-ligature-2.pdf",
+      "bytes": 40256,
+      "sha256": "cf4d80ac8466d07678de7651d63fda747a34b600c57fb4a8eb8faf9d612465ae",
+      "git_blob_sha1": "df13d0abb1ceda5b763ea5c260e96f808b75eaeb",
+      "role": "pdf",
+      "utf8_bom": false,
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-4531-bidi-ligature-2.pdf"
+    },
+    {
+      "filename": "PDFBOX-4531-bidi-ligature-2.pdf-sorted.txt",
+      "path": "pdfbox/src/test/resources/input/PDFBOX-4531-bidi-ligature-2.pdf-sorted.txt",
+      "bytes": 19,
+      "sha256": "e299650173cfa6888afce45e0f26636b900a7573eb3269d2e4a71205fafc7ac3",
+      "git_blob_sha1": "80560c6ad339c5953e6ba174ca9a1360a14f8b68",
+      "role": "expectation",
+      "utf8_bom": true,
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-4531-bidi-ligature-2.pdf-sorted.txt"
+    },
+    {
+      "filename": "PDFBOX-4531-bidi-ligature-2.pdf.txt",
+      "path": "pdfbox/src/test/resources/input/PDFBOX-4531-bidi-ligature-2.pdf.txt",
+      "bytes": 19,
+      "sha256": "e299650173cfa6888afce45e0f26636b900a7573eb3269d2e4a71205fafc7ac3",
+      "git_blob_sha1": "80560c6ad339c5953e6ba174ca9a1360a14f8b68",
+      "role": "expectation",
+      "utf8_bom": true,
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-4531-bidi-ligature-2.pdf.txt"
+    },
+    {
+      "filename": "PDFBOX-5747-unicode-surrogate-with-diacritic-reduced.pdf",
+      "path": "pdfbox/src/test/resources/input/PDFBOX-5747-unicode-surrogate-with-diacritic-reduced.pdf",
+      "bytes": 2019,
+      "sha256": "4e822ba5255923364baf5fdc14141a6cb6b860a5f4f86261043e7e08c7fce382",
+      "git_blob_sha1": "42012c9e74d33e76b9d47ff505f34a407a822d98",
+      "role": "pdf",
+      "utf8_bom": false,
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-5747-unicode-surrogate-with-diacritic-reduced.pdf"
+    },
+    {
+      "filename": "PDFBOX-5747-unicode-surrogate-with-diacritic-reduced.pdf-sorted.txt",
+      "path": "pdfbox/src/test/resources/input/PDFBOX-5747-unicode-surrogate-with-diacritic-reduced.pdf-sorted.txt",
+      "bytes": 10,
+      "sha256": "44435b707d3c73aa3de94dbf580fa7c9aa5bb026b64e79bd2c6bc758815109ee",
+      "git_blob_sha1": "a7fe9501fc7dfc3e3348deb90a444be100d603da",
+      "role": "expectation",
+      "utf8_bom": true,
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-5747-unicode-surrogate-with-diacritic-reduced.pdf-sorted.txt"
+    },
+    {
+      "filename": "PDFBOX-5747-unicode-surrogate-with-diacritic-reduced.pdf.txt",
+      "path": "pdfbox/src/test/resources/input/PDFBOX-5747-unicode-surrogate-with-diacritic-reduced.pdf.txt",
+      "bytes": 10,
+      "sha256": "44435b707d3c73aa3de94dbf580fa7c9aa5bb026b64e79bd2c6bc758815109ee",
+      "git_blob_sha1": "a7fe9501fc7dfc3e3348deb90a444be100d603da",
+      "role": "expectation",
+      "utf8_bom": true,
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-5747-unicode-surrogate-with-diacritic-reduced.pdf.txt"
+    }
+  ]
+}

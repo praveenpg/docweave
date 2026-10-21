@@ -1,0 +1,6 @@
+{
+  "frozen_at": "2026-10-19T04:27:58.783942+00:00",
+  "reference_manifest_sha256": "3656667adb4345c0b7ff0ac74f07b255cf4aa923ce7ab55a7ad13d747a732898",
+  "protocol": "Complete original14-page PDF, explicit150DPI native-layout strategy on all native-text pages,16M render pixels/1024 raw anchors, existing pinned detection+structure with4threads and structure KEEP_HIGHER_SCORE. No OCR, no ROI/page/reference input to extraction. Original source pages7/10 selected only after complete extraction, same59issuerHTML rows/normalization/exactordinal association; missing document outcomes retain all cases. No parameter tuning.",
+  "geometry_model_manifest_sha256": "29a34aad2df0616ed35a6eb5ade9a6870f414cd77b31fad5ee82ba9cacabd836"
+}

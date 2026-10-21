@@ -1,0 +1,142 @@
+{
+  "schema_version" : 1,
+  "source_chunks_sha256" : "bfeecceaf1c3b40eac10e850205ba7a47e379adc5208b7d56f25feb6bdd069b4",
+  "queries_sha256" : "39f19e7bdd629c35f36209f9767d40e0faf23eab9eec032eacfcefb4c5f83352",
+  "contexts_sha256" : "eb31b7a1ce71a885bd668ac0d1fd88763667eb9e71d8fccbda0bbe57f076942f",
+  "embedding_model" : {
+    "revision" : "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+    "model_id" : "embeddinggemma:latest",
+    "provider_id" : "ollama"
+  },
+  "retrieval_config" : {
+    "metric" : "cosine",
+    "query_representation" : "same_raw_query_for_both",
+    "top_k" : 1,
+    "tie_break" : "original_chunk_ordinal",
+    "truncate" : false
+  },
+  "baseline" : {
+    "capture_sha256" : "15db3f4716bd5af9afd791fa8a74370517d7634a7a9d6c13cb6e6d32e066763e",
+    "outcome" : "SUCCESS",
+    "score" : {
+      "queries" : [ {
+        "reciprocal_rank_at_k" : 1.0,
+        "recall_at_k" : 1.0,
+        "relevant_hits_at_k" : 1,
+        "relevant_chunks" : 1,
+        "outcome" : "SUCCESS",
+        "query_id" : "owned-1",
+        "observed_ranks" : 3,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "reciprocal_rank_at_k" : 0.0,
+        "recall_at_k" : 0.0,
+        "relevant_hits_at_k" : 0,
+        "relevant_chunks" : 1,
+        "outcome" : "SUCCESS",
+        "query_id" : "owned-2",
+        "observed_ranks" : 3,
+        "first_relevant_rank_at_k" : 0
+      }, {
+        "reciprocal_rank_at_k" : 1.0,
+        "recall_at_k" : 1.0,
+        "relevant_hits_at_k" : 1,
+        "relevant_chunks" : 1,
+        "outcome" : "SUCCESS",
+        "query_id" : "owned-3",
+        "observed_ranks" : 3,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "reciprocal_rank_at_k" : 0.0,
+        "recall_at_k" : 0.0,
+        "relevant_hits_at_k" : 0,
+        "relevant_chunks" : 1,
+        "outcome" : "SUCCESS",
+        "query_id" : "owned-4",
+        "observed_ranks" : 3,
+        "first_relevant_rank_at_k" : 0
+      }, {
+        "reciprocal_rank_at_k" : 1.0,
+        "recall_at_k" : 1.0,
+        "relevant_hits_at_k" : 1,
+        "relevant_chunks" : 1,
+        "outcome" : "SUCCESS",
+        "query_id" : "owned-5",
+        "observed_ranks" : 3,
+        "first_relevant_rank_at_k" : 1
+      } ],
+      "hit_queries_at_k" : 3,
+      "top_k" : 1,
+      "reference_queries" : 5,
+      "missing_queries" : 0,
+      "failed_queries" : 0,
+      "macro_recall_at_k" : 0.6,
+      "source_chunks" : 3,
+      "mean_reciprocal_rank_at_k" : 0.6,
+      "successful_queries" : 5,
+      "hit_rate_at_k" : 0.6
+    }
+  },
+  "contextual" : {
+    "capture_sha256" : "2c582e697d23e320f425aefeb0d730fa2bad70dd0b1b2f8706b02ee5ec9dc134",
+    "outcome" : "SUCCESS",
+    "score" : {
+      "queries" : [ {
+        "reciprocal_rank_at_k" : 1.0,
+        "recall_at_k" : 1.0,
+        "relevant_hits_at_k" : 1,
+        "relevant_chunks" : 1,
+        "outcome" : "SUCCESS",
+        "query_id" : "owned-1",
+        "observed_ranks" : 3,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "reciprocal_rank_at_k" : 1.0,
+        "recall_at_k" : 1.0,
+        "relevant_hits_at_k" : 1,
+        "relevant_chunks" : 1,
+        "outcome" : "SUCCESS",
+        "query_id" : "owned-2",
+        "observed_ranks" : 3,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "reciprocal_rank_at_k" : 1.0,
+        "recall_at_k" : 1.0,
+        "relevant_hits_at_k" : 1,
+        "relevant_chunks" : 1,
+        "outcome" : "SUCCESS",
+        "query_id" : "owned-3",
+        "observed_ranks" : 3,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "reciprocal_rank_at_k" : 1.0,
+        "recall_at_k" : 1.0,
+        "relevant_hits_at_k" : 1,
+        "relevant_chunks" : 1,
+        "outcome" : "SUCCESS",
+        "query_id" : "owned-4",
+        "observed_ranks" : 3,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "reciprocal_rank_at_k" : 1.0,
+        "recall_at_k" : 1.0,
+        "relevant_hits_at_k" : 1,
+        "relevant_chunks" : 1,
+        "outcome" : "SUCCESS",
+        "query_id" : "owned-5",
+        "observed_ranks" : 3,
+        "first_relevant_rank_at_k" : 1
+      } ],
+      "hit_queries_at_k" : 5,
+      "top_k" : 1,
+      "reference_queries" : 5,
+      "missing_queries" : 0,
+      "failed_queries" : 0,
+      "macro_recall_at_k" : 1.0,
+      "source_chunks" : 3,
+      "mean_reciprocal_rank_at_k" : 1.0,
+      "successful_queries" : 5,
+      "hit_rate_at_k" : 1.0
+    }
+  }
+}

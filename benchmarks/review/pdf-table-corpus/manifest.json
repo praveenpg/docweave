@@ -1,0 +1,31 @@
+{
+  "repository": "https://github.com/tabulapdf/tabula-java",
+  "commit": "2cdf3b4fd3f7e921dca8cc6814cdd9316be40f0f",
+  "scope": "Fetch-only rendered derivatives; published Tabula expectation, not a human-approved scan transcription",
+  "inputs": [
+    {
+      "filename": "schools.pdf",
+      "path": "src/test/resources/technology/tabula/schools.pdf",
+      "bytes": 72878,
+      "sha256": "d73a342af0250f36b08b718dbf6b73def928e103aa7911ff18018534aa5c87fb",
+      "git_blob_sha1": "eef50e25558a03c32abab28148d37121f9ded795",
+      "url": "https://raw.githubusercontent.com/tabulapdf/tabula-java/2cdf3b4fd3f7e921dca8cc6814cdd9316be40f0f/src/test/resources/technology/tabula/schools.pdf"
+    },
+    {
+      "filename": "schools.json",
+      "path": "src/test/resources/technology/tabula/json/schools.json",
+      "bytes": 51073,
+      "sha256": "7f4b0a0505568f04f66dd983be06ce1da36ebec523a0cbc35056ffe3f491a951",
+      "git_blob_sha1": "d251bb201b7b9a9dbacc274815472a991e413732",
+      "url": "https://raw.githubusercontent.com/tabulapdf/tabula-java/2cdf3b4fd3f7e921dca8cc6814cdd9316be40f0f/src/test/resources/technology/tabula/json/schools.json"
+    },
+    {
+      "filename": "AnimalSounds.pdf",
+      "path": "src/test/resources/technology/tabula/AnimalSounds.pdf",
+      "bytes": 11998,
+      "sha256": "0ab61715ae9e6d420397fa1931e5bc73fd5e7457c73fab4d72c3d9365a0f2e4a",
+      "git_blob_sha1": "ad6c78cfad8469b5282c482d0274d3628b67e89a",
+      "url": "https://raw.githubusercontent.com/tabulapdf/tabula-java/2cdf3b4fd3f7e921dca8cc6814cdd9316be40f0f/src/test/resources/technology/tabula/AnimalSounds.pdf"
+    }
+  ]
+}

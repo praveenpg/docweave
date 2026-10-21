@@ -1,0 +1,8 @@
+{
+  "frozen_at": "2026-10-19T04:54:53.383050+00:00",
+  "references": {
+    "benchmarks/review/pdf-business-cell-text/manifest.json": "df8b9fcd50d77a61fe9b273aa0a2470932c922d5ada4b21c90fd02cc954cecbe",
+    "benchmarks/review/pdf-native-provider-turns/manifest.json": "03b6f302baf302317cbd80da2e4ab6872e2d554d8a9b6639907b94655f1e1338"
+  },
+  "protocol": "Audit same financial page1 and statistics page2 original PDF150DPI. Same pinned graph policies/fourthreads/0.5score/KEEP_HIGHER_SCOREstructure. No reference data supplied to inference. Capture thresholded decoded object counts and final table row counts, input resize geometry. Compare fixed native row intervals and model row intervals independently afterward. No threshold/normalization/row-position label modifications. No aggregate accuracy claim."
+}

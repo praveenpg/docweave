@@ -1,0 +1,21 @@
+{
+  "java": 21,
+  "production_base": "ef89e98",
+  "last_full_production_tests": 1224,
+  "source_lines": 50,
+  "source_code_points": 3049,
+  "new_owned_harness_methods": 2,
+  "selected_harness_methods": 11,
+  "actual_native_ocr_calls": 2,
+  "upstream_captures_reused": 2,
+  "paired_library_model_outcomes": 4,
+  "historical_paired_results_exact": 16,
+  "source_prediction_hashes_and_legacy_fields": "EXACT",
+  "source_declared_line_order": false,
+  "separate_source_image_review": true,
+  "harness_source_sha256": "13c08719c4e5b6c54cf1dc22290766738e473f7fda9f9ec67df3021991678a73",
+  "paired_tool_sha256": "37389d1c019609d07d50f7058666df7253724f9641632668f8ad4999c8e036e7",
+  "original_source_manifest_changed": false,
+  "extraction_change": false,
+  "production_promotion": false
+}

@@ -1,0 +1,260 @@
+{
+  "candidate_partition_source_sha256": "3e2bbdafaaf601ace5b32fb5433285fa7034a77c7869d99f3f9e8bb8bcfab4d6",
+  "scope": "Two publicly published reports from one publisher/template; XML diagnostic review, independent human review pending.",
+  "review": "XML diagnostic review only; independent human review pending",
+  "metric_limit": "Substring presence after whitespace normalization does not prove order, ownership, layout or correct categories",
+  "upstream_reference_sha256": "f1b86130b1b9e603e56844b735d4ebcb08f5ff3114fdd0631beb1ea0eb988c82",
+  "upstream_provenance": {
+    "upstream_commit": "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",
+    "python": "3.13.16",
+    "platform": "Linux-7.2.9-2-cachyos-x86_64-with-glibc2.44",
+    "scope": "Hash-pinned external DOCX corpus; no full parser/corpus parity claim",
+    "entrypoint": "public unstructured.partition.docx.partition_docx; no patches or mocks",
+    "source_sha256": {
+      "unstructured/chunking/base.py": "076daa0ba00212217d6d9bef60156a364f3b50684ce5d5c8168f7ea8cd97ea42",
+      "unstructured/chunking/basic.py": "68d6fde873e5f744ab0527717f029bfe0c8b232df03bcba25359b466d5d77159",
+      "unstructured/chunking/title.py": "f5305324030bb77100584bb8b432b8b2110f3c280b1d697dcc2b41f65dce2f23",
+      "unstructured/documents/elements.py": "94f0f5eca1d987b2e1e5c574417e62305fae4556bb572bf95918861047954d0c",
+      "unstructured/common/html_table.py": "741e09b2b057438e1044c33b2592179e055f75e5664600657b000310caa85bd5",
+      "unstructured/partition/docx.py": "623ef4c7d41dc8ad227a4524c0fe7b58b9688bad86623e81739c6def67f59f2a",
+      "unstructured/partition/text_type.py": "a423f9917c8740a00c04fa4aad6e8794ba9dd8d6e1071377c42878d3d3b20ac5",
+      "unstructured/nlp/tokenize.py": "22347992441136da156a6df38ad6298eda24944918e5edef581415c8bab84d42",
+      "unstructured/partition/common/metadata.py": "f9955fe62a7a695acdfd54b7a1874ed8c4b547de15e1f668bb6b7a1f124cd5d9",
+      "unstructured/partition/common/lang.py": "9c1f7d17c37c59a98b25b047e420ef1ba9f08d3edda74b93761ad7081c6be32c"
+    },
+    "source_verification": "Selected implementation files only, not the entire Git tree",
+    "model": {
+      "name": "en_core_web_sm",
+      "version": "3.8.0",
+      "wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+      "installed_package_verified": true
+    },
+    "memory_measurement": "Linux process high-water RSS in KiB, cumulative across cases",
+    "dependencies": {
+      "en_core_web_sm": "3.8.0",
+      "catalogue": "2.0.10",
+      "shellingham": "1.5.4",
+      "langdetect": "1.0.9",
+      "spacy": "3.8.16",
+      "spacy-loggers": "1.0.5",
+      "numpy": "2.5.4",
+      "installer": "1.1.0",
+      "tqdm": "4.70.1",
+      "confection": "1.3.3",
+      "thinc": "8.3.13",
+      "httpx": "0.28.1",
+      "cymem": "2.0.13",
+      "blis": "1.3.3",
+      "httpcore": "1.0.9",
+      "weasel": "1.0.0",
+      "python-iso639": "2026.7.23",
+      "rich": "15.0.0",
+      "annotated-doc": "0.0.5",
+      "python-docx": "1.2.0",
+      "filelock": "4.2.0",
+      "typer": "0.27.3",
+      "MarkupSafe": "3.0.4",
+      "setuptools": "84.0.0",
+      "srsly": "2.5.4",
+      "Pygments": "2.21.0",
+      "preshed": "3.0.13",
+      "typing-inspection": "0.4.4",
+      "click": "8.5.0",
+      "pydantic": "2.14.1",
+      "markdown-it-py": "4.2.0",
+      "spacy-legacy": "3.0.12",
+      "pydantic_core": "2.50.1",
+      "h11": "0.16.0",
+      "smart_open": "8.0.3",
+      "cloudpathlib": "0.26.0",
+      "Jinja2": "3.1.6",
+      "mdurl": "0.1.2",
+      "packaging": "26.3",
+      "wasabi": "1.1.3",
+      "annotated-types": "0.8.0",
+      "anyio": "4.15.1",
+      "six": "1.17.0",
+      "murmurhash": "1.0.15",
+      "python-magic": "0.4.27",
+      "wrapt": "2.5.1",
+      "urllib3": "2.8.0",
+      "charset-normalizer": "3.5.2",
+      "lxml": "6.1.3",
+      "typing_extensions": "4.16.0",
+      "idna": "3.20",
+      "psutil": "7.2.2",
+      "regex": "2026.9.29",
+      "emoji": "2.16.0",
+      "requests": "2.34.2",
+      "certifi": "2026.7.22"
+    }
+  },
+  "java_version": "openjdk 25.0.4 2026-07-21 LTS\nOpenJDK Runtime Environment Corretto-25.0.4.7.1 (build 25.0.4+7-LTS)\nOpenJDK 64-Bit Server VM Corretto-25.0.4.7.1 (build 25.0.4+7-LTS, mixed mode, sharing)",
+  "checks_passed": true,
+  "documents": [
+    {
+      "filename": "north-lanarkshire-2025.docx",
+      "sha256": "6c8a2ff422ac764b1cc15490932f986e685944a26df4ece9db3902cfafd96938",
+      "source_tables": 2,
+      "upstream": {
+        "element_count": 50,
+        "types": {
+          "Footer": 1,
+          "ListItem": 12,
+          "NarrativeText": 24,
+          "Table": 2,
+          "UncategorizedText": 11
+        },
+        "text_code_points": 26984,
+        "body_paragraphs_checked": 240,
+        "body_paragraphs_unmatched": 12,
+        "unmatched_paragraph_sha256": [
+          "a9360e0212a4d173581c91da68494d022ee55871188be00acf863d2ed0cf7a6a",
+          "81eb2fceadda3b9dbe529453daa9538fd5aade5dfe80de70dd7bab4f6d6ca5a1",
+          "6bce9f06b43acc7d6bda3f04a092e8cf1a7568b3766ff25f21d25c4035306111",
+          "dd5f8563cbf64f1a1f416bf85c7f57167d4d05ae55790037c46ee6bc4c7141ad",
+          "7d434d11cc00d6d25b52ca03f99ae21ebb5fe26fd7b3831748902a206f5d50b7",
+          "60a5071769075dd924d788bfcb349838670a1170cf68e0bd412e10c971aea8a9",
+          "412730cc0dd60cca67c1fcb590014ff822cd833418527490f3370e4158d547d1",
+          "16c16cb06cf55267017dfca9b3fea4552d260fc19b396c1e8b21072c02bfece5",
+          "22079253b03abeea6d6d3186921927194446b7ce99576d26494f7663befc5d76",
+          "604317a2713e04a327da64b3a8c8a56cf56d75ea2db1b3832b7ebd9c3ae53df2",
+          "d8e23c02cd6f71369b094520a467a28cc994472f47f1934263a6a75639db3ee7",
+          "b6d9c793977e2e8746c594f1f9efd8e88ce5511bb6c5a357a540ae735aa9d9f5"
+        ]
+      },
+      "java": {
+        "defaults": {
+          "element_count": 58,
+          "types": {
+            "ListItem": 4,
+            "NarrativeText": 44,
+            "Table": 2,
+            "Title": 8
+          },
+          "text_code_points": 27210,
+          "body_paragraphs_checked": 240,
+          "body_paragraphs_unmatched": 0,
+          "unmatched_paragraph_sha256": [],
+          "warnings": [],
+          "required_text_present": {
+            "North Lanarkshire Council and Licensing Board": true,
+            "The Public Records (Scotland) Act 2011": true,
+            "Assessment Process": true,
+            "Public Records Officer": true
+          },
+          "stored_part_counts_match": true,
+          "checks_passed": true
+        },
+        "include_headers_footers": {
+          "element_count": 60,
+          "types": {
+            "Footer": 1,
+            "Header": 1,
+            "ListItem": 4,
+            "NarrativeText": 44,
+            "Table": 2,
+            "Title": 8
+          },
+          "text_code_points": 27382,
+          "body_paragraphs_checked": 240,
+          "body_paragraphs_unmatched": 0,
+          "unmatched_paragraph_sha256": [],
+          "warnings": [],
+          "required_text_present": {
+            "North Lanarkshire Council and Licensing Board": true,
+            "The Public Records (Scotland) Act 2011": true,
+            "Assessment Process": true,
+            "Public Records Officer": true
+          },
+          "stored_part_counts_match": true,
+          "checks_passed": true
+        }
+      }
+    },
+    {
+      "filename": "sqa-2024.docx",
+      "sha256": "c1345b2cfb860d6cce2b98253021b286de15e4a71e117100a67f8c7aea0fd40b",
+      "source_tables": 3,
+      "upstream": {
+        "element_count": 52,
+        "types": {
+          "Footer": 1,
+          "ListItem": 11,
+          "NarrativeText": 24,
+          "Table": 3,
+          "UncategorizedText": 13
+        },
+        "text_code_points": 35289,
+        "body_paragraphs_checked": 419,
+        "body_paragraphs_unmatched": 10,
+        "unmatched_paragraph_sha256": [
+          "a9360e0212a4d173581c91da68494d022ee55871188be00acf863d2ed0cf7a6a",
+          "81eb2fceadda3b9dbe529453daa9538fd5aade5dfe80de70dd7bab4f6d6ca5a1",
+          "6bce9f06b43acc7d6bda3f04a092e8cf1a7568b3766ff25f21d25c4035306111",
+          "dd5f8563cbf64f1a1f416bf85c7f57167d4d05ae55790037c46ee6bc4c7141ad",
+          "7d434d11cc00d6d25b52ca03f99ae21ebb5fe26fd7b3831748902a206f5d50b7",
+          "60a5071769075dd924d788bfcb349838670a1170cf68e0bd412e10c971aea8a9",
+          "36d3d1f8e97be442e5cc81dd30c2b2191a0bee9b9a04b355361584c8b3466b8a",
+          "ae13eb98af3f58c909c9b958cb52fd3c61a0ad9b7796654b7be30ac7d5c579f8",
+          "64566a02d8ff1aab5b1c9a59a1f76a0dd39fe7a453907839b46c2f9a07ec1da9",
+          "604317a2713e04a327da64b3a8c8a56cf56d75ea2db1b3832b7ebd9c3ae53df2"
+        ]
+      },
+      "java": {
+        "defaults": {
+          "element_count": 61,
+          "types": {
+            "Image": 1,
+            "ListItem": 3,
+            "NarrativeText": 46,
+            "Table": 3,
+            "Title": 8
+          },
+          "text_code_points": 35500,
+          "body_paragraphs_checked": 419,
+          "body_paragraphs_unmatched": 0,
+          "unmatched_paragraph_sha256": [],
+          "warnings": [],
+          "required_text_present": {
+            "Scottish Qualifications Authority": true,
+            "The Public Records (Scotland) Act 2011": true,
+            "Assessment Process": true,
+            "Public Records Officer": true
+          },
+          "stored_part_counts_match": true,
+          "checks_passed": true
+        },
+        "include_headers_footers": {
+          "element_count": 63,
+          "types": {
+            "Footer": 1,
+            "Header": 1,
+            "Image": 1,
+            "ListItem": 3,
+            "NarrativeText": 46,
+            "Table": 3,
+            "Title": 8
+          },
+          "text_code_points": 35656,
+          "body_paragraphs_checked": 419,
+          "body_paragraphs_unmatched": 0,
+          "unmatched_paragraph_sha256": [],
+          "warnings": [],
+          "required_text_present": {
+            "Scottish Qualifications Authority": true,
+            "The Public Records (Scotland) Act 2011": true,
+            "Assessment Process": true,
+            "Public Records Officer": true
+          },
+          "stored_part_counts_match": true,
+          "checks_passed": true
+        }
+      }
+    }
+  ],
+  "_public_projection": {
+    "original_sha256": "dd852ac92654bebf19253f0185f2c9f787e0443d554ea7b8680a9b4d1c69d6dd",
+    "status": "Derived documentation/path projection; historical measurements and embedded fingerprints unchanged"
+  }
+}

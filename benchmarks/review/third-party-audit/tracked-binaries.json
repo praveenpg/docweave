@@ -1,0 +1,339 @@
+[
+  {
+    "path": "benchmarks/fixtures/docx-content.docx",
+    "bytes": 4445,
+    "sha256": "c4f50d2c534c09dbaa517aa0c1f0ecbedb65332c7822edb2a2811cf93adabecb",
+    "matching_manifest_paths": [],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "provenance_record": "benchmarks/fixtures/manifest.json",
+    "hash_status": "SHA256 measured by this audit; original provenance manifest has no hash for this fixture"
+  },
+  {
+    "path": "benchmarks/fixtures/structured.docx",
+    "bytes": 2393,
+    "sha256": "bfb294342e1a1ca94910ede8e54de2c1a1909c59819acf242e550bee7aff600b",
+    "matching_manifest_paths": [],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "provenance_record": "benchmarks/fixtures/manifest.json",
+    "hash_status": "SHA256 measured by this audit; original provenance manifest has no hash for this fixture"
+  },
+  {
+    "path": "benchmarks/review/docx-paragraph-ownership/content-ownership.docx",
+    "bytes": 4444,
+    "sha256": "68a1f45410c36462d34e104a7e9dda1b0aa8bd4f0533e2afa217677118ef6194",
+    "matching_manifest_paths": [
+      "benchmarks/review/docx-paragraph-ownership/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/docx-paragraph-ownership/nested.docx",
+    "bytes": 2561,
+    "sha256": "140fbdecee3b7dd6adf0bb6459375f0fc02ef88bd1819586244dd6e1834c5da8",
+    "matching_manifest_paths": [
+      "benchmarks/review/nested-tables/manifest.json",
+      "benchmarks/review/docx-paragraph-ownership/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/nested-table-memory/inputs/deep.docx",
+    "bytes": 4417,
+    "sha256": "a1670fee082849c0c12125c323e8f4f1f239fffa23aec1b50d3c5fc33d95737f",
+    "matching_manifest_paths": [
+      "benchmarks/review/nested-table-memory/inputs/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/nested-table-memory/inputs/wide.docx",
+    "bytes": 22928,
+    "sha256": "28acf035b0907011ad5b9b34d04022e4dd59f22d001c34f223851dbdf43897bb",
+    "matching_manifest_paths": [
+      "benchmarks/review/nested-table-memory/inputs/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/nested-tables/nested.docx",
+    "bytes": 2561,
+    "sha256": "140fbdecee3b7dd6adf0bb6459375f0fc02ef88bd1819586244dd6e1834c5da8",
+    "matching_manifest_paths": [
+      "benchmarks/review/nested-tables/manifest.json",
+      "benchmarks/review/docx-paragraph-ownership/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/word-outline-controls/conditional-direct-outline-0.docx",
+    "bytes": 3066,
+    "sha256": "c61d24d5fe4f56d898b46d0ce11515d40f0bf0fcff55d351566437bd6cb021eb",
+    "matching_manifest_paths": [
+      "benchmarks/review/word-outline-controls/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/word-outline-controls/conditional-direct-outline-3.docx",
+    "bytes": 3068,
+    "sha256": "e8dbdf71ba2fdbbbbfd77ec5b4a0b5decd97a9272aac00f4767bdb319638d96a",
+    "matching_manifest_paths": [
+      "benchmarks/review/word-outline-controls/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/word-outline-controls/plain-direct-outline-0.docx",
+    "bytes": 3078,
+    "sha256": "ed18e4d310526ae53648a7c74a898dba749698609fd7b17df0e97b04859b3de6",
+    "matching_manifest_paths": [
+      "benchmarks/review/word-outline-controls/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/word-outline-controls/plain-direct-outline-3.docx",
+    "bytes": 3082,
+    "sha256": "51e46aa37db3a98a378de2f382d04d12998d5e38429619ec13336b56938f1752",
+    "matching_manifest_paths": [
+      "benchmarks/review/word-outline-controls/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/word-style-cases/direct-override-control.docx",
+    "bytes": 3242,
+    "sha256": "8f5071b94f306a2761e464533d1ae51ec60e5e2783af5867833cbc7ad2b5c4cd",
+    "matching_manifest_paths": [
+      "benchmarks/runs/word-style-postfix-final/word-style-cases/manifest.json",
+      "benchmarks/runs/word-style-postfix-final/word-style-followups/manifest.json",
+      "benchmarks/runs/word-style-postfix-b0aa921/word-style-cases/manifest.json",
+      "benchmarks/runs/word-style-postfix-b0aa921/word-style-followups/manifest.json",
+      "benchmarks/review/word-style-cases/manifest.json",
+      "benchmarks/review/word-style-followups/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/word-style-cases/edge-flag-without-branch.docx",
+    "bytes": 3207,
+    "sha256": "7c05b6bed5fe7dcbe9b2ca71ac2f4bd2e0d29fc90d2e7f0ebee0f12235a14410",
+    "matching_manifest_paths": [
+      "benchmarks/runs/word-style-postfix-final/word-style-cases/manifest.json",
+      "benchmarks/runs/word-style-postfix-b0aa921/word-style-cases/manifest.json",
+      "benchmarks/review/word-style-cases/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/word-style-cases/row-column-overlap.docx",
+    "bytes": 3187,
+    "sha256": "75e8681c5c383e121742bb8224b968fc740d29e92b6f632fbc9beb93a1fd1c1b",
+    "matching_manifest_paths": [
+      "benchmarks/runs/word-style-postfix-final/word-style-cases/manifest.json",
+      "benchmarks/runs/word-style-postfix-b0aa921/word-style-cases/manifest.json",
+      "benchmarks/review/word-style-cases/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/word-style-cases/table-style-numbering.docx",
+    "bytes": 3198,
+    "sha256": "1e2d24d3ebd759df98e8b7883b3d15786d1cefac9c96d7ed9366181c58b85083",
+    "matching_manifest_paths": [
+      "benchmarks/runs/word-style-postfix-final/word-style-cases/manifest.json",
+      "benchmarks/runs/word-style-postfix-final/word-style-followups/manifest.json",
+      "benchmarks/runs/word-style-postfix-b0aa921/word-style-cases/manifest.json",
+      "benchmarks/runs/word-style-postfix-b0aa921/word-style-followups/manifest.json",
+      "benchmarks/review/word-style-cases/manifest.json",
+      "benchmarks/review/word-style-followups/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/word-style-cases/unsized-bands.docx",
+    "bytes": 3176,
+    "sha256": "000100279167f1c6b9368d73c37a4ae1a502a2ff5d6633e3a20cfb330df9f399",
+    "matching_manifest_paths": [
+      "benchmarks/runs/word-style-postfix-final/word-style-cases/manifest.json",
+      "benchmarks/runs/word-style-postfix-b0aa921/word-style-cases/manifest.json",
+      "benchmarks/review/word-style-cases/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/word-style-cases/whole-table-branch.docx",
+    "bytes": 3165,
+    "sha256": "1d773982b0f1ef84853e635f7e3acecbb02821d71370ebd5fcb7508b4073932d",
+    "matching_manifest_paths": [
+      "benchmarks/runs/word-style-postfix-final/word-style-cases/manifest.json",
+      "benchmarks/runs/word-style-postfix-b0aa921/word-style-cases/manifest.json",
+      "benchmarks/review/word-style-cases/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/word-style-followups/conditional-direct-body.docx",
+    "bytes": 3065,
+    "sha256": "87cee6766919a516a8454d6111dc45058249b6d621c9747de852906ee16bbb51",
+    "matching_manifest_paths": [
+      "benchmarks/runs/word-style-postfix-final/word-style-followups/manifest.json",
+      "benchmarks/runs/word-style-postfix-b0aa921/word-style-followups/manifest.json",
+      "benchmarks/review/word-style-followups/manifest.json",
+      "benchmarks/review/word-outline-controls/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/word-style-followups/conditional-outline-only.docx",
+    "bytes": 3053,
+    "sha256": "58e11a197068ae41b238aa7a8ae089c1d8bdab01ce5cb2a506e7ddaaf90a813f",
+    "matching_manifest_paths": [
+      "benchmarks/runs/word-style-postfix-final/word-style-followups/manifest.json",
+      "benchmarks/runs/word-style-postfix-b0aa921/word-style-followups/manifest.json",
+      "benchmarks/review/word-style-followups/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/word-style-followups/direct-numbering-shared.docx",
+    "bytes": 3063,
+    "sha256": "715900aee75db800b61d1b04df184224fd0244ec556ef7ce24c704e04eeb33fc",
+    "matching_manifest_paths": [
+      "benchmarks/runs/word-style-postfix-final/word-style-followups/manifest.json",
+      "benchmarks/runs/word-style-postfix-b0aa921/word-style-followups/manifest.json",
+      "benchmarks/review/word-style-followups/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/word-style-followups/numbering-distinct-abstract.docx",
+    "bytes": 3063,
+    "sha256": "143e6b39775ea5db5c06b2a3cd257384bb363b498ba3407b07cc49f5841ac759",
+    "matching_manifest_paths": [
+      "benchmarks/runs/word-style-postfix-final/word-style-followups/manifest.json",
+      "benchmarks/runs/word-style-postfix-b0aa921/word-style-followups/manifest.json",
+      "benchmarks/review/word-style-followups/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/word-style-followups/numbering-explicit-restart.docx",
+    "bytes": 3075,
+    "sha256": "0422c558b79afcdf951feb04cf6c3bfafe27fb9e07230b4ea599fa0042585ae1",
+    "matching_manifest_paths": [
+      "benchmarks/runs/word-style-postfix-final/word-style-followups/manifest.json",
+      "benchmarks/runs/word-style-postfix-b0aa921/word-style-followups/manifest.json",
+      "benchmarks/review/word-style-followups/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/word-style-followups/numbering-numpr-first.docx",
+    "bytes": 3052,
+    "sha256": "1cb35523f0bcbf5692dfcc1dd4e1474f2ac9b485ca429db45aeade61b9f554df",
+    "matching_manifest_paths": [
+      "benchmarks/runs/word-style-postfix-final/word-style-followups/manifest.json",
+      "benchmarks/runs/word-style-postfix-b0aa921/word-style-followups/manifest.json",
+      "benchmarks/review/word-style-followups/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/word-style-followups/numbering-original-order.docx",
+    "bytes": 3059,
+    "sha256": "c24c1f3d5dcd76088dde21d59fdef57454b01f4ccda7d2b4e2d96d21ce8bdb7d",
+    "matching_manifest_paths": [
+      "benchmarks/runs/word-style-postfix-final/word-style-followups/manifest.json",
+      "benchmarks/runs/word-style-postfix-b0aa921/word-style-followups/manifest.json",
+      "benchmarks/review/word-style-followups/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/word-style-followups/override-numpr-first.docx",
+    "bytes": 3094,
+    "sha256": "0b73b3e343a65b7b94ae40f47721ee3433733a13d02f96f0e4152538f50d9d7b",
+    "matching_manifest_paths": [
+      "benchmarks/runs/word-style-postfix-final/word-style-followups/manifest.json",
+      "benchmarks/runs/word-style-postfix-b0aa921/word-style-followups/manifest.json",
+      "benchmarks/review/word-style-followups/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/word-style-followups/override-original-order.docx",
+    "bytes": 3101,
+    "sha256": "4481283f151a854e492a9872de7dfa90b8b8c1fbf023ee8116e85d72592349b3",
+    "matching_manifest_paths": [
+      "benchmarks/runs/word-style-postfix-final/word-style-followups/manifest.json",
+      "benchmarks/runs/word-style-postfix-b0aa921/word-style-followups/manifest.json",
+      "benchmarks/review/word-style-followups/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "benchmarks/review/word-style-followups/plain-direct-body.docx",
+    "bytes": 3080,
+    "sha256": "d0cc9000f57914abac138c5a04678b25b5a39bc96183cc5d70096c3ee1b05d11",
+    "matching_manifest_paths": [
+      "benchmarks/runs/word-style-postfix-final/word-style-followups/manifest.json",
+      "benchmarks/runs/word-style-postfix-b0aa921/word-style-followups/manifest.json",
+      "benchmarks/review/word-style-followups/manifest.json",
+      "benchmarks/review/word-outline-controls/manifest.json"
+    ],
+    "scope": "Owned DOCX fixture; review generator/provenance record",
+    "hash_status": "Matches existing manifest SHA256; ownership descriptions remain source provenance claims"
+  },
+  {
+    "path": "docweave-layout-onnx/src/test/resources/onnx/finite-loop.onnx",
+    "bytes": 978,
+    "sha256": "ca145142f70f00b85c71e6af08677f2394365e7f407c872b0df5f7b6baeae8b9",
+    "matching_manifest_paths": [],
+    "scope": "Project-owned synthetic test graphs",
+    "provenance_record": "docweave-layout-onnx/src/test/resources/onnx/README.md",
+    "hash_status": "SHA256 measured by this audit; graph generation description is tracked"
+  },
+  {
+    "path": "docweave-layout-onnx/src/test/resources/onnx/fixed-detections.onnx",
+    "bytes": 458,
+    "sha256": "865443d50e17abd7f9a395e1b1006707484eb5978e48476838513829ebb3e268",
+    "matching_manifest_paths": [],
+    "scope": "Project-owned synthetic test graphs",
+    "provenance_record": "docweave-layout-onnx/src/test/resources/onnx/README.md",
+    "hash_status": "SHA256 measured by this audit; graph generation description is tracked"
+  },
+  {
+    "path": "docweave-layout-onnx/src/test/resources/onnx/fixed-table.onnx",
+    "bytes": 594,
+    "sha256": "13d88527dfc712e644b1f2251907d891a25d0b64e42326251e4745be67fee203",
+    "matching_manifest_paths": [],
+    "scope": "Project-owned synthetic test graphs",
+    "provenance_record": "docweave-layout-onnx/src/test/resources/onnx/README.md",
+    "hash_status": "SHA256 measured by this audit; graph generation description is tracked"
+  }
+]

@@ -1,0 +1,178 @@
+{
+  "runtime" : "21.0.12.1+12-LTS",
+  "scope" : "Post-hoc same-index difference classification; strict scores unchanged; no source truth or accuracy claim",
+  "mode" : "SOURCE_TAGGED_CELL_ENVELOPE_TABLES",
+  "results" : [ {
+    "case" : "operations",
+    "source_page" : 1,
+    "outcome" : "SUCCESS",
+    "associated" : true,
+    "association_iou" : 0.9613366887661088,
+    "reference_content_rows" : 32,
+    "observed_content_rows" : 32,
+    "missing_row_positions" : 0,
+    "extra_row_positions" : 0,
+    "same_index_diagnostic_counts" : {
+      "exact" : 25,
+      "ascii_space_only" : 3,
+      "em_dash_hyphen_only" : 1,
+      "ascii_space_and_em_dash_hyphen" : 3,
+      "other" : 0
+    },
+    "nonexact_positions" : [ {
+      "row" : 7,
+      "diagnostic_category" : "ascii_space_only"
+    }, {
+      "row" : 11,
+      "diagnostic_category" : "em_dash_hyphen_only"
+    }, {
+      "row" : 14,
+      "diagnostic_category" : "ascii_space_only"
+    }, {
+      "row" : 17,
+      "diagnostic_category" : "ascii_space_only"
+    }, {
+      "row" : 20,
+      "diagnostic_category" : "ascii_space_and_em_dash_hyphen"
+    }, {
+      "row" : 24,
+      "diagnostic_category" : "ascii_space_and_em_dash_hyphen"
+    }, {
+      "row" : 27,
+      "diagnostic_category" : "ascii_space_and_em_dash_hyphen"
+    } ]
+  }, {
+    "case" : "balance-sheet",
+    "source_page" : 2,
+    "outcome" : "SUCCESS",
+    "associated" : true,
+    "association_iou" : 0.9591323328948178,
+    "reference_content_rows" : 36,
+    "observed_content_rows" : 36,
+    "missing_row_positions" : 0,
+    "extra_row_positions" : 0,
+    "same_index_diagnostic_counts" : {
+      "exact" : 33,
+      "ascii_space_only" : 2,
+      "em_dash_hyphen_only" : 1,
+      "ascii_space_and_em_dash_hyphen" : 0,
+      "other" : 0
+    },
+    "nonexact_positions" : [ {
+      "row" : 20,
+      "diagnostic_category" : "em_dash_hyphen_only"
+    }, {
+      "row" : 31,
+      "diagnostic_category" : "ascii_space_only"
+    }, {
+      "row" : 33,
+      "diagnostic_category" : "ascii_space_only"
+    } ]
+  }, {
+    "case" : "cash-flows",
+    "source_page" : 3,
+    "outcome" : "SUCCESS",
+    "associated" : true,
+    "association_iou" : 0.9578591544717046,
+    "reference_content_rows" : 52,
+    "observed_content_rows" : 52,
+    "missing_row_positions" : 0,
+    "extra_row_positions" : 0,
+    "same_index_diagnostic_counts" : {
+      "exact" : 23,
+      "ascii_space_only" : 14,
+      "em_dash_hyphen_only" : 5,
+      "ascii_space_and_em_dash_hyphen" : 10,
+      "other" : 0
+    },
+    "nonexact_positions" : [ {
+      "row" : 4,
+      "diagnostic_category" : "ascii_space_and_em_dash_hyphen"
+    }, {
+      "row" : 9,
+      "diagnostic_category" : "ascii_space_and_em_dash_hyphen"
+    }, {
+      "row" : 10,
+      "diagnostic_category" : "ascii_space_only"
+    }, {
+      "row" : 11,
+      "diagnostic_category" : "ascii_space_and_em_dash_hyphen"
+    }, {
+      "row" : 14,
+      "diagnostic_category" : "ascii_space_only"
+    }, {
+      "row" : 15,
+      "diagnostic_category" : "ascii_space_only"
+    }, {
+      "row" : 16,
+      "diagnostic_category" : "ascii_space_only"
+    }, {
+      "row" : 17,
+      "diagnostic_category" : "ascii_space_only"
+    }, {
+      "row" : 18,
+      "diagnostic_category" : "ascii_space_only"
+    }, {
+      "row" : 20,
+      "diagnostic_category" : "em_dash_hyphen_only"
+    }, {
+      "row" : 23,
+      "diagnostic_category" : "ascii_space_only"
+    }, {
+      "row" : 24,
+      "diagnostic_category" : "ascii_space_only"
+    }, {
+      "row" : 27,
+      "diagnostic_category" : "ascii_space_and_em_dash_hyphen"
+    }, {
+      "row" : 28,
+      "diagnostic_category" : "ascii_space_and_em_dash_hyphen"
+    }, {
+      "row" : 29,
+      "diagnostic_category" : "ascii_space_only"
+    }, {
+      "row" : 30,
+      "diagnostic_category" : "em_dash_hyphen_only"
+    }, {
+      "row" : 31,
+      "diagnostic_category" : "ascii_space_only"
+    }, {
+      "row" : 32,
+      "diagnostic_category" : "em_dash_hyphen_only"
+    }, {
+      "row" : 33,
+      "diagnostic_category" : "ascii_space_and_em_dash_hyphen"
+    }, {
+      "row" : 34,
+      "diagnostic_category" : "em_dash_hyphen_only"
+    }, {
+      "row" : 35,
+      "diagnostic_category" : "ascii_space_only"
+    }, {
+      "row" : 37,
+      "diagnostic_category" : "em_dash_hyphen_only"
+    }, {
+      "row" : 38,
+      "diagnostic_category" : "ascii_space_and_em_dash_hyphen"
+    }, {
+      "row" : 40,
+      "diagnostic_category" : "ascii_space_and_em_dash_hyphen"
+    }, {
+      "row" : 41,
+      "diagnostic_category" : "ascii_space_only"
+    }, {
+      "row" : 42,
+      "diagnostic_category" : "ascii_space_and_em_dash_hyphen"
+    }, {
+      "row" : 43,
+      "diagnostic_category" : "ascii_space_and_em_dash_hyphen"
+    }, {
+      "row" : 44,
+      "diagnostic_category" : "ascii_space_only"
+    }, {
+      "row" : 45,
+      "diagnostic_category" : "ascii_space_only"
+    } ]
+  } ],
+  "manifest_sha256" : "4f14e0acc2da8cb30aa2c63c00ceed2ae716e64abb3ddd168774fb4032098c9e"
+}

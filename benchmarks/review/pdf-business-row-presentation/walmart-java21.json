@@ -1,0 +1,61 @@
+{
+  "results" : [ {
+    "case" : "operations",
+    "source_page" : 11,
+    "outcome" : "SUCCESS",
+    "associated" : true,
+    "association_iou" : 0.9706104747407183,
+    "reference_content_rows" : 29,
+    "observed_content_rows" : 29,
+    "missing_row_positions" : 0,
+    "extra_row_positions" : 0,
+    "same_index_diagnostic_counts" : {
+      "exact" : 29,
+      "ascii_space_only" : 0,
+      "em_dash_hyphen_only" : 0,
+      "ascii_space_and_em_dash_hyphen" : 0,
+      "other" : 0
+    },
+    "nonexact_positions" : [ ]
+  }, {
+    "case" : "balance-sheet",
+    "source_page" : 12,
+    "outcome" : "SUCCESS",
+    "associated" : true,
+    "association_iou" : 0.9633943135775984,
+    "reference_content_rows" : 40,
+    "observed_content_rows" : 40,
+    "missing_row_positions" : 0,
+    "extra_row_positions" : 0,
+    "same_index_diagnostic_counts" : {
+      "exact" : 40,
+      "ascii_space_only" : 0,
+      "em_dash_hyphen_only" : 0,
+      "ascii_space_and_em_dash_hyphen" : 0,
+      "other" : 0
+    },
+    "nonexact_positions" : [ ]
+  }, {
+    "case" : "cash-flows",
+    "source_page" : 13,
+    "outcome" : "SUCCESS",
+    "associated" : true,
+    "association_iou" : 0.9680830894165864,
+    "reference_content_rows" : 36,
+    "observed_content_rows" : 36,
+    "missing_row_positions" : 0,
+    "extra_row_positions" : 0,
+    "same_index_diagnostic_counts" : {
+      "exact" : 36,
+      "ascii_space_only" : 0,
+      "em_dash_hyphen_only" : 0,
+      "ascii_space_and_em_dash_hyphen" : 0,
+      "other" : 0
+    },
+    "nonexact_positions" : [ ]
+  } ],
+  "manifest_sha256" : "0c8fd3d79d50845775aa0aa603e21d293358910f7e72f99d8cc67c7a0166361b",
+  "runtime" : "21.0.12.1+12-LTS",
+  "scope" : "Post-hoc same-index difference classification; strict scores unchanged; no source truth or accuracy claim",
+  "mode" : "SOURCE_TAGGED_CELL_ENVELOPE_TABLES"
+}

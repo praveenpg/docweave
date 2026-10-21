@@ -1,0 +1,29 @@
+{
+  "builds": [
+    {
+      "jdk": "21",
+      "tests": 977,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "strict_public_javadocs": "PASS",
+      "log_sha256": "7a5928ce6476b83b934c095c8277b0788b168e81dd675537d1fcaa61628f9b94",
+      "strict_new_helper_private_javadocs": "PASS"
+    },
+    {
+      "jdk": "25",
+      "tests": 977,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "strict_public_javadocs": "PASS",
+      "log_sha256": "18660568319a6951935e3b3dcefcd8a790eae5c9dd7261b780256758e69e669e",
+      "strict_new_helper_private_javadocs": "PASS"
+    }
+  ],
+  "formatter": "clang-format 23.1.1 PASS",
+  "diff_check": "PASS",
+  "replay_comparisons": 42,
+  "replay_equal_except_explicit_strategy": 42,
+  "real_replay_accepted_tagged_tables": 0
+}

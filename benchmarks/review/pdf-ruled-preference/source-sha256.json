@@ -1,0 +1,9 @@
+{
+  "docweave-pdf/src/main/java/dev/docweave/partition/PdfTableLayouts.java": "63f494cfcb866dc2c8fef1f4d913e61a5610baddae1e8177bfc3fdab2cfe6bb3",
+  "docweave-pdf/src/main/java/dev/docweave/partition/RuledFirstPdfTableLayout.java": "d2c2d790303d55a3b93a783cc62fd94f7e2b88ff7f5536bd3714f90c81dfc8bc",
+  "docweave-pdf/src/test/java/dev/docweave/partition/PdfRuledFirstLayoutTest.java": "518dd8144ca3c5fd1ee26d7d3fdf0b570955b17ba44c7cecf2ec06affbba6a3e",
+  "docweave-pdf/src/main/java/dev/docweave/partition/PdfProviderTables.java": "7100859c6bb826d1924a9040a900555b30c409bd883b8d61ef771a8f8d061731",
+  "docweave-pdf/src/main/java/dev/docweave/partition/PdfTableLayoutProvider.java": "9a4a29d2e8799a75af2d6e738a26a68a8bc3f0986893b81e911175226a6ebe26",
+  "docweave-validation/src/test/java/dev/docweave/validation/PdfLayoutModels.java": "2fc53f3ba25ff16eea638d34ca57996a96a54b1de303ea221a96eda75041941d",
+  "docweave-validation/src/test/java/dev/docweave/validation/PdfPubTabNetCorpusTest.java": "ca5b5594c5793e39c0da4a8383308d7bdb26bafd2ffb20aef186e4f8992ea4d3"
+}

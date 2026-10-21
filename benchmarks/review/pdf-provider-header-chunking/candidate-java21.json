@@ -1,0 +1,53 @@
+{
+  "results" : [ {
+    "declared_header_rows" : 0,
+    "source_neutral_header_rows" : 0,
+    "chunks" : 2,
+    "continuation_chunks_with_one_repeated_header" : 0,
+    "body_row_denominator" : 6,
+    "body_rows_present_exactly_once" : 6,
+    "route" : "NATIVE"
+  }, {
+    "declared_header_rows" : 1,
+    "source_neutral_header_rows" : 1,
+    "chunks" : 3,
+    "continuation_chunks_with_one_repeated_header" : 2,
+    "body_row_denominator" : 6,
+    "body_rows_present_exactly_once" : 6,
+    "route" : "NATIVE"
+  }, {
+    "declared_header_rows" : 0,
+    "source_neutral_header_rows" : 0,
+    "chunks" : 2,
+    "continuation_chunks_with_one_repeated_header" : 0,
+    "body_row_denominator" : 6,
+    "body_rows_present_exactly_once" : 6,
+    "route" : "WORDS"
+  }, {
+    "declared_header_rows" : 1,
+    "source_neutral_header_rows" : 1,
+    "chunks" : 3,
+    "continuation_chunks_with_one_repeated_header" : 2,
+    "body_row_denominator" : 6,
+    "body_rows_present_exactly_once" : 6,
+    "route" : "WORDS"
+  }, {
+    "declared_header_rows" : 0,
+    "source_neutral_header_rows" : 0,
+    "chunks" : 2,
+    "continuation_chunks_with_one_repeated_header" : 0,
+    "body_row_denominator" : 6,
+    "body_rows_present_exactly_once" : 6,
+    "route" : "CELLS"
+  }, {
+    "declared_header_rows" : 1,
+    "source_neutral_header_rows" : 1,
+    "chunks" : 3,
+    "continuation_chunks_with_one_repeated_header" : 2,
+    "body_row_denominator" : 6,
+    "body_rows_present_exactly_once" : 6,
+    "route" : "CELLS"
+  } ],
+  "scope" : "Owned seven-row source, all three provider text routes and both declarations; no original-source accuracy claim",
+  "runtime" : "21.0.12.1+12-LTS"
+}

@@ -1,0 +1,14 @@
+{
+  "base_commit": "0a7a9d8",
+  "baseline_manifest": "benchmarks/review/pdf-scan-source-resolution/manifest.json",
+  "baseline_manifest_sha256": "f2a41b55576aab652abdd5eb51c9e1d08beaa1be78bf5f07f39bc10c2537669c",
+  "baseline_report": "benchmarks/review/pdf-scan-source-resolution/java21.json",
+  "baseline_report_sha256": "95db19b628dee8930d16620d894b60e8d47dc1b804ad01c5d8d4b3a2836ae84c",
+  "pre_run_identities": {
+    "docweave-validation/src/test/java/dev/docweave/validation/BackgroundWhitepointScanProbe.java": "4db4230a502588dff8915092521d712083cf11319026478d8f0f0819e6c2273e",
+    "docweave-validation/src/test/java/dev/docweave/validation/BackgroundWhitepointScanProbeTest.java": "275733e0cfdd1d52599a74605e59a279a371ef6a807b1801f217e1c35a960094",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfHistoricalTextCorpusTest.java": "5542b6249000da741105e12ed9ddd96cf546921b914e2ee2f5b6396114374d28"
+  },
+  "scope": "All4fixedsourcepages\u00d72fixedmodels=8OCRcalls; report every failure/miss and all5378referencecodepoints per model. No per-case selection or general OCR enhancement assumption. Preserve known gray-field erasure counterexample.",
+  "production_preprocessing": false
+}

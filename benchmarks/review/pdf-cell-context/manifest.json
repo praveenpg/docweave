@@ -1,0 +1,19 @@
+{
+  "source_manifest": "../pdf-pubtabnet/manifest.json",
+  "baseline_report": "../pdf-provider-cell-ocr/pubtabnet-300-java21.json",
+  "context_pixels": 4,
+  "units": "Current upright rendered input pixels, before outward rounding and unchanged12-pixel white padding",
+  "clamp": "Provider table bounds before source-pixel rounding",
+  "profile": {
+    "render_dpi": 300,
+    "page_segmentation": "SINGLE_BLOCK",
+    "cell_segmentation": "SINGLE_BLOCK",
+    "cell_borders": "RETAIN",
+    "table_detection": "PROVIDER_LAYOUT_CELLS",
+    "page_and_cell_model_sha256": "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047",
+    "layout_graph_sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detector_enabled": false,
+    "orientation_enabled": false
+  },
+  "scope": "All20 original upstream-train images; uniform context4 chosen before this evaluation; no source/annotation repair, model change, sample exclusion or per-case tuning. No general/held-out-model accuracy claim."
+}

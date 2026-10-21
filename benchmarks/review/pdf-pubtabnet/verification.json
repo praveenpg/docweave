@@ -1,0 +1,30 @@
+{
+  "java": {
+    "21": {
+      "tests": 787,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "25": {
+      "tests": 787,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "strict_javadocs": "passed both JDKs",
+  "python_reference_guards": 12,
+  "formatter": "clang-format23.1.1 passed",
+  "same_dpi300_metrics_across_jdks": true,
+  "profiles": "Final-source Java25 150/300/600DPI; full Java21/25 300DPI plus all seven installed OCR families",
+  "recognition_scope": "One complete merged topology gate; no complete shape-plus-text matches and no general accuracy/calibration claim",
+  "sha256": {
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfPubTabNetCorpusTest.java": "3299f5cf9f6ea6bd50e95b8de740850c1043c36fdba93a3ea940599cf39e71b9",
+    "benchmarks/review/pdf-pubtabnet/manifest.json": "6ece9c22eb8b86508148f2cf63f63d13ca8b4d4805b35bf34260578b921936e7",
+    "benchmarks/review/pdf-pubtabnet/java21-dpi300.json": "0ff3685ce989778f4de72bf88169071ee1ea43075f035a5350ccf4f5ec6cc6fc",
+    "benchmarks/review/pdf-pubtabnet/java25-dpi300.json": "a726844196622feb3846be84a0036f103bbbc8497b14709ebcde26558fb8408e",
+    "benchmarks/review/pdf-pubtabnet/java25-dpi150.json": "486256fcd5f517fc5cd28992f868e968e31a4cecd2f8f402ca23522aa24d772e",
+    "benchmarks/review/pdf-pubtabnet/java25-dpi600.json": "8df1401699c4e4450eb05ab4583d7bd17d851242090917b984e70f60ffca9791"
+  }
+}

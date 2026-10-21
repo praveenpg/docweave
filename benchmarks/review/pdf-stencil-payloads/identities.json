@@ -1,0 +1,17 @@
+{
+  "scope" : "Owned exact stencil pixels and unchanged original default captures; no external stencil/figure accuracy claim",
+  "sha256" : {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfImageBudget.java" : "710b286769690e6839550c4f9034fe564b7bf2e7674184817a63043fa4c76651",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java" : "0ac90b6135dad6a134f0e349b1969eb214ec8641e28711022edf28efad044c64",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java" : "b07e2b34d44aa8cb3aa9124e56a63a25c0129a888e1ffca604ef9480d63f3e25",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfStencilImageTest.java" : "e166c2a5dbaa435fa735c202bb833ca4ba132b963756a01237ad248f209580df",
+    "benchmarks/review/pdf-stencil-payloads/StencilPayloadProbe.java" : "05ce419dede79ae565e9eaea125a729aed6cb36dd38190881dbb37fe27b5b0a2",
+    "benchmarks/review/pdf-stencil-payloads/VerifyDefaultReplay.java" : "6ff73a3319f2bc763d0aed8cf1ea155048c54c1a708268ec24c30238779e80af",
+    "benchmarks/review/pdf-stencil-payloads/baseline-java21.properties" : "22cbee0f398fe9ec2be57b9db3c1bd93c3b964d7ac3eed9c28469b531d5ce91e",
+    "benchmarks/review/pdf-stencil-payloads/candidate-java21.properties" : "f5a5f0a905113e5cb94590a1aadd58f9c784d35ac8e075f76b6168cbd57d39b1",
+    "benchmarks/review/pdf-stencil-payloads/default-regression-java21.json" : "143aa85e7ab694584e8c2d737e7f7cad322d0f32b9da7ddf89050b3489f7d146"
+  },
+  "same_probe_bytecode_used_with_both_packaged_versions" : true,
+  "candidate_parent_commit" : "fdf25ac3deca5db4c02589be32ce88996fe13a66",
+  "owned_pdf_sha256" : "88b35be2bb9cc6b3ddb512400ff126a05f5f1bc91d81cdccfa24718a86dd65ec"
+}

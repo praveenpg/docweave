@@ -1,0 +1,9 @@
+{
+  "frozen_at": "2026-10-19T03:58:43.027710+00:00",
+  "reference_manifest_sha256": "3656667adb4345c0b7ff0ac74f07b255cf4aa923ce7ab55a7ad13d747a732898",
+  "protocol": "Unchanged reference rows, normalization, ordinal comparison and IoU association from referenced manifest. Existing CaptureBusinessCellText selected-page 150DPI image-only derivative, PAGE and CELL uniformly, maxTableCells1024, no reference ROI supplied to inference. Existing model defaults with four threads and KEEP_HIGHER_SCORE structure merges. No parameter tuning.",
+  "detector_sha256": "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+  "structure_sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+  "executable_sha256": "9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917",
+  "english_model_sha256": "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047"
+}

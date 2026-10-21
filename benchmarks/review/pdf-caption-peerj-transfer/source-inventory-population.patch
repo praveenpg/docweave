@@ -1,0 +1,11 @@
+--- InventoryPublisherFigures.java
++++ InventoryPublisherFigures.java
+@@ -63,7 +63,7 @@
+             results.add(Map.of("case", selected.get("id").asString(), "doi", selected.get("doi").asString(),
+                     "main_body_figures", figures.getLength(), "figures", rows));
+         }
+-        require(results.size() == 3, "Incomplete original publisher population");
++        require(results.size() == 1, "Incomplete original publisher population");
+         Files.writeString(Path.of(args[2]),
+                 mapper.writerWithDefaultPrettyPrinter().writeValueAsString(Map.of("runtime",
+                         Runtime.version().toString(), "source_manifest_sha256", hash(protocol), "scope",

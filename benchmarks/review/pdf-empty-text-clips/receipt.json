@@ -1,0 +1,32 @@
+{
+  "base_commit": "6bc0742",
+  "java21_full_verify": {
+    "tests": 1208,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "focused_tests": 14,
+  "owned_primary_rgb_pairs": 12,
+  "additional_rgb_pairs": 2,
+  "scientific_fingerprints_exact": 15,
+  "nvidia_case_profile_observations_exact": 39,
+  "private_doclint": "PASS",
+  "production_source_sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "a94d7bc30e2a69fe3d9b7ea3057cf52493fe248a4bb6b11c55e5a2f91412a843",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageText.java": "3e6143a86dd6d2524030d6a09d5ed999bc65647523e8262a17a933bcb8312918",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageLayout.java": "a1c76c0f406fe74f22a5b6b9db6514e9f7fbc6937e1b22904cb9df79dbd7fb0a",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfEmptyTextClipTest.java": "2cf73c748fc3b7bf95fdce1464f78c462ef55503d87c1bdf510e38a2b8cc224b"
+  },
+  "artifacts": {
+    "README.md": "3cf6570f9c7a2ed26b26aa3a2a19c2d736f468f425e375176e848d17696aeccc",
+    "nvidia-java21.json": "cf0659102c295fc003ffd279827b4eef2b838ca9b8dd8744e64f6eba0129669b",
+    "scientific-java21.json": "b6d3299ad7d6892d9990a21416c9bc6269f0f46ebb87636e7ee912de5031c0ef"
+  },
+  "local_log_sha256": {
+    "docweave-empty-text-clip-before21.log": "939c90613e45fb4842cafa897db9450cd7efcb167c648166cab677c71afa46bd",
+    "docweave-empty-text-clip-focused21.log": "968e8ce0638659bb1d6e87246377fa5f57d9c3d2f22bb08affe0bbe93c83a6f5",
+    "docweave-empty-text-clip-verify21.log": "9ec6393d3d25e934aa1d5ca8d6dd82c43afc26d55c3d41049bcb612a2b4e1455",
+    "docweave-empty-text-private-doclint.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

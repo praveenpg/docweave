@@ -1,0 +1,14 @@
+{
+  "full_clean_verify_each_jdk": {
+    "tests": 991,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "java21": "21.0.12.1+12-LTS",
+  "java25": "25.0.4+7-LTS",
+  "actual_ocr_calls_each": 4,
+  "private_javadocs_each": "PASS",
+  "formatter": "PASS",
+  "report_metrics_equal_excluding_runtime_and_random_container_ids": true
+}

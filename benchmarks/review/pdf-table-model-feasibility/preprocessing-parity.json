@@ -1,0 +1,14 @@
+{
+  "initial": {
+    "samples": 20,
+    "channel_values": 26299200,
+    "unequal_channels": 0,
+    "max_absolute_channel_error": 0
+  },
+  "cross_domain_explicit_max_hw800": {
+    "samples": 20,
+    "channel_values": 18240000,
+    "unequal_channels": 0,
+    "max_absolute_channel_error": 0
+  }
+}

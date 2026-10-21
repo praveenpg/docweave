@@ -1,0 +1,173 @@
+{
+  "pdf_sha256" : "89de999d7155649197672bf490c519607f1abbcdc96e2e4c6718bf6ecbb13564",
+  "scope" : "JVM diagnostic: RGB unnormalized CHW1024x768, top-left114padding, pixel-center bilinear uint8 rounding; strides8/16/32; class argmax, objectness product>.25; class-agnostic inclusive-area NMS.1 before table-class selection; stable query ties; clip table boxes after NMS. Not an upstream preprocessing parity or extraction-quality claim.",
+  "pages" : [ {
+    "source_page" : 1,
+    "source_crop_width" : 595.0,
+    "source_crop_height" : 842.0,
+    "source_rotation" : 0,
+    "raster_width" : 1239,
+    "raster_height" : 1754,
+    "pre_nms_candidates" : 146,
+    "post_nms_objects" : 15,
+    "table_proposals" : [ {
+      "bounds" : [ 113.81783926486969, 963.1904994547367, 1158.7170845270157, 1272.8305552899837 ],
+      "score" : 0.918472409248352,
+      "query" : 15874
+    }, {
+      "bounds" : [ 111.37782740592957, 1347.550468981266, 1150.1965409517288, 1634.0530671477318 ],
+      "score" : 0.9103934168815613,
+      "query" : 16019
+    } ]
+  }, {
+    "source_page" : 2,
+    "source_crop_width" : 595.0,
+    "source_crop_height" : 842.0,
+    "source_rotation" : 0,
+    "raster_width" : 1239,
+    "raster_height" : 1754,
+    "pre_nms_candidates" : 173,
+    "post_nms_objects" : 19,
+    "table_proposals" : [ {
+      "bounds" : [ 112.90065240859985, 477.99867862463, 1166.9730207920074, 735.3923817276955 ],
+      "score" : 0.9036199450492859,
+      "query" : 15612
+    }, {
+      "bounds" : [ 113.78344345092773, 138.29229044914246, 1166.3239958286285, 402.593070268631 ],
+      "score" : 0.8980849981307983,
+      "query" : 15516
+    } ]
+  }, {
+    "source_page" : 3,
+    "source_crop_width" : 595.0,
+    "source_crop_height" : 842.0,
+    "source_rotation" : 0,
+    "raster_width" : 1239,
+    "raster_height" : 1754,
+    "pre_nms_candidates" : 298,
+    "post_nms_objects" : 31,
+    "table_proposals" : [ ]
+  }, {
+    "source_page" : 4,
+    "source_crop_width" : 595.0,
+    "source_crop_height" : 842.0,
+    "source_rotation" : 0,
+    "raster_width" : 1239,
+    "raster_height" : 1754,
+    "pre_nms_candidates" : 104,
+    "post_nms_objects" : 11,
+    "table_proposals" : [ {
+      "bounds" : [ 115.3154685497284, 1040.0585833191872, 1174.3487796783447, 1672.128501355648 ],
+      "score" : 0.9153766632080078,
+      "query" : 15971
+    } ]
+  }, {
+    "source_page" : 5,
+    "source_crop_width" : 595.0,
+    "source_crop_height" : 842.0,
+    "source_rotation" : 0,
+    "raster_width" : 1239,
+    "raster_height" : 1754,
+    "pre_nms_candidates" : 81,
+    "post_nms_objects" : 12,
+    "table_proposals" : [ {
+      "bounds" : [ 116.58774775266647, 875.1142416596413, 1183.5223732590675, 1628.2607702612877 ],
+      "score" : 0.8885781764984131,
+      "query" : 15923
+    }, {
+      "bounds" : [ 117.89029318094254, 62.200569242239, 1168.5722170472145, 564.0343446433544 ],
+      "score" : 0.8620321154594421,
+      "query" : 15516
+    } ]
+  }, {
+    "source_page" : 6,
+    "source_crop_width" : 595.0,
+    "source_crop_height" : 842.0,
+    "source_rotation" : 0,
+    "raster_width" : 1239,
+    "raster_height" : 1754,
+    "pre_nms_candidates" : 68,
+    "post_nms_objects" : 10,
+    "table_proposals" : [ {
+      "bounds" : [ 127.83052659034729, 130.81546118855476, 1170.8120745420456, 566.544664055109 ],
+      "score" : 0.897371768951416,
+      "query" : 15541
+    }, {
+      "bounds" : [ 119.0200754404068, 903.9903638362885, 1167.4505894184113, 1659.1802546977997 ],
+      "score" : 0.8722710609436035,
+      "query" : 15947
+    } ]
+  }, {
+    "source_page" : 7,
+    "source_crop_width" : 595.0,
+    "source_crop_height" : 842.0,
+    "source_rotation" : 0,
+    "raster_width" : 1239,
+    "raster_height" : 1754,
+    "pre_nms_candidates" : 47,
+    "post_nms_objects" : 7,
+    "table_proposals" : [ {
+      "bounds" : [ 109.38083153963089, 78.54984575510025, 1179.0550993084908, 1230.720852792263 ],
+      "score" : 0.8895501494407654,
+      "query" : 15636
+    } ]
+  }, {
+    "source_page" : 8,
+    "source_crop_width" : 595.0,
+    "source_crop_height" : 842.0,
+    "source_rotation" : 0,
+    "raster_width" : 1239,
+    "raster_height" : 1754,
+    "pre_nms_candidates" : 18,
+    "post_nms_objects" : 1,
+    "table_proposals" : [ {
+      "bounds" : [ 112.1881154179573, 45.076080083847046, 1159.4557581543922, 1246.5841708183289 ],
+      "score" : 0.8940213918685913,
+      "query" : 15636
+    } ]
+  }, {
+    "source_page" : 9,
+    "source_crop_width" : 595.0,
+    "source_crop_height" : 842.0,
+    "source_rotation" : 0,
+    "raster_width" : 1239,
+    "raster_height" : 1754,
+    "pre_nms_candidates" : 103,
+    "post_nms_objects" : 12,
+    "table_proposals" : [ {
+      "bounds" : [ 116.15795689821243, 155.30119033157825, 1153.0535367131233, 463.72518686950207 ],
+      "score" : 0.9009072184562683,
+      "query" : 15492
+    }, {
+      "bounds" : [ 115.72753876447678, 713.6026597321033, 1151.1083436608315, 929.8955083787441 ],
+      "score" : 0.8903747200965881,
+      "query" : 15708
+    }, {
+      "bounds" : [ 125.67503815889359, 1013.2110496684909, 1144.7718819975853, 1228.9815968349576 ],
+      "score" : 0.8786798119544983,
+      "query" : 15876
+    } ]
+  }, {
+    "source_page" : 10,
+    "source_crop_width" : 595.0,
+    "source_crop_height" : 842.0,
+    "source_rotation" : 0,
+    "raster_width" : 1239,
+    "raster_height" : 1754,
+    "pre_nms_candidates" : 120,
+    "post_nms_objects" : 14,
+    "table_proposals" : [ ]
+  }, {
+    "source_page" : 11,
+    "source_crop_width" : 595.0,
+    "source_crop_height" : 842.0,
+    "source_rotation" : 0,
+    "raster_width" : 1239,
+    "raster_height" : 1754,
+    "pre_nms_candidates" : 9,
+    "post_nms_objects" : 1,
+    "table_proposals" : [ ]
+  } ],
+  "model_sha256" : "134301ca94fb0df8027be9a6dad1908fe6218af8ffa4d34f0819c7c2226195f3",
+  "runtime" : "21.0.12.1+12-LTS"
+}

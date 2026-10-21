@@ -1,0 +1,11 @@
+--- AuditCaptionUnitBoundaries.java
++++ AuditCaptionUnitBoundaries.java
+@@ -82,7 +82,7 @@
+                             "Frozen caption reference changed");
+                 }
+                 final var options = PdfOptions.defaults()
+-                                            .withFigureCaptions(PdfOptions.FigureCaptions.IMAGE_ADJACENT_LABELS)
++                                            .withFigureCaptions(PdfOptions.FigureCaptions.IMAGE_ADJACENT_HORIZONTAL_LABELS)
+                                             .withTextLayout(profile.equals("NATIVE_COLUMNS")
+                                                                     ? PdfOptions.TextLayout.COLUMN_PARAGRAPHS
+                                                                     : PdfOptions.TextLayout.LINES);

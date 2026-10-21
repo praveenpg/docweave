@@ -1,0 +1,8 @@
+{
+  "docweave-pdf/src/main/java/dev/docweave/partition/RasterPdfTableDetector.java": "04475b2ef5b7803a89b7db097e31e6e3de200e623b7bb1a5155b1c3835b83825",
+  "docweave-pdf/src/main/java/dev/docweave/partition/RuledPdfTableDetector.java": "bfcaad1f363c9e5fc4d1908de8715077b59efaa0c3d1975159d96c8047f7b0d3",
+  "docweave-pdf/src/main/java/dev/docweave/partition/PdfTableWork.java": "d656538affe056e2d4d5145a91d4ee1545c9daeebe7dee6310107eca08177644",
+  "docweave-pdf/src/main/java/dev/docweave/partition/PdfTableGrid.java": "a35a68e32943195e3e616b9ef476ea18d80841f64d87379dd5296c68e2727de2",
+  "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java": "d492338e06ea8135cafe056a683576823bd21a9f1933c1f36afba86a8ec954e4",
+  "docweave-core/src/main/java/dev/docweave/partition/ElementCollector.java": "844b35f0833f190da09ab2eac7ceddd05d79998163cb7c600a7b923cf572e453"
+}

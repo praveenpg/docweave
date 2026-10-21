@@ -1,0 +1,61 @@
+{
+  "scope" : "Stored XML structure only; includes revision/fallback branches. No rendering/fidelity/human-review claim.",
+  "manifest_sha256" : "68b5fc73d64c8992ed5668ae0e7b04923f02c343f82417eea12b4055de885d06",
+  "validation_sources" : {
+    "UpstreamStatusTest.java" : "baf16537d51c0968e40b5c19a771d2440e39c7ba3cf11571cf66ee9fabd38765",
+    "DefaultDocxOwnership.java" : "f416426d0443f4b80a4ca8cc325be035c73e9fcbc894b3cd3d97494ff3ba8d6f",
+    "WordEvidenceComparator.java" : "5ca8a12e539df522ab0c09a4782bab58cf9c587df12554ae0657feebc78bd46c",
+    "ValidationProvenance.java" : "11f20dc669d4acfb67640acb04ca0e5599dd67ae9af670a20653179b592f76cd",
+    "DefaultWordEvidenceReplay.java" : "997d7b4c41e0c8c2341de41b088fdf36ec382d681d2a93f82f4db7026d4e792f",
+    "CorpusInventory.java" : "1f2e99039ac515864b8404afd2c04e60cb78289345b7aa7cfaf99dddc47d9bc5",
+    "WordCandidateCollector.java" : "006e1859405455ea9839ffeac9e072243d7501037958f388c9e99649c98aeeef",
+    "WordEvidenceReplayTest.java" : "fefaf988f420a841138391c17e303882aeb29d220bb7f533e4c57585e9518c75",
+    "DefaultWordCandidateCollector.java" : "84e59d65100649faaaf1270317fa06536783e637c028ea6623cd3d7b40c66a41",
+    "CorpusReview.java" : "40167b266a2b861679fb267944e89caf26bb358f95d8bbe2efdb21b13ca2cd4d",
+    "DefaultWordEvidenceComparator.java" : "32f26f7e5c3f78701de6e8faccdac6251641375bd09d7ec8cca25134095cd5df",
+    "DocxOwnershipTest.java" : "77013c3f0717a88f5c68b5516b3475820a35c734a8c80fbef7f4525a014828b6",
+    "DocxOwnership.java" : "297128417dc8c05b41122e6a18429b717d1c3eff5b84ca850ec30333577daade",
+    "WordEvidenceReplay.java" : "1f319d6d620bf7c08dfb1793fdea94ad63f4e2422948f3f437009ce8280de0c5",
+    "CorpusLegacyTest.java" : "b9d931fcc112acc8301759d2edd0245bac66d70f8b715e577d952860365480b3",
+    "CorpusReference.java" : "4780288e3d27859c5513d2bf224c8711c71ac7c740ed84604d1261ec6b933081",
+    "DocxCorpusSourceTest.java" : "f87ca9d216d212ceda96c5254e72a4f0abe400d8d125f4d54c1d0c62720a8ff0",
+    "DefaultDocxCorpusSource.java" : "e01aac1a9d95e710ab770aeab83fe8ea0c6fc10792b822af0f08b5590ed292e3",
+    "DocxCorpusSource.java" : "c947df5c1722d025685ce26dc86f44435448d1fc151811cb7ae3e9ac57c2c2ed",
+    "WordEvidenceComparatorTest.java" : "1d077c652d6124c06b3b06daddaece30c5953cfbacf288442119c30692b40187",
+    "XmlOwnerReader.java" : "c44ec9ea7c4a99a4f40dd697a8873370b66558aed1623b2d9ea4f24e43e1e051",
+    "CorpusReviewTest.java" : "b2796871da83fa7b86ee28d474ef8c1f3913d14bc244c0a2978d9e10c455c50c"
+  },
+  "java_version" : "25.0.4+7-LTS",
+  "documents" : [ {
+    "maximum_table_depth" : 1,
+    "stored_parts" : { },
+    "substring_baseline_supported" : true,
+    "body" : {
+      "hyperlinks" : 6,
+      "paragraphs" : 88,
+      "content_controls" : 5,
+      "nested_paragraphs" : 0,
+      "nested_tables" : 0,
+      "tables" : 8
+    },
+    "filename" : "law-commission-response-2025.docx",
+    "sha256" : "f93208f7b0d1943d627eba881ec9f1962d732a58c7dfe300b1afcff8d3977ea5"
+  }, {
+    "maximum_table_depth" : 0,
+    "stored_parts" : {
+      "footer" : 3,
+      "footnotes" : 1,
+      "header" : 3,
+      "endnotes" : 1
+    },
+    "substring_baseline_supported" : true,
+    "body" : {
+      "content_controls" : 8,
+      "hyperlinks" : 2,
+      "nested_paragraphs" : 0,
+      "paragraphs" : 41
+    },
+    "filename" : "scottish-respondent-2023.docx",
+    "sha256" : "9ec220846a132b09e1bd518dcddb053dc071a7e90d937c5c075005167ce3decd"
+  } ]
+}

@@ -1,0 +1,91 @@
+{
+  "scope" : "All source main-body fig nodes, exact DOM text identities only; no PDF geometry, extraction, semantic alignment or accuracy score",
+  "source_manifest_sha256" : "0d5421ad9a5004b893cb17f12f417a692d8840bbfc797b36b89758903bf994c5",
+  "runtime" : "21.0.12.1+12-LTS",
+  "results" : [ {
+    "main_body_figures" : 5,
+    "case" : "scirep",
+    "figures" : [ {
+      "direct_labels" : 1,
+      "label_identities" : [ {
+        "code_points" : 6,
+        "utf16_units" : 6,
+        "utf8_sha256" : "6c6c4e362c3a0f5812b8fc57a283788ae8cbe3e2151e7cc8075392e052900cab"
+      } ],
+      "caption_identities" : [ {
+        "code_points" : 461,
+        "utf16_units" : 461,
+        "utf8_sha256" : "59ab6012ccb408cadf533d5fd46a90bcb4ab766db486622399a5f49148574ee2"
+      } ],
+      "graphic_descendants" : 1,
+      "ordinal" : 0,
+      "direct_captions" : 1,
+      "source_id" : "Fig1"
+    }, {
+      "direct_labels" : 1,
+      "label_identities" : [ {
+        "code_points" : 7,
+        "utf16_units" : 7,
+        "utf8_sha256" : "4ae2f6847fa81e318122c124262659849d8ed2d39437732062144f1e7b56cad0"
+      } ],
+      "caption_identities" : [ {
+        "code_points" : 272,
+        "utf16_units" : 272,
+        "utf8_sha256" : "449af450f68dd35b92f44dc96d083f2aabf675d5db7c9a0d54dbf2e1e8888825"
+      } ],
+      "graphic_descendants" : 1,
+      "ordinal" : 1,
+      "direct_captions" : 1,
+      "source_id" : "Fig2"
+    }, {
+      "direct_labels" : 1,
+      "label_identities" : [ {
+        "code_points" : 6,
+        "utf16_units" : 6,
+        "utf8_sha256" : "6ab12f290e9cb76539bc4abbfe2b4838c77577eb0b3b1f5c47c72bb78aaf9788"
+      } ],
+      "caption_identities" : [ {
+        "code_points" : 287,
+        "utf16_units" : 287,
+        "utf8_sha256" : "b12249add54ec954d55056c768ce1387c8ef980b3fa1625c0c4f2c662e83ff18"
+      } ],
+      "graphic_descendants" : 1,
+      "ordinal" : 2,
+      "direct_captions" : 1,
+      "source_id" : "Fig3"
+    }, {
+      "direct_labels" : 1,
+      "label_identities" : [ {
+        "code_points" : 7,
+        "utf16_units" : 7,
+        "utf8_sha256" : "a7c39178d2a217fa67970cbe534bdb87acee7d24207299c4a03d1581bf1ba2ae"
+      } ],
+      "caption_identities" : [ {
+        "code_points" : 357,
+        "utf16_units" : 357,
+        "utf8_sha256" : "73b775f73d1cc84f49682cb068725d73706620d8931443b277969fa9209cffb1"
+      } ],
+      "graphic_descendants" : 1,
+      "ordinal" : 3,
+      "direct_captions" : 1,
+      "source_id" : "Fig4"
+    }, {
+      "direct_labels" : 1,
+      "label_identities" : [ {
+        "code_points" : 7,
+        "utf16_units" : 7,
+        "utf8_sha256" : "8dff49bbfeb4f6f2b9011d90f4e2ab1c12fecc5e158bddde196e12385164b12f"
+      } ],
+      "caption_identities" : [ {
+        "code_points" : 322,
+        "utf16_units" : 322,
+        "utf8_sha256" : "2885d2188c0b3017eab66fbd8476c3fcfa65ba34d89b01f0b38c8f3237774f40"
+      } ],
+      "graphic_descendants" : 1,
+      "ordinal" : 4,
+      "direct_captions" : 1,
+      "source_id" : "Fig5"
+    } ],
+    "doi" : "10.1038/s41598-026-36762-1"
+  } ]
+}

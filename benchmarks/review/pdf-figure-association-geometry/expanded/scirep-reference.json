@@ -1,0 +1,90 @@
+{
+  "base_commit": "4185fe4",
+  "scope": "All original pages and every independently inventoried raster occurrence; main-body figure/auxiliary roles visually reviewed before expanded association extraction. Observed development source, not held-out.",
+  "source": {
+    "id": "scirep",
+    "distribution_url": "s3://pmc-oa-opendata/PMC12917242.1/PMC12917242.1.pdf?md5=25fbc10ca57e77fb53e72b361a090232",
+    "bytes": 1814416,
+    "sha256": "2f92f07c33b2290b8f3ad0e8933eb57ce27d545d61829e59cc9c00dfb9357360",
+    "pages": 9
+  },
+  "reference_method": "Poppler26.10.0 independent image inventory and XML zoom1 geometry; all image-bearing source pages rendered and visually reviewed before this association run. Integer-rounded top-left PDF points.",
+  "independent_xml_sha256": "d74264cb3e79d8c6866b9c40993dcd0a1a035e20e9d96bb418793e129e3744c7",
+  "maximum_edge_difference_points": 2,
+  "expected_images": 6,
+  "expected_figures": 5,
+  "profiles": [
+    "NATIVE_LINES",
+    "NATIVE_COLUMNS",
+    "SOURCE_TAGGED_LINES"
+  ],
+  "labels": [
+    {
+      "id": "2",
+      "page": 4,
+      "figure": true,
+      "bounds": [
+        125,
+        363,
+        554,
+        592
+      ]
+    },
+    {
+      "id": "1",
+      "page": 4,
+      "figure": true,
+      "bounds": [
+        156,
+        50,
+        291,
+        271
+      ]
+    },
+    {
+      "id": "3",
+      "page": 5,
+      "figure": true,
+      "bounds": [
+        156,
+        426,
+        558,
+        692
+      ]
+    },
+    {
+      "id": "4",
+      "page": 6,
+      "figure": true,
+      "bounds": [
+        116,
+        50,
+        554,
+        575
+      ]
+    },
+    {
+      "id": "5",
+      "page": 7,
+      "figure": true,
+      "bounds": [
+        156,
+        50,
+        454,
+        249
+      ]
+    },
+    {
+      "id": "publication-date",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        156,
+        475,
+        288,
+        486
+      ]
+    }
+  ],
+  "raw_sources_redistributed": false
+}

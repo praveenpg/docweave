@@ -1,0 +1,36 @@
+{
+  "scope": "Explicit ordered multilingual diagnostic; no independent text transcription or calibrated accuracy",
+  "languages": [
+    "chi_sim",
+    "eng"
+  ],
+  "models": [
+    {
+      "language": "chi_sim",
+      "source": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/87416418657359cb625c412a48b6e1d6d41c29bd/chi_sim.traineddata",
+      "revision": "87416418657359cb625c412a48b6e1d6d41c29bd",
+      "bytes": 2469156,
+      "sha256": "a5fcb6f0db1e1d6d8522f39db4e848f05984669172e584e8d76b6b3141e1f730",
+      "git_blob_sha1": "388bac276d033d06e5ed5ba7a7ad14ae58f97dab"
+    },
+    {
+      "language": "eng",
+      "source": "https://raw.githubusercontent.com/tesseract-ocr/tessdata/ced78752cc61322fb554c280d13360b35b8684e4/eng.traineddata",
+      "revision": "ced78752cc61322fb554c280d13360b35b8684e4",
+      "bytes": 23466654,
+      "sha256": "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047",
+      "git_blob_sha1": "f4744c201359d02ced6914c77f0de68ee9bbdd74"
+    }
+  ],
+  "source_manifest": "../pdf-physical-scans/extended-manifest.json",
+  "profile": {
+    "coverage": "ALL_PUBLISHED_SAMPLES",
+    "dpi": 150,
+    "table_detection": "PROVIDER_LAYOUT",
+    "orientation": true,
+    "page_segmentation": "AUTO",
+    "cell_segmentation": "SINGLE_BLOCK",
+    "layout_graph_sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+    "detection_graph_sha256": "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9"
+  }
+}

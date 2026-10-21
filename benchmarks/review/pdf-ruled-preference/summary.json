@@ -1,0 +1,25 @@
+{
+  "scope": "All20 fixed original upstream-train scientific table images, no exclusions or per-input selection; not held-out/general PDF accuracy",
+  "previous_model_profile": {
+    "tables": 20,
+    "complete_span_topologies": 14,
+    "exact_cells": 369,
+    "matching_span_keys": 1280,
+    "whole_exact_tables": 0,
+    "matched_tokens": 792,
+    "observed_tokens": 1769
+  },
+  "ruled_preference_profile": {
+    "tables": 20,
+    "complete_span_topologies": 15,
+    "exact_cells": 410,
+    "matching_span_keys": 1295,
+    "whole_exact_tables": 0,
+    "matched_tokens": 813,
+    "observed_tokens": 1786
+  },
+  "changed_inputs": [
+    "PMC4003957_018_00.png"
+  ],
+  "unchanged_measurement_records": 19
+}

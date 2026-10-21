@@ -1,0 +1,45 @@
+{
+  "frozen_at": "2026-10-19T16:44:29.495513+00:00",
+  "selection_sha256": "7dc58a5782de3f694ad1ec7c2abbb04720df17c7f206cdc242a5298cb5b53026",
+  "publication_date": "2025-08-22",
+  "doi": "10.1371/journal.pone.0330904",
+  "inputs": [
+    {
+      "filename": "article.pdf",
+      "bytes": 321008,
+      "sha256": "0c96e723535ee671eb0d263702adc9e986fb2817a5e16ab7b7235e593a39eff2",
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0330904&type=printable",
+      "git_blob_sha1": "1efa91a789cfb014582b7a22c102b7256790ed22"
+    },
+    {
+      "filename": "article.xml",
+      "bytes": 123002,
+      "sha256": "0b73d71a5210d4797d5122d94d9dd65058460c644e87083ab9347d3224261be4",
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0330904&type=manuscript",
+      "git_blob_sha1": "90bae821b9f3f88ae091044d0db158403af2905b"
+    }
+  ],
+  "protocol": "First ordinal main table from preselected firstsearchresult. Originalpage7 independently rendered/inspected before DocWeave extraction; complete singlepage5x3/15logicalanchors, sourceJATS1theadrow3anchors. Same strict originalpublisher span/text andASCIIwhitespace protocol, no punctuation/hyphenrepair/fuzz. Whole14page originals, fixed postextractionROIassociationIoU>=.5 stableties; no labels/ROI to inference. Compare same configs/modelpins nativefirst vs taggedfirst onactual21/25; keep full15/3 denominators onanyfailure. Samepublisher breadth, not publisherdiversity or untouchedheldout validation.",
+  "cases": [
+    {
+      "id": "next-scientific",
+      "pdf": "article.pdf",
+      "source_page": 7,
+      "source_page_height": 792,
+      "jats": "article.xml",
+      "table_id": "pone.0330904.t001",
+      "expected_rows": 5,
+      "expected_columns": 3,
+      "expected_anchors": 15,
+      "publisher_header_rows": 1,
+      "expected_header_anchors": 3,
+      "leading_row_window": 1,
+      "roi_left_top_right_bottom": [
+        36,
+        594,
+        576,
+        699
+      ]
+    }
+  ]
+}

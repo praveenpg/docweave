@@ -1,0 +1,40 @@
+{
+  "frozen_at": "2026-10-19T18:05:00.576503+00:00",
+  "reference_manifest": "benchmarks/review/pdf-scan-segmentation/manifest.json",
+  "reference_manifest_sha256": "a62238ec40a944e6519de3c42c9f6d604191cdc9d07980e38b45ce4fc4fcb10e",
+  "rule": "All four previous fixed scans and both pinned language models, uniform AUTO segmentation. Compare engine-default Otsu against adaptive Otsu and Sauvola with unchanged engine parameter defaults, no tuning, crop or per-page selection. Frozen before any explicit-threshold source OCR.",
+  "profiles": [
+    {
+      "language": "deu",
+      "page_segmentation": "AUTO",
+      "thresholding": "ENGINE_DEFAULT"
+    },
+    {
+      "language": "deu_latf",
+      "page_segmentation": "AUTO",
+      "thresholding": "ENGINE_DEFAULT"
+    },
+    {
+      "language": "deu",
+      "page_segmentation": "AUTO",
+      "thresholding": "ADAPTIVE_OTSU"
+    },
+    {
+      "language": "deu_latf",
+      "page_segmentation": "AUTO",
+      "thresholding": "ADAPTIVE_OTSU"
+    },
+    {
+      "language": "deu",
+      "page_segmentation": "AUTO",
+      "thresholding": "SAUVOLA"
+    },
+    {
+      "language": "deu_latf",
+      "page_segmentation": "AUTO",
+      "thresholding": "SAUVOLA"
+    }
+  ],
+  "engine_parameter_source": "Tesseract5.5.3 --print-parameters verified thresholding_method0/1/2; official https://tesseract-ocr.github.io/tessdoc/ImproveQuality.html",
+  "training_overlap": "unknown; development diagnostics, not held-out accuracy"
+}

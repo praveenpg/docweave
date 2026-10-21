@@ -1,0 +1,330 @@
+{
+  "runtime" : "21.0.12.1+12-LTS",
+  "source_manifest_sha256" : "0d5421ad9a5004b893cb17f12f417a692d8840bbfc797b36b89758903bf994c5",
+  "scope" : "All original pages and Fig/FIG-prefixed native units with actual committed label/adjacency predicates; no source reference captions, tuning or extraction changes",
+  "results" : [ {
+    "profile" : "NATIVE_LINES",
+    "outcome" : "SUCCESS",
+    "label_cues" : [ {
+      "page" : 4,
+      "text_utf16_units" : 103,
+      "text_sha256" : "85ad0584e11aba7b5cdb1735ea8e7a88dca1416fd6313b1fdd3cdc7af8617c18",
+      "bounds" : [ 155.90550231933594, 284.222900390625, 532.2800903320312, 290.0819091796875 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : true,
+      "codepoint_after_label_word" : 46,
+      "codepoint_after_label_period" : 32,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "left_edge_difference" : 1.52587890625E-5,
+        "size_eligible" : true,
+        "image_bounds" : [ 155.905517578125, 50.49896240234375, 291.2655029296875, 271.5389709472656 ],
+        "vertical_gap" : 12.683929443359375,
+        "adjacency_predicate" : true
+      }, {
+        "left_edge_difference" : 31.2122802734375,
+        "size_eligible" : true,
+        "image_bounds" : [ 124.69322204589844, 363.1053771972656, 554.1732177734375, 592.1853637695312 ],
+        "vertical_gap" : -307.96246337890625,
+        "adjacency_predicate" : false
+      } ]
+    }, {
+      "page" : 4,
+      "text_utf16_units" : 109,
+      "text_sha256" : "264426004d4ec3f88586fcbeff106123387660192d6412b83848ae23fee8dbe4",
+      "bounds" : [ 155.90550231933594, 604.8692626953125, 556.5992431640625, 610.728271484375 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 46,
+      "codepoint_after_label_period" : 160,
+      "eligible_images" : 0,
+      "same_page_image_relations" : [ {
+        "left_edge_difference" : 1.52587890625E-5,
+        "size_eligible" : true,
+        "image_bounds" : [ 155.905517578125, 50.49896240234375, 291.2655029296875, 271.5389709472656 ],
+        "vertical_gap" : 333.3302917480469,
+        "adjacency_predicate" : false
+      }, {
+        "left_edge_difference" : 31.2122802734375,
+        "size_eligible" : true,
+        "image_bounds" : [ 124.69322204589844, 363.1053771972656, 554.1732177734375, 592.1853637695312 ],
+        "vertical_gap" : 12.68389892578125,
+        "adjacency_predicate" : false
+      } ]
+    }, {
+      "page" : 5,
+      "text_utf16_units" : 98,
+      "text_sha256" : "eda8c96a57ff48d881106173a15f52d36eab94b2c80394a06b087ff0e39d51c4",
+      "bounds" : [ 159.1549072265625, 704.1530151367188, 534.557373046875, 710.0120239257812 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : true,
+      "codepoint_after_label_word" : 46,
+      "codepoint_after_label_period" : 32,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "left_edge_difference" : 3.249420166015625,
+        "size_eligible" : true,
+        "image_bounds" : [ 155.90548706054688, 425.6690673828125, 557.7854614257812, 691.4690551757812 ],
+        "vertical_gap" : 12.6839599609375,
+        "adjacency_predicate" : true
+      } ]
+    }, {
+      "page" : 6,
+      "text_utf16_units" : 100,
+      "text_sha256" : "b2372a555fca52adf7295432f988ded1592c944cd64366299746a8bf0773a913",
+      "bounds" : [ 155.90550231933594, 588.5429077148438, 540.3186645507812, 594.4019165039062 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 46,
+      "codepoint_after_label_period" : 160,
+      "eligible_images" : 0,
+      "same_page_image_relations" : [ {
+        "left_edge_difference" : 39.73228454589844,
+        "size_eligible" : true,
+        "image_bounds" : [ 116.1732177734375, 50.4990234375, 554.1732177734375, 575.8590087890625 ],
+        "vertical_gap" : 12.68389892578125,
+        "adjacency_predicate" : false
+      } ]
+    }, {
+      "page" : 7,
+      "text_utf16_units" : 104,
+      "text_sha256" : "7828e6465f17d7ba6600b1d092782b26331ffb494575c68f51f3d878547d6ce3",
+      "bounds" : [ 155.90550231933594, 261.90301513671875, 532.541748046875, 267.76202392578125 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 46,
+      "codepoint_after_label_period" : 32,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "left_edge_difference" : 1.52587890625E-5,
+        "size_eligible" : true,
+        "image_bounds" : [ 155.90548706054688, 50.49896240234375, 454.2254943847656, 249.218994140625 ],
+        "vertical_gap" : 12.68402099609375,
+        "adjacency_predicate" : true
+      } ]
+    } ],
+    "case" : "scirep",
+    "source_images" : 6
+  }, {
+    "profile" : "NATIVE_COLUMNS",
+    "outcome" : "SUCCESS",
+    "label_cues" : [ {
+      "page" : 4,
+      "text_utf16_units" : 469,
+      "text_sha256" : "a123d79b08320be34e9d0bde4bd09887b95b527357b40c94e41e013822c4d94c",
+      "bounds" : [ 155.90550231933594, 284.222900390625, 554.3644409179688, 330.0819091796875 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : true,
+      "codepoint_after_label_word" : 46,
+      "codepoint_after_label_period" : 32,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "left_edge_difference" : 1.52587890625E-5,
+        "size_eligible" : true,
+        "image_bounds" : [ 155.905517578125, 50.49896240234375, 291.2655029296875, 271.5389709472656 ],
+        "vertical_gap" : 12.683929443359375,
+        "adjacency_predicate" : true
+      }, {
+        "left_edge_difference" : 31.2122802734375,
+        "size_eligible" : true,
+        "image_bounds" : [ 124.69322204589844, 363.1053771972656, 554.1732177734375, 592.1853637695312 ],
+        "vertical_gap" : -307.96246337890625,
+        "adjacency_predicate" : false
+      } ]
+    }, {
+      "page" : 4,
+      "text_utf16_units" : 281,
+      "text_sha256" : "fd1eed49138c650a2154d6b20e4b1a8b610cea5caeb9d04817dd457de712f51f",
+      "bounds" : [ 155.90550231933594, 604.8692626953125, 556.5992431640625, 630.728271484375 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 46,
+      "codepoint_after_label_period" : 160,
+      "eligible_images" : 0,
+      "same_page_image_relations" : [ {
+        "left_edge_difference" : 1.52587890625E-5,
+        "size_eligible" : true,
+        "image_bounds" : [ 155.905517578125, 50.49896240234375, 291.2655029296875, 271.5389709472656 ],
+        "vertical_gap" : 333.3302917480469,
+        "adjacency_predicate" : false
+      }, {
+        "left_edge_difference" : 31.2122802734375,
+        "size_eligible" : true,
+        "image_bounds" : [ 124.69322204589844, 363.1053771972656, 554.1732177734375, 592.1853637695312 ],
+        "vertical_gap" : 12.68389892578125,
+        "adjacency_predicate" : false
+      } ]
+    }, {
+      "page" : 5,
+      "text_utf16_units" : 295,
+      "text_sha256" : "8f9b7e97f309c825a85f9d8d0d20042def9bf9548d07e3aa55e738fc91f8b8ab",
+      "bounds" : [ 159.1549072265625, 704.1530151367188, 542.80859375, 730.0120239257812 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : true,
+      "codepoint_after_label_word" : 46,
+      "codepoint_after_label_period" : 32,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "left_edge_difference" : 3.249420166015625,
+        "size_eligible" : true,
+        "image_bounds" : [ 155.90548706054688, 425.6690673828125, 557.7854614257812, 691.4690551757812 ],
+        "vertical_gap" : 12.6839599609375,
+        "adjacency_predicate" : true
+      } ]
+    }, {
+      "page" : 6,
+      "text_utf16_units" : 366,
+      "text_sha256" : "230ca3662ad54a38f3ce1f4d5ec0d0d8e85df67d7e4c5e395ea878038636a8e1",
+      "bounds" : [ 155.90550231933594, 588.5429077148438, 549.964111328125, 624.4019165039062 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 46,
+      "codepoint_after_label_period" : 160,
+      "eligible_images" : 0,
+      "same_page_image_relations" : [ {
+        "left_edge_difference" : 39.73228454589844,
+        "size_eligible" : true,
+        "image_bounds" : [ 116.1732177734375, 50.4990234375, 554.1732177734375, 575.8590087890625 ],
+        "vertical_gap" : 12.68389892578125,
+        "adjacency_predicate" : false
+      } ]
+    }, {
+      "page" : 7,
+      "text_utf16_units" : 332,
+      "text_sha256" : "d37fe7dfcd899d98e4703d07be98b36074b0f863f9eefc6d2cf08afbf15c064b",
+      "bounds" : [ 155.90550231933594, 261.90301513671875, 534.4761352539062, 297.7619934082031 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 46,
+      "codepoint_after_label_period" : 32,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "left_edge_difference" : 1.52587890625E-5,
+        "size_eligible" : true,
+        "image_bounds" : [ 155.90548706054688, 50.49896240234375, 454.2254943847656, 249.218994140625 ],
+        "vertical_gap" : 12.68402099609375,
+        "adjacency_predicate" : true
+      } ]
+    } ],
+    "case" : "scirep",
+    "source_images" : 6
+  }, {
+    "profile" : "SOURCE_TAGGED_LINES",
+    "outcome" : "SUCCESS",
+    "label_cues" : [ {
+      "page" : 4,
+      "text_utf16_units" : 103,
+      "text_sha256" : "85ad0584e11aba7b5cdb1735ea8e7a88dca1416fd6313b1fdd3cdc7af8617c18",
+      "bounds" : [ 155.90550231933594, 284.222900390625, 532.2800903320312, 290.0819091796875 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : true,
+      "codepoint_after_label_word" : 46,
+      "codepoint_after_label_period" : 32,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "left_edge_difference" : 1.52587890625E-5,
+        "size_eligible" : true,
+        "image_bounds" : [ 155.905517578125, 50.49896240234375, 291.2655029296875, 271.5389709472656 ],
+        "vertical_gap" : 12.683929443359375,
+        "adjacency_predicate" : true
+      }, {
+        "left_edge_difference" : 31.2122802734375,
+        "size_eligible" : true,
+        "image_bounds" : [ 124.69322204589844, 363.1053771972656, 554.1732177734375, 592.1853637695312 ],
+        "vertical_gap" : -307.96246337890625,
+        "adjacency_predicate" : false
+      } ]
+    }, {
+      "page" : 4,
+      "text_utf16_units" : 109,
+      "text_sha256" : "264426004d4ec3f88586fcbeff106123387660192d6412b83848ae23fee8dbe4",
+      "bounds" : [ 155.90550231933594, 604.8692626953125, 556.5992431640625, 610.728271484375 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 46,
+      "codepoint_after_label_period" : 160,
+      "eligible_images" : 0,
+      "same_page_image_relations" : [ {
+        "left_edge_difference" : 1.52587890625E-5,
+        "size_eligible" : true,
+        "image_bounds" : [ 155.905517578125, 50.49896240234375, 291.2655029296875, 271.5389709472656 ],
+        "vertical_gap" : 333.3302917480469,
+        "adjacency_predicate" : false
+      }, {
+        "left_edge_difference" : 31.2122802734375,
+        "size_eligible" : true,
+        "image_bounds" : [ 124.69322204589844, 363.1053771972656, 554.1732177734375, 592.1853637695312 ],
+        "vertical_gap" : 12.68389892578125,
+        "adjacency_predicate" : false
+      } ]
+    }, {
+      "page" : 5,
+      "text_utf16_units" : 98,
+      "text_sha256" : "eda8c96a57ff48d881106173a15f52d36eab94b2c80394a06b087ff0e39d51c4",
+      "bounds" : [ 159.1549072265625, 704.1530151367188, 534.557373046875, 710.0120239257812 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : true,
+      "codepoint_after_label_word" : 46,
+      "codepoint_after_label_period" : 32,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "left_edge_difference" : 3.249420166015625,
+        "size_eligible" : true,
+        "image_bounds" : [ 155.90548706054688, 425.6690673828125, 557.7854614257812, 691.4690551757812 ],
+        "vertical_gap" : 12.6839599609375,
+        "adjacency_predicate" : true
+      } ]
+    }, {
+      "page" : 6,
+      "text_utf16_units" : 100,
+      "text_sha256" : "b2372a555fca52adf7295432f988ded1592c944cd64366299746a8bf0773a913",
+      "bounds" : [ 155.90550231933594, 588.5429077148438, 540.3186645507812, 594.4019165039062 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 46,
+      "codepoint_after_label_period" : 160,
+      "eligible_images" : 0,
+      "same_page_image_relations" : [ {
+        "left_edge_difference" : 39.73228454589844,
+        "size_eligible" : true,
+        "image_bounds" : [ 116.1732177734375, 50.4990234375, 554.1732177734375, 575.8590087890625 ],
+        "vertical_gap" : 12.68389892578125,
+        "adjacency_predicate" : false
+      } ]
+    }, {
+      "page" : 7,
+      "text_utf16_units" : 104,
+      "text_sha256" : "7828e6465f17d7ba6600b1d092782b26331ffb494575c68f51f3d878547d6ce3",
+      "bounds" : [ 155.90550231933594, 261.90301513671875, 532.541748046875, 267.76202392578125 ],
+      "rotation_metadata" : false,
+      "cue_length_eligible" : true,
+      "label_predicate" : false,
+      "codepoint_after_label_word" : 46,
+      "codepoint_after_label_period" : 32,
+      "eligible_images" : 1,
+      "same_page_image_relations" : [ {
+        "left_edge_difference" : 1.52587890625E-5,
+        "size_eligible" : true,
+        "image_bounds" : [ 155.90548706054688, 50.49896240234375, 454.2254943847656, 249.218994140625 ],
+        "vertical_gap" : 12.68402099609375,
+        "adjacency_predicate" : true
+      } ]
+    } ],
+    "case" : "scirep",
+    "source_images" : 6
+  } ]
+}

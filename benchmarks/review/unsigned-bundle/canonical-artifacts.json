@@ -1,0 +1,534 @@
+{
+  "jdk": "21",
+  "version": "0.1.0-SNAPSHOT",
+  "artifacts": [
+    {
+      "coordinate": "io.docweave:docweave-parent:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "pom",
+      "path": "io/docweave/docweave-parent/0.1.0-SNAPSHOT/docweave-parent-0.1.0-SNAPSHOT.pom",
+      "sha256": "8fc3019b957dafa6c8cb9b75c9d01d662fc388cef1f77949421c67c9a091cb51",
+      "bytes": 11918
+    },
+    {
+      "coordinate": "io.docweave:docweave-core:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "pom",
+      "path": "io/docweave/docweave-core/0.1.0-SNAPSHOT/docweave-core-0.1.0-SNAPSHOT.pom",
+      "sha256": "176e9109594c8ede55edc71300be012dcd5a34b4f22dbbcaa32bd1a803d60379",
+      "bytes": 542
+    },
+    {
+      "coordinate": "io.docweave:docweave-core:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "jar",
+      "path": "io/docweave/docweave-core/0.1.0-SNAPSHOT/docweave-core-0.1.0-SNAPSHOT.jar",
+      "sha256": "d9badbd9fc61fbf54c5201e5d6ceed537522ba537e99769327b7bbd8ba205e09",
+      "bytes": 94481
+    },
+    {
+      "coordinate": "io.docweave:docweave-core:0.1.0-SNAPSHOT",
+      "classifier": "sources",
+      "extension": "jar",
+      "path": "io/docweave/docweave-core/0.1.0-SNAPSHOT/docweave-core-0.1.0-SNAPSHOT-sources.jar",
+      "sha256": "96cdc50b3ed2b6c8ad75c54c8f6fdf11ec857b3158f4a32cac785e048f927d79",
+      "bytes": 72439
+    },
+    {
+      "coordinate": "io.docweave:docweave-core:0.1.0-SNAPSHOT",
+      "classifier": "javadoc",
+      "extension": "jar",
+      "path": "io/docweave/docweave-core/0.1.0-SNAPSHOT/docweave-core-0.1.0-SNAPSHOT-javadoc.jar",
+      "sha256": "4c41fe04d559d9cc10401961b174d05d0d49835a73e54d5225248176a7c6fccd",
+      "bytes": 351037
+    },
+    {
+      "coordinate": "io.docweave:docweave-json:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "pom",
+      "path": "io/docweave/docweave-json/0.1.0-SNAPSHOT/docweave-json-0.1.0-SNAPSHOT.pom",
+      "sha256": "4f35e94702db5424eaba47453245bb35aac491daff27b16f24ff72c9b23a4175",
+      "bytes": 793
+    },
+    {
+      "coordinate": "io.docweave:docweave-json:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "jar",
+      "path": "io/docweave/docweave-json/0.1.0-SNAPSHOT/docweave-json-0.1.0-SNAPSHOT.jar",
+      "sha256": "d4a7c231cd878a58fe8fe44030d3a6712de42c2bc5c1ad2ef273d399886beab3",
+      "bytes": 18943
+    },
+    {
+      "coordinate": "io.docweave:docweave-json:0.1.0-SNAPSHOT",
+      "classifier": "sources",
+      "extension": "jar",
+      "path": "io/docweave/docweave-json/0.1.0-SNAPSHOT/docweave-json-0.1.0-SNAPSHOT-sources.jar",
+      "sha256": "b16257c47abcc6130136161c4a33de170b73b7ed8696d402f9b2e94d16dd3043",
+      "bytes": 17433
+    },
+    {
+      "coordinate": "io.docweave:docweave-json:0.1.0-SNAPSHOT",
+      "classifier": "javadoc",
+      "extension": "jar",
+      "path": "io/docweave/docweave-json/0.1.0-SNAPSHOT/docweave-json-0.1.0-SNAPSHOT-javadoc.jar",
+      "sha256": "6d9f21ad0c3ed9800a84d83ac20a7173c6343f60e560f226d6af0cd2fcc23900",
+      "bytes": 112823
+    },
+    {
+      "coordinate": "io.docweave:docweave-chunking:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "pom",
+      "path": "io/docweave/docweave-chunking/0.1.0-SNAPSHOT/docweave-chunking-0.1.0-SNAPSHOT.pom",
+      "sha256": "d428b4189c04288b2e6c4744aa989c1013e3c69298bebfce750b3dd3e5150bdd",
+      "bytes": 920
+    },
+    {
+      "coordinate": "io.docweave:docweave-chunking:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "jar",
+      "path": "io/docweave/docweave-chunking/0.1.0-SNAPSHOT/docweave-chunking-0.1.0-SNAPSHOT.jar",
+      "sha256": "d935f1a491faeef78910f2463a8d19538229c6cd11e4a2c6a6675b46d81a4998",
+      "bytes": 51070
+    },
+    {
+      "coordinate": "io.docweave:docweave-chunking:0.1.0-SNAPSHOT",
+      "classifier": "sources",
+      "extension": "jar",
+      "path": "io/docweave/docweave-chunking/0.1.0-SNAPSHOT/docweave-chunking-0.1.0-SNAPSHOT-sources.jar",
+      "sha256": "49424fdb18216ad34e43b90fa5d2427f1ec40b174d7c375124c18d8779eeb120",
+      "bytes": 37437
+    },
+    {
+      "coordinate": "io.docweave:docweave-chunking:0.1.0-SNAPSHOT",
+      "classifier": "javadoc",
+      "extension": "jar",
+      "path": "io/docweave/docweave-chunking/0.1.0-SNAPSHOT/docweave-chunking-0.1.0-SNAPSHOT-javadoc.jar",
+      "sha256": "a1bd7ee5754890a5ba5dd3e5780205b0493fc0c18ac37b3ea042bfbc086e5e09",
+      "bytes": 128941
+    },
+    {
+      "coordinate": "io.docweave:docweave-batch:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "pom",
+      "path": "io/docweave/docweave-batch/0.1.0-SNAPSHOT/docweave-batch-0.1.0-SNAPSHOT.pom",
+      "sha256": "79e50f6fde265274e12a98cf400ff5293318b3db34efa5ce44ddca16585e5328",
+      "bytes": 965
+    },
+    {
+      "coordinate": "io.docweave:docweave-batch:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "jar",
+      "path": "io/docweave/docweave-batch/0.1.0-SNAPSHOT/docweave-batch-0.1.0-SNAPSHOT.jar",
+      "sha256": "17c3f495e4123618ebc8ab1f6d3c4e8cee43acbfdd97fa0ecd145f0745c728e6",
+      "bytes": 32001
+    },
+    {
+      "coordinate": "io.docweave:docweave-batch:0.1.0-SNAPSHOT",
+      "classifier": "sources",
+      "extension": "jar",
+      "path": "io/docweave/docweave-batch/0.1.0-SNAPSHOT/docweave-batch-0.1.0-SNAPSHOT-sources.jar",
+      "sha256": "6482a3e5c4d12b5d684d197a6f4e2095a3368d7c0ad9acad910225317ab25f51",
+      "bytes": 26323
+    },
+    {
+      "coordinate": "io.docweave:docweave-batch:0.1.0-SNAPSHOT",
+      "classifier": "javadoc",
+      "extension": "jar",
+      "path": "io/docweave/docweave-batch/0.1.0-SNAPSHOT/docweave-batch-0.1.0-SNAPSHOT-javadoc.jar",
+      "sha256": "9649f5d59450e1865d8c3df7772c289bb882f72bb0319bfab8af39301cbe36bd",
+      "bytes": 162871
+    },
+    {
+      "coordinate": "io.docweave:docweave-txt:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "pom",
+      "path": "io/docweave/docweave-txt/0.1.0-SNAPSHOT/docweave-txt-0.1.0-SNAPSHOT.pom",
+      "sha256": "43b6308db13d1ad0a49e2acc11d57649e02945881096ecbff6af98e889441cf9",
+      "bytes": 679
+    },
+    {
+      "coordinate": "io.docweave:docweave-txt:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "jar",
+      "path": "io/docweave/docweave-txt/0.1.0-SNAPSHOT/docweave-txt-0.1.0-SNAPSHOT.jar",
+      "sha256": "a4d2b2e838b68b5dbbe86c81a4aa6e84d6ef3630f029a76f8b204be4dff80970",
+      "bytes": 15286
+    },
+    {
+      "coordinate": "io.docweave:docweave-txt:0.1.0-SNAPSHOT",
+      "classifier": "sources",
+      "extension": "jar",
+      "path": "io/docweave/docweave-txt/0.1.0-SNAPSHOT/docweave-txt-0.1.0-SNAPSHOT-sources.jar",
+      "sha256": "98506d44816fd89e1c5c675929906964b9f334bb178701259bee535db4861a26",
+      "bytes": 14440
+    },
+    {
+      "coordinate": "io.docweave:docweave-txt:0.1.0-SNAPSHOT",
+      "classifier": "javadoc",
+      "extension": "jar",
+      "path": "io/docweave/docweave-txt/0.1.0-SNAPSHOT/docweave-txt-0.1.0-SNAPSHOT-javadoc.jar",
+      "sha256": "b3dc25fa5369bd0ede9afbcecb358b02b291b08dc0076cf1905bebcf5ac400cb",
+      "bytes": 103120
+    },
+    {
+      "coordinate": "io.docweave:docweave-html:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "pom",
+      "path": "io/docweave/docweave-html/0.1.0-SNAPSHOT/docweave-html-0.1.0-SNAPSHOT.pom",
+      "sha256": "d993b35422b42bac222c87c42861b7e1c15a0320d95c2ecef590cf6cacc8a40e",
+      "bytes": 773
+    },
+    {
+      "coordinate": "io.docweave:docweave-html:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "jar",
+      "path": "io/docweave/docweave-html/0.1.0-SNAPSHOT/docweave-html-0.1.0-SNAPSHOT.jar",
+      "sha256": "f59e5b30552e919b58b6e3869e0430514a1eb16ff18a1a045c48cecfbab5be79",
+      "bytes": 38847
+    },
+    {
+      "coordinate": "io.docweave:docweave-html:0.1.0-SNAPSHOT",
+      "classifier": "sources",
+      "extension": "jar",
+      "path": "io/docweave/docweave-html/0.1.0-SNAPSHOT/docweave-html-0.1.0-SNAPSHOT-sources.jar",
+      "sha256": "d1f989df18df7f97c3c576ca15295cdc4a00990fb416169e8174455554520c50",
+      "bytes": 26032
+    },
+    {
+      "coordinate": "io.docweave:docweave-html:0.1.0-SNAPSHOT",
+      "classifier": "javadoc",
+      "extension": "jar",
+      "path": "io/docweave/docweave-html/0.1.0-SNAPSHOT/docweave-html-0.1.0-SNAPSHOT-javadoc.jar",
+      "sha256": "f698f9d85fe1aa47ea091dbad15d988e136594bcb9a72f340ffe881870df463f",
+      "bytes": 104121
+    },
+    {
+      "coordinate": "io.docweave:docweave-markdown:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "pom",
+      "path": "io/docweave/docweave-markdown/0.1.0-SNAPSHOT/docweave-markdown-0.1.0-SNAPSHOT.pom",
+      "sha256": "ec1a6317ef8c8e96838e204d295a38dd69ad8b0fd6c40c9de40bbdfd7188b268",
+      "bytes": 908
+    },
+    {
+      "coordinate": "io.docweave:docweave-markdown:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "jar",
+      "path": "io/docweave/docweave-markdown/0.1.0-SNAPSHOT/docweave-markdown-0.1.0-SNAPSHOT.jar",
+      "sha256": "219a44d4cb556c868cffd98965679224259904b8975564188119fa3c19d7ffb6",
+      "bytes": 22851
+    },
+    {
+      "coordinate": "io.docweave:docweave-markdown:0.1.0-SNAPSHOT",
+      "classifier": "sources",
+      "extension": "jar",
+      "path": "io/docweave/docweave-markdown/0.1.0-SNAPSHOT/docweave-markdown-0.1.0-SNAPSHOT-sources.jar",
+      "sha256": "864788084c504ba1fac7ddf551286310aa9fea157019595eb33f16223502930d",
+      "bytes": 15766
+    },
+    {
+      "coordinate": "io.docweave:docweave-markdown:0.1.0-SNAPSHOT",
+      "classifier": "javadoc",
+      "extension": "jar",
+      "path": "io/docweave/docweave-markdown/0.1.0-SNAPSHOT/docweave-markdown-0.1.0-SNAPSHOT-javadoc.jar",
+      "sha256": "51d10ff06a8e5f79def7ff3996756abbef64e216dee49310ff451ab84dcb2d55",
+      "bytes": 103221
+    },
+    {
+      "coordinate": "io.docweave:docweave-delimited:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "pom",
+      "path": "io/docweave/docweave-delimited/0.1.0-SNAPSHOT/docweave-delimited-0.1.0-SNAPSHOT.pom",
+      "sha256": "837b74ac0e98a39ed24cc73197db9f3ce9f6cb58ce0cd1f0290b3d0a70e6846c",
+      "bytes": 1016
+    },
+    {
+      "coordinate": "io.docweave:docweave-delimited:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "jar",
+      "path": "io/docweave/docweave-delimited/0.1.0-SNAPSHOT/docweave-delimited-0.1.0-SNAPSHOT.jar",
+      "sha256": "6cd85c8a657d4f6d082ff3273d02fb4462162e75e96e79915700dc9922853279",
+      "bytes": 11256
+    },
+    {
+      "coordinate": "io.docweave:docweave-delimited:0.1.0-SNAPSHOT",
+      "classifier": "sources",
+      "extension": "jar",
+      "path": "io/docweave/docweave-delimited/0.1.0-SNAPSHOT/docweave-delimited-0.1.0-SNAPSHOT-sources.jar",
+      "sha256": "a001eb25d5b09330c7e2ea45deb057ec9eb52daeb3d28bb40054fbf332558997",
+      "bytes": 9808
+    },
+    {
+      "coordinate": "io.docweave:docweave-delimited:0.1.0-SNAPSHOT",
+      "classifier": "javadoc",
+      "extension": "jar",
+      "path": "io/docweave/docweave-delimited/0.1.0-SNAPSHOT/docweave-delimited-0.1.0-SNAPSHOT-javadoc.jar",
+      "sha256": "7f8b21e083eb3bd8fc38a15fc49f97123a8be98b446614571e5a6389d80835a2",
+      "bytes": 102741
+    },
+    {
+      "coordinate": "io.docweave:docweave-csv:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "pom",
+      "path": "io/docweave/docweave-csv/0.1.0-SNAPSHOT/docweave-csv-0.1.0-SNAPSHOT.pom",
+      "sha256": "9436a0bbe7f0b2c562ab55f5d3cfa77b60bd084eab3667d223dfaf5e3d4c4c3b",
+      "bytes": 823
+    },
+    {
+      "coordinate": "io.docweave:docweave-csv:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "jar",
+      "path": "io/docweave/docweave-csv/0.1.0-SNAPSHOT/docweave-csv-0.1.0-SNAPSHOT.jar",
+      "sha256": "460c9d15b1b4c78be2f779c8ae692c65e478b509327023c231b7f4ea61173f87",
+      "bytes": 9864
+    },
+    {
+      "coordinate": "io.docweave:docweave-csv:0.1.0-SNAPSHOT",
+      "classifier": "sources",
+      "extension": "jar",
+      "path": "io/docweave/docweave-csv/0.1.0-SNAPSHOT/docweave-csv-0.1.0-SNAPSHOT-sources.jar",
+      "sha256": "103c1f4c06d0092df7e799222303aebd57ab636a2399184fce74020ba9d3c603",
+      "bytes": 9783
+    },
+    {
+      "coordinate": "io.docweave:docweave-csv:0.1.0-SNAPSHOT",
+      "classifier": "javadoc",
+      "extension": "jar",
+      "path": "io/docweave/docweave-csv/0.1.0-SNAPSHOT/docweave-csv-0.1.0-SNAPSHOT-javadoc.jar",
+      "sha256": "ea0d599454ce2a24008a2cb5dc6676e4e6f423fea57a4ed0c1fffd54e06a64f7",
+      "bytes": 103098
+    },
+    {
+      "coordinate": "io.docweave:docweave-tsv:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "pom",
+      "path": "io/docweave/docweave-tsv/0.1.0-SNAPSHOT/docweave-tsv-0.1.0-SNAPSHOT.pom",
+      "sha256": "f8f517fef86406d289e595792f599fe0d00ed1f93033d59c63ed8151df097221",
+      "bytes": 823
+    },
+    {
+      "coordinate": "io.docweave:docweave-tsv:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "jar",
+      "path": "io/docweave/docweave-tsv/0.1.0-SNAPSHOT/docweave-tsv-0.1.0-SNAPSHOT.jar",
+      "sha256": "85d0b25b00d6c107254d4c050722f808f734f2c4674b9b7957f9a2144dc1cec2",
+      "bytes": 9862
+    },
+    {
+      "coordinate": "io.docweave:docweave-tsv:0.1.0-SNAPSHOT",
+      "classifier": "sources",
+      "extension": "jar",
+      "path": "io/docweave/docweave-tsv/0.1.0-SNAPSHOT/docweave-tsv-0.1.0-SNAPSHOT-sources.jar",
+      "sha256": "91abed09b5af318966bddc573eef71c133c7e49f479062365694e08bc0603f48",
+      "bytes": 9781
+    },
+    {
+      "coordinate": "io.docweave:docweave-tsv:0.1.0-SNAPSHOT",
+      "classifier": "javadoc",
+      "extension": "jar",
+      "path": "io/docweave/docweave-tsv/0.1.0-SNAPSHOT/docweave-tsv-0.1.0-SNAPSHOT-javadoc.jar",
+      "sha256": "ed86cdfc81276383bebeeae1db0fb535fd60932e55f9ac5f45bc0afa81a24e88",
+      "bytes": 103108
+    },
+    {
+      "coordinate": "io.docweave:docweave-xml:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "pom",
+      "path": "io/docweave/docweave-xml/0.1.0-SNAPSHOT/docweave-xml-0.1.0-SNAPSHOT.pom",
+      "sha256": "ece90f75f278a6c487358375c0edc3f4ec3a34aba7b86d8a73b3756216e9113a",
+      "bytes": 679
+    },
+    {
+      "coordinate": "io.docweave:docweave-xml:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "jar",
+      "path": "io/docweave/docweave-xml/0.1.0-SNAPSHOT/docweave-xml-0.1.0-SNAPSHOT.jar",
+      "sha256": "9d70342ed45cda497a433a4f3affe856ec11e21eba5f9668c7133a8b0fa29353",
+      "bytes": 14945
+    },
+    {
+      "coordinate": "io.docweave:docweave-xml:0.1.0-SNAPSHOT",
+      "classifier": "sources",
+      "extension": "jar",
+      "path": "io/docweave/docweave-xml/0.1.0-SNAPSHOT/docweave-xml-0.1.0-SNAPSHOT-sources.jar",
+      "sha256": "195c90107fda29e87cbf096d9c92b7def2c7013b3364a238b59b604a8d80ac8e",
+      "bytes": 12616
+    },
+    {
+      "coordinate": "io.docweave:docweave-xml:0.1.0-SNAPSHOT",
+      "classifier": "javadoc",
+      "extension": "jar",
+      "path": "io/docweave/docweave-xml/0.1.0-SNAPSHOT/docweave-xml-0.1.0-SNAPSHOT-javadoc.jar",
+      "sha256": "6a26b53b6c856596a6b75bced6c1ccb2f48b5984efced577516763304a64ddd4",
+      "bytes": 103131
+    },
+    {
+      "coordinate": "io.docweave:docweave-docx:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "pom",
+      "path": "io/docweave/docweave-docx/0.1.0-SNAPSHOT/docweave-docx-0.1.0-SNAPSHOT.pom",
+      "sha256": "ac5dfb16bfe0976cf92b6b0d058797af560e17262232967777867dd434a49140",
+      "bytes": 984
+    },
+    {
+      "coordinate": "io.docweave:docweave-docx:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "jar",
+      "path": "io/docweave/docweave-docx/0.1.0-SNAPSHOT/docweave-docx-0.1.0-SNAPSHOT.jar",
+      "sha256": "806c9a5c29950f28300514aa8745c12f478623e106931a867d124b8aef411314",
+      "bytes": 105544
+    },
+    {
+      "coordinate": "io.docweave:docweave-docx:0.1.0-SNAPSHOT",
+      "classifier": "sources",
+      "extension": "jar",
+      "path": "io/docweave/docweave-docx/0.1.0-SNAPSHOT/docweave-docx-0.1.0-SNAPSHOT-sources.jar",
+      "sha256": "6a0c82778495fea5d90551cb29e36deeda190853b1ffcfa5154d36f1f5bd7cae",
+      "bytes": 61981
+    },
+    {
+      "coordinate": "io.docweave:docweave-docx:0.1.0-SNAPSHOT",
+      "classifier": "javadoc",
+      "extension": "jar",
+      "path": "io/docweave/docweave-docx/0.1.0-SNAPSHOT/docweave-docx-0.1.0-SNAPSHOT-javadoc.jar",
+      "sha256": "1417cf8d51446566243d49fe56735b2c1e91387fbbcbc63d99b26873a6260a43",
+      "bytes": 107665
+    },
+    {
+      "coordinate": "io.docweave:docweave-pdf:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "pom",
+      "path": "io/docweave/docweave-pdf/0.1.0-SNAPSHOT/docweave-pdf-0.1.0-SNAPSHOT.pom",
+      "sha256": "d3cc0acf25dc98ee35607ff83c83e6b9115246e2f5ab493316b9747acae650df",
+      "bytes": 1073
+    },
+    {
+      "coordinate": "io.docweave:docweave-pdf:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "jar",
+      "path": "io/docweave/docweave-pdf/0.1.0-SNAPSHOT/docweave-pdf-0.1.0-SNAPSHOT.jar",
+      "sha256": "73efa6a3febc21637f624ddf663c733c7d85339adfa56dc13f3c3b4f6886eff3",
+      "bytes": 249036
+    },
+    {
+      "coordinate": "io.docweave:docweave-pdf:0.1.0-SNAPSHOT",
+      "classifier": "sources",
+      "extension": "jar",
+      "path": "io/docweave/docweave-pdf/0.1.0-SNAPSHOT/docweave-pdf-0.1.0-SNAPSHOT-sources.jar",
+      "sha256": "b269683905286debce20519674df902b4d8e0bffeceefc8d90084d980db641dc",
+      "bytes": 149771
+    },
+    {
+      "coordinate": "io.docweave:docweave-pdf:0.1.0-SNAPSHOT",
+      "classifier": "javadoc",
+      "extension": "jar",
+      "path": "io/docweave/docweave-pdf/0.1.0-SNAPSHOT/docweave-pdf-0.1.0-SNAPSHOT-javadoc.jar",
+      "sha256": "10990d89393699644c72bf9478176324698c439e5aa3fb8bfd6dac9b4f399a14",
+      "bytes": 313234
+    },
+    {
+      "coordinate": "io.docweave:docweave-ocr-tesseract:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "pom",
+      "path": "io/docweave/docweave-ocr-tesseract/0.1.0-SNAPSHOT/docweave-ocr-tesseract-0.1.0-SNAPSHOT.pom",
+      "sha256": "d93c48f9e9112ef442d54cf62cd35b80a3aae1cda3a27940e951e80624cc4b0b",
+      "bytes": 1000
+    },
+    {
+      "coordinate": "io.docweave:docweave-ocr-tesseract:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "jar",
+      "path": "io/docweave/docweave-ocr-tesseract/0.1.0-SNAPSHOT/docweave-ocr-tesseract-0.1.0-SNAPSHOT.jar",
+      "sha256": "4c08116eedbd72411b9e53c79374e561354ab906f97b6fa9b174eb22f57fad66",
+      "bytes": 44211
+    },
+    {
+      "coordinate": "io.docweave:docweave-ocr-tesseract:0.1.0-SNAPSHOT",
+      "classifier": "sources",
+      "extension": "jar",
+      "path": "io/docweave/docweave-ocr-tesseract/0.1.0-SNAPSHOT/docweave-ocr-tesseract-0.1.0-SNAPSHOT-sources.jar",
+      "sha256": "52195958fe1c1eafec5e278f4a8767cd5465956a4b891bd589bd75bd3ba87931",
+      "bytes": 29565
+    },
+    {
+      "coordinate": "io.docweave:docweave-ocr-tesseract:0.1.0-SNAPSHOT",
+      "classifier": "javadoc",
+      "extension": "jar",
+      "path": "io/docweave/docweave-ocr-tesseract/0.1.0-SNAPSHOT/docweave-ocr-tesseract-0.1.0-SNAPSHOT-javadoc.jar",
+      "sha256": "c86a321c202b40bcb8c4fd542e1a31e3699441a12c80083ebc120f657b76f627",
+      "bytes": 146508
+    },
+    {
+      "coordinate": "io.docweave:docweave-layout-onnx:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "pom",
+      "path": "io/docweave/docweave-layout-onnx/0.1.0-SNAPSHOT/docweave-layout-onnx-0.1.0-SNAPSHOT.pom",
+      "sha256": "99a5d0dc7d16604775f20eec6c10c6a6f7dfadfd39e55528f3037a76c5611be3",
+      "bytes": 1371
+    },
+    {
+      "coordinate": "io.docweave:docweave-layout-onnx:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "jar",
+      "path": "io/docweave/docweave-layout-onnx/0.1.0-SNAPSHOT/docweave-layout-onnx-0.1.0-SNAPSHOT.jar",
+      "sha256": "b5875e2e77bddbd5f30e1e48efa78f3f15be3bfea9e967087054e80a4e7619f6",
+      "bytes": 49263
+    },
+    {
+      "coordinate": "io.docweave:docweave-layout-onnx:0.1.0-SNAPSHOT",
+      "classifier": "sources",
+      "extension": "jar",
+      "path": "io/docweave/docweave-layout-onnx/0.1.0-SNAPSHOT/docweave-layout-onnx-0.1.0-SNAPSHOT-sources.jar",
+      "sha256": "71424edff0d40b7bdb7ebccf8fcd809947cf40ff2357d2e9c4fc9d3e37b9efe7",
+      "bytes": 36278
+    },
+    {
+      "coordinate": "io.docweave:docweave-layout-onnx:0.1.0-SNAPSHOT",
+      "classifier": "javadoc",
+      "extension": "jar",
+      "path": "io/docweave/docweave-layout-onnx/0.1.0-SNAPSHOT/docweave-layout-onnx-0.1.0-SNAPSHOT-javadoc.jar",
+      "sha256": "d9cdebb95586c23823c655abdd31742f0ee32e79044a455607830be034452817",
+      "bytes": 123926
+    },
+    {
+      "coordinate": "io.docweave:docweave:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "pom",
+      "path": "io/docweave/docweave/0.1.0-SNAPSHOT/docweave-0.1.0-SNAPSHOT.pom",
+      "sha256": "25a2030d996e2f9358d30c8a8e20a9245fbeb29e8af87c0a340b4fd3797fa192",
+      "bytes": 3851
+    },
+    {
+      "coordinate": "io.docweave:docweave:0.1.0-SNAPSHOT",
+      "classifier": "",
+      "extension": "jar",
+      "path": "io/docweave/docweave/0.1.0-SNAPSHOT/docweave-0.1.0-SNAPSHOT.jar",
+      "sha256": "4455d58c1b6edf8c33eca27d5a1b27c34a92c0444127c50712d74e87f965c13b",
+      "bytes": 9016
+    },
+    {
+      "coordinate": "io.docweave:docweave:0.1.0-SNAPSHOT",
+      "classifier": "sources",
+      "extension": "jar",
+      "path": "io/docweave/docweave/0.1.0-SNAPSHOT/docweave-0.1.0-SNAPSHOT-sources.jar",
+      "sha256": "0d06948737b7c9220398596ec71c18992b97a5b3a752bcf620a2a0c9ee139d35",
+      "bytes": 9003
+    },
+    {
+      "coordinate": "io.docweave:docweave:0.1.0-SNAPSHOT",
+      "classifier": "javadoc",
+      "extension": "jar",
+      "path": "io/docweave/docweave/0.1.0-SNAPSHOT/docweave-0.1.0-SNAPSHOT-javadoc.jar",
+      "sha256": "4455d58c1b6edf8c33eca27d5a1b27c34a92c0444127c50712d74e87f965c13b",
+      "bytes": 9016
+    }
+  ],
+  "library_modules": 16,
+  "parent_poms": 1,
+  "internal_modules_excluded": [
+    "docweave-integration-tests",
+    "docweave-validation"
+  ],
+  "class_major": 65,
+  "binary_classes_checked": 319
+}

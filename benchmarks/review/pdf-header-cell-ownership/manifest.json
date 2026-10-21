@@ -1,0 +1,7 @@
+{
+  "frozen_at": "2026-10-19T14:49:22.151985+00:00",
+  "baseline_commit": "eb82124",
+  "prior_manifest_sha256": "3eda64d1814b4c31b636f73de43d74b5b84b3cdc4fa795b813cbbae905f9d48d",
+  "protocol": "Unchanged us-002 original pages1/3 and prior captured atomic grids. Assign nonblank upright native glyph positions by half-open cell centers in150DPI crop frame. All rows/columns retained including body negatives. No text strings exported, no labels read, no model rerun, no candidate repair, no quality rescoring.",
+  "helper_sha256": "210e85b5faa03bac22021020bf09c163800e8a49547c227107084bad80508c60"
+}

@@ -1,0 +1,53 @@
+{
+  "scope": "Two official blank consultation forms from different publishers/templates; stored-text diagnostics only, no upstream comparison or rendering ground truth.",
+  "binary_policy": "Fetch-only local cache; do not commit source binaries, excluded assets or full extracted text.",
+  "documents": [
+    {
+      "retrieved_on": "2026-10-16",
+      "licence": "Open Government Licence v3.0; graphic assets and other stated exceptions excluded",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "human_review": "pending",
+      "filename": "law-commission-response-2025.docx",
+      "title": "Response Form – Supplementary Consultation: Contempt of Court",
+      "publisher": "Law Commission for England and Wales",
+      "source_page": "https://lawcom.gov.uk/publication/response-form-supplementary-consultation/",
+      "download_url": "https://cdn.websitebuilder.service.justice.gov.uk/uploads/sites/54/2025/03/RESPONSE-FORM-Law-Commission-Contempt-of-Court-Supplementary-Consultation.docx",
+      "attribution": "Contains public sector information licensed under the Open Government Licence v3.0. © Crown copyright, Law Commission.",
+      "required_text": [
+        "Law Commission Supplementary Consultation on Contempt of Court",
+        "Overview"
+      ],
+      "minimum_tables": 8,
+      "expected_stored_parts": {
+        "Header": 0,
+        "Footer": 0
+      },
+      "sha256": "f93208f7b0d1943d627eba881ec9f1962d732a58c7dfe300b1afcff8d3977ea5",
+      "bytes": 61748
+    },
+    {
+      "retrieved_on": "2026-10-16",
+      "licence": "Open Government Licence v3.0; graphic assets and other stated exceptions excluded",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "human_review": "pending",
+      "filename": "scottish-respondent-2023.docx",
+      "title": "Respondent information form: updated June 2023",
+      "publisher": "Scottish Government",
+      "source_page": "https://www.gov.scot/publications/respondent-information-form/",
+      "download_url": "https://www.gov.scot/binaries/content/documents/govscot/publications/form/2017/01/respondent-information-form/documents/respondent-information-form-updated-june-2023/respondent-information-form-updated-june-2023/govscot%3Adocument/Respondent%2BInformation%2BForm%2B%2528RIF%2529%2Btemplate%2B-%2Bupdated%2BJune%2B2023.docx",
+      "attribution": "Contains public sector information licensed under the Open Government Licence v3.0. © Crown Copyright, Scottish Government.",
+      "required_text": [
+        "Respondent Information Form",
+        "What is your name?",
+        "What is your email address?"
+      ],
+      "minimum_tables": 0,
+      "expected_stored_parts": {
+        "Header": 0,
+        "Footer": 3
+      },
+      "sha256": "9ec220846a132b09e1bd518dcddb053dc071a7e90d937c5c075005167ce3decd",
+      "bytes": 213745
+    }
+  ]
+}

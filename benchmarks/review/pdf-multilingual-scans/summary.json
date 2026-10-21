@@ -1,0 +1,21 @@
+{
+  "full_verify_tests_each_jvm": 870,
+  "paired_results_identical": true,
+  "default_english_report_schema_and_results_preserved": true,
+  "rasters": 9,
+  "candidate_tables": 12,
+  "typed_ocr_limit_inputs": [
+    "cTDaR_s001"
+  ],
+  "orientation_abstentions": 8,
+  "changed_structural_report_fields": [
+    {
+      "input": "cTDaR_s003",
+      "field": "ordinary_ocr_lines",
+      "english": 59,
+      "chi_sim_eng": 57
+    }
+  ],
+  "text_accuracy_measured": false,
+  "limitations": "No independent transcription; no claimed recognition improvement, physical-scanner provenance or calibrated confidence"
+}

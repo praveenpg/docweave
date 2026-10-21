@@ -1,0 +1,90 @@
+{
+  "production_source_commit": "20074e04f5593ff4059303b7da5a986a5b12ea77",
+  "models": [
+    {
+      "source_revision": "2357cbe2b5a5d1c03e54f32764f06058933b65ab",
+      "source_sha256": "8f1aa73170102c038d40155e2734b343bf07e0fe12594228a8590943b01dccf7",
+      "onnx_sha256": "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+      "packages": {
+        "torch": "2.9.1+cpu",
+        "torchvision": "0.24.1+cpu",
+        "transformers": "4.57.3",
+        "timm": "1.0.22",
+        "onnx": "1.19.1",
+        "safetensors": "0.8.0"
+      },
+      "opset": 17
+    },
+    {
+      "source_revision": "7587a7ef111d9dcbf8ac695f1376ab7014340a0c",
+      "source_sha256": "9df416575a3a36ebd0129342d4f597f14d6e5170268f3d52d28584ab4466a501",
+      "onnx_sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+      "packages": {
+        "torch": "2.9.1+cpu",
+        "torchvision": "0.24.1+cpu",
+        "transformers": "4.57.3",
+        "timm": "1.0.22",
+        "onnx": "1.19.1",
+        "safetensors": "0.8.0"
+      },
+      "opset": 17
+    }
+  ],
+  "onnxruntime": {
+    "version": "1.23.2",
+    "jar_sha256": "e0ab4a1af57d2da09097202f2dfd691e390c82e81183314788ccde4cf7c3cc38"
+  },
+  "engine_version": "tesseract 5.5.3",
+  "leptonica_version": "1.87.0",
+  "files": {
+    "benchmarks/tools/CaptureBusinessCellText.java": "c864983313c19c480b5a6cc81014d849c855669a114d080794129dae491652c6",
+    "benchmarks/tools/compare_business_cell_text.py": "992268ce231758a95fb2bb6ca750d8ef145b9aae9406f46038ee397b1452037e",
+    "benchmarks/tools/test_business_cell_text.py": "4ae921a4b7ed77696aa3a46c4af2776439e743d676d8d422618eab7aa029e57f",
+    "benchmarks/review/pdf-business-model-layout/manifest.json": "762e18b52495019c2b9b2cd39311d9185dd17c54a1a38fe48b003b2eb087d7ab"
+  },
+  "paired_metrics_equal_excluding_local_capture_sha256": true,
+  "raw_capture_semantic_equality": {
+    "financial-disclosure/page.json": true,
+    "financial-disclosure/cells.json": true,
+    "transport-procurement/page.json": true,
+    "transport-procurement/cells.json": true,
+    "education-statistics/page.json": true,
+    "education-statistics/cells.json": true
+  },
+  "control_replays": [
+    {
+      "java": "21",
+      "runtime": {
+        "executable_sha256": "9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917",
+        "english_model_sha256": "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047",
+        "java": "21.0.12.1+12-LTS"
+      },
+      "numeric_and_raster_equal_to_original": true,
+      "local_captures": {
+        "financial-disclosure/page": "a92c6b50d509354e64c11aa7be1c0d5c61c7653c3248aaf062ee5a39984c4e54",
+        "financial-disclosure/cells": "a92c6b50d509354e64c11aa7be1c0d5c61c7653c3248aaf062ee5a39984c4e54",
+        "transport-procurement/page": "4e04cb71ef984a005ff8520d07b1e4227b19efb4b5f06862a6af7ce0b3f3fa9b",
+        "transport-procurement/cells": "4e04cb71ef984a005ff8520d07b1e4227b19efb4b5f06862a6af7ce0b3f3fa9b",
+        "education-statistics/page": "4fd281fe0afbae4cfe6edff2524840f050535cfb9b6e1e6cd0928c46232be1b2",
+        "education-statistics/cells": "4fd281fe0afbae4cfe6edff2524840f050535cfb9b6e1e6cd0928c46232be1b2"
+      }
+    },
+    {
+      "java": "25",
+      "runtime": {
+        "executable_sha256": "9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917",
+        "java": "25.0.4+7-LTS",
+        "english_model_sha256": "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047"
+      },
+      "numeric_and_raster_equal_to_original": true,
+      "local_captures": {
+        "financial-disclosure/page": "a92c6b50d509354e64c11aa7be1c0d5c61c7653c3248aaf062ee5a39984c4e54",
+        "financial-disclosure/cells": "a92c6b50d509354e64c11aa7be1c0d5c61c7653c3248aaf062ee5a39984c4e54",
+        "transport-procurement/page": "4e04cb71ef984a005ff8520d07b1e4227b19efb4b5f06862a6af7ce0b3f3fa9b",
+        "transport-procurement/cells": "4e04cb71ef984a005ff8520d07b1e4227b19efb4b5f06862a6af7ce0b3f3fa9b",
+        "education-statistics/page": "4fd281fe0afbae4cfe6edff2524840f050535cfb9b6e1e6cd0928c46232be1b2",
+        "education-statistics/cells": "4fd281fe0afbae4cfe6edff2524840f050535cfb9b6e1e6cd0928c46232be1b2"
+      }
+    }
+  ]
+}

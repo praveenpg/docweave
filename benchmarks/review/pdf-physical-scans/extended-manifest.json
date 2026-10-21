@@ -1,0 +1,151 @@
+{
+  "repository": "https://github.com/cndplab-founder/ICDAR2019_cTDaR",
+  "commit": "171934db38a9e230e23b87a5afe86f8c83edaa95",
+  "scope": "All eight official annotated sample rasters plus historical test00040; published structural annotations, no text oracle; modern raster provenance is not necessarily a physical scan",
+  "inputs": [
+    {
+      "filename": "cTDaR_s001.jpg",
+      "path": "samples/ground_truth/cTDaR_s001.jpg",
+      "bytes": 2749354,
+      "sha256": "da11803e93b36177a6c8c80486c6eda4a550cb008b2ec60381a93f9f9a338324",
+      "git_blob_sha1": "0bd7fffe5b3481031145aab25960e5100599a309",
+      "url": "https://raw.githubusercontent.com/cndplab-founder/ICDAR2019_cTDaR/171934db38a9e230e23b87a5afe86f8c83edaa95/samples/ground_truth/cTDaR_s001.jpg"
+    },
+    {
+      "filename": "cTDaR_s001.xml",
+      "path": "samples/ground_truth/cTDaR_s001.xml",
+      "bytes": 49845,
+      "sha256": "19643078ef0684cb41d6a8087082f899270fe549bb5fcdda0abd4285e0e0ec42",
+      "git_blob_sha1": "6d08f6cb968582b874c0c56c5bffc052229d7801",
+      "url": "https://raw.githubusercontent.com/cndplab-founder/ICDAR2019_cTDaR/171934db38a9e230e23b87a5afe86f8c83edaa95/samples/ground_truth/cTDaR_s001.xml"
+    },
+    {
+      "filename": "cTDaR_s002.jpg",
+      "path": "samples/ground_truth/cTDaR_s002.jpg",
+      "bytes": 1794195,
+      "sha256": "4d664e6173503f04ac20c4ec9508fed113fef86284d9788124ac7f8407ed4a74",
+      "git_blob_sha1": "a063f3c61a490d24ad8bea13071ed7fd82df05f8",
+      "url": "https://raw.githubusercontent.com/cndplab-founder/ICDAR2019_cTDaR/171934db38a9e230e23b87a5afe86f8c83edaa95/samples/ground_truth/cTDaR_s002.jpg"
+    },
+    {
+      "filename": "cTDaR_s002.xml",
+      "path": "samples/ground_truth/cTDaR_s002.xml",
+      "bytes": 78675,
+      "sha256": "481ada0e1952899b5f40bffacf7a48e3f9fd47bcda55b21f0141952f13ac2710",
+      "git_blob_sha1": "17267a33ae6e3f34449d9c7d7852489c26472e5d",
+      "url": "https://raw.githubusercontent.com/cndplab-founder/ICDAR2019_cTDaR/171934db38a9e230e23b87a5afe86f8c83edaa95/samples/ground_truth/cTDaR_s002.xml"
+    },
+    {
+      "filename": "cTDaR_s003.jpg",
+      "path": "samples/ground_truth/cTDaR_s003.jpg",
+      "bytes": 3208686,
+      "sha256": "692f058dcf196eee14492e6ccc8c035894518c32da75eb1d62c49d5dba32f108",
+      "git_blob_sha1": "32192904755b66700d7dcd10cee236360c8f349e",
+      "url": "https://raw.githubusercontent.com/cndplab-founder/ICDAR2019_cTDaR/171934db38a9e230e23b87a5afe86f8c83edaa95/samples/ground_truth/cTDaR_s003.jpg"
+    },
+    {
+      "filename": "cTDaR_s003.xml",
+      "path": "samples/ground_truth/cTDaR_s003.xml",
+      "bytes": 5151,
+      "sha256": "0ad9734e2df4d9e37351b18d6a764c7cfd163586fc0d86afa64b474eedaceb79",
+      "git_blob_sha1": "686db9a5b9de5191c50a1c6b2c63e2f546e818b1",
+      "url": "https://raw.githubusercontent.com/cndplab-founder/ICDAR2019_cTDaR/171934db38a9e230e23b87a5afe86f8c83edaa95/samples/ground_truth/cTDaR_s003.xml"
+    },
+    {
+      "filename": "cTDaR_s004.jpg",
+      "path": "samples/ground_truth/cTDaR_s004.jpg",
+      "bytes": 2446159,
+      "sha256": "ee63d147b34e7572444820219857354ece9bf1761d3b28af01d71e019a1cef95",
+      "git_blob_sha1": "0e1c34b3773b9c3a528fefcd2783b84411f5e1a2",
+      "url": "https://raw.githubusercontent.com/cndplab-founder/ICDAR2019_cTDaR/171934db38a9e230e23b87a5afe86f8c83edaa95/samples/ground_truth/cTDaR_s004.jpg"
+    },
+    {
+      "filename": "cTDaR_s004.xml",
+      "path": "samples/ground_truth/cTDaR_s004.xml",
+      "bytes": 22970,
+      "sha256": "9c44a165a6da61213bbcde45ccf5ab84796bc516f51f562ac729218f8069ddfa",
+      "git_blob_sha1": "5390fd89758ebaf30ef5227e5c12bc1d70c480a4",
+      "url": "https://raw.githubusercontent.com/cndplab-founder/ICDAR2019_cTDaR/171934db38a9e230e23b87a5afe86f8c83edaa95/samples/ground_truth/cTDaR_s004.xml"
+    },
+    {
+      "filename": "cTDaR_s101.jpg",
+      "path": "samples/ground_truth/cTDaR_s101.jpg",
+      "bytes": 222315,
+      "sha256": "a03aea4b8d929d738a890a14884cedbd1edbbd62eb7d5c3bd6b1d353b5010344",
+      "git_blob_sha1": "ce11ca6bbff77ebfd8cd4f3b266f5a37c90784e8",
+      "url": "https://raw.githubusercontent.com/cndplab-founder/ICDAR2019_cTDaR/171934db38a9e230e23b87a5afe86f8c83edaa95/samples/ground_truth/cTDaR_s101.jpg"
+    },
+    {
+      "filename": "cTDaR_s101.xml",
+      "path": "samples/ground_truth/cTDaR_s101.xml",
+      "bytes": 12058,
+      "sha256": "f9645cae9e6c8ec4c9ceb33f1eb7f24d7a91d2da118eca5ec3375043dd2d5bbb",
+      "git_blob_sha1": "8072773e464bc671aeb23b40d4ecd79d2b9cc586",
+      "url": "https://raw.githubusercontent.com/cndplab-founder/ICDAR2019_cTDaR/171934db38a9e230e23b87a5afe86f8c83edaa95/samples/ground_truth/cTDaR_s101.xml"
+    },
+    {
+      "filename": "cTDaR_s102.jpg",
+      "path": "samples/ground_truth/cTDaR_s102.jpg",
+      "bytes": 132394,
+      "sha256": "9c0c47338f09e324b5b556120dcdae0f443ea02cbf81d0f10d487844da1c1e7f",
+      "git_blob_sha1": "ef5a656d7fe6947e1e8b0dacc51d9aaf317adeba",
+      "url": "https://raw.githubusercontent.com/cndplab-founder/ICDAR2019_cTDaR/171934db38a9e230e23b87a5afe86f8c83edaa95/samples/ground_truth/cTDaR_s102.jpg"
+    },
+    {
+      "filename": "cTDaR_s102.xml",
+      "path": "samples/ground_truth/cTDaR_s102.xml",
+      "bytes": 10128,
+      "sha256": "b7c571096e67d9a50a48381b8323d8568ebc888d542ce3a929f59e430e5724ba",
+      "git_blob_sha1": "e68dd8f46fe909ac1e129357ef5b36912dbfb0a4",
+      "url": "https://raw.githubusercontent.com/cndplab-founder/ICDAR2019_cTDaR/171934db38a9e230e23b87a5afe86f8c83edaa95/samples/ground_truth/cTDaR_s102.xml"
+    },
+    {
+      "filename": "cTDaR_s103.jpg",
+      "path": "samples/ground_truth/cTDaR_s103.jpg",
+      "bytes": 121316,
+      "sha256": "2c3818f3d819351b26d44cb3b69a938c8c9e98df4aaeec4d320fd3e037ad3b9c",
+      "git_blob_sha1": "515364feca7ec1b132fd9f2cc491a9a2780db0fe",
+      "url": "https://raw.githubusercontent.com/cndplab-founder/ICDAR2019_cTDaR/171934db38a9e230e23b87a5afe86f8c83edaa95/samples/ground_truth/cTDaR_s103.jpg"
+    },
+    {
+      "filename": "cTDaR_s103.xml",
+      "path": "samples/ground_truth/cTDaR_s103.xml",
+      "bytes": 1198,
+      "sha256": "d7af6c64f45454a94392050789730576001b175cf2f626baac9ccb4bfc3d4c3e",
+      "git_blob_sha1": "a12b877e583b86ecfde246849ec6ce77418ee30b",
+      "url": "https://raw.githubusercontent.com/cndplab-founder/ICDAR2019_cTDaR/171934db38a9e230e23b87a5afe86f8c83edaa95/samples/ground_truth/cTDaR_s103.xml"
+    },
+    {
+      "filename": "cTDaR_s104.jpg",
+      "path": "samples/ground_truth/cTDaR_s104.jpg",
+      "bytes": 118058,
+      "sha256": "2589f5aef9d767ee843c473365d86106270b8ec5254fb9d9aaa848f947bd68aa",
+      "git_blob_sha1": "9017272b14ad7628b2774b8d183b9bfe721b7625",
+      "url": "https://raw.githubusercontent.com/cndplab-founder/ICDAR2019_cTDaR/171934db38a9e230e23b87a5afe86f8c83edaa95/samples/ground_truth/cTDaR_s104.jpg"
+    },
+    {
+      "filename": "cTDaR_s104.xml",
+      "path": "samples/ground_truth/cTDaR_s104.xml",
+      "bytes": 22376,
+      "sha256": "0b27913fe336c121d920ab73f39d131e57f99a5d5aa661eade6901dbb811b63f",
+      "git_blob_sha1": "68759dee6d4dc1b35c5654f52b4f2f3a4fbe34cb",
+      "url": "https://raw.githubusercontent.com/cndplab-founder/ICDAR2019_cTDaR/171934db38a9e230e23b87a5afe86f8c83edaa95/samples/ground_truth/cTDaR_s104.xml"
+    },
+    {
+      "filename": "cTDaR_t00040.jpg",
+      "path": "training/TRACKB1/ground_truth/cTDaR_t00040.jpg",
+      "bytes": 463833,
+      "sha256": "7314c0a9ef2d2e8d49c938ac3598fc73051114da31f7262d0a5722812deefcc0",
+      "git_blob_sha1": "23df7adff17e3a58cc55fc42d77d53e74f350a43",
+      "url": "https://raw.githubusercontent.com/cndplab-founder/ICDAR2019_cTDaR/171934db38a9e230e23b87a5afe86f8c83edaa95/training/TRACKB1/ground_truth/cTDaR_t00040.jpg"
+    },
+    {
+      "filename": "cTDaR_t00040.xml",
+      "path": "training/TRACKB1/ground_truth/cTDaR_t00040.xml",
+      "bytes": 12740,
+      "sha256": "dc905a9a9cb03f420759b8a76c584b5e33ae8f3565f8bd1b8a78eb8bba82562c",
+      "git_blob_sha1": "081561c5ebd17d78205c73c5033a1bfb3c381d1e",
+      "url": "https://raw.githubusercontent.com/cndplab-founder/ICDAR2019_cTDaR/171934db38a9e230e23b87a5afe86f8c83edaa95/training/TRACKB1/ground_truth/cTDaR_t00040.xml"
+    }
+  ]
+}

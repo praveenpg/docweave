@@ -1,0 +1,89 @@
+{
+  "frozen_at": "2026-10-19T15:29:46.393190+00:00",
+  "repository_commit": "92777b852e00933a5c4b9ba642601784604356cd",
+  "selection_sha256": "6934da967f727a5d51fed153f830d431aaea79d117d8d8ce40962386457453af",
+  "inputs": [
+    {
+      "filename": "us-003.pdf",
+      "bytes": 26679,
+      "sha256": "e54c02e4e8cb1b6dbfeca4d47eab72ba30ab2af75b6e0916ecb21d5b67d032ed",
+      "git_blob_sha1": "08e8d69e93166400cf53859adf790e0e231acee3",
+      "url": "https://raw.githubusercontent.com/camelot-dev/camelot/92777b852e00933a5c4b9ba642601784604356cd/tests/files/tabula/icdar2013-dataset/competition-dataset-us/us-003.pdf"
+    },
+    {
+      "filename": "us-003-str.xml",
+      "bytes": 7711,
+      "sha256": "3aca5d02f9017d4e4fc25a753d353f0e0e34b0d6c8003a09c25ab969243602cf",
+      "git_blob_sha1": "3ad4b75af832dc82b297cda83a7e5375741d41c0",
+      "url": "https://raw.githubusercontent.com/camelot-dev/camelot/92777b852e00933a5c4b9ba642601784604356cd/tests/files/tabula/icdar2013-dataset/competition-dataset-us/us-003-str.xml"
+    },
+    {
+      "filename": "us-003-reg.xml",
+      "bytes": 3993,
+      "sha256": "dfc6f0803ac7bbadc40ed91971aa6bc27afcee3bfd8c2debb309f8b36ce20341",
+      "git_blob_sha1": "088f202a9602116403f89eb9ef0d25c536f99578",
+      "url": "https://raw.githubusercontent.com/camelot-dev/camelot/92777b852e00933a5c4b9ba642601784604356cd/tests/files/tabula/icdar2013-dataset/competition-dataset-us/us-003-reg.xml"
+    },
+    {
+      "filename": "us-004.pdf",
+      "bytes": 14760,
+      "sha256": "da6c30b2fde0104dc6cd22c0b8eab37d022d4d32faebd4f7e106c4df90fa5e70",
+      "git_blob_sha1": "94fe2c6cb978d4c730597285d0f1016c58e8e034",
+      "url": "https://raw.githubusercontent.com/camelot-dev/camelot/92777b852e00933a5c4b9ba642601784604356cd/tests/files/tabula/icdar2013-dataset/competition-dataset-us/us-004.pdf"
+    },
+    {
+      "filename": "us-004-str.xml",
+      "bytes": 36504,
+      "sha256": "761b77953eb2f392c4ff24a713e9523ae2997be007c94d2578574271a4754118",
+      "git_blob_sha1": "3f97754244077cbea8040c9896d4593ca206f279",
+      "url": "https://raw.githubusercontent.com/camelot-dev/camelot/92777b852e00933a5c4b9ba642601784604356cd/tests/files/tabula/icdar2013-dataset/competition-dataset-us/us-004-str.xml"
+    },
+    {
+      "filename": "us-004-reg.xml",
+      "bytes": 19480,
+      "sha256": "66890c8096bc311ed8a66f9b2599df1b59aacc5a897550bfcff9de1eaae7ae3f",
+      "git_blob_sha1": "3876ed3d2ec216dc6289189da96b0690e7d4e28d",
+      "url": "https://raw.githubusercontent.com/camelot-dev/camelot/92777b852e00933a5c4b9ba642601784604356cd/tests/files/tabula/icdar2013-dataset/competition-dataset-us/us-004-reg.xml"
+    }
+  ],
+  "cases": [
+    {
+      "id": "document-three",
+      "pdf": "us-003.pdf",
+      "cells": "us-003-str.xml",
+      "regions": "us-003-reg.xml",
+      "source_page": 1,
+      "region_id": "1",
+      "source_page_height": 792,
+      "expected_rows": 5,
+      "expected_columns": 4,
+      "expected_anchors": 19,
+      "leading_row_window": 2,
+      "roi_left_top_right_bottom": [
+        77.0,
+        299.0,
+        504.0,
+        368.0
+      ]
+    },
+    {
+      "id": "document-four",
+      "pdf": "us-004.pdf",
+      "cells": "us-004-str.xml",
+      "regions": "us-004-reg.xml",
+      "source_page": 2,
+      "region_id": "1",
+      "source_page_height": 792,
+      "expected_rows": 15,
+      "expected_columns": 7,
+      "expected_anchors": 89,
+      "leading_row_window": 2,
+      "roi_left_top_right_bottom": [
+        74.0,
+        233.0,
+        523.0,
+        425.0
+      ]
+    }
+  ]
+}

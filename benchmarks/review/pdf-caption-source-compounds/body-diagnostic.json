@@ -1,0 +1,19 @@
+[ {
+  "status" : "EXACT",
+  "ordinal" : 0
+}, {
+  "status" : "EXACT",
+  "ordinal" : 1
+}, {
+  "status" : "EXACT",
+  "ordinal" : 2
+}, {
+  "status" : "EXACT",
+  "ordinal" : 3
+}, {
+  "expected_codepoint" : 119,
+  "status" : "LOCALIZED_NOT_RESCORED",
+  "ordinal" : 4,
+  "actual_codepoint" : 32,
+  "first_different_utf16_offset" : 205
+} ]

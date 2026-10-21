@@ -1,0 +1,26 @@
+{
+  "main_commit" : "d4008b99a12f2f417f3270711bd37d89d0d7f1be",
+  "latest_release" : "0.27.27",
+  "release_commit" : "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",
+  "responses" : [ {
+    "sha256" : "148ba309d09ab334f8735aa8a835e0f11e78eb1a87c5fd2fa5f5b19092e6d001",
+    "url" : "https://api.github.com/repos/Unstructured-IO/unstructured/releases/latest",
+    "etag" : "W/\"b2f05354ad7a3f3fa993ccba9ac83dbe8cc74168d2ae18f6fc4195c92c8beadc\""
+  }, {
+    "sha256" : "f1f31ff172f6e7856cf56c32e86f218118963ce370ab3d02e6676fa9ce66a944",
+    "url" : "https://api.github.com/repos/Unstructured-IO/unstructured/commits/main",
+    "etag" : "W/\"7dcc5ad14a3be17133785cfa0fa1b5e1ad7ece4e9b94b1509fc9155d8379be46\""
+  }, {
+    "sha256" : "18d24a70f6526405428d7f62b19df19fd3039b614435a167df7486b2761b844c",
+    "url" : "https://api.github.com/repos/Unstructured-IO/unstructured/compare/347fbbfd3e84e228017f125e5c5dbdc326ef7de2...d4008b99a12f2f417f3270711bd37d89d0d7f1be",
+    "etag" : "W/\"163c49e98178a77e84257c55a83b553371c9296496da20c7ebb965de304ea768\""
+  }, {
+    "sha256" : "ee84db360f57296cbf0e8caa92e2a0a1a583b20f4665d3b3e8a107df26d29bf1",
+    "url" : "https://api.github.com/repos/Unstructured-IO/unstructured/commits/0.27.27",
+    "etag" : "W/\"f2f09bda92e56b17c7b067b8a1d966283306c432a37faf1355cc198e450ffbe8\""
+  } ],
+  "changed_paths" : [ ".github/workflows/ci.yml", "CHANGELOG.md", "Makefile", "pyproject.toml", "test_unstructured/partition/common/test_lang.py", "test_unstructured/partition/html/test_convert.py", "test_unstructured/partition/html/test_parser.py", "test_unstructured/partition/html/test_partition.py", "test_unstructured/partition/utils/test_config.py", "unstructured/__version__.py", "unstructured/documents/html_sanitization.py", "unstructured/partition/common/lang.py", "unstructured/partition/html/parser.py", "unstructured/partition/utils/config.py", "uv.lock" ],
+  "ahead_by" : 3,
+  "checked_at" : "2026-10-16T15:43:33.470290033Z",
+  "reference_commit" : "347fbbfd3e84e228017f125e5c5dbdc326ef7de2"
+}

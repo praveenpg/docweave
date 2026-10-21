@@ -1,0 +1,12 @@
+{
+  "scope": "Source-only inventory before a new caption extraction comparison. Same three previously evaluated publisher originals, not heldout sources. All main article body descendant fig nodes, in publisher order. Direct label/caption identities, no decoded text redistribution, font/whitespace repair, per-output source selection, geometry oracle or product extraction. Missing captions/graphics remain.",
+  "base_commit": "6df7618",
+  "identities": {
+    "benchmarks/tools/InventoryPublisherFigures.java": "f8ff1214235b823b43a2cff4113fc995efa156f8be52143fc8edad1cc81b617b",
+    "benchmarks/review/pdf-scientific-reading/manifest.json": "e146fb276c4397be24d6fdedeb13307f65a3012290bfafc96488d3d6673f12e2",
+    "docweave-validation/src/test/java/dev/docweave/validation/ScientificPublisherXml.java": "8bcbf70641298d3d5d50d2bc83cf10a0db356ea9da5db3040ea771b798044abe"
+  },
+  "source_manifest": "benchmarks/review/pdf-scientific-reading/manifest.json",
+  "expected_original_pairs": 3,
+  "raw_sources_redistributed": false
+}

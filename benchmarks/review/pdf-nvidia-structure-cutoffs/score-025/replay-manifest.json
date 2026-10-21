@@ -1,0 +1,169 @@
+{
+  "frozen_at" : "2026-10-20T06:21:07.556944483Z",
+  "scope" : "Whole-original Java21 replay of frozen structure score=0.25; both detector profiles and all110strictreference rows retained; no best-of, repair, reference or scoring change. Same pinned inputs/crops/merge policy; development diagnostic only.",
+  "reference_manifest" : "benchmarks/review/pdf-unseen-business-nvidia/manifest.json",
+  "reference_manifest_sha256" : "2c0ad481b1a42eb5edfc7e6af2d8ec6c76f5e1ab206d7d539c492b156dabb3b6",
+  "proposal_manifest_sha256" : "e58928146c56b991be057283c8c9d6585fb49f87ea081c1f432b411e16ca36dc",
+  "validation_source_sha256" : "8e203603143ce2892222e76fd9704ca752a33fac8e39697f5b6806fc23aa2532",
+  "structure_sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+  "detector_sha256" : {
+    "tatr" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "yolox" : "134301ca94fb0df8027be9a6dad1908fe6218af8ffa4d34f0819c7c2226195f3"
+  },
+  "profiles" : [ "tatr", "yolox" ],
+  "pages" : [ {
+    "source_page" : 1,
+    "capture_id" : "original-page-0001",
+    "render_png_sha256" : "00cebfb356f9d9b4bc54e934b795ed104de8908f1d417baea89d6f9b504bb886",
+    "tatr" : {
+      "tables.tsv" : "6237a1c594cc396037f26a64047b79842493ae2772fe28e2bdbbaeb0a1330e77",
+      "anchors.tsv" : "49597ff8eb3ddff812febb2bc055556fb15112d2d4ca7b033e771496ce7a5c38",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    },
+    "yolox" : {
+      "tables.tsv" : "ea980c268f48554b98b28d9a7ace1da365305191e38694e6dc1eb8656315acc2",
+      "anchors.tsv" : "a0eb9f43aac47bb4ab115c582b6d3a1d2e13d0e0323729a86069c8b4dd62b2c9",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    }
+  }, {
+    "source_page" : 2,
+    "capture_id" : "original-page-0002",
+    "render_png_sha256" : "061c7b85f584da9034a767b914e5fc87d5f1bf7d9bd5a5613b9fef081ba47918",
+    "tatr" : {
+      "tables.tsv" : "46f34c49098a5d2be628a8b215d3ffabad077207a7742ae3ac8e3d4fe1f45ec1",
+      "anchors.tsv" : "34d817f0ebd81806e7957af182d742b66f289b90d0441695cbfcb4c69788a870",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    },
+    "yolox" : {
+      "tables.tsv" : "dfeea4644259cfd1c0b1ea712e0bf3eb71af7a7ca8c2418172df050a855785ce",
+      "anchors.tsv" : "c4b9ca35e901445225a9db0a4037ace15c28da81364fcab50b56b8ba9605a227",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    }
+  }, {
+    "source_page" : 3,
+    "capture_id" : "original-page-0003",
+    "render_png_sha256" : "0808c5bdcd4c6443b81e6b11651b2559bc21774f89e6b571e2058ec2cc56c512",
+    "tatr" : {
+      "tables.tsv" : "804f24ba497cb2c612b851a6065f77b37871386976d929785cbeff9ad2ee6a98",
+      "anchors.tsv" : "16783047dc2d89e61abc358836f86b90094b25f6721ee958b516dffda2459fd2",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    },
+    "yolox" : {
+      "tables.tsv" : "804f24ba497cb2c612b851a6065f77b37871386976d929785cbeff9ad2ee6a98",
+      "anchors.tsv" : "16783047dc2d89e61abc358836f86b90094b25f6721ee958b516dffda2459fd2",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    }
+  }, {
+    "source_page" : 4,
+    "capture_id" : "original-page-0004",
+    "render_png_sha256" : "d70ee45946f9dfdb281d5fa17718f942a7d843ceedc1921acf0da20279452fcc",
+    "tatr" : {
+      "tables.tsv" : "305a3cb6a263abc065cf3f2d8b5b4ad53c8745775402ec7fae86bbab7a49bae2",
+      "anchors.tsv" : "e0f3cbbe3f14930770671e5df03091380b2e0715cbbddd7d62e6aa54b8abb379",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    },
+    "yolox" : {
+      "tables.tsv" : "73dc2ddcbe3e23e755438c543e93b6060a7bb82c3261981366e1f320b77e7360",
+      "anchors.tsv" : "30c3c3a447c48b10349a30f5e8968b6427fc6051e22dfcf0b704578ffedc0fa8",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    }
+  }, {
+    "source_page" : 5,
+    "capture_id" : "original-page-0005",
+    "render_png_sha256" : "24f50db57471b54442a8d1994c60e2bb4d3ce657f2d573a958bb8dbbe6d8c793",
+    "tatr" : {
+      "tables.tsv" : "c4d5b76c2e0a07736db31a7bd6d2768216594b3031cdf506bf4655c543db4808",
+      "anchors.tsv" : "046b75c999f93a8f92e3ed4e164947727667db3a1f35e2ac9c886e0b59fe5e54",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    },
+    "yolox" : {
+      "tables.tsv" : "2b7e42cd354a6a4219af02091452575a12c626eb269a355069f7f2b82dea04fe",
+      "anchors.tsv" : "af1e9ff56f5ab487ad7e2a5818d22ed8714d4c66458077642ff4ef43a28e4f63",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    }
+  }, {
+    "source_page" : 6,
+    "capture_id" : "original-page-0006",
+    "render_png_sha256" : "e95cd7f1926834de0fe8666c083a1cd04be0275f509a3b4bac7a6649e5a9145b",
+    "tatr" : {
+      "tables.tsv" : "5e543953a1b6780c3b708c093871004ae897c198d3436db00b3c6136f27c37ec",
+      "anchors.tsv" : "eb73eac24fbe39cc05994cf5d8c79b1d43db02d173b7e0b94872e1eeb1f32bcc",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    },
+    "yolox" : {
+      "tables.tsv" : "4e51abf19440ac2758edd37d2c534bee66b616e230ad6605ab2ba85559f70946",
+      "anchors.tsv" : "0aaac05a5d60e2476b26d6965c9abbdcc7eca154f557adcec86436f89909d3a7",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    }
+  }, {
+    "source_page" : 7,
+    "capture_id" : "original-page-0007",
+    "render_png_sha256" : "f0b93bd5e577d7e46fa990edb865d475c5e7f5ff4d1792c40e0e7d8f2f34adb4",
+    "tatr" : {
+      "tables.tsv" : "a5dd0dd7cd5eef042b06fc6ff65143872697f36ce33f29cc07ec9dd070594707",
+      "anchors.tsv" : "4a824ae38717a043fb702ba047f930aa4da9302493caf22b5cf76cb8f60fd7ea",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    },
+    "yolox" : {
+      "tables.tsv" : "328c9cbc8d6040108b77b7a7198529fade9711d736fbc89632a8b16860f48689",
+      "anchors.tsv" : "d262fbb56c6c1e71a887038865b04fb4650b0f80130ec9d49001c534eee93193",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    }
+  }, {
+    "source_page" : 8,
+    "capture_id" : "original-page-0008",
+    "render_png_sha256" : "b44930b184996692cdde9a9a894d0d2c78f7bd0507a62781a2d082d1e7589fec",
+    "tatr" : {
+      "tables.tsv" : "804f24ba497cb2c612b851a6065f77b37871386976d929785cbeff9ad2ee6a98",
+      "anchors.tsv" : "16783047dc2d89e61abc358836f86b90094b25f6721ee958b516dffda2459fd2",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    },
+    "yolox" : {
+      "tables.tsv" : "1c2aeb062f905ef23b27ec3a4012f8317141d8e46ef86a2572ef1de73ba97a90",
+      "anchors.tsv" : "f8d90e46313870007761409c2299a074c7352a7316d61e16c7a5817ad64214a4",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    }
+  }, {
+    "source_page" : 9,
+    "capture_id" : "original-page-0009",
+    "render_png_sha256" : "ea1acb5a60b92ad59069d3ddc76c8e6c77f9bdee51edf825561faa71a502ca71",
+    "tatr" : {
+      "tables.tsv" : "af67acef836e9ce109eed4bbe2397e743dc7482f2c8ca07e9fb33f7486515655",
+      "anchors.tsv" : "dd0f59dcb13c7e74224eba49f3379ce4bcf343f58097114ae5bd56b21f412c7d",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    },
+    "yolox" : {
+      "tables.tsv" : "329de7570c783484d1629f4ea0cff261639b2e7a848b94e96c33fd70e2dfbf7a",
+      "anchors.tsv" : "deafea3a6c16be23fd37da8941c1dab56ecd3bfa73b90be850ffc5a0c0eadddb",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    }
+  }, {
+    "source_page" : 10,
+    "capture_id" : "original-page-0010",
+    "render_png_sha256" : "168581fdcd40a8964f7a97ef6ae1d2017ee252718f747f52995b7b6fe304b769",
+    "tatr" : {
+      "tables.tsv" : "d13a007359110a741bd202ea042f45bcac8b0f6bb45d2acde6a3c118ccbfbd87",
+      "anchors.tsv" : "84272e0d6a5e42bbb0de0dada1f999d14ad95cb6abad30a4447ada8b2d77814b",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    },
+    "yolox" : {
+      "tables.tsv" : "804f24ba497cb2c612b851a6065f77b37871386976d929785cbeff9ad2ee6a98",
+      "anchors.tsv" : "16783047dc2d89e61abc358836f86b90094b25f6721ee958b516dffda2459fd2",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    }
+  }, {
+    "source_page" : 11,
+    "capture_id" : "original-page-0011",
+    "render_png_sha256" : "49277a634535f18d1dfd3d0e32b1c438b9e010f4e686478c7590dcb93b32579c",
+    "tatr" : {
+      "tables.tsv" : "ac233996b68028a9b82d201ad0da98261bf0c4d1d3d66485a836110d6f745f16",
+      "anchors.tsv" : "a22e63e941dd99e301c3591630395d89907efd56f8f12d13697c95e619755baa",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    },
+    "yolox" : {
+      "tables.tsv" : "804f24ba497cb2c612b851a6065f77b37871386976d929785cbeff9ad2ee6a98",
+      "anchors.tsv" : "16783047dc2d89e61abc358836f86b90094b25f6721ee958b516dffda2459fd2",
+      "outcome.txt" : "a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87"
+    }
+  } ]
+}

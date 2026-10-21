@@ -1,0 +1,24 @@
+{
+  "java21_clean_verify": {
+    "tests": 967,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "java25_clean_verify": {
+    "tests": 967,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "strict_javadocs": "PASS",
+  "formatter": "PASS",
+  "diff_check": "PASS",
+  "release_preparation": "DEFERRED",
+  "upstream_opt_in": "EXPECTED_DRIFT_FAILURE historical0.27.27 -> release0.27.28/main1b02b4d, pins unchanged",
+  "final_publisher_entity_and_real_source_controls": {
+    "java21": "PASS",
+    "java25": "PASS",
+    "result": "Same131/136 and9/9 after unresolved-entity rejection guard"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "frozen_at": "2026-10-19T14:30:14.039860+00:00",
+  "baseline_commit": "c7ed702bc12f7289216e054c3c30ce5561a3a9aa",
+  "references": {
+    "pdf-native-first": "780bbd659c681d1e642800e34aa46ec065ba51b9eb094d05caf767b2c620bbc1",
+    "pdf-native-first-independent": "d8d4bb5d37d5bd9e35d3ff936ecd6f12ca29543fdd3f16d72962f4d260017b7a",
+    "pdf-business-cell-text": "df8b9fcd50d77a61fe9b273aa0a2470932c922d5ada4b21c90fd02cc954cecbe",
+    "pdf-current-business-rows": "3656667adb4345c0b7ff0ac74f07b255cf4aa923ce7ab55a7ad13d747a732898",
+    "pdf-scientific-native-spans": "0c963557789d766f4661d09225a326f836c7ea07d3fc0834500e7e6a93431311"
+  },
+  "detector_sha256": "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+  "structure_sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+  "protocol": "Replay all10 fixed selected regions from7 COMPLETE original PDFs under uniform native-first PARTIAL_TEXT150DPI/16Mpixels/1024combinedanchors/fourthreads/KEEP_HIGHER_SCORE. Original graph bytes restored exactly from pinned safetensors; no repin. Inspect returned header prefix per geometrically associated selected region; absent means unknown/native no declaration. No source/reference ROI or text enters inference. Original denominators and source hashes retained, no rows/labels shifted. Both actualJava21/25; header evidence uncalibrated, no independently labelled header-role oracle or held-out claim."
+}

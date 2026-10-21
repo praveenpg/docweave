@@ -1,0 +1,18 @@
+{
+  "scope": "Before extraction, verify selected source DOIs and identical official dataset checksums; inventory includes all5 main-body figure captions, each1label/1caption/1graphic. Original9-page tagged published-version PDF, unencrypted. Source strings and images not redistributed.",
+  "code_commit": "4e4ac27",
+  "publisher_doi": "10.1038/s41598-026-36762-1",
+  "source_pdf_pages": 9,
+  "source_md5": {
+    "pdf": "25fbc10ca57e77fb53e72b361a090232",
+    "xml": "402a315db45d15612be4e57b974020e6"
+  },
+  "configuration": "NONE and IMAGE_ADJACENT_NUMBERED_TITLES, each across NATIVE_LINES,NATIVE_COLUMNS,SOURCE_TAGGED_LINES; RAW Unicode only. Flags titles=true/false; presentation=false. No parser/scorer/reference changes.",
+  "positive_profiles": 6,
+  "caption_references_per_profile": 5,
+  "source_inventory_sha256": "66645adf7d3167c036189c10d67ecd7207f14a7b753231c5138dd696bb57de98",
+  "score_helper_sha256": "b3ac319dc3abd0b5ff5e8c37121fd664df86748ab8bd8917e16a8a38111f34b5",
+  "inventory_helper_sha256": "c0543567ebacae5dd929c0c64540fdd628fb183942fc312e24457014e07e2a54",
+  "prior_score_configuration": "pdf-numbered-title-captions/peerj-score.patch after pdf-caption-peerj-transfer/transfer-configuration.patch; identical helper, unchanged one-case/three-profile guard.",
+  "prior_inventory_configuration": "pdf-caption-peerj-transfer/source-inventory-population.patch; same one-case guard."
+}

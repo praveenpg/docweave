@@ -1,0 +1,15 @@
+{
+  "source_manifest": "../pdf-business-cell-text/manifest.json",
+  "source_manifest_sha256": "df8b9fcd50d77a61fe9b273aa0a2470932c922d5ada4b21c90fd02cc954cecbe",
+  "native_baseline": "../pdf-business-native/",
+  "profiles": {
+    "default": "RULED_ONLY",
+    "aligned": "RULED_AND_ALIGNED_TEXT",
+    "multiline": "RULED_AND_MULTILINE_ALIGNED_TEXT",
+    "double-borders": "RULED_AND_DOUBLE_BORDERS",
+    "horizontal": "RULED_AND_HORIZONTAL_TEXT"
+  },
+  "policy": "Same complete original PDF bytes and native budgets; only production single-subpath fill semantics change. No reference crop, labels, mode chooser, text correction or normalization changes.",
+  "specification": "https://opensource.adobe.com/dc-acrobat-sdk-docs/pdfstandards/pdfreference1.4.pdf",
+  "scope": "Single three-edge fill rectangle only; compound fills rejected, open strokes/broken grids unchanged"
+}

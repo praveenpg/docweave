@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Real Tesseract owned-control evidence</comment>
+<entry key="eng_model_sha256">daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047</entry>
+<entry key="checked_at">2026-10-19T18:37:02.225893070Z</entry>
+<entry key="raster_png_sha256">4d80ce74afaeaeedaef4a67ce59ca37b1ca8b552f4b3a36205ab6ba48df04c1a</entry>
+<entry key="os">Linux amd64</entry>
+<entry key="pdf_image_elements">1</entry>
+<entry key="recognized_lines">DocWeave OCR validation | Invoice total 12345</entry>
+<entry key="owned_word_geometry">6 actual TSV word boxes; exact line projection and raster containment</entry>
+<entry key="missing_language">OCR_FAILURE</entry>
+<entry key="java">21.0.12.1+12-LTS</entry>
+<entry key="executable_sha256">9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917</entry>
+<entry key="scope">owned synthetic raster and image-only PDF, not general OCR accuracy</entry>
+<entry key="owned_page_modes">AUTO3 SINGLE_BLOCK6 SPARSE_TEXT11: exact two lines each</entry>
+<entry key="owned_source_dpi">300: ENGINE_DEFAULT OTSU ADAPTIVE_OTSU SAUVOLA; exact lines and words; unchanged pixels</entry>
+<entry key="owned_magnification">3x nearest; exact2 lines and6 actual words in original raster bounds</entry>
+<entry key="pdf_sha256">15af77f0c6ff3599c2bd4be5c07c02272cee126b38a18293d4b8650715fa5660</entry>
+<entry key="font">DejaVu Sans bold 48</entry>
+</properties>

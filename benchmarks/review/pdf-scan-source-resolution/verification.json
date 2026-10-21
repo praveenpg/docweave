@@ -1,0 +1,534 @@
+{
+  "paired_cases" : 24,
+  "source_and_render_frames_unchanged" : true,
+  "baseline_diagnostics" : [ {
+    "case" : "arnimb_goethe03_1835/deu/ENGINE_DEFAULT",
+    "associated_reference_lines" : {
+      "source_resolution" : 21,
+      "prior" : 21
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 0,
+      "prior" : 0
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 1,
+      "prior" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 0,
+      "prior" : 0
+    },
+    "global_character_edits" : {
+      "source_resolution" : 104,
+      "prior" : 104
+    }
+  }, {
+    "case" : "arnimb_goethe03_1835/deu_latf/ENGINE_DEFAULT",
+    "associated_reference_lines" : {
+      "source_resolution" : 21,
+      "prior" : 21
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 4,
+      "prior" : 4
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 1,
+      "prior" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 0,
+      "prior" : 0
+    },
+    "global_character_edits" : {
+      "source_resolution" : 51,
+      "prior" : 51
+    }
+  }, {
+    "case" : "arnimb_goethe03_1835/deu/ADAPTIVE_OTSU",
+    "associated_reference_lines" : {
+      "source_resolution" : 20,
+      "prior" : 0
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 0,
+      "prior" : 0
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 2,
+      "prior" : 22
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 1,
+      "prior" : 18
+    },
+    "global_character_edits" : {
+      "source_resolution" : 121,
+      "prior" : 729
+    }
+  }, {
+    "case" : "arnimb_goethe03_1835/deu_latf/ADAPTIVE_OTSU",
+    "associated_reference_lines" : {
+      "source_resolution" : 20,
+      "prior" : 0
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 5,
+      "prior" : 0
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 2,
+      "prior" : 22
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 1,
+      "prior" : 18
+    },
+    "global_character_edits" : {
+      "source_resolution" : 59,
+      "prior" : 696
+    }
+  }, {
+    "case" : "arnimb_goethe03_1835/deu/SAUVOLA",
+    "associated_reference_lines" : {
+      "source_resolution" : 22,
+      "prior" : 22
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 1,
+      "prior" : 1
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 0,
+      "prior" : 0
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 1,
+      "prior" : 0
+    },
+    "global_character_edits" : {
+      "source_resolution" : 110,
+      "prior" : 102
+    }
+  }, {
+    "case" : "arnimb_goethe03_1835/deu_latf/SAUVOLA",
+    "associated_reference_lines" : {
+      "source_resolution" : 22,
+      "prior" : 22
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 6,
+      "prior" : 7
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 0,
+      "prior" : 0
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 1,
+      "prior" : 0
+    },
+    "global_character_edits" : {
+      "source_resolution" : 58,
+      "prior" : 44
+    }
+  }, {
+    "case" : "bebel_frau_1879/deu/ENGINE_DEFAULT",
+    "associated_reference_lines" : {
+      "source_resolution" : 49,
+      "prior" : 49
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 42,
+      "prior" : 42
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 1,
+      "prior" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 1,
+      "prior" : 1
+    },
+    "xml_sequence_character_edits" : {
+      "source_resolution" : 291,
+      "prior" : 291
+    }
+  }, {
+    "case" : "bebel_frau_1879/deu_latf/ENGINE_DEFAULT",
+    "associated_reference_lines" : {
+      "source_resolution" : 49,
+      "prior" : 49
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 18,
+      "prior" : 18
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 1,
+      "prior" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 1,
+      "prior" : 1
+    },
+    "xml_sequence_character_edits" : {
+      "source_resolution" : 334,
+      "prior" : 334
+    }
+  }, {
+    "case" : "bebel_frau_1879/deu/ADAPTIVE_OTSU",
+    "associated_reference_lines" : {
+      "source_resolution" : 49,
+      "prior" : 49
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 42,
+      "prior" : 42
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 1,
+      "prior" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 1,
+      "prior" : 1
+    },
+    "xml_sequence_character_edits" : {
+      "source_resolution" : 291,
+      "prior" : 291
+    }
+  }, {
+    "case" : "bebel_frau_1879/deu_latf/ADAPTIVE_OTSU",
+    "associated_reference_lines" : {
+      "source_resolution" : 49,
+      "prior" : 49
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 18,
+      "prior" : 18
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 1,
+      "prior" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 1,
+      "prior" : 1
+    },
+    "xml_sequence_character_edits" : {
+      "source_resolution" : 334,
+      "prior" : 334
+    }
+  }, {
+    "case" : "bebel_frau_1879/deu/SAUVOLA",
+    "associated_reference_lines" : {
+      "source_resolution" : 49,
+      "prior" : 49
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 42,
+      "prior" : 42
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 1,
+      "prior" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 1,
+      "prior" : 1
+    },
+    "xml_sequence_character_edits" : {
+      "source_resolution" : 291,
+      "prior" : 291
+    }
+  }, {
+    "case" : "bebel_frau_1879/deu_latf/SAUVOLA",
+    "associated_reference_lines" : {
+      "source_resolution" : 49,
+      "prior" : 49
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 18,
+      "prior" : 18
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 1,
+      "prior" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 1,
+      "prior" : 1
+    },
+    "xml_sequence_character_edits" : {
+      "source_resolution" : 334,
+      "prior" : 334
+    }
+  }, {
+    "case" : "buerger_gedichte_1778_0039/deu/ENGINE_DEFAULT",
+    "associated_reference_lines" : {
+      "source_resolution" : 17,
+      "prior" : 18
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 0,
+      "prior" : 0
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 21,
+      "prior" : 20
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 11,
+      "prior" : 9
+    },
+    "xml_sequence_character_edits" : {
+      "source_resolution" : 419,
+      "prior" : 413
+    }
+  }, {
+    "case" : "buerger_gedichte_1778_0039/deu_latf/ENGINE_DEFAULT",
+    "associated_reference_lines" : {
+      "source_resolution" : 18,
+      "prior" : 18
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 3,
+      "prior" : 4
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 20,
+      "prior" : 20
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 10,
+      "prior" : 9
+    },
+    "xml_sequence_character_edits" : {
+      "source_resolution" : 371,
+      "prior" : 374
+    }
+  }, {
+    "case" : "buerger_gedichte_1778_0039/deu/ADAPTIVE_OTSU",
+    "associated_reference_lines" : {
+      "source_resolution" : 17,
+      "prior" : 14
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 0,
+      "prior" : 0
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 21,
+      "prior" : 24
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 15,
+      "prior" : 29
+    },
+    "xml_sequence_character_edits" : {
+      "source_resolution" : 401,
+      "prior" : 451
+    }
+  }, {
+    "case" : "buerger_gedichte_1778_0039/deu_latf/ADAPTIVE_OTSU",
+    "associated_reference_lines" : {
+      "source_resolution" : 17,
+      "prior" : 14
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 3,
+      "prior" : 0
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 21,
+      "prior" : 24
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 15,
+      "prior" : 29
+    },
+    "xml_sequence_character_edits" : {
+      "source_resolution" : 370,
+      "prior" : 455
+    }
+  }, {
+    "case" : "buerger_gedichte_1778_0039/deu/SAUVOLA",
+    "associated_reference_lines" : {
+      "source_resolution" : 24,
+      "prior" : 5
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 0,
+      "prior" : 0
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 14,
+      "prior" : 33
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 11,
+      "prior" : 28
+    },
+    "xml_sequence_character_edits" : {
+      "source_resolution" : 353,
+      "prior" : 492
+    }
+  }, {
+    "case" : "buerger_gedichte_1778_0039/deu_latf/SAUVOLA",
+    "associated_reference_lines" : {
+      "source_resolution" : 23,
+      "prior" : 6
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 4,
+      "prior" : 0
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 15,
+      "prior" : 32
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 12,
+      "prior" : 28
+    },
+    "xml_sequence_character_edits" : {
+      "source_resolution" : 314,
+      "prior" : 474
+    }
+  }, {
+    "case" : "nn_besuch_1780_00001/deu/ENGINE_DEFAULT",
+    "associated_reference_lines" : {
+      "source_resolution" : 9,
+      "prior" : 9
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 1,
+      "prior" : 1
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 1,
+      "prior" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 9,
+      "prior" : 9
+    },
+    "xml_sequence_character_edits" : {
+      "source_resolution" : 103,
+      "prior" : 103
+    }
+  }, {
+    "case" : "nn_besuch_1780_00001/deu_latf/ENGINE_DEFAULT",
+    "associated_reference_lines" : {
+      "source_resolution" : 9,
+      "prior" : 9
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 3,
+      "prior" : 3
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 1,
+      "prior" : 1
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 9,
+      "prior" : 9
+    },
+    "xml_sequence_character_edits" : {
+      "source_resolution" : 82,
+      "prior" : 82
+    }
+  }, {
+    "case" : "nn_besuch_1780_00001/deu/ADAPTIVE_OTSU",
+    "associated_reference_lines" : {
+      "source_resolution" : 7,
+      "prior" : 1
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 0,
+      "prior" : 0
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 3,
+      "prior" : 9
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 14,
+      "prior" : 3
+    },
+    "xml_sequence_character_edits" : {
+      "source_resolution" : 129,
+      "prior" : 287
+    }
+  }, {
+    "case" : "nn_besuch_1780_00001/deu_latf/ADAPTIVE_OTSU",
+    "associated_reference_lines" : {
+      "source_resolution" : 7,
+      "prior" : 1
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 2,
+      "prior" : 0
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 3,
+      "prior" : 9
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 14,
+      "prior" : 3
+    },
+    "xml_sequence_character_edits" : {
+      "source_resolution" : 118,
+      "prior" : 281
+    }
+  }, {
+    "case" : "nn_besuch_1780_00001/deu/SAUVOLA",
+    "associated_reference_lines" : {
+      "source_resolution" : 8,
+      "prior" : 8
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 1,
+      "prior" : 1
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 2,
+      "prior" : 2
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 12,
+      "prior" : 6
+    },
+    "xml_sequence_character_edits" : {
+      "source_resolution" : 141,
+      "prior" : 132
+    }
+  }, {
+    "case" : "nn_besuch_1780_00001/deu_latf/SAUVOLA",
+    "associated_reference_lines" : {
+      "source_resolution" : 8,
+      "prior" : 8
+    },
+    "exact_associated_lines" : {
+      "source_resolution" : 3,
+      "prior" : 3
+    },
+    "missing_reference_lines" : {
+      "source_resolution" : 2,
+      "prior" : 2
+    },
+    "predicted_lines_without_reference" : {
+      "source_resolution" : 12,
+      "prior" : 6
+    },
+    "xml_sequence_character_edits" : {
+      "source_resolution" : 123,
+      "prior" : 116
+    }
+  } ],
+  "jvm_results_equal_except_random_pdf_identity" : true
+}

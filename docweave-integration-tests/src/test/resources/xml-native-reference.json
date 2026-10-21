@@ -1,0 +1,276 @@
+{
+  "reference": {
+    "upstream_commit": "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",
+    "python": "3.13.16",
+    "scope": "Five owned synthetic XML runs; no external entity target or parser-parity claim",
+    "source_verification": "Selected pinned files verified before import, not the entire Git tree",
+    "source_sha256": {
+      "unstructured/chunking/base.py": "076daa0ba00212217d6d9bef60156a364f3b50684ce5d5c8168f7ea8cd97ea42",
+      "unstructured/chunking/basic.py": "68d6fde873e5f744ab0527717f029bfe0c8b232df03bcba25359b466d5d77159",
+      "unstructured/chunking/title.py": "f5305324030bb77100584bb8b432b8b2110f3c280b1d697dcc2b41f65dce2f23",
+      "unstructured/documents/elements.py": "94f0f5eca1d987b2e1e5c574417e62305fae4556bb572bf95918861047954d0c",
+      "unstructured/common/html_table.py": "741e09b2b057438e1044c33b2592179e055f75e5664600657b000310caa85bd5",
+      "unstructured/partition/docx.py": "623ef4c7d41dc8ad227a4524c0fe7b58b9688bad86623e81739c6def67f59f2a",
+      "unstructured/partition/text_type.py": "a423f9917c8740a00c04fa4aad6e8794ba9dd8d6e1071377c42878d3d3b20ac5",
+      "unstructured/nlp/tokenize.py": "22347992441136da156a6df38ad6298eda24944918e5edef581415c8bab84d42",
+      "unstructured/partition/common/metadata.py": "f9955fe62a7a695acdfd54b7a1874ed8c4b547de15e1f668bb6b7a1f124cd5d9",
+      "unstructured/partition/common/lang.py": "9c1f7d17c37c59a98b25b047e420ef1ba9f08d3edda74b93761ad7081c6be32c",
+      "unstructured/partition/text.py": "dc1ec9c0899333e44f20516725c85074d5321d6cce953111461068e1222cb84f",
+      "unstructured/partition/csv.py": "cc52699294f4b21e6383aa261ad42e2d48085f6a73b31172a54327eeabb2d546",
+      "unstructured/partition/tsv.py": "01eb4adf1550d14679f26bebc4f64b163dcb865f09e0c96a1ec9a97f4f14f247",
+      "unstructured/cleaners/core.py": "290b210370a38b3cdd0d30e5e20f8ea9e41ba69dcaa9aa371477b3dd9f6dd362",
+      "unstructured/partition/xml.py": "d21bc5dee68dc281e6f540606afabaddf27f3a940d003c9bb649249df229ad79"
+    },
+    "model": {
+      "name": "en_core_web_sm",
+      "version": "3.8.0",
+      "wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+      "installed_package_verified": true
+    },
+    "dependencies": {
+      "pandas": "3.0.6",
+      "python-dateutil": "2.9.0.post0",
+      "nh3": "0.3.7",
+      "Markdown": "3.11.1",
+      "soupsieve": "3.0.3",
+      "beautifulsoup4": "4.15.0",
+      "en_core_web_sm": "3.8.0",
+      "catalogue": "2.0.10",
+      "shellingham": "1.5.4",
+      "langdetect": "1.0.9",
+      "spacy": "3.8.16",
+      "spacy-loggers": "1.0.5",
+      "numpy": "2.5.4",
+      "installer": "1.1.0",
+      "tqdm": "4.70.1",
+      "confection": "1.3.3",
+      "thinc": "8.3.13",
+      "httpx": "0.28.1",
+      "cymem": "2.0.13",
+      "blis": "1.3.3",
+      "httpcore": "1.0.9",
+      "weasel": "1.0.0",
+      "python-iso639": "2026.7.23",
+      "rich": "15.0.0",
+      "annotated-doc": "0.0.5",
+      "python-docx": "1.2.0",
+      "filelock": "4.2.0",
+      "typer": "0.27.3",
+      "MarkupSafe": "3.0.4",
+      "setuptools": "84.0.0",
+      "srsly": "2.5.4",
+      "Pygments": "2.21.0",
+      "preshed": "3.0.13",
+      "typing-inspection": "0.4.4",
+      "click": "8.5.0",
+      "pydantic": "2.14.1",
+      "markdown-it-py": "4.2.0",
+      "spacy-legacy": "3.0.12",
+      "pydantic_core": "2.50.1",
+      "h11": "0.16.0",
+      "smart_open": "8.0.3",
+      "cloudpathlib": "0.26.0",
+      "Jinja2": "3.1.6",
+      "mdurl": "0.1.2",
+      "packaging": "26.3",
+      "wasabi": "1.1.3",
+      "annotated-types": "0.8.0",
+      "anyio": "4.15.1",
+      "six": "1.17.0",
+      "murmurhash": "1.0.15",
+      "python-magic": "0.4.27",
+      "wrapt": "2.5.1",
+      "urllib3": "2.8.0",
+      "charset-normalizer": "3.5.2",
+      "lxml": "6.1.3",
+      "typing_extensions": "4.16.0",
+      "idna": "3.20",
+      "psutil": "7.2.2",
+      "regex": "2026.9.29",
+      "emoji": "2.16.0",
+      "requests": "2.34.2",
+      "certifi": "2026.7.22"
+    }
+  },
+  "cases": [
+    {
+      "name": "structured-default",
+      "input": "structured.xml",
+      "input_sha256": "ecbfa357082bc77a514f196478e76dda21b4808fe586dea45c6776f0b70d2662",
+      "entrypoint": "public partition_xml",
+      "upstream_options": {
+        "metadata_filename": "structured.xml",
+        "languages": [
+          "eng"
+        ]
+      },
+      "upstream_output": [
+        {
+          "type": "Title",
+          "element_id": "1dd1440a30942cbb3858e85b32d447df",
+          "text": "Quarterly 🧵 report",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.xml",
+            "filetype": "application/xml"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "3fbd093f3ed9968bf38e4dd80c811f59",
+          "text": "important",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.xml",
+            "filetype": "application/xml"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "722a6cd515bd4a9aca0edba4d26d34f4",
+          "text": "Before ",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.xml",
+            "filetype": "application/xml"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "b5b91b4f5cd3e557d9c41f6d04c45353",
+          "text": "  int value = 1;\n    next();",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.xml",
+            "filetype": "application/xml"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "ad71f9a89c6d549e988f293282faacbe",
+          "text": "Café & tea",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.xml",
+            "filetype": "application/xml"
+          }
+        }
+      ]
+    },
+    {
+      "name": "structured-keep-tags",
+      "input": "structured.xml",
+      "input_sha256": "ecbfa357082bc77a514f196478e76dda21b4808fe586dea45c6776f0b70d2662",
+      "entrypoint": "public partition_xml",
+      "upstream_options": {
+        "metadata_filename": "structured.xml",
+        "languages": [
+          "eng"
+        ],
+        "xml_keep_tags": true
+      },
+      "upstream_output": [
+        {
+          "type": "UncategorizedText",
+          "element_id": "5a19599b4bdf7abbb8f21e609e75a1c7",
+          "text": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<report xmlns=\"urn:docweave:report\" xmlns:m=\"urn:docweave:meta\" m:id=\"001\">\n  <title>Quarterly 🧵 report</title>\n  <paragraph>Before <emphasis>important</emphasis> after.</paragraph>\n  <code xml:space=\"preserve\"><![CDATA[  int value = 1;\n    next();]]></code>\n  <section name=\"details\"><item id=\"007\">Café &amp; tea</item></section>\n</report>\n",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.xml",
+            "filetype": "application/xml"
+          }
+        }
+      ]
+    },
+    {
+      "name": "structured-xpath",
+      "input": "structured.xml",
+      "input_sha256": "ecbfa357082bc77a514f196478e76dda21b4808fe586dea45c6776f0b70d2662",
+      "entrypoint": "public partition_xml",
+      "upstream_options": {
+        "metadata_filename": "structured.xml",
+        "languages": [
+          "eng"
+        ],
+        "xml_path": "//*[local-name()=\"item\"]"
+      },
+      "upstream_output": [
+        {
+          "type": "Title",
+          "element_id": "ca6680f6292dda023d8c98bcba437216",
+          "text": "Café & tea",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.xml",
+            "filetype": "application/xml"
+          }
+        }
+      ]
+    },
+    {
+      "name": "mixed-order",
+      "input": "mixed-order.xml",
+      "input_sha256": "5ccb3739ea819cbb3ecc070f22d5f0eb0d96b9e45bf24b1ccf775a8ec0868095",
+      "entrypoint": "public partition_xml",
+      "upstream_options": {
+        "metadata_filename": "mixed-order.xml",
+        "languages": [
+          "eng"
+        ]
+      },
+      "upstream_output": [
+        {
+          "type": "Title",
+          "element_id": "47e27cb4eadba4c467cbed68b87e653b",
+          "text": "inside 🧵",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-order.xml",
+            "filetype": "application/xml"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "f042dd6a06baa75b1f8d93eb043bb249",
+          "text": "Before ",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-order.xml",
+            "filetype": "application/xml"
+          }
+        }
+      ]
+    },
+    {
+      "name": "internal-entity-policy",
+      "input": "entity-policy.xml",
+      "input_sha256": "8c1e1409b74d2d594c5a21f59c0e619c68f77923b12f9dab04ac14d4a1701f15",
+      "entrypoint": "public partition_xml",
+      "upstream_options": {
+        "metadata_filename": "entity-policy.xml",
+        "languages": [
+          "eng"
+        ]
+      },
+      "upstream_output": []
+    }
+  ]
+}

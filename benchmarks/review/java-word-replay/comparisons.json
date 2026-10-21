@@ -1,0 +1,84 @@
+{
+  "word-style-cases": {
+    "limit": "Versioned observations are not a human approval or universal Word/upstream parity claim",
+    "platform": "Microsoft Windows NT 10.0.26300.0",
+    "cases": [
+      {
+        "file": "unsized-bands.docx",
+        "differences": []
+      },
+      {
+        "file": "edge-flag-without-branch.docx",
+        "differences": []
+      },
+      {
+        "file": "row-column-overlap.docx",
+        "differences": []
+      },
+      {
+        "file": "whole-table-branch.docx",
+        "differences": []
+      },
+      {
+        "file": "table-style-numbering.docx",
+        "differences": []
+      },
+      {
+        "file": "direct-override-control.docx",
+        "differences": []
+      }
+    ],
+    "word_version": "16.0",
+    "status": "comparison_only_human_review_pending",
+    "word_build": "16.0.20430"
+  },
+  "word-style-followups": {
+    "limit": "Versioned observations are not a human approval or universal Word/upstream parity claim",
+    "platform": "Microsoft Windows NT 10.0.26300.0",
+    "cases": [
+      {
+        "file": "numbering-original-order.docx",
+        "differences": []
+      },
+      {
+        "file": "numbering-numpr-first.docx",
+        "differences": []
+      },
+      {
+        "file": "override-original-order.docx",
+        "differences": []
+      },
+      {
+        "file": "override-numpr-first.docx",
+        "differences": []
+      },
+      {
+        "file": "plain-direct-body.docx",
+        "differences": []
+      },
+      {
+        "file": "conditional-outline-only.docx",
+        "differences": []
+      },
+      {
+        "file": "conditional-direct-body.docx",
+        "differences": []
+      },
+      {
+        "file": "numbering-distinct-abstract.docx",
+        "differences": []
+      },
+      {
+        "file": "numbering-explicit-restart.docx",
+        "differences": []
+      },
+      {
+        "file": "direct-numbering-shared.docx",
+        "differences": []
+      }
+    ],
+    "word_version": "16.0",
+    "status": "comparison_only_human_review_pending",
+    "word_build": "16.0.20430"
+  }
+}

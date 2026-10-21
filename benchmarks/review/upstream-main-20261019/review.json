@@ -1,0 +1,26 @@
+{
+  "checked_at" : "2026-10-19T19:14:52.225822995Z",
+  "reviewed_release" : {
+    "tag" : "0.27.28",
+    "commit" : "1b02b4d189c260ed9b1aca29583203e233d853cb",
+    "published_at" : "2026-10-16T21:43:23Z",
+    "url" : "https://github.com/Unstructured-IO/unstructured/releases/tag/0.27.28"
+  },
+  "reference_release" : {
+    "tag" : "0.27.27",
+    "commit" : "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",
+    "published_at" : "2026-10-15T00:46:02Z",
+    "url" : "https://github.com/Unstructured-IO/unstructured/releases/tag/0.27.27"
+  },
+  "reviewed_main" : "f98602237cb152e9c33fd824fb8ec96037806ad4",
+  "unreleased_commits_beyond_reviewed_release" : 1,
+  "reviewed_change" : {
+    "commit" : "f98602237cb152e9c33fd824fb8ec96037806ad4",
+    "title" : "fix(xlsx): read .xls files whose Workbook stream ends in padding (#4545)",
+    "classification" : "outside_current_formats_XLS_XLSX_padding_encryption_probe"
+  },
+  "commit_response_sha256" : "91497b258434871a8aeb38fde9d640527a5e2d9fab95136e1c3dd1021f8563cd",
+  "changed_paths_in_new_commit" : [ "CHANGELOG.md", "example-docs/xlwt-padded-workbook.xls", "test_unstructured/partition/test_xlsx.py", "unstructured/__version__.py", "unstructured/partition/xlsx.py" ],
+  "pdf_code_changed" : false,
+  "historical_fixtures_and_goldens" : "unchanged; no repin or new execution claim"
+}

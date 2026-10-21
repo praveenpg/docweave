@@ -1,0 +1,166 @@
+{
+  "status": "discovery_only_independent_semantic_review_pending",
+  "retrieved_on": "2026-10-15",
+  "scope": "Bounded source search, not an exhaustive repository inventory. LibreOffice directory API listing was capped at 1000 entries. External binaries remain fetch-only; no new candidate extraction or Word execution claimed.",
+  "sources": [
+    {
+      "file": "conditionalstyles-tbllook.docx",
+      "source_url": "https://raw.githubusercontent.com/LibreOffice/core/1b4bc8fa3534f34b6d00fd011750324a38a0d840/sw/qa/extras/ooxmlexport/data/conditionalstyles-tbllook.docx",
+      "sha256": "acc6982e6b5f82efa0094407c587ac9d70ba8b5d6801245aaf90c400e58a2840",
+      "bytes": 11531,
+      "inventory": {
+        "tables": 2,
+        "stored_table_paragraph_visits_nonblank": 7,
+        "paragraph_visit_limit": "Nested table paragraphs can be counted more than once; not unique ownership",
+        "conditional_definitions": {
+          "band1Horz": 2,
+          "band1Vert": 2,
+          "band2Horz": 1,
+          "band2Vert": 1,
+          "firstCol": 2,
+          "firstRow": 2,
+          "lastCol": 2,
+          "lastRow": 2,
+          "neCell": 1,
+          "nwCell": 1,
+          "seCell": 1,
+          "swCell": 1
+        },
+        "semantic_conditional_definitions": 0,
+        "stored_cnf_flags": 0,
+        "grid_spans": 0,
+        "vertical_merge_markers": 0,
+        "horizontal_merge_markers": 0,
+        "producer_metadata": "Microsoft Office Word",
+        "producer_limit": "Self-reported package metadata, not proof of authorship/application"
+      }
+    },
+    {
+      "file": "table-style-parprop.docx",
+      "source_url": "https://raw.githubusercontent.com/LibreOffice/core/1b4bc8fa3534f34b6d00fd011750324a38a0d840/sw/qa/extras/ooxmlexport/data/table-style-parprop.docx",
+      "sha256": "18b29c04d91f931b8a190538536fb756ae05bb84340e65b4d77eb431bc308e91",
+      "bytes": 10098,
+      "inventory": {
+        "tables": 1,
+        "stored_table_paragraph_visits_nonblank": 2,
+        "paragraph_visit_limit": "Nested table paragraphs can be counted more than once; not unique ownership",
+        "conditional_definitions": {},
+        "semantic_conditional_definitions": 0,
+        "stored_cnf_flags": 0,
+        "grid_spans": 0,
+        "vertical_merge_markers": 0,
+        "horizontal_merge_markers": 0,
+        "producer_metadata": "Microsoft Office Word",
+        "producer_limit": "Self-reported package metadata, not proof of authorship/application"
+      }
+    },
+    {
+      "file": "table-style-conf-nested.docx",
+      "source_url": "https://raw.githubusercontent.com/LibreOffice/core/1b4bc8fa3534f34b6d00fd011750324a38a0d840/sw/qa/extras/ooxmlexport/data/table-style-conf-nested.docx",
+      "sha256": "abf1da4d897132a4be6c3cb672ac496cce1bb001a326be454a055fe0ff1b76d0",
+      "bytes": 13167,
+      "inventory": {
+        "tables": 2,
+        "stored_table_paragraph_visits_nonblank": 3,
+        "paragraph_visit_limit": "Nested table paragraphs can be counted more than once; not unique ownership",
+        "conditional_definitions": {},
+        "semantic_conditional_definitions": 0,
+        "stored_cnf_flags": 0,
+        "grid_spans": 0,
+        "vertical_merge_markers": 0,
+        "horizontal_merge_markers": 0,
+        "producer_metadata": "Microsoft Office Word",
+        "producer_limit": "Self-reported package metadata, not proof of authorship/application"
+      }
+    },
+    {
+      "file": "tdf118812_tableStyles-comprehensive.docx",
+      "source_url": "https://raw.githubusercontent.com/LibreOffice/core/1b4bc8fa3534f34b6d00fd011750324a38a0d840/sw/qa/extras/ooxmlexport/data/tdf118812_tableStyles-comprehensive.docx",
+      "sha256": "40c6ea278d8d85c0e8b30d31225a00580436b5b4ed34fa672a75197d83648c30",
+      "bytes": 12382,
+      "inventory": {
+        "tables": 1,
+        "stored_table_paragraph_visits_nonblank": 9,
+        "paragraph_visit_limit": "Nested table paragraphs can be counted more than once; not unique ownership",
+        "conditional_definitions": {},
+        "semantic_conditional_definitions": 0,
+        "stored_cnf_flags": 0,
+        "grid_spans": 0,
+        "vertical_merge_markers": 0,
+        "horizontal_merge_markers": 0,
+        "producer_metadata": "Microsoft Office Outlook",
+        "producer_limit": "Self-reported package metadata, not proof of authorship/application"
+      }
+    },
+    {
+      "file": "fdo80800b_tableStyle.docx",
+      "source_url": "https://raw.githubusercontent.com/LibreOffice/core/1b4bc8fa3534f34b6d00fd011750324a38a0d840/sw/qa/extras/ooxmlexport/data/fdo80800b_tableStyle.docx",
+      "sha256": "2af24519d8da6a698a8c404ab481fa8432657a2d6ab1f0228bec80b1855f436b",
+      "bytes": 11946,
+      "inventory": {
+        "tables": 1,
+        "stored_table_paragraph_visits_nonblank": 4,
+        "paragraph_visit_limit": "Nested table paragraphs can be counted more than once; not unique ownership",
+        "conditional_definitions": {},
+        "semantic_conditional_definitions": 0,
+        "stored_cnf_flags": 0,
+        "grid_spans": 0,
+        "vertical_merge_markers": 0,
+        "horizontal_merge_markers": 0,
+        "producer_metadata": "Microsoft Office Word",
+        "producer_limit": "Self-reported package metadata, not proof of authorship/application"
+      }
+    },
+    {
+      "file": "sample-1.docx",
+      "source_url": "https://raw.githubusercontent.com/thomas-villani/docx-plus/ee7d57ae9ee360e1b0c632fa0a9c67698607155d/tests/fixtures/word_samples/sample-1.docx",
+      "sha256": "b132d636423b66f18a6daa54853d3a7396b488fc00ad2c23ea32699a74b09152",
+      "bytes": 24305,
+      "inventory": {
+        "tables": 0,
+        "stored_table_paragraph_visits_nonblank": 0,
+        "paragraph_visit_limit": "Nested table paragraphs can be counted more than once; not unique ownership",
+        "conditional_definitions": {},
+        "semantic_conditional_definitions": 0,
+        "stored_cnf_flags": 0,
+        "grid_spans": 0,
+        "vertical_merge_markers": 0,
+        "horizontal_merge_markers": 0,
+        "producer_metadata": "Microsoft Office Word",
+        "producer_limit": "Self-reported package metadata, not proof of authorship/application"
+      }
+    },
+    {
+      "file": "sample-2.docx",
+      "source_url": "https://raw.githubusercontent.com/thomas-villani/docx-plus/ee7d57ae9ee360e1b0c632fa0a9c67698607155d/tests/fixtures/word_samples/sample-2.docx",
+      "sha256": "f1cfe45f1a15aca7d3ca61b58af8ff2967eb886c5c602f82b05165cf1dbff298",
+      "bytes": 26128,
+      "inventory": {
+        "tables": 0,
+        "stored_table_paragraph_visits_nonblank": 0,
+        "paragraph_visit_limit": "Nested table paragraphs can be counted more than once; not unique ownership",
+        "conditional_definitions": {},
+        "semantic_conditional_definitions": 0,
+        "stored_cnf_flags": 0,
+        "grid_spans": 0,
+        "vertical_merge_markers": 0,
+        "horizontal_merge_markers": 0,
+        "producer_metadata": "Microsoft Office Word",
+        "producer_limit": "Self-reported package metadata, not proof of authorship/application"
+      }
+    }
+  ],
+  "author_reported_reference": {
+    "url": "https://github.com/thomas-villani/docx-plus/blob/ee7d57ae9ee360e1b0c632fa0a9c67698607155d/tests/test_tables_word_verified.py",
+    "sha256": "f205bf9374714ee3ff7afe0a3443ebdbf9f50e6a3ff609b90a16605bf1512ebb",
+    "scope": "Author reports Word COM font-size measurements. No raw versioned Word observations verified here; font behavior does not establish paragraph outline or numbering behavior.",
+    "test_names": [
+      "test_band_branches_are_inert_without_a_declared_band_size",
+      "test_the_flag_alone_does_not_shift_the_bands",
+      "test_row_branches_beat_column_branches",
+      "test_whole_table_branch_loses_to_the_styles_own_base",
+      "test_whole_table_branch_contributes_nothing_on_its_own"
+    ]
+  },
+  "redistribution": "No external documents or source text copied into this packet. Repository license notices do not independently establish fixture authorship."
+}

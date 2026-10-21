@@ -1,0 +1,14 @@
+{
+  "base_production_commit": "bf141d8",
+  "production_changed": false,
+  "focused_class_tests": 6,
+  "additional_visible_rgb_table_pairs": 72,
+  "independent_poppler_rgb_pairs": 14,
+  "private_doclint": "PASS",
+  "full_java21_baseline_tests": 1196,
+  "sha256": {
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfEmptyFormClipTest.java": "cdee3ad51ebb826bbdd7d5562fb8f6913efc281a5030371bbcc6eb4d596f5268",
+    "benchmarks/tools/VerifyRectangleClipPixels.java": "bcd2be3bc6afb79a9da4057498e835b58683c4a8ddd27c84cfb2df75d2cc7269",
+    "benchmarks/review/pdf-explicit-rectangle-clips/poppler-java21.json": "66661572753f60f53994221613655ccd74e1c0c823eac19af6e8477167bd4f73"
+  }
+}

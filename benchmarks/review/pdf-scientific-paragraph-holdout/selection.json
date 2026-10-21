@@ -1,0 +1,11 @@
+{
+  "selected_before_fetch_and_extraction": true,
+  "production_commit": "259e1e5d03c15cd5554f74b5d5e9e68351889899",
+  "selection": "First official research-article result for site:journals.plos.org/plosone/article October 16, 2026. Select first returned article before fetching PDF/XML or checking tags. Do not replace after unsupported input or poor extraction.",
+  "doi": "10.1371/journal.pone.0360958",
+  "provisional_publication_date": "2026-10-16",
+  "id": "holdout",
+  "pdf_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0360958&type=printable",
+  "jats_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0360958&type=manuscript",
+  "protocol": "Freeze original identities and first abstract/direct first body-section paragraphs using the unchanged JVM reference helper before any extraction. Run all five prior profiles on the complete original PDF, with unchanged strict normalization/scoring and full missing/duplicate/order-pair denominators. No production tuning after observing results; same publisher, one newly selected source, not population accuracy. No original source strings or assets in Git."
+}

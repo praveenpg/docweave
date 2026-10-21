@@ -1,0 +1,45 @@
+{
+  "baseline_commit": "4ec8a37400f3b1feb8800e9bc78cd11619148774",
+  "captures": {
+    "21": {
+      "disability-first/native-first.json": "928beef21e777b6bceb0dfa372bf64e0244a4340f862058bb514a0c3569f567b",
+      "disability-first/source.json": "943559caa5b82d0eb26a01e49754b1d495df344a65599a08531955c0d7392d62",
+      "disability-second/native-first.json": "be2af406f953039545fb832869325b597f9e8e6576752ded9174f031bad57fd9",
+      "disability-second/source.json": "5c3152d31d3400062f8f43e2c7677cd96dcf96f8779fdc302c1c2fa84fc6b8c7",
+      "education-first/native-first.json": "8acb819be061aa079e29007eb5ae984d25aa72a5fd874103c7805e94053976f0",
+      "education-first/source.json": "9c850540064222f4c949929a53c556cec69af53969043f023830532a673b49ca",
+      "education-second/native-first.json": "9b8c964ed0f5686811a82dfa908dc2191964942c74e7c72acf67cc136a5ed47a",
+      "education-second/source.json": "751cc0189805ace279c0c3f4df910a9f8d68d90f81230f92ad1f826298f540ed",
+      "runtime.json": "5930256c1f2223a2ec7a6bec27e58072f74316e6f79b1c537683328e7f8a0f67"
+    },
+    "25": {
+      "disability-first/native-first.json": "b5721f1197a4d7aa13be0dee252ea53f71cc3ff76f0c3e43bf2b4023ac98cdc9",
+      "disability-first/source.json": "9e82703790f7e6b8dcfe7e4079299afeeb38d3272587e158bdfed750132d816b",
+      "disability-second/native-first.json": "f8e43d9a62c01218a4b7a31f8752e6692d8880a89c1831249fe634df4b0fd42b",
+      "disability-second/source.json": "63394f5d0e157f44d69e0b0c6cc7822949a7fb0ad58703b0b959bbbad0aa830c",
+      "education-first/native-first.json": "46e35a500aecacb555ffea1a8737b937aaaf7f3dbff2a9c00092a4e9297fee32",
+      "education-first/source.json": "630c0f66bbcb70a6e214d0eda18be9488084c64a236868b6fc7b5aa7a0ca96e2",
+      "education-second/native-first.json": "295d985ec0cf03692f97745c70cb438adec845e8dbe505268c1bb8b64bc2befe",
+      "education-second/source.json": "b78b441c56be1d13428ff190503f0298b2b0f1ce3cc5c5489bce5a10bcc22c6c",
+      "runtime.json": "0d8aa82fc8d0f70b4a13bc6c1af47e97bdabc80b7960208325e68949d402799e"
+    }
+  },
+  "files": {
+    "benchmarks/review/pdf-native-first-independent/manifest.json": "d8d4bb5d37d5bd9e35d3ff936ecd6f12ca29543fdd3f16d72962f4d260017b7a",
+    "benchmarks/review/pdf-native-first-independent/cases.tsv": "df3bab57e0808a426a20b378dd75cea29aebb54a57e684b494ec6f86d51b20bd",
+    "benchmarks/review/pdf-native-first-independent/README.md": "ec16ecd69a78d35316d10e7163d2708c2639675a20a66f6c75b0661fb924115e",
+    "benchmarks/review/pdf-native-first-independent/java21.json": "8a7eb68c30d615811908ab11c300e4084f968083611d469a2a0f1e2e4605c5d0",
+    "benchmarks/review/pdf-native-first-independent/runtime-java21.json": "2039511360bb8a88d1ba22f11ac68fa164fc09622ff4f09fb9aabd948b72b188",
+    "benchmarks/review/pdf-native-first-independent/java25.json": "1e58e1ea295e67988415ac1d431afa15423843c42e919c3e930fd6334055e426",
+    "benchmarks/review/pdf-native-first-independent/runtime-java25.json": "edf53610e40305e5c04ebb7e9b384ac923ea517be87839b84ffafbde9dd0f240",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfScientificSpanTest.java": "6af3f46b53390c50dda2c7cd3acac46cae66448283374f77e490311c51617eea",
+    "benchmarks/tools/CaptureNativeModelTables.java": "6a9a44af9a242a39c63bee8fbab0112b444e8a6aeaf431f430ec3cb40524c70e"
+  },
+  "tests_per_jdk": {
+    "21": 950,
+    "25": 950
+  },
+  "paired_metrics_equal_excluding_runtime_capture_identity": true,
+  "parsed_selected_captures_equal": true,
+  "prior_scientific_span_text_preserved": true
+}

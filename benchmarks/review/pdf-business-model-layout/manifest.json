@@ -1,0 +1,42 @@
+{
+  "source_manifest": "../pdf-business-cell-text/manifest.json",
+  "source_manifest_sha256": "df8b9fcd50d77a61fe9b273aa0a2470932c922d5ada4b21c90fd02cc954cecbe",
+  "control": "../pdf-business-cell-text/",
+  "models": [
+    {
+      "stage": "detection",
+      "sha256": "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+      "bytes": 115703629,
+      "prior_evidence": "../pdf-page-detection/README.md"
+    },
+    {
+      "stage": "structure",
+      "sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+      "bytes": 115828334,
+      "prior_evidence": "../pdf-merge-conflicts/README.md"
+    }
+  ],
+  "policy": {
+    "layout": "two-graph ONNX detection then structure; model only, no rule composition",
+    "max_hw": 800,
+    "minimum_score": 0.5,
+    "merge_conflicts": "KEEP_HIGHER_SCORE",
+    "timeout_seconds": 30,
+    "max_concurrent_calls": 1,
+    "native_threads": 4,
+    "max_model_bytes": 268435456,
+    "max_input_pixels": 16000000,
+    "max_queries": 256,
+    "dpi": 150,
+    "max_table_cells": 1024,
+    "page_segmentation": "AUTO",
+    "cell_segmentation": "SINGLE_BLOCK",
+    "cell_borders": "RETAIN",
+    "cell_context_pixels": 0,
+    "language": "eng",
+    "orientation": "none",
+    "ocr_scaling": 1,
+    "selection": "TEXTLESS_PAGES"
+  },
+  "selection": "All prior cases retained unchanged; CSV/ROI read only by comparator, never inference. No policy tuning from results."
+}

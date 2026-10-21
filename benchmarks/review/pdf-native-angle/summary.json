@@ -1,0 +1,16 @@
+{
+  "full_verify_tests_each_jvm": 870,
+  "java21_java25_results_identical": true,
+  "installed_engine_profile_enabled": false,
+  "result": {
+    "default_rejects_unsupported_angle": true,
+    "angled_lines": 1,
+    "repeated_extraction_equal": true,
+    "visual_inventory_preserved": true,
+    "elements": 9,
+    "clockwise_displayed_degrees": 315.0,
+    "bounds_finite_in_source_frame": true,
+    "json_round_trip": true
+  },
+  "limitations": "One externally authored native regression, not broad semantic layout or scanned recognition accuracy"
+}

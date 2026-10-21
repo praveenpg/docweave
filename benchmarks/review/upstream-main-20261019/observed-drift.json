@@ -1,0 +1,26 @@
+{
+  "ahead_by" : 7,
+  "changed_paths" : [ ".github/workflows/ci.yml", "CHANGELOG.md", "Makefile", "example-docs/xlwt-padded-workbook.xls", "pyproject.toml", "test_unstructured/partition/common/test_lang.py", "test_unstructured/partition/html/test_convert.py", "test_unstructured/partition/html/test_parser.py", "test_unstructured/partition/html/test_partition.py", "test_unstructured/partition/test_docx.py", "test_unstructured/partition/test_xlsx.py", "test_unstructured/partition/utils/ocr_models/test_ocr_interface.py", "test_unstructured/partition/utils/test_config.py", "unstructured/__version__.py", "unstructured/documents/html_sanitization.py", "unstructured/partition/common/lang.py", "unstructured/partition/docx.py", "unstructured/partition/html/parser.py", "unstructured/partition/utils/config.py", "unstructured/partition/utils/ocr_models/ocr_interface.py", "unstructured/partition/xlsx.py", "uv.lock" ],
+  "responses" : [ {
+    "sha256" : "9e0e004fce233b24756a3d0942536cce1bca8e0a58fc00a78827fd3f622778d2",
+    "etag" : "W/\"488b744cc75fcdaabe7221e3a8433177bccb6ae611db7cb27f75c0d47348efb8\"",
+    "url" : "https://api.github.com/repos/Unstructured-IO/unstructured/releases/latest"
+  }, {
+    "sha256" : "b622b1a96e734dd6d348595fed5c3d6e319ef6a66eb08b24dce89e8acfcfe6ee",
+    "etag" : "W/\"0d977a2d191727e5c9794bdb5763429cd1a80f137480921498647efdbac036aa\"",
+    "url" : "https://api.github.com/repos/Unstructured-IO/unstructured/commits/main"
+  }, {
+    "sha256" : "7282e21a5935856030a4dfb5f0c59d3d93e5f6be93b5b720a818dd5f94b2fff3",
+    "etag" : "W/\"b221245a1ef551fbbc06b8bb467a91d5c165ea72872cc5d81b40215efb5a3494\"",
+    "url" : "https://api.github.com/repos/Unstructured-IO/unstructured/compare/347fbbfd3e84e228017f125e5c5dbdc326ef7de2...f98602237cb152e9c33fd824fb8ec96037806ad4"
+  }, {
+    "sha256" : "2b82c989ff1219d56e69c128c27756137c830761e4de716c9f16e06fa74c6fdf",
+    "etag" : "W/\"d9a4b2e849859c372da1075598a650c87bfb832b0b5cdf0755303ed6e68b7ab5\"",
+    "url" : "https://api.github.com/repos/Unstructured-IO/unstructured/commits/0.27.28"
+  } ],
+  "release_commit" : "1b02b4d189c260ed9b1aca29583203e233d853cb",
+  "latest_release" : "0.27.28",
+  "main_commit" : "f98602237cb152e9c33fd824fb8ec96037806ad4",
+  "reference_commit" : "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",
+  "checked_at" : "2026-10-19T19:14:52.225822995Z"
+}

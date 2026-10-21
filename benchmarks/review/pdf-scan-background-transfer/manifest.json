@@ -1,0 +1,69 @@
+{
+  "selection_sha256" : "87eaf8b0083b8b8b84aea716892a34c82ab9fe316a00c7195d71923d369f27f4",
+  "reference_parser_sha256" : "ac3f783ccad4d8ee31dc529d8d2565d04d8861d38358df33a75070878f2217bc",
+  "profiles" : [ {
+    "language" : "deu",
+    "filename" : "deu.traineddata",
+    "bytes" : 8628461,
+    "sha256" : "8407331d6aa0229dc927685c01a7938fc5a641d1a9524f74838cdac599f0d06e",
+    "git_blob_sha1" : "6dd654880db617f3edfa00bc2ed9c9e3107b8fd0",
+    "url" : "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/deu.traineddata",
+    "page_segmentation" : "AUTO",
+    "thresholding" : "ENGINE_DEFAULT"
+  }, {
+    "language" : "deu_latf",
+    "filename" : "deu_latf.traineddata",
+    "bytes" : 12938047,
+    "sha256" : "429b8c33d37e1a4823a2bb082a644ff13e252f735b7945e08a518d22ddcc459e",
+    "git_blob_sha1" : "cc64c41d469dd0d2791e26d6da8c0fa5d4ef94c0",
+    "url" : "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/deu_latf.traineddata",
+    "page_segmentation" : "AUTO",
+    "thresholding" : "ENGINE_DEFAULT"
+  } ],
+  "cases" : [ {
+    "id" : "buerger_gedichte_1778_0066",
+    "year" : 1778,
+    "image" : "buerger_gedichte_1778_0066.tif",
+    "xml" : "buerger_gedichte_1778_0066.xml",
+    "width" : 1439,
+    "height" : 1929,
+    "expected_lines" : 15,
+    "reference_code_points" : 224,
+    "reference_text_sha256" : "d50c71730ffa7b837683877ae78e619ab237820e10e4f537d84d8995c5370564",
+    "source_dpi" : 300,
+    "inputs" : [ {
+      "git_blob_sha1" : "306c7c92ec66a2db30416dc4ef60d1795e7ee344",
+      "bytes" : 5857,
+      "filename" : "buerger_gedichte_1778_0066.xml",
+      "sha256" : "e84ca8e7cf1321d59d85f0293c25f26d9297e669da766d2cead439fbbfe3af7d"
+    }, {
+      "git_blob_sha1" : "93e529ae1e5c7bce8d633fee8ead9419de1c3d78",
+      "bytes" : 8996889,
+      "filename" : "buerger_gedichte_1778_0066.tif",
+      "sha256" : "4b946690c17ec5dd3b00bb290e52c86572eddc94cbba5021dae16e221bfc5265"
+    } ]
+  }, {
+    "id" : "nn_besuch_1780_00002",
+    "year" : 1780,
+    "image" : "nn_besuch_1780_00002.tif",
+    "xml" : "nn_besuch_1780_00002.xml",
+    "width" : 2000,
+    "height" : 2271,
+    "expected_lines" : 26,
+    "reference_code_points" : 921,
+    "reference_text_sha256" : "11a62293a1ab8a67b07275cbfd9aff2715877da83b99dbd914897ed913da1a25",
+    "source_dpi" : 300,
+    "inputs" : [ {
+      "git_blob_sha1" : "2c6a699cf72a3e21efdb8399a5c3e574a4a44cf5",
+      "bytes" : 94593,
+      "filename" : "nn_besuch_1780_00002.xml",
+      "sha256" : "fca262152e0790434c5e0db0225bc3d25e12ccaf7087878d29798c4d4c7e3fb1"
+    }, {
+      "git_blob_sha1" : "fb1edd9e6d96bad0b540b51ad24bace0a57086c8",
+      "bytes" : 13647372,
+      "filename" : "nn_besuch_1780_00002.tif",
+      "sha256" : "127300e80470619166fa3f14c89488296f3509b9aa0769e6fd3e4e7966d50cf0"
+    } ]
+  } ],
+  "scope" : "All preselected new pages, original labels and fixed model profiles; generated before OCR; no repaired line order"
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Actual Tesseract repeated-header continuation control</comment>
+<entry key="eng_model_sha256">daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047</entry>
+<entry key="checked_at">2026-10-17T08:00:35.751053693Z</entry>
+<entry key="previous_id">68b9dbdc6b190076a7a1de06c40c765d</entry>
+<entry key="java">25.0.4+7-LTS</entry>
+<entry key="executable_sha256">9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917</entry>
+<entry key="exact_page_text_and_html">true</entry>
+<entry key="scope">owned two-page raster/repeated-header geometry; no independent semantic accuracy claim</entry>
+<entry key="continuation_id">f3b6e8d98f2d0693c98651adf76691fa</entry>
+<entry key="part_index">1</entry>
+<entry key="root_id">68b9dbdc6b190076a7a1de06c40c765d</entry>
+<entry key="pdf_sha256">74f02ac5fc4f9ef540a8beea86f67c0679455718472b7a04aa1e36140b4001d3</entry>
+<entry key="cell_geometry_retained">true</entry>
+</properties>

@@ -1,0 +1,211 @@
+{
+  "documents" : [ {
+    "outcome" : "SUCCESS",
+    "profile" : "tatr",
+    "original_pages" : 11,
+    "document_elements" : 541,
+    "layout_calls" : 11
+  }, {
+    "outcome" : "SUCCESS",
+    "profile" : "yolox",
+    "original_pages" : 11,
+    "document_elements" : 315,
+    "layout_calls" : 11
+  } ],
+  "scope" : "Java21 native-first text replay of fixed model-produced structure captures only. Every original page, exact source/render PNG hashes, same150DPI16Mpixel1024anchor budget and RULED_AND_PARTIAL_TEXT. No oracle/source ROI crops, table/anchor repair, normalization/reference changes or best-of selection. Entire original PDF processed once per frozen detector profile. Header evidence is unavailable in the legacy TSV capture and is conservatively unspecified; this is row-text diagnosis, not metadata parity or production adapter. The replay provider accepts only sequential identical rendered inputs and fails mismatches. Both complete110row reference populations and failed/partial page fragments remain.",
+  "runtime" : "21.0.12.1+12-LTS",
+  "replay_manifest_sha256" : "5ded274dc78dfdd2db6d5fedad11ec261e035ad4148c137570fd72b1244c38eb",
+  "results" : [ {
+    "case" : "income",
+    "mode" : "tatr",
+    "outcome" : "SUCCESS",
+    "document_elements" : 541,
+    "source_pages" : [ 4, 5 ],
+    "regions" : [ {
+      "observed_content_rows" : 12,
+      "association_iou" : 0.6143866006667825,
+      "tables_on_page" : 1,
+      "source_page" : 4,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 34,
+      "associated" : true
+    }, {
+      "observed_content_rows" : 0,
+      "association_iou" : 0.0,
+      "tables_on_page" : 1,
+      "source_page" : 5,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 6,
+      "associated" : false
+    } ],
+    "associated_regions" : 1,
+    "all_regions_associated" : false,
+    "reference_content_rows" : 28,
+    "observed_content_rows" : 12,
+    "exact_ordinal_rows" : 0,
+    "missing_row_positions" : 16,
+    "extra_row_positions" : 0,
+    "complete_row_content" : false,
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION" ]
+  }, {
+    "case" : "balance-sheet",
+    "mode" : "tatr",
+    "outcome" : "SUCCESS",
+    "document_elements" : 541,
+    "source_pages" : [ 5, 6 ],
+    "regions" : [ {
+      "observed_content_rows" : 28,
+      "association_iou" : 0.5436202667949308,
+      "tables_on_page" : 1,
+      "source_page" : 5,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 6,
+      "associated" : true
+    }, {
+      "observed_content_rows" : 0,
+      "association_iou" : 0.0,
+      "tables_on_page" : 1,
+      "source_page" : 6,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 59,
+      "associated" : false
+    } ],
+    "associated_regions" : 1,
+    "all_regions_associated" : false,
+    "reference_content_rows" : 33,
+    "observed_content_rows" : 28,
+    "exact_ordinal_rows" : 0,
+    "missing_row_positions" : 5,
+    "extra_row_positions" : 0,
+    "complete_row_content" : false,
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION" ]
+  }, {
+    "case" : "cash-flows",
+    "mode" : "tatr",
+    "outcome" : "SUCCESS",
+    "document_elements" : 541,
+    "source_pages" : [ 6, 7 ],
+    "regions" : [ {
+      "observed_content_rows" : 0,
+      "association_iou" : 0.0,
+      "tables_on_page" : 1,
+      "source_page" : 6,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 59,
+      "associated" : false
+    }, {
+      "observed_content_rows" : 26,
+      "association_iou" : 0.8315630648146586,
+      "tables_on_page" : 1,
+      "source_page" : 7,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 17,
+      "associated" : true
+    } ],
+    "associated_regions" : 1,
+    "all_regions_associated" : false,
+    "reference_content_rows" : 49,
+    "observed_content_rows" : 26,
+    "exact_ordinal_rows" : 0,
+    "missing_row_positions" : 23,
+    "extra_row_positions" : 0,
+    "complete_row_content" : false,
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION" ]
+  }, {
+    "case" : "income",
+    "mode" : "yolox",
+    "outcome" : "SUCCESS",
+    "document_elements" : 315,
+    "source_pages" : [ 4, 5 ],
+    "regions" : [ {
+      "observed_content_rows" : 13,
+      "association_iou" : 0.6931532244874733,
+      "tables_on_page" : 1,
+      "source_page" : 4,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 31,
+      "associated" : true
+    }, {
+      "observed_content_rows" : 10,
+      "association_iou" : 0.8025898608023538,
+      "tables_on_page" : 2,
+      "source_page" : 5,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 7,
+      "associated" : true
+    } ],
+    "associated_regions" : 2,
+    "all_regions_associated" : true,
+    "reference_content_rows" : 28,
+    "observed_content_rows" : 23,
+    "exact_ordinal_rows" : 0,
+    "missing_row_positions" : 5,
+    "extra_row_positions" : 0,
+    "complete_row_content" : false,
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION" ]
+  }, {
+    "case" : "balance-sheet",
+    "mode" : "yolox",
+    "outcome" : "SUCCESS",
+    "document_elements" : 315,
+    "source_pages" : [ 5, 6 ],
+    "regions" : [ {
+      "observed_content_rows" : 16,
+      "association_iou" : 0.669916348234213,
+      "tables_on_page" : 2,
+      "source_page" : 5,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 7,
+      "associated" : true
+    }, {
+      "observed_content_rows" : 10,
+      "association_iou" : 0.6966041794792198,
+      "tables_on_page" : 2,
+      "source_page" : 6,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 7,
+      "associated" : true
+    } ],
+    "associated_regions" : 2,
+    "all_regions_associated" : true,
+    "reference_content_rows" : 33,
+    "observed_content_rows" : 26,
+    "exact_ordinal_rows" : 0,
+    "missing_row_positions" : 7,
+    "extra_row_positions" : 0,
+    "complete_row_content" : false,
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION" ]
+  }, {
+    "case" : "cash-flows",
+    "mode" : "yolox",
+    "outcome" : "SUCCESS",
+    "document_elements" : 315,
+    "source_pages" : [ 6, 7 ],
+    "regions" : [ {
+      "observed_content_rows" : 17,
+      "association_iou" : 0.7240446106402139,
+      "tables_on_page" : 2,
+      "source_page" : 6,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 7,
+      "associated" : true
+    }, {
+      "observed_content_rows" : 24,
+      "association_iou" : 0.7524767732876216,
+      "tables_on_page" : 1,
+      "source_page" : 7,
+      "page_text_nonblank" : true,
+      "selected_page_elements" : 24,
+      "associated" : true
+    } ],
+    "associated_regions" : 2,
+    "all_regions_associated" : true,
+    "reference_content_rows" : 49,
+    "observed_content_rows" : 41,
+    "exact_ordinal_rows" : 0,
+    "missing_row_positions" : 8,
+    "extra_row_positions" : 0,
+    "complete_row_content" : false,
+    "warning_codes" : [ "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION", "PDF_EXTRACTION_LIMITATION" ]
+  } ]
+}

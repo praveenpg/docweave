@@ -1,0 +1,40 @@
+{
+  "scope": "Stored XML structure only; includes revision branches and fallback content. No independent human review, application rendering or fidelity claim.",
+  "manifest_sha256": "68b5fc73d64c8992ed5668ae0e7b04923f02c343f82417eea12b4055de885d06",
+  "tool_sha256": "d5e496d6c170cc08e59dae6f18888aaf4a418ff1e9a676177e3668a9dc486ec8",
+  "documents": [
+    {
+      "filename": "law-commission-response-2025.docx",
+      "sha256": "f93208f7b0d1943d627eba881ec9f1962d732a58c7dfe300b1afcff8d3977ea5",
+      "body": {
+        "content_controls": 5,
+        "hyperlinks": 6,
+        "nested_paragraphs": 0,
+        "nested_tables": 0,
+        "paragraphs": 88,
+        "tables": 8
+      },
+      "maximum_table_depth": 1,
+      "stored_parts": {},
+      "substring_baseline_supported": true
+    },
+    {
+      "filename": "scottish-respondent-2023.docx",
+      "sha256": "9ec220846a132b09e1bd518dcddb053dc071a7e90d937c5c075005167ce3decd",
+      "body": {
+        "content_controls": 8,
+        "hyperlinks": 2,
+        "nested_paragraphs": 0,
+        "paragraphs": 41
+      },
+      "maximum_table_depth": 0,
+      "stored_parts": {
+        "endnotes": 1,
+        "footer": 3,
+        "footnotes": 1,
+        "header": 3
+      },
+      "substring_baseline_supported": true
+    }
+  ]
+}

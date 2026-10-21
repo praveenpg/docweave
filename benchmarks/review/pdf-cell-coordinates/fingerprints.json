@@ -1,0 +1,37 @@
+{
+  "source_sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTableCells.java": "657ca0d0bbdd09e6f0bc34749c99958ec3b896c4509600cdd521f34f5da8d849",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "38b87fb51b815b2c76e8abadc03477d3d0e92bba6f0c98c533efca51cc0136f9",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageLayout.java": "620812bf585f5336681f649c82cc13472fffe56e977ef44d217adad8d6f57380",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageOcr.java": "234b9fa56dd1f94a41205145bcdbac73636ddd5779d3725771849e4d4e9ae47e",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfScannedTables.java": "cb96a65fe0b4fdcc7f9cf10b5203f11c59e6f3f887a3686b1ee07d12d1d25cc7",
+    "docweave-chunking/src/main/java/dev/docweave/chunking/DefaultChunker.java": "f5a778f60731e9860b6eff103ea4af403c4f510a9881b074802bc4ee6c79bdc9",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfTableCellCoordinatesTest.java": "5d600588c2dfe2b099786e0f758971f354fc415543524fb74747ae92d555c21d",
+    "docweave-integration-tests/src/test/java/dev/docweave/partition/PdfPipelineTest.java": "c940b8aa9ca0ee058c0a67c003297e93ec77750b195144a93ba0be263138fc49",
+    "docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractMergedTableInstalledTest.java": "c53433d3a6676ef6e974b754f8bdd11210dd698096f305951ff6e012f5912503"
+  },
+  "release21_class_sha256": {
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfTableCells.class": "cb3bbab4086077a56b4317d1521d524d41343a89e8c31b5e9f067be8868776a9",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfOptions$TableDetection.class": "ec655e5393d6303514899f87dab6e82c78d99ed184f99e1a4a1b99db033cd8db",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfOptions$TextLayout.class": "cab35140bf0dfc8b9422f56aaa0cc075aee83eaad479b68eb649923d69050787",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfOptions.class": "f4b2841087dde68fdc97bfd266667b3e7d69bfd68a3714dbeb572d2c5669a86e",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfPageLayout.class": "099150cee5dbfa1ead7cfacf559bb61707f5fdf986a3fd6a91465dd744224761",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfPageOcr.class": "a9f9b28c2858cd514d3280830b6d7b0c87a5db00e0f24585c82b8e242964832e",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfScannedTables$Crop.class": "1a5a1f3fe0ff62e7a9a8e7d229daf6db33d3366cd48f1b31702a07ff4b71bfbd",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfScannedTables.class": "839101634152e6c5452d41ad9efdb20644ad327e42bb8e4ac5c3eef7f205758c",
+    "docweave-chunking/target/classes/dev/docweave/chunking/DefaultChunker$PreChunk.class": "d65c0596b98c009f840330c717842571c347c00c58cf54c7e302a6a0c74293ba",
+    "docweave-chunking/target/classes/dev/docweave/chunking/DefaultChunker.class": "879354fe2e5a3a45d7dda7d4b03927c910961daf5d24a0447a6e21f7042d941b",
+    "docweave-pdf/target/test-classes/dev/docweave/partition/PdfTableCellCoordinatesTest$1.class": "5dfbcdebf306c29619a81a59f1d07e53e9ea1754cf6cc1c3260189154d80dd77",
+    "docweave-pdf/target/test-classes/dev/docweave/partition/PdfTableCellCoordinatesTest.class": "1edcbe9b269e2c56785ba6e8b50fb83dfd580693553bf7d08d89186d179665c0",
+    "docweave-integration-tests/target/test-classes/dev/docweave/partition/PdfPipelineTest.class": "da76abaa16606b1a37162b2dfbb9957c7e5d8af57888d6bc4172d94363b3d3a4",
+    "docweave-ocr-tesseract/target/test-classes/dev/docweave/ocr/TesseractMergedTableInstalledTest.class": "f10e1df052b652a72bce0b8a1cfe057c86731883a52ae0faf4791d6d8c6279e5"
+  },
+  "report_sha256": {
+    "java21-corpus-recheck.json": "afd496618833435bc9ec0f811c0414b4c8261cf6db4bd72bfec8bbfd7b8fa922",
+    "java21-merged-control.xml": "5e122f4d034befc66fdfb7b72bb56b9878d9a7ce0ff7fb4f503b8dfc23e014f4",
+    "java25-corpus-recheck.json": "3dbf30c7c8f5f6a8218f87f212d06fec8ec3cc8525812747fe7184c18e26eaaf",
+    "java25-merged-control.xml": "fa76e30aee0221b44344afd8da70c7f8be1bbe5bfe0529cb6fbee3a9c644e7ef",
+    "upstream-status.json": "8ff8ad43c1017267428b06b12cb304fe73481f29cc57711e2f5c6cfd2ebef553"
+  },
+  "scope": "Local actual Java21/25 engine controls and optional independent crop; hosted controls require no engine/corpus"
+}

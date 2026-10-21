@@ -1,0 +1,21 @@
+{
+  "scope": "Actual-word fixed-angle integration; supplied published corrections, no automatic estimation/calibration/physical-scan accuracy claim",
+  "java21_full_tests": 860,
+  "java25_full_tests": 860,
+  "failures_errors_skips": [
+    0,
+    0,
+    0
+  ],
+  "strict_javadocs": true,
+  "installed_engine_families": 10,
+  "official_word_fixtures": 4,
+  "exact_normalized_transcriptions": 4,
+  "actual_words_per_fixture": 60,
+  "all_word_and_line_source_bounds_valid": true,
+  "paired_result_entries_identical": true,
+  "owned_seeded_edge_cases": 200,
+  "virtual_thread_calls": 20,
+  "existing_line_only_capability_preserved": true,
+  "table_detection_pixels_corrected": false
+}

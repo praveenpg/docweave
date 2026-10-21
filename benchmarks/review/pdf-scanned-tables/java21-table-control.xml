@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Actual Tesseract scanned-grid control</comment>
+<entry key="eng_model_sha256">daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047</entry>
+<entry key="recognized_table">Alpha 001 Beta 002 Gamma 003 Delta 004</entry>
+<entry key="source_image_occurrences">1</entry>
+<entry key="checked_at">2026-10-17T04:44:40.187599695Z</entry>
+<entry key="java">21.0.12.1+12-LTS</entry>
+<entry key="os">Linux amd64</entry>
+<entry key="executable_sha256">9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917</entry>
+<entry key="recognized_html">&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Alpha 001&lt;/td&gt;&lt;td&gt;Beta 002&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Gamma 003&lt;/td&gt;&lt;td&gt;Delta 004&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</entry>
+<entry key="ordinary_text">Owned scanned table</entry>
+<entry key="scope">owned synthetic 2x2 scanned grid; no independent scanned-table accuracy claim</entry>
+<entry key="pdf_sha256">94e6287f5d75021f7a849fb497f8a8951e37a7fca3333ffb5b73479a33b9629d</entry>
+</properties>

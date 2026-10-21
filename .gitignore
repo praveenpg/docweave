@@ -1,0 +1,18 @@
+target/
+__pycache__/
+*.pyc
+benchmarks/runs/
+benchmarks/reference/
+benchmarks/candidate/
+.idea
+
+# Externally sourced corpus binaries stay in a local fetch-only cache.
+benchmarks/corpus/docx/*.docx
+benchmarks/corpus/docx/cache/
+
+# Style-corpus originals and instrumented derivatives remain fetch-only.
+benchmarks/corpus/docx-styles/*.docx
+benchmarks/corpus/docx-styles/cache/
+
+# Local runtime allocation profiles.
+*.jfr

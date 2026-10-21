@@ -1,0 +1,46 @@
+{
+  "scope": "Stored XML structure only; includes revision branches and fallback content. No independent human review, application rendering or fidelity claim.",
+  "manifest_sha256": "24edadfd6312e911b5f9fd1e35e1bc5ac5fe03734d41c1b0251de1c5964fe515",
+  "tool_sha256": "d5e496d6c170cc08e59dae6f18888aaf4a418ff1e9a676177e3668a9dc486ec8",
+  "documents": [
+    {
+      "filename": "TestTableColumns.docx",
+      "sha256": "3b1965a295c4a5c24573a6d5f2ded93f7de3e7a46ffe26b881456f1c4ddd6335",
+      "body": {
+        "nested_paragraphs": 0,
+        "nested_tables": 0,
+        "paragraphs": 18,
+        "tables": 2
+      },
+      "maximum_table_depth": 1,
+      "stored_parts": {},
+      "substring_baseline_supported": true
+    },
+    {
+      "filename": "TestTableCellAlign.docx",
+      "sha256": "2968d4a5d5de21dce1cbeae3235e545cdf4bfd7ae508fe0eed3a9b032773ce17",
+      "body": {
+        "nested_paragraphs": 0,
+        "nested_tables": 0,
+        "paragraphs": 5,
+        "tables": 1
+      },
+      "maximum_table_depth": 1,
+      "stored_parts": {},
+      "substring_baseline_supported": true
+    },
+    {
+      "filename": "table-alignment.docx",
+      "sha256": "ee36729e0d050e529fea0b444006a194bea72b35cf8958ae58c6624c26156b41",
+      "body": {
+        "nested_paragraphs": 0,
+        "nested_tables": 0,
+        "paragraphs": 60,
+        "tables": 6
+      },
+      "maximum_table_depth": 1,
+      "stored_parts": {},
+      "substring_baseline_supported": true
+    }
+  ]
+}

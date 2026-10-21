@@ -1,0 +1,42 @@
+{
+  "results" : [ {
+    "pages" : 1,
+    "filename" : "8.2.5.28.2-t01-pass-a.pdf",
+    "git_blob_sha1" : "1867de8a940d1d306228c2329a11ea823c1dba46",
+    "role_counts" : {
+      "figure_with_Alt_key" : 1,
+      "role:Document" : 1,
+      "role:Figure" : 1,
+      "role:H1" : 1,
+      "role:P" : 1
+    },
+    "source_sha256" : "bc58f794982d708053af7fcafb8e76d161340b1016fb978d650eaacdc9b540e6"
+  }, {
+    "pages" : 1,
+    "filename" : "8.2.5.28.2-t01-pass-b.pdf",
+    "git_blob_sha1" : "ae9f082f4a4c1893944fdb77bd02a4e4adfed564",
+    "role_counts" : {
+      "figure_with_ActualText_key" : 1,
+      "role:Document" : 1,
+      "role:Figure" : 1,
+      "role:H1" : 1,
+      "role:P" : 1
+    },
+    "source_sha256" : "d0bed6640010fcf8349b62965b6e1ca8517425e3e0741473526f6c5cef6dd85f"
+  }, {
+    "pages" : 1,
+    "filename" : "8.2.5.28.2-t01-pass-c.pdf",
+    "git_blob_sha1" : "14796d4a9c7442d916e9b8b714647aa82d416dbf",
+    "role_counts" : {
+      "figure_with_ActualText_key" : 1,
+      "role:Document" : 1,
+      "role:Figure" : 1,
+      "role:H1" : 1,
+      "role:P" : 1
+    },
+    "source_sha256" : "8f911613a5bd7b2bf8010c12fb6076b1a669b1a279f39d75e2d6451088740384"
+  } ],
+  "scope" : "Complete source-only role inventory; no DocWeave extraction, reference caption strings, raster inference or output-dependent selection",
+  "selection_sha256" : "1288bff642f9fb91e84ed282250578c5362e0fe286fb27027c430ed0e3fdedb5",
+  "runtime" : "21.0.12.1+12-LTS"
+}

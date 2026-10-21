@@ -1,0 +1,11 @@
+{
+  "base_commit": "8163b35",
+  "scope": "Two owned independent logical-row controls with identical original glyph text/positions. Frozen experimental baseline/gap logic only; no production extractor bug or original-source accuracy claim.",
+  "identities": {
+    "benchmarks/tools/ProbeNativeRowAmbiguity.java": "eb37465af7b18ce00ff62269283a152015c3b6052f7a52351b5d4f91d2cf10e5",
+    "benchmarks/tools/AuditSynchronizedModelRows.java": "801a9d351dd9438fbe82a55e91b130966b1193261b5b57dee282d9942b12738a",
+    "benchmarks/tools/RefineSynchronizedModelRows.java": "95505399b246f2f8e4106868735420c8d6fc1962a64b72f30d7a57d4e1e0e510"
+  },
+  "runtime_policy": "Java21 only; Java25 deferred",
+  "raw_third_party_sources": false
+}

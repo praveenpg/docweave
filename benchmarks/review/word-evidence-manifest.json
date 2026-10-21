@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "status": "comparison_only_human_review_pending",
+  "scope": "Immutable saved Word evidence. Only two controlled 3x3 packets support candidate comparison; four direct-heading controls are provenance-only here.",
+  "packets": [
+    {
+      "directory": "word-style-cases",
+      "first_observations": "word-observations.json",
+      "observations": "word-repeat-observations.json",
+      "files": {
+        "manifest.json": "495d21366702d8e15b424efcee670fac965836ad249dfb356c37ff028682d185",
+        "word-observations.json": "002f5a6dafb128fd66b6ad82c327352c1ae3d77a3ecd73c9a56b04e5c8477bc4",
+        "word-repeat-observations.json": "c820b86cc4b9a808ca6e6c7925a36a5b5266e98f080e8ba5f96585f07c266bd4",
+        "candidate.json": "332f0b5870aab630be38fbd957ab53776ea96adcbe8d2854f2c960faed26756e",
+        "word-comparison.json": "2aef656791969582c553764644c2a07ee92c22b4321be2ca15100a4c2dd3bddb"
+      }
+    },
+    {
+      "directory": "word-style-followups",
+      "first_observations": "word-first-observations.json",
+      "observations": "word-observations.json",
+      "files": {
+        "manifest.json": "6553389892d0141f938c27910b6780fd828ed614cb2e8124c93b61439db9cdea",
+        "word-first-observations.json": "d7948803354657a930b065dd4716946b08b2b41407665a51ba22578731cb17bd",
+        "word-observations.json": "bc8f3f0f22ad7aff2d241b06ab08fc68be444a3e6bfbb60e1280bdadd4bdf4a7",
+        "candidate.json": "7f66f418cc42171155856b244d0ab94f5da8043a8be9a943d55c58208b0317e8",
+        "word-comparison.json": "dfdf192669117f8ec2e52f8a38e6c4e560730895b92dd081b8acfdbd490a4b71"
+      }
+    }
+  ],
+  "excluded_controls": {
+    "directory": "word-outline-controls",
+    "files": {
+      "manifest.json": "17731e954457667371c5c38d689e5a6f657fd556b77e3f36e74c11e492f5d011",
+      "word-observations.json": "996bd256631f9bea90f8c6fc37af98ff755d4deac4fc9baf4378d6f61316a754"
+    }
+  }
+}

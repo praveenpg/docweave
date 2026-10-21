@@ -1,0 +1,5 @@
+{
+  "invalid_capture_controls_rejected" : [ "missing_fork", "duplicate_sample", "failed_fork_with_output", "wrong_output_hash", "wrong_manifest_hash", "wrong_heap", "wrong_affinity", "impossible_process_wall" ],
+  "original_evidence_unchanged" : true,
+  "controls" : 8
+}

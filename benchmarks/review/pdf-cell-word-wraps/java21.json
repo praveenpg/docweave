@@ -1,0 +1,78 @@
+{
+  "input_tsv_sha256" : "0c238437c0595e916c4188814b92e4ed06b27c11ea7420afbabdafda0715109d",
+  "runtime" : "21.0.12.1+12-LTS",
+  "results" : [ {
+    "case" : "plos-0324609",
+    "source_sha256" : "acb3af41357a960a9584f9ba0b0bf3319195af2ec4f3bc6074c2083d97d10bb8",
+    "geometry" : "SUPPORTED_CELL_AXES",
+    "outcome" : "SUCCESS",
+    "elements" : 562,
+    "tables" : 1,
+    "changed_tables" : 0,
+    "interpreted_tables" : 0,
+    "retained_hyphen_wraps" : 0,
+    "ordinary_elements_and_other_metadata_equal" : true,
+    "cell_topology_and_ordered_characters_except_ascii_spaces_equal" : true
+  }, {
+    "case" : "plos-0324609",
+    "source_sha256" : "acb3af41357a960a9584f9ba0b0bf3319195af2ec4f3bc6074c2083d97d10bb8",
+    "geometry" : "LOGICAL_CELL_TEXT_ENVELOPES",
+    "outcome" : "SUCCESS",
+    "elements" : 562,
+    "tables" : 1,
+    "changed_tables" : 0,
+    "interpreted_tables" : 0,
+    "retained_hyphen_wraps" : 0,
+    "ordinary_elements_and_other_metadata_equal" : true,
+    "cell_topology_and_ordered_characters_except_ascii_spaces_equal" : true
+  }, {
+    "case" : "plos-0330904",
+    "source_sha256" : "0c96e723535ee671eb0d263702adc9e986fb2817a5e16ab7b7235e593a39eff2",
+    "geometry" : "SUPPORTED_CELL_AXES",
+    "outcome" : "SUCCESS",
+    "elements" : 576,
+    "tables" : 1,
+    "changed_tables" : 0,
+    "interpreted_tables" : 0,
+    "retained_hyphen_wraps" : 0,
+    "ordinary_elements_and_other_metadata_equal" : true,
+    "cell_topology_and_ordered_characters_except_ascii_spaces_equal" : true
+  }, {
+    "case" : "plos-0330904",
+    "source_sha256" : "0c96e723535ee671eb0d263702adc9e986fb2817a5e16ab7b7235e593a39eff2",
+    "geometry" : "LOGICAL_CELL_TEXT_ENVELOPES",
+    "outcome" : "SUCCESS",
+    "elements" : 576,
+    "tables" : 1,
+    "changed_tables" : 0,
+    "interpreted_tables" : 0,
+    "retained_hyphen_wraps" : 0,
+    "ordinary_elements_and_other_metadata_equal" : true,
+    "cell_topology_and_ordered_characters_except_ascii_spaces_equal" : true
+  }, {
+    "case" : "elife-90049",
+    "source_sha256" : "ae3d00995f44bdd26fd0f60e760dc0fce44e84a0482fc64d2277ef4792413a4b",
+    "geometry" : "SUPPORTED_CELL_AXES",
+    "outcome" : "SUCCESS",
+    "elements" : 3739,
+    "tables" : 0,
+    "changed_tables" : 0,
+    "interpreted_tables" : 0,
+    "retained_hyphen_wraps" : 0,
+    "ordinary_elements_and_other_metadata_equal" : true,
+    "cell_topology_and_ordered_characters_except_ascii_spaces_equal" : true
+  }, {
+    "case" : "elife-90049",
+    "source_sha256" : "ae3d00995f44bdd26fd0f60e760dc0fce44e84a0482fc64d2277ef4792413a4b",
+    "geometry" : "LOGICAL_CELL_TEXT_ENVELOPES",
+    "outcome" : "SUCCESS",
+    "elements" : 3739,
+    "tables" : 0,
+    "changed_tables" : 0,
+    "interpreted_tables" : 0,
+    "retained_hyphen_wraps" : 0,
+    "ordinary_elements_and_other_metadata_equal" : true,
+    "cell_topology_and_ordered_characters_except_ascii_spaces_equal" : true
+  } ],
+  "scope" : "Whole-original representation regression; all inputs/profiles retained; no reference row scoring or source-specific selection"
+}

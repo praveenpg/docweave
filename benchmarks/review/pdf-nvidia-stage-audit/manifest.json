@@ -1,0 +1,40 @@
+{
+  "frozen_at" : "2026-10-20T05:07:55.823648453Z",
+  "candidate_base_commit" : "8c4e990",
+  "scope" : "Stage attribution only, not a new extraction policy or quality score. Every original page rendered150DPI and passed through identical pinned detector, existing crop planner and structure topology. Numeric thresholded proposals before crop NMS, crop boundaries, child structure objects and topology before final inter-candidate disjoint rejection. No source/label/ROI/threshold/model changes or oracle crops. Source-reference labels never read by audit tool; original statement scores remain unchanged.",
+  "baseline_manifest" : "benchmarks/review/pdf-nvidia-native-model/manifest.json",
+  "baseline_manifest_sha256" : "75eee177e6fae6c3f2e11fd0dde82a90db951e305b1d58552bc88d9b9bf315d7",
+  "inputs" : [ {
+    "filename" : "nvidia-fy26q4.pdf",
+    "bytes" : 97444,
+    "sha256" : "89de999d7155649197672bf490c519607f1abbcdc96e2e4c6718bf6ecbb13564",
+    "url" : "https://nvidianews.nvidia.com/_gallery/download_pdf/699f6ab43d6332ccaa689907/"
+  }, {
+    "filename" : "nvidia-fy26q4.html",
+    "bytes" : 458484,
+    "sha256" : "af7a052bcfb21400f804b5690683ac3ac7f482281f0d405a027483037d8636f5",
+    "url" : "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026"
+  } ],
+  "models" : {
+    "detector" : {
+      "filename" : "detection.onnx",
+      "bytes" : 115703629,
+      "sha256" : "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9"
+    },
+    "structure" : {
+      "filename" : "structure.onnx",
+      "bytes" : 115828334,
+      "sha256" : "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990"
+    }
+  },
+  "source_pages" : 11,
+  "dpi" : 150,
+  "native_threads" : 4,
+  "deadline_seconds" : 30,
+  "minimum_score" : 0.5,
+  "merge_conflicts" : "KEEP_HIGHER_SCORE",
+  "audit_tool" : "benchmarks/tools/CaptureNativeDetectorStages.java",
+  "audit_tool_sha256" : "e595925dd578cdab309fd563ebd8c978d853e8d8fcd3a7661898b16c4b54afa3",
+  "parent_geometry_baseline" : "benchmarks/review/pdf-nvidia-native-model/parent-geometry-audit-java21.json",
+  "parent_geometry_sha256" : "896ddb5558e94b1520fd4766844eec9179b79c6abb4e51d85bb7d7841770f15b"
+}

@@ -1,0 +1,15 @@
+--- /tmp/docweave-caption-edge21/transfer-sources/ScorePublisherCaptions.java
++++ /tmp/docweave-caption-compounds21/transfer-sources/ScorePublisherCaptions.java
+@@ -85,9 +85,10 @@
+                                 .withTextLayout(profile.equals("NATIVE_COLUMNS")
+                                                         ? PdfOptions.TextLayout.COLUMN_PARAGRAPHS
+                                                         : PdfOptions.TextLayout.LINES);
+-                final var partitioner = profile.equals("SOURCE_TAGGED_LINES")
++                final var partitioner = (profile.equals("SOURCE_TAGGED_LINES")
+                                                 ? PdfPartitioner.createWithTaggedTables(options)
+-                                                : PdfPartitioner.create(options);
++                                                : PdfPartitioner.create(options))
++.withTaggedParagraphs(dev.docweave.partition.PdfTaggedParagraphOptions.defaults().withWordWrap(Boolean.getBoolean("docweave.caption.compound.wraps") ? dev.docweave.partition.PdfTaggedParagraphOptions.WordWrap.SOURCE_LINE_WRAPS : dev.docweave.partition.PdfTaggedParagraphOptions.WordWrap.PRESERVE));
+                 final var row = new LinkedHashMap<String, Object>();
+                 row.put("case", selected.get("id").asString());
+                 row.put("profile", profile);

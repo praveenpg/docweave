@@ -1,0 +1,56 @@
+{
+  "evaluated_production_commit": "0fc3d6fe0c87bbb3ce85fe99c81ff1d3f514ec59",
+  "scope": "Development-selected two-case diagnosis; no new extraction policy or accuracy claim",
+  "source_manifest": "../pdf-physical-scans/extended-manifest.json",
+  "model_manifest": "../pdf-ruled-scans/manifest.json",
+  "diagnostic_source": "../../tools/CaptureDetectedTableInput.java",
+  "diagnostic_sha256": "04740b8cf94d5f430e191b5ee45b067f3aa500fda3f5f30cde9589879938a217",
+  "capture_hashes": {
+    "cTDaR_s103-java21": {
+      "crops.tsv": "4ad9a24c391619b0fcff3b03fcbe9c62500c90cb85f4abac49dfcd29ca952fb5",
+      "crop-0-anchors.tsv": "a817c93cdb3f3ff131b18b4776fb46fd70b2bbe06a1c5bf7f01b84e5ad25e6cc",
+      "crop-0-objects.tsv": "c0a87613b0093551bc38e1dbaff6fe22cd716a74693db31ec4cb29de60d13474",
+      "detections.tsv": "930cd1736fd497a23bd3701dab624719cc3caac117b59ab05a5fa0cc050e5506",
+      "java-runtime.txt": "071ecc0de67ca13822d6a8c072238637463b663ab79eb29844a5153b8028643b",
+      "source.sha256": "67b14acef47be5ed45fecc005894a47b5adbaf58fb2ae5fe6e3494988041e4a3"
+    },
+    "cTDaR_s103-java25": {
+      "crops.tsv": "4ad9a24c391619b0fcff3b03fcbe9c62500c90cb85f4abac49dfcd29ca952fb5",
+      "crop-0-anchors.tsv": "a817c93cdb3f3ff131b18b4776fb46fd70b2bbe06a1c5bf7f01b84e5ad25e6cc",
+      "crop-0-objects.tsv": "c0a87613b0093551bc38e1dbaff6fe22cd716a74693db31ec4cb29de60d13474",
+      "detections.tsv": "930cd1736fd497a23bd3701dab624719cc3caac117b59ab05a5fa0cc050e5506",
+      "java-runtime.txt": "859b3ffb9c425b712f3601ec41cdb1dbb1838cf3b8853f926e7be2813850af6e",
+      "source.sha256": "67b14acef47be5ed45fecc005894a47b5adbaf58fb2ae5fe6e3494988041e4a3"
+    },
+    "cTDaR_s003-java21": {
+      "crops.tsv": "320099a113b5a8620921927dae148ce57fda4459c96f71872a2d8ceddd93a0cf",
+      "crop-0-anchors.tsv": "cdcc3930bd296b72878f442e49ff4da5db78d043a87860f7242c4dd21f1513e8",
+      "crop-0-objects.tsv": "a2ad1b7feaafa15036b239606737cfe325ae4bd06fdb46245460139b6a712dbb",
+      "detections.tsv": "21153b4acc957431a01a5395da407004aab41c7ee4966760e7af93ee712073c6",
+      "java-runtime.txt": "071ecc0de67ca13822d6a8c072238637463b663ab79eb29844a5153b8028643b",
+      "source.sha256": "c0309ecf22c6bcf2b9909ea28b886776e8db59c71033da0309120d80db6664c1"
+    },
+    "cTDaR_s003-java25": {
+      "crops.tsv": "320099a113b5a8620921927dae148ce57fda4459c96f71872a2d8ceddd93a0cf",
+      "crop-0-anchors.tsv": "cdcc3930bd296b72878f442e49ff4da5db78d043a87860f7242c4dd21f1513e8",
+      "crop-0-objects.tsv": "a2ad1b7feaafa15036b239606737cfe325ae4bd06fdb46245460139b6a712dbb",
+      "detections.tsv": "21153b4acc957431a01a5395da407004aab41c7ee4966760e7af93ee712073c6",
+      "java-runtime.txt": "859b3ffb9c425b712f3601ec41cdb1dbb1838cf3b8853f926e7be2813850af6e",
+      "source.sha256": "c0309ecf22c6bcf2b9909ea28b886776e8db59c71033da0309120d80db6664c1"
+    }
+  },
+  "invocations": [
+    "#!/bin/bash\nset -euo pipefail\ncd __LOCAL_HOME__/Projects/JavaProjects/docweave\nclasspath=\"$(cat /tmp/docweave-validation-classpath.txt)\"\nfor module in docweave-core docweave-pdf docweave-layout-onnx; do classpath=\"$PWD/$module/target/classes:$classpath\"; done\nfor version in 21 25; do\n if [ \"$version\" = 21 ]; then jdk=/tmp/docweave-jdk21; else jdk=__LOCAL_HOME__/.sdkman/candidates/java/25.0.4-amzn; fi\n classes=\"/tmp/docweave-capture-scan-classes-java$version\"\n mkdir -p \"$classes\"\n \"$jdk/bin/javac\" --release 21 -cp \"$classpath\" -d \"$classes\" benchmarks/tools/CaptureDetectedTableInput.java\n \"$jdk/bin/javadoc\" -quiet -Xdoclint:all -Werror -cp \"$classpath\" -d \"$classes/javadoc\" benchmarks/tools/CaptureDetectedTableInput.java\n \"$jdk/bin/java\" -Djava.awt.headless=true -cp \"$classes:$classpath\" dev.docweave.layout.CaptureDetectedTableInput /tmp/docweave-ctdar/cTDaR_s103.jpg \"/tmp/docweave-capture-s103-final-java$version\" /tmp/docweave-table-models/detection/detection.onnx 0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9 /tmp/docweave-table-models/structure-all/structure.onnx ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990\n echo \"Capture Java$version complete\"\ndone\n",
+    "#!/bin/bash\nset -euo pipefail\ncd __LOCAL_HOME__/Projects/JavaProjects/docweave\nclasspath=\"$(cat /tmp/docweave-validation-classpath.txt)\"\nfor module in docweave-core docweave-pdf docweave-layout-onnx; do classpath=\"$PWD/$module/target/classes:$classpath\"; done\nfor version in 21 25; do\n if [ \"$version\" = 21 ]; then jdk=/tmp/docweave-jdk21; else jdk=__LOCAL_HOME__/.sdkman/candidates/java/25.0.4-amzn; fi\n classes=\"/tmp/docweave-capture-scan-classes-java$version\"\n mkdir -p \"$classes\"\n \"$jdk/bin/javac\" --release 21 -cp \"$classpath\" -d \"$classes\" benchmarks/tools/CaptureDetectedTableInput.java\n \"$jdk/bin/javadoc\" -quiet -Xdoclint:all -Werror -cp \"$classpath\" -d \"$classes/javadoc\" benchmarks/tools/CaptureDetectedTableInput.java\n \"$jdk/bin/java\" -Djava.awt.headless=true -cp \"$classes:$classpath\" dev.docweave.layout.CaptureDetectedTableInput /tmp/docweave-ctdar/cTDaR_s003.jpg \"/tmp/docweave-capture-s003-java$version\" /tmp/docweave-table-models/detection/detection.onnx 0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9 /tmp/docweave-table-models/structure-all/structure.onnx ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990\n echo \"Capture Java$version complete\"\ndone\n"
+  ],
+  "limitations": [
+    "No OCR invocation, orientation correction or transcription comparison in the diagnostic. Existing end-to-end orientation abstains for both sources.",
+    "Crop geometry and predictions use unchanged defaults except explicit KEEP_HIGHER_SCORE.",
+    "The standalone diagnostic shares call deadline/work but is not an aggregate multi-crop resource-limit test.",
+    "Source annotations are not passed to model inference. No source rasters or text redistributed."
+  ],
+  "_public_projection": {
+    "original_sha256": "d8953f41662a300508e573f263209840c82e8c8812ac051d7918107602295948",
+    "status": "Derived documentation/path projection; historical measurements and embedded fingerprints unchanged"
+  }
+}

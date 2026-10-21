@@ -1,0 +1,700 @@
+﻿{
+    "status":  "observations_collected_human_review_pending",
+    "manifest_sha256":  "6553389892d0141f938c27910b6780fd828ed614cb2e8124c93b61439db9cdea",
+    "collected_at_utc":  "2026-10-15T09:53:00.4059568Z",
+    "word_version":  "16.0",
+    "word_build":  "16.0.20430",
+    "platform":  "Microsoft Windows NT 10.0.26300.0",
+    "cases":  [
+                  {
+                      "file":  "numbering-original-order.docx",
+                      "sha256":  "c24c1f3d5dcd76088dde21d59fdef57454b01f4ccda7d2b4e2d96d21ce8bdb7d",
+                      "cells":  [
+                                    {
+                                        "row":  0,
+                                        "column":  0,
+                                        "text":  "numbering-original-order-r0c0",
+                                        "outline_level":  4,
+                                        "list_string":  "1."
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  1,
+                                        "text":  "numbering-original-order-r0c1",
+                                        "outline_level":  4,
+                                        "list_string":  "2."
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  2,
+                                        "text":  "numbering-original-order-r0c2",
+                                        "outline_level":  4,
+                                        "list_string":  "3."
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  0,
+                                        "text":  "numbering-original-order-r1c0",
+                                        "outline_level":  9,
+                                        "list_string":  "4."
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  1,
+                                        "text":  "numbering-original-order-r1c1",
+                                        "outline_level":  9,
+                                        "list_string":  "5."
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  2,
+                                        "text":  "numbering-original-order-r1c2",
+                                        "outline_level":  9,
+                                        "list_string":  "6."
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  0,
+                                        "text":  "numbering-original-order-r2c0",
+                                        "outline_level":  9,
+                                        "list_string":  "7."
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  1,
+                                        "text":  "numbering-original-order-r2c1",
+                                        "outline_level":  9,
+                                        "list_string":  "8."
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  2,
+                                        "text":  "numbering-original-order-r2c2",
+                                        "outline_level":  9,
+                                        "list_string":  "9."
+                                    }
+                                ]
+                  },
+                  {
+                      "file":  "numbering-numpr-first.docx",
+                      "sha256":  "1cb35523f0bcbf5692dfcc1dd4e1474f2ac9b485ca429db45aeade61b9f554df",
+                      "cells":  [
+                                    {
+                                        "row":  0,
+                                        "column":  0,
+                                        "text":  "numbering-numpr-first-r0c0",
+                                        "outline_level":  4,
+                                        "list_string":  "1."
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  1,
+                                        "text":  "numbering-numpr-first-r0c1",
+                                        "outline_level":  4,
+                                        "list_string":  "2."
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  2,
+                                        "text":  "numbering-numpr-first-r0c2",
+                                        "outline_level":  4,
+                                        "list_string":  "3."
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  0,
+                                        "text":  "numbering-numpr-first-r1c0",
+                                        "outline_level":  9,
+                                        "list_string":  "4."
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  1,
+                                        "text":  "numbering-numpr-first-r1c1",
+                                        "outline_level":  9,
+                                        "list_string":  "5."
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  2,
+                                        "text":  "numbering-numpr-first-r1c2",
+                                        "outline_level":  9,
+                                        "list_string":  "6."
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  0,
+                                        "text":  "numbering-numpr-first-r2c0",
+                                        "outline_level":  9,
+                                        "list_string":  "7."
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  1,
+                                        "text":  "numbering-numpr-first-r2c1",
+                                        "outline_level":  9,
+                                        "list_string":  "8."
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  2,
+                                        "text":  "numbering-numpr-first-r2c2",
+                                        "outline_level":  9,
+                                        "list_string":  "9."
+                                    }
+                                ]
+                  },
+                  {
+                      "file":  "override-original-order.docx",
+                      "sha256":  "4481283f151a854e492a9872de7dfa90b8b8c1fbf023ee8116e85d72592349b3",
+                      "cells":  [
+                                    {
+                                        "row":  0,
+                                        "column":  0,
+                                        "text":  "override-original-order-r0c0",
+                                        "outline_level":  4,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  1,
+                                        "text":  "override-original-order-r0c1",
+                                        "outline_level":  4,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  2,
+                                        "text":  "override-original-order-r0c2",
+                                        "outline_level":  4,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  0,
+                                        "text":  "override-original-order-r1c0",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  1,
+                                        "text":  "override-original-order-r1c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  2,
+                                        "text":  "override-original-order-r1c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  0,
+                                        "text":  "override-original-order-r2c0",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  1,
+                                        "text":  "override-original-order-r2c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  2,
+                                        "text":  "override-original-order-r2c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    }
+                                ]
+                  },
+                  {
+                      "file":  "override-numpr-first.docx",
+                      "sha256":  "0b73b3e343a65b7b94ae40f47721ee3433733a13d02f96f0e4152538f50d9d7b",
+                      "cells":  [
+                                    {
+                                        "row":  0,
+                                        "column":  0,
+                                        "text":  "override-numpr-first-r0c0",
+                                        "outline_level":  4,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  1,
+                                        "text":  "override-numpr-first-r0c1",
+                                        "outline_level":  4,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  2,
+                                        "text":  "override-numpr-first-r0c2",
+                                        "outline_level":  4,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  0,
+                                        "text":  "override-numpr-first-r1c0",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  1,
+                                        "text":  "override-numpr-first-r1c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  2,
+                                        "text":  "override-numpr-first-r1c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  0,
+                                        "text":  "override-numpr-first-r2c0",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  1,
+                                        "text":  "override-numpr-first-r2c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  2,
+                                        "text":  "override-numpr-first-r2c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    }
+                                ]
+                  },
+                  {
+                      "file":  "plain-direct-body.docx",
+                      "sha256":  "d0cc9000f57914abac138c5a04678b25b5a39bc96183cc5d70096c3ee1b05d11",
+                      "cells":  [
+                                    {
+                                        "row":  0,
+                                        "column":  0,
+                                        "text":  "plain-direct-body-r0c0",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  1,
+                                        "text":  "plain-direct-body-r0c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  2,
+                                        "text":  "plain-direct-body-r0c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  0,
+                                        "text":  "plain-direct-body-r1c0",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  1,
+                                        "text":  "plain-direct-body-r1c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  2,
+                                        "text":  "plain-direct-body-r1c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  0,
+                                        "text":  "plain-direct-body-r2c0",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  1,
+                                        "text":  "plain-direct-body-r2c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  2,
+                                        "text":  "plain-direct-body-r2c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    }
+                                ]
+                  },
+                  {
+                      "file":  "conditional-outline-only.docx",
+                      "sha256":  "58e11a197068ae41b238aa7a8ae089c1d8bdab01ce5cb2a506e7ddaaf90a813f",
+                      "cells":  [
+                                    {
+                                        "row":  0,
+                                        "column":  0,
+                                        "text":  "conditional-outline-only-r0c0",
+                                        "outline_level":  4,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  1,
+                                        "text":  "conditional-outline-only-r0c1",
+                                        "outline_level":  4,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  2,
+                                        "text":  "conditional-outline-only-r0c2",
+                                        "outline_level":  4,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  0,
+                                        "text":  "conditional-outline-only-r1c0",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  1,
+                                        "text":  "conditional-outline-only-r1c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  2,
+                                        "text":  "conditional-outline-only-r1c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  0,
+                                        "text":  "conditional-outline-only-r2c0",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  1,
+                                        "text":  "conditional-outline-only-r2c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  2,
+                                        "text":  "conditional-outline-only-r2c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    }
+                                ]
+                  },
+                  {
+                      "file":  "conditional-direct-body.docx",
+                      "sha256":  "87cee6766919a516a8454d6111dc45058249b6d621c9747de852906ee16bbb51",
+                      "cells":  [
+                                    {
+                                        "row":  0,
+                                        "column":  0,
+                                        "text":  "conditional-direct-body-r0c0",
+                                        "outline_level":  4,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  1,
+                                        "text":  "conditional-direct-body-r0c1",
+                                        "outline_level":  4,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  2,
+                                        "text":  "conditional-direct-body-r0c2",
+                                        "outline_level":  4,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  0,
+                                        "text":  "conditional-direct-body-r1c0",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  1,
+                                        "text":  "conditional-direct-body-r1c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  2,
+                                        "text":  "conditional-direct-body-r1c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  0,
+                                        "text":  "conditional-direct-body-r2c0",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  1,
+                                        "text":  "conditional-direct-body-r2c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  2,
+                                        "text":  "conditional-direct-body-r2c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    }
+                                ]
+                  },
+                  {
+                      "file":  "numbering-distinct-abstract.docx",
+                      "sha256":  "143e6b39775ea5db5c06b2a3cd257384bb363b498ba3407b07cc49f5841ac759",
+                      "cells":  [
+                                    {
+                                        "row":  0,
+                                        "column":  0,
+                                        "text":  "numbering-distinct-abstract-r0c0",
+                                        "outline_level":  4,
+                                        "list_string":  "1."
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  1,
+                                        "text":  "numbering-distinct-abstract-r0c1",
+                                        "outline_level":  4,
+                                        "list_string":  "2."
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  2,
+                                        "text":  "numbering-distinct-abstract-r0c2",
+                                        "outline_level":  4,
+                                        "list_string":  "3."
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  0,
+                                        "text":  "numbering-distinct-abstract-r1c0",
+                                        "outline_level":  9,
+                                        "list_string":  "1."
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  1,
+                                        "text":  "numbering-distinct-abstract-r1c1",
+                                        "outline_level":  9,
+                                        "list_string":  "2."
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  2,
+                                        "text":  "numbering-distinct-abstract-r1c2",
+                                        "outline_level":  9,
+                                        "list_string":  "3."
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  0,
+                                        "text":  "numbering-distinct-abstract-r2c0",
+                                        "outline_level":  9,
+                                        "list_string":  "4."
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  1,
+                                        "text":  "numbering-distinct-abstract-r2c1",
+                                        "outline_level":  9,
+                                        "list_string":  "5."
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  2,
+                                        "text":  "numbering-distinct-abstract-r2c2",
+                                        "outline_level":  9,
+                                        "list_string":  "6."
+                                    }
+                                ]
+                  },
+                  {
+                      "file":  "numbering-explicit-restart.docx",
+                      "sha256":  "0422c558b79afcdf951feb04cf6c3bfafe27fb9e07230b4ea599fa0042585ae1",
+                      "cells":  [
+                                    {
+                                        "row":  0,
+                                        "column":  0,
+                                        "text":  "numbering-explicit-restart-r0c0",
+                                        "outline_level":  4,
+                                        "list_string":  "1."
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  1,
+                                        "text":  "numbering-explicit-restart-r0c1",
+                                        "outline_level":  4,
+                                        "list_string":  "2."
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  2,
+                                        "text":  "numbering-explicit-restart-r0c2",
+                                        "outline_level":  4,
+                                        "list_string":  "3."
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  0,
+                                        "text":  "numbering-explicit-restart-r1c0",
+                                        "outline_level":  9,
+                                        "list_string":  "1."
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  1,
+                                        "text":  "numbering-explicit-restart-r1c1",
+                                        "outline_level":  9,
+                                        "list_string":  "2."
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  2,
+                                        "text":  "numbering-explicit-restart-r1c2",
+                                        "outline_level":  9,
+                                        "list_string":  "3."
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  0,
+                                        "text":  "numbering-explicit-restart-r2c0",
+                                        "outline_level":  9,
+                                        "list_string":  "4."
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  1,
+                                        "text":  "numbering-explicit-restart-r2c1",
+                                        "outline_level":  9,
+                                        "list_string":  "5."
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  2,
+                                        "text":  "numbering-explicit-restart-r2c2",
+                                        "outline_level":  9,
+                                        "list_string":  "6."
+                                    }
+                                ]
+                  },
+                  {
+                      "file":  "direct-numbering-shared.docx",
+                      "sha256":  "715900aee75db800b61d1b04df184224fd0244ec556ef7ce24c704e04eeb33fc",
+                      "cells":  [
+                                    {
+                                        "row":  0,
+                                        "column":  0,
+                                        "text":  "direct-numbering-shared-r0c0",
+                                        "outline_level":  4,
+                                        "list_string":  "1."
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  1,
+                                        "text":  "direct-numbering-shared-r0c1",
+                                        "outline_level":  4,
+                                        "list_string":  "2."
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  2,
+                                        "text":  "direct-numbering-shared-r0c2",
+                                        "outline_level":  4,
+                                        "list_string":  "3."
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  0,
+                                        "text":  "direct-numbering-shared-r1c0",
+                                        "outline_level":  9,
+                                        "list_string":  "4."
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  1,
+                                        "text":  "direct-numbering-shared-r1c1",
+                                        "outline_level":  9,
+                                        "list_string":  "5."
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  2,
+                                        "text":  "direct-numbering-shared-r1c2",
+                                        "outline_level":  9,
+                                        "list_string":  "6."
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  0,
+                                        "text":  "direct-numbering-shared-r2c0",
+                                        "outline_level":  9,
+                                        "list_string":  "7."
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  1,
+                                        "text":  "direct-numbering-shared-r2c1",
+                                        "outline_level":  9,
+                                        "list_string":  "8."
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  2,
+                                        "text":  "direct-numbering-shared-r2c2",
+                                        "outline_level":  9,
+                                        "list_string":  "9."
+                                    }
+                                ]
+                  }
+              ]
+}

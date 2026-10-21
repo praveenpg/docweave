@@ -1,0 +1,10 @@
+{
+  "base_commit": "92c1bd3",
+  "stage": "frozen before first original association run",
+  "identities": {
+    "benchmarks/tools/ScoreFigureAssociations.java": "a4ae39aafa2b4850dda3dd60a4b5b4d9be765655169ecf2cf0e10a735d585544",
+    "benchmarks/review/pdf-figure-association-geometry/reference.json": "b899426473414e580b105baea14dbcb0d698598d72cf81835564431ec1c479e3",
+    "docweave-pdf/src/main/java/dev/docweave/partition/ImageAdjacentPdfFigureCaptions.java": "ee9d4f387447e43f0eddb183e0cb355283920a5f637899ab10e9c661bfae234f",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfFigureCaptionDetection.java": "de560575814ecb3a7853d7da13bf178f689e86f297ce3c0770c10e45f34ae652"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "scope" : "Numeric source-parent audit only; no table/cell/row labels or normalization changes. Same complete original pipeline, original selected pages, native-first pinned model configuration. No publisher text redistributed.",
+  "pages" : [ {
+    "table_count" : 1,
+    "source_page" : 4,
+    "tables" : [ {
+      "coordinates" : {
+        "layout_height" : 842.0,
+        "points" : [ [ 56.79031753540039, 532.4464721679688 ], [ 557.056396484375, 532.4464721679688 ], [ 557.056396484375, 798.7445678710938 ], [ 56.79031753540039, 798.7445678710938 ] ],
+        "layout_width" : 595.0,
+        "system" : "PDFUserSpace"
+      },
+      "cell_descriptor_keys" : [ "column_count", "version", "cells", "geometry", "row_count" ],
+      "row_count" : 12,
+      "column_count" : 5
+    } ]
+  }, {
+    "table_count" : 1,
+    "source_page" : 5,
+    "tables" : [ {
+      "coordinates" : {
+        "layout_height" : 842.0,
+        "points" : [ [ 56.139469146728516, 26.576635360717773 ], [ 557.4862060546875, 26.576635360717773 ], [ 557.4862060546875, 751.2792358398438 ], [ 56.139469146728516, 751.2792358398438 ] ],
+        "layout_width" : 595.0,
+        "system" : "PDFUserSpace"
+      },
+      "cell_descriptor_keys" : [ "column_count", "version", "cells", "geometry", "row_count" ],
+      "row_count" : 32,
+      "column_count" : 5
+    } ]
+  }, {
+    "table_count" : 1,
+    "source_page" : 6,
+    "tables" : [ {
+      "coordinates" : {
+        "layout_height" : 842.0,
+        "points" : [ [ 307.79888916015625, 457.0765075683594 ], [ 557.5942993164062, 457.0765075683594 ], [ 557.5942993164062, 796.82958984375 ], [ 307.79888916015625, 796.82958984375 ] ],
+        "layout_width" : 595.0,
+        "system" : "PDFUserSpace"
+      },
+      "cell_descriptor_keys" : [ "column_count", "version", "cells", "geometry", "row_count" ],
+      "row_count" : 12,
+      "column_count" : 4
+    } ]
+  }, {
+    "table_count" : 1,
+    "source_page" : 7,
+    "tables" : [ {
+      "coordinates" : {
+        "layout_height" : 842.0,
+        "points" : [ [ 56.465370178222656, 58.37441635131836 ], [ 558.5821533203125, 58.37441635131836 ], [ 558.5821533203125, 628.217041015625 ], [ 56.465370178222656, 628.217041015625 ] ],
+        "layout_width" : 595.0,
+        "system" : "PDFUserSpace"
+      },
+      "cell_descriptor_keys" : [ "column_count", "version", "cells", "geometry", "row_count" ],
+      "row_count" : 26,
+      "column_count" : 5
+    } ]
+  } ]
+}

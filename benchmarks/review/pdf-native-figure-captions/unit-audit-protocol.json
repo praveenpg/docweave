@@ -1,0 +1,11 @@
+{
+  "scope": "Stricter entire-unit audit after fixed primary evaluation. All original references and nine case/profiles retained. Exact unit must equal original publisher label plus complete unchanged caption under ASCII-whitespace-only normalization, with no extra prefix/suffix tolerance. Existing baseline serializer reused unchanged and every caption hash checked before extraction. No new threshold or policy tuning.",
+  "identities": {
+    "benchmarks/tools/AuditCaptionUnitBoundaries.java": "ac5b3fa5d9e3cc968871ed3ea2a852b1bdb19840dd23409a9349794ca3540a5c",
+    "benchmarks/tools/ScorePublisherCaptions.java": "15da2ee385d0ecf84349e94f98909fa856d3732fefcaea19b7329e1e069873b3",
+    "benchmarks/review/pdf-publisher-figure-inventory/baseline-java21.json": "9d65a2b15d5157e138e59864869a7de164103eecb44d51ad5da723de538ebb8d",
+    "benchmarks/review/pdf-native-figure-captions/manifest.json": "59e6edcda2dc80ff03ec335f920cab1f84a2878c62fd2880bb669c74a7fbdd16"
+  },
+  "reference_captions_per_profile": 10,
+  "expected_case_profiles": 9
+}

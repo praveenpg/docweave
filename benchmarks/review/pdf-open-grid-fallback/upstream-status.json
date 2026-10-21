@@ -1,0 +1,26 @@
+{
+  "latest_release" : "0.27.28",
+  "release_commit" : "1b02b4d189c260ed9b1aca29583203e233d853cb",
+  "responses" : [ {
+    "sha256" : "9e0e004fce233b24756a3d0942536cce1bca8e0a58fc00a78827fd3f622778d2",
+    "url" : "https://api.github.com/repos/Unstructured-IO/unstructured/releases/latest",
+    "etag" : "W/\"488b744cc75fcdaabe7221e3a8433177bccb6ae611db7cb27f75c0d47348efb8\""
+  }, {
+    "sha256" : "2b82c989ff1219d56e69c128c27756137c830761e4de716c9f16e06fa74c6fdf",
+    "url" : "https://api.github.com/repos/Unstructured-IO/unstructured/commits/main",
+    "etag" : "W/\"d9a4b2e849859c372da1075598a650c87bfb832b0b5cdf0755303ed6e68b7ab5\""
+  }, {
+    "sha256" : "6c4e7255497da82ace9596a84c58a04aaeeaca8d4489d6584215cf60915b9235",
+    "url" : "https://api.github.com/repos/Unstructured-IO/unstructured/compare/347fbbfd3e84e228017f125e5c5dbdc326ef7de2...1b02b4d189c260ed9b1aca29583203e233d853cb",
+    "etag" : "W/\"514a9bd035940c937600385a9b4470214fd73eb4cbf4c68bcd27a78bddc70d41\""
+  }, {
+    "sha256" : "2b82c989ff1219d56e69c128c27756137c830761e4de716c9f16e06fa74c6fdf",
+    "url" : "https://api.github.com/repos/Unstructured-IO/unstructured/commits/0.27.28",
+    "etag" : "W/\"d9a4b2e849859c372da1075598a650c87bfb832b0b5cdf0755303ed6e68b7ab5\""
+  } ],
+  "changed_paths" : [ ".github/workflows/ci.yml", "CHANGELOG.md", "Makefile", "pyproject.toml", "test_unstructured/partition/common/test_lang.py", "test_unstructured/partition/html/test_convert.py", "test_unstructured/partition/html/test_parser.py", "test_unstructured/partition/html/test_partition.py", "test_unstructured/partition/test_docx.py", "test_unstructured/partition/test_xlsx.py", "test_unstructured/partition/utils/ocr_models/test_ocr_interface.py", "test_unstructured/partition/utils/test_config.py", "unstructured/__version__.py", "unstructured/documents/html_sanitization.py", "unstructured/partition/common/lang.py", "unstructured/partition/docx.py", "unstructured/partition/html/parser.py", "unstructured/partition/utils/config.py", "unstructured/partition/utils/ocr_models/ocr_interface.py", "unstructured/partition/xlsx.py", "uv.lock" ],
+  "ahead_by" : 6,
+  "checked_at" : "2026-10-17T08:35:58.599686571Z",
+  "reference_commit" : "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",
+  "main_commit" : "1b02b4d189c260ed9b1aca29583203e233d853cb"
+}

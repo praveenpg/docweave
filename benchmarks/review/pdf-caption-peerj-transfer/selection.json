@@ -1,0 +1,12 @@
+{
+  "scope": "Prospective frozen-code transfer to a new publisher before any DocWeave extraction. First official PeerJ result for query site:peerj.com/articles/ \"2026\" \"Figure 1\". Retain the selected source even if inaccessible or unsupported. Whole original PDF, all main-body publisher figures/captions, same fixed native/column/source-tagged profiles and unchanged scorer. No source/strategy winner selection, repaired captions or reference-guided crops. This is not independently human-reviewed heldout acceptance.",
+  "code_commit": "4616a4d",
+  "doi": "10.7717/peerj.21002",
+  "article_url": "https://peerj.com/articles/21002/",
+  "pdf_url": "https://peerj.com/articles/21002.pdf",
+  "xml_url": "https://peerj.com/articles/21002.xml",
+  "xml_url_status": "Standard publisher endpoint; must confirm successful original JATS before evaluation",
+  "landing_page_observation": "Official landing-page fetch returned HTTP403; do not bypass access controls or infer extraction failure",
+  "source_license_status": "Verify from original publisher XML before any redistribution; source bytes remain outside Git",
+  "raw_sources_redistributed": false
+}

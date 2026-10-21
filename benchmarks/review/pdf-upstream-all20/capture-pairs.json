@@ -1,0 +1,382 @@
+[
+  {
+    "input": "PMC4840965_004_00.png",
+    "runtimes": {
+      "21": [
+        "21.0.12.1+12-LTS",
+        "Amazon.com Inc."
+      ],
+      "25": [
+        "25.0.4+7-LTS",
+        "Amazon.com Inc."
+      ]
+    },
+    "identical_capture_sha256": {
+      "render.png": "f73c2ebe16caa73f22a20323eaafb594bdb10863eb11148af3ef658bbc93219e",
+      "objects.tsv": "ebcbf03018d916d8bbf31dea55c156cbc10ff89157b1bccc4cbe003e3216a91f",
+      "docweave-tables.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "source.sha256": "54c86592f56631ece5602e1ba6e553f73e77ce19931ceb69e30bb1493c0e86a6"
+    }
+  },
+  {
+    "input": "PMC4517499_004_00.png",
+    "runtimes": {
+      "21": [
+        "21.0.12.1+12-LTS",
+        "Amazon.com Inc."
+      ],
+      "25": [
+        "25.0.4+7-LTS",
+        "Amazon.com Inc."
+      ]
+    },
+    "identical_capture_sha256": {
+      "render.png": "f5d5467f4dc91e81183468ea4edcfc745130748c53f2058f619d7cc00f4bbf88",
+      "objects.tsv": "ca5736eff383cdc33d18266a5e548b123078caf3c7544181515a7060a7c2a6c1",
+      "docweave-tables.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "source.sha256": "21c22268fc5cc2de39d03eaa0720e8a130d5265397fd38b8db965aa4973f3c74"
+    }
+  },
+  {
+    "input": "PMC4776821_005_00.png",
+    "runtimes": {
+      "21": [
+        "21.0.12.1+12-LTS",
+        "Amazon.com Inc."
+      ],
+      "25": [
+        "25.0.4+7-LTS",
+        "Amazon.com Inc."
+      ]
+    },
+    "identical_capture_sha256": {
+      "render.png": "ef0b7cf0f4c49a45f8ef52fdd48c0ff0ab1c40cb7b6c55be330c3aef49b56b80",
+      "objects.tsv": "192372ab34b71e691d8a83c34b6aa4235a1d8b6dca1dc2de2f083e3ea2e4c7b1",
+      "docweave-tables.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "source.sha256": "04f09ee1150e09168c3885677067135355ab222a19408caf9b850766e3ee1cae"
+    }
+  },
+  {
+    "input": "PMC1626454_002_00.png",
+    "runtimes": {
+      "21": [
+        "21.0.12.1+12-LTS",
+        "Amazon.com Inc."
+      ],
+      "25": [
+        "25.0.4+7-LTS",
+        "Amazon.com Inc."
+      ]
+    },
+    "identical_capture_sha256": {
+      "render.png": "253fd44d33c8c53d308664177f99542e72c64e03b2c9cc282bbe879321edca47",
+      "objects.tsv": "2e4111bf0b5a369b38c124e659ebccd97cd5505b4042eb1d54aff158351ab19e",
+      "docweave-tables.txt": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+      "source.sha256": "2443dde3b0e074fe6a8efe595d1aa784a49ae3271b88ddb13b8dc9bf96aecc6d"
+    }
+  },
+  {
+    "input": "PMC2838834_005_00.png",
+    "runtimes": {
+      "21": [
+        "21.0.12.1+12-LTS",
+        "Amazon.com Inc."
+      ],
+      "25": [
+        "25.0.4+7-LTS",
+        "Amazon.com Inc."
+      ]
+    },
+    "identical_capture_sha256": {
+      "render.png": "a5319b855c83c520f2c2f4539caa4b868a3a8f9acbe43d919f023efb034b682a",
+      "objects.tsv": "da72accc93a7997dcd5bf8786ea57ab99a45397e95636aff325ae6f159128e63",
+      "docweave-tables.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "source.sha256": "ff2101140237c82f56043c4cc2eb7b93fdba8345e1f2b6f257a35691cbbd372c"
+    }
+  },
+  {
+    "input": "PMC5897438_004_00.png",
+    "runtimes": {
+      "21": [
+        "21.0.12.1+12-LTS",
+        "Amazon.com Inc."
+      ],
+      "25": [
+        "25.0.4+7-LTS",
+        "Amazon.com Inc."
+      ]
+    },
+    "identical_capture_sha256": {
+      "render.png": "3dcebcbe475103f5d6b53ac25eb85fea4256bba9eb07a5b3b495c14e2f32a15f",
+      "objects.tsv": "0f7ab9556407dcac9aec22259c1d4582479283e12b81e3254b02bc7b311ed30b",
+      "docweave-tables.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "source.sha256": "132252772140275fa286dff325c99c21d62074021375d3f5ff526bfebddf367e"
+    }
+  },
+  {
+    "input": "PMC3907710_006_00.png",
+    "runtimes": {
+      "21": [
+        "21.0.12.1+12-LTS",
+        "Amazon.com Inc."
+      ],
+      "25": [
+        "25.0.4+7-LTS",
+        "Amazon.com Inc."
+      ]
+    },
+    "identical_capture_sha256": {
+      "render.png": "4e3bfa833f83e53d7a0f9ddd1e2aefdf7777c14cf90d7c891aa445e343e4c7f8",
+      "objects.tsv": "8466093ae3ab74071eca894af2541da64715f37e01c5b73db59bb625d01f4301",
+      "docweave-tables.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "source.sha256": "1cea58192b10d706d341453aeda50a4d9c2980428174844f4c1d14f562e35a60"
+    }
+  },
+  {
+    "input": "PMC3519711_003_00.png",
+    "runtimes": {
+      "21": [
+        "21.0.12.1+12-LTS",
+        "Amazon.com Inc."
+      ],
+      "25": [
+        "25.0.4+7-LTS",
+        "Amazon.com Inc."
+      ]
+    },
+    "identical_capture_sha256": {
+      "render.png": "239ead0ead20c00cce8151d013c8757fdb1a2c26cd9dc806b90cd7b5aa51e609",
+      "objects.tsv": "341abd758de554b5b2584231f69c9ed94275a0f774a59dc8b92a84e2723388f3",
+      "docweave-tables.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "source.sha256": "10fb92fc944fc89cfd005261a049e0e2b612a52c0a0cc3fd57864391c97c9e04"
+    }
+  },
+  {
+    "input": "PMC5198506_004_00.png",
+    "runtimes": {
+      "21": [
+        "21.0.12.1+12-LTS",
+        "Amazon.com Inc."
+      ],
+      "25": [
+        "25.0.4+7-LTS",
+        "Amazon.com Inc."
+      ]
+    },
+    "identical_capture_sha256": {
+      "render.png": "bfe6b5256485707f37542a1613dd7dedf39d72f42231bd34514d089aabb3ca98",
+      "objects.tsv": "f8f4b803e68397b57ff31d8836d1ba80f07c3e74437f720205b865c58715a82e",
+      "docweave-tables.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "source.sha256": "bef751ac1af9135344a7867578d0da266cd319c3dc1cded7e06f45354a0166b8"
+    }
+  },
+  {
+    "input": "PMC5679144_002_01.png",
+    "runtimes": {
+      "21": [
+        "21.0.12.1+12-LTS",
+        "Amazon.com Inc."
+      ],
+      "25": [
+        "25.0.4+7-LTS",
+        "Amazon.com Inc."
+      ]
+    },
+    "identical_capture_sha256": {
+      "render.png": "c7a358173346715e7a26eb7d5b52c878dedfd4b230d2edd6990f7c5b5a5a6da2",
+      "objects.tsv": "ea9f71fb97da07b0c6fc6525724b86525df78189e1a8a9e55154291051acdbb0",
+      "docweave-tables.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "source.sha256": "a667356999e83e41b0ba1362a140e96b71eea92c3d8de05b9a3394cf37c54f71"
+    }
+  },
+  {
+    "input": "PMC5134617_013_00.png",
+    "runtimes": {
+      "21": [
+        "21.0.12.1+12-LTS",
+        "Amazon.com Inc."
+      ],
+      "25": [
+        "25.0.4+7-LTS",
+        "Amazon.com Inc."
+      ]
+    },
+    "identical_capture_sha256": {
+      "render.png": "23691fa34603881c4a3e9fcfc90d622c624ca88f55b3b1cf90fd1da185a4f984",
+      "objects.tsv": "e0706f8e6998bcae05693004487ff90f56aba53923e11fbc7e0c03ba94e787e8",
+      "docweave-tables.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "source.sha256": "f91adc90fe7153c6e0e70d8adab407bbae2f5b0c7f13a3c0647d609c371dd498"
+    }
+  },
+  {
+    "input": "PMC2753619_002_00.png",
+    "runtimes": {
+      "21": [
+        "21.0.12.1+12-LTS",
+        "Amazon.com Inc."
+      ],
+      "25": [
+        "25.0.4+7-LTS",
+        "Amazon.com Inc."
+      ]
+    },
+    "identical_capture_sha256": {
+      "render.png": "0453262888a7469f7c5c4e10fb5bc655e4c8df7bf84d59ae0905a869c0250092",
+      "objects.tsv": "1b36d5529fa731549cb2e02bc33554f28dd7a9f4f227db08c3f0a420371b4add",
+      "docweave-tables.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "source.sha256": "844119fca7b683669c74eb676689a5cfa6f78640f84096f50087e8f7474fef81"
+    }
+  },
+  {
+    "input": "PMC3826085_003_00.png",
+    "runtimes": {
+      "21": [
+        "21.0.12.1+12-LTS",
+        "Amazon.com Inc."
+      ],
+      "25": [
+        "25.0.4+7-LTS",
+        "Amazon.com Inc."
+      ]
+    },
+    "identical_capture_sha256": {
+      "render.png": "61f1094b9e3c8eb8a40023cf72d4a10b56aee69506554353c4d2ee5e831193ec",
+      "objects.tsv": "515000d775acf37a5a2497e9cac97185d92bea29ff6d3e871acbd7dc02eb697e",
+      "docweave-tables.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "source.sha256": "f9969f2401894e1e847621d4d34ee3b6ed9e47a4e224b1206a16b75313042624"
+    }
+  },
+  {
+    "input": "PMC5577841_001_00.png",
+    "runtimes": {
+      "21": [
+        "21.0.12.1+12-LTS",
+        "Amazon.com Inc."
+      ],
+      "25": [
+        "25.0.4+7-LTS",
+        "Amazon.com Inc."
+      ]
+    },
+    "identical_capture_sha256": {
+      "render.png": "3de0e8ef81f0ffa1842a7e71dc8adacada6e551fd66fac0a11ffa0375de29d73",
+      "objects.tsv": "dadf09e20e7fc51b87cacd55342079a172bb100350ae6ac9524d093c10679875",
+      "docweave-tables.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "source.sha256": "471d34f1690212ba87780028ad043bd9da1fe9276ce3949eebdce55f9626bff1"
+    }
+  },
+  {
+    "input": "PMC2759935_007_01.png",
+    "runtimes": {
+      "21": [
+        "21.0.12.1+12-LTS",
+        "Amazon.com Inc."
+      ],
+      "25": [
+        "25.0.4+7-LTS",
+        "Amazon.com Inc."
+      ]
+    },
+    "identical_capture_sha256": {
+      "render.png": "95ff81698343de7fc458b43296cc4fa61aac22b5d0a1324a91d50c8fac57ce09",
+      "objects.tsv": "9835b543daa847f3444fd4d68c9f095fac74737c2532facfb4efb9d4094469ba",
+      "docweave-tables.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "source.sha256": "b55bfc34f953a8fafab01efeb45fb028e5b7e295f7d9683776a262ae8c944721"
+    }
+  },
+  {
+    "input": "PMC4003957_018_00.png",
+    "runtimes": {
+      "21": [
+        "21.0.12.1+12-LTS",
+        "Amazon.com Inc."
+      ],
+      "25": [
+        "25.0.4+7-LTS",
+        "Amazon.com Inc."
+      ]
+    },
+    "identical_capture_sha256": {
+      "render.png": "4ac9507bd257ae6c3111bcb9c9e63a73ace191fb52bb9de74c63f15fd0cb72b3",
+      "objects.tsv": "821525d445e614239b6f677e1dff6075241f3f43dcaf9b2f2bb6a9af55cf115e",
+      "docweave-tables.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "source.sha256": "1c58302fde27a7ca63a54dd4f627af2ede600189d0226c8672091d6edd74057a"
+    }
+  },
+  {
+    "input": "PMC4682394_003_00.png",
+    "runtimes": {
+      "21": [
+        "21.0.12.1+12-LTS",
+        "Amazon.com Inc."
+      ],
+      "25": [
+        "25.0.4+7-LTS",
+        "Amazon.com Inc."
+      ]
+    },
+    "identical_capture_sha256": {
+      "render.png": "c7787fc3edb04f5820382c92d11dfe13106c497c71fcfc73704449b47065b85e",
+      "objects.tsv": "c4b6b36cbf5f4e6543faee87596c0da9f14e40dedc812db27c27d1f4eabdb897",
+      "docweave-tables.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "source.sha256": "bbc86c4af0665c5498b828b3c5798812b3cfad67e583d39f8ae61e9933859c9e"
+    }
+  },
+  {
+    "input": "PMC4172848_007_00.png",
+    "runtimes": {
+      "21": [
+        "21.0.12.1+12-LTS",
+        "Amazon.com Inc."
+      ],
+      "25": [
+        "25.0.4+7-LTS",
+        "Amazon.com Inc."
+      ]
+    },
+    "identical_capture_sha256": {
+      "render.png": "6429f278a866eb95db88f2f7153bf579aef9803cc0f428db2f8c2af8686b9614",
+      "objects.tsv": "690ceda4e85d54fafc81619935beafb7ed120c80c2db73460594bd62564235c4",
+      "docweave-tables.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "source.sha256": "f637a08e540bf7f45583dcd4f4763dca4c46a99d3ed89b5aa9c0024d43c10c86"
+    }
+  },
+  {
+    "input": "PMC5332562_005_00.png",
+    "runtimes": {
+      "21": [
+        "21.0.12.1+12-LTS",
+        "Amazon.com Inc."
+      ],
+      "25": [
+        "25.0.4+7-LTS",
+        "Amazon.com Inc."
+      ]
+    },
+    "identical_capture_sha256": {
+      "render.png": "404b74deedb5d39a22b032f12764525255d797b4fc620a417e85c182686ffe99",
+      "objects.tsv": "1439bc3053b6ef7bcde2a8591a5076ff9fee647306931e340bb58b31deb09c6f",
+      "docweave-tables.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "source.sha256": "073ba1ce24e3f00c861e094f8d244b04cdc276417994b923616fd86a2391bae4"
+    }
+  },
+  {
+    "input": "PMC5402779_004_00.png",
+    "runtimes": {
+      "21": [
+        "21.0.12.1+12-LTS",
+        "Amazon.com Inc."
+      ],
+      "25": [
+        "25.0.4+7-LTS",
+        "Amazon.com Inc."
+      ]
+    },
+    "identical_capture_sha256": {
+      "render.png": "20491260f1c4e8c3c1e4c60db0ffb061e631a45e67aede490ee27b2cf4a83154",
+      "objects.tsv": "ed5e6b8b46826b4462d9de251e4ee79dfb430475733c0669981dbc7e25e6aac8",
+      "docweave-tables.txt": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "source.sha256": "1ab932e2e24acefec249a20cbf9fc45c1d285291fb13c9eecd9fb25911082795"
+    }
+  }
+]

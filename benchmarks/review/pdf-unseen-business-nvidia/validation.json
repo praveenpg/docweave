@@ -1,0 +1,8 @@
+{
+  "reference_rows_per_profile" : 110,
+  "page_region_profiles" : 72,
+  "all_failures_and_denominators_retained" : true,
+  "case_profiles" : 36,
+  "paired_results_equal" : true,
+  "manifest_sha256" : "2c0ad481b1a42eb5edfc7e6af2d8ec6c76f5e1ab206d7d539c492b156dabb3b6"
+}

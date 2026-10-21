@@ -1,0 +1,22 @@
+{
+  "production_commit": "0833dc5a61bcd09769b3d2bd42f094868756ef18",
+  "full_tests_per_jdk": 927,
+  "explicit_case_profiles_per_jdk": 12,
+  "tooling_guards": 36,
+  "sha256": {
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfCurrentBusinessRowsTest.java": "791fa0acfea02cbfa197e98d769721614fd4d1f6c391bc38284a3c61255751ca",
+    "benchmarks/tools/AuditNativeTableGeometry.java": "39f0ab6455f065c868eeea27348195a76b884312aa19104086f8cdbe0fcbbba2",
+    "benchmarks/review/pdf-current-business-rows/manifest.json": "3656667adb4345c0b7ff0ac74f07b255cf4aa923ce7ab55a7ad13d747a732898",
+    "benchmarks/review/pdf-current-business-rows/operations-geometry-java21.json": "56c747f7538e5936e8c4fa4171c6e088154bb2baefe29e8badd02fdff2c6dda2",
+    "benchmarks/review/pdf-current-business-rows/balance-geometry-java21.json": "63f4b2f4aaabc739ea24be11ba49dfceb822df43478c20722722871c21e5ab6d",
+    "benchmarks/review/pdf-current-business-rows/operations-geometry-java25.json": "56c747f7538e5936e8c4fa4171c6e088154bb2baefe29e8badd02fdff2c6dda2",
+    "benchmarks/review/pdf-current-business-rows/balance-geometry-java25.json": "63f4b2f4aaabc739ea24be11ba49dfceb822df43478c20722722871c21e5ab6d",
+    "benchmarks/review/pdf-current-business-rows/java21.json": "51b8301ccbba0d609719ccaf0b9056d540bd937007d431b17cbb8de8831035b0",
+    "benchmarks/review/pdf-current-business-rows/java25.json": "d3a71e3138376223e716b877b90bcafd79b7057a1acec2da8721c0e64e7c8fd4"
+  },
+  "local_log_sha256": {
+    "/tmp/docweave-current-business-full21.log": "3f5173feec97bb638bb6bcffe7e0e5ac3e8e835553488f9d6c1fd5c8091acae7",
+    "/tmp/docweave-current-business-full25.log": "bc2f52aed714c9f7eb81c6d4d21b61562a90ec0a3d85ce3d8e7ca5d7e8b1e319",
+    "/tmp/docweave-current-business-tooling.log": "d8161f7e9cdad4a69e4ed9e413493aba86d900c4ef1166872d17209b8cea6059"
+  }
+}

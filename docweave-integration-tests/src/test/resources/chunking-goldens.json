@@ -1,0 +1,825 @@
+{
+  "reference": {
+    "upstream_commit": "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",
+    "python": "3.13.16",
+    "scope": "Element-only chunking on upstream-supported Python 3.11–3.13. No parser/OCR parity claimed.",
+    "source_verification": "Selected pinned implementation hashes verified before import",
+    "source_sha256": {
+      "unstructured/chunking/base.py": "076daa0ba00212217d6d9bef60156a364f3b50684ce5d5c8168f7ea8cd97ea42",
+      "unstructured/chunking/basic.py": "68d6fde873e5f744ab0527717f029bfe0c8b232df03bcba25359b466d5d77159",
+      "unstructured/chunking/title.py": "f5305324030bb77100584bb8b432b8b2110f3c280b1d697dcc2b41f65dce2f23",
+      "unstructured/documents/elements.py": "94f0f5eca1d987b2e1e5c574417e62305fae4556bb572bf95918861047954d0c",
+      "unstructured/common/html_table.py": "741e09b2b057438e1044c33b2592179e055f75e5664600657b000310caa85bd5"
+    },
+    "dependencies": {
+      "wrapt": "2.5.1",
+      "urllib3": "2.8.0",
+      "charset-normalizer": "3.5.2",
+      "lxml": "6.1.3",
+      "typing_extensions": "4.16.0",
+      "idna": "3.20",
+      "psutil": "7.2.2",
+      "regex": "2026.9.29",
+      "emoji": "2.16.0",
+      "requests": "2.34.2",
+      "certifi": "2026.7.22"
+    }
+  },
+  "cases": [
+    {
+      "name": "whole-elements",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "NarrativeText",
+          "element_id": "source-abc",
+          "text": "abc",
+          "metadata": {}
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-def",
+          "text": "def",
+          "metadata": {}
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-ghij",
+          "text": "ghij",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "max_characters": 10
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "abc\n\ndef",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "ghij",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "name": "soft-limit-equality",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "NarrativeText",
+          "element_id": "source-abc",
+          "text": "abc",
+          "metadata": {}
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-def",
+          "text": "def",
+          "metadata": {}
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-g",
+          "text": "g",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "max_characters": 20,
+        "new_after_n_chars": 3
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "abc\n\ndef",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "g",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "name": "unicode-overlap",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "NarrativeText",
+          "element_id": "source-🧵𐐀abcd",
+          "text": "🧵𐐀abcd",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "max_characters": 3,
+        "overlap": 1
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "🧵𐐀a",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "abc",
+          "metadata": {
+            "is_continuation": true
+          }
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "cd",
+          "metadata": {
+            "is_continuation": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "word-overlap",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "NarrativeText",
+          "element_id": "source-one two three four",
+          "text": "one two three four",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "max_characters": 8,
+        "overlap": 3
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "one two",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "wo three",
+          "metadata": {
+            "is_continuation": true
+          }
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "ee four",
+          "metadata": {
+            "is_continuation": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "normalized-whitespace",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "NarrativeText",
+          "element_id": "source- a\n\tb 🧵 ",
+          "text": " a\n\tb 🧵 ",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "a b 🧵",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "name": "code-formatting",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "CodeSnippet",
+          "element_id": "source-  a\n    b",
+          "text": "  a\n    b",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "  a\n    b",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "name": "strict-titles",
+      "strategy": "by_title",
+      "input": [
+        {
+          "type": "Title",
+          "element_id": "source-A",
+          "text": "A",
+          "metadata": {}
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-body",
+          "text": "body",
+          "metadata": {}
+        },
+        {
+          "type": "Title",
+          "element_id": "source-B",
+          "text": "B",
+          "metadata": {}
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-more",
+          "text": "more",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "combine_text_under_n_chars": 0
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "A\n\nbody",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "B\n\nmore",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "name": "combined-titles",
+      "strategy": "by_title",
+      "input": [
+        {
+          "type": "Title",
+          "element_id": "source-A",
+          "text": "A",
+          "metadata": {}
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-body",
+          "text": "body",
+          "metadata": {}
+        },
+        {
+          "type": "Title",
+          "element_id": "source-B",
+          "text": "B",
+          "metadata": {}
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-more",
+          "text": "more",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "A\n\nbody\n\nB\n\nmore",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "name": "page-tracking",
+      "strategy": "by_title",
+      "input": [
+        {
+          "type": "Title",
+          "element_id": "source-A",
+          "text": "A",
+          "metadata": {
+            "page_number": 8
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "source-B",
+          "text": "B",
+          "metadata": {
+            "page_number": 9
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-body",
+          "text": "body",
+          "metadata": {}
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-previous",
+          "text": "previous",
+          "metadata": {
+            "page_number": 8
+          }
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "multipage_sections": false,
+        "combine_text_under_n_chars": 0
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "A",
+          "metadata": {
+            "page_number": 8
+          }
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "B\n\nbody",
+          "metadata": {
+            "page_number": 9
+          }
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "previous",
+          "metadata": {
+            "page_number": 8
+          }
+        }
+      ]
+    },
+    {
+      "name": "table-isolation-overlap",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "NarrativeText",
+          "element_id": "source-abcdef",
+          "text": "abcdef",
+          "metadata": {}
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-ghijkl",
+          "text": "ghijkl",
+          "metadata": {}
+        },
+        {
+          "type": "Table",
+          "element_id": "source-table",
+          "text": "table",
+          "metadata": {}
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-mnopqr",
+          "text": "mnopqr",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "max_characters": 10,
+        "overlap": 2,
+        "overlap_all": true
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "abcdef",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "ef\n\nghijkl",
+          "metadata": {}
+        },
+        {
+          "type": "Table",
+          "element_id": "<generated>",
+          "text": "table",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "mnopqr",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "name": "text-table-splitting",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "Table",
+          "element_id": "source-abcdefgh",
+          "text": "abcdefgh",
+          "metadata": {
+            "parent_id": "p"
+          }
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "max_characters": 4
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "TableChunk",
+          "element_id": "<generated>",
+          "text": "abcd",
+          "metadata": {
+            "num_carried_over_header_rows": 0,
+            "table_id": "<table>",
+            "chunk_index": 0
+          }
+        },
+        {
+          "type": "TableChunk",
+          "element_id": "<generated>",
+          "text": "efgh",
+          "metadata": {
+            "is_continuation": true,
+            "num_carried_over_header_rows": 0,
+            "table_id": "<table>",
+            "chunk_index": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "table-extension",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "Table",
+          "element_id": "source-table",
+          "text": "table",
+          "metadata": {
+            "vendor": {
+              "id": 1
+            },
+            "parent_id": "p"
+          }
+        }
+      ],
+      "options": {
+        "include_orig_elements": false
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "Table",
+          "element_id": "<generated>",
+          "text": "table",
+          "metadata": {
+            "vendor": {
+              "id": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "table-chunk-input",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "TableChunk",
+          "element_id": "source-abc",
+          "text": "abc",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "Table",
+          "element_id": "<generated>",
+          "text": "abc",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "name": "original-elements",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "NarrativeText",
+          "element_id": "source-A",
+          "text": "A",
+          "metadata": {
+            "page_number": 1,
+            "languages": [
+              "eng"
+            ],
+            "parent_id": "heading"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-B",
+          "text": "B",
+          "metadata": {
+            "page_number": 2,
+            "languages": [
+              "eng",
+              "deu"
+            ]
+          }
+        }
+      ],
+      "options": {
+        "include_orig_elements": true
+      },
+      "reference_original_payloads": [
+        "eJyNjrEOwjAQQ3+luhkGGNnoBzCxVVV1ECtEakJ1vVSgin/n0gUGQIx+tmw3M6FHRNIuONpVNF6znLHe06qiCGXHysZn6jn5zB6jqYaQPLUWGYx0KccTxPhmIfJqu4BdsOjDDMVNC1uq9T6giAOLsIYJx+Ja7Muf+o8/lnDIH25t3+frH/PtE/ypVe4="
+      ],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "A\n\nB",
+          "metadata": {
+            "languages": [
+              "eng",
+              "deu"
+            ],
+            "page_number": 1,
+            "orig_elements": [
+              {
+                "element_id": "source-A",
+                "metadata": {
+                  "languages": [
+                    "eng"
+                  ],
+                  "page_number": 1,
+                  "parent_id": "heading"
+                },
+                "text": "A",
+                "type": "NarrativeText"
+              },
+              {
+                "element_id": "source-B",
+                "metadata": {
+                  "languages": [
+                    "eng",
+                    "deu"
+                  ],
+                  "page_number": 2
+                },
+                "text": "B",
+                "type": "NarrativeText"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "original-precision",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "NarrativeText",
+          "element_id": "source-point",
+          "text": "point",
+          "metadata": {
+            "coordinates": {
+              "points": [
+                [
+                  2.675,
+                  1.235
+                ],
+                [
+                  3.145,
+                  5.555
+                ]
+              ],
+              "system": "PointSpace",
+              "layout_width": 100,
+              "layout_height": 200
+            },
+            "detection_class_prob": 0.123456789
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-pixel",
+          "text": "pixel",
+          "metadata": {
+            "coordinates": {
+              "points": [
+                [
+                  2.65,
+                  1.25
+                ],
+                [
+                  3.15,
+                  5.55
+                ]
+              ],
+              "system": "PixelSpace",
+              "layout_width": 100,
+              "layout_height": 200
+            }
+          }
+        }
+      ],
+      "options": {
+        "include_orig_elements": true
+      },
+      "reference_original_payloads": [
+        "eJy1j8FqwzAQRH9F7NkVthOn0I8ogeRmjNlISy2wLSOt05jQf68knEACOea4szO78+orUE8DjdwaDV8CvJ2doo/JmpEhEzAQo0bGsLuCstZpMyKTT3OPi5257cj8dByUMs9DZFV/jeYuiEUS08GYqutS7j4zUchy22Si3siiykQlq6oJI/jFMw2xyT4mDhMqgr+w0MSk2NixVT16307OnoItl0W52e6ig+kSS8C9Oy8TReEbnUM2ZzpGR7C+gjYX6t8HnZhX5ET8DBzfr8APPLdaL3iaf/R3jzo="
+      ],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "point\n\npixel",
+          "metadata": {
+            "orig_elements": [
+              {
+                "element_id": "source-point",
+                "metadata": {
+                  "coordinates": {
+                    "layout_height": 200,
+                    "layout_width": 100,
+                    "points": [
+                      [
+                        2.67,
+                        1.24
+                      ],
+                      [
+                        3.15,
+                        5.55
+                      ]
+                    ],
+                    "system": "PointSpace"
+                  },
+                  "detection_class_prob": 0.12346
+                },
+                "text": "point",
+                "type": "NarrativeText"
+              },
+              {
+                "element_id": "source-pixel",
+                "metadata": {
+                  "coordinates": {
+                    "layout_height": 200,
+                    "layout_width": 100,
+                    "points": [
+                      [
+                        2.6,
+                        1.2
+                      ],
+                      [
+                        3.1,
+                        5.5
+                      ]
+                    ],
+                    "system": "PixelSpace"
+                  }
+                },
+                "text": "pixel",
+                "type": "NarrativeText"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "metadata-lists",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "NarrativeText",
+          "element_id": "source-A",
+          "text": "A",
+          "metadata": {
+            "link_texts": [
+              "a"
+            ],
+            "text_as_html": " <p>a</p> ",
+            "vendor": {
+              "extra": 1
+            }
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-B",
+          "text": "B",
+          "metadata": {
+            "link_texts": [
+              "b"
+            ],
+            "text_as_html": " <p>b</p> "
+          }
+        }
+      ],
+      "options": {
+        "include_orig_elements": false
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "A\n\nB",
+          "metadata": {
+            "link_texts": [
+              "a",
+              "b"
+            ],
+            "text_as_html": "<p>a</p> <p>b</p>"
+          }
+        }
+      ]
+    },
+    {
+      "name": "empty-page-break",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "PageBreak",
+          "element_id": "source-",
+          "text": "",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false
+      },
+      "reference_original_payloads": [],
+      "expected": []
+    }
+  ]
+}

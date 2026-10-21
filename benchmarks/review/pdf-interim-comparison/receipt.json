@@ -1,0 +1,36 @@
+{
+  "docweave_commit" : "e557c43f6715cdb9b03d045b512b1c6d617e00b9",
+  "plan_sha256" : "72dea2c2b3ec08190ca8463deabd066f6f7f78ada9a404715bb812f584035f29",
+  "scientific_manifest_sha256" : "0f2583be2724d95d25f612f4a0942a4b7d7147b59f9271dd8501a21b194f9fbd",
+  "planned_source_cases" : 9,
+  "pinned_original_input_files" : 18,
+  "paired_scientific_rows" : 40,
+  "prior_docweave_rows_unchanged" : 36,
+  "prior_paired_rows_unchanged" : 28,
+  "upstream_runtime_sha256" : "7b913aaac6cfe1d925a8e955c41acc91c4751eabdcea94fec5e070d858068996",
+  "installed_upstream_pdf_source_sha256" : "0dec47c9dac28769a58f76576ccdc4795c81b4554e3d74a7329ed7e27238287e",
+  "upstream_runner_sha256" : "6778dc846e4851414fbaaff25ad3421c2dc5a8f0f351b00ca50ba9b6cc40e496",
+  "fresh_upstream_captures" : {
+    "recent" : {
+      "sha256" : "d1b8fb6f1ac81e516ef35789f3d6f37dc61f76ea750f5656a8ea984ec1ca3210",
+      "outcome" : "SUCCESS",
+      "elements" : 363
+    },
+    "next" : {
+      "sha256" : "246720978e84d634803e9a35225f97b86314872bcedf28aa3767617dd84620fe",
+      "outcome" : "SUCCESS",
+      "elements" : 295
+    },
+    "elife" : {
+      "sha256" : "42c8797dffca3d24b93ed71d8e08e1853c65c3a9a8a51621f314699038b7c76a",
+      "outcome" : "SUCCESS",
+      "elements" : 3343
+    },
+    "holdout" : {
+      "sha256" : "5e3f34b2418b4d30256c00bab821ba861d02407729ffa2de78eff5638bac1df0",
+      "outcome" : "SUCCESS",
+      "elements" : 259
+    }
+  },
+  "unexecuted_tracks_remain_pending" : true
+}

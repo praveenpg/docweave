@@ -1,0 +1,10 @@
+{
+  "change": "Isolate optional property namespace from the existing PDF reading corpus test; reference selection and scorer unchanged",
+  "initial_test_sha256": "16b79d048b9b533454b501512674b7afe47cf938e380bf446052f50c53c4ca7b",
+  "final_test_sha256": "af54f8c9e72d587180dae09ed9396c4c564dcb8006f2b259c5671f2220926b63",
+  "final_properties": [
+    "docweave.pdf.scientific.reading.cache",
+    "docweave.pdf.scientific.reading.report"
+  ],
+  "initial_and_final_case_outputs_equal": true
+}

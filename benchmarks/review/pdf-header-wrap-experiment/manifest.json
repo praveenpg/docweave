@@ -1,0 +1,8 @@
+{
+  "frozen_at": "2026-10-19T05:51:26.880454+00:00",
+  "reference_geometry": {
+    "benchmarks/review/pdf-education-row-audit/education-first-java21.json": "d9998be96436c57ca099f316567f4423672cbe2a18b8c3ff29b0d67acf61edb0",
+    "benchmarks/review/pdf-education-row-audit/education-second-java21.json": "4559b9578d2a13d090f31ac4470dd2ef5f0273997fa67b6177418d48b9dda746"
+  },
+  "protocol": "Hypothesis test only, not production refinement: adjacent nonempty single-baseline model bands, positive common horizontal extent >=80% smaller width, median glyph-height ratio >=0.9, baseline distance <=2x larger median height and >0. Native horizontal source rules between baselines veto. Same fixed gate every boundary in both pinned pages. Read only prior model bands/source identity, never XML/text/row labels into proposal gate. No inference/model/relabel/score repair. Original scores retained; source-reference comparisons for diagnosis only. Reject production adoption if legitimate distinct rows remain eligible."
+}

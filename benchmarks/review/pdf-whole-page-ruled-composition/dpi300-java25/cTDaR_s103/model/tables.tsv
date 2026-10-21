@@ -1,0 +1,2 @@
+crop	table	rows	columns	left	top	right	bottom	provenance
+0	0	4	3	136.48844794929028	1615.3169861137867	1054.9529916644096	1761.6451379358768	detector_sha256=0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9;onnx_tatr_geometry_v1;sha256=ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990;max_hw800_bilinear;score=0.5;merge_conflicts=keep_higher_score

@@ -1,0 +1,230 @@
+{
+  "scope": "Uniform explicit maxHW800 profile; published legacy shortest/longest processor can differ in rounding; no unmodified-profile or accuracy parity claim",
+  "published_resolved_size": {
+    "shortest_edge": 800,
+    "longest_edge": 800
+  },
+  "shape_differences": 9,
+  "results": [
+    {
+      "input": "PMC1626454_002_00.png",
+      "published_legacy_size": [
+        800,
+        396
+      ],
+      "explicit_max_hw800_floor": [
+        800,
+        396
+      ]
+    },
+    {
+      "input": "PMC2753619_002_00.png",
+      "published_legacy_size": [
+        800,
+        72
+      ],
+      "explicit_max_hw800_floor": [
+        800,
+        71
+      ]
+    },
+    {
+      "input": "PMC2759935_007_01.png",
+      "published_legacy_size": [
+        800,
+        286
+      ],
+      "explicit_max_hw800_floor": [
+        800,
+        286
+      ]
+    },
+    {
+      "input": "PMC2838834_005_00.png",
+      "published_legacy_size": [
+        800,
+        726
+      ],
+      "explicit_max_hw800_floor": [
+        800,
+        725
+      ]
+    },
+    {
+      "input": "PMC3519711_003_00.png",
+      "published_legacy_size": [
+        800,
+        247
+      ],
+      "explicit_max_hw800_floor": [
+        800,
+        246
+      ]
+    },
+    {
+      "input": "PMC3826085_003_00.png",
+      "published_legacy_size": [
+        800,
+        724
+      ],
+      "explicit_max_hw800_floor": [
+        800,
+        723
+      ]
+    },
+    {
+      "input": "PMC3907710_006_00.png",
+      "published_legacy_size": [
+        800,
+        207
+      ],
+      "explicit_max_hw800_floor": [
+        800,
+        207
+      ]
+    },
+    {
+      "input": "PMC4003957_018_00.png",
+      "published_legacy_size": [
+        781,
+        800
+      ],
+      "explicit_max_hw800_floor": [
+        780,
+        800
+      ]
+    },
+    {
+      "input": "PMC4172848_007_00.png",
+      "published_legacy_size": [
+        800,
+        433
+      ],
+      "explicit_max_hw800_floor": [
+        800,
+        432
+      ]
+    },
+    {
+      "input": "PMC4517499_004_00.png",
+      "published_legacy_size": [
+        800,
+        198
+      ],
+      "explicit_max_hw800_floor": [
+        800,
+        198
+      ]
+    },
+    {
+      "input": "PMC4682394_003_00.png",
+      "published_legacy_size": [
+        800,
+        301
+      ],
+      "explicit_max_hw800_floor": [
+        800,
+        301
+      ]
+    },
+    {
+      "input": "PMC4776821_005_00.png",
+      "published_legacy_size": [
+        800,
+        174
+      ],
+      "explicit_max_hw800_floor": [
+        800,
+        173
+      ]
+    },
+    {
+      "input": "PMC4840965_004_00.png",
+      "published_legacy_size": [
+        800,
+        650
+      ],
+      "explicit_max_hw800_floor": [
+        800,
+        650
+      ]
+    },
+    {
+      "input": "PMC5134617_013_00.png",
+      "published_legacy_size": [
+        800,
+        215
+      ],
+      "explicit_max_hw800_floor": [
+        800,
+        215
+      ]
+    },
+    {
+      "input": "PMC5198506_004_00.png",
+      "published_legacy_size": [
+        800,
+        333
+      ],
+      "explicit_max_hw800_floor": [
+        800,
+        332
+      ]
+    },
+    {
+      "input": "PMC5332562_005_00.png",
+      "published_legacy_size": [
+        410,
+        800
+      ],
+      "explicit_max_hw800_floor": [
+        410,
+        800
+      ]
+    },
+    {
+      "input": "PMC5402779_004_00.png",
+      "published_legacy_size": [
+        800,
+        203
+      ],
+      "explicit_max_hw800_floor": [
+        800,
+        202
+      ]
+    },
+    {
+      "input": "PMC5577841_001_00.png",
+      "published_legacy_size": [
+        800,
+        289
+      ],
+      "explicit_max_hw800_floor": [
+        800,
+        289
+      ]
+    },
+    {
+      "input": "PMC5679144_002_01.png",
+      "published_legacy_size": [
+        800,
+        531
+      ],
+      "explicit_max_hw800_floor": [
+        800,
+        531
+      ]
+    },
+    {
+      "input": "PMC5897438_004_00.png",
+      "published_legacy_size": [
+        800,
+        433
+      ],
+      "explicit_max_hw800_floor": [
+        800,
+        433
+      ]
+    }
+  ]
+}

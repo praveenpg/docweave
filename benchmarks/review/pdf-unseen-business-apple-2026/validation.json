@@ -1,0 +1,8 @@
+{
+  "manifest_sha256" : "8fbcb6371237b6f9d761d2be0901a03e036e79e86685b038e5b8ba44570ef9e0",
+  "prior_rows_unchanged" : 18,
+  "reference_rows_per_profile" : 114,
+  "all_failures_and_denominators_retained" : true,
+  "case_profiles" : 24,
+  "paired_results_equal" : true
+}

@@ -1,0 +1,15 @@
+{
+  "purpose": "Development diagnostic only: compare the same complete originals under native lines, prior soft-hyphen assembly and explicit physical-hyphen wrap assembly. Preserve strict scores, every reference and unlocated spans. No repair, relaxed scoring or best-of selection.",
+  "source_manifest": "benchmarks/review/pdf-source-hyphen-wraps/manifest.json",
+  "source_manifest_sha256": "818a7a8dd0591bec8bd217462c8c91e276669ad936e14a9ad3eaf1fbb18778ff",
+  "baseline_report": "benchmarks/review/pdf-source-hyphen-wraps/java21.json",
+  "baseline_report_sha256": "613739c779e7f9ecc60960b0dec0f43bb5f2ce40b7fa4f2aa78f152396a945ba",
+  "profiles": ["LINES", "SOURCE_PARAGRAPHS_ASSEMBLED", "SOURCE_PARAGRAPHS_LINE_WRAPS_ASSEMBLED"],
+  "source_documents": 4,
+  "reference_paragraphs_per_profile": 28,
+  "anchor_code_points": 32,
+  "maximum_alignment_cells": 16000000,
+  "normalization": "Existing ASCII-whitespace collapse only, preserving NBSP, physical hyphens, punctuation, case and Unicode.",
+  "trace_policy": "Unique exact prefix/suffix anchors followed by one bounded Levenshtein script; diagonal/deletion/insertion tie preference. Record visited ties without causal or uniqueness claims.",
+  "unlocated_policy": "Keep missing, duplicate, short, reversed and budget-exceeded observations without guessing or selecting anchor occurrences."
+}

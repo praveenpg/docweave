@@ -1,0 +1,70 @@
+{
+  "evaluated_git_commit": "cbcd298a99ea541e5970511afb4f6fa4bf35261d",
+  "source_manifest": "../pdf-physical-scans/extended-manifest.json",
+  "historical_control": "../pdf-physical-scans/extended-java21.json",
+  "profiles": {
+    "shared": {
+      "coverage": "ALL_PUBLISHED_SAMPLES",
+      "render_dpi": 150,
+      "table_detection": "PROVIDER_LAYOUT",
+      "layout_merge_conflicts": "KEEP_HIGHER_SCORE",
+      "languages": [
+        "eng"
+      ],
+      "orientation": true,
+      "orientation_minimum_raw_score": 15
+    },
+    "variable": {
+      "prefer_ruled": [
+        false,
+        true
+      ]
+    }
+  },
+  "resources": {
+    "/tmp/docweave-table-models/structure-all/structure.onnx": {
+      "bytes": 115828334,
+      "sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990"
+    },
+    "/tmp/docweave-table-models/detection/detection.onnx": {
+      "bytes": 115703629,
+      "sha256": "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9"
+    },
+    "/tmp/docweave-tesseract-runtime/usr/bin/tesseract": {
+      "bytes": 51480,
+      "sha256": "9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917"
+    },
+    "/tmp/docweave-tesseract-runtime/usr/share/tessdata/eng.traineddata": {
+      "bytes": 23466654,
+      "sha256": "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047"
+    },
+    "/tmp/docweave-tesseract-runtime/usr/share/tessdata/osd.traineddata": {
+      "bytes": 10562874,
+      "sha256": "e19f2ae860792fdf372cf48d8ce70ae5da3c4052962fe22e9de1f680c374bb0e"
+    }
+  },
+  "invocation_script": "#!/bin/bash\nset -euo pipefail\ncd __LOCAL_HOME__/Projects/JavaProjects/docweave\nexport LD_LIBRARY_PATH=/tmp/docweave-tesseract-runtime/usr/lib\nfor version in 21 25; do\n if [ \"$version\" = 21 ]; then export JAVA_HOME=/tmp/docweave-jdk21; else export JAVA_HOME=__LOCAL_HOME__/.sdkman/candidates/java/25.0.4-amzn; fi\n export PATH=\"$JAVA_HOME/bin:__LOCAL_HOME__/.sdkman/candidates/maven/current/bin:/usr/bin:/bin\"\n for preference in false true; do\n  stem=\"/tmp/docweave-scan-preference-${preference}-java${version}\"\n  mvn -B -ntp -o -Dmaven.repo.local=/tmp/docweave-m2 -pl docweave-validation -am test -Dtest=PdfPhysicalScanCorpusTest -Dsurefire.failIfNoSpecifiedTests=false -Ddocweave.pdf.scans.cache=/tmp/docweave-ctdar -Ddocweave.pdf.scans.report=\"$stem.json\" -Ddocweave.pdf.scans.coverage=ALL_PUBLISHED_SAMPLES -Ddocweave.pdf.scans.dpi=150 -Ddocweave.pdf.scans.tableDetection=PROVIDER_LAYOUT -Ddocweave.pdf.scans.layoutModel=/tmp/docweave-table-models/structure-all/structure.onnx -Ddocweave.pdf.scans.layoutSha256=ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990 -Ddocweave.pdf.scans.detectionModel=/tmp/docweave-table-models/detection/detection.onnx -Ddocweave.pdf.scans.detectionSha256=0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9 -Ddocweave.pdf.scans.orientation=true -Ddocweave.pdf.scans.layoutMergeConflicts=KEEP_HIGHER_SCORE -Ddocweave.pdf.scans.preferRuled=\"$preference\" -Ddocweave.tesseract.executable=/tmp/docweave-tesseract-runtime/usr/bin/tesseract -Ddocweave.tesseract.tessdata=/tmp/docweave-tesseract-runtime/usr/share/tessdata > \"$stem.log\" 2>&1\n  echo \"Completed $stem\"\n done\ndone\n",
+  "reports": {
+    "prefer-false-java21.json": {
+      "sha256": "cb8fcfe5243603912b39707466ff1e824e6fe01592b1f96853d5d5f522377608",
+      "runtime": "21.0.12.1+12-LTS"
+    },
+    "prefer-true-java21.json": {
+      "sha256": "5cefce59a91fe25ddc1e27f4e5e65b2f3651b86d519c024356ea86dd356d6f4d",
+      "runtime": "21.0.12.1+12-LTS"
+    },
+    "prefer-false-java25.json": {
+      "sha256": "d7ff196f2a0548b89b62c1b05452dd33a4cebaab3ec594b7f5336f8e21ff858c",
+      "runtime": "25.0.4+7-LTS"
+    },
+    "prefer-true-java25.json": {
+      "sha256": "b97aaf653c7f564f2187c193f9be80fd1ebd93f7073e752c1bac97f376dbd57e",
+      "runtime": "25.0.4+7-LTS"
+    }
+  },
+  "result": "No per-input result changes in this corpus. Diagnostics do not compare complete OCR text.",
+  "_public_projection": {
+    "original_sha256": "a77cfcb86e1c85302da9f0a255d5774a8eddf11f37f122be7fc720f5ffe05b90",
+    "status": "Derived documentation/path projection; historical measurements and embedded fingerprints unchanged"
+  }
+}

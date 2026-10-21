@@ -1,0 +1,22 @@
+{
+  "scope": "Frozen-code new-publisher caption transfer. First result hosted by PMC in the stated search, before any DocWeave extraction. Retain the source if retrieval or extraction fails; no source replacement based on scores.",
+  "search_query": "site.pmc.ncbi.nlm.nih.gov/articles/ \"2026\" \"Scientific Reports\" \"Fig. 1\"",
+  "selection_rule": "First returned result hosted at pmc.ncbi.nlm.nih.gov with Scientific Reports2026 metadata (other search results hosted by Nature or repositories are not PMC results).",
+  "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12917242/",
+  "doi": "10.1038/s41598-026-36762-1",
+  "pmcid": "PMC12917242",
+  "source_version": 1,
+  "journal": "Scientific Reports",
+  "code_commit": "4e4ac27",
+  "figure_caption_policy": "IMAGE_ADJACENT_NUMBERED_TITLES",
+  "text_layout_profiles": [
+    "NATIVE_LINES",
+    "NATIVE_COLUMNS",
+    "SOURCE_TAGGED_LINES"
+  ],
+  "unicode_policy": "RAW",
+  "reference_rule": "All main-body publisher JATS figure captions; unchanged exact ASCII-whitespace-only scorer. No punctuation/Unicode/hyphen repair, per-source threshold winner or caption model tuning.",
+  "docweave_extraction_started": false,
+  "accuracy": null,
+  "raw_sources_redistributed": false
+}

@@ -1,0 +1,73 @@
+[
+  {
+    "case": "financial-disclosure",
+    "source_page": 1,
+    "selected_page_elements": 7,
+    "document_elements": 7,
+    "warning_codes": [
+      "PDF_EXTRACTION_LIMITATION"
+    ],
+    "tables": [
+      {
+        "rows": 88,
+        "columns": 5,
+        "anchors": 432,
+        "bounds_left_top_right_bottom": [
+          50.455101013183594,
+          54.064971923828125,
+          550.85498046875,
+          734.705078125
+        ],
+        "reference_roi_iou": 0.993415,
+        "method": "ruled_grid_with_spans"
+      }
+    ]
+  },
+  {
+    "case": "transport-procurement",
+    "source_page": 1,
+    "selected_page_elements": 32,
+    "document_elements": 115,
+    "warning_codes": [
+      "PDF_EXTRACTION_LIMITATION"
+    ],
+    "tables": [
+      {
+        "rows": 14,
+        "columns": 2,
+        "anchors": 28,
+        "bounds_left_top_right_bottom": [
+          31.500003814697266,
+          61.68000030517578,
+          157.5,
+          537.0599975585938
+        ],
+        "reference_roi_iou": 0.159375,
+        "method": "complete_ruled_grid"
+      },
+      {
+        "rows": 14,
+        "columns": 8,
+        "anchors": 112,
+        "bounds_left_top_right_bottom": [
+          247.5,
+          61.68000030517578,
+          778.5,
+          537.0599975585938
+        ],
+        "reference_roi_iou": 0.671653,
+        "method": "complete_ruled_grid"
+      }
+    ]
+  },
+  {
+    "case": "education-statistics",
+    "source_page": 2,
+    "selected_page_elements": 334,
+    "document_elements": 1134,
+    "warning_codes": [
+      "PDF_EXTRACTION_LIMITATION"
+    ],
+    "tables": []
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "representation": "Offline frozen model anchors with original native glyphs; not a production partitioner",
+  "results": [
+    {
+      "capture_sha256": "97c5eb391a9f4383b48516b78dddb938a4c4c967f7d1a45afc9de7193ed20f6e",
+      "case": "operations",
+      "source_page": 7,
+      "profile": "native",
+      "outcome": "SUCCESS",
+      "tables": 1,
+      "association_iou": 0.9720668552331984,
+      "reference_content_rows": 27,
+      "observed_content_rows": 27,
+      "exact_ordinal_rows": 27,
+      "missing_row_positions": 0,
+      "extra_row_positions": 0,
+      "page_calls": 0,
+      "cell_calls": 0,
+      "layout_calls": 0,
+      "layout_tables": 0
+    },
+    {
+      "capture_sha256": "8309f8989c495ffa8b7b697c220d0185372c904d6e995b907f88bc52951a17c7",
+      "case": "balance-sheet",
+      "source_page": 10,
+      "profile": "native",
+      "outcome": "SUCCESS",
+      "tables": 1,
+      "association_iou": 0.9812040258413234,
+      "reference_content_rows": 32,
+      "observed_content_rows": 32,
+      "exact_ordinal_rows": 32,
+      "missing_row_positions": 0,
+      "extra_row_positions": 0,
+      "page_calls": 0,
+      "cell_calls": 0,
+      "layout_calls": 0,
+      "layout_tables": 0
+    }
+  ],
+  "runtime": "25.0.4+7-LTS"
+}

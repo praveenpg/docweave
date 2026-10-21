@@ -1,0 +1,185 @@
+{
+  "review_date": "2026-10-17",
+  "scope": "13 retained text anchors in four pinned DOCX files/two manifests only",
+  "review_type": "Automated byte/anchor/link checks plus recorded publisher-statement checks; independent owner/human approval not supplied",
+  "candidate_manifest_sha256": "d62c1c126c384cd0e89eaba51348511fcba6e00705c1d10fa393d540b5f929bd",
+  "candidate_archive_sha256": "31a570bb4eb135997c42caa60c136861381b2d7c45032e2d34cc6e21c6385f92",
+  "documents": [
+    {
+      "source_manifest": "benchmarks/corpus/docx/manifest.json",
+      "source_manifest_sha256": "c920c4b75cc1b7ea546bbbca72493378eefc2849ed6375071b5242e6e5608512",
+      "filename": "north-lanarkshire-2025.docx",
+      "title": "North Lanarkshire Council and Licensing Board",
+      "publisher": "National Records of Scotland",
+      "source_page": "https://www.nrscotland.gov.uk/publications/progress-update-review-north-lanarkshire-council-and-licensing-board-october-2025/",
+      "download_url": "https://www.nrscotland.gov.uk/media/4gmleqaw/nrs-public-records-scotland-act-prsa-north-lanarkshire-council-and-licensing-board-progress-update-review-pur-2025-final-report-03-october-2025.docx",
+      "document_sha256": "6c8a2ff422ac764b1cc15490932f986e685944a26df4ece9db3902cfafd96938",
+      "document_bytes": 60016,
+      "anchor_count": 4,
+      "anchor_codepoints": 123,
+      "anchor_sha256": [
+        "1c592ecfdf84fff6f9abe7537944bec1043a6ecdcba381a3f42890abd2ceabc0",
+        "f477a17d06048cbc3a2c7199538dedb4bbfdf43d469e6f5f53265bf03ddb418e",
+        "be2a43a0d9e589f6f2768ad80ebb252faaa698a2e916b95ef86612e430e0db4f",
+        "8b8cce6e607947be83e826b360a66d2038511de187f8edcadd569ef7c0c1f1b4"
+      ],
+      "all_anchors_present_in_pinned_main_body": true,
+      "attribution_unchanged_in_manifest": true,
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+    },
+    {
+      "source_manifest": "benchmarks/corpus/docx/manifest.json",
+      "source_manifest_sha256": "c920c4b75cc1b7ea546bbbca72493378eefc2849ed6375071b5242e6e5608512",
+      "filename": "sqa-2024.docx",
+      "title": "Scottish Qualifications Authority",
+      "publisher": "National Records of Scotland",
+      "source_page": "https://www.nrscotland.gov.uk/publications/progress-update-review-scottish-qualifications-authority/",
+      "download_url": "https://www.nrscotland.gov.uk/media/03wpgknp/nrs-public-records-scotland-act-prsa-scottish-qualifications-authority-progress-update-review-pur-2024-final-report-27-may-2025.docx",
+      "document_sha256": "c1345b2cfb860d6cce2b98253021b286de15e4a71e117100a67f8c7aea0fd40b",
+      "document_bytes": 59223,
+      "anchor_count": 4,
+      "anchor_codepoints": 111,
+      "anchor_sha256": [
+        "7a735f714bba45345082a120aeda10cf3dae5152eae99ef5af99cf5111710323",
+        "f477a17d06048cbc3a2c7199538dedb4bbfdf43d469e6f5f53265bf03ddb418e",
+        "be2a43a0d9e589f6f2768ad80ebb252faaa698a2e916b95ef86612e430e0db4f",
+        "8b8cce6e607947be83e826b360a66d2038511de187f8edcadd569ef7c0c1f1b4"
+      ],
+      "all_anchors_present_in_pinned_main_body": true,
+      "attribution_unchanged_in_manifest": true,
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+    },
+    {
+      "source_manifest": "benchmarks/corpus/docx-forms/manifest.json",
+      "source_manifest_sha256": "68b5fc73d64c8992ed5668ae0e7b04923f02c343f82417eea12b4055de885d06",
+      "filename": "law-commission-response-2025.docx",
+      "title": "Response Form – Supplementary Consultation: Contempt of Court",
+      "publisher": "Law Commission for England and Wales",
+      "source_page": "https://lawcom.gov.uk/publication/response-form-supplementary-consultation/",
+      "download_url": "https://cdn.websitebuilder.service.justice.gov.uk/uploads/sites/54/2025/03/RESPONSE-FORM-Law-Commission-Contempt-of-Court-Supplementary-Consultation.docx",
+      "document_sha256": "f93208f7b0d1943d627eba881ec9f1962d732a58c7dfe300b1afcff8d3977ea5",
+      "document_bytes": 61748,
+      "anchor_count": 2,
+      "anchor_codepoints": 70,
+      "anchor_sha256": [
+        "958a44ab0ffa26a804665dea1db64016ab6435b7bd19473f01e722de5642ff13",
+        "d4b1ea5708dd532930a85188b45aff6f0a3ed458500c7577e0127a538eb0d100"
+      ],
+      "all_anchors_present_in_pinned_main_body": true,
+      "attribution_unchanged_in_manifest": true,
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+    },
+    {
+      "source_manifest": "benchmarks/corpus/docx-forms/manifest.json",
+      "source_manifest_sha256": "68b5fc73d64c8992ed5668ae0e7b04923f02c343f82417eea12b4055de885d06",
+      "filename": "scottish-respondent-2023.docx",
+      "title": "Respondent information form: updated June 2023",
+      "publisher": "Scottish Government",
+      "source_page": "https://www.gov.scot/publications/respondent-information-form/",
+      "download_url": "https://www.gov.scot/binaries/content/documents/govscot/publications/form/2017/01/respondent-information-form/documents/respondent-information-form-updated-june-2023/respondent-information-form-updated-june-2023/govscot%3Adocument/Respondent%2BInformation%2BForm%2B%2528RIF%2529%2Btemplate%2B-%2Bupdated%2BJune%2B2023.docx",
+      "document_sha256": "9ec220846a132b09e1bd518dcddb053dc071a7e90d937c5c075005167ce3decd",
+      "document_bytes": 213745,
+      "anchor_count": 3,
+      "anchor_codepoints": 72,
+      "anchor_sha256": [
+        "60998263307e4a67cb6e35db5d981a995418313b4ffe808edfdda77a0838ef4d",
+        "b7bc3f438183072baf3ebb11d3d63d781661d4ed7f1f4d79916f89f51f5617f7",
+        "bcbecbc5276762eee4538d2873a0057090cb5e1f6140db2c03f168dae9218526"
+      ],
+      "all_anchors_present_in_pinned_main_body": true,
+      "attribution_unchanged_in_manifest": true,
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+    }
+  ],
+  "primary_pages": [
+    {
+      "url": "https://www.nrscotland.gov.uk/publications/progress-update-review-north-lanarkshire-council-and-licensing-board-october-2025/",
+      "retrieved_bytes_sha256": "9548e643f2edd9093f2af3668726747f06b150c59644cff815d0c6662a4b06f5",
+      "publisher_ogl_v3_statement_present": true,
+      "crown_copyright_statement_present": true,
+      "pinned_document_download_link_present": true,
+      "graphic_asset_exclusion_in_page": true,
+      "other_stated_exceptions_in_page": true
+    },
+    {
+      "url": "https://www.nrscotland.gov.uk/publications/progress-update-review-scottish-qualifications-authority/",
+      "retrieved_bytes_sha256": "d723ad485fb7d9886dcdf9dae2a9bd32988208c40a09160cfe40e15e3eb7c15c",
+      "publisher_ogl_v3_statement_present": true,
+      "crown_copyright_statement_present": true,
+      "pinned_document_download_link_present": true,
+      "graphic_asset_exclusion_in_page": true,
+      "other_stated_exceptions_in_page": true
+    },
+    {
+      "url": "https://lawcom.gov.uk/publication/response-form-supplementary-consultation/",
+      "retrieved_bytes_sha256": "47b37b3a600ca4b22c6b10a6e681c079e74d35e933c6158f390006b1296a44a2",
+      "publisher_ogl_v3_statement_present": true,
+      "crown_copyright_statement_present": true,
+      "pinned_document_download_link_present": true,
+      "graphic_asset_exclusion_in_page": false,
+      "other_stated_exceptions_in_page": true
+    },
+    {
+      "url": "https://www.gov.scot/publications/respondent-information-form/",
+      "retrieved_bytes_sha256": "8236edbcdd2e5b8010c476c354dfb6b3e64d429e4fee88be3720260976a82c57",
+      "publisher_ogl_v3_statement_present": true,
+      "crown_copyright_statement_present": true,
+      "pinned_document_download_link_present": true,
+      "graphic_asset_exclusion_in_page": true,
+      "other_stated_exceptions_in_page": true
+    },
+    {
+      "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "retrieved_bytes_sha256": "f5b2b9f2af63647cde889fa6c3508f5705925295b74912c68caa28dd37e64aa5",
+      "retrieval": "Official HTML fetched successfully with curl after browser HTTP403",
+      "clauses_present": {
+        "source_acknowledgement": true,
+        "licence_link": true,
+        "personal_data_exclusion": true,
+        "third_party_rights_exclusion": true,
+        "logo_exclusion": true,
+        "non_endorsement": true
+      }
+    },
+    {
+      "url": "https://www.gov.scot/crown-copyright/",
+      "retrieved_bytes_sha256": "cea83510ec520c9648e1da82e5087b75f0cd39d4f0bb99b93026d9e767052376",
+      "third_party_copyright_boundary_present": true
+    }
+  ],
+  "anchor_count": 13,
+  "anchor_codepoints": 376,
+  "anchor_check_normalization": "Concatenate adjacent w:t runs per paragraph, collapse whitespace and join paragraphs; source-text presence only, not rendering",
+  "initial_helper_correction": "A pilot inserted spaces between formatting runs; final check preserves run adjacency. No source/library change or failed pilot counted as passing.",
+  "conclusion": "Recorded publisher OGL statements and existing attribution are consistent for the selected anchors; scoped provenance review complete, not blanket ownership or publication approval",
+  "not_included": [
+    "Source DOCX binaries or graphics",
+    "Completed forms or respondent data",
+    "Full extracted text or website snapshots",
+    "New upstream/runtime tests",
+    "Rewritten evidence or changed fixture goldens"
+  ],
+  "remaining_holds": [
+    "Owner publication approval",
+    "Wider evidence/excerpt rights beyond the four reviewed sources",
+    "Final version/signatures/bundle",
+    "Namespace/Portal verification and explicit upload instruction"
+  ],
+  "verification_source_sha256": "d6a89f44aea1756249b58a4d8cca474826ad27e691a29ed95941912d06ef48a4",
+  "review_timezone": "America/Phoenix",
+  "notice_sha256": "b94ba4af738801386f596827ad52055b1aa5b40fe29979043e07a475bfb8da65",
+  "attachment_scope": "Supplement outside immutable candidate source/archive; incorporation requires a newly hashed candidate",
+  "local_verification": {
+    "unchanged_raw_and_projected_source_file_hashes_checked": 2310,
+    "corpus_manifests_identical_to_committed_and_candidate_bytes": true,
+    "candidate_archive_and_manifest_hashes_unchanged": true,
+    "notice_hash_matches_attached_supplement": true,
+    "changed_markdown_links": "passed",
+    "diff_check": "passed",
+    "new_local_maven_run": false
+  },
+  "_public_projection": {
+    "original_sha256": "89445c6607d43d78fa58c1f628d11d439851a71be9607cb0459badf920310013",
+    "status": "Derived documentation/path projection; historical measurements and embedded fingerprints unchanged"
+  }
+}

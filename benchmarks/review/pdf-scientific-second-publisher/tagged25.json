@@ -1,0 +1,35 @@
+{
+  "runtime" : "25.0.4+7-LTS",
+  "results" : [ {
+    "runtime" : "25.0.4+7-LTS",
+    "outcome" : "SUCCESS",
+    "tables_on_page" : 1,
+    "associated" : true,
+    "association_iou" : 0.9459345462543706,
+    "expected_anchors" : 20,
+    "observed_anchors" : 22,
+    "expected_rows" : 10,
+    "expected_columns" : 3,
+    "observed_rows" : 10,
+    "observed_columns" : 3,
+    "extraction_method" : "provider_layout_native_glyphs_v1",
+    "matching_span_keys" : 12,
+    "exact_span_text_anchors" : 12,
+    "missing_reference_keys" : 8,
+    "extra_prediction_keys" : 10,
+    "complete_topology" : false,
+    "complete_span_text" : false,
+    "leading_row_window" : {
+      "exact_span_text_anchors" : 3,
+      "rows" : 1,
+      "extra_prediction_keys" : 0,
+      "complete_span_text" : true,
+      "expected_anchors" : 3,
+      "observed_anchors" : 3,
+      "matching_span_keys" : 3
+    },
+    "capture_sha256" : "7567715ea4bcce414b39e8cdfdffb8a8c944730f2890783df0bf5b380740b8db",
+    "id" : "second-publisher",
+    "reference_kind" : "publisher_jats_logical_table"
+  } ]
+}

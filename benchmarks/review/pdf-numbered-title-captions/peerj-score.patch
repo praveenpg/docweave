@@ -1,0 +1,13 @@
+--- /tmp/docweave-peerj-caption21/sources/ScorePublisherCaptions.java
++++ /tmp/docweave-caption-titles21/peerj-sources/ScorePublisherCaptions.java
+@@ -76,8 +76,8 @@
+             for (final String profile : List.of("NATIVE_LINES", "NATIVE_COLUMNS", "SOURCE_TAGGED_LINES")) {
+                 final var options =
+                         PdfOptions.defaults()
+-                                .withFigureCaptions(Boolean.getBoolean("docweave.caption.transfer.horizontal")
+-                                                            ? PdfOptions.FigureCaptions.IMAGE_ADJACENT_HORIZONTAL_LABELS
++                                .withFigureCaptions(Boolean.getBoolean("docweave.caption.transfer.titles")
++                                                            ? PdfOptions.FigureCaptions.IMAGE_ADJACENT_NUMBERED_TITLES
+                                                             : PdfOptions.FigureCaptions.NONE)
+                                 .withUnicodeNormalization(Boolean.getBoolean("docweave.caption.transfer.presentation")
+                                                                   ? PdfOptions.UnicodeNormalization.PRESENTATION_FORMS

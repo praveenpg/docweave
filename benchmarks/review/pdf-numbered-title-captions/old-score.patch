@@ -1,0 +1,11 @@
+--- /tmp/docweave-caption-horizontal21/sources/ScorePublisherCaptions.java
++++ /tmp/docweave-caption-titles21/old-sources/ScorePublisherCaptions.java
+@@ -74,7 +74,7 @@
+                     DocumentSource.bytes(Files.readAllBytes(Path.of(args[1], selected.get("pdf").asString())),
+                             selected.get("pdf").asString());
+             for (final String profile : List.of("NATIVE_LINES", "NATIVE_COLUMNS", "SOURCE_TAGGED_LINES")) {
+-                final var options = PdfOptions.defaults().withFigureCaptions(PdfOptions.FigureCaptions.IMAGE_ADJACENT_HORIZONTAL_LABELS).withTextLayout(
++                final var options = PdfOptions.defaults().withFigureCaptions(PdfOptions.FigureCaptions.IMAGE_ADJACENT_NUMBERED_TITLES).withTextLayout(
+                         profile.equals("NATIVE_COLUMNS") ? PdfOptions.TextLayout.COLUMN_PARAGRAPHS
+                                                          : PdfOptions.TextLayout.LINES);
+                 final var partitioner = profile.equals("SOURCE_TAGGED_LINES")

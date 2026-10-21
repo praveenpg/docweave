@@ -1,0 +1,42 @@
+{
+  "repository": "apache/pdfbox",
+  "commit": "9286e47d89d6877005c9d2d0f2fd38793a62519a",
+  "tag": "3.0.8",
+  "source_catalog_sha256": "f2573717e22f603b589dbc4034fd0c13f8efde5a926dc15a45e5558c811dd6e9",
+  "inputs": [
+    {
+      "filename": "PDFBOX-3110-poems-beads.pdf",
+      "role": "pdf",
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-3110-poems-beads.pdf",
+      "bytes": 45598,
+      "sha256": "9d715ce4e964f6ccbf50e1d1c42ca5f01425a079a5c39a9581c876c56afca1b3",
+      "git_blob_sha1": "2e17f4adc6593ff7bd216b6f2927786ec9bcafbe"
+    },
+    {
+      "filename": "PDFBOX-3110-poems-beads-cropbox.pdf",
+      "role": "pdf",
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-3110-poems-beads-cropbox.pdf",
+      "bytes": 44500,
+      "sha256": "bc24610183079923dcb7a292167b7eed96aecf3c6a8a91bd254a526b553ede50",
+      "git_blob_sha1": "f438e47ba0799d30e7741c578fe852a59e08eeef"
+    },
+    {
+      "filename": "PDFBOX-3110-poems-beads.pdf-sorted.txt",
+      "role": "expectation",
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-3110-poems-beads.pdf-sorted.txt",
+      "bytes": 5576,
+      "sha256": "a4de9c66e459facffd1ff2a97060b33936f152bca1777d4fe9bb3e9786b56ea0",
+      "git_blob_sha1": "0b5fc50e79ecf67b47a53a29fb5004c1568cc417"
+    },
+    {
+      "filename": "PDFBOX-3110-poems-beads.pdf.txt",
+      "role": "expectation",
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-3110-poems-beads.pdf.txt",
+      "bytes": 5576,
+      "sha256": "3e5d00c63aae46d1074fe50bc9450a870aa3b67b9ac8da06a9ea85295b3366ee",
+      "git_blob_sha1": "4757026c49307ac0b4a3bcbd21d9c1d36b9427ca"
+    }
+  ],
+  "scope": "Independent maintained regression inputs and saved PDFBox text expectations; no original author/application provenance or human reading-order approval; no source binaries/full text redistributed",
+  "license_notice_url": "https://github.com/apache/pdfbox/blob/9286e47d89d6877005c9d2d0f2fd38793a62519a/LICENSE.txt"
+}

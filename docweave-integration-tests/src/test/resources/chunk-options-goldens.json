@@ -1,0 +1,844 @@
+{
+  "reference": {
+    "upstream_commit": "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",
+    "python": "3.13.16",
+    "scope": "Element-only chunking on upstream-supported Python 3.11–3.13. No parser/OCR parity claimed.",
+    "source_verification": "Selected pinned implementation hashes verified before import",
+    "source_sha256": {
+      "unstructured/chunking/base.py": "076daa0ba00212217d6d9bef60156a364f3b50684ce5d5c8168f7ea8cd97ea42",
+      "unstructured/chunking/basic.py": "68d6fde873e5f744ab0527717f029bfe0c8b232df03bcba25359b466d5d77159",
+      "unstructured/chunking/title.py": "f5305324030bb77100584bb8b432b8b2110f3c280b1d697dcc2b41f65dce2f23",
+      "unstructured/documents/elements.py": "94f0f5eca1d987b2e1e5c574417e62305fae4556bb572bf95918861047954d0c",
+      "unstructured/common/html_table.py": "741e09b2b057438e1044c33b2592179e055f75e5664600657b000310caa85bd5"
+    },
+    "dependencies": {
+      "wrapt": "2.5.1",
+      "urllib3": "2.8.0",
+      "charset-normalizer": "3.5.2",
+      "lxml": "6.1.3",
+      "typing_extensions": "4.16.0",
+      "idna": "3.20",
+      "psutil": "7.2.2",
+      "regex": "2026.9.29",
+      "emoji": "2.16.0",
+      "requests": "2.34.2",
+      "certifi": "2026.7.22"
+    }
+  },
+  "cases": [
+    {
+      "name": "separator-code-double-newline",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "CodeSnippet",
+          "element_id": "source-aa\n\nbb\nccdd",
+          "text": "aa\n\nbb\nccdd",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "max_characters": 6,
+        "text_splitting_separators": [
+          "\n\n"
+        ]
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "aa",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "bb\nccd",
+          "metadata": {
+            "is_continuation": true
+          }
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "d",
+          "metadata": {
+            "is_continuation": true
+          }
+        }
+      ],
+      "reference_entrypoint": "internal _BasicChunkingOptions/_chunk_elements"
+    },
+    {
+      "name": "separator-empty-list",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "NarrativeText",
+          "element_id": "source-🧵abcde",
+          "text": "🧵abcde",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "max_characters": 3,
+        "text_splitting_separators": []
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "🧵ab",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "cde",
+          "metadata": {
+            "is_continuation": true
+          }
+        }
+      ],
+      "reference_entrypoint": "internal _BasicChunkingOptions/_chunk_elements"
+    },
+    {
+      "name": "separator-missing-fallback",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "NarrativeText",
+          "element_id": "source-🧵abcde",
+          "text": "🧵abcde",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "max_characters": 3,
+        "text_splitting_separators": [
+          "missing"
+        ]
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "🧵ab",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "cde",
+          "metadata": {
+            "is_continuation": true
+          }
+        }
+      ],
+      "reference_entrypoint": "internal _BasicChunkingOptions/_chunk_elements"
+    },
+    {
+      "name": "separator-space-overlap",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "NarrativeText",
+          "element_id": "source-one two three four",
+          "text": "one two three four",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "max_characters": 8,
+        "overlap": 3,
+        "text_splitting_separators": [
+          " "
+        ]
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "one two",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "wo three",
+          "metadata": {
+            "is_continuation": true
+          }
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "ee four",
+          "metadata": {
+            "is_continuation": true
+          }
+        }
+      ],
+      "reference_entrypoint": "internal _BasicChunkingOptions/_chunk_elements"
+    },
+    {
+      "name": "separator-visible-retained",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "NarrativeText",
+          "element_id": "source-aa;bb;cc",
+          "text": "aa;bb;cc",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "max_characters": 4,
+        "text_splitting_separators": [
+          ";"
+        ]
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "aa",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "bb",
+          "metadata": {
+            "is_continuation": true
+          }
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "cc",
+          "metadata": {
+            "is_continuation": true
+          }
+        }
+      ],
+      "reference_entrypoint": "internal _BasicChunkingOptions/_chunk_elements",
+      "comparison": "visible-delimiter-retained",
+      "java_expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "aa;",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "bb;",
+          "metadata": {
+            "is_continuation": true
+          }
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "cc",
+          "metadata": {
+            "is_continuation": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "separator-regex-is-literal",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "NarrativeText",
+          "element_id": "source-aa.*bb.*cc",
+          "text": "aa.*bb.*cc",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "max_characters": 5,
+        "text_splitting_separators": [
+          ".*"
+        ]
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "a",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "*cc",
+          "metadata": {
+            "is_continuation": true
+          }
+        }
+      ],
+      "reference_entrypoint": "internal _BasicChunkingOptions/_chunk_elements",
+      "comparison": "literal-separators",
+      "java_expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "aa.*",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "bb.*",
+          "metadata": {
+            "is_continuation": true
+          }
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "cc",
+          "metadata": {
+            "is_continuation": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "isolation-disabled-basic",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "NarrativeText",
+          "element_id": "source-Before.",
+          "text": "Before.",
+          "metadata": {}
+        },
+        {
+          "type": "Table",
+          "element_id": "source-Cell",
+          "text": "Cell",
+          "metadata": {}
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-After.",
+          "text": "After.",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "isolate_table": false
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "Before.\n\nCell\n\nAfter.",
+          "metadata": {}
+        }
+      ],
+      "reference_entrypoint": "public chunk_elements"
+    },
+    {
+      "name": "isolation-disabled-provenance",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "NarrativeText",
+          "element_id": "source-Before.",
+          "text": "Before.",
+          "metadata": {}
+        },
+        {
+          "type": "Table",
+          "element_id": "source-Cell",
+          "text": "Cell",
+          "metadata": {}
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-After.",
+          "text": "After.",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": true,
+        "isolate_table": false
+      },
+      "reference_original_payloads": [
+        "eJyLrlZKzUnNTc0ric9MUbJSUCrOLy1KTtV1Sk3LL0rVU9JRUMpNLUlMSSxJBMpW1wL5JakVJSCVSEpKKgtSQUJ+iUVFiSWZZakhIDVAxThMd07NycFnNEweZm5IYlJOKh7zHNNKUovwOhahAodbYwGvRlU5"
+      ],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "Before.\n\nCell\n\nAfter.",
+          "metadata": {
+            "orig_elements": [
+              {
+                "element_id": "source-Before.",
+                "metadata": {},
+                "text": "Before.",
+                "type": "NarrativeText"
+              },
+              {
+                "element_id": "source-Cell",
+                "metadata": {},
+                "text": "Cell",
+                "type": "Table"
+              },
+              {
+                "element_id": "source-After.",
+                "metadata": {},
+                "text": "After.",
+                "type": "NarrativeText"
+              }
+            ]
+          }
+        }
+      ],
+      "reference_entrypoint": "public chunk_elements"
+    },
+    {
+      "name": "isolation-disabled-multiple-tables",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "Table",
+          "element_id": "source-First",
+          "text": "First",
+          "metadata": {}
+        },
+        {
+          "type": "TableChunk",
+          "element_id": "source-Second",
+          "text": "Second",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "isolate_table": false
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "First\n\nSecond",
+          "metadata": {}
+        }
+      ],
+      "reference_entrypoint": "public chunk_elements"
+    },
+    {
+      "name": "isolation-disabled-singleton",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "Table",
+          "element_id": "source-abcdefgh",
+          "text": "abcdefgh",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "isolate_table": false,
+        "max_characters": 4
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "TableChunk",
+          "element_id": "<generated>",
+          "text": "abcd",
+          "metadata": {
+            "num_carried_over_header_rows": 0,
+            "table_id": "<table>",
+            "chunk_index": 0
+          }
+        },
+        {
+          "type": "TableChunk",
+          "element_id": "<generated>",
+          "text": "efgh",
+          "metadata": {
+            "is_continuation": true,
+            "num_carried_over_header_rows": 0,
+            "table_id": "<table>",
+            "chunk_index": 1
+          }
+        }
+      ],
+      "reference_entrypoint": "public chunk_elements"
+    },
+    {
+      "name": "isolation-disabled-title-combine",
+      "strategy": "by_title",
+      "input": [
+        {
+          "type": "Table",
+          "element_id": "source-Cell",
+          "text": "Cell",
+          "metadata": {}
+        },
+        {
+          "type": "Title",
+          "element_id": "source-Heading",
+          "text": "Heading",
+          "metadata": {}
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-Body.",
+          "text": "Body.",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "isolate_table": false
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "Cell\n\nHeading\n\nBody.",
+          "metadata": {}
+        }
+      ],
+      "reference_entrypoint": "public chunk_by_title"
+    },
+    {
+      "name": "isolation-disabled-strict-title",
+      "strategy": "by_title",
+      "input": [
+        {
+          "type": "Table",
+          "element_id": "source-Cell",
+          "text": "Cell",
+          "metadata": {}
+        },
+        {
+          "type": "Title",
+          "element_id": "source-Heading",
+          "text": "Heading",
+          "metadata": {}
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-Body.",
+          "text": "Body.",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "isolate_table": false,
+        "combine_text_under_n_chars": 0
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "Table",
+          "element_id": "<generated>",
+          "text": "Cell",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "Heading\n\nBody.",
+          "metadata": {}
+        }
+      ],
+      "reference_entrypoint": "public chunk_by_title"
+    },
+    {
+      "name": "isolation-disabled-page",
+      "strategy": "by_title",
+      "input": [
+        {
+          "type": "Table",
+          "element_id": "source-Cell",
+          "text": "Cell",
+          "metadata": {
+            "page_number": 1
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-Body.",
+          "text": "Body.",
+          "metadata": {
+            "page_number": 2
+          }
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "isolate_table": false,
+        "multipage_sections": false,
+        "combine_text_under_n_chars": 0
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "Table",
+          "element_id": "<generated>",
+          "text": "Cell",
+          "metadata": {
+            "page_number": 1
+          }
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "Body.",
+          "metadata": {
+            "page_number": 2
+          }
+        }
+      ],
+      "reference_entrypoint": "public chunk_by_title"
+    },
+    {
+      "name": "isolation-mixed-html-metadata",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "NarrativeText",
+          "element_id": "source-Before.",
+          "text": "Before.",
+          "metadata": {}
+        },
+        {
+          "type": "Table",
+          "element_id": "source-Cell",
+          "text": "Cell",
+          "metadata": {
+            "text_as_html": "<table><tr><td>Cell</td></tr></table>"
+          }
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "isolate_table": false
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "Before.\n\nCell",
+          "metadata": {
+            "text_as_html": "<table><tr><td>Cell</td></tr></table>"
+          }
+        }
+      ],
+      "reference_entrypoint": "public chunk_elements",
+      "comparison": "mixed-table-metadata",
+      "java_expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "Before.\n\nCell",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "name": "isolation-overlap-barrier",
+      "strategy": "basic",
+      "input": [
+        {
+          "type": "NarrativeText",
+          "element_id": "source-abcdef",
+          "text": "abcdef",
+          "metadata": {}
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-ghijkl",
+          "text": "ghijkl",
+          "metadata": {}
+        },
+        {
+          "type": "Table",
+          "element_id": "source-tab",
+          "text": "tab",
+          "metadata": {}
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-xyz",
+          "text": "xyz",
+          "metadata": {}
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-longertext",
+          "text": "longertext",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "isolate_table": false,
+        "max_characters": 12,
+        "overlap": 2,
+        "overlap_all": true
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "abcdef",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "ef\n\nghijkl",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "kl\n\ntab\n\nxyz",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "yz",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "z longertext",
+          "metadata": {
+            "is_continuation": true
+          }
+        }
+      ],
+      "reference_entrypoint": "public chunk_elements",
+      "comparison": "table-overlap-barrier",
+      "java_expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "abcdef",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "ef\n\nghijkl",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "tab\n\nxyz",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "longertext",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "name": "isolation-combined-overlap-barrier",
+      "strategy": "by_title",
+      "input": [
+        {
+          "type": "Table",
+          "element_id": "source-t",
+          "text": "t",
+          "metadata": {}
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-abcdef",
+          "text": "abcdef",
+          "metadata": {}
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "source-x",
+          "text": "x",
+          "metadata": {}
+        }
+      ],
+      "options": {
+        "include_orig_elements": false,
+        "isolate_table": false,
+        "max_characters": 30,
+        "new_after_n_chars": 0,
+        "combine_text_under_n_chars": 2,
+        "overlap": 2,
+        "overlap_all": true
+      },
+      "reference_original_payloads": [],
+      "expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "t\n\nabcdef",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "ef\n\nx",
+          "metadata": {}
+        }
+      ],
+      "reference_entrypoint": "public chunk_by_title",
+      "comparison": "table-overlap-barrier",
+      "java_expected": [
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "t\n\nabcdef",
+          "metadata": {}
+        },
+        {
+          "type": "CompositeElement",
+          "element_id": "<generated>",
+          "text": "x",
+          "metadata": {}
+        }
+      ]
+    }
+  ]
+}

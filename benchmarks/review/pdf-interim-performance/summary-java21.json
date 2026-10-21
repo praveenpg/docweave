@@ -1,0 +1,292 @@
+{
+  "results_sha256" : "f417405a5d8fc8197a62f9ba2f76c2aa1b5042371eecb4a8fc72dcb6b6113329",
+  "all_nine_forks_and_360_api_samples_verified" : true,
+  "all_output_hashes_match_independent_defaults" : true,
+  "documents" : [ {
+    "runtime" : "java21",
+    "source" : "recent",
+    "measured_api_ms" : {
+      "samples" : 15,
+      "minimum" : 56.334541,
+      "median" : 63.30167,
+      "maximum" : 90.321173
+    },
+    "first_pass_api_ms" : {
+      "samples" : 3,
+      "minimum" : 672.789542,
+      "median" : 701.158249,
+      "maximum" : 710.784338
+    }
+  }, {
+    "runtime" : "java21",
+    "source" : "next",
+    "measured_api_ms" : {
+      "samples" : 15,
+      "minimum" : 44.576245,
+      "median" : 48.12549,
+      "maximum" : 60.634336
+    },
+    "first_pass_api_ms" : {
+      "samples" : 3,
+      "minimum" : 156.862476,
+      "median" : 162.995012,
+      "maximum" : 203.725162
+    }
+  }, {
+    "runtime" : "java21",
+    "source" : "elife",
+    "measured_api_ms" : {
+      "samples" : 15,
+      "minimum" : 74.409227,
+      "median" : 80.376942,
+      "maximum" : 93.687144
+    },
+    "first_pass_api_ms" : {
+      "samples" : 3,
+      "minimum" : 309.419902,
+      "median" : 326.951379,
+      "maximum" : 366.745707
+    }
+  }, {
+    "runtime" : "java21",
+    "source" : "holdout",
+    "measured_api_ms" : {
+      "samples" : 15,
+      "minimum" : 81.330043,
+      "median" : 84.426839,
+      "maximum" : 100.600057
+    },
+    "first_pass_api_ms" : {
+      "samples" : 3,
+      "minimum" : 163.677704,
+      "median" : 228.635523,
+      "maximum" : 234.642503
+    }
+  }, {
+    "runtime" : "java21",
+    "source" : "business",
+    "measured_api_ms" : {
+      "samples" : 15,
+      "minimum" : 45.56447,
+      "median" : 49.057822,
+      "maximum" : 61.521449
+    },
+    "first_pass_api_ms" : {
+      "samples" : 3,
+      "minimum" : 135.604195,
+      "median" : 159.177215,
+      "maximum" : 181.759808
+    }
+  }, {
+    "runtime" : "java25",
+    "source" : "recent",
+    "measured_api_ms" : {
+      "samples" : 15,
+      "minimum" : 56.102554,
+      "median" : 58.892808,
+      "maximum" : 98.103163
+    },
+    "first_pass_api_ms" : {
+      "samples" : 3,
+      "minimum" : 688.397698,
+      "median" : 702.030445,
+      "maximum" : 719.770818
+    }
+  }, {
+    "runtime" : "java25",
+    "source" : "next",
+    "measured_api_ms" : {
+      "samples" : 15,
+      "minimum" : 43.608592,
+      "median" : 47.712078,
+      "maximum" : 61.982044
+    },
+    "first_pass_api_ms" : {
+      "samples" : 3,
+      "minimum" : 126.386493,
+      "median" : 128.355728,
+      "maximum" : 151.601621
+    }
+  }, {
+    "runtime" : "java25",
+    "source" : "elife",
+    "measured_api_ms" : {
+      "samples" : 15,
+      "minimum" : 72.848289,
+      "median" : 78.375881,
+      "maximum" : 97.984867
+    },
+    "first_pass_api_ms" : {
+      "samples" : 3,
+      "minimum" : 209.163408,
+      "median" : 257.335184,
+      "maximum" : 292.481851
+    }
+  }, {
+    "runtime" : "java25",
+    "source" : "holdout",
+    "measured_api_ms" : {
+      "samples" : 15,
+      "minimum" : 80.10288,
+      "median" : 85.304133,
+      "maximum" : 115.158598
+    },
+    "first_pass_api_ms" : {
+      "samples" : 3,
+      "minimum" : 161.61829,
+      "median" : 201.947223,
+      "maximum" : 231.403699
+    }
+  }, {
+    "runtime" : "java25",
+    "source" : "business",
+    "measured_api_ms" : {
+      "samples" : 15,
+      "minimum" : 44.372345,
+      "median" : 47.191778,
+      "maximum" : 55.071767
+    },
+    "first_pass_api_ms" : {
+      "samples" : 3,
+      "minimum" : 113.310877,
+      "median" : 119.391205,
+      "maximum" : 151.150782
+    }
+  }, {
+    "runtime" : "unstructured028",
+    "source" : "recent",
+    "measured_api_ms" : {
+      "samples" : 15,
+      "minimum" : 977.75217,
+      "median" : 1092.908198,
+      "maximum" : 1111.862257
+    },
+    "first_pass_api_ms" : {
+      "samples" : 3,
+      "minimum" : 1428.81382,
+      "median" : 1439.30534,
+      "maximum" : 1443.72909
+    }
+  }, {
+    "runtime" : "unstructured028",
+    "source" : "next",
+    "measured_api_ms" : {
+      "samples" : 15,
+      "minimum" : 844.459431,
+      "median" : 860.426925,
+      "maximum" : 977.007781
+    },
+    "first_pass_api_ms" : {
+      "samples" : 3,
+      "minimum" : 857.389655,
+      "median" : 868.451096,
+      "maximum" : 870.739607
+    }
+  }, {
+    "runtime" : "unstructured028",
+    "source" : "elife",
+    "measured_api_ms" : {
+      "samples" : 15,
+      "minimum" : 3726.210776,
+      "median" : 3815.671468,
+      "maximum" : 3885.728135
+    },
+    "first_pass_api_ms" : {
+      "samples" : 3,
+      "minimum" : 3850.968584,
+      "median" : 3868.464489,
+      "maximum" : 3913.957418
+    }
+  }, {
+    "runtime" : "unstructured028",
+    "source" : "holdout",
+    "measured_api_ms" : {
+      "samples" : 15,
+      "minimum" : 1333.839438,
+      "median" : 1475.321484,
+      "maximum" : 1497.152519
+    },
+    "first_pass_api_ms" : {
+      "samples" : 3,
+      "minimum" : 1506.166608,
+      "median" : 1509.086085,
+      "maximum" : 1521.576771
+    }
+  }, {
+    "runtime" : "unstructured028",
+    "source" : "business",
+    "measured_api_ms" : {
+      "samples" : 15,
+      "minimum" : 1965.823648,
+      "median" : 2007.347507,
+      "maximum" : 2137.710985
+    },
+    "first_pass_api_ms" : {
+      "samples" : 3,
+      "minimum" : 2031.644787,
+      "median" : 2036.384391,
+      "maximum" : 2055.22536
+    }
+  } ],
+  "processes" : [ {
+    "runtime" : "java21",
+    "whole_process_wall_seconds" : {
+      "samples" : 3,
+      "minimum" : 4.395974101,
+      "median" : 4.612123016,
+      "maximum" : 4.656793194
+    },
+    "full_process_peak_rss_mib" : {
+      "samples" : 3,
+      "minimum" : 494.48828125,
+      "median" : 496.84375,
+      "maximum" : 497.84375
+    },
+    "worker_setup_seconds" : {
+      "samples" : 3,
+      "minimum" : 0.165271852,
+      "median" : 0.175692121,
+      "maximum" : 0.176188976
+    }
+  }, {
+    "runtime" : "java25",
+    "whole_process_wall_seconds" : {
+      "samples" : 3,
+      "minimum" : 4.16236893,
+      "median" : 4.253681746,
+      "maximum" : 4.53740805
+    },
+    "full_process_peak_rss_mib" : {
+      "samples" : 3,
+      "minimum" : 505.05078125,
+      "median" : 506.3125,
+      "maximum" : 525.6953125
+    },
+    "worker_setup_seconds" : {
+      "samples" : 3,
+      "minimum" : 0.178435519,
+      "median" : 0.179512441,
+      "maximum" : 0.180503547
+    }
+  }, {
+    "runtime" : "unstructured028",
+    "whole_process_wall_seconds" : {
+      "samples" : 3,
+      "minimum" : 76.66612136,
+      "median" : 76.821841426,
+      "maximum" : 77.026435553
+    },
+    "full_process_peak_rss_mib" : {
+      "samples" : 3,
+      "minimum" : 690.140625,
+      "median" : 690.4609375,
+      "maximum" : 691.58984375
+    },
+    "worker_setup_seconds" : {
+      "samples" : 3,
+      "minimum" : 1.717494225,
+      "median" : 1.728778502,
+      "maximum" : 1.743396204
+    }
+  } ]
+}

@@ -1,0 +1,54 @@
+{
+  "structure_sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990",
+  "java": "25.0.4+7-LTS",
+  "documents": [
+    {
+      "document_layout_tables": 3,
+      "filename": "us-001.pdf",
+      "pdf_sha256": "294a46dab2f06a99f03979c8084b71945f23ce6c12ecb1f565efcda040e7a84f",
+      "document_layout_calls": 3,
+      "rasters": [
+        [
+          1275,
+          1649
+        ],
+        [
+          1275,
+          1649
+        ],
+        [
+          1275,
+          1649
+        ]
+      ],
+      "outcome": "SUCCESS"
+    },
+    {
+      "document_layout_tables": 3,
+      "filename": "us-002.pdf",
+      "pdf_sha256": "a1a3d580afc6313f9ffa2cfa3b9f3d0bb1406046174912cd6eb23d4f6cda8d57",
+      "document_layout_calls": 4,
+      "rasters": [
+        [
+          1275,
+          1649
+        ],
+        [
+          1275,
+          1649
+        ],
+        [
+          1275,
+          1649
+        ],
+        [
+          1275,
+          1649
+        ]
+      ],
+      "outcome": "SUCCESS"
+    }
+  ],
+  "native_first": true,
+  "detector_sha256": "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9"
+}

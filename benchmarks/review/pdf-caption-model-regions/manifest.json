@@ -1,0 +1,28 @@
+{
+  "scope": "Prospectively fixed local JVM generic caption-class detection diagnostic on ALL27 original PeerJ pages. No source labels/JATS/crops/table-structure inference, score tuning or production API changes. Scratch decoder copy changes only winning model class8 filter to class0 AFTER unchanged all-class suppression; internal table labels ignored by numeric capturer. Loaded decoder bytecode hash is checked before inference. Training overlap unknown; no text/geometry accuracy claim from proposal counts.",
+  "base_commit": "d1606b3",
+  "identities": {
+    "benchmarks/tools/CaptureCaptionModelRegions.java": "aa8cafc59ab205e8087e2e354701f7b98a7a21300d4e6c3511fdc941f4df06b6",
+    "docweave-layout-onnx/src/main/java/dev/docweave/layout/YoloXObjectDecoder.java": "676f425202f556ace29b495284d59c012c69a26882a12ddec05c60d57519abe0",
+    "docweave-layout-onnx/src/main/java/dev/docweave/layout/YoloXTableModel.java": "b4085425cdf74fc5524a92f4ebafbfda8a941e0ee5d2e01e2156d72820223d94",
+    "docweave-layout-onnx/src/main/java/dev/docweave/layout/ManagedTableSession.java": "cfc995510858d7893a39f177c9816be0046fee0e910184c49c9ef18b78a46603",
+    "benchmarks/review/pdf-caption-model-regions/class-selection.patch": "f8e511ff8133335084ef790756c90782516b181847c990933e85788b2a8004f0",
+    "benchmarks/review/pdf-caption-peerj-transfer/source-manifest.json": "b67dc50a40047bdbfe2a7c47d37e188fe02275a46103a67af3b0f9db4200da7f"
+  },
+  "decoder_class_sha256": "10aee904018453dfe0163b1c78cfee2fb82efbefbfee0a434c1b559285e42521",
+  "model_sha256": "134301ca94fb0df8027be9a6dad1908fe6218af8ffa4d34f0819c7c2226195f3",
+  "source_sha256": "c6c9e6134bcb38ce3855ff48146cdfbf4473ecba76f0fe04d46c2d094c00a522",
+  "source_pages": 27,
+  "render_dpi": 150,
+  "max_render_pixels": 16000000,
+  "minimum_score_strict": 0.25,
+  "selected_model_class": 0,
+  "selected_model_class_name": "Caption",
+  "published_label_map": {
+    "package": "unstructured-inference",
+    "version": "1.6.13",
+    "path": "unstructured_inference/models/yolox.py",
+    "sha256": "664280229981663cb6e95c3beb417c71c69260afd82aab254833f3ffc52eecb9"
+  },
+  "raw_sources_redistributed": false
+}

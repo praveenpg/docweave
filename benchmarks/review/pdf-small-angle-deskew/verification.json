@@ -1,0 +1,27 @@
+{
+  "java": {
+    "21": {
+      "tests": 785,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "25": {
+      "tests": 785,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "strict_javadocs": "passed both actual JDKs",
+  "scope": "owned bounded small-angle projection; not calibrated confidence or independent scan accuracy",
+  "sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfDeskewEstimator.java": "86bbe8c6fbc8fd3b71dbcd7386584413c13e4cd8b899b1b8b610228f37b8330b",
+    "docweave-pdf/src/main/java/dev/docweave/partition/ProjectedPdfDeskewEstimator.java": "d0eb7c92de3185e26d43bea271650cd5dee0473db85b7faf7fb943dbb495c1f5",
+    "docweave-pdf/src/main/java/dev/docweave/partition/DeskewedPdfOcrProvider.java": "42b398f8900c238ecba2ed230b5f4a1492bd7325cfc10b1d53b03d40d8c40ee5",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfDeskewEstimatorTest.java": "e613a1e7e3c94718d8094a0894418ceb326b562b0a9e9c65dc2c5249256ee0ea",
+    "docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractRotationInstalledTest.java": "b1c3c98485d8f26d938f589fce4faaca0adda42d8dd85f8d48b1050708e0e8f6"
+  },
+  "formatter": "clang-format23.1.1 passed",
+  "python_reference_guards": 12
+}

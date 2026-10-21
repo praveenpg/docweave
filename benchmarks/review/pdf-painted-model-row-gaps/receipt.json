@@ -1,0 +1,14 @@
+{
+  "java": 21,
+  "production_commit": "ef89e98",
+  "production_tests": 1224,
+  "probe_source_sha256": "b12535698a8774b85594391bfffcf70936ae48d562923e3333e1ba527e3418bd",
+  "all_pages": 11,
+  "all_profile_records": 22,
+  "all_row_groups": 292,
+  "candidate_rows": 5,
+  "source_paint_supported": 0,
+  "owned_controls": 2,
+  "production_change": false,
+  "threshold_tuning": false
+}

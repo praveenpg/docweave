@@ -1,0 +1,370 @@
+[
+  {
+    "jdk": "21",
+    "group": "recent",
+    "id": "recent-scientific",
+    "changed": true,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "next",
+    "id": "next-scientific",
+    "changed": true,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "second",
+    "id": "second-publisher",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "prior",
+    "id": "balance-sheet",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "prior",
+    "id": "operations",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "prior",
+    "id": "scientific-cycle",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "prior",
+    "id": "education-statistics",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "prior",
+    "id": "transport-procurement",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "prior",
+    "id": "financial-disclosure",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "prior",
+    "id": "education-second",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "prior",
+    "id": "education-first",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "prior",
+    "id": "disability-second",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "prior",
+    "id": "disability-first",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "external",
+    "id": "document-four",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "external",
+    "id": "document-three",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "authored",
+    "id": "borderless-body-wrapped",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "authored",
+    "id": "borderless-grouped",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "authored",
+    "id": "borderless-stacked",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "authored",
+    "id": "borderless-wrapped",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "authored",
+    "id": "ruled-body-wrapped",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "authored",
+    "id": "ruled-grouped",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "authored",
+    "id": "ruled-stacked",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "21",
+    "group": "authored",
+    "id": "ruled-wrapped",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "recent",
+    "id": "recent-scientific",
+    "changed": true,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "next",
+    "id": "next-scientific",
+    "changed": true,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "second",
+    "id": "second-publisher",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "prior",
+    "id": "balance-sheet",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "prior",
+    "id": "operations",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "prior",
+    "id": "scientific-cycle",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "prior",
+    "id": "education-statistics",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "prior",
+    "id": "transport-procurement",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "prior",
+    "id": "financial-disclosure",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "prior",
+    "id": "education-second",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "prior",
+    "id": "education-first",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "prior",
+    "id": "disability-second",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "prior",
+    "id": "disability-first",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "external",
+    "id": "document-four",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "external",
+    "id": "document-three",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "authored",
+    "id": "borderless-body-wrapped",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "authored",
+    "id": "borderless-grouped",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "authored",
+    "id": "borderless-stacked",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "authored",
+    "id": "borderless-wrapped",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "authored",
+    "id": "ruled-body-wrapped",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "authored",
+    "id": "ruled-grouped",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "authored",
+    "id": "ruled-stacked",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  },
+  {
+    "jdk": "25",
+    "group": "authored",
+    "id": "ruled-wrapped",
+    "changed": false,
+    "source_frame_equal": true,
+    "paired_jdk_equal": true
+  }
+]

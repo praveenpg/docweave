@@ -1,0 +1,23 @@
+{
+  "java": {
+    "21": {
+      "tests": 776,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "25": {
+      "tests": 776,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "strict_javadocs": "passed both JDKs",
+  "formatter": "23.1.1 passed",
+  "python_reference_guards": 12,
+  "sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/RuledPdfTableDetector.java": "bfcaad1f363c9e5fc4d1908de8715077b59efaa0c3d1975159d96c8047f7b0d3",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfOpenGridLimitTest.java": "3040c2c3214cb0f4c48dc70bd0bf8d5d0c939e76e81a5deb8251d7ce6c48b24c"
+  }
+}

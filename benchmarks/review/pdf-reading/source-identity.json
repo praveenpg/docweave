@@ -1,0 +1,6 @@
+{
+  "commit_api_url": "https://api.github.com/repos/apache/pdfbox/commits/3.0.8",
+  "commit": "9286e47d89d6877005c9d2d0f2fd38793a62519a",
+  "tree": "b8f3224c7a9a709ce712468c190d5f452030acee",
+  "response_sha256": "c06a061cdc943f264590abae423a9fd0ce68c5469f0ac0cc116f4965f6d860dd"
+}

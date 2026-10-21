@@ -1,0 +1,124 @@
+{
+  "frozen_at": "2026-10-19T05:31:27.693849+00:00",
+  "selection": "First two ordinal original US ICDAR2013 documents in pinned Camelot tree, all published region labels, selected before any candidate extraction. No prior matching paths in committed review evidence. Historical public-statistics/education-finance breadth, NOT recent business/scientific or held-out population estimate.",
+  "repository_commit": "92777b852e00933a5c4b9ba642601784604356cd",
+  "protocol": "Same native-first PARTIAL_TEXT150DPI/16Mpixels/1024combinedanchors/fourthreads pinned graphs as pdf-native-first. Whole original documents; select report pages afterward. Maximum parent ROI IoU>=0.5 stable first tie, exact normalized span/text keys, ASCII whitespace collapse only. Missing end-row/end-col XML attributes mean same origin (unit span), preserving original labels. Sparse published keys remain sparse; no missing-cell fabrication, no repair/shift/fuzzy matching. Keep all cases/failures; no per-document tuning.",
+  "inputs": [
+    {
+      "filename": "us-001.pdf",
+      "bytes": 435487,
+      "sha256": "294a46dab2f06a99f03979c8084b71945f23ce6c12ecb1f565efcda040e7a84f",
+      "git_blob_sha1": "ff995b66df38ebf7b031b22a79178cd037142c26",
+      "url": "https://raw.githubusercontent.com/camelot-dev/camelot/92777b852e00933a5c4b9ba642601784604356cd/tests/files/tabula/icdar2013-dataset/competition-dataset-us/us-001.pdf"
+    },
+    {
+      "filename": "us-001-str.xml",
+      "bytes": 112989,
+      "sha256": "26ab0520b4cb484e19abafb851bfe1c94179e93c94af66c071ee71281e314a84",
+      "git_blob_sha1": "1939b001757084b5b71eee239a01a2aa6138bf7d",
+      "url": "https://raw.githubusercontent.com/camelot-dev/camelot/92777b852e00933a5c4b9ba642601784604356cd/tests/files/tabula/icdar2013-dataset/competition-dataset-us/us-001-str.xml"
+    },
+    {
+      "filename": "us-001-reg.xml",
+      "bytes": 37828,
+      "sha256": "095a2934926246f4fcbd81bd70f88b835625a79cc2c638b6afb86a0d5a3b24d1",
+      "git_blob_sha1": "46f0af1fcb58cfbdd39cef2bac93cb3511f0479f",
+      "url": "https://raw.githubusercontent.com/camelot-dev/camelot/92777b852e00933a5c4b9ba642601784604356cd/tests/files/tabula/icdar2013-dataset/competition-dataset-us/us-001-reg.xml"
+    },
+    {
+      "filename": "us-002.pdf",
+      "bytes": 39305,
+      "sha256": "a1a3d580afc6313f9ffa2cfa3b9f3d0bb1406046174912cd6eb23d4f6cda8d57",
+      "git_blob_sha1": "115c596aef888f0d111d1100b288026a3ebf0da7",
+      "url": "https://raw.githubusercontent.com/camelot-dev/camelot/92777b852e00933a5c4b9ba642601784604356cd/tests/files/tabula/icdar2013-dataset/competition-dataset-us/us-002.pdf"
+    },
+    {
+      "filename": "us-002-str.xml",
+      "bytes": 148787,
+      "sha256": "0892e14ffa492181218249e17f371d04a47d2248b77f4bb09292b40c321d7d92",
+      "git_blob_sha1": "644e26eb9c0be93ea27061eb38a955664ba6d1d6",
+      "url": "https://raw.githubusercontent.com/camelot-dev/camelot/92777b852e00933a5c4b9ba642601784604356cd/tests/files/tabula/icdar2013-dataset/competition-dataset-us/us-002-str.xml"
+    },
+    {
+      "filename": "us-002-reg.xml",
+      "bytes": 67850,
+      "sha256": "0ca515f3676808843a10d3b4207c89a551e1441fc4455daf391c0bb771cf973e",
+      "git_blob_sha1": "fffd80d2960c1464cf90ea456eca5c63131dd05c",
+      "url": "https://raw.githubusercontent.com/camelot-dev/camelot/92777b852e00933a5c4b9ba642601784604356cd/tests/files/tabula/icdar2013-dataset/competition-dataset-us/us-002-reg.xml"
+    }
+  ],
+  "cases": [
+    {
+      "id": "disability-first",
+      "pdf": "us-001.pdf",
+      "cells": "us-001-str.xml",
+      "regions": "us-001-reg.xml",
+      "source_page": 1,
+      "region_id": "1",
+      "source_page_height": 792,
+      "expected_rows": 26,
+      "expected_columns": 11,
+      "expected_anchors": 278,
+      "roi_left_top_right_bottom": [
+        52,
+        269,
+        555,
+        569
+      ]
+    },
+    {
+      "id": "disability-second",
+      "pdf": "us-001.pdf",
+      "cells": "us-001-str.xml",
+      "regions": "us-001-reg.xml",
+      "source_page": 3,
+      "region_id": "1",
+      "source_page_height": 792,
+      "expected_rows": 13,
+      "expected_columns": 11,
+      "expected_anchors": 127,
+      "roi_left_top_right_bottom": [
+        52,
+        95,
+        555,
+        255
+      ]
+    },
+    {
+      "id": "education-first",
+      "pdf": "us-002.pdf",
+      "cells": "us-002-str.xml",
+      "regions": "us-002-reg.xml",
+      "source_page": 1,
+      "region_id": "1",
+      "source_page_height": 792,
+      "expected_rows": 32,
+      "expected_columns": 8,
+      "expected_anchors": 214,
+      "roi_left_top_right_bottom": [
+        74,
+        211,
+        537,
+        640
+      ]
+    },
+    {
+      "id": "education-second",
+      "pdf": "us-002.pdf",
+      "cells": "us-002-str.xml",
+      "regions": "us-002-reg.xml",
+      "source_page": 3,
+      "region_id": "1",
+      "source_page_height": 792,
+      "expected_rows": 32,
+      "expected_columns": 8,
+      "expected_anchors": 215,
+      "roi_left_top_right_bottom": [
+        74,
+        122,
+        536,
+        597
+      ]
+    }
+  ]
+}

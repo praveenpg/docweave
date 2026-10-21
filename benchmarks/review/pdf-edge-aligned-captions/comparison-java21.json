@@ -1,0 +1,112 @@
+{
+  "negative_profiles" : 18,
+  "title_regression_profiles" : 15,
+  "scope" : "Exact JSON tree invariants across all fixed original case/profiles; no fuzzy scoring",
+  "original_profiles" : 15,
+  "results" : [ {
+    "case" : "recent",
+    "profile" : "NATIVE_LINES",
+    "all_text_and_references_exact" : true,
+    "reference_captions" : 5,
+    "caption_units" : 5,
+    "complete_bodies" : 5
+  }, {
+    "case" : "recent",
+    "profile" : "NATIVE_COLUMNS",
+    "all_text_and_references_exact" : true,
+    "reference_captions" : 5,
+    "caption_units" : 5,
+    "complete_bodies" : 5
+  }, {
+    "case" : "recent",
+    "profile" : "SOURCE_TAGGED_LINES",
+    "all_text_and_references_exact" : true,
+    "reference_captions" : 5,
+    "caption_units" : 5,
+    "complete_bodies" : 5
+  }, {
+    "case" : "next",
+    "profile" : "NATIVE_LINES",
+    "all_text_and_references_exact" : true,
+    "reference_captions" : 1,
+    "caption_units" : 1,
+    "complete_bodies" : 1
+  }, {
+    "case" : "next",
+    "profile" : "NATIVE_COLUMNS",
+    "all_text_and_references_exact" : true,
+    "reference_captions" : 1,
+    "caption_units" : 1,
+    "complete_bodies" : 1
+  }, {
+    "case" : "next",
+    "profile" : "SOURCE_TAGGED_LINES",
+    "all_text_and_references_exact" : true,
+    "reference_captions" : 1,
+    "caption_units" : 1,
+    "complete_bodies" : 1
+  }, {
+    "case" : "elife",
+    "profile" : "NATIVE_LINES",
+    "all_text_and_references_exact" : true,
+    "reference_captions" : 4,
+    "caption_units" : 4,
+    "complete_bodies" : 0
+  }, {
+    "case" : "elife",
+    "profile" : "NATIVE_COLUMNS",
+    "all_text_and_references_exact" : true,
+    "reference_captions" : 4,
+    "caption_units" : 4,
+    "complete_bodies" : 4
+  }, {
+    "case" : "elife",
+    "profile" : "SOURCE_TAGGED_LINES",
+    "all_text_and_references_exact" : true,
+    "reference_captions" : 4,
+    "caption_units" : 4,
+    "complete_bodies" : 0
+  }, {
+    "case" : "peerj",
+    "profile" : "NATIVE_LINES",
+    "all_text_and_references_exact" : true,
+    "reference_captions" : 6,
+    "caption_units" : 6,
+    "complete_bodies" : 1
+  }, {
+    "case" : "peerj",
+    "profile" : "NATIVE_COLUMNS",
+    "all_text_and_references_exact" : true,
+    "reference_captions" : 6,
+    "caption_units" : 6,
+    "complete_bodies" : 4
+  }, {
+    "case" : "peerj",
+    "profile" : "SOURCE_TAGGED_LINES",
+    "all_text_and_references_exact" : true,
+    "reference_captions" : 6,
+    "caption_units" : 6,
+    "complete_bodies" : 1
+  }, {
+    "case" : "scirep",
+    "profile" : "NATIVE_LINES",
+    "all_text_and_references_exact" : true,
+    "reference_captions" : 5,
+    "caption_units" : 4,
+    "complete_bodies" : 0
+  }, {
+    "case" : "scirep",
+    "profile" : "NATIVE_COLUMNS",
+    "all_text_and_references_exact" : true,
+    "reference_captions" : 5,
+    "caption_units" : 5,
+    "complete_bodies" : 4
+  }, {
+    "case" : "scirep",
+    "profile" : "SOURCE_TAGGED_LINES",
+    "all_text_and_references_exact" : true,
+    "reference_captions" : 5,
+    "caption_units" : 4,
+    "complete_bodies" : 0
+  } ]
+}

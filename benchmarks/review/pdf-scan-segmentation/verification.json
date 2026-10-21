@@ -1,0 +1,17 @@
+{
+  "full_clean_verify_each_jdk": {
+    "tests": 994,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "java21": "21.0.12.1+12-LTS",
+  "java25": "25.0.4+7-LTS",
+  "actual_ocr_calls_each": 24,
+  "successful_outcomes_each": 24,
+  "all_source_render_rgb_hashes_equal": true,
+  "all_paired_results_equal_except_runtime_and_random_container_ids": true,
+  "auto_baseline_cases_unchanged_each": 8,
+  "strict_private_javadocs": "PASS actual21/25",
+  "production_changes": false
+}

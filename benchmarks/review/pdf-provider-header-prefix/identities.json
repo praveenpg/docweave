@@ -1,0 +1,39 @@
+{
+  "baseline_commit": "e385ff70cb6a28129bcb5170920513cd73281431",
+  "tests_per_jdk": {
+    "21": 958,
+    "25": 958
+  },
+  "new_owned_tests": 8,
+  "legacy_consumer_compiled_against": "e385ff7 five-argument provider table constructor",
+  "legacy_client_passed_jdks": [
+    21,
+    25
+  ],
+  "learned_models_executed": false,
+  "controlled_native_fixture": {
+    "tables": 2,
+    "rows": 3,
+    "columns": 2,
+    "anchors_per_table": 6,
+    "header_rows_per_table": 1
+  },
+  "files": {
+    "full_verify_log_java21": "cfbe3074b8c40f880028310ccfc985b87bda57dfca72d1be4e7396d218eae377",
+    "legacy21-final.log": "5c2232547044e06a3238c04f3f345e854837c975f2e48da877a67f0cb111b5ad",
+    "helper-doc21.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "full_verify_log_java25": "1bd3bcbd2df841402474fa5cdb7e07d542b8f476d2b86363d16a43e5c1b8edd6",
+    "legacy25-final.log": "c68140a624e64df85aaa0b05b971d71f1da78e9e6856dbcfc55647c4d1ede809",
+    "helper-doc25.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "upstream-status.json": "8b5d06efa3b4d714a6b92cc98b28728579fa6cb4a9bbdef7c765428a65712c57",
+    "manifest.json": "bfdf5dba0df9604d2101c8b4ae5b25003b9a7870ca690c6f210be24d29bddc3b",
+    "README.md": "fddc2667231fc39ed4e5d7f41f1d1c0b3a9305c0a979d9ee75a167b9becf8dd3",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTableLayoutProvider.java": "2ff5e58d153992579fcd9dd69c9d71b0d18e0fc45253ce7d09bd736623903d18",
+    "docweave-layout-onnx/src/main/java/dev/docweave/layout/TableTopology.java": "0f9f7c538be3795f619f09b47746fb810c0fb0d7b833e01dc41487ce1f088c59",
+    "docweave-layout-onnx/src/main/java/dev/docweave/layout/DetectedOnnxTableLayout.java": "84a30c6f213c00ab3b7eae7773ea660c2a2b420273b09866cce3133e93b4d508",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfNativeProviderTables.java": "0efa2376a1ba40d7f8d352e710323721fc0720466b5b93344116696c3a7aadbb",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfProviderTables.java": "2e4215335ca7c1b999017c823c3b6baaa616167134daaef5682dc1556e5fabf1",
+    "benchmarks/tools/CaptureDetectedTableInput.java": "70b934bfa2474560f271b216e9f33b56d016e89db1e588945dcd868ed01dc217",
+    "benchmarks/review/pdf-provider-header-prefix/LegacyTableConsumer.java": "17ad2c883ef428c0261ab2747bf8e2e5fb6268c3c785cd0dc30d6e4439d6f32c"
+  }
+}

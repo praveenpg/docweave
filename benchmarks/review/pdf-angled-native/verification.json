@@ -1,0 +1,28 @@
+{
+  "java": {
+    "21": {
+      "tests": 781,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "25": {
+      "tests": 781,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "strict_javadocs": "passed both actual JDKs",
+  "python_reference_guards": 12,
+  "formatter": "23.1.1 passed",
+  "actual_ocr": "seven families during full Java21; scoped installed-family replay Java25 passed",
+  "independent_arbitrary_angle_accuracy": "not established; PDFBox AngledExample inspected but only quarter turns, not used as arbitrary-angle oracle",
+  "sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfAngledText.java": "0a38f0db4dee65721b020aaebfbf3036d0d457d814ec6cbcdccaeeaa6d777894",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageText.java": "dada9c33e2f994249811842b56d4a73cd60aaaf44c006308b88ca314d47eac52",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageLayout.java": "f59b0e9935de1fed2314b50e2e80a6920322dfb47da3e9adb4926ad5ed7c7c11",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOcrRegions.java": "7ffa3a2b429a038f3d750b789ac3d64a2020ff86bece79697f9bb834eb1d5aa4",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfAngledTextTest.java": "339674481d83fb669c64e4f9596bce1435849e3f8a430a305a743118a999e71d"
+  }
+}

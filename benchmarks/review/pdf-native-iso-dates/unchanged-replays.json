@@ -1,0 +1,362 @@
+[
+  {
+    "java": 21,
+    "group": "prior",
+    "id": "balance-sheet",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "bb8fc181321991bb970e06831573d2440ced38bf9a39dfeaa056f46592a3b794",
+    "candidate_sha256": "a1f6070286fb6d1a71c9d9155b573523855868f539e7dad86d8b4a57c039a424"
+  },
+  {
+    "java": 21,
+    "group": "prior",
+    "id": "disability-first",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "4474eabe8d3a89ba45e94509b57baa00f9f2ad2f252fa5ba9933d016c845aaf5",
+    "candidate_sha256": "0d819a60d7c1e89ec8ef29468b2e4e92ed30966274165e538b7bad72e65d01f0"
+  },
+  {
+    "java": 21,
+    "group": "prior",
+    "id": "disability-second",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "71e72bbc1490b4062f17eb7cfebc10bd4433110e3ad592cb3932d2f019641b9b",
+    "candidate_sha256": "dcc536ff6185fb018e265def2dd2700ba67d395cda30df5371d6e863c26f30a6"
+  },
+  {
+    "java": 21,
+    "group": "prior",
+    "id": "education-first",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "ebf8ba23dfa31424977bf3a4db487c62d510d80307f9616c2cda0c5b14a0a5a6",
+    "candidate_sha256": "bf475ec1ab08a5311eccf8396e12af70b68fe265d7affa3b0d3445d04669b86d"
+  },
+  {
+    "java": 21,
+    "group": "prior",
+    "id": "education-second",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "ba881553337935ae8c43e77c383b68140ccec071817dbef3b579d0721818917f",
+    "candidate_sha256": "1703794c7c52551c64dccada9fedc5e27b0b7a44e57c209d3845b0d65584831e"
+  },
+  {
+    "java": 21,
+    "group": "prior",
+    "id": "education-statistics",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "1d939402ed8c46d92b21eae9faa3d62fd10da1f8b00fe235fd912574d3d53354",
+    "candidate_sha256": "a35fc4844b0847816a3b149cbeb934c2f6e02a9043e57e2ecd409bb8c1d41b2c"
+  },
+  {
+    "java": 21,
+    "group": "prior",
+    "id": "financial-disclosure",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "81e8f88a984ef6a8afbce11cc36faf506a336ded98465420a744b08e9359f54d",
+    "candidate_sha256": "4c006133c64367993fcafd3005b729e8c932c15a2ec91166aed47dccb5d2b287"
+  },
+  {
+    "java": 21,
+    "group": "prior",
+    "id": "operations",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "756fcdc330ff256a7df8bee3c0d406f8ad8ae857699360de26f6542daf863e8a",
+    "candidate_sha256": "b9dcbaee198fde147683669d3c851c7bb9bc46be372cf19eafd546d531c2b676"
+  },
+  {
+    "java": 21,
+    "group": "prior",
+    "id": "scientific-cycle",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "f8b225e8f2d15293f2606ba2e00e8c4616904f3598a136cb5f9b7408a3015b8e",
+    "candidate_sha256": "152633fcf8f00ddeb8cbc6362594f0b50c870e3c235c5e4f523afc6a52771808"
+  },
+  {
+    "java": 21,
+    "group": "prior",
+    "id": "transport-procurement",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "b9be93e8fd165c210cd32af1664f51200676472a2cb8a60636b4acd67183a38b",
+    "candidate_sha256": "64b360d9eed6b1c2a9ff1a933eeab19d669cb61b67a4d6b8b2b2475413f43767"
+  },
+  {
+    "java": 21,
+    "group": "external",
+    "id": "document-four",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "c7123bb2477d5664c026d1420402f126f433f4711ba60fb6a1419c6472b23d61",
+    "candidate_sha256": "9bebe0c3b1d4da3c05d925f472721c9a2e6c8524bdd7e9d1863e695b0bab82e9"
+  },
+  {
+    "java": 21,
+    "group": "external",
+    "id": "document-three",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "1992a9f28fb7ed87e43ad9e8c6b46f7e38d11482dc3b4368647005e9a9ab8f0b",
+    "candidate_sha256": "ba6f1ef1e2740db3202e135de88cdf35fa2d6d21dbc29a84840dea23ba2af53d"
+  },
+  {
+    "java": 21,
+    "group": "authored",
+    "id": "borderless-body-wrapped",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "c0271da46f44d9a6aac591e46ff1ac59aa96e39b94dbc19b3687c2466492d117",
+    "candidate_sha256": "8fc502307dbf4ad5f284882869255f764367e125c754e318be19359ec6c4d533"
+  },
+  {
+    "java": 21,
+    "group": "authored",
+    "id": "borderless-grouped",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "6cc3114394539af8f1ada5836aa518d9c8b1ddc304e91d915c4a95bc4902b109",
+    "candidate_sha256": "61ed9ad122d0e376e03896f7800d39330ae093d764c1bc69eee8d6ceb4471dc6"
+  },
+  {
+    "java": 21,
+    "group": "authored",
+    "id": "borderless-stacked",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "51315e38dd9eb80d5e412d082f27996d87a1840fda25dc93ce90efef42f19313",
+    "candidate_sha256": "90e0bcfd99fbbf88cbff8640879554d798efbb4c56b9f542c3c9f5737c9562d6"
+  },
+  {
+    "java": 21,
+    "group": "authored",
+    "id": "borderless-wrapped",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "e68152517ad1e6f70495a97a9a12edff118d2ee8543cadc38a6e80ffde43d938",
+    "candidate_sha256": "3f1c47121102801fbd30191b0f55e046424348a8d376e028d5bab2d0e164ada0"
+  },
+  {
+    "java": 21,
+    "group": "authored",
+    "id": "ruled-body-wrapped",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "911ad1776c316b8a72b51e226cb91b3346c154fba2341abebf433117e5ea75ed",
+    "candidate_sha256": "7176db8fb3d3cf153950c3d2884ab2f16a3f1260b9c2340a48425909f16d1a87"
+  },
+  {
+    "java": 21,
+    "group": "authored",
+    "id": "ruled-grouped",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "49a181c2eb0cba48198f5e073aeee36aa0937d4b7290c513a019cf49460eb1ee",
+    "candidate_sha256": "0f107a5ce1b4e7e9531d40d4bd5a6dd825ddb0e3aeb8031fc32580eefb9c3c9a"
+  },
+  {
+    "java": 21,
+    "group": "authored",
+    "id": "ruled-stacked",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "397753ebf328780d8d90d2abc0da036194b3031d3cefa4f0798568e06548505a",
+    "candidate_sha256": "d225636c09b6d31a30cff791f43548da55beb1582983f3ff590371e366bdc6ff"
+  },
+  {
+    "java": 21,
+    "group": "authored",
+    "id": "ruled-wrapped",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "f0298203ba6c6438aee3c580b013fcc962c6681312ce2549435323579697f69f",
+    "candidate_sha256": "8fe665444c5b5f8407e19aad6c997e7c624a48d6e2e78aeda0ae22f9d10a0041"
+  },
+  {
+    "java": 25,
+    "group": "prior",
+    "id": "balance-sheet",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "cc7d34330f332f50b7f8895d5ff56d479aa84b6d0b9a1bd0dd110d25b91b8785",
+    "candidate_sha256": "dd2ec191ea96997d1464f0bed6d8f39e7bd29a16a0ec35862e2cd8e5dea07293"
+  },
+  {
+    "java": 25,
+    "group": "prior",
+    "id": "disability-first",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "1a70102972f53c6d61144f3a7b1f4031ea2ee7962fbd4ed448bfd8e95a342ac9",
+    "candidate_sha256": "582089a7e53557abc310d908b98d7cfd8c40ddb32fe20ff7ebfba69a39873835"
+  },
+  {
+    "java": 25,
+    "group": "prior",
+    "id": "disability-second",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "7426287cc873fc7310e3d48eac76f8e55174996d9b7c7ed9d4a03e7612d400e0",
+    "candidate_sha256": "18806303e9fc482db440483ad98b56632b340a4b6a9cb7c5ca10a84f30f15e95"
+  },
+  {
+    "java": 25,
+    "group": "prior",
+    "id": "education-first",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "3c0d5c1fcc0a11b26a9b3661e9ec7e39e2211247be0fba9302be89ee7e383fba",
+    "candidate_sha256": "4dfd6e7d9aab77faee8e786d1af36ae6b5b0c7f60d9c9af3c3116ac425c26d02"
+  },
+  {
+    "java": 25,
+    "group": "prior",
+    "id": "education-second",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "3e798a1da4fde9bae037a3d5cc31ee299459ca578f0a1afebeca5230e4339bb5",
+    "candidate_sha256": "ae6e4ec223c13c34d0617aa19c0065371f19504bc3f08fb1677d8d12b0ec7f66"
+  },
+  {
+    "java": 25,
+    "group": "prior",
+    "id": "education-statistics",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "4ed641c5d455985b94dcc65c1f2cf505921a1818d49598edcd2d1fcd8808f71c",
+    "candidate_sha256": "169c65f3a152c5b5ff5d84d15ba989eb88f609a1b90905c8323f1c1886e53b14"
+  },
+  {
+    "java": 25,
+    "group": "prior",
+    "id": "financial-disclosure",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "4792d82a62b316306ae303573fa6f94af34a49cc5e04bcdf9b7db5e747a78345",
+    "candidate_sha256": "14a75b375b1031bc2072f4c14b222f81b907d4d4dbceb9cff9f59b6c93e08606"
+  },
+  {
+    "java": 25,
+    "group": "prior",
+    "id": "operations",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "2a6fadf2c57ef5430b2e4848fafad843ec5f6490a39e27d59d6181cfde78cdfb",
+    "candidate_sha256": "162916298b63b1e9c887072370fdc1c93882f006e2e6d5551188985b9f59dd22"
+  },
+  {
+    "java": 25,
+    "group": "prior",
+    "id": "scientific-cycle",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "d8df26fea4078cc452b5f481a622eb44c5b005664e7440519b7297a0da00f09b",
+    "candidate_sha256": "e7b10e6a705ddbf1f22e6dfbde14b574598efe87061183e72af85799799afa5d"
+  },
+  {
+    "java": 25,
+    "group": "prior",
+    "id": "transport-procurement",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "47bc85de8e8fb3245fc44daefba1663b3ca118114bc06e0e34da5f7e2e16356f",
+    "candidate_sha256": "700968d9b9e8f0e0d9f7f60cc8b1051a498df8dbf684eceee66253bebf41b2e2"
+  },
+  {
+    "java": 25,
+    "group": "external",
+    "id": "document-four",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "9cce6bf91e4075f21985c9d49f9dc0e9c88ed47be14c6b2e6928f26f17f3029f",
+    "candidate_sha256": "a2e885ea3b090809421e33e53841585bcb7ae3fb8d579fb442f790c92d9ea1d0"
+  },
+  {
+    "java": 25,
+    "group": "external",
+    "id": "document-three",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "86b27e3b5ccfb52b034951639b62dd627cc6983486206aa133f57faf2c2a8fa5",
+    "candidate_sha256": "4e4663e7c83b08fc40f2ca248d2f0a901a20aa56c1e87d895768bc29c1c12354"
+  },
+  {
+    "java": 25,
+    "group": "authored",
+    "id": "borderless-body-wrapped",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "8bf08f5a5a81f89f2a6f0e06e99a8589e7db1b0cf7306603aa3236c85382d008",
+    "candidate_sha256": "ff301aca75bfa194f613d7d0c2df4ff2587bd99692f57fdca53785a0dde6e54e"
+  },
+  {
+    "java": 25,
+    "group": "authored",
+    "id": "borderless-grouped",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "5555e64363773cf58e79f4456e796643ef1d593ed6b33c4e932c22dd748c3bcd",
+    "candidate_sha256": "823ceea8360031f0fe2eae4534c10ada1a5afcc0e60fee5c7afb9f4b3d773124"
+  },
+  {
+    "java": 25,
+    "group": "authored",
+    "id": "borderless-stacked",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "0cc86372c7ea072cc634c308c193e1cb3b98e908e4a8a269d8f2c7a9b707918e",
+    "candidate_sha256": "4da47505adc3d8af041e2d43d8664b9552d724108502d098f3e7efc9f8ab40e4"
+  },
+  {
+    "java": 25,
+    "group": "authored",
+    "id": "borderless-wrapped",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "c538daac6dd6a92e854925281e25f64c8d109ad12a227374b921cf2637272014",
+    "candidate_sha256": "a7b22ea6d52fb118bc5fa897f88711caf913797c3033fc7ff07707fb65ae6864"
+  },
+  {
+    "java": 25,
+    "group": "authored",
+    "id": "ruled-body-wrapped",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "d34b8c46507add6b44ec368a7ad60b35fae5ab2f57caf9c7819df4a3a910b9cb",
+    "candidate_sha256": "8360db291844e91572816208308b831785f595160e4992305dccdc3ccaaff6ae"
+  },
+  {
+    "java": 25,
+    "group": "authored",
+    "id": "ruled-grouped",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "668e6d19cd4453f4785a0f20a4964a01a1ee92ff69e36c3501548079d3a68ada",
+    "candidate_sha256": "299487e32e4e0cff0bbee0061741d1db040a7bfcbf37b1a5015ea4c622fe8fe4"
+  },
+  {
+    "java": 25,
+    "group": "authored",
+    "id": "ruled-stacked",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "93f4c021f04da72acde6b0fe5ee051dc616c9a4ae4738734c677373f984dee07",
+    "candidate_sha256": "a1c66d0547aaf04c26a03ab98b7cea69a68c8cd4e5137541f7b38f786d3bd24f"
+  },
+  {
+    "java": 25,
+    "group": "authored",
+    "id": "ruled-wrapped",
+    "parsed_capture_equal": true,
+    "source_frame_equal": true,
+    "baseline_sha256": "0a7fe354de61d9e6fec628f5061f4c208234bd5124be87a898aabd25315b44fe",
+    "candidate_sha256": "26606f1bc1a1db5ad2801b7b292ce529a3dae436d11266ca86d8c2957685d5c8"
+  }
+]

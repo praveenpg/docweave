@@ -1,0 +1,40 @@
+{
+  "historical_report": "benchmarks/corpus/docx-styles/review.json",
+  "documents": [
+    {
+      "filename": "TestTableColumns.docx",
+      "source_inventory_equal": true,
+      "original_summary_equal": true,
+      "enabled_and_disabled_summaries_checks_equal": true,
+      "direct_body_changed_fields": [],
+      "historical_direct_body_ranges": 0,
+      "current_direct_body_ranges": 0
+    },
+    {
+      "filename": "TestTableCellAlign.docx",
+      "source_inventory_equal": true,
+      "original_summary_equal": true,
+      "enabled_and_disabled_summaries_checks_equal": true,
+      "direct_body_changed_fields": [
+        "outline_levels",
+        "region_memberships",
+        "style_ranges"
+      ],
+      "historical_direct_body_ranges": 0,
+      "current_direct_body_ranges": 3
+    },
+    {
+      "filename": "table-alignment.docx",
+      "source_inventory_equal": true,
+      "original_summary_equal": true,
+      "enabled_and_disabled_summaries_checks_equal": true,
+      "direct_body_changed_fields": [
+        "outline_levels",
+        "region_memberships",
+        "style_ranges"
+      ],
+      "historical_direct_body_ranges": 0,
+      "current_direct_body_ranges": 54
+    }
+  ]
+}

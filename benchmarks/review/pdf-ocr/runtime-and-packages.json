@@ -1,0 +1,70 @@
+{
+  "scope": "Owned synthetic real-OCR regression only; no independent scanned-document accuracy or upstream parity claim",
+  "packages": [
+    {
+      "download_url": "https://archlinux.org/packages/extra/x86_64/tesseract/download/",
+      "bytes": 1759644,
+      "sha256": "75e96e4f32ec1598264367b119c67cf3e56908919a92103a24e60fbed12f49a9",
+      "metadata": {
+        "pkgname": "tesseract",
+        "pkgver": "5.5.3-1",
+        "url": "https://github.com/tesseract-ocr/tesseract",
+        "arch": "x86_64"
+      }
+    },
+    {
+      "download_url": "https://archlinux.org/packages/extra/x86_64/leptonica/download/",
+      "bytes": 1332492,
+      "sha256": "f7a239ee5f8492edfd6b2e61b3c7d4371ab27990db8f10de5bbbdadc50fafb71",
+      "metadata": {
+        "pkgname": "leptonica",
+        "pkgver": "1.87.0-2",
+        "url": "http://www.leptonica.com",
+        "arch": "x86_64"
+      }
+    },
+    {
+      "download_url": "https://archlinux.org/packages/extra/any/tesseract-data-eng/download/",
+      "bytes": 9470367,
+      "sha256": "f6dfc8fd7f70295ce74901b1d1e1a80aaead6430680901ad212074c5bbb68323",
+      "metadata": {
+        "pkgname": "tesseract-data-eng",
+        "pkgver": "2:4.1.0-5",
+        "url": "https://github.com/tesseract-ocr/tessdata",
+        "arch": "any"
+      }
+    }
+  ],
+  "engine_version_output": "tesseract 5.5.3\n leptonica-1.87.0\n  libgif 6.1.3 : libjpeg 8d (libjpeg-turbo 3.2.0) : libpng 1.6.59 : libtiff 4.7.2 : zlib 1.3.2 : libwebp 1.6.0 : libopenjp2 2.5.4\n Found AVX2\n Found AVX\n Found FMA\n Found SSE4.1\n Found OpenMP 202111\n Found libarchive 3.8.10 zlib/1.3.1.zlib-ng liblzma/5.8.3 bz2lib/1.0.8 liblz4/1.10.0 libzstd/1.5.7 openssl/3.6.5 libb2/bundled libacl/2.4.0\n Found libcurl/8.23.0 OpenSSL/3.6.5 zlib/1.3.1.zlib-ng brotli/1.2.0 zstd/1.5.7 libidn2/2.3.8 libpsl/0.21.5 libssh2/1.11.1 nghttp2/1.70.0 ngtcp2/1.25.0 nghttp3/1.18.0 mit-krb5/1.22.2\n",
+  "shared_libraries": {
+    "libleptonica.so.6.0.0": "639b979301190e3b26a66bb55115d5b96e98cdb567b04db438f70273d08b547a",
+    "libtesseract.so.5.0.5": "d8d85ea2fa57ee3dacc8dcb719d0b4a4cba8139d9e4a634fc4883eaf7a59633a"
+  },
+  "source_sha256": {
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/DefaultTesseractOcr.java": "77988d72bdc98db170d70fd306f1b093d5c7d1b6fed9b53833083d04bef3e053",
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/OcrDeadline.java": "182ed84abb54fc0caf208e1ad4deb482d6a1a3bf04cc6895e6322367afc8758c",
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractImage.java": "d459989b8e66d30a5e415a5d27a7c670c6e652f0169e487ae66c9a6d9316aeeb",
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractOcr.java": "1d77cd9200b5f86722ea0a412fd776b52375f6be78351dcd87599d1b3ad6d441",
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractOptions.java": "8c9962c686c406124b36bd501abac4a053b0865738328892e9940f344bfd0709",
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractProcess.java": "fe393b6789b8dc76a7519df799dfc655d9f547438c85d03306431ae2452e389c",
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractTsv.java": "00e72c662f8d2b0bdadd328e988bc398a49225bdb7975c77bb5694408f7c1d20",
+    "docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/OcrChildProcess.java": "e5dea4934487a94278f0d5714a374b7c1cfbc1910dab0913ad9bee7c538d8761",
+    "docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractInstalledTest.java": "0ab8f6e730595d310871baf5528355cc2cfba29594b3635a93293fada9656dba",
+    "docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractOcrTest.java": "6de96b179dc6e0680e273b50b171c2c9c2fd59abd73093469e4860b7b6654788",
+    "docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractTsvTest.java": "a0c8923c7b27d89d32fac9c4cc8d09481a06bf0dbfb8b4196fd40f7526cea48b",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageOcr.java": "6c67e83d6615e21db0397341dcf2547746dd49efb92ef6574cf512534e5d3ff6",
+    "docweave-core/src/main/java/dev/docweave/partition/PartitionException.java": "a5898666bc8fab2746dcff5d429de34356d943ad0917108959e09bbbee19d663"
+  },
+  "runtime_class_sha256": {
+    "docweave-ocr-tesseract/target/classes/dev/docweave/ocr/DefaultTesseractOcr.class": "da93c1abf4c5c9e16ee4fd586891e074c2b28e8d5374a606b4f83b2a1a77d975",
+    "docweave-ocr-tesseract/target/classes/dev/docweave/ocr/OcrDeadline.class": "da29398a05f7e086b7da40346b959eb2c2cdbe4c3ef0dc9d541ca9ae21b86e58",
+    "docweave-ocr-tesseract/target/classes/dev/docweave/ocr/TesseractImage$LimitedOutput.class": "8c8d59b0a47e2afb451a7d20bb48b5845fedb4f707180011be10471cfea6224f",
+    "docweave-ocr-tesseract/target/classes/dev/docweave/ocr/TesseractImage.class": "5d6e65d0762d0d6e2e4445d037045b09d8bc2f6c72321fdb342d86a4fb351f66",
+    "docweave-ocr-tesseract/target/classes/dev/docweave/ocr/TesseractOcr.class": "09397a2b36918bd8a3032eff924b38f4a27b44c848bef431d520838998ff6567",
+    "docweave-ocr-tesseract/target/classes/dev/docweave/ocr/TesseractOptions.class": "479c8789a7213d8677c31bf4ede4db4e7ee9312bcaba4f5a238cb9659e85b583",
+    "docweave-ocr-tesseract/target/classes/dev/docweave/ocr/TesseractProcess.class": "3f794979699c22508c1abc2bdac56e62b1991ebe518c4e9ce36475815f9aae86",
+    "docweave-ocr-tesseract/target/classes/dev/docweave/ocr/TesseractTsv$Words.class": "fd4b491f84560046469eb2a9132816c723836aa12d3b1caf5b6a94459e50cf2d",
+    "docweave-ocr-tesseract/target/classes/dev/docweave/ocr/TesseractTsv.class": "1972f3c346e8f7defbe4caf82a1727e98f6c737ed252b74234348970ca31ba17"
+  },
+  "control_report_sha256": "970e55d6dd56bb82d15ae655f5feee51f72b350f48fcd14a319b0a41f387b4cf"
+}

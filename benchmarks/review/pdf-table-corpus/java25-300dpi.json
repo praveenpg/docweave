@@ -1,0 +1,28 @@
+{
+  "source_sha256" : {
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfScannedTableCorpusTest.java" : "e5fb934c7666c64aad7bb36f1aeaaf46f8fc6c371bfe1f35e0ca36772298e88e",
+    "docweave-pdf/src/main/java/dev/docweave/partition/RasterPdfTableDetector.java" : "5cab7bee736ca147b57a5d7f80b52ccf6ecffccda8424365a22f32378c484f70",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfScannedTables.java" : "f023adb7721af9a824edc9bbbe42e89143a1c0b8982270cac029f94eae1c1faf",
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/DefaultTesseractOcr.java" : "77988d72bdc98db170d70fd306f1b093d5c7d1b6fed9b53833083d04bef3e053"
+  },
+  "checked_at" : "2026-10-17T05:01:16.830622215Z",
+  "dpi" : 300,
+  "java" : "25.0.4+7-LTS",
+  "scope" : "Schools page 1 top six rows at configured DPI; independent published Tabula cells, not human scan accuracy",
+  "manifest_sha256" : "d3d2886e84a128b15756fc677ad92d8b380ad55c1315e2ea139d7c09065cd9d1",
+  "executable_sha256" : "9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917",
+  "model_sha256" : "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047",
+  "schools" : {
+    "expected_cells" : 60,
+    "mismatching_cell_indexes" : [ 42 ],
+    "actual_cells" : 60,
+    "tables" : 1,
+    "expected_normalized_sha256" : "ea376344496b47db8fc692804d8b87dc42b19ee3010842d3bed2172cf71e92a5",
+    "actual_normalized_sha256" : "bdafb10630a750a76e8c9fdd7002a1e7810567c13b43ce6c631aafb5d30ff57a"
+  },
+  "row_widths" : [ 10, 10, 10, 10, 10, 10 ],
+  "animal" : {
+    "tables" : 0,
+    "ordinary_ocr_elements" : 17
+  }
+}

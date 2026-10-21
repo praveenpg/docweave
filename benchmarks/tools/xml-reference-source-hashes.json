@@ -1,0 +1,17 @@
+{
+  "unstructured/chunking/base.py": "076daa0ba00212217d6d9bef60156a364f3b50684ce5d5c8168f7ea8cd97ea42",
+  "unstructured/chunking/basic.py": "68d6fde873e5f744ab0527717f029bfe0c8b232df03bcba25359b466d5d77159",
+  "unstructured/chunking/title.py": "f5305324030bb77100584bb8b432b8b2110f3c280b1d697dcc2b41f65dce2f23",
+  "unstructured/documents/elements.py": "94f0f5eca1d987b2e1e5c574417e62305fae4556bb572bf95918861047954d0c",
+  "unstructured/common/html_table.py": "741e09b2b057438e1044c33b2592179e055f75e5664600657b000310caa85bd5",
+  "unstructured/partition/docx.py": "623ef4c7d41dc8ad227a4524c0fe7b58b9688bad86623e81739c6def67f59f2a",
+  "unstructured/partition/text_type.py": "a423f9917c8740a00c04fa4aad6e8794ba9dd8d6e1071377c42878d3d3b20ac5",
+  "unstructured/nlp/tokenize.py": "22347992441136da156a6df38ad6298eda24944918e5edef581415c8bab84d42",
+  "unstructured/partition/common/metadata.py": "f9955fe62a7a695acdfd54b7a1874ed8c4b547de15e1f668bb6b7a1f124cd5d9",
+  "unstructured/partition/common/lang.py": "9c1f7d17c37c59a98b25b047e420ef1ba9f08d3edda74b93761ad7081c6be32c",
+  "unstructured/partition/text.py": "dc1ec9c0899333e44f20516725c85074d5321d6cce953111461068e1222cb84f",
+  "unstructured/partition/csv.py": "cc52699294f4b21e6383aa261ad42e2d48085f6a73b31172a54327eeabb2d546",
+  "unstructured/partition/tsv.py": "01eb4adf1550d14679f26bebc4f64b163dcb865f09e0c96a1ec9a97f4f14f247",
+  "unstructured/cleaners/core.py": "290b210370a38b3cdd0d30e5e20f8ea9e41ba69dcaa9aa371477b3dd9f6dd362",
+  "unstructured/partition/xml.py": "d21bc5dee68dc281e6f540606afabaddf27f3a940d003c9bb649249df229ad79"
+}

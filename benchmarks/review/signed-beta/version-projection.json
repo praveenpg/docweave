@@ -1,0 +1,122 @@
+{
+  "version": "0.1.0-beta.1",
+  "parent": "unsigned-review-v1",
+  "scope": "Local successor; historical evidence remains dated; only build and standalone consumer version references changed. No publication.",
+  "changes": [
+    {
+      "path": "benchmarks/review/adapter-consumers/onnx/pom.xml",
+      "before_sha256": "9a8b60ed19f997bc290a02f1b248f19a642c5bc9c9b582e0f76ccf4bf0c21b51",
+      "after_sha256": "cff7568367e2b082f335df9d9488fa62a818b30fa22a279f204d4bce0cd5a33d"
+    },
+    {
+      "path": "benchmarks/review/adapter-consumers/run.sh",
+      "before_sha256": "bdf1b1885d84827061f568da056f00306be9825ca28248ecf229f7fe15628e82",
+      "after_sha256": "55505606d917a9b76497009fa62d4e3396065510dbda0554b8db59d9921eeba8"
+    },
+    {
+      "path": "benchmarks/review/adapter-consumers/tesseract/pom.xml",
+      "before_sha256": "e5ea492692efb7856786fa2d86cb4621f8bfbcf31f44768fd1e4a5c11b23a097",
+      "after_sha256": "0bfce60cd1a32104bd69f93cb8012fb6460e0d794dfaf60c3e8403d7e63c2e9d"
+    },
+    {
+      "path": "benchmarks/review/release-artifacts/consumer/pom.xml",
+      "before_sha256": "aa2ddf306a8f047a900a1a95c89e5afb24f48637a91b50b4cf1e93c62187a5e1",
+      "after_sha256": "470bb519a5aeca40419cfe6163ede949880fa9b7424f576a10de77a35f9587e1"
+    },
+    {
+      "path": "docweave-all/pom.xml",
+      "before_sha256": "25a2030d996e2f9358d30c8a8e20a9245fbeb29e8af87c0a340b4fd3797fa192",
+      "after_sha256": "fc48f9fcf4705cd3f99cf77e370082225a0668db7741259d6f0467ba216852fc"
+    },
+    {
+      "path": "docweave-batch/pom.xml",
+      "before_sha256": "79e50f6fde265274e12a98cf400ff5293318b3db34efa5ce44ddca16585e5328",
+      "after_sha256": "994096912f21b8af1685ac7615e346c7048a7ed48778e73f2e5bb6345fd15e06"
+    },
+    {
+      "path": "docweave-chunking/pom.xml",
+      "before_sha256": "d428b4189c04288b2e6c4744aa989c1013e3c69298bebfce750b3dd3e5150bdd",
+      "after_sha256": "65cdfde0b79809f4eb28116b00f57a0cdc7ce623ace3074a598280e5155f1f82"
+    },
+    {
+      "path": "docweave-core/pom.xml",
+      "before_sha256": "176e9109594c8ede55edc71300be012dcd5a34b4f22dbbcaa32bd1a803d60379",
+      "after_sha256": "c28217774818381a1fa5787452d2d2b11c0ea6bbf7e15e55be38e2c13b3f8c66"
+    },
+    {
+      "path": "docweave-csv/pom.xml",
+      "before_sha256": "9436a0bbe7f0b2c562ab55f5d3cfa77b60bd084eab3667d223dfaf5e3d4c4c3b",
+      "after_sha256": "a28529d448bc0a3e5570b419d5a7b366c5db7d246b3cd98f8efba4d1d25e1960"
+    },
+    {
+      "path": "docweave-delimited/pom.xml",
+      "before_sha256": "837b74ac0e98a39ed24cc73197db9f3ce9f6cb58ce0cd1f0290b3d0a70e6846c",
+      "after_sha256": "f32fe1832bafa951d58e9e952902106e3ed1be096d11df4f94904dd6fbe21698"
+    },
+    {
+      "path": "docweave-docx/pom.xml",
+      "before_sha256": "ac5dfb16bfe0976cf92b6b0d058797af560e17262232967777867dd434a49140",
+      "after_sha256": "752d57e877c8a97c172803f09f3d847b4a42eb6fc6c38733d1d8bbffc6c205dd"
+    },
+    {
+      "path": "docweave-html/pom.xml",
+      "before_sha256": "d993b35422b42bac222c87c42861b7e1c15a0320d95c2ecef590cf6cacc8a40e",
+      "after_sha256": "f3440df9a905eb8917f888fc4942e2be907d65143f712ed1518f4122d6a71733"
+    },
+    {
+      "path": "docweave-integration-tests/pom.xml",
+      "before_sha256": "5ef7840b6ade20cda31dbef6adb63048cea0a1c89649fc9abc68246b7cc5e9c2",
+      "after_sha256": "a1641a11136ba41109eba56958f9068b4c1f58b4432cd2165285f9943e5ac28d"
+    },
+    {
+      "path": "docweave-json/pom.xml",
+      "before_sha256": "4f35e94702db5424eaba47453245bb35aac491daff27b16f24ff72c9b23a4175",
+      "after_sha256": "d3872fd9e865139e2e67b8316fd9f669de1a368cfa4ff68e94c06989b8194e85"
+    },
+    {
+      "path": "docweave-layout-onnx/pom.xml",
+      "before_sha256": "99a5d0dc7d16604775f20eec6c10c6a6f7dfadfd39e55528f3037a76c5611be3",
+      "after_sha256": "b8cf611b8212ec956f754cae98814de834bbde10970db404101c841aa96072fd"
+    },
+    {
+      "path": "docweave-markdown/pom.xml",
+      "before_sha256": "ec1a6317ef8c8e96838e204d295a38dd69ad8b0fd6c40c9de40bbdfd7188b268",
+      "after_sha256": "0169e4621131770930487b9ddebfd49f866d6c56824513eaa8bc0d3d8fa024e2"
+    },
+    {
+      "path": "docweave-ocr-tesseract/pom.xml",
+      "before_sha256": "d93c48f9e9112ef442d54cf62cd35b80a3aae1cda3a27940e951e80624cc4b0b",
+      "after_sha256": "c118f69eb0034017455017df070df19beeb0ee389ed4c36ca920a32daf7f15aa"
+    },
+    {
+      "path": "docweave-pdf/pom.xml",
+      "before_sha256": "d3cc0acf25dc98ee35607ff83c83e6b9115246e2f5ab493316b9747acae650df",
+      "after_sha256": "a22ad77ae9fb76ee078dab7436e20a2340970dee4c0a32b9a5981a17d60a2a7b"
+    },
+    {
+      "path": "docweave-tsv/pom.xml",
+      "before_sha256": "f8f517fef86406d289e595792f599fe0d00ed1f93033d59c63ed8151df097221",
+      "after_sha256": "052cc8f57c001e5cb3db07d8ab4101489ee7c4224480f220de9f424433f81563"
+    },
+    {
+      "path": "docweave-txt/pom.xml",
+      "before_sha256": "43b6308db13d1ad0a49e2acc11d57649e02945881096ecbff6af98e889441cf9",
+      "after_sha256": "730890b4ab478d66f49fe2e1c0b8c48629ec340b0f2aa871b316313c4b14962c"
+    },
+    {
+      "path": "docweave-validation/pom.xml",
+      "before_sha256": "17e1922b1037ef7289814258183dad92401aad2e1def8a9ff8e77e9ddd8a579e",
+      "after_sha256": "1f61b15c90bfdd7f4ce94415ef4605c401d4454b96663ffa17aeb3466d4b4480"
+    },
+    {
+      "path": "docweave-xml/pom.xml",
+      "before_sha256": "ece90f75f278a6c487358375c0edc3f4ec3a34aba7b86d8a73b3756216e9113a",
+      "after_sha256": "e3a7fbe21044a0bd07fee53f2f1edd29a6e81973e256ceeae034f5b09b2a601e"
+    },
+    {
+      "path": "pom.xml",
+      "before_sha256": "8fc3019b957dafa6c8cb9b75c9d01d662fc388cef1f77949421c67c9a091cb51",
+      "after_sha256": "9a9f2ee29886dbcd58ad80434a72252a3ef5a1176fd381b69eecf8197e775e65"
+    }
+  ]
+}

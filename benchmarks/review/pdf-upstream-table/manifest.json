@@ -1,0 +1,119 @@
+{
+  "source_manifest": "../pdf-pubtabnet/manifest.json",
+  "source_image": "PMC1626454_002_00.png",
+  "selection": "Development-selected because DocWeave emits zero tables; not a random or held-out evaluation",
+  "docweave_baseline_commit": "93acbdc0c83de0517e759cc7fd3dc45a1a3005b5",
+  "resources": [
+    {
+      "purpose": "shared_table",
+      "repository": "microsoft/table-transformer-structure-recognition-v1.1-all",
+      "revision": "7587a7ef111d9dcbf8ac695f1376ab7014340a0c",
+      "filename": "model.safetensors",
+      "sha256": "9df416575a3a36ebd0129342d4f597f14d6e5170268f3d52d28584ab4466a501",
+      "bytes": 115437156,
+      "url": "https://huggingface.co/microsoft/table-transformer-structure-recognition-v1.1-all/resolve/7587a7ef111d9dcbf8ac695f1376ab7014340a0c/model.safetensors"
+    },
+    {
+      "purpose": "shared_table",
+      "repository": "microsoft/table-transformer-structure-recognition-v1.1-all",
+      "revision": "7587a7ef111d9dcbf8ac695f1376ab7014340a0c",
+      "filename": "config.json",
+      "sha256": "17a8a6edfb9e394263fa6ba9b82176ebccdfcc5d6cd29121ec91572c7d6be22c",
+      "bytes": 76761,
+      "url": "https://huggingface.co/microsoft/table-transformer-structure-recognition-v1.1-all/resolve/7587a7ef111d9dcbf8ac695f1376ab7014340a0c/config.json"
+    },
+    {
+      "purpose": "shared_table",
+      "repository": "microsoft/table-transformer-structure-recognition-v1.1-all",
+      "revision": "7587a7ef111d9dcbf8ac695f1376ab7014340a0c",
+      "filename": "preprocessor_config.json",
+      "sha256": "eead409bb80e36ae85b8377642c54550f0504f65688ba3a4967950cafe461df2",
+      "bytes": 374,
+      "url": "https://huggingface.co/microsoft/table-transformer-structure-recognition-v1.1-all/resolve/7587a7ef111d9dcbf8ac695f1376ab7014340a0c/preprocessor_config.json"
+    },
+    {
+      "purpose": "default_table",
+      "repository": "microsoft/table-transformer-structure-recognition",
+      "revision": "f4d4bdc85c3fe4b1fa49658882a5d38bbdd0f343",
+      "filename": "model.safetensors",
+      "sha256": "f581da65a586591124cac9545b09b93e4e8bf28ce3a8357af6ac15ce94fce16b",
+      "bytes": 115434268,
+      "url": "https://huggingface.co/microsoft/table-transformer-structure-recognition/resolve/f4d4bdc85c3fe4b1fa49658882a5d38bbdd0f343/model.safetensors"
+    },
+    {
+      "purpose": "default_table",
+      "repository": "microsoft/table-transformer-structure-recognition",
+      "revision": "f4d4bdc85c3fe4b1fa49658882a5d38bbdd0f343",
+      "filename": "config.json",
+      "sha256": "9fa1108c9fbfac69086d23bdd26b9a2242a56a72766fed98c6dfaeaae59ebf76",
+      "bytes": 1469,
+      "url": "https://huggingface.co/microsoft/table-transformer-structure-recognition/resolve/f4d4bdc85c3fe4b1fa49658882a5d38bbdd0f343/config.json"
+    },
+    {
+      "purpose": "default_table",
+      "repository": "microsoft/table-transformer-structure-recognition",
+      "revision": "f4d4bdc85c3fe4b1fa49658882a5d38bbdd0f343",
+      "filename": "preprocessor_config.json",
+      "sha256": "4bd6700976c66662678a521e529b06dca36df041c9d411884cb92e81bc5a6818",
+      "bytes": 274,
+      "url": "https://huggingface.co/microsoft/table-transformer-structure-recognition/resolve/f4d4bdc85c3fe4b1fa49658882a5d38bbdd0f343/preprocessor_config.json"
+    },
+    {
+      "purpose": "default_layout",
+      "repository": "unstructuredio/yolo_x_layout",
+      "revision": "7680d6f857780bcf8d49916aa2e8881bd49dee3e",
+      "filename": "yolox_l0.05.onnx",
+      "sha256": "134301ca94fb0df8027be9a6dad1908fe6218af8ffa4d34f0819c7c2226195f3",
+      "bytes": 216625723,
+      "url": "https://huggingface.co/unstructuredio/yolo_x_layout/resolve/7680d6f857780bcf8d49916aa2e8881bd49dee3e/yolox_l0.05.onnx"
+    },
+    {
+      "purpose": "default_backbone_initialization",
+      "repository": "timm/resnet18.a1_in1k",
+      "revision": "491b427b45c94c7fb0e78b5474cc919aff584bbf",
+      "filename": "pytorch_model.bin",
+      "sha256": "1d92fca7bc19313523ad23dff7f89800791baa592f40366537a829bd436e5e14",
+      "bytes": 46836469,
+      "url": "https://huggingface.co/timm/resnet18.a1_in1k/resolve/491b427b45c94c7fb0e78b5474cc919aff584bbf/pytorch_model.bin"
+    }
+  ],
+  "capture_onnxruntime": "1.23.2",
+  "python_lock": "requirements.freeze.txt",
+  "english_nlp_model": {
+    "version": "3.8.0",
+    "url": "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl",
+    "sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85"
+  },
+  "runtime_classes_sha256": {
+    "BilinearTableImageTransform.class": "cd73965fd3415f34bbb2e0832bb0b0d29c14c8d9274400601489600dae43cc0d",
+    "TableImageTransform.class": "4f07c5d76b49c82e60bc37424f6cc4c56109661458ae37fcbc2be11d5eeed9e6",
+    "OnnxTableOptions.class": "34206fe47fcfbe18614ca934bd9ab16660eb5710bc9f3a38b9e25883039087ed",
+    "LayoutDeadline.class": "abcb524a36abe1aee8bfa4cb7effb64ed88ee1717ffc4a4e02865ed05d0ed96d",
+    "LayoutPixels.class": "42d778a1c56317536a70b9e2f7055a1d25d6e6a1074465ad45702274dbfd2a6c",
+    "DefaultOnnxTableLayout.class": "8d237b547769bd3a1ab390e0d4af15ed6a3dbce2eb385041b1f319e260e8fdb2",
+    "OnnxTableLayout.class": "847bb3cc4ee37cab95406e22e036237e5a0b8e4813d4c359d80a4b2caf5791c1",
+    "ManagedTatrSession$NativeCancellation.class": "91df4f468f14aa3443615b39dbca974788df14da892f1845477c9f839cc8c2f9",
+    "ManagedTatrSession.class": "de8d16d59b644f1272f5488bc8b41fc98e236807c48b8cd97a489bc5e189c47a",
+    "LayoutInference.class": "db1fb6fc3395f262149142086d8cf420cbc3681cddb6e0a963f49dc706db6f5d",
+    "LayoutObject.class": "b922d162abc8c838651ce2f7522bda97388d8ad3fcca8cb705681455af4b351f",
+    "DetectedOnnxTableLayout.class": "b143787e655b3f21618bb1416dbd5cb7b30f0cbdbf3595a83fb1827ebd11a9dd",
+    "LayoutWork.class": "619b772da0f02d83bd100c9eea7a751efab891bdeccab945df1a325ae6b96c68",
+    "DetectionCrops$Crop.class": "312eb5aeab098e1247dd6a9dbcac7e7c0b348db01bf217f5126317ecd33a38d2",
+    "DetectionCrops.class": "ee3ee360ff2d58953216fce98aa2977912170079fe31487e7ceb9e7322fe045f",
+    "TableObjectDecoder.class": "938ac58b04b194f678cce68dcf04ef3358872c41546345b0c6e3d02f7c841728",
+    "TableTopology$Merge.class": "97bfb2c802ac8e65aae80b80eaba6b20b077bdbc985c9c9d8949bd1aa192a0e2",
+    "TableTopology.class": "d7c2f2550f3fac8237f386debdfce0e59978dc206f3aa1c43c5f939e5a5f7dab"
+  },
+  "pypi_wheels": [
+    {
+      "filename": "unstructured-0.27.28-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/8a/01/5914be17ff42135212111fbec6f1113198c352f3f9bdab556729c1b7b04b/unstructured-0.27.28-py3-none-any.whl",
+      "sha256": "397602fe831605c47bdc34f52de65001e95d51364068c10448bb6f54782e80f7"
+    },
+    {
+      "filename": "unstructured_inference-1.6.13-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/01/c0/6598b1420605382e7ed879ff7e1d51e12cc7a82e46971c7a61c3740c77db/unstructured_inference-1.6.13-py3-none-any.whl",
+      "sha256": "73b727260e4a43133276727c371b57f7d4d92c68e8a7529a28e9576755356524"
+    }
+  ]
+}

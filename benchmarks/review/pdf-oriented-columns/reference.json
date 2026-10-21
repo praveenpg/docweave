@@ -1,0 +1,1183 @@
+{
+  "source": {
+    "url": "https://www.immunology.org/sites/default/files/2025-03/Immunology%20News_March%202025_v7%28web%29.pdf",
+    "bytes": 6323326,
+    "sha256": "fcbbb6b34a2d9c2b0b3acb546d0dc1ba100e7ed486d2dc7d3b0516fbdec03497",
+    "pages": 28
+  },
+  "maximum_edge_difference_points": 2,
+  "expected_images": 106,
+  "expected_figures": 0,
+  "labels": [
+    {
+      "id": "nonfigure-p1-1",
+      "page": 1,
+      "figure": false,
+      "bounds": [
+        0,
+        0,
+        597,
+        844
+      ]
+    },
+    {
+      "id": "nonfigure-p2-1",
+      "page": 2,
+      "figure": false,
+      "bounds": [
+        393,
+        60,
+        567,
+        278
+      ]
+    },
+    {
+      "id": "nonfigure-p2-2",
+      "page": 2,
+      "figure": false,
+      "bounds": [
+        256,
+        450,
+        385,
+        542
+      ]
+    },
+    {
+      "id": "nonfigure-p2-3",
+      "page": 2,
+      "figure": false,
+      "bounds": [
+        257,
+        589,
+        384,
+        667
+      ]
+    },
+    {
+      "id": "nonfigure-p2-4",
+      "page": 2,
+      "figure": false,
+      "bounds": [
+        394,
+        301,
+        568,
+        487
+      ]
+    },
+    {
+      "id": "nonfigure-p2-5",
+      "page": 2,
+      "figure": false,
+      "bounds": [
+        257,
+        715,
+        383,
+        800
+      ]
+    },
+    {
+      "id": "nonfigure-p2-6",
+      "page": 2,
+      "figure": false,
+      "bounds": [
+        357,
+        573,
+        401,
+        691
+      ]
+    },
+    {
+      "id": "nonfigure-p3-1",
+      "page": 3,
+      "figure": false,
+      "bounds": [
+        370,
+        559,
+        628,
+        836
+      ]
+    },
+    {
+      "id": "nonfigure-p3-2",
+      "page": 3,
+      "figure": false,
+      "bounds": [
+        37,
+        133,
+        200,
+        307
+      ]
+    },
+    {
+      "id": "nonfigure-p4-1",
+      "page": 4,
+      "figure": false,
+      "bounds": [
+        216,
+        72,
+        383,
+        239
+      ]
+    },
+    {
+      "id": "nonfigure-p5-1",
+      "page": 5,
+      "figure": false,
+      "bounds": [
+        210,
+        132,
+        567,
+        311
+      ]
+    },
+    {
+      "id": "nonfigure-p6-1",
+      "page": 6,
+      "figure": false,
+      "bounds": [
+        27,
+        599,
+        201,
+        795
+      ]
+    },
+    {
+      "id": "nonfigure-p6-2",
+      "page": 6,
+      "figure": false,
+      "bounds": [
+        394,
+        566,
+        568,
+        745
+      ]
+    },
+    {
+      "id": "nonfigure-p7-1",
+      "page": 7,
+      "figure": false,
+      "bounds": [
+        211,
+        200,
+        568,
+        421
+      ]
+    },
+    {
+      "id": "nonfigure-p7-2",
+      "page": 7,
+      "figure": false,
+      "bounds": [
+        400,
+        433,
+        569,
+        606
+      ]
+    },
+    {
+      "id": "nonfigure-p8-1",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        20,
+        48,
+        576,
+        392
+      ]
+    },
+    {
+      "id": "nonfigure-p8-2",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        466,
+        109,
+        531,
+        285
+      ]
+    },
+    {
+      "id": "nonfigure-p8-3",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        531,
+        144,
+        563,
+        320
+      ]
+    },
+    {
+      "id": "nonfigure-p8-4",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        466,
+        284,
+        531,
+        319
+      ]
+    },
+    {
+      "id": "nonfigure-p8-5",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        464,
+        109,
+        468,
+        111
+      ]
+    },
+    {
+      "id": "nonfigure-p8-6",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        389,
+        204,
+        488,
+        292
+      ]
+    },
+    {
+      "id": "nonfigure-p8-7",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        389,
+        292,
+        488,
+        321
+      ]
+    },
+    {
+      "id": "nonfigure-p8-8",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        389,
+        110,
+        464,
+        227
+      ]
+    },
+    {
+      "id": "nonfigure-p8-9",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        390,
+        191,
+        400,
+        201
+      ]
+    },
+    {
+      "id": "nonfigure-p8-10",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        389,
+        125,
+        444,
+        145
+      ]
+    },
+    {
+      "id": "nonfigure-p8-11",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        464,
+        110,
+        489,
+        319
+      ]
+    },
+    {
+      "id": "nonfigure-p8-12",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        464,
+        110,
+        484,
+        204
+      ]
+    },
+    {
+      "id": "nonfigure-p8-13",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        385,
+        59,
+        458,
+        101
+      ]
+    },
+    {
+      "id": "nonfigure-p8-14",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        386,
+        83,
+        458,
+        117
+      ]
+    },
+    {
+      "id": "nonfigure-p8-15",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        390,
+        110,
+        458,
+        117
+      ]
+    },
+    {
+      "id": "nonfigure-p8-16",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        499,
+        101,
+        575,
+        166
+      ]
+    },
+    {
+      "id": "nonfigure-p8-17",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        499,
+        109,
+        563,
+        166
+      ]
+    },
+    {
+      "id": "nonfigure-p8-18",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        107,
+        685,
+        336,
+        786
+      ]
+    },
+    {
+      "id": "nonfigure-p8-19",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        28,
+        433,
+        103,
+        800
+      ]
+    },
+    {
+      "id": "nonfigure-p8-20",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        392,
+        509,
+        574,
+        734
+      ]
+    },
+    {
+      "id": "nonfigure-p8-21",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        445,
+        667,
+        570,
+        708
+      ]
+    },
+    {
+      "id": "nonfigure-p8-22",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        403,
+        523,
+        461,
+        711
+      ]
+    },
+    {
+      "id": "nonfigure-p8-23",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        280,
+        485,
+        446,
+        700
+      ]
+    },
+    {
+      "id": "nonfigure-p8-24",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        294,
+        497,
+        330,
+        691
+      ]
+    },
+    {
+      "id": "nonfigure-p8-25",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        337,
+        650,
+        411,
+        683
+      ]
+    },
+    {
+      "id": "nonfigure-p8-26",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        339,
+        440,
+        521,
+        665
+      ]
+    },
+    {
+      "id": "nonfigure-p8-27",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        356,
+        531,
+        491,
+        629
+      ]
+    },
+    {
+      "id": "nonfigure-p8-28",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        364,
+        465,
+        505,
+        504
+      ]
+    },
+    {
+      "id": "nonfigure-p8-29",
+      "page": 8,
+      "figure": false,
+      "bounds": [
+        364,
+        465,
+        505,
+        504
+      ]
+    },
+    {
+      "id": "nonfigure-p9-1",
+      "page": 9,
+      "figure": false,
+      "bounds": [
+        394,
+        376,
+        568,
+        509
+      ]
+    },
+    {
+      "id": "nonfigure-p9-2",
+      "page": 9,
+      "figure": false,
+      "bounds": [
+        211,
+        155,
+        567,
+        366
+      ]
+    },
+    {
+      "id": "nonfigure-p9-3",
+      "page": 9,
+      "figure": false,
+      "bounds": [
+        211,
+        552,
+        385,
+        800
+      ]
+    },
+    {
+      "id": "nonfigure-p9-4",
+      "page": 9,
+      "figure": false,
+      "bounds": [
+        27,
+        694,
+        201,
+        801
+      ]
+    },
+    {
+      "id": "nonfigure-p9-5",
+      "page": 9,
+      "figure": false,
+      "bounds": [
+        394,
+        622,
+        568,
+        748
+      ]
+    },
+    {
+      "id": "nonfigure-p11-1",
+      "page": 11,
+      "figure": false,
+      "bounds": [
+        403,
+        235,
+        475,
+        264
+      ]
+    },
+    {
+      "id": "nonfigure-p11-2",
+      "page": 11,
+      "figure": false,
+      "bounds": [
+        487,
+        245,
+        559,
+        260
+      ]
+    },
+    {
+      "id": "nonfigure-p11-3",
+      "page": 11,
+      "figure": false,
+      "bounds": [
+        403,
+        284,
+        475,
+        303
+      ]
+    },
+    {
+      "id": "nonfigure-p11-4",
+      "page": 11,
+      "figure": false,
+      "bounds": [
+        486,
+        271,
+        560,
+        317
+      ]
+    },
+    {
+      "id": "nonfigure-p11-5",
+      "page": 11,
+      "figure": false,
+      "bounds": [
+        486,
+        271,
+        560,
+        317
+      ]
+    },
+    {
+      "id": "nonfigure-p12-1",
+      "page": 12,
+      "figure": false,
+      "bounds": [
+        28,
+        347,
+        68,
+        387
+      ]
+    },
+    {
+      "id": "nonfigure-p12-2",
+      "page": 12,
+      "figure": false,
+      "bounds": [
+        28,
+        479,
+        68,
+        519
+      ]
+    },
+    {
+      "id": "nonfigure-p12-3",
+      "page": 12,
+      "figure": false,
+      "bounds": [
+        28,
+        611,
+        68,
+        651
+      ]
+    },
+    {
+      "id": "nonfigure-p12-4",
+      "page": 12,
+      "figure": false,
+      "bounds": [
+        28,
+        237,
+        68,
+        277
+      ]
+    },
+    {
+      "id": "nonfigure-p12-5",
+      "page": 12,
+      "figure": false,
+      "bounds": [
+        212,
+        336,
+        252,
+        376
+      ]
+    },
+    {
+      "id": "nonfigure-p12-6",
+      "page": 12,
+      "figure": false,
+      "bounds": [
+        212,
+        490,
+        252,
+        530
+      ]
+    },
+    {
+      "id": "nonfigure-p12-7",
+      "page": 12,
+      "figure": false,
+      "bounds": [
+        212,
+        655,
+        252,
+        695
+      ]
+    },
+    {
+      "id": "nonfigure-p12-8",
+      "page": 12,
+      "figure": false,
+      "bounds": [
+        212,
+        237,
+        252,
+        277
+      ]
+    },
+    {
+      "id": "nonfigure-p12-9",
+      "page": 12,
+      "figure": false,
+      "bounds": [
+        395,
+        380,
+        435,
+        420
+      ]
+    },
+    {
+      "id": "nonfigure-p12-10",
+      "page": 12,
+      "figure": false,
+      "bounds": [
+        395,
+        534,
+        435,
+        574
+      ]
+    },
+    {
+      "id": "nonfigure-p12-11",
+      "page": 12,
+      "figure": false,
+      "bounds": [
+        395,
+        688,
+        435,
+        728
+      ]
+    },
+    {
+      "id": "nonfigure-p12-12",
+      "page": 12,
+      "figure": false,
+      "bounds": [
+        395,
+        237,
+        435,
+        277
+      ]
+    },
+    {
+      "id": "nonfigure-p13-1",
+      "page": 13,
+      "figure": false,
+      "bounds": [
+        27,
+        199,
+        201,
+        395
+      ]
+    },
+    {
+      "id": "nonfigure-p13-2",
+      "page": 13,
+      "figure": false,
+      "bounds": [
+        394,
+        199,
+        568,
+        395
+      ]
+    },
+    {
+      "id": "nonfigure-p14-1",
+      "page": 14,
+      "figure": false,
+      "bounds": [
+        394,
+        56,
+        567,
+        278
+      ]
+    },
+    {
+      "id": "nonfigure-p14-2",
+      "page": 14,
+      "figure": false,
+      "bounds": [
+        394,
+        291,
+        567,
+        552
+      ]
+    },
+    {
+      "id": "nonfigure-p14-3",
+      "page": 14,
+      "figure": false,
+      "bounds": [
+        28,
+        583,
+        200,
+        793
+      ]
+    },
+    {
+      "id": "nonfigure-p15-1",
+      "page": 15,
+      "figure": false,
+      "bounds": [
+        27,
+        56,
+        384,
+        362
+      ]
+    },
+    {
+      "id": "nonfigure-p16-1",
+      "page": 16,
+      "figure": false,
+      "bounds": [
+        212,
+        243,
+        567,
+        443
+      ]
+    },
+    {
+      "id": "nonfigure-p17-1",
+      "page": 17,
+      "figure": false,
+      "bounds": [
+        392,
+        152,
+        514,
+        256
+      ]
+    },
+    {
+      "id": "nonfigure-p17-2",
+      "page": 17,
+      "figure": false,
+      "bounds": [
+        510,
+        349,
+        557,
+        360
+      ]
+    },
+    {
+      "id": "nonfigure-p18-1",
+      "page": 18,
+      "figure": false,
+      "bounds": [
+        211,
+        178,
+        568,
+        443
+      ]
+    },
+    {
+      "id": "nonfigure-p19-1",
+      "page": 19,
+      "figure": false,
+      "bounds": [
+        28,
+        529,
+        384,
+        795
+      ]
+    },
+    {
+      "id": "nonfigure-p20-1",
+      "page": 20,
+      "figure": false,
+      "bounds": [
+        320,
+        480,
+        572,
+        792
+      ]
+    },
+    {
+      "id": "nonfigure-p20-2",
+      "page": 20,
+      "figure": false,
+      "bounds": [
+        338,
+        496,
+        555,
+        780
+      ]
+    },
+    {
+      "id": "nonfigure-p20-3",
+      "page": 20,
+      "figure": false,
+      "bounds": [
+        494,
+        758,
+        544,
+        770
+      ]
+    },
+    {
+      "id": "nonfigure-p20-4",
+      "page": 20,
+      "figure": false,
+      "bounds": [
+        142,
+        89,
+        568,
+        423
+      ]
+    },
+    {
+      "id": "nonfigure-p20-5",
+      "page": 20,
+      "figure": false,
+      "bounds": [
+        142,
+        89,
+        568,
+        423
+      ]
+    },
+    {
+      "id": "nonfigure-p21-1",
+      "page": 21,
+      "figure": false,
+      "bounds": [
+        211,
+        135,
+        568,
+        387
+      ]
+    },
+    {
+      "id": "nonfigure-p22-1",
+      "page": 22,
+      "figure": false,
+      "bounds": [
+        28,
+        288,
+        200,
+        430
+      ]
+    },
+    {
+      "id": "nonfigure-p22-2",
+      "page": 22,
+      "figure": false,
+      "bounds": [
+        211,
+        254,
+        385,
+        385
+      ]
+    },
+    {
+      "id": "nonfigure-p22-3",
+      "page": 22,
+      "figure": false,
+      "bounds": [
+        395,
+        188,
+        567,
+        331
+      ]
+    },
+    {
+      "id": "nonfigure-p23-1",
+      "page": 23,
+      "figure": false,
+      "bounds": [
+        211,
+        105,
+        568,
+        307
+      ]
+    },
+    {
+      "id": "nonfigure-p23-2",
+      "page": 23,
+      "figure": false,
+      "bounds": [
+        27,
+        254,
+        201,
+        465
+      ]
+    },
+    {
+      "id": "nonfigure-p24-1",
+      "page": 24,
+      "figure": false,
+      "bounds": [
+        38,
+        358,
+        201,
+        532
+      ]
+    },
+    {
+      "id": "nonfigure-p24-2",
+      "page": 24,
+      "figure": false,
+      "bounds": [
+        11,
+        602,
+        124,
+        711
+      ]
+    },
+    {
+      "id": "nonfigure-p24-3",
+      "page": 24,
+      "figure": false,
+      "bounds": [
+        123,
+        602,
+        235,
+        711
+      ]
+    },
+    {
+      "id": "nonfigure-p24-4",
+      "page": 24,
+      "figure": false,
+      "bounds": [
+        235,
+        602,
+        348,
+        711
+      ]
+    },
+    {
+      "id": "nonfigure-p24-5",
+      "page": 24,
+      "figure": false,
+      "bounds": [
+        348,
+        602,
+        460,
+        711
+      ]
+    },
+    {
+      "id": "nonfigure-p24-6",
+      "page": 24,
+      "figure": false,
+      "bounds": [
+        460,
+        602,
+        572,
+        711
+      ]
+    },
+    {
+      "id": "nonfigure-p24-7",
+      "page": 24,
+      "figure": false,
+      "bounds": [
+        572,
+        602,
+        590,
+        819
+      ]
+    },
+    {
+      "id": "nonfigure-p24-8",
+      "page": 24,
+      "figure": false,
+      "bounds": [
+        11,
+        710,
+        124,
+        819
+      ]
+    },
+    {
+      "id": "nonfigure-p24-9",
+      "page": 24,
+      "figure": false,
+      "bounds": [
+        123,
+        710,
+        235,
+        819
+      ]
+    },
+    {
+      "id": "nonfigure-p24-10",
+      "page": 24,
+      "figure": false,
+      "bounds": [
+        235,
+        710,
+        348,
+        819
+      ]
+    },
+    {
+      "id": "nonfigure-p24-11",
+      "page": 24,
+      "figure": false,
+      "bounds": [
+        348,
+        710,
+        460,
+        819
+      ]
+    },
+    {
+      "id": "nonfigure-p24-12",
+      "page": 24,
+      "figure": false,
+      "bounds": [
+        460,
+        710,
+        572,
+        819
+      ]
+    },
+    {
+      "id": "nonfigure-p25-1",
+      "page": 25,
+      "figure": false,
+      "bounds": [
+        212,
+        183,
+        567,
+        362
+      ]
+    },
+    {
+      "id": "nonfigure-p26-1",
+      "page": 26,
+      "figure": false,
+      "bounds": [
+        394,
+        219,
+        568,
+        365
+      ]
+    },
+    {
+      "id": "nonfigure-p27-1",
+      "page": 27,
+      "figure": false,
+      "bounds": [
+        210,
+        150,
+        385,
+        261
+      ]
+    },
+    {
+      "id": "nonfigure-p27-2",
+      "page": 27,
+      "figure": false,
+      "bounds": [
+        394,
+        605,
+        568,
+        793
+      ]
+    },
+    {
+      "id": "nonfigure-p28-1",
+      "page": 28,
+      "figure": false,
+      "bounds": [
+        0,
+        0,
+        597,
+        442
+      ]
+    },
+    {
+      "id": "nonfigure-p28-2",
+      "page": 28,
+      "figure": false,
+      "bounds": [
+        33,
+        767,
+        151,
+        799
+      ]
+    }
+  ],
+  "reference_method": "Complete Poppler26.10.0 pdftohtml -xml -hidden -zoom1 inventory; visual review of every page before DocWeave extraction. All images lack numbered figure identity; photos/illustrations may have ordinary credits/captions. Not adversarial numbered-label evidence. Poppler signed image widths/heights describe mirrored placements; bounds use min/max of both endpoints, fixed before extraction. Initial signed-extents reference retained with the pre-extraction validator failure.",
+  "reference_xml_sha256": "8c5ece2c43decb349a1a87a3cdb3ae76be7b69c5af0abb0fddc09f2d6eb6c641",
+  "include_oriented_profile": true,
+  "include_oriented_columns_profile": true
+}

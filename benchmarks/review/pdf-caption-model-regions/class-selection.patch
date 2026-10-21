@@ -1,0 +1,37 @@
+--- YoloXObjectDecoder.java
++++ YoloXObjectDecoder.java
+@@ -9,7 +9,7 @@
+ import java.util.Comparator;
+ import java.util.List;
+ 
+-/** Fixed-grid YOLOX decoding and bounded class-agnostic suppression before selecting table class8. */
++/** Fixed-grid YOLOX decoding and bounded class-agnostic suppression before selecting generic caption class0. */
+ final class YoloXObjectDecoder {
+     /** Fixed exported query count across strides8,16,32. */
+     static final int QUERIES = 16_128;
+@@ -33,14 +33,14 @@
+     }
+ 
+     /**
+-     * Checks every raw score/coordinate before retaining any selected table layout.
++     * Checks every raw score/coordinate before retaining any selected caption region.
+      * Class-agnostic inclusive-area NMS uses0.1, with stable query ties and post-suppression clipping.
+      * @param values fixed16128x16 native output view, borrowed only for this call
+      * @param pixels original frame and nominal resize ratio
+      * @param options caller-selected score and raw-query limits
+      * @param deadline shared total pipeline deadline
+      * @param work shared suppression/crop/topology comparison budget
+-     * @return immutable clipped ordinary-table objects for the existing crop planner
++     * @return immutable clipped caption-class regions; internal table-label integers are not exported
+      * @throws IOException if schema, numeric values, candidate/query/work or cancellation limits fail
+      */
+     static List<LayoutObject> decode(final FloatBuffer values, final YoloXPixels pixels, final OnnxTableOptions options,
+@@ -116,7 +116,7 @@
+         final var tables = new ArrayList<LayoutObject>();
+         for (final var proposal : kept) {
+             work.step();
+-            if (proposal.label() == 8) {
++            if (proposal.label() == 0) {
+                 final double left = Math.max(0, proposal.left());
+                 final double top = Math.max(0, proposal.top());
+                 final double right = Math.min(pixels.sourceWidth(), proposal.right());

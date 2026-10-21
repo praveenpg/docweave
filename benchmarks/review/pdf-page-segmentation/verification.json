@@ -1,0 +1,29 @@
+{
+  "java": {
+    "21": {
+      "tests": 788,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "25": {
+      "tests": 788,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "strict_javadocs": "passed actual Java21/25",
+  "python_reference_guards": 12,
+  "formatter": "23.1.1 passed",
+  "default_auto_metrics_unchanged": true,
+  "same_auto_metrics_across_jdks": true,
+  "supplemental_profiles": "SINGLE_BLOCK/SPARSE_TEXT corpus runs Java25; all three owned raster modes both JDKs",
+  "sha256": {
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractOptions.java": "5be9b640338c251a3c189354adda3b9582bc959ee2d6c6a9a141444489ec77df",
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/DefaultTesseractOcr.java": "4d60154765ac417a2a30019d5da13e8cca7716e080d45f04825da505f9379717",
+    "docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractOcrTest.java": "d85fa0ceabe6153cf0adda13b2943dc0948b2882410bac170a4079394361e52c",
+    "docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractInstalledTest.java": "c1618af2900e6d5b8a60c5f7436f7b995d5313365b1fa5d675cf9f404ef90567",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfPubTabNetCorpusTest.java": "4f7062b0d570ee634c699545731d14da5c82f285ac1d34382aa3062e624346d6"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "purpose": "Development diagnostic only: locate original reference spans with a fixed128-code-point anchor, treating ASCII space and NBSP alike only for anchor lookup. Strict scoring and traced original characters remain unchanged. No adaptive anchor length, best occurrence, output repair or best-of profile selection.",
+  "source_manifest": "benchmarks/review/pdf-inline-scripts/manifest.json",
+  "source_manifest_sha256": "0808eeda7fa7874c6df8181011084121c3f648d30dded81b609cce2e7742c15f",
+  "baseline_report": "benchmarks/review/pdf-inline-scripts/java21.json",
+  "baseline_report_sha256": "7644fc4f01b0b27806694af7cd1282c75295ccf2e568b553aadf7491599206ce",
+  "profiles": ["LINES", "SOURCE_PARAGRAPHS_INLINE_SCRIPTS_ASSEMBLED"],
+  "source_documents": 4,
+  "reference_paragraphs_per_profile": 28,
+  "anchor_code_points": 128,
+  "anchor_space_equivalence": "ascii_nbsp_only",
+  "maximum_alignment_cells": 16000000,
+  "normalization": "Unchanged strict ASCII-whitespace collapse. NBSP equivalence is a one-UTF16-unit anchor search projection only; original offsets, strict matches, reference identities and all edit operations remain original.",
+  "trace_policy": "One bounded original-code-point Levenshtein trace after unique fixed anchors. Preserve visited optimal-predecessor ties as diagnostic uncertainty.",
+  "unlocated_policy": "Retain short, missing, duplicate, reversed and over-budget cases without selecting occurrences or falling back to other anchor lengths."
+}

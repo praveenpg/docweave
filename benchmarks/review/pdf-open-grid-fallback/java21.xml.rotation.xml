@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Installed Tesseract fixed-angle correction evidence</comment>
+<entry key="eng_model_sha256">daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047</entry>
+<entry key="checked_at">2026-10-17T08:37:22.434379825Z</entry>
+<entry key="java">21.0.12.1+12-LTS</entry>
+<entry key="source_angle_90.0">correction=-90.0;exact_lines=2;raster_sha256=a99fb8fafd043438105f0443b2a0fdf06221a836986d9f764ae7268a394f7366;pdf_sha256=42d04686b8db52bdbf64e10ebfa29d1c91c968dbec6321b2246e667b7003d050</entry>
+<entry key="executable_sha256">9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917</entry>
+<entry key="source_angle_180.0">correction=-180.0;exact_lines=2;raster_sha256=5b40b685fdf342a23d514210e86f79170705f5d6fea23751dd287279a8d92a6f;pdf_sha256=39d2208522ce1f100959b45e32562b205ad60cd81c5afd299799dcf44a23942c</entry>
+<entry key="scope">owned fixed-angle correction; not automatic deskew or independent scan accuracy</entry>
+<entry key="source_angle_7.5">correction=-7.5;exact_lines=2;raster_sha256=75d90bad2a1c720df292be8d5e5b5575e0a83b6522519e7fcc799daf3d3686ff;pdf_sha256=07a610ea5da9ff145ee107f39f99993c95c24ac014e9b860e7dd4de0cf4f15cf</entry>
+</properties>

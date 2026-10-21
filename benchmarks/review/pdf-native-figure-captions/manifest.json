@@ -1,0 +1,33 @@
+{
+  "scope": "Pre-evaluation fixed caption strategy: same10completepublishercaptions, nine positive case/profiles and18original logo/Alt/ActualText negatives. Original baseline JVM helpers copied outside repository; only explicit withFigureCaptions(IMAGE_ADJACENT_LABELS) configuration inserted as recorded patches. Same scorer, references, full original sources and every failure/miss. No threshold/source-specific tuning after evaluation.",
+  "base_commit": "7edeef5",
+  "identities": {
+    "benchmarks/tools/ScorePublisherCaptions.java": "15da2ee385d0ecf84349e94f98909fa856d3732fefcaea19b7329e1e069873b3",
+    "benchmarks/tools/VerifySourceFigureImages.java": "66252fde1d87318ab496ffe863324dc93ef87ba65bf4368ea0f0f146c99c3a79",
+    "benchmarks/review/pdf-publisher-figure-inventory/baseline-java21.json": "9d65a2b15d5157e138e59864869a7de164103eecb44d51ad5da723de538ebb8d",
+    "benchmarks/review/pdf-publisher-figure-inventory/baseline-protocol.json": "dc3475bec0483c842d6e9343c1f1f88aa18bdd4476a02107497be60eb0ea3112",
+    "benchmarks/review/pdf-source-figure-discovery/qualified.json": "87d1e11aa7cc184a201c9ab804abb707b416ea94acc880ada3843d893a17acaf",
+    "benchmarks/review/pdf-native-figure-captions/positive-options.patch": "253cc9a1855bb4a2e409c35df7b472c368fd13979b13b764e6d2bb11bbc48568",
+    "benchmarks/review/pdf-native-figure-captions/negative-options.patch": "303428aace5a30bcdf6d8f01605dbd14d55d7837b44239e5bd9511fe03953eaf",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "bb0acf8f53680e909376bbed226d216d081d4c796cb48cf8563a0fc9c50e5122",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageLayout.java": "ebb413e9be4389400852bb8c67f25a4140bfa36a1164a35c62a0bb3a39991d4c",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfFigureCaptionDetection.java": "2731438da0012da487c8efb8d2621896e71e52287fa733627bb13ca5d8058195",
+    "docweave-pdf/src/main/java/dev/docweave/partition/ImageAdjacentPdfFigureCaptions.java": "83ffc9d5a3360e45dd12c2be7aaeba6bb7df312ab9b8564eccad708d9406368f",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfFigureCaptionTest.java": "dd9ab8746cfa9cee59fea56d6e444cadecf8b5741ac9313413632fa1af0519a3"
+  },
+  "positive_source_cases": 3,
+  "positive_case_profiles": 9,
+  "caption_references_per_profile": 10,
+  "negative_source_cases": 3,
+  "negative_case_profiles": 18,
+  "image_min_width_points": 36,
+  "image_min_height_points": 18,
+  "maximum_vertical_gap_points": 24,
+  "maximum_left_edge_difference_points": 12,
+  "minimum_narrower_width_overlap": 0.5,
+  "max_items": 4096,
+  "max_images": 128,
+  "max_cues": 256,
+  "max_cue_utf16_units": 1024,
+  "raw_sources_redistributed": false
+}

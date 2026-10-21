@@ -1,0 +1,15 @@
+{
+  "purpose": "Development diagnostic only. Locate exact unique32-code-point prefix/suffix anchors after complete extraction, trace one bounded optimal edit script and preserve original strict scores. No text repair, relaxed normalization, best-of selection, replacement labels or accuracy claim.",
+  "source_manifest": "benchmarks/review/pdf-interim-comparison/scientific-manifest.json",
+  "source_manifest_sha256": "0f2583be2724d95d25f612f4a0942a4b7d7147b59f9271dd8501a21b194f9fbd",
+  "baseline_report": "benchmarks/review/pdf-interim-comparison/scientific-java21.json",
+  "baseline_report_sha256": "9edf806e0d6dc8bcc9795cf561c4d96cff3ee9878ea323c1d826a903dd6f1bdf",
+  "profiles": ["LINES", "SOURCE_PARAGRAPHS_ASSEMBLED"],
+  "source_documents": 4,
+  "reference_paragraphs_per_profile": 28,
+  "anchor_code_points": 32,
+  "maximum_alignment_cells": 16000000,
+  "normalization": "Existing ASCII-whitespace collapse only, preserving NBSP, punctuation, physical hyphens, case and Unicode.",
+  "trace_policy": "One global Levenshtein script on a uniquely anchored diagnostic span. Prefer diagonal then deletion then insertion. Record visited predecessor ties; these do not prove alignment uniqueness or extraction-error causes.",
+  "unlocated_policy": "Retain missing, duplicate, short, reversed or budget-exceeded observations with original reference denominators. Never choose a best anchor occurrence."
+}

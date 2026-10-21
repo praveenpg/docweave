@@ -1,0 +1,18 @@
+{
+  "scope": "Complete exact-row occurrence diagnostic, both uniform profiles and all110 original reference rows, before/after experimental native-gap refinement. Not replacement scoring, logical order, general accuracy or production improvement.",
+  "base_commit": "ccdbe0d",
+  "pre_run_tool_sha256": "ab30012546ebf608cff661ce52a5e83982ee025ee59ca9d43fe8df05732aa3ee",
+  "identities": {
+    "benchmarks/tools/AuditStatementRowPresence.java": "d0e634fa42c026630d2e8b22c2be2275ed8fae8f89904cb68c87b45eae547f0d",
+    "benchmarks/tools/CompareNvidiaCellLines.java": "a7ac9395898f9ebf5328c33b57a522f6a6feb6b370ede6d6293f8bbd857bd887",
+    "benchmarks/tools/ReplayNativeLayoutCaptures.java": "9fc39919def458a9ddab98cfb69964ab2aa564cdd15294e943abda6b4e6473b9",
+    "benchmarks/review/pdf-nvidia-proposal-structures/replay-manifest.json": "5ded274dc78dfdd2db6d5fedad11ec261e035ad4148c137570fd72b1244c38eb",
+    "benchmarks/review/pdf-synchronized-model-rows/derived-replay-manifest.json": "5b95f4849145a5224af3669f23bd90732de5273fb268606647cb0ae7f6c6f8b2"
+  },
+  "scorer_source_sha256": "f88af667ef1c160906003b3dc2b235107d3c34d7c2e4b7bb25b8d39de04c85f6",
+  "scorer_git_commit": "8c4e990",
+  "runtime_policy": "Java21 only; Java25 deferred",
+  "controls": 5,
+  "normalization": "No added normalization. Reuses unchanged frozen HTML row parser and geometric fragment association. Full exact Strings only; consumes duplicate observed occurrences once. No row/output/reference repair.",
+  "raw_sources_redistributed": false
+}

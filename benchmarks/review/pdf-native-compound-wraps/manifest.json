@@ -1,0 +1,64 @@
+{
+  "scope": "Pre-evaluation explicit native column-paragraph compound-wrap strategy. Five now-observed originals/21frozenpublishercaptionbodies; same edge-captionpolicy, all15case/profiles. No source/reference repair, semantic dehyphenation, scoring changes or per-document routing. Physical source hyphens and glyphs remain; only uniquely proven generated separators may be omitted.",
+  "base_commit": "5a83c55",
+  "layout": "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+  "caption_policy": "IMAGE_EDGE_ALIGNED_NUMBERED_TITLES",
+  "unicode": "RAW",
+  "case_profiles": 15,
+  "caption_references_per_layout": 21,
+  "same_source_manifests": [
+    "pdf-scientific-reading/manifest.json",
+    "pdf-caption-peerj-transfer/source-manifest.json",
+    "pdf-caption-scirep-transfer/source-manifest.json"
+  ],
+  "raw_sources_redistributed": false,
+  "initial_candidate_identities": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "a34ba4a643f2eb0d37f58bad6e89ae86155903486d44d0e7b91444a1276c0891",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfParagraphWraps.java": "18506380bbd8478ea05a799a0e70484da2c8ad215f78500976aed52c3ac46a63",
+    "docweave-pdf/src/main/java/dev/docweave/partition/NativeGlyphPdfParagraphWraps.java": "e22cd58cd5bcf2b9909839ffdeb770156d1a5689163b81fda8d20238bb0587a9",
+    "docweave-pdf/src/main/java/dev/docweave/partition/GeometricPdfReadingOrder.java": "6f4d75be68e4d751c91980d0c90d3270fffd92023eddacba7af1c5d8902d1b7a",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageLayout.java": "47b411bcf1979749363077fa576d6361b9fa42bb91ec1dd5316b58dba03b1a36",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfSourceHyphenWraps.java": "26ccf706d07b081eeecc845cc9f27e89b8a339d96df695ee7f9fb5a39f112a9f",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfNativeCompoundWrapTest.java": "7b7240a359b1e1d4bfa4ab4d2ee6974041b3c1151d9c066330416386079a5da7",
+    "benchmarks/review/pdf-native-compound-wraps/old-layout.patch": "a37f0a4cb985c869a3862d93944d306f26f396ad587bd306ebd1b72a4e0231d6",
+    "benchmarks/review/pdf-native-compound-wraps/transfer-layout.patch": "5a10cc2541269fc3c5458e389a25e018b0ec26587d13ef3cf403d8e6bf18b7cd"
+  },
+  "identities": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "a34ba4a643f2eb0d37f58bad6e89ae86155903486d44d0e7b91444a1276c0891",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfParagraphWraps.java": "18506380bbd8478ea05a799a0e70484da2c8ad215f78500976aed52c3ac46a63",
+    "docweave-pdf/src/main/java/dev/docweave/partition/NativeGlyphPdfParagraphWraps.java": "4c0c96fcb62be3846ab33054eabc1cb210ed3d463ebb3a20a4ca6e4bc34e81d5",
+    "docweave-pdf/src/main/java/dev/docweave/partition/GeometricPdfReadingOrder.java": "6f4d75be68e4d751c91980d0c90d3270fffd92023eddacba7af1c5d8902d1b7a",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageLayout.java": "47b411bcf1979749363077fa576d6361b9fa42bb91ec1dd5316b58dba03b1a36",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfSourceHyphenWraps.java": "26ccf706d07b081eeecc845cc9f27e89b8a339d96df695ee7f9fb5a39f112a9f",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfNativeCompoundWrapTest.java": "7b7240a359b1e1d4bfa4ab4d2ee6974041b3c1151d9c066330416386079a5da7",
+    "benchmarks/review/pdf-native-compound-wraps/old-layout.patch": "a37f0a4cb985c869a3862d93944d306f26f396ad587bd306ebd1b72a4e0231d6",
+    "benchmarks/review/pdf-native-compound-wraps/transfer-layout.patch": "5a10cc2541269fc3c5458e389a25e018b0ec26587d13ef3cf403d8e6bf18b7cd"
+  },
+  "pre_evaluation_refinement": "Baseline-sorted native glyph range lookup replaces repeated whole-page ownership scans; same exact line reconstruction, boundary predicate, source refs and page work ceiling. Both source identities retained before any original candidate replay.",
+  "final_documented_source_identities": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "a34ba4a643f2eb0d37f58bad6e89ae86155903486d44d0e7b91444a1276c0891",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfParagraphWraps.java": "18506380bbd8478ea05a799a0e70484da2c8ad215f78500976aed52c3ac46a63",
+    "docweave-pdf/src/main/java/dev/docweave/partition/NativeGlyphPdfParagraphWraps.java": "4c0c96fcb62be3846ab33054eabc1cb210ed3d463ebb3a20a4ca6e4bc34e81d5",
+    "docweave-pdf/src/main/java/dev/docweave/partition/GeometricPdfReadingOrder.java": "411ab95261a07c504fdde9cecf583a6f4ad05f755bad393346ca2e3c9f02de11",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageLayout.java": "47b411bcf1979749363077fa576d6361b9fa42bb91ec1dd5316b58dba03b1a36",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfSourceHyphenWraps.java": "26ccf706d07b081eeecc845cc9f27e89b8a339d96df695ee7f9fb5a39f112a9f",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfNativeCompoundWrapTest.java": "e1337fc87ce6ecea2dde63760a7171b9ad34aaf90b3d3c8b0a2905f5b49c5694",
+    "benchmarks/review/pdf-native-compound-wraps/old-layout.patch": "a37f0a4cb985c869a3862d93944d306f26f396ad587bd306ebd1b72a4e0231d6",
+    "benchmarks/review/pdf-native-compound-wraps/transfer-layout.patch": "5a10cc2541269fc3c5458e389a25e018b0ec26587d13ef3cf403d8e6bf18b7cd"
+  },
+  "preservation_and_reference_identities": {
+    "benchmarks/tools/CompareNativeCompoundText.java": "f4340049ba6bbaf98330da0e5919a70b3f41436f8e9fdc81fbe0cafeebd5a77d",
+    "benchmarks/review/pdf-native-compound-wraps/CompareCaptionReports.java": "f6eb15744126b7f432ee1ddf02a91a91936aa393edc5cbc3cdc7a802e9974eec",
+    "benchmarks/review/pdf-native-compound-wraps/negative-layout.patch": "640e6a11bac1f5f60880634b6cb221c1634c5cea67904ad6bc232685c498f294",
+    "benchmarks/review/pdf-edge-aligned-captions/positive-java21.json": "7bf803d21b5a78752c033b01d8db028b833e0697c68eca4913f0cc6b38fc7a7e",
+    "benchmarks/review/pdf-edge-aligned-captions/peerj-java21.json": "9cca79fd39b69c8abe26570b6bd788bb04ecbe953db7e85ece41b331ecf3ebdc",
+    "benchmarks/review/pdf-edge-aligned-captions/scirep-java21.json": "67d8f725024a4ec89271ee6e62b962bf3b7a187ff3f174e1bb23dc6cc890350a"
+  },
+  "validation": {
+    "java21_tests": 1169,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "java25_run": false
+  }
+}

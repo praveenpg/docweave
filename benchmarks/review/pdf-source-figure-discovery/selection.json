@@ -1,0 +1,25 @@
+{
+  "scope": "Source-only prospective figure/caption discovery before any DocWeave extraction. All three pass PDFs in the pinned PDF/UA-2 Figure clause, lexical order. Inspect original structure and independent renders; do not assume Figure Alt text is a caption or raster image. Retain no-caption/no-raster cases. Independent author synthetic validation files, not general accuracy or heldout human review.",
+  "code_commit": "6f65d29",
+  "repository": "https://github.com/veraPDF/veraPDF-corpus",
+  "commit": "377728596647e40edf16003d68d620773ce96ec5",
+  "tree_sha256": "3d6f2da3688fc2c83a656fda19fbc5b8797f0b0afc7b9ea65c977b9aed5e0157",
+  "license": "CC BY 4.0 per prior pinned repository README; source PDFs and derived rasters not redistributed",
+  "inputs": [
+    {
+      "path": "PDF_UA-2/8.2 Logical structure/8.2.5 Additional requirements for specific structure types/8.2.5.28 Figure/8.2.5.28.2 Figure properties/8.2.5.28.2-t01-pass-a.pdf",
+      "sha": "1867de8a940d1d306228c2329a11ea823c1dba46",
+      "size": 25599
+    },
+    {
+      "path": "PDF_UA-2/8.2 Logical structure/8.2.5 Additional requirements for specific structure types/8.2.5.28 Figure/8.2.5.28.2 Figure properties/8.2.5.28.2-t01-pass-b.pdf",
+      "sha": "ae9f082f4a4c1893944fdb77bd02a4e4adfed564",
+      "size": 25613
+    },
+    {
+      "path": "PDF_UA-2/8.2 Logical structure/8.2.5 Additional requirements for specific structure types/8.2.5.28 Figure/8.2.5.28.2 Figure properties/8.2.5.28.2-t01-pass-c.pdf",
+      "sha": "14796d4a9c7442d916e9b8b714647aa82d416dbf",
+      "size": 25720
+    }
+  ]
+}

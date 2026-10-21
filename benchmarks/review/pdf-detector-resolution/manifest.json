@@ -1,0 +1,72 @@
+{
+  "evaluated_git_commit": "a6522c23c9b533390c4b1802c1d0ac1f051ad9cb",
+  "source_manifest": "../pdf-physical-scans/extended-manifest.json",
+  "resource_manifest": "../pdf-ruled-scans/manifest.json",
+  "baseline": {
+    "detector_max_side": 800,
+    "structure_max_side": 800
+  },
+  "experiment": {
+    "detector_max_side": 1200,
+    "structure_max_side": 800
+  },
+  "shared": {
+    "render_dpi": 150,
+    "languages": [
+      "eng"
+    ],
+    "table_detection": "PROVIDER_LAYOUT",
+    "orientation": true,
+    "orientation_minimum_raw_score": 15,
+    "prefer_ruled": true,
+    "layout_merge_conflicts": "KEEP_HIGHER_SCORE",
+    "minimum_score": 0.5,
+    "unchanged_resource_limits": true
+  },
+  "method": "Temporary classpath overlay; repository production sources and Maven outputs unchanged. Existing corpus assertion method invoked directly; not a JUnit/Maven full suite.",
+  "source_generation": "from pathlib import Path\nimport difflib\nroot=Path('__LOCAL_HOME__/Projects/JavaProjects/docweave');out=Path('/tmp/docweave-detector-resolution');out.mkdir()\npkg=root/'docweave-layout-onnx/src/main/java/dev/docweave/layout'\ns=(pkg/'BilinearTableImageTransform.java').read_text()\nassert s.count('private static final int MAX_SIDE = 800;')==1\ns=s.replace('BilinearTableImageTransform','ExperimentalDetectorTransform').replace('private static final int MAX_SIDE = 800;','private static final int MAX_SIDE = 1200;')\n(out/'ExperimentalDetectorTransform.java').write_text(s)\np=pkg/'ManagedTatrSession.java';before=p.read_text()\nneedle='new BilinearTableImageTransform().prepare(image, options, deadline)'\nassert before.count(needle)==1\nafter=before.replace(needle,'(classes == 3 ? new ExperimentalDetectorTransform() : new BilinearTableImageTransform()).prepare(image, options, deadline)')\n(out/'ManagedTatrSession.java').write_text(after)\n(out/'managed-session.patch').write_text(''.join(difflib.unified_diff(before.splitlines(True),after.splitlines(True),fromfile=str(p.relative_to(root)),tofile=str(p.relative_to(root)))))\n(out/'RunScanExperiment.java').write_text('''package dev.docweave.validation;\npublic final class RunScanExperiment {\n public static void main(String[] args) throws Exception {\n  System.out.println(\"Session class origin: \" + Class.forName(\"dev.docweave.layout.ManagedTatrSession\").getProtectionDomain().getCodeSource().getLocation());\n  new PdfPhysicalScanCorpusTest().optionalOriginalScansUsePublishedStructuralAnnotations();\n }\n}\n''')\n",
+  "invocation_script": "#!/bin/bash\nset -euo pipefail\ncd __LOCAL_HOME__/Projects/JavaProjects/docweave\nexport LD_LIBRARY_PATH=/tmp/docweave-tesseract-runtime/usr/lib\nclasspath=\"$(cat /tmp/docweave-validation-classpath.txt)\"\nfor module in docweave-core docweave-pdf docweave-layout-onnx docweave-ocr-tesseract; do classpath=\"$PWD/$module/target/classes:$classpath\"; done\nfor version in 21 25; do\n if [ \"$version\" = 21 ]; then jdk=/tmp/docweave-jdk21; else jdk=__LOCAL_HOME__/.sdkman/candidates/java/25.0.4-amzn; fi\n directory=\"/tmp/docweave-detector-resolution/java$version\"\n mkdir -p \"$directory/launcher\" \"$directory/overlay\"\n \"$jdk/bin/javac\" --release 21 -cp \"$classpath\" -d \"$directory/launcher\" /tmp/docweave-detector-resolution/RunScanExperiment.java\n \"$jdk/bin/javac\" --release 21 -cp \"$classpath\" -d \"$directory/overlay\" /tmp/docweave-detector-resolution/ManagedTatrSession.java /tmp/docweave-detector-resolution/ExperimentalDetectorTransform.java\n for side in 800 1200; do\n  runpath=\"$directory/launcher:$classpath\"\n  if [ \"$side\" = 1200 ]; then runpath=\"$directory/overlay:$runpath\"; fi\n  stem=\"/tmp/docweave-detector-resolution/max${side}-java${version}\"\n  \"$jdk/bin/java\" -Djava.awt.headless=true -cp \"$runpath\" -Ddocweave.pdf.scans.cache=/tmp/docweave-ctdar -Ddocweave.pdf.scans.report=\"$stem.json\" -Ddocweave.pdf.scans.coverage=ALL_PUBLISHED_SAMPLES -Ddocweave.pdf.scans.dpi=150 -Ddocweave.pdf.scans.tableDetection=PROVIDER_LAYOUT -Ddocweave.pdf.scans.layoutModel=/tmp/docweave-table-models/structure-all/structure.onnx -Ddocweave.pdf.scans.layoutSha256=ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990 -Ddocweave.pdf.scans.detectionModel=/tmp/docweave-table-models/detection/detection.onnx -Ddocweave.pdf.scans.detectionSha256=0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9 -Ddocweave.pdf.scans.orientation=true -Ddocweave.pdf.scans.layoutMergeConflicts=KEEP_HIGHER_SCORE -Ddocweave.pdf.scans.preferRuled=true -Ddocweave.tesseract.executable=/tmp/docweave-tesseract-runtime/usr/bin/tesseract -Ddocweave.tesseract.tessdata=/tmp/docweave-tesseract-runtime/usr/share/tessdata dev.docweave.validation.RunScanExperiment > \"$stem.log\" 2>&1\n  echo \"Completed $stem\"\n done\ndone\n",
+  "source_patch": "--- docweave-layout-onnx/src/main/java/dev/docweave/layout/ManagedTatrSession.java\n+++ docweave-layout-onnx/src/main/java/dev/docweave/layout/ManagedTatrSession.java\n@@ -166,7 +166,7 @@\n                 throw failure(\"ONNX admission unavailable\", null);\n             }\n             requireOpen();\n-            final var pixels = new BilinearTableImageTransform().prepare(image, options, deadline);\n+            final var pixels = (classes == 3 ? new ExperimentalDetectorTransform() : new BilinearTableImageTransform()).prepare(image, options, deadline);\n             locked = lifecycle.readLock().tryLock(deadline.remaining(), TimeUnit.NANOSECONDS);\n             deadline.remaining();\n             if (!locked) {\n",
+  "transform_control_source": "package dev.docweave.layout;\nimport java.awt.image.BufferedImage;\nimport java.nio.file.Path;\nimport java.time.Duration;\nimport java.util.Arrays;\npublic final class CheckResolution {\n public static void main(String[] args) throws Exception {\n  var image = new BufferedImage(17,29,BufferedImage.TYPE_INT_ARGB);\n  for (int y=0;y<29;y++) for(int x=0;x<17;x++) image.setRGB(x,y,0x80000000 | x*1000+y*17);\n  var before = image.getRGB(0,0,17,29,null,0,17);\n  var options=OnnxTableOptions.defaults(Path.of(\"unused.onnx\"),\"0\".repeat(64));\n  var base=new BilinearTableImageTransform().prepare(image,options,new LayoutDeadline(Duration.ofSeconds(30)));\n  var trial=new ExperimentalDetectorTransform().prepare(image,options,new LayoutDeadline(Duration.ofSeconds(30)));\n  if (Math.max(base.width(),base.height())!=800 || Math.max(trial.width(),trial.height())!=1200) throw new AssertionError(\"Unexpected transform dimensions\");\n  if (trial.sourceWidth()!=17 || trial.sourceHeight()!=29) throw new AssertionError(\"Source frame changed\");\n  if (!Arrays.equals(before,image.getRGB(0,0,17,29,null,0,17))) throw new AssertionError(\"Source pixels changed\");\n  System.out.println(\"Verified max800/max1200, preserved source frame and pixels\");\n }\n}\n",
+  "overlay_sources": {
+    "ManagedTatrSession.java": "927d000241220aef958594824d8139616f374ae7f9f9a05c115b29a9dd6f7953",
+    "ExperimentalDetectorTransform.java": "9b7e693ae8ecc86d7a75e36d46336d9be18e1232602e2727c01a0097624a6ce8",
+    "RunScanExperiment.java": "ce3067ecb5000b9b9c616357e4672645851cdb059fd87f300762471306290a4f"
+  },
+  "active_overlay_classes": {
+    "java25/overlay/dev/docweave/layout/ExperimentalDetectorTransform.class": "87eb675dd7e2d3019202313c5cd0ed0a2700cba35f7db6fb3163562548f029be",
+    "java25/overlay/dev/docweave/layout/ManagedTatrSession.class": "72e556ce4b6a6f4e26f34856c4831e73fcc56d2d9a7b39afea53752baf176d07",
+    "java25/overlay/dev/docweave/layout/ManagedTatrSession$NativeCancellation.class": "ee006fe984fb41ecf248381bf6419a5f22a03123d64607bb429ec7dfa087f589",
+    "java21/overlay/dev/docweave/layout/ExperimentalDetectorTransform.class": "87eb675dd7e2d3019202313c5cd0ed0a2700cba35f7db6fb3163562548f029be",
+    "java21/overlay/dev/docweave/layout/ManagedTatrSession.class": "72e556ce4b6a6f4e26f34856c4831e73fcc56d2d9a7b39afea53752baf176d07",
+    "java21/overlay/dev/docweave/layout/ManagedTatrSession$NativeCancellation.class": "ee006fe984fb41ecf248381bf6419a5f22a03123d64607bb429ec7dfa087f589"
+  },
+  "reports": {
+    "max800-java21.json": {
+      "sha256": "98bed5b9980ce38fdb01d48601d0c63649ba5887a070a006ee364638af825b25",
+      "runtime": "21.0.12.1+12-LTS"
+    },
+    "max800-java25.json": {
+      "sha256": "88edf20419f08de847f85b13d4a5a337e8c3c724aab6e0a7b5ac516cc91168cb",
+      "runtime": "25.0.4+7-LTS"
+    },
+    "max1200-java21.json": {
+      "sha256": "3daffdcd83b94a72c53ad614005b18bd0dab0ba9b0b0fba744878ff4e138091b",
+      "runtime": "21.0.12.1+12-LTS"
+    },
+    "max1200-java25.json": {
+      "sha256": "732ab5640662fe3bc1d5be922c23c9670d49d6493d545222d1934e59e63cc28e",
+      "runtime": "25.0.4+7-LTS"
+    }
+  },
+  "limitations": [
+    "Development corpus with no OCR text transcription oracle.",
+    "Higher resolution is an explicit experiment, not a claim to upstream published preprocessing equivalence.",
+    "No production settings promoted; twenty-image scientific corpus not replayed because this experiment offers no additional exact scan topology match.",
+    "Candidate count and ordinary OCR line counts are diagnostics, not text quality or semantic table accuracy."
+  ],
+  "_public_projection": {
+    "original_sha256": "e085422f50c7ecf9fe02a9ceba16e8ffaa14565eb4d900160ab3d17c34a3e93b",
+    "status": "Derived documentation/path projection; historical measurements and embedded fingerprints unchanged"
+  }
+}

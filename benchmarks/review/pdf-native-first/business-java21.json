@@ -1,0 +1,195 @@
+{
+  "runtime": {
+    "java": "21.0.12.1+12-LTS",
+    "documents": [
+      {
+        "rasters": [
+          [
+            1275,
+            1649
+          ]
+        ],
+        "outcome": "SUCCESS",
+        "document_layout_tables": 1,
+        "filename": "frx_2012_disclosure.pdf",
+        "pdf_sha256": "aa80de941ee2999798e2d36b63b475861468bcb958cb7106e9afcc12242ad54a",
+        "document_layout_calls": 1
+      },
+      {
+        "rasters": [
+          [
+            1649,
+            1275
+          ],
+          [
+            1649,
+            1275
+          ],
+          [
+            1649,
+            1275
+          ],
+          [
+            1649,
+            1275
+          ],
+          [
+            1649,
+            1275
+          ]
+        ],
+        "outcome": "SUCCESS",
+        "document_layout_tables": 5,
+        "filename": "Publication_of_award_of_Bids_for_Transport_Sector__August_2016.pdf",
+        "pdf_sha256": "038126d57e3d9aadfee6c3ac44acc66d4fbdc13598dad8deadd7ec76a2a7d2ab",
+        "document_layout_calls": 5
+      },
+      {
+        "rasters": [
+          [
+            1275,
+            1649
+          ],
+          [
+            1275,
+            1649
+          ],
+          [
+            1275,
+            1649
+          ],
+          [
+            1275,
+            1649
+          ],
+          [
+            1275,
+            1649
+          ],
+          [
+            1275,
+            1649
+          ]
+        ],
+        "outcome": "SUCCESS",
+        "document_layout_tables": 6,
+        "filename": "us-020.pdf",
+        "pdf_sha256": "d884d32bd2a1d620e0c7b5446e4d0b58ba67dab04e884839b2640b9a35749e99",
+        "document_layout_calls": 6
+      }
+    ],
+    "native_first": true,
+    "detector_sha256": "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+    "structure_sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990"
+  },
+  "cases": [
+    {
+      "case": "financial-disclosure",
+      "domain": "business",
+      "profile": "native-first",
+      "source_frame": {
+        "source_rotation": 0,
+        "page_width": 612.0,
+        "dpi": 150,
+        "source_page": 1,
+        "pdf_sha256": "aa80de941ee2999798e2d36b63b475861468bcb958cb7106e9afcc12242ad54a",
+        "page_height": 792.0
+      },
+      "outcome": "SUCCESS",
+      "emitted_tables": 1,
+      "associated_tables": 1,
+      "association_iou": 0.993415,
+      "unmatched_tables": 0,
+      "page_calls": 0,
+      "page_raster_sha256": [],
+      "cell_calls": 0,
+      "layout_calls": 1,
+      "layout_tables": 1,
+      "local_capture_sha256": "c0b269daf454cc791def0a7bd83fd9641b6e8578b06e666cf15819313a7c444b",
+      "reference_positions": 440,
+      "nonempty_positions": 266,
+      "empty_positions": 174,
+      "matched_positions": 440,
+      "matched_nonempty": 266,
+      "matched_empty": 174,
+      "dimensions_match": true,
+      "full_grid_text_match": true,
+      "emitted_rows": 88,
+      "emitted_columns": 5,
+      "mismatch_count": 0,
+      "mismatch_positions_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case": "transport-procurement",
+      "domain": "business",
+      "profile": "native-first",
+      "source_frame": {
+        "source_rotation": 90,
+        "page_width": 792.0,
+        "dpi": 150,
+        "source_page": 1,
+        "pdf_sha256": "038126d57e3d9aadfee6c3ac44acc66d4fbdc13598dad8deadd7ec76a2a7d2ab",
+        "page_height": 612.0
+      },
+      "outcome": "SUCCESS",
+      "emitted_tables": 1,
+      "associated_tables": 1,
+      "association_iou": 0.944868,
+      "unmatched_tables": 0,
+      "page_calls": 0,
+      "page_raster_sha256": [],
+      "cell_calls": 0,
+      "layout_calls": 5,
+      "layout_tables": 5,
+      "local_capture_sha256": "712d85dc8c20aa8bd84c6182b79897f8ba87eea62767d5a9e9000b7207b448b6",
+      "reference_positions": 154,
+      "nonempty_positions": 154,
+      "empty_positions": 0,
+      "matched_positions": 152,
+      "matched_nonempty": 152,
+      "matched_empty": 0,
+      "dimensions_match": true,
+      "full_grid_text_match": false,
+      "emitted_rows": 14,
+      "emitted_columns": 11,
+      "mismatch_count": 2,
+      "mismatch_positions_sha256": "0af4d86ec24c335993064f8ada8be63d1ac608bdec3a5d23f9854352893b0cbd"
+    },
+    {
+      "case": "education-statistics",
+      "domain": "public-statistics-control",
+      "profile": "native-first",
+      "source_frame": {
+        "source_rotation": 0,
+        "page_width": 612.0,
+        "dpi": 150,
+        "source_page": 2,
+        "pdf_sha256": "d884d32bd2a1d620e0c7b5446e4d0b58ba67dab04e884839b2640b9a35749e99",
+        "page_height": 792.0
+      },
+      "outcome": "SUCCESS",
+      "emitted_tables": 1,
+      "associated_tables": 1,
+      "association_iou": 0.991469,
+      "unmatched_tables": 0,
+      "page_calls": 0,
+      "page_raster_sha256": [],
+      "cell_calls": 0,
+      "layout_calls": 6,
+      "layout_tables": 6,
+      "local_capture_sha256": "a70e547ae6d179546dd59a833cb0a319dbfb296a49d94cd0da54589505d6ffaf",
+      "reference_positions": 350,
+      "nonempty_positions": 336,
+      "empty_positions": 14,
+      "matched_positions": 339,
+      "matched_nonempty": 325,
+      "matched_empty": 14,
+      "dimensions_match": true,
+      "full_grid_text_match": false,
+      "emitted_rows": 50,
+      "emitted_columns": 7,
+      "mismatch_count": 11,
+      "mismatch_positions_sha256": "82083db9e105cd5c238a7b7d9139cc4ccff4c207d33cf2c465c616ab9916d5b9"
+    }
+  ]
+}

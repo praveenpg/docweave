@@ -1,0 +1,424 @@
+﻿{
+    "status":  "observations_collected_human_review_pending",
+    "manifest_sha256":  "495d21366702d8e15b424efcee670fac965836ad249dfb356c37ff028682d185",
+    "collected_at_utc":  "2026-10-15T09:56:20.7618430Z",
+    "word_version":  "16.0",
+    "word_build":  "16.0.20430",
+    "platform":  "Microsoft Windows NT 10.0.26300.0",
+    "cases":  [
+                  {
+                      "file":  "unsized-bands.docx",
+                      "sha256":  "000100279167f1c6b9368d73c37a4ae1a502a2ff5d6633e3a20cfb330df9f399",
+                      "cells":  [
+                                    {
+                                        "row":  0,
+                                        "column":  0,
+                                        "text":  "unsized-bands-r0c0",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  1,
+                                        "text":  "unsized-bands-r0c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  2,
+                                        "text":  "unsized-bands-r0c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  0,
+                                        "text":  "unsized-bands-r1c0",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  1,
+                                        "text":  "unsized-bands-r1c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  2,
+                                        "text":  "unsized-bands-r1c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  0,
+                                        "text":  "unsized-bands-r2c0",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  1,
+                                        "text":  "unsized-bands-r2c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  2,
+                                        "text":  "unsized-bands-r2c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    }
+                                ]
+                  },
+                  {
+                      "file":  "edge-flag-without-branch.docx",
+                      "sha256":  "7c05b6bed5fe7dcbe9b2ca71ac2f4bd2e0d29fc90d2e7f0ebee0f12235a14410",
+                      "cells":  [
+                                    {
+                                        "row":  0,
+                                        "column":  0,
+                                        "text":  "edge-flag-without-branch-r0c0",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  1,
+                                        "text":  "edge-flag-without-branch-r0c1",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  2,
+                                        "text":  "edge-flag-without-branch-r0c2",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  0,
+                                        "text":  "edge-flag-without-branch-r1c0",
+                                        "outline_level":  1,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  1,
+                                        "text":  "edge-flag-without-branch-r1c1",
+                                        "outline_level":  1,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  2,
+                                        "text":  "edge-flag-without-branch-r1c2",
+                                        "outline_level":  1,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  0,
+                                        "text":  "edge-flag-without-branch-r2c0",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  1,
+                                        "text":  "edge-flag-without-branch-r2c1",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  2,
+                                        "text":  "edge-flag-without-branch-r2c2",
+                                        "outline_level":  0,
+                                        "list_string":  ""
+                                    }
+                                ]
+                  },
+                  {
+                      "file":  "row-column-overlap.docx",
+                      "sha256":  "75e8681c5c383e121742bb8224b968fc740d29e92b6f632fbc9beb93a1fd1c1b",
+                      "cells":  [
+                                    {
+                                        "row":  0,
+                                        "column":  0,
+                                        "text":  "row-column-overlap-r0c0",
+                                        "outline_level":  4,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  1,
+                                        "text":  "row-column-overlap-r0c1",
+                                        "outline_level":  4,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  2,
+                                        "text":  "row-column-overlap-r0c2",
+                                        "outline_level":  4,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  0,
+                                        "text":  "row-column-overlap-r1c0",
+                                        "outline_level":  5,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  1,
+                                        "text":  "row-column-overlap-r1c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  2,
+                                        "text":  "row-column-overlap-r1c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  0,
+                                        "text":  "row-column-overlap-r2c0",
+                                        "outline_level":  5,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  1,
+                                        "text":  "row-column-overlap-r2c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  2,
+                                        "text":  "row-column-overlap-r2c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    }
+                                ]
+                  },
+                  {
+                      "file":  "whole-table-branch.docx",
+                      "sha256":  "1d773982b0f1ef84853e635f7e3acecbb02821d71370ebd5fcb7508b4073932d",
+                      "cells":  [
+                                    {
+                                        "row":  0,
+                                        "column":  0,
+                                        "text":  "whole-table-branch-r0c0",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  1,
+                                        "text":  "whole-table-branch-r0c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  2,
+                                        "text":  "whole-table-branch-r0c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  0,
+                                        "text":  "whole-table-branch-r1c0",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  1,
+                                        "text":  "whole-table-branch-r1c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  2,
+                                        "text":  "whole-table-branch-r1c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  0,
+                                        "text":  "whole-table-branch-r2c0",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  1,
+                                        "text":  "whole-table-branch-r2c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  2,
+                                        "text":  "whole-table-branch-r2c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    }
+                                ]
+                  },
+                  {
+                      "file":  "table-style-numbering.docx",
+                      "sha256":  "1e2d24d3ebd759df98e8b7883b3d15786d1cefac9c96d7ed9366181c58b85083",
+                      "cells":  [
+                                    {
+                                        "row":  0,
+                                        "column":  0,
+                                        "text":  "table-style-numbering-r0c0",
+                                        "outline_level":  4,
+                                        "list_string":  "1."
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  1,
+                                        "text":  "table-style-numbering-r0c1",
+                                        "outline_level":  4,
+                                        "list_string":  "2."
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  2,
+                                        "text":  "table-style-numbering-r0c2",
+                                        "outline_level":  4,
+                                        "list_string":  "3."
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  0,
+                                        "text":  "table-style-numbering-r1c0",
+                                        "outline_level":  9,
+                                        "list_string":  "4."
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  1,
+                                        "text":  "table-style-numbering-r1c1",
+                                        "outline_level":  9,
+                                        "list_string":  "5."
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  2,
+                                        "text":  "table-style-numbering-r1c2",
+                                        "outline_level":  9,
+                                        "list_string":  "6."
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  0,
+                                        "text":  "table-style-numbering-r2c0",
+                                        "outline_level":  9,
+                                        "list_string":  "7."
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  1,
+                                        "text":  "table-style-numbering-r2c1",
+                                        "outline_level":  9,
+                                        "list_string":  "8."
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  2,
+                                        "text":  "table-style-numbering-r2c2",
+                                        "outline_level":  9,
+                                        "list_string":  "9."
+                                    }
+                                ]
+                  },
+                  {
+                      "file":  "direct-override-control.docx",
+                      "sha256":  "8f5071b94f306a2761e464533d1ae51ec60e5e2783af5867833cbc7ad2b5c4cd",
+                      "cells":  [
+                                    {
+                                        "row":  0,
+                                        "column":  0,
+                                        "text":  "direct-override-control-r0c0",
+                                        "outline_level":  4,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  1,
+                                        "text":  "direct-override-control-r0c1",
+                                        "outline_level":  4,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  0,
+                                        "column":  2,
+                                        "text":  "direct-override-control-r0c2",
+                                        "outline_level":  4,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  0,
+                                        "text":  "direct-override-control-r1c0",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  1,
+                                        "text":  "direct-override-control-r1c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  1,
+                                        "column":  2,
+                                        "text":  "direct-override-control-r1c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  0,
+                                        "text":  "direct-override-control-r2c0",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  1,
+                                        "text":  "direct-override-control-r2c1",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    },
+                                    {
+                                        "row":  2,
+                                        "column":  2,
+                                        "text":  "direct-override-control-r2c2",
+                                        "outline_level":  9,
+                                        "list_string":  ""
+                                    }
+                                ]
+                  }
+              ]
+}

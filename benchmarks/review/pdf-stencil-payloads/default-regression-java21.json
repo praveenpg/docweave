@@ -1,0 +1,81 @@
+{
+  "source_stencil_entries" : 0,
+  "runtime" : "21.0.12.1+12-LTS",
+  "manifest_sha256" : "459cc0ed6fff9f29fd520fbd6e1f798ec0d56ece84913471b0434e10718c7bf5",
+  "ordinary_raster_placements" : 33,
+  "results" : [ {
+    "current_capture_sha256" : "84c4161eabe65c0b36563db38731eafbd1562d31bb61e85ab3143ed2a539d0cc",
+    "case" : "recent",
+    "ordinary_raster_placements" : 7,
+    "independent_raster_inventory_equal" : true,
+    "source_sha256" : "acb3af41357a960a9584f9ba0b0bf3319195af2ec4f3bc6074c2083d97d10bb8",
+    "complete_public_capture_equal" : true,
+    "baseline_capture_sha256" : "933258f6f4bd79a324fb6ef9c29c79703723b9b864abe4fd5617a0b493421fea"
+  }, {
+    "current_capture_sha256" : "9e9110868da47d06beefc045e96b9ed1191c4eb282ab97152adc5ae18fc2cb2b",
+    "case" : "next",
+    "ordinary_raster_placements" : 3,
+    "independent_raster_inventory_equal" : true,
+    "source_sha256" : "0c96e723535ee671eb0d263702adc9e986fb2817a5e16ab7b7235e593a39eff2",
+    "complete_public_capture_equal" : true,
+    "baseline_capture_sha256" : "00b6c5e0c6786a0ec0d865332d4abd7b7c88512c227b92b804ca1e7fc6432ff9"
+  }, {
+    "current_capture_sha256" : "071b5952c71929b3d3206a048b4968c7d922cc4e06580434d2c81b51b069c1c2",
+    "case" : "elife",
+    "ordinary_raster_placements" : 9,
+    "independent_raster_inventory_equal" : true,
+    "source_sha256" : "ae3d00995f44bdd26fd0f60e760dc0fce44e84a0482fc64d2277ef4792413a4b",
+    "complete_public_capture_equal" : true,
+    "baseline_capture_sha256" : "fd1efd3333c2846dbb4ef4eaf2f145cfede3dbad5074c76204b3a55cfdff9dc6"
+  }, {
+    "current_capture_sha256" : "197ebce30366afff0f1f873ce17009d0dc64dfa1ea87b0487147a7011fecf7c7",
+    "case" : "holdout",
+    "ordinary_raster_placements" : 9,
+    "independent_raster_inventory_equal" : true,
+    "source_sha256" : "dcd83b90a257628b5a1f8beac96dd14cafcbefa50d7077d15cc4f48d86c2e3dc",
+    "complete_public_capture_equal" : true,
+    "baseline_capture_sha256" : "f9598eb9526dab80bcf5cfbf7cf6401748551b0cf5be18a544d7cd7985b65228"
+  }, {
+    "current_capture_sha256" : "6950d2308f3e88b79137e92bdac759b611079c81d12ba9f6bfac2eea22ad9800",
+    "case" : "business",
+    "ordinary_raster_placements" : 1,
+    "independent_raster_inventory_equal" : true,
+    "source_sha256" : "ad8d84cbcc0a4ce35b803b93e8186c29ea0b06b4455d04fb584ab5ad29c42915",
+    "complete_public_capture_equal" : true,
+    "baseline_capture_sha256" : "a3283224436f3f106de46b0315cb459d964bd0e6748390a1918d04b906179071"
+  }, {
+    "current_capture_sha256" : "98e0ff50a964d3ee915536239a59c3a395229121892e66e599fb78e9b43a60a0",
+    "case" : "arnimb_goethe03_1835",
+    "ordinary_raster_placements" : 1,
+    "independent_raster_inventory_equal" : true,
+    "source_sha256" : "ad9aa0fff0e4c4b8b4ac010673abd0e00f7d4c48711f60014a8ad2849e4e3b92",
+    "complete_public_capture_equal" : true,
+    "baseline_capture_sha256" : "eea6e36bf95dc2c767b3eaec14afd0b1ddfcc6ae728cfaf395546d01b718d11f"
+  }, {
+    "current_capture_sha256" : "8ed40703c3a11872658e1639950bfc041e9f71253ad5792641cba91582a2c3ee",
+    "case" : "bebel_frau_1879",
+    "ordinary_raster_placements" : 1,
+    "independent_raster_inventory_equal" : true,
+    "source_sha256" : "babf3114bcf3259acd1b16142fa8a9fd2888bb00706b64c8abb875906a6a76e7",
+    "complete_public_capture_equal" : true,
+    "baseline_capture_sha256" : "70f3c27c0ef254f11444d0c0911e018a88ca584e2adc8124c5d42bf44945e5a9"
+  }, {
+    "current_capture_sha256" : "9381610ea10ffe535d610e41403d12d3ee2dfec0b3cc8b54a842dc7d53c14a7c",
+    "case" : "buerger_gedichte_1778_0039",
+    "ordinary_raster_placements" : 1,
+    "independent_raster_inventory_equal" : true,
+    "source_sha256" : "18bf200d9ea13b87b871842cd0bbdd6e97cc474ccf211a792291f0a073b58e2c",
+    "complete_public_capture_equal" : true,
+    "baseline_capture_sha256" : "004f985e6db39796dbc5762eb0d52f113290bc379a243ef2152c657fe14dbe43"
+  }, {
+    "current_capture_sha256" : "101afdb47cfdca767c7ca942ec5f96909e9736e89a7fcb4fbd0e3c43dc431ac7",
+    "case" : "nn_besuch_1780_00001",
+    "ordinary_raster_placements" : 1,
+    "independent_raster_inventory_equal" : true,
+    "source_sha256" : "f03ddf7afa2305cf347f935625e2164f6bac0b7afe98c3b15584a8d994b1acd2",
+    "complete_public_capture_equal" : true,
+    "baseline_capture_sha256" : "6feae558d543a6a086d4e9409f27880c6d71a799bfa350c172c4799693a3ff8e"
+  } ],
+  "scope" : "Complete parsed default-output equality; payloads disabled; not external stencil accuracy evidence",
+  "complete_original_cases" : 9
+}

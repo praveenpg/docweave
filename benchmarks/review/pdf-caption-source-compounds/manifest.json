@@ -1,0 +1,24 @@
+{
+  "scope": "Pre-evaluation composition of existing source-owned paragraph/word-wrap policies with explicit edge-aligned captions. Same five now-observed originals/21 publisher caption bodies; no new production code, semantic dehyphenation, reference/scorer edits or per-source choices.",
+  "base_commit": "fdb2f2c",
+  "caption_policy": "IMAGE_EDGE_ALIGNED_NUMBERED_TITLES",
+  "source_paragraph_policies": [
+    "PRESERVE",
+    "SOURCE_LINE_WRAPS"
+  ],
+  "page_boundary": "SINGLE_PAGE",
+  "inline_scripts": "PRESERVE",
+  "unicode": "RAW",
+  "positive_profiles_per_policy": 15,
+  "caption_references_per_layout": 21,
+  "identities": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTaggedParagraphs.java": "3f4a95fe980ac0d8d0ddd27606c45375936b02500fbc1f47c0909bb7cf08c834",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfSourceHyphenWraps.java": "66ccf3917b82064f8fd5a449c2cd191c98840bd6e3bc946e5fc62aab9431e81b",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTaggedParagraphOptions.java": "1e006bf1890a7bdcd241e78f1a754e1baf3aa0c858f672e10d73036aec922462",
+    "benchmarks/review/pdf-caption-source-compounds/old-composition.patch": "91c4ac400cb10d6cef08f7380e4c385c75ef451f6d50dcc34d176fdc1bb586d5",
+    "benchmarks/review/pdf-caption-source-compounds/transfer-composition.patch": "26a370cf1ca5880be54afdd6f1d64b89ccbcfa2bbaf3d31f376e16603d9f1637"
+  },
+  "raw_sources_redistributed": false,
+  "body_diagnostic_scope": "Read-only exact fixed32-prefix localization with baseline full-text SHA guard; no rescoring. Final numeric-only source helper included.",
+  "body_diagnostic_tool_sha256": "1582dfd1653c3b9e78f4b502913eba5221a10dcbe5d7401a2374af4e61ab23f4"
+}

@@ -1,0 +1,234 @@
+{
+  "baseline_commit": "610b2d0",
+  "isolated_probe_sha256": "269fb2df7aa3759a75a913a00d73b3889a568b0cda130825dd7af0a6c3c5b83c",
+  "cases": [
+    {
+      "fixture": "wide.html",
+      "preserve": false,
+      "before": {
+        "median_of_trial_means": 2668008.8,
+        "range_of_trial_means": [
+          2663311.2,
+          2671970.4
+        ]
+      },
+      "after": {
+        "median_of_trial_means": 2666535.2,
+        "range_of_trial_means": [
+          2660452,
+          2674802.4
+        ]
+      },
+      "reduction_percent": 0.05523220163290432
+    },
+    {
+      "fixture": "wide.html",
+      "preserve": true,
+      "before": {
+        "median_of_trial_means": 5151664,
+        "range_of_trial_means": [
+          5149870.4,
+          5153969.6
+        ]
+      },
+      "after": {
+        "median_of_trial_means": 5111328.8,
+        "range_of_trial_means": [
+          5108919.2,
+          5112200
+        ]
+      },
+      "reduction_percent": 0.7829547889769195
+    },
+    {
+      "fixture": "wide.md",
+      "preserve": false,
+      "before": {
+        "median_of_trial_means": 3956953.6,
+        "range_of_trial_means": [
+          3956953.6,
+          3956953.6
+        ]
+      },
+      "after": {
+        "median_of_trial_means": 3957057.6,
+        "range_of_trial_means": [
+          3957057.6,
+          3957057.6
+        ]
+      },
+      "reduction_percent": -0.002628284546979387
+    },
+    {
+      "fixture": "wide.md",
+      "preserve": true,
+      "before": {
+        "median_of_trial_means": 5820455.2,
+        "range_of_trial_means": [
+          5819895.2,
+          5823639.2
+        ]
+      },
+      "after": {
+        "median_of_trial_means": 5784669.6,
+        "range_of_trial_means": [
+          5784220.8,
+          5784680.8
+        ]
+      },
+      "reduction_percent": 0.6148247649084282
+    },
+    {
+      "fixture": "wide.docx",
+      "preserve": false,
+      "before": {
+        "median_of_trial_means": 20535655.2,
+        "range_of_trial_means": [
+          20319514.4,
+          20737585.6
+        ]
+      },
+      "after": {
+        "median_of_trial_means": 20603811.2,
+        "range_of_trial_means": [
+          20534690.4,
+          20626235.2
+        ]
+      },
+      "reduction_percent": -0.3318910418792065
+    },
+    {
+      "fixture": "wide.docx",
+      "preserve": true,
+      "before": {
+        "median_of_trial_means": 21215322.4,
+        "range_of_trial_means": [
+          20950074.4,
+          21521817.6
+        ]
+      },
+      "after": {
+        "median_of_trial_means": 21267972.8,
+        "range_of_trial_means": [
+          21247636.8,
+          21375776
+        ]
+      },
+      "reduction_percent": -0.24817157621890296
+    },
+    {
+      "fixture": "deep.html",
+      "preserve": false,
+      "before": {
+        "median_of_trial_means": 391472,
+        "range_of_trial_means": [
+          391472,
+          392720
+        ]
+      },
+      "after": {
+        "median_of_trial_means": 391744,
+        "range_of_trial_means": [
+          391744,
+          391744
+        ]
+      },
+      "reduction_percent": -0.06948134221604896
+    },
+    {
+      "fixture": "deep.html",
+      "preserve": true,
+      "before": {
+        "median_of_trial_means": 1331640,
+        "range_of_trial_means": [
+          1331016,
+          1332264
+        ]
+      },
+      "after": {
+        "median_of_trial_means": 1309248,
+        "range_of_trial_means": [
+          1308872,
+          1309636.8
+        ]
+      },
+      "reduction_percent": 1.681535550148694
+    },
+    {
+      "fixture": "deep.md",
+      "preserve": false,
+      "before": {
+        "median_of_trial_means": 630820,
+        "range_of_trial_means": [
+          630803.2,
+          630847.2
+        ]
+      },
+      "after": {
+        "median_of_trial_means": 630924,
+        "range_of_trial_means": [
+          630924,
+          630934.4
+        ]
+      },
+      "reduction_percent": -0.016486477917632136
+    },
+    {
+      "fixture": "deep.md",
+      "preserve": true,
+      "before": {
+        "median_of_trial_means": 1336712,
+        "range_of_trial_means": [
+          1336688,
+          1336712
+        ]
+      },
+      "after": {
+        "median_of_trial_means": 1314400,
+        "range_of_trial_means": [
+          1314376,
+          1314400
+        ]
+      },
+      "reduction_percent": 1.6691703224030352
+    },
+    {
+      "fixture": "deep.docx",
+      "preserve": false,
+      "before": {
+        "median_of_trial_means": 6849327.2,
+        "range_of_trial_means": [
+          6758960.8,
+          6955954.4
+        ]
+      },
+      "after": {
+        "median_of_trial_means": 6866831.2,
+        "range_of_trial_means": [
+          6862400.8,
+          6909143.2
+        ]
+      },
+      "reduction_percent": -0.25555794735576676
+    },
+    {
+      "fixture": "deep.docx",
+      "preserve": true,
+      "before": {
+        "median_of_trial_means": 6993196,
+        "range_of_trial_means": [
+          6902748,
+          7097668
+        ]
+      },
+      "after": {
+        "median_of_trial_means": 7008332,
+        "range_of_trial_means": [
+          7006644,
+          7050012
+        ]
+      },
+      "reduction_percent": -0.21643895008804925
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "source_commit": "72b52914f6f21fc86ab8aee0e60e0f0dbcd998e8",
+  "unchanged_files": 4011,
+  "derived_files": [
+    {
+      "path": "benchmarks/corpus/docx-forms/ownership-body-scope-review.json",
+      "original_sha256": "f9e0d5d27d70650434e3d1d2f39ab0a01496d0c82c58b905a2bf5de393a82dba",
+      "public_sha256": "15020b76e9b95018e1238647a47cdba4be354ef87d2e23008216c1b40e42ee57",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/corpus/docx-forms/ownership-review.json",
+      "original_sha256": "ce24d6f6f4f4181a9b5340805baa8a04ddf5b3c48e31568b155f9f05dc7bf996",
+      "public_sha256": "73708b726f01c13b7c606ac025f7b8713e61ba5b2ad6f326c9ebf95a2977cc07",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/corpus/docx-forms/review.json",
+      "original_sha256": "6058521d3b89462553682b2d2f8ddeb15d660971a55d3fd40a1b82b2778aa366",
+      "public_sha256": "a4d130d7effdf2119d35cc362359799d4846d2b34fc4cc8a04e95805b6d62ec4",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/corpus/docx/manifest.json",
+      "original_sha256": "c920c4b75cc1b7ea546bbbca72493378eefc2849ed6375071b5242e6e5608512",
+      "public_sha256": "be4fe0be5eda09784e1419d020fc2f7dd0ff20cd3ca2fec943756a2cd78c3189",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/corpus/docx/review.json",
+      "original_sha256": "dd852ac92654bebf19253f0185f2c9f787e0443d554ea7b8680a9b4d1c69d6dd",
+      "public_sha256": "83d8dd602846c926684cb25cba43d432d0a5d1a76630891722d1faf9b3a13a31",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/central-bundle/receipt.json",
+      "original_sha256": "93358183b34e91226192ef847845c92006016e5788f3d69408ed4ce2ea0b20aa",
+      "public_sha256": "6497aeaa1ce93d53f9bba9de2c900535b2277e61895023f1048077fa12d4ee67",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/docx-paragraph-ownership/review-body-scope.json",
+      "original_sha256": "59c5a4392a75924095643e2c1d34b419bc54bf0b3215b52f68fe0f1bb6aacbc8",
+      "public_sha256": "8d26fd717a13189f4bdd8ba39525d76fc924ab8c826c17bfbbd8ab365b2f5707",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/docx-paragraph-ownership/review.json",
+      "original_sha256": "4fa707235af1eb1ac8a8f29d96f4f186e15fb2a1394997a5abf63988f17ecad3",
+      "public_sha256": "1c879b1d2e5905d8fa66391eaf35016fd9bf5c45ee2ffba5a5487c657676654a",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/empty-html-span-allocation/after-1.json",
+      "original_sha256": "11df85e28700000e77d18be87f08753c13220a9fda5408a8f687a117d0e2d025",
+      "public_sha256": "b813ca57c68b1bd38e58def1873e702c86374d0e022f44ac8b6587f07167122c",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/empty-html-span-allocation/after-2.json",
+      "original_sha256": "67f2546552e809ea360fd89793d79fdbf832bc8b61c391972168e837e8abbe9e",
+      "public_sha256": "704abdf9a983e71bbe158025c6be6935713233625499f90932c6b11426e8c2ad",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/empty-html-span-allocation/after-3.json",
+      "original_sha256": "8c22e2133c441bf5feea3b9e7b0d880191f1d2f9b61d98e6983792399a5ecd5b",
+      "public_sha256": "6d6627a9620ebbdfa6e6dec6571cd3e12957a0524430f9ae2bdeb306a94dbce8",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/excerpt-attribution/review.json",
+      "original_sha256": "89445c6607d43d78fa58c1f628d11d439851a71be9607cb0459badf920310013",
+      "public_sha256": "9b57ec3bdebfdaaa50d244f8b63800ad15ffb7699537e107e0896a24a292a383",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/inline-unicode-allocation/after-1.json",
+      "original_sha256": "065257c1f524acf83afbdaa755087ba54713c99f5e39323a6bc24fc4ed8239b0",
+      "public_sha256": "6317d151fb6cd957643836cda8f42e5a53a4d8894861e35f0339f16ad8e459f8",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/inline-unicode-allocation/after-2.json",
+      "original_sha256": "fd3a2aec44d7db3a51952620c3079ca623f12ef17d1b14c974ce4c13a0bb4550",
+      "public_sha256": "efa07ca2e86b0fefeee32b1de7dfcac035f194fbc3a2800e5612b9f81eeb6678",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/inline-unicode-allocation/after-3.json",
+      "original_sha256": "2d118141c8acc0f81ac1f93a1deefeb9106547c6f24eae29ef412baa23dd43e2",
+      "public_sha256": "f204476f09c62691ae9d4c5c9282913baad6deef774b758c63d4a9a8599cdd4e",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/nested-table-memory/allocation-1.json",
+      "original_sha256": "5e803d269eaecaec9d167bbf697f8a1ada98c258d20e7769a157682ce42bcfd9",
+      "public_sha256": "2de18af2f05faa3b81f6af0ccde949e3d27d104f5ae379a49ea4e01c29fef3ea",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/nested-table-memory/allocation-2.json",
+      "original_sha256": "460632e7d8a895b0d318a251569b77f079f562e7772068fb1a87467eab4490f8",
+      "public_sha256": "92a8f55a467c4d1a536fc1b5b5abe517acbb56b203544578c3eb4b4a629ae4f3",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/nested-table-memory/allocation-3.json",
+      "original_sha256": "c61a15e66b525a2af1c2d1613c4b1226f12ae8ccad8594900882a521b902d930",
+      "public_sha256": "38afc728c0d36f1b01a31bad73b935a811f5e4a0a35d7af13d8f926c181442da",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/nested-table-memory/heap.json",
+      "original_sha256": "3ad3007b16b77bfaccd10b7c2909f8f0ee5321b15c684f1b7d0adbdbf4c90f67",
+      "public_sha256": "e32e65fcc3a6cf892262ca64500b3afec72fd0edfb4eeaba78bcd3bf272217a9",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/nested-table-memory/stacks.json",
+      "original_sha256": "3732e8a963dc553699d5427706a11f1c6f27c75a640bb4c962e114956f16b94a",
+      "public_sha256": "9b0d4d5e2bd6a7c746c37fcae5d12f54f70f1e6652ced7a7df44555158bfcef9",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/pdf-detector-resolution/manifest.json",
+      "original_sha256": "e085422f50c7ecf9fe02a9ceba16e8ffaa14565eb4d900160ab3d17c34a3e93b",
+      "public_sha256": "a2fe39cfb6c65e819592a6797baec41f94a2915be27be2516f31b63b4d869f69",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/pdf-page-detection/README.md",
+      "original_sha256": "91acaa59fd3d22221c239f290ec716925d9bc25711998892c2c80e6bbce571ba",
+      "public_sha256": "06e1784b85ffe21cfb77bdd80a166b6a89a497aa08e23bc4f4004543c4a00168",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/pdf-provider-cell-ocr/README.md",
+      "original_sha256": "f863bb60a1496b95353a4a335ca6bc3e8dcf301984afa9755d9bbb47b9990dd6",
+      "public_sha256": "1fe9314e38b0ec2d59c05dcee110c14c5eae9c99c39c0e4b19f5d255ddab0113",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/pdf-ruled-scans/manifest.json",
+      "original_sha256": "a77cfcb86e1c85302da9f0a255d5774a8eddf11f37f122be7fc720f5ffe05b90",
+      "public_sha256": "f20b3360184ea6607f81ea82c1efbf47caa43778e436612d68bd80b01ca95a48",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/pdf-scan-diagnostics/manifest.json",
+      "original_sha256": "d8953f41662a300508e573f263209840c82e8c8812ac051d7918107602295948",
+      "public_sha256": "cbcf70aaad9b5b98adc289c1d719b05acde37e53d2dc1ea323cb9e7d52f539f6",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/pdf-separate-cell-ocr/README.md",
+      "original_sha256": "d66dab4099a245a28a9ada85329d5d04feca75d8dbaa0a8b793f50a7634fa3a8",
+      "public_sha256": "b6f12e824295266840d52354dea14cc08ea0546cf53dcc33105ea9de49c1873a",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/release-artifacts/manifest.json",
+      "original_sha256": "3fc4ce7cf447974a9801f1e8a9b8769d8503ef160dfa84a8066d8fecd4079371",
+      "public_sha256": "a457202845e7443aeca6b23fc2ff8b5198b3744e3406e9170943ab1a4e9eaee0",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/release-metadata/verification.json",
+      "original_sha256": "f32854de3ca848da6c0462138ed083c2287663f16308880e136bc2e4fd1bcc16",
+      "public_sha256": "82f8a8ba5190d1f3c3b2a6e8948cd917daa2244bc670c1f58f1ec77f8130d7e2",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/table-escape-allocation/after-1.json",
+      "original_sha256": "212f9ff9d3bab8b94820d588097236f6e8bdae885c3e78e4837dbe5e6fffba3f",
+      "public_sha256": "c7a48c6e5045925b69e749149f786548a86e429ae0b1903517e55b597218cb8f",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/table-escape-allocation/after-2.json",
+      "original_sha256": "a6afdc3bfa5145856d061d3aed95ddf7ec44922867966d1cbb4321697bd1c3ab",
+      "public_sha256": "49c70ee9497355945fc5ebbeb619ebf5b601e51706e61b7b8e43cfd0b0c01e03",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/table-escape-allocation/after-3.json",
+      "original_sha256": "f5bc64a10154fac18e4273219567f19984f4e0c3f81b635a3ecd03762c35c91a",
+      "public_sha256": "719b0833bb0799fa2c88deba3da41f3f238e003f0c4570c72bb9491971b99510",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/third-party-audit/manifest.json",
+      "original_sha256": "beae0c0d0a2e0aa67e90c5a8f509bfec160cb731724a9d1cc7a5087a9e8916c8",
+      "public_sha256": "51ae89871730d39697f14c23517f75f5a117a7e101a958becc2da8f0a13f7678",
+      "action": "derived"
+    },
+    {
+      "path": "docs/pdf-beta-checklist.md",
+      "original_sha256": "acf56bbe62c985d1adc8ce9c93aeb7cec8e9a89b6df9e6737a99cd4fe01a09f6",
+      "public_sha256": "9e4bd268df4f0f567aa46dfec27fcc1e10865b8098f0634d6df84a7b70e50bcc",
+      "action": "derived"
+    },
+    {
+      "path": "docs/publishing.md",
+      "original_sha256": "e7649762c12190bad78dc144224ce273b4fea50ab8f20c2fa45c9495d0cb9060",
+      "public_sha256": "c1042da5ba87084137dd14f4d332570027e6193edf5a7a2b355ee8e5c5f398f4",
+      "action": "derived"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "original_sha256": "c73c05109cb654cdad4f721afd6618b2507af680676518bb94b45903f25107a1",
+      "public_sha256": "9ab459d1cb590949691243207bea469d1a282eb5f4e69488b810231a344be64a",
+      "action": "derived"
+    }
+  ],
+  "historical_evidence": "Derived report labels identify original hashes; embedded source/report hashes remain historical."
+}

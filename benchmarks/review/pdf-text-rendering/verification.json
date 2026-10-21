@@ -1,0 +1,38 @@
+{
+  "feature": "Explicit PAINTED_MODES native text policy",
+  "default": "ALL unchanged",
+  "candidate_version": "0.1.0-beta.2",
+  "scope": "Owned controls and constructor linkage; not general rendered visibility or scan accuracy",
+  "full_verification": {
+    "21": {
+      "tests": 905,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "strict_javadocs": "passed",
+      "build_log_sha256": "b58fab159180ee19dc6a0736a1ee50f5a15964be3b48227c40fbd7765fadba9c",
+      "legacy_beta1_compiled_consumer": "passed with same new Java21-built jars",
+      "standalone_consumer_doclint": "passed"
+    },
+    "25": {
+      "tests": 905,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "strict_javadocs": "passed",
+      "build_log_sha256": "cc898d4b560bca054d95d7dbd66d21f48f6f4b66ab43f579fa07bfbb8e8ec573",
+      "legacy_beta1_compiled_consumer": "passed with same new Java21-built jars",
+      "standalone_consumer_doclint": "passed"
+    }
+  },
+  "new_regressions": 6,
+  "source_sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "4527b62afeecbbd5c9914ba6501f7824357a77b2d400604576d54fbec2f25561",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageText.java": "d536ef6990bfd331d8d14ede518f1845c0695664a310969f7b085bd2b4cafbed",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageLayout.java": "498f0a1a5a5dcadb2a8973a2255d1fb83e86f19acdb4ca1e0fc66a7bcdfa5087",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfTextRenderingTest.java": "61fee89773add88ac7b03502c7d9d863f430afb8d464cc4e6756d1d2f647a60f",
+    "benchmarks/review/pdf-text-rendering/LegacyPdfOptionsConsumer.java": "09f88bf588e8b978ee7d7f4ce7d0812dd255bd0479d6246139e07e80140003bf"
+  },
+  "formatter": "Pinned clang-format23.1.1 check passed",
+  "upstream": "Official0.27.28/main1b02b4d matches earlier review; strict guard reports drift versus0.27.27, historical pins unchanged"
+}

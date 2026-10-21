@@ -1,0 +1,63 @@
+{
+  "frozen_at" : "2026-10-20T07:52:43.385771851Z",
+  "scope" : "Prospective whole-original business regression for explicit source table Caption references. All prior sources, profiles, regions, reference rows, normalization and limits unchanged. Captions outside the real table envelope remain unclaimed native text, with conservative reference/ownership/overlap validation. No new model, OCR, per-case setting or reference repair. Existing development sources; no general accuracy or new heldout claim.",
+  "source_pdf" : "walmart-fy26q4-complete-filing.pdf",
+  "source_html" : "walmart-fy26q4-filing.html",
+  "source_pages" : 59,
+  "max_input_bytes" : 67108864,
+  "candidate_case_profiles" : 39,
+  "reference_rows_per_profile" : 105,
+  "source_note" : "Publisher links this complete Equisolve filing PDF from its own SEC-exhibit page. Alphabet candidate PDF was available from issuer CDN, matching HTML was unavailable after HTTP403; deferred before extraction. Walmart complete filing deliberately retains its59pages/49.7MB original; no crops or source bytes reconstructed. Independent Poppler page inventory and rendered statement pages select document pages11/12/13 (printed release8/9/10) before first DocWeave extraction.",
+  "inputs" : [ {
+    "filename" : "walmart-fy26q4-complete-filing.pdf",
+    "bytes" : 49737746,
+    "sha256" : "7d27263c8592cc1f3e9ca21893b0789c34e81c87a8bf4d0e1b349e115d2d42b1",
+    "url" : "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000032/0000104169-26-000032.pdf"
+  }, {
+    "filename" : "walmart-fy26q4-filing.html",
+    "bytes" : 806610,
+    "sha256" : "da7dbb7b7193a095cb95af7cd44e93b40898c64dd4b5c32cfda1a7164ba57b03",
+    "url" : "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000032/earningsreleasefy26q4.htm"
+  } ],
+  "cases" : [ {
+    "id" : "operations",
+    "page" : 11,
+    "html_table_index" : 14,
+    "reference_rows" : 29,
+    "reference_rows_sha256" : "ed0b5c52afc9d9b8e67218892670e206414d999ea3eb71edfb79f11eee66d1b9",
+    "roi_left_top_right_bottom" : [ 44, 106, 566, 392 ]
+  }, {
+    "id" : "balance-sheet",
+    "page" : 12,
+    "html_table_index" : 16,
+    "reference_rows" : 40,
+    "reference_rows_sha256" : "7a2ddfd2b6edc72ea8b5ac9c573e04fe35267b386b56d8f42ed31e6532bb181c",
+    "roi_left_top_right_bottom" : [ 58, 114, 552, 528 ]
+  }, {
+    "id" : "cash-flows",
+    "page" : 13,
+    "html_table_index" : 18,
+    "reference_rows" : 36,
+    "reference_rows_sha256" : "cda7b2c8302c94da44c3dfeeda0f5af6d714cdebf9717d13ecaee07f63e0ef5b",
+    "roi_left_top_right_bottom" : [ 58, 114, 552, 470 ]
+  } ],
+  "profiles" : [ "RULED_ONLY", "RULED_AND_ALIGNED_TEXT", "RULED_AND_MULTILINE_ALIGNED_TEXT", "RULED_AND_DOUBLE_BORDERS", "RULED_AND_HORIZONTAL_TEXT", "RULED_AND_PARTIAL_TEXT", "RULED_AND_SEGMENTED_ROWS", "RULED_AND_SHADED_ROWS", "RULED_AND_SHADED_ROWS_COMPACT_PADDING", "RULED_AND_SHADED_ROWS_INLINE_SCRIPTS", "SOURCE_TAGGED_TABLES", "SOURCE_TAGGED_LOGICAL_TABLES", "SOURCE_TAGGED_CELL_ENVELOPE_TABLES" ],
+  "validation_source_sha256" : "8e203603143ce2892222e76fd9704ca752a33fac8e39697f5b6806fc23aa2532",
+  "source_tag_profile_frozen_at" : "2026-10-20T04:07:28.194671598Z",
+  "baseline_manifest" : "benchmarks/review/pdf-class-defined-spans/walmart-manifest.json",
+  "baseline_manifest_sha256" : "46feae8f9bec54aae750740dbfd268cac9e3d8e1f7983f86c07dadcaf7295fc1",
+  "baseline_report" : "benchmarks/review/pdf-tagged-nontext-content/walmart-java21.json",
+  "baseline_report_sha256" : "8583a51c975b9db84baaffa40e19a863f1bd6492739b7e81e8cf7887c6610548",
+  "baseline_case_profiles" : 39,
+  "nontext_policy_frozen_at" : "2026-10-20T04:18:31.867745042Z",
+  "candidate_base_commit" : "a0b8ca4",
+  "changed_profiles" : [ ],
+  "candidate_source_sha256" : {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTaggedStructure.java" : "aa9034ee07f97e33d83c13aab8c2c69b260f44f54887124cb3ba97fc3992e2e0",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTaggedTables.java" : "ba4efe737408b9aa3635402651385783fdf61978cd36a99162bb63319b6946fc",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPartitioner.java" : "9510cce52e24e644350badfbd55a0c21f27dff94da8ceb5b2bd0242ea84d3d22"
+  },
+  "logical_geometry_frozen_at" : "2026-10-20T04:39:50.435205902Z",
+  "frozen_code_commit" : "41720b8",
+  "code_commit" : "030e787"
+}

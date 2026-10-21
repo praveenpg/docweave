@@ -1,0 +1,36 @@
+{
+  "scope": "Retrospective owned PDF-to-chunk integration regression; all three provider text routes, unknown/one-header declarations. Not an original-source or held-out accuracy study.",
+  "baseline_commit": "5223e01",
+  "baseline_override_sources": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfNativeProviderTables.java": "8c13be99c92e2fe32a6752747d3ef250fd10eb038d86202a0a248558f539cba3",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfProviderTables.java": "4d5051dac6bb7e1918b34cfa81bd3f4c7031b54f25d88705d4ea8ac17981fbd8",
+    "docweave-chunking/src/main/java/dev/docweave/chunking/DefaultChunker.java": "c2270383553628855191866e5a1aa1ad15e1dae5d7973e3e23831e9879e7ae36",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTableLayouts.java": "63f494cfcb866dc2c8fef1f4d913e61a5610baddae1e8177bfc3fdab2cfe6bb3"
+  },
+  "candidate_sources": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfNativeProviderTables.java": "d5d7208b9eacad40057d9cd708d32cf8a9205b705c135a271589adf2e31b8c33",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfProviderTables.java": "c851a44a1ad444db073d8fe5233055b3c926ddafd8bb0796b521a94aa008acd2",
+    "docweave-chunking/src/main/java/dev/docweave/chunking/DefaultChunker.java": "fa474dc58617c68329db3b322c366130036abeabf075ad508d3ea5d02fd74c29",
+    "docweave-integration-tests/src/test/java/dev/docweave/chunking/PdfProviderHeaderChunkTest.java": "73b3000825c3514e67a55960fd1678166d22f111a7e97eed6efb5302d35ef4d9",
+    "benchmarks/review/pdf-provider-header-chunking/ProbeProviderHeaderChunks.java": "2f677301eb34933fc9dd5692f7222a46c11718f7e0997bfc6b6f91b15272d56a",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTableLayouts.java": "a0f72f43fb01544a1a413ab364c59ec6da918a23f1f683cf5f57314c54b9ae3d"
+  },
+  "routes": [
+    "NATIVE",
+    "WORDS",
+    "CELLS"
+  ],
+  "header_declarations": [
+    0,
+    1
+  ],
+  "expected_case_count": 6,
+  "source_rows": 7,
+  "body_rows": 6,
+  "chunk_character_budget": 180,
+  "text_fallback_budget": 20,
+  "full_java21_tests": 1164,
+  "java25_run": false,
+  "raw_sources_required": false,
+  "crossing_span_policy": "Retain original provider header evidence; omit neutral repetition hint whenever any anchor crosses the header/body boundary. Shared page work/cancellation enforced."
+}

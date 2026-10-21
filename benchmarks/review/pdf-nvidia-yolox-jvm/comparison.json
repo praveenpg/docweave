@@ -1,0 +1,58 @@
+{
+  "manifest_sha256" : "01b115f54a13e995b43116f30cb0e8f0d751635e7aa016181998c9f8fc08552a",
+  "scope" : "One-to-one IoU>=.5 proposal associations on all frozen source regions. Native table/text scores remain unchanged; different fixed detector preprocessing/threshold configurations are explicit. Not an upstream library ranking or text-accuracy claim.",
+  "tatr_report_sha256" : "089c9bb38fcf655a8a4720251974354e3b61bceea387ebc5467adecfe0abcd3a",
+  "results" : {
+    "tatr_thresholded_proposals" : {
+      "matched_reference_regions" : 3,
+      "selected_page_proposals" : 4,
+      "unmatched_proposals" : 1,
+      "reference_regions" : 6,
+      "matches" : [ {
+        "reference" : "income/4",
+        "proposal_index" : 0,
+        "iou" : 0.6673921066551387
+      }, {
+        "reference" : "balance-sheet/5",
+        "proposal_index" : 0,
+        "iou" : 0.5398939735297635
+      }, {
+        "reference" : "cash-flows/7",
+        "proposal_index" : 0,
+        "iou" : 0.8279030678063716
+      } ]
+    },
+    "yolox_jvm_post_nms_proposals" : {
+      "matched_reference_regions" : 6,
+      "selected_page_proposals" : 6,
+      "unmatched_proposals" : 0,
+      "reference_regions" : 6,
+      "matches" : [ {
+        "reference" : "income/4",
+        "proposal_index" : 0,
+        "iou" : 0.7093857586640355
+      }, {
+        "reference" : "balance-sheet/5",
+        "proposal_index" : 0,
+        "iou" : 0.7176723753669739
+      }, {
+        "reference" : "income/5",
+        "proposal_index" : 1,
+        "iou" : 0.8234619377786819
+      }, {
+        "reference" : "balance-sheet/6",
+        "proposal_index" : 0,
+        "iou" : 0.6930223213598667
+      }, {
+        "reference" : "cash-flows/6",
+        "proposal_index" : 1,
+        "iou" : 0.7348291526458739
+      }, {
+        "reference" : "cash-flows/7",
+        "proposal_index" : 0,
+        "iou" : 0.8120712339808938
+      } ]
+    }
+  },
+  "yolox_report_sha256" : "3794d501f0119e675fcf19ba77b6f03e4182b6d5b40de71b740ee5e33860c71d"
+}

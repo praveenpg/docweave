@@ -1,0 +1,107 @@
+{
+  "results" : [ {
+    "doi" : "10.7717/peerj.21002",
+    "main_body_figures" : 6,
+    "case" : "peerj",
+    "figures" : [ {
+      "direct_labels" : 1,
+      "label_identities" : [ {
+        "code_points" : 8,
+        "utf16_units" : 8,
+        "utf8_sha256" : "0565fceba715022c0e85824b201086ecd54eb9eb38df8778c3686ed57b2148e0"
+      } ],
+      "caption_identities" : [ {
+        "code_points" : 44,
+        "utf16_units" : 44,
+        "utf8_sha256" : "b39647d7fced1c9ca892dfcbcdb6d9a24e0a1cf9897a5b0725a05dad5eb25fd5"
+      } ],
+      "graphic_descendants" : 1,
+      "ordinal" : 0,
+      "direct_captions" : 1,
+      "source_id" : "fig-1"
+    }, {
+      "direct_labels" : 1,
+      "label_identities" : [ {
+        "code_points" : 8,
+        "utf16_units" : 8,
+        "utf8_sha256" : "720f29c31ca2031cbbb8d1fa3e7fd762e3777ec9a66ab16d097dc73194d716a1"
+      } ],
+      "caption_identities" : [ {
+        "code_points" : 165,
+        "utf16_units" : 165,
+        "utf8_sha256" : "b8332d4eb05a3d5c8f309cb8b455d95dc44a46846ec8bbb1d808182877f41aad"
+      } ],
+      "graphic_descendants" : 1,
+      "ordinal" : 1,
+      "direct_captions" : 1,
+      "source_id" : "fig-2"
+    }, {
+      "direct_labels" : 1,
+      "label_identities" : [ {
+        "code_points" : 8,
+        "utf16_units" : 8,
+        "utf8_sha256" : "f060cf72e5ca515f84c27407332b65b86165d098527b71b18e1e94e1a87dc92c"
+      } ],
+      "caption_identities" : [ {
+        "code_points" : 201,
+        "utf16_units" : 201,
+        "utf8_sha256" : "9fa423941ea150a7e6dc369f7a890390387c038932931359e966fb4ea48a88d4"
+      } ],
+      "graphic_descendants" : 1,
+      "ordinal" : 2,
+      "direct_captions" : 1,
+      "source_id" : "fig-3"
+    }, {
+      "direct_labels" : 1,
+      "label_identities" : [ {
+        "code_points" : 8,
+        "utf16_units" : 8,
+        "utf8_sha256" : "0fb418bc6b224cad46820d15c23eadb4ce2fc19a718992213ef4bc57591ed9cf"
+      } ],
+      "caption_identities" : [ {
+        "code_points" : 153,
+        "utf16_units" : 153,
+        "utf8_sha256" : "d80fb84b881b35ef6e63560032c2cb09f3d89604b205dd95a4b7fd4c1e6b022c"
+      } ],
+      "graphic_descendants" : 1,
+      "ordinal" : 3,
+      "direct_captions" : 1,
+      "source_id" : "fig-4"
+    }, {
+      "direct_labels" : 1,
+      "label_identities" : [ {
+        "code_points" : 8,
+        "utf16_units" : 8,
+        "utf8_sha256" : "b3d365f7b39223cd818bf36026fbdce2a793b72eb0856c16d0a3ffe50fc3cd23"
+      } ],
+      "caption_identities" : [ {
+        "code_points" : 130,
+        "utf16_units" : 130,
+        "utf8_sha256" : "d7491ae710cebc12883b8e3cdf228d7b930ffa3fd86662b57ab3d3e998039647"
+      } ],
+      "graphic_descendants" : 1,
+      "ordinal" : 4,
+      "direct_captions" : 1,
+      "source_id" : "fig-5"
+    }, {
+      "direct_labels" : 1,
+      "label_identities" : [ {
+        "code_points" : 8,
+        "utf16_units" : 8,
+        "utf8_sha256" : "f5cad8a908aa757f2043449d15eca7f401541068b76a18c0f97546ac61b9e0bd"
+      } ],
+      "caption_identities" : [ {
+        "code_points" : 130,
+        "utf16_units" : 130,
+        "utf8_sha256" : "3391e637e14ea8a15e7f20dd4529ccaedcb2b5f26ead5b626d65b2e2e6e89e74"
+      } ],
+      "graphic_descendants" : 1,
+      "ordinal" : 5,
+      "direct_captions" : 1,
+      "source_id" : "fig-6"
+    } ]
+  } ],
+  "scope" : "All source main-body fig nodes, exact DOM text identities only; no PDF geometry, extraction, semantic alignment or accuracy score",
+  "source_manifest_sha256" : "b67dc50a40047bdbfe2a7c47d37e188fe02275a46103a67af3b0f9db4200da7f",
+  "runtime" : "21.0.12.1+12-LTS"
+}

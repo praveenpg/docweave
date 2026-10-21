@@ -1,0 +1,106 @@
+{
+  "scope": "Owned controlled follow-ups; not Word expectations",
+  "independent_review": "pending",
+  "cases": [
+    {
+      "file": "numbering-original-order.docx",
+      "sha256": "c24c1f3d5dcd76088dde21d59fdef57454b01f4ccda7d2b4e2d96d21ce8bdb7d",
+      "seed_file": "table-style-numbering.docx",
+      "seed_sha256": "1e2d24d3ebd759df98e8b7883b3d15786d1cefac9c96d7ed9366181c58b85083",
+      "rows": 3,
+      "columns": 3,
+      "question": "Baseline conditional outline-before-numbering order",
+      "independent_review": "pending"
+    },
+    {
+      "file": "numbering-numpr-first.docx",
+      "sha256": "1cb35523f0bcbf5692dfcc1dd4e1474f2ac9b485ca429db45aeade61b9f554df",
+      "seed_file": "table-style-numbering.docx",
+      "seed_sha256": "1e2d24d3ebd759df98e8b7883b3d15786d1cefac9c96d7ed9366181c58b85083",
+      "rows": 3,
+      "columns": 3,
+      "question": "Change only conditional numPr/outlineLvl order",
+      "independent_review": "pending"
+    },
+    {
+      "file": "override-original-order.docx",
+      "sha256": "4481283f151a854e492a9872de7dfa90b8b8c1fbf023ee8116e85d72592349b3",
+      "seed_file": "direct-override-control.docx",
+      "seed_sha256": "8f5071b94f306a2761e464533d1ae51ec60e5e2783af5867833cbc7ad2b5c4cd",
+      "rows": 3,
+      "columns": 3,
+      "question": "Baseline explicit body outline and numId zero",
+      "independent_review": "pending"
+    },
+    {
+      "file": "override-numpr-first.docx",
+      "sha256": "0b73b3e343a65b7b94ae40f47721ee3433733a13d02f96f0e4152538f50d9d7b",
+      "seed_file": "direct-override-control.docx",
+      "seed_sha256": "8f5071b94f306a2761e464533d1ae51ec60e5e2783af5867833cbc7ad2b5c4cd",
+      "rows": 3,
+      "columns": 3,
+      "question": "Change only conditional numPr/outlineLvl order",
+      "independent_review": "pending"
+    },
+    {
+      "file": "plain-direct-body.docx",
+      "sha256": "d0cc9000f57914abac138c5a04678b25b5a39bc96183cc5d70096c3ee1b05d11",
+      "seed_file": "direct-override-control.docx",
+      "seed_sha256": "8f5071b94f306a2761e464533d1ae51ec60e5e2783af5867833cbc7ad2b5c4cd",
+      "rows": 3,
+      "columns": 3,
+      "question": "Explicit body outline without table-style inheritance",
+      "independent_review": "pending"
+    },
+    {
+      "file": "conditional-outline-only.docx",
+      "sha256": "58e11a197068ae41b238aa7a8ae089c1d8bdab01ce5cb2a506e7ddaaf90a813f",
+      "seed_file": "direct-override-control.docx",
+      "seed_sha256": "8f5071b94f306a2761e464533d1ae51ec60e5e2783af5867833cbc7ad2b5c4cd",
+      "rows": 3,
+      "columns": 3,
+      "question": "Conditional outline without any numbering or direct outline",
+      "independent_review": "pending"
+    },
+    {
+      "file": "conditional-direct-body.docx",
+      "sha256": "87cee6766919a516a8454d6111dc45058249b6d621c9747de852906ee16bbb51",
+      "seed_file": "direct-override-control.docx",
+      "seed_sha256": "8f5071b94f306a2761e464533d1ae51ec60e5e2783af5867833cbc7ad2b5c4cd",
+      "rows": 3,
+      "columns": 3,
+      "question": "Add explicit body outline to outline-only control",
+      "independent_review": "pending"
+    },
+    {
+      "file": "numbering-distinct-abstract.docx",
+      "sha256": "143e6b39775ea5db5c06b2a3cd257384bb363b498ba3407b07cc49f5841ac759",
+      "seed_file": "table-style-numbering.docx",
+      "seed_sha256": "1e2d24d3ebd759df98e8b7883b3d15786d1cefac9c96d7ed9366181c58b85083",
+      "rows": 3,
+      "columns": 3,
+      "question": "Use distinct otherwise identical abstract numbering definitions",
+      "independent_review": "pending"
+    },
+    {
+      "file": "numbering-explicit-restart.docx",
+      "sha256": "0422c558b79afcdf951feb04cf6c3bfafe27fb9e07230b4ea599fa0042585ae1",
+      "seed_file": "table-style-numbering.docx",
+      "seed_sha256": "1e2d24d3ebd759df98e8b7883b3d15786d1cefac9c96d7ed9366181c58b85083",
+      "rows": 3,
+      "columns": 3,
+      "question": "Add level-zero start override to numId one",
+      "independent_review": "pending"
+    },
+    {
+      "file": "direct-numbering-shared.docx",
+      "sha256": "715900aee75db800b61d1b04df184224fd0244ec556ef7ce24c704e04eeb33fc",
+      "seed_file": "table-style-numbering.docx",
+      "seed_sha256": "1e2d24d3ebd759df98e8b7883b3d15786d1cefac9c96d7ed9366181c58b85083",
+      "rows": 3,
+      "columns": 3,
+      "question": "Move numId selection from table styles onto paragraphs",
+      "independent_review": "pending"
+    }
+  ]
+}

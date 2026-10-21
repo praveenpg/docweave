@@ -1,0 +1,14 @@
+{
+  "release" : "0.27.30",
+  "commit" : "08d407ea5ab77dcc7f27775c22cc70bbedae7d58",
+  "previous_reviewed_commit" : "f98602237cb152e9c33fd824fb8ec96037806ad4",
+  "incremental_commits" : 1,
+  "incremental_changed_paths" : [ "CHANGELOG.md", "test_unstructured/partition/test_email.py", "unstructured/__version__.py", "unstructured/partition/email.py" ],
+  "classification" : "Email metadata fixes outside implemented formats; no PDF/dependency change",
+  "incremental_compare_sha256" : "126741e627a6de9945c48ce441d9068adae44fd7e71b444530820bf055e19307",
+  "full_compare_sha256" : "9279c8f72c979f3c27ac4d348d6088e087656b10b65ff30e3e049d216732b6c3",
+  "release_response_sha256" : "9d41dd80ae77908f64eb816e3171449f53667ef797211f689e6b8cd7f21d6da4",
+  "released_pdf_py_sha256" : "0dec47c9dac28769a58f76576ccdc4795c81b4554e3d74a7329ed7e27238287e",
+  "measured_runtime_remains" : "0.27.28",
+  "historical_reference_remains" : "0.27.27"
+}

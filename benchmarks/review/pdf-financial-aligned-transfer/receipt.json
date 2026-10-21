@@ -1,0 +1,25 @@
+{
+  "production_commit": "e6e8f56",
+  "profiles": [
+    "RULED_AND_ALIGNED_TEXT",
+    "RULED_AND_FINANCIAL_ALIGNED_TEXT"
+  ],
+  "source_documents": 3,
+  "source_pages": 80,
+  "cases_per_profile": 8,
+  "reference_rows_per_profile": 284,
+  "complete_case_profile_observations": 16,
+  "strict_rows_per_profile": 0,
+  "associated_cases_per_profile": 0,
+  "scope": "Known-source complete paired replay, no extraction accuracy gain",
+  "artifacts": {
+    "README.md": "430582f2f999f49d27f60f3bf321f57b7614fb68e028d085efc21ae0717e93f2",
+    "amazon-java21.json": "7a402aefae9e2d69f9f4407e528e93f2fbab754c995eb53e90b00f46a134fa77",
+    "amazon-manifest.json": "f0ad365b1ce253b22be644924e645c2d9c5f24a06283b6f9718ed2e5866818cd",
+    "amd-java21.json": "095cb99d170f9e57ba4f12e2846cdd9d094f0084261397addf6f83116a139041",
+    "amd-manifest.json": "48aaafaebf9b38aafe8a01e61aba8d04ce94f5e3fd210857a3a0ee55b0427b33",
+    "walmart-java21.json": "9b626148e59cc740580d7c7354d730d40ba65af763aee1b02de31a7850e9c09e",
+    "walmart-manifest.json": "63ab26a6ff1fa696b3290b0a08163fca1c51ff0fb2385c123bbe5d2c15ce8bd1"
+  },
+  "jvm_verification_log_sha256": "cde92e1ae0329882b885efd66fef7e1816cd9805769106009491c7f81d562256"
+}

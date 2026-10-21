@@ -1,0 +1,710 @@
+{
+  "frozen_at": "2026-10-20T07:49:56.376Z",
+  "code_commit": "030e787",
+  "scope": "Prospectively frozen whole-original seven-file PDF/UA table diagnostic. Three distinct independent rendered table layouts, including five identical-pixel metadata variants. Original source bytes and independently inspected Poppler grids/roles fixed before any DocWeave extraction. All four public-factory profiles run uniformly on complete originals. Geometry-only max IoU>=.5 stable-first association; positional/span topology and header-role metrics reported separately. Every source/failure and all74 anchors/profile retained; no text scoring, oracle extraction crops, source repair, per-case settings or best-of selection. Source-author synthetic validation files, not representative business or general PDF accuracy, class-span proof, PDF/UA compliance or independently human-reviewed acceptance. Candidate adds bounded explicit same-page Caption references outside table rows, validates them disjoint from real cell text, reserves them against source ownership conflicts, and leaves their glyphs to native fallback without copying them into cells. All sources/anchors/roles/ROIs/profiles and prior baseline retained unchanged. Only the three source-tagged observations on the captioned source are predeclared as potentially changed.",
+  "source_repository": "https://github.com/veraPDF/veraPDF-corpus",
+  "source_commit": "377728596647e40edf16003d68d620773ce96ec5",
+  "attribution": "veraPDF corpus contributors, CC BY 4.0 per repository README. Unmodified originals fetched only; no source PDFs or derived rasters redistributed.",
+  "source_discovery": "benchmarks/review/pdf-external-class-spans/selection.json",
+  "tool": "benchmarks/tools/CompareReferenceTableTopology.java",
+  "tool_sha256": "65b3099d814aa2f3dbc9b43ec71b358f8e42e932b07636c7cdb15676bad2e8c2",
+  "parser": "docweave-validation/src/test/java/dev/docweave/validation/UpstreamTableCapture.java",
+  "parser_sha256": "7c076431e63979ee3ad1b7310568d3d47386107fff554a79fa15521fe4b42ed5",
+  "profiles": [
+    "NATIVE",
+    "SOURCE_TAGGED",
+    "SOURCE_LOGICAL",
+    "SOURCE_CELL_ENVELOPES"
+  ],
+  "reference_anchors_per_profile": 74,
+  "reference_header_anchors_per_profile": 41,
+  "case_profiles": 28,
+  "source_frame": {
+    "width": 612,
+    "height": 792,
+    "user_unit": 1,
+    "rotation": 0,
+    "origin": [
+      0,
+      0
+    ]
+  },
+  "render_sha256": {
+    "merged_5x4": "e985841af4b4a28776bed1b46aae877ad0b416effb5b385513604735169a912e",
+    "captioned_4x2": "2203037933834f6eca994510cd7507076c77d7c975619171d9703fd73e2099e9",
+    "header_attributes_2x5": "f38cfd7aa07ac7d1514114e1acde0aa9144c635540f5dccdeb0eb9cd156dc4f7"
+  },
+  "cases": [
+    {
+      "id": "8.2.5.26-t01-pass-a",
+      "filename": "8.2.5.26-t01-pass-a.pdf",
+      "bytes": 26749,
+      "git_blob_sha1": "f4e8906a935d0bf93775af56347b3f357cf28680",
+      "sha256": "085618a372d2b5ba5c9a61904d10a5c76a470d6f848c4c35ce58e8fedb3075c0",
+      "source_page": 1,
+      "rows": 5,
+      "columns": 4,
+      "roi_left_top_right_bottom": [
+        56,
+        56,
+        556,
+        142
+      ],
+      "expected_anchors": 16,
+      "anchors": [
+        {
+          "row": 0,
+          "column": 0,
+          "row_span": 2,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 0,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 3,
+          "header": true
+        },
+        {
+          "row": 1,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 1,
+          "column": 2,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 1,
+          "column": 3,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 2,
+          "column": 0,
+          "row_span": 2,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 2,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 2,
+          "column": 2,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 2,
+          "column": 3,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 3,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 3,
+          "column": 2,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 3,
+          "column": 3,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 4,
+          "column": 0,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 4,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 4,
+          "column": 2,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 4,
+          "column": 3,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        }
+      ],
+      "render_family": "merged_5x4"
+    },
+    {
+      "id": "8.2.5.26-t01-pass-b",
+      "filename": "8.2.5.26-t01-pass-b.pdf",
+      "bytes": 94611,
+      "git_blob_sha1": "26724ed5b45614b08023dbab23d184810fe6e787",
+      "sha256": "5f19af878750ddf6c41bbbe2def73c74783e1f7c30156ed85a52fe69e267f7f9",
+      "source_page": 1,
+      "rows": 4,
+      "columns": 2,
+      "roi_left_top_right_bottom": [
+        56,
+        132,
+        556,
+        201
+      ],
+      "expected_anchors": 8,
+      "anchors": [
+        {
+          "row": 0,
+          "column": 0,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 1,
+          "column": 0,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 1,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 2,
+          "column": 0,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 2,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 3,
+          "column": 0,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 3,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        }
+      ],
+      "render_family": "captioned_4x2"
+    },
+    {
+      "id": "8.2.5.26-t05-pass-a",
+      "filename": "8.2.5.26-t05-pass-a.pdf",
+      "bytes": 41982,
+      "git_blob_sha1": "3da29a5fe93d48a03cfb14aebc701e05abe185f5",
+      "sha256": "ee5fa4b0883f5a0cf36c2800a2b2f18048a4e4a71c493c9872cc927fbe97e20c",
+      "source_page": 1,
+      "rows": 2,
+      "columns": 5,
+      "roi_left_top_right_bottom": [
+        56,
+        96,
+        556,
+        151
+      ],
+      "expected_anchors": 10,
+      "anchors": [
+        {
+          "row": 0,
+          "column": 0,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 2,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 3,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 4,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 1,
+          "column": 0,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 1,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 1,
+          "column": 2,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 1,
+          "column": 3,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 1,
+          "column": 4,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        }
+      ],
+      "render_family": "header_attributes_2x5"
+    },
+    {
+      "id": "8.2.5.26-t05-pass-b",
+      "filename": "8.2.5.26-t05-pass-b.pdf",
+      "bytes": 42229,
+      "git_blob_sha1": "7afeae0b99a33c96b15415c01ef95d8f7031e14c",
+      "sha256": "26396e7544976587b4ea8d4f77df73658b32d16dfbfab1a39dbf5f0295eedb23",
+      "source_page": 1,
+      "rows": 2,
+      "columns": 5,
+      "roi_left_top_right_bottom": [
+        56,
+        96,
+        556,
+        151
+      ],
+      "expected_anchors": 10,
+      "anchors": [
+        {
+          "row": 0,
+          "column": 0,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 2,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 3,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 4,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 1,
+          "column": 0,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 1,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 1,
+          "column": 2,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 1,
+          "column": 3,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 1,
+          "column": 4,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        }
+      ],
+      "render_family": "header_attributes_2x5"
+    },
+    {
+      "id": "8.2.5.26-t05-pass-c",
+      "filename": "8.2.5.26-t05-pass-c.pdf",
+      "bytes": 42142,
+      "git_blob_sha1": "deec10070b0d2fc64f0a903c368b00ddb110439e",
+      "sha256": "97d81fd836770790930677840a0742dc4aa26c757ec7d4c27bf1a1c2856927c3",
+      "source_page": 1,
+      "rows": 2,
+      "columns": 5,
+      "roi_left_top_right_bottom": [
+        56,
+        96,
+        556,
+        151
+      ],
+      "expected_anchors": 10,
+      "anchors": [
+        {
+          "row": 0,
+          "column": 0,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 2,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 3,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 4,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 1,
+          "column": 0,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 1,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 1,
+          "column": 2,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 1,
+          "column": 3,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 1,
+          "column": 4,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        }
+      ],
+      "render_family": "header_attributes_2x5"
+    },
+    {
+      "id": "8.2.5.26-t05-pass-d",
+      "filename": "8.2.5.26-t05-pass-d.pdf",
+      "bytes": 42487,
+      "git_blob_sha1": "10bbd42079ed3242667a834193b463b4ebac535f",
+      "sha256": "cd1aa04628e28a72423fa9fd402446215cc8cf481b4c62d52f48ec9048119eac",
+      "source_page": 1,
+      "rows": 2,
+      "columns": 5,
+      "roi_left_top_right_bottom": [
+        56,
+        96,
+        556,
+        151
+      ],
+      "expected_anchors": 10,
+      "anchors": [
+        {
+          "row": 0,
+          "column": 0,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 2,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 3,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 4,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 1,
+          "column": 0,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 1,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 1,
+          "column": 2,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 1,
+          "column": 3,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 1,
+          "column": 4,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        }
+      ],
+      "render_family": "header_attributes_2x5"
+    },
+    {
+      "id": "8.2.5.26-t05-pass-e",
+      "filename": "8.2.5.26-t05-pass-e.pdf",
+      "bytes": 42307,
+      "git_blob_sha1": "f78a286c0504bebcc8c87549524d8ee527aa1c07",
+      "sha256": "4f9442c84d3394e4cbdf07564b71183c0b339da3ae14f7b1ae53e3bbb39b8ba5",
+      "source_page": 1,
+      "rows": 2,
+      "columns": 5,
+      "roi_left_top_right_bottom": [
+        56,
+        96,
+        556,
+        151
+      ],
+      "expected_anchors": 10,
+      "anchors": [
+        {
+          "row": 0,
+          "column": 0,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 2,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 3,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 0,
+          "column": 4,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 1,
+          "column": 0,
+          "row_span": 1,
+          "column_span": 1,
+          "header": true
+        },
+        {
+          "row": 1,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 1,
+          "column": 2,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 1,
+          "column": 3,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        },
+        {
+          "row": 1,
+          "column": 4,
+          "row_span": 1,
+          "column_span": 1,
+          "header": false
+        }
+      ],
+      "render_family": "header_attributes_2x5"
+    }
+  ],
+  "baseline_manifest": "benchmarks/review/pdf-tagged-reference-tables/manifest.json",
+  "baseline_manifest_sha256": "272ac8a55d4c16339bee57783920b82196576e862275cdce80582b994e4f53aa",
+  "baseline_report_sha256": "a5beeee9e0b5bd68754258c1e1a50bd72899487cc8304975a581c6bef6381009",
+  "candidate_source_sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTaggedStructure.java": "aa9034ee07f97e33d83c13aab8c2c69b260f44f54887124cb3ba97fc3992e2e0",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfTaggedTables.java": "ba4efe737408b9aa3635402651385783fdf61978cd36a99162bb63319b6946fc",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPartitioner.java": "9510cce52e24e644350badfbd55a0c21f27dff94da8ceb5b2bd0242ea84d3d22"
+  },
+  "changed_case_profiles": [
+    "8.2.5.26-t01-pass-b/SOURCE_TAGGED",
+    "8.2.5.26-t01-pass-b/SOURCE_LOGICAL",
+    "8.2.5.26-t01-pass-b/SOURCE_CELL_ENVELOPES"
+  ]
+}

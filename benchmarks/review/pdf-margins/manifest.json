@@ -1,0 +1,96 @@
+{
+  "source": "https://www.rfc-editor.org/rfc/rfc9110.pdf",
+  "filename": "rfc9110.pdf",
+  "bytes": 2858365,
+  "sha256": "60b30efa1048900833d1758440247fe8ac85a3134f2327388dcb24e07d814c89",
+  "source_pages": 194,
+  "selection": "First12 complete original pages, physical source pages1 through12, in order; no page omission/crop/text repair",
+  "header_oracles": [
+    {
+      "text": "RFC 9110",
+      "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "text": "HTTP Semantics",
+      "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "text": "June 2022",
+      "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    }
+  ],
+  "footer_oracles": [
+    {
+      "text": "Fielding, et al.",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "text": "Standards Track",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    }
+  ],
+  "scope": "Single-publisher native running-margin labels; no broad semantic/layout accuracy or calibration claim",
+  "redistribution": "Fetch-only source PDF; no body text or raw pages committed; IETF Trust copyright notice retained in original"
+}

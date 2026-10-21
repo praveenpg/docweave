@@ -1,0 +1,12 @@
+{
+  "source_repository": "https://github.com/apache/pdfbox",
+  "source_commit": "9286e47d89d6877005c9d2d0f2fd38793a62519a",
+  "source_path": "tools/src/test/resources/input/ImageIOUtil/ccitt4-cib-test.pdf",
+  "download_url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/tools/src/test/resources/input/ImageIOUtil/ccitt4-cib-test.pdf",
+  "bytes": 9805,
+  "git_blob_sha1": "2542e3e5d83b1b911b7c39824f0b223322ba5239",
+  "sha256": "e21174353d5a330ed41bcc4e234943a6527c635dec2a4be1a4fe701827bd0b1c",
+  "scope": "Fetch-only independent handwritten CCITT scan; an owned native heading is appended in a temporary derivative for mixed-page integration. No approved transcription or accuracy score.",
+  "original_author_and_per_file_redistribution_rights": "not established; no PDF, preview or full extracted text committed",
+  "local_cache": "/tmp/docweave-ocr-independent-ccitt.pdf"
+}

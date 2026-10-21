@@ -1,0 +1,445 @@
+{
+  "reference": {
+    "upstream_commit": "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",
+    "python": "3.13.16",
+    "scope": "Three owned synthetic inputs; HTML v1, Python-Markdown tables/fenced_code; no full parser parity claim",
+    "source_verification": "Selected pinned files verified before import; not the complete Git tree",
+    "source_sha256": {
+      "unstructured/chunking/base.py": "076daa0ba00212217d6d9bef60156a364f3b50684ce5d5c8168f7ea8cd97ea42",
+      "unstructured/chunking/basic.py": "68d6fde873e5f744ab0527717f029bfe0c8b232df03bcba25359b466d5d77159",
+      "unstructured/chunking/title.py": "f5305324030bb77100584bb8b432b8b2110f3c280b1d697dcc2b41f65dce2f23",
+      "unstructured/documents/elements.py": "94f0f5eca1d987b2e1e5c574417e62305fae4556bb572bf95918861047954d0c",
+      "unstructured/common/html_table.py": "741e09b2b057438e1044c33b2592179e055f75e5664600657b000310caa85bd5",
+      "unstructured/partition/docx.py": "623ef4c7d41dc8ad227a4524c0fe7b58b9688bad86623e81739c6def67f59f2a",
+      "unstructured/partition/text_type.py": "a423f9917c8740a00c04fa4aad6e8794ba9dd8d6e1071377c42878d3d3b20ac5",
+      "unstructured/nlp/tokenize.py": "22347992441136da156a6df38ad6298eda24944918e5edef581415c8bab84d42",
+      "unstructured/partition/common/metadata.py": "f9955fe62a7a695acdfd54b7a1874ed8c4b547de15e1f668bb6b7a1f124cd5d9",
+      "unstructured/partition/common/lang.py": "9c1f7d17c37c59a98b25b047e420ef1ba9f08d3edda74b93761ad7081c6be32c",
+      "unstructured/partition/md.py": "571c8a7c9027e5ea78460ea8f9aa8d944c71bcfc62a6adc6db74b320011510e1",
+      "unstructured/partition/html/__init__.py": "b8508a51e9e0993d66f90fc692466880486fdcc17bfeb03d6a1334105d12e5d6",
+      "unstructured/partition/html/partition.py": "3264bb3b13a3b586049824bee87310ae12586b45d10248d3e669190d4f74f629",
+      "unstructured/partition/html/parser.py": "20e7b2d15768bc020399af086808ce224899f1a927143f7afe1ebfd517a9f0aa",
+      "unstructured/partition/html/transformations.py": "f9d3794b3fa5b82be195d9c14bba5710daecad171643e489d25ccd8efba328bc",
+      "unstructured/documents/html_sanitization.py": "2775304209da955a26534ccd613867672c63f3644f954dbfd37f772a9f5ad8e6"
+    },
+    "model": {
+      "name": "en_core_web_sm",
+      "version": "3.8.0",
+      "wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+      "installed_package_verified": true
+    },
+    "dependencies": {
+      "nh3": "0.3.7",
+      "Markdown": "3.11.1",
+      "soupsieve": "3.0.3",
+      "beautifulsoup4": "4.15.0",
+      "en_core_web_sm": "3.8.0",
+      "catalogue": "2.0.10",
+      "shellingham": "1.5.4",
+      "langdetect": "1.0.9",
+      "spacy": "3.8.16",
+      "spacy-loggers": "1.0.5",
+      "numpy": "2.5.4",
+      "installer": "1.1.0",
+      "tqdm": "4.70.1",
+      "confection": "1.3.3",
+      "thinc": "8.3.13",
+      "httpx": "0.28.1",
+      "cymem": "2.0.13",
+      "blis": "1.3.3",
+      "httpcore": "1.0.9",
+      "weasel": "1.0.0",
+      "python-iso639": "2026.7.23",
+      "rich": "15.0.0",
+      "annotated-doc": "0.0.5",
+      "python-docx": "1.2.0",
+      "filelock": "4.2.0",
+      "typer": "0.27.3",
+      "MarkupSafe": "3.0.4",
+      "setuptools": "84.0.0",
+      "srsly": "2.5.4",
+      "Pygments": "2.21.0",
+      "preshed": "3.0.13",
+      "typing-inspection": "0.4.4",
+      "click": "8.5.0",
+      "pydantic": "2.14.1",
+      "markdown-it-py": "4.2.0",
+      "spacy-legacy": "3.0.12",
+      "pydantic_core": "2.50.1",
+      "h11": "0.16.0",
+      "smart_open": "8.0.3",
+      "cloudpathlib": "0.26.0",
+      "Jinja2": "3.1.6",
+      "mdurl": "0.1.2",
+      "packaging": "26.3",
+      "wasabi": "1.1.3",
+      "annotated-types": "0.8.0",
+      "anyio": "4.15.1",
+      "six": "1.17.0",
+      "murmurhash": "1.0.15",
+      "python-magic": "0.4.27",
+      "wrapt": "2.5.1",
+      "urllib3": "2.8.0",
+      "charset-normalizer": "3.5.2",
+      "lxml": "6.1.3",
+      "typing_extensions": "4.16.0",
+      "idna": "3.20",
+      "psutil": "7.2.2",
+      "regex": "2026.9.29",
+      "emoji": "2.16.0",
+      "requests": "2.34.2",
+      "certifi": "2026.7.22"
+    }
+  },
+  "cases": [
+    {
+      "input": "structured.html",
+      "input_sha256": "d64d80d1940e9a3e99d694665dcd06f4ff0f33b13211cf17d29d3d1e379a6276",
+      "entrypoint": "public partition_html",
+      "upstream_options": {
+        "metadata_filename": "structured.html",
+        "languages": [
+          "eng"
+        ],
+        "html_parser_version": "v1",
+        "skip_headers_and_footers": false
+      },
+      "upstream_output": [
+        {
+          "type": "Title",
+          "element_id": "a0da9702cfcba8a7d752b26a09a6042c",
+          "text": "Quarterly report",
+          "metadata": {
+            "category_depth": 0,
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.html",
+            "filetype": "text/html"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "74523b5e68f162890e5f984b4fcb0039",
+          "text": "Revenue increased. Read the full report.",
+          "metadata": {
+            "link_texts": [
+              "full report"
+            ],
+            "link_urls": [
+              "https://example.com/report"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.html",
+            "filetype": "text/html",
+            "parent_id": "a0da9702cfcba8a7d752b26a09a6042c"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "40c9d9c266bc3a80f3340ae81baa0fdb",
+          "text": "Highlights",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.html",
+            "filetype": "text/html",
+            "parent_id": "a0da9702cfcba8a7d752b26a09a6042c"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "2c8b5423a54810e36c4fccbee5a2a0bf",
+          "text": "First milestone",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.html",
+            "filetype": "text/html",
+            "parent_id": "40c9d9c266bc3a80f3340ae81baa0fdb"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "c6eb17ca14bd99e5cbbdebcba006b1df",
+          "text": "Second milestone 🧵",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.html",
+            "filetype": "text/html",
+            "parent_id": "40c9d9c266bc3a80f3340ae81baa0fdb"
+          }
+        },
+        {
+          "type": "Table",
+          "element_id": "34d40e04378b97b93c8015211270f3fd",
+          "text": "Region Revenue West 100 East 200",
+          "metadata": {
+            "text_as_html": "<table><thead><tr><th>Region</th><th>Revenue</th></tr></thead><tbody><tr><td>West</td><td>100</td></tr><tr><td>East</td><td>200</td></tr></tbody></table>",
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.html",
+            "filetype": "text/html",
+            "parent_id": "40c9d9c266bc3a80f3340ae81baa0fdb"
+          }
+        }
+      ]
+    },
+    {
+      "input": "structured.md",
+      "input_sha256": "b2910bb15493d889fb3a4c6c8fe510ecd0da8550b05938216349a3f41bbb8dac",
+      "entrypoint": "public partition_md",
+      "upstream_options": {
+        "metadata_filename": "structured.md",
+        "languages": [
+          "eng"
+        ],
+        "html_parser_version": "v1",
+        "extensions": [
+          "tables",
+          "fenced_code"
+        ]
+      },
+      "upstream_output": [
+        {
+          "type": "Title",
+          "element_id": "412fd119057820256bb18dba7a26c41b",
+          "text": "Quarterly report",
+          "metadata": {
+            "category_depth": 0,
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "43605d8787f732a23a8b086a2772d804",
+          "text": "Revenue increased. Read the full report.",
+          "metadata": {
+            "link_texts": [
+              "full report"
+            ],
+            "link_urls": [
+              "https://example.com/report"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.md",
+            "filetype": "text/markdown",
+            "parent_id": "412fd119057820256bb18dba7a26c41b"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "01031a57378abd450df531e5e299897c",
+          "text": "Highlights",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.md",
+            "filetype": "text/markdown",
+            "parent_id": "412fd119057820256bb18dba7a26c41b"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "41cc796b0ba2c5a5860c4aca67aeb58f",
+          "text": "First milestone",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.md",
+            "filetype": "text/markdown",
+            "parent_id": "01031a57378abd450df531e5e299897c"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "ca6c8c4a030218b299b8d0a6dc5197d2",
+          "text": "Nested milestone",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.md",
+            "filetype": "text/markdown",
+            "parent_id": "01031a57378abd450df531e5e299897c"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "d8c935d012ad5cf776ee3c8eca2d1f64",
+          "text": "Second milestone 🧵",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.md",
+            "filetype": "text/markdown",
+            "parent_id": "01031a57378abd450df531e5e299897c"
+          }
+        },
+        {
+          "type": "CodeSnippet",
+          "element_id": "58a652abe5662073d102f0e1b8050fe8",
+          "text": "  int count = 2;",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "Table",
+          "element_id": "4d06d7d9422731a5fa916e2917012ffb",
+          "text": "Region Revenue West 00100 East 00200",
+          "metadata": {
+            "text_as_html": "<table><thead><tr><th>Region</th><th>Revenue</th></tr></thead><tbody><tr><td>West</td><td>00100</td></tr><tr><td>East</td><td>00200</td></tr></tbody></table>",
+            "languages": [
+              "eng"
+            ],
+            "filename": "structured.md",
+            "filetype": "text/markdown"
+          }
+        }
+      ]
+    },
+    {
+      "input": "mixed-html.md",
+      "input_sha256": "7631aed44dbddcf27240e848082f0a91454f3fb1099b4d90e7fc2ab0f62ed3f7",
+      "entrypoint": "public partition_md",
+      "upstream_options": {
+        "metadata_filename": "mixed-html.md",
+        "languages": [
+          "eng"
+        ],
+        "html_parser_version": "v1",
+        "extensions": [
+          "tables",
+          "fenced_code"
+        ]
+      },
+      "upstream_output": [
+        {
+          "type": "Title",
+          "element_id": "2c5cba22da7d6b10f927d2b5502af16f",
+          "text": "Mixed report",
+          "metadata": {
+            "category_depth": 0,
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-html.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "243b87601a28ba0bae4e3482314fe9bc",
+          "text": "Text 🧵 linked.",
+          "metadata": {
+            "emphasized_text_contents": [
+              "linked"
+            ],
+            "emphasized_text_tags": [
+              "b"
+            ],
+            "link_texts": [
+              "linked"
+            ],
+            "link_urls": [
+              "https://example.com/raw"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-html.md",
+            "filetype": "text/markdown",
+            "parent_id": "2c5cba22da7d6b10f927d2b5502af16f"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "7750ee8c2e1a3ec66fbd5002e2347b5c",
+          "text": "Embedded section",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-html.md",
+            "filetype": "text/markdown",
+            "parent_id": "2c5cba22da7d6b10f927d2b5502af16f"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "ad6301a26fd54fba6723c16124bd2e18",
+          "text": "Raw content.",
+          "metadata": {
+            "emphasized_text_contents": [
+              "content"
+            ],
+            "emphasized_text_tags": [
+              "i"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-html.md",
+            "filetype": "text/markdown",
+            "parent_id": "7750ee8c2e1a3ec66fbd5002e2347b5c"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "0fe8761191b0da74c0ca6e165b410d54",
+          "text": "Hidden content.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-html.md",
+            "filetype": "text/markdown",
+            "parent_id": "7750ee8c2e1a3ec66fbd5002e2347b5c"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "d29df87f35c41a29db7fe6349269da10",
+          "text": "After paragraph.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-html.md",
+            "filetype": "text/markdown",
+            "parent_id": "7750ee8c2e1a3ec66fbd5002e2347b5c"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "runtime": "21.0.12.1+12-LTS",
+  "outcome": "SUCCESS",
+  "tables_on_page": 1,
+  "associated": true,
+  "association_iou": 0.9866768531834225,
+  "expected_anchors": 43,
+  "observed_anchors": 43,
+  "matching_span_keys": 43,
+  "exact_span_text_anchors": 43,
+  "missing_reference_keys": 0,
+  "extra_prediction_keys": 0,
+  "complete_topology": true,
+  "complete_span_text": true,
+  "capture_sha256": "63e157916acb698d5a27227da53f929d34d849641b5cb34389d0d45ba0c11237"
+}

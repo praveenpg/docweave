@@ -1,0 +1,328 @@
+{
+  "scope": "All nine pinned cTDaR inputs, detector-only resolution change; no transcription oracle",
+  "paired_runtime_result_entries_identical": true,
+  "baseline_reproduces_prior_Maven_reports": true,
+  "baseline": {
+    "candidate_tables": 12,
+    "typed_failures": [
+      {
+        "input": "cTDaR_s001",
+        "code": "OCR_LIMIT"
+      }
+    ],
+    "exact_dimension_anchor_matches_at_best_envelope": [
+      {
+        "input": "cTDaR_s002",
+        "rows": 2,
+        "columns": 5,
+        "reference_index": 0,
+        "envelope_iou": 0.825579981084257
+      },
+      {
+        "input": "cTDaR_s102",
+        "rows": 5,
+        "columns": 4,
+        "reference_index": 1,
+        "envelope_iou": 0.8939228209592953
+      },
+      {
+        "input": "cTDaR_s102",
+        "rows": 17,
+        "columns": 4,
+        "reference_index": 0,
+        "envelope_iou": 0.9085918818725953
+      }
+    ],
+    "per_input": [
+      {
+        "input": "cTDaR_s001",
+        "candidate_tables": 0,
+        "ordinary_ocr_lines": null,
+        "shapes": []
+      },
+      {
+        "input": "cTDaR_s002",
+        "candidate_tables": 1,
+        "ordinary_ocr_lines": 39,
+        "shapes": [
+          {
+            "rows": 2,
+            "columns": 5,
+            "anchors": 10,
+            "best_anchor_position_span_matches": 10
+          }
+        ]
+      },
+      {
+        "input": "cTDaR_s003",
+        "candidate_tables": 1,
+        "ordinary_ocr_lines": 59,
+        "shapes": [
+          {
+            "rows": 4,
+            "columns": 2,
+            "anchors": 6,
+            "best_anchor_position_span_matches": 2
+          }
+        ]
+      },
+      {
+        "input": "cTDaR_s004",
+        "candidate_tables": 0,
+        "ordinary_ocr_lines": 24,
+        "shapes": []
+      },
+      {
+        "input": "cTDaR_s101",
+        "candidate_tables": 1,
+        "ordinary_ocr_lines": 93,
+        "shapes": [
+          {
+            "rows": 30,
+            "columns": 4,
+            "anchors": 105,
+            "best_anchor_position_span_matches": 19
+          }
+        ]
+      },
+      {
+        "input": "cTDaR_s102",
+        "candidate_tables": 2,
+        "ordinary_ocr_lines": 17,
+        "shapes": [
+          {
+            "rows": 5,
+            "columns": 4,
+            "anchors": 20,
+            "best_anchor_position_span_matches": 20
+          },
+          {
+            "rows": 17,
+            "columns": 4,
+            "anchors": 68,
+            "best_anchor_position_span_matches": 68
+          }
+        ]
+      },
+      {
+        "input": "cTDaR_s103",
+        "candidate_tables": 1,
+        "ordinary_ocr_lines": 28,
+        "shapes": [
+          {
+            "rows": 4,
+            "columns": 3,
+            "anchors": 11,
+            "best_anchor_position_span_matches": 8
+          }
+        ]
+      },
+      {
+        "input": "cTDaR_s104",
+        "candidate_tables": 6,
+        "ordinary_ocr_lines": 29,
+        "shapes": [
+          {
+            "rows": 6,
+            "columns": 6,
+            "anchors": 36,
+            "best_anchor_position_span_matches": 34
+          },
+          {
+            "rows": 5,
+            "columns": 5,
+            "anchors": 25,
+            "best_anchor_position_span_matches": 24
+          },
+          {
+            "rows": 5,
+            "columns": 5,
+            "anchors": 25,
+            "best_anchor_position_span_matches": 24
+          },
+          {
+            "rows": 4,
+            "columns": 4,
+            "anchors": 16,
+            "best_anchor_position_span_matches": 15
+          },
+          {
+            "rows": 4,
+            "columns": 5,
+            "anchors": 20,
+            "best_anchor_position_span_matches": 19
+          },
+          {
+            "rows": 4,
+            "columns": 4,
+            "anchors": 16,
+            "best_anchor_position_span_matches": 15
+          }
+        ]
+      },
+      {
+        "input": "cTDaR_t00040",
+        "candidate_tables": 0,
+        "ordinary_ocr_lines": 34,
+        "shapes": []
+      }
+    ]
+  },
+  "experiment": {
+    "candidate_tables": 9,
+    "typed_failures": [
+      {
+        "input": "cTDaR_s001",
+        "code": "OCR_LIMIT"
+      }
+    ],
+    "exact_dimension_anchor_matches_at_best_envelope": [
+      {
+        "input": "cTDaR_s002",
+        "rows": 2,
+        "columns": 5,
+        "reference_index": 0,
+        "envelope_iou": 0.809118066621424
+      },
+      {
+        "input": "cTDaR_s102",
+        "rows": 17,
+        "columns": 4,
+        "reference_index": 0,
+        "envelope_iou": 0.9073436525929988
+      },
+      {
+        "input": "cTDaR_s102",
+        "rows": 5,
+        "columns": 4,
+        "reference_index": 1,
+        "envelope_iou": 0.8945988352849177
+      }
+    ],
+    "per_input": [
+      {
+        "input": "cTDaR_s001",
+        "candidate_tables": 0,
+        "ordinary_ocr_lines": null,
+        "shapes": []
+      },
+      {
+        "input": "cTDaR_s002",
+        "candidate_tables": 1,
+        "ordinary_ocr_lines": 39,
+        "shapes": [
+          {
+            "rows": 2,
+            "columns": 5,
+            "anchors": 10,
+            "best_anchor_position_span_matches": 10
+          }
+        ]
+      },
+      {
+        "input": "cTDaR_s003",
+        "candidate_tables": 1,
+        "ordinary_ocr_lines": 32,
+        "shapes": [
+          {
+            "rows": 15,
+            "columns": 2,
+            "anchors": 24,
+            "best_anchor_position_span_matches": 2
+          }
+        ]
+      },
+      {
+        "input": "cTDaR_s004",
+        "candidate_tables": 0,
+        "ordinary_ocr_lines": 24,
+        "shapes": []
+      },
+      {
+        "input": "cTDaR_s101",
+        "candidate_tables": 1,
+        "ordinary_ocr_lines": 93,
+        "shapes": [
+          {
+            "rows": 30,
+            "columns": 4,
+            "anchors": 105,
+            "best_anchor_position_span_matches": 19
+          }
+        ]
+      },
+      {
+        "input": "cTDaR_s102",
+        "candidate_tables": 2,
+        "ordinary_ocr_lines": 17,
+        "shapes": [
+          {
+            "rows": 17,
+            "columns": 4,
+            "anchors": 68,
+            "best_anchor_position_span_matches": 68
+          },
+          {
+            "rows": 5,
+            "columns": 4,
+            "anchors": 20,
+            "best_anchor_position_span_matches": 20
+          }
+        ]
+      },
+      {
+        "input": "cTDaR_s103",
+        "candidate_tables": 1,
+        "ordinary_ocr_lines": 28,
+        "shapes": [
+          {
+            "rows": 4,
+            "columns": 3,
+            "anchors": 11,
+            "best_anchor_position_span_matches": 8
+          }
+        ]
+      },
+      {
+        "input": "cTDaR_s104",
+        "candidate_tables": 3,
+        "ordinary_ocr_lines": 39,
+        "shapes": [
+          {
+            "rows": 4,
+            "columns": 4,
+            "anchors": 16,
+            "best_anchor_position_span_matches": 15
+          },
+          {
+            "rows": 5,
+            "columns": 5,
+            "anchors": 25,
+            "best_anchor_position_span_matches": 24
+          },
+          {
+            "rows": 6,
+            "columns": 6,
+            "anchors": 36,
+            "best_anchor_position_span_matches": 34
+          }
+        ]
+      },
+      {
+        "input": "cTDaR_t00040",
+        "candidate_tables": 0,
+        "ordinary_ocr_lines": 34,
+        "shapes": []
+      }
+    ]
+  },
+  "changed_result_inputs": [
+    "cTDaR_s002",
+    "cTDaR_s003",
+    "cTDaR_s101",
+    "cTDaR_s102",
+    "cTDaR_s103",
+    "cTDaR_s104"
+  ],
+  "conclusion": "No additional exact dimension/anchor-set matches at best envelope. Candidate-table count falls12to9; keep production max800/defaults unchanged. No accuracy improvement established."
+}

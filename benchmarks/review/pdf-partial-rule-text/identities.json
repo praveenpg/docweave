@@ -1,0 +1,31 @@
+{
+  "baseline_commit": "18768c849ebf85254447267cfa572416979c36dc",
+  "full_verify_tests_per_jdk": 922,
+  "tooling_guards": 36,
+  "paired_native_case_profiles": 18,
+  "historical_case_profiles_preserved": 15,
+  "sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PartiallyRuledPdfTableDetector.java": "f286edcd57340f19015c1c0c9f923e9055a3f47fdfd24e0471efc1cef2935c3a",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfNativeTableDetector.java": "383c0d6394fd0931aa07ff148e576c0b10c8b4389682532ce03c1756826e0df0",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfInferredTable.java": "9c8019c86ddf4ae61fd21ab557c532fdaf0ed8afb23ca0e18f83127b9a213b94",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "444498ebdec9e2293a3432a598c7fc6cdfbb94b4fee808527ddbdb9ed6c4c13f",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageLayout.java": "a0ceaffc89c75b902c0537d08642b00eb288d33898b42617ab24b603216a84d0",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfPartialTableTest.java": "0fefd814a2b2ba909d97b0146fe63707e7c3fd61f21e604e376213423eddbfd4",
+    "benchmarks/tools/CaptureNativeBusinessTables.java": "0a7ab2aa220ebd24f23814c25086e2db7a1d7f3ee846405730dad8e979b9ea11",
+    "benchmarks/tools/compare_business_cell_text.py": "6946b5ce6650fd955d85a3d05880e114214f409717f2ce71c88ec88f15d93db6",
+    "benchmarks/review/pdf-business-cell-text/manifest.json": "df8b9fcd50d77a61fe9b273aa0a2470932c922d5ada4b21c90fd02cc954cecbe",
+    "benchmarks/review/pdf-partial-rule-text/pilot-header-cap-java21.json": "6250a15ea39b07d9b9614d14ca6b1976d4c3c1ed09cfed8628dea33bf5a4222f",
+    "benchmarks/review/pdf-partial-rule-text/java21.json": "29fcef6ab734073153937654981fcbb8331f74aa73b8d1712bb3190be7057e96",
+    "benchmarks/review/pdf-partial-rule-text/java25.json": "46f040d32e0a02ee518bd1e2816f741a76d3376f0a8003614b49e4232286a07f",
+    "benchmarks/review/pdf-partial-rule-text/statistics-diagnosis.json": "f39439d397d9aa6c0f665bf0c8ac11407cb5a323688d5e8f813acb710e58300e",
+    "benchmarks/review/pdf-partial-rule-text/prior-independent-java21.json": "089bba1c94e6175b41e10e380eead952765fdb2f62e51c3449121a9339b3b8e0",
+    "benchmarks/review/pdf-partial-rule-text/prior-independent-java25.json": "be654a0278a5af0f269c9892a49c7c427ae0eab4df0a23dd2e3ccd6b3f39e2cb",
+    "benchmarks/review/pdf-partial-rule-text/upstream-status.json": "856c0db2d60114c6e5d188d6f03ae85d8d3420f1d0287a11ef6d5230e8163f39"
+  },
+  "local_log_sha256": {
+    "/tmp/docweave-partial-full21.log": "77eeccf71dd49dd50cd3cfc19b015f73fb4fcfce7357210383dd9d6fde13b6f5",
+    "/tmp/docweave-partial-full25.log": "868d8f9781306577743a1541e812cb967fe5e06fc04c80d254c7c702031ba495",
+    "/tmp/docweave-partial-tooling.log": "b33ea01ba91591814d8a38e590f87390c80f4309076cefc684296f99822d7e3f",
+    "/tmp/docweave-partial-final-focused21.log": "43e088f161f0047f2023f88096f705ee46cbe7568d74b49e0e03a8abfb67b1d4"
+  }
+}

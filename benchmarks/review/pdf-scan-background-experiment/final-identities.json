@@ -1,0 +1,13 @@
+{
+  "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/DefaultTesseractOcr.java": "33127d58546c373539b3783e6bdc062db42dab46e6c8d6a4e051adda626f0af7",
+  "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractOcr.java": "32495f8d7fc7b33bec515c3a92b71721e935a3307eae51848ef37dbd47de0c9d",
+  "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractWhitepoint.java": "b85690521fa814f44bb1c1ffe022ac88146543934e22bb57206425791cdf541c",
+  "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractPreprocessing.java": "1ae2ce99b7535fc29b25853378f59409d3441a4561565eef62d071c884a54f75",
+  "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractPageImage.java": "71a4162d7e8ddce5db4b8c39683cb2ed3e6d840eacc7cb99c1f9d77ae890060e",
+  "docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractWhitepointTest.java": "f6b0f4880d4d13dee815d460cfa00ac2c9dd3796eb807418d1c55c980242eea6",
+  "docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractPreprocessingTest.java": "9d6a5708368413f504923933e6ff54ce58fe755e25bef7799d75442358f7c953",
+  "docweave-validation/src/test/java/dev/docweave/validation/PdfHistoricalTextCorpusTest.java": "ac3f783ccad4d8ee31dc529d8d2565d04d8861d38358df33a75070878f2217bc",
+  "docweave-validation/src/test/java/dev/docweave/validation/BackgroundWhitepointScanProbe.java": "959da8d37537fe6dca6b6625e2a639631566355e809ce6db9b98ccf2e78cb7ca",
+  "docweave-validation/src/test/java/dev/docweave/validation/BackgroundWhitepointScanProbeTest.java": "275733e0cfdd1d52599a74605e59a279a371ef6a807b1801f217e1c35a960094",
+  "benchmarks/tools/CompareBackgroundScans.java": "2266190fac6a38d563c5d0fa0271fc7ca739fa25adb3d1d35aa805864f777cad"
+}

@@ -1,0 +1,24 @@
+{
+  "maximum_box_error" : 1.0E-4,
+  "preparation_sha256" : "ea9ccbf5fc0d28b28a0b475260e5aeea42a910cb0f17bcfa70a06cfc559b0f28",
+  "java_runtime" : "21.0.12.1+12-LTS",
+  "scope" : "Two fixed source-model tensor controls only; no DocWeave extraction, preprocessing or recognition-quality score.",
+  "results" : [ {
+    "max_absolute_box_error" : 7.152557373046875E-7,
+    "logit_values" : 875,
+    "height" : 800,
+    "width" : 1000,
+    "max_absolute_logit_error" : 1.71661376953125E-5,
+    "box_values" : 500,
+    "within_predeclared_tolerances" : true
+  }, {
+    "max_absolute_box_error" : 2.0265579223632812E-6,
+    "logit_values" : 875,
+    "height" : 1000,
+    "width" : 667,
+    "max_absolute_logit_error" : 2.47955322265625E-5,
+    "box_values" : 500,
+    "within_predeclared_tolerances" : true
+  } ],
+  "maximum_logit_error" : 0.001
+}

@@ -1,0 +1,78 @@
+{
+  "initial": {
+    "21": {
+      "scope": "Same input tensor Torch versus Java ONNX Runtime; numerical equivalence only, not table accuracy",
+      "java": "21.0.12.1+12-LTS",
+      "results": [
+        {
+          "height": 800,
+          "width": 1000,
+          "max_absolute_logit_error": 2.67028808594e-05,
+          "max_absolute_box_error": 1.37090682983e-06
+        },
+        {
+          "height": 1000,
+          "width": 667,
+          "max_absolute_logit_error": 6.103515625e-05,
+          "max_absolute_box_error": 2.62260437012e-06
+        }
+      ]
+    },
+    "25": {
+      "scope": "Same input tensor Torch versus Java ONNX Runtime; numerical equivalence only, not table accuracy",
+      "java": "25.0.4+7-LTS",
+      "results": [
+        {
+          "height": 800,
+          "width": 1000,
+          "max_absolute_logit_error": 2.67028808594e-05,
+          "max_absolute_box_error": 1.37090682983e-06
+        },
+        {
+          "height": 1000,
+          "width": 667,
+          "max_absolute_logit_error": 6.103515625e-05,
+          "max_absolute_box_error": 2.62260437012e-06
+        }
+      ]
+    }
+  },
+  "cross_domain": {
+    "21": {
+      "scope": "Same input tensor Torch versus Java ONNX Runtime; numerical equivalence only, not table accuracy",
+      "java": "21.0.12.1+12-LTS",
+      "results": [
+        {
+          "height": 800,
+          "width": 1000,
+          "max_absolute_logit_error": 6.65783882141e-05,
+          "max_absolute_box_error": 5.84125518799e-06
+        },
+        {
+          "height": 1000,
+          "width": 667,
+          "max_absolute_logit_error": 3.62396240234e-05,
+          "max_absolute_box_error": 2.92062759399e-06
+        }
+      ]
+    },
+    "25": {
+      "scope": "Same input tensor Torch versus Java ONNX Runtime; numerical equivalence only, not table accuracy",
+      "java": "25.0.4+7-LTS",
+      "results": [
+        {
+          "height": 800,
+          "width": 1000,
+          "max_absolute_logit_error": 6.65783882141e-05,
+          "max_absolute_box_error": 5.84125518799e-06
+        },
+        {
+          "height": 1000,
+          "width": 667,
+          "max_absolute_logit_error": 3.62396240234e-05,
+          "max_absolute_box_error": 2.92062759399e-06
+        }
+      ]
+    }
+  }
+}

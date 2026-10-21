@@ -1,0 +1,17 @@
+{
+  "scope": "Post-primary supplemental diagnosis, not a replacement metric. Preserve all strict whole-unit counts/reference hashes. Separately identify a missing terminal label period in JATS plus horizontal separator presentation when every caption-body character matches the original reference under unchanged ASCII-whitespace-only normalization. No body/case/punctuation/Unicode repair, added-text tolerance, source omission or extraction-policy change.",
+  "identities": {
+    "benchmarks/tools/AuditCaptionUnitBoundaries.java": "ac5b3fa5d9e3cc968871ed3ea2a852b1bdb19840dd23409a9349794ca3540a5c",
+    "benchmarks/review/pdf-horizontal-figure-captions/label-presentation-diagnostic.patch": "cf614150d293ce1c91dd64bc2e1907eca9dc4d541e50cf1ae850c2ab8c8d8dc1",
+    "benchmarks/review/pdf-horizontal-figure-captions/unit-audit-java21.json": "f23ff457b1d59bab770895f4888921f5a7b2e9ec77144f4729624e2b7687cb9f",
+    "benchmarks/review/pdf-publisher-figure-inventory/baseline-java21.json": "9d65a2b15d5157e138e59864869a7de164103eecb44d51ad5da723de538ebb8d"
+  },
+  "expected_case_profiles": 9,
+  "owned_controls": [
+    "source label punctuation/horizontal spacing",
+    "reject extra body text",
+    "reject changed ordinal",
+    "reject vertical break",
+    "reject changed body punctuation"
+  ]
+}

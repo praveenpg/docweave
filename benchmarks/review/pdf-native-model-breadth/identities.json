@@ -1,0 +1,62 @@
+{
+  "production_source_commit": "86eb2f616a3cf89b919628c2046db7aee41ea917",
+  "paired_metrics_equal_excluding_runtime_capture_sha256": true,
+  "parsed_capture_content_equal": true,
+  "tests_per_jdk": 938,
+  "tooling_guards": 36,
+  "files": {
+    "benchmarks/tools/CaptureNativeModelTables.java": "032b119bd40e72ab7adb6b94599b7d0ba8423ec24a84ae6464c71bcfb72dc046",
+    "benchmarks/tools/compare_business_cell_text.py": "6946b5ce6650fd955d85a3d05880e114214f409717f2ce71c88ec88f15d93db6",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfScientificSpanTest.java": "fc8252c568693c660d073d78c22eba8f2b7e2dc0c719c574eba4cfb5b5d54a0d",
+    "benchmarks/review/pdf-native-model-breadth/manifest.json": "585f6d56500d29bc0c14ba4a8256166773766f0ef9a514fed818c230d9c1ddeb",
+    "benchmarks/review/pdf-native-model-breadth/scientific-cases.tsv": "e216860f5593ce3931874b46255ea515603485c021d8d578d274fdd273c74f09",
+    "benchmarks/review/pdf-native-model-breadth/business-java21.json": "c6abb747efe9bea4ac95878682ba0ad1c2223e0deff73955806004c267f12346",
+    "benchmarks/review/pdf-native-model-breadth/business-java25.json": "80e0d5eb1586d0ebd35eeca2178ca758d9b29ddf34f2c0ff2de590b24e57f940",
+    "benchmarks/review/pdf-native-model-breadth/scientific-java21.json": "d4ab3571550c4f687266f319885c6d92e2425e69623af14d504a2bc1d2b01211",
+    "benchmarks/review/pdf-native-model-breadth/scientific-java25.json": "bfda9db324243f98fe4dd2c9177c26b5368d9ee83685883d785d9227cbd5f58c"
+  },
+  "local_capture_sha256": {
+    "21": {
+      "business": {
+        "runtime.json": "b693b7c346b68c68aacf75dc6817716e0d8bf132cef48336d4e2089b05ae77d2",
+        "education-statistics/source.json": "1c2f72315245e66023338a6b16b7b48157c1c6819d8e08d6c2fa455966701d39",
+        "education-statistics/native-live.json": "eee3d15796851dcb294fa1545e588cbabcddef125b30d7f160e18d72dac7f1f9",
+        "transport-procurement/source.json": "61bff30f43837acc86b8327d85e817449d49a539730541350205d69e9fe935e7",
+        "transport-procurement/native-live.json": "bb998421683e17083ba8bee30092311daad129d7a45df7a6c5a3efd3cfa3d33b",
+        "financial-disclosure/source.json": "5fe65334409f74f94cbcc4bc62045c5d8842acc5854755d39b652e4f36c43966",
+        "financial-disclosure/native-live.json": "6060c823207a2b65310293b21a654d528dde1f47a2727d2115db80bfc18c61d7"
+      },
+      "scientific": {
+        "runtime.json": "ba88a8dd4cb5432c4f3cd81e180b4df3228bbf7fe5afee810d14009f47f806f4",
+        "scientific-cycle/source.json": "159c4c0fec5d9f11d3e6e53fd2a51089af3c2d9d243630c7cb451b4edef34214",
+        "scientific-cycle/native-live.json": "63e157916acb698d5a27227da53f929d34d849641b5cb34389d0d45ba0c11237"
+      }
+    },
+    "25": {
+      "business": {
+        "runtime.json": "6ee87326348bcbdce72a9aa5e8fc856d1e629ff7d2490c258a1eca14e0ed260a",
+        "education-statistics/source.json": "bb8f67c9948b8fbc7068a8af58773814c2200b1984be15db0f3f9affc2e95d7a",
+        "education-statistics/native-live.json": "8a56fc6ba5a812bfaa79c9645c87ccc9d2211a07d4d29743d4fa6e687d63b889",
+        "transport-procurement/source.json": "2d94aa20b6a128c718072709b42a0faf49693e535a9dedaa4d8bc0894d5677ae",
+        "transport-procurement/native-live.json": "bb998421683e17083ba8bee30092311daad129d7a45df7a6c5a3efd3cfa3d33b",
+        "financial-disclosure/source.json": "5e331841704d072ba5619f75590522e233bc20f4ffc6edfa19b5c6f7f669bc71",
+        "financial-disclosure/native-live.json": "5be339430a0682fd39fe59ebca37b03bfc4f9d1a8bffa9a50c9288533ee08062"
+      },
+      "scientific": {
+        "runtime.json": "5ebe8c5f554c654ac4e477f211389e32dfce0d339b0238e00c87cda53f585419",
+        "scientific-cycle/source.json": "cf925d71f33c4605a8241e8306e61a43fae0700877bb85af7d108183c9b46e1d",
+        "scientific-cycle/native-live.json": "b347f12723c1731227419215525d959df967c1515b6a38d07dfc19382ada50b1"
+      }
+    }
+  },
+  "verification_log_sha256": {
+    "21": {
+      "full_verify": "e88f015f8b6947f113392d25666e13c6ad5fd13bff5a44c2de7976a6965072f1",
+      "private_helper_javadocs": "c5c8214e39a86bae582d824a1fff8c4fbd4866483f73269bd7d30b0b9c741c69"
+    },
+    "25": {
+      "full_verify": "056c3e87a977cf65f7efd5bb100edfa5a2963a1d3f818781ad253165a8ee1a15",
+      "private_helper_javadocs": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "docweave-pdf/src/main/java/dev/docweave/partition/PdfOcrBudget.java": "c65715ff4eb5544afdb2d1ed48c4c277356d3cf8077e47542e64dedb9642bb66",
+  "docweave-pdf/src/main/java/dev/docweave/partition/PdfOcrProvider.java": "cee80bf46964e238b6da9b59d1ce40aa8417a969fac15a00636ed7b010d473c3",
+  "docweave-pdf/src/main/java/dev/docweave/partition/PdfWordOcrProvider.java": "8cdf4d0efe3fce600d32383e28fad90b32cbe10118341601603f203db9ecbb0e",
+  "docweave-pdf/src/main/java/dev/docweave/partition/PdfOcrScaling.java": "d3aca804e5d5ea4fd53e39850bfbf2209d181433b658034be1b3085db4131b73",
+  "docweave-pdf/src/main/java/dev/docweave/partition/UpscaledPdfOcrProvider.java": "917e4a23ea25b022ee9d306391d61e69eb2a2e7215b9572d263090fb4ca9fac8",
+  "docweave-pdf/src/main/java/dev/docweave/partition/UpscaledPdfWordOcrProvider.java": "02f226d38462f0da853e1a0ff394ab846f50568bfd986cc7c24151c4318e0477",
+  "docweave-pdf/src/test/java/dev/docweave/partition/PdfOcrScalingTest.java": "d563c8569d4fa1ce1c64886665b68054e8b3a20b5cc99283b1c288260b80db22",
+  "docweave-pdf/src/test/java/dev/docweave/partition/PdfProviderTableTest.java": "22213bd6af5907fc300522bdc96707436167e1d8cdbb965269005ad51061efeb",
+  "docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractInstalledTest.java": "3a479d211f26b3a6fc5ec2ad3eac376704a3848cf1b39658014aefb2c06c326c",
+  "docweave-validation/src/test/java/dev/docweave/validation/PdfPubTabNetCorpusTest.java": "22e26c2692840bd4d767a292d83ef6af33088f17f1f35d924164b3165a870798"
+}

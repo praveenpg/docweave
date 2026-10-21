@@ -1,0 +1,36 @@
+{
+  "java21": "21.0.12.1+12-LTS",
+  "java25": "25.0.4+7-LTS",
+  "tests_each": {
+    "tests": 751,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "strict_javadocs": "passed on both JDKs",
+  "python_reference_guards": 12,
+  "formatter": "clang-format23.1.1 passed",
+  "same_corpus_results": true,
+  "class_major": {
+    "HorizontalPdfTableDetector": 65,
+    "PdfHorizontalTable": 65,
+    "PdfGlyphLines": 65
+  },
+  "sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/HorizontalPdfTableDetector.java": "695bf31a573933ab46819a1b9174fa3807305b28b1c03adfe63c35079f44d299",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfHorizontalTable.java": "9aab32b377fa86ee7c706a959a03ab27a214dd78961cd1d40c3c2eed23addd9c",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfGlyphLines.java": "1cc3e4458ea35e5345aac016d70e42007526329f3472d4f4eb71f0ef9160712c",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "655b9fbf44bf92aa40b4be384d538e81a60d700e58ffc94d3b4fc03b8b015fca",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageLayout.java": "08cdeb41ab9fcad9324a334979996f42a47f95391e22ea6be22d16583b70b548",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfHorizontalTableTest.java": "d9d18015689c6912295c29f4cb62a5a3ce3755d4163fdc2f7b3befb9b377c823",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfIndependentCellsTest.java": "fc45bba1554ec280ff94f4de51204aebf11382439b49cc42dd73ca99d85c1ff6",
+    "benchmarks/review/pdf-horizontal-tables/java21-corpus.json": "1244bb2ef4860e86c6c6efeab7add30871473197b4959c4ad280b313f9ec2ca1",
+    "benchmarks/review/pdf-horizontal-tables/java21-tests.json": "5857e94a5b23eee47306db45b89014e815d667029011a35ac0415aff3baadb04",
+    "benchmarks/review/pdf-horizontal-tables/java25-corpus.json": "7eaa6d2dc02af11c75c0a8de26bac6067f5950fe82c000df2bc10402f4301efb",
+    "benchmarks/review/pdf-horizontal-tables/java25-tests.json": "5857e94a5b23eee47306db45b89014e815d667029011a35ac0415aff3baadb04",
+    "benchmarks/review/pdf-horizontal-tables/upstream-status.json": "144ab71535509c25b6fbdff0c3ead3db69f41d9e47422940686657e0bb12b312",
+    "docweave-pdf/target/classes/dev/docweave/partition/HorizontalPdfTableDetector.class": "a0c489d1dd1345fb1bcc16deee20095e4a9d440984c688be77b9f3253d468245",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfHorizontalTable.class": "4cae693c6f1d7574d614576506a3be8dce2785fd42541ee0ebe007a24035c003",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfGlyphLines.class": "64bebddbb77028a6c034ef29e054c1070e56cd2d5069bc601379ef27cf6988e2"
+  }
+}

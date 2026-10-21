@@ -1,0 +1,13 @@
+{
+  "scope": "Independent original-source Poppler render identity qualification. Two initial manifest render entries are descriptive notes, not SHA-256 strings. These actual hashes qualify those same already-viewed rasters after baseline capture; no source, reference anchor, role, ROI, profile, tool or score is changed.",
+  "baseline_manifest_sha256": "272ac8a55d4c16339bee57783920b82196576e862275cdce80582b994e4f53aa",
+  "render_sha256": {
+    "merged_5x4": "e985841af4b4a28776bed1b46aae877ad0b416effb5b385513604735169a912e",
+    "captioned_4x2": "2203037933834f6eca994510cd7507076c77d7c975619171d9703fd73e2099e9",
+    "header_attributes_2x5": "f38cfd7aa07ac7d1514114e1acde0aa9144c635540f5dccdeb0eb9cd156dc4f7"
+  },
+  "source_files": 7,
+  "distinct_rendered_layouts": 3,
+  "identical_render_metadata_variants": 5,
+  "derived_images_redistributed": false
+}

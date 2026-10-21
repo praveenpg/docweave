@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Owned native-page preset recognition; not a corpus accuracy measurement</comment>
+<entry key="OCR_ONLY.layout_calls">0</entry>
+<entry key="FAST.ocr_calls">0</entry>
+<entry key="OCR_ONLY.ocr_calls">1</entry>
+<entry key="eng_sha256">daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047</entry>
+<entry key="AUTO.exact_owned_text_without_duplicates">true</entry>
+<entry key="AUTO.ocr_calls">0</entry>
+<entry key="HI_RES.ocr_calls">1</entry>
+<entry key="java">25.0.4+7-LTS</entry>
+<entry key="FAST.layout_calls">0</entry>
+<entry key="executable_sha256">9c19bce33d5408d82d691e9827862da3276814033b32f5e5e3263175a3d8b917</entry>
+<entry key="HI_RES.layout_calls">1</entry>
+<entry key="HI_RES.exact_owned_text_without_duplicates">true</entry>
+<entry key="FAST.exact_owned_text_without_duplicates">true</entry>
+<entry key="OCR_ONLY.exact_owned_text_without_duplicates">true</entry>
+<entry key="AUTO.layout_calls">0</entry>
+</properties>

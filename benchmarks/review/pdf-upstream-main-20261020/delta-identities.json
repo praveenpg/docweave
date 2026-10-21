@@ -1,0 +1,54 @@
+{
+  "from": "08d407ea5ab77dcc7f27775c22cc70bbedae7d58",
+  "to": "50054e7f8350e237b3b177f798cc68cb3b27020a",
+  "delta_response_sha256": "4e96586022e4ea22ef61d8ff589faaef60e5c0024a1eef1c4c00bc56a2c4b2e7",
+  "commits": [
+    {
+      "commit": "3f716e21d876a1d4aa7ddc37cf8db2e0428cda78",
+      "title": "fix: label numbered headings without making them list items, and skip section-break paragraphs (#4538)"
+    },
+    {
+      "commit": "ffc1c7f0afc843a38b14ce6f98215191e70256f6",
+      "title": "fix(partition): read spooled uploads in place instead of copying them (#4419)"
+    },
+    {
+      "commit": "1fc40570b33dd9555644429bf029721baa09e325",
+      "title": "perf(pdf): bound OCR upload and rendered-page memory (#4516)"
+    },
+    {
+      "commit": "73b42953bf5b9e33437a7b53cc4b0ef283a758c0",
+      "title": "perf(chunking): bound image payload and original-element serialization memory (#4517)"
+    },
+    {
+      "commit": "50054e7f8350e237b3b177f798cc68cb3b27020a",
+      "title": "feat(xlsx): expose a guarded worksheet-at-a-time workbook reader (#4562)"
+    }
+  ],
+  "changed_paths": [
+    "CHANGELOG.md",
+    "scripts/performance/benchmark_chunking_memory.py",
+    "scripts/performance/benchmark_pdf_ocr_memory.py",
+    "test_unstructured/chunking/test_image_payload_memory.py",
+    "test_unstructured/file_utils/test_filetype.py",
+    "test_unstructured/partition/common/test_common.py",
+    "test_unstructured/partition/pdf_image/test_pdf_streaming_memory.py",
+    "test_unstructured/partition/test_auto.py",
+    "test_unstructured/partition/test_docx.py",
+    "test_unstructured/partition/test_pptx.py",
+    "test_unstructured/partition/test_xlsx_reader.py",
+    "test_unstructured/staging/test_streamed_orig_elements.py",
+    "unstructured/__version__.py",
+    "unstructured/chunking/base.py",
+    "unstructured/file_utils/filetype.py",
+    "unstructured/partition/common/common.py",
+    "unstructured/partition/docx.py",
+    "unstructured/partition/pdf.py",
+    "unstructured/partition/pdf_image/ocr.py",
+    "unstructured/partition/pdf_image/pdf_image_utils.py",
+    "unstructured/partition/pptx.py",
+    "unstructured/partition/tsv.py",
+    "unstructured/partition/xlsx.py",
+    "unstructured/partition/xml.py",
+    "unstructured/staging/base.py"
+  ]
+}

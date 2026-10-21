@@ -1,0 +1,193 @@
+{
+  "baseline_source_commit": "3ad86f138c2c534d4642d6c9972e4eca8f9b32cd",
+  "paired_metrics_equal_excluding_capture_sha256": true,
+  "parsed_captures_equal": true,
+  "tests_per_jdk": 937,
+  "owned_tests": 9,
+  "tooling_guards": 36,
+  "files": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfNativeLayoutOptions.java": "357dfd6c2be377492de2d026fc81fcb33ead48b9b9e0ec0d0a7bd04a6fad9a4c",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfNativeProviderTables.java": "97f630467499fdc5d77f7e2438c26bf8a4e039d72b297a36d35f663057189b90",
+    "docweave-pdf/src/main/java/dev/docweave/partition/DefaultPdfPartitioner.java": "7699718c4d8c6da2b5711815b22f3fee6934093aaed430980669d25b3123f85d",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageLayout.java": "ca50f70c1e46902b2a2502f9458c76e0a0a40aa908c4500ac9215513a3231093",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPartitioner.java": "b16f665320c4fe2079e0ebf24aef6e43ccf8301b908a9a109c5ffb7a3285acf4",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfNativeLayoutTest.java": "0ed4859300d3f84a6050a61a479aec9e99b3c00ec6ec2cda200fda1c3895519e",
+    "benchmarks/tools/CaptureNativeModelTables.java": "8e29e09b35d27d659be83e07d5f5962307824d7715fbcda9cc2fc5af9402e214",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfCurrentBusinessRowsTest.java": "d6d52c3f0a4fed4e445eb8bcad491c917e84fccfe106bee6cdccbcb9f6215f85",
+    "benchmarks/review/pdf-native-provider-layout/manifest.json": "b34ae4e3f5615a40940996cfa789b28d325399445c028f42d6d28dcc9c0769f6",
+    "benchmarks/review/pdf-native-provider-layout/java21.json": "46f7a2b3e666e03af5c45938192020f65ce2acaf89995cc3dc3f99eed0b1f96a",
+    "benchmarks/review/pdf-native-provider-layout/java25.json": "b8d75e977a78d8bed5ef339a441a96ada1c340b378d09738e917dbb0f7ef8130"
+  },
+  "runtime": {
+    "21": {
+      "detector_sha256": "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+      "documents": [
+        {
+          "outcome": "SUCCESS",
+          "document_layout_tables": 9,
+          "filename": "amazon-q4-2025.pdf",
+          "pdf_sha256": "ad8d84cbcc0a4ce35b803b93e8186c29ea0b06b4455d04fb584ab5ad29c42915",
+          "document_layout_calls": 14,
+          "rasters": [
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ]
+          ]
+        }
+      ],
+      "java": "21.0.12.1+12-LTS",
+      "structure_sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990"
+    },
+    "25": {
+      "detector_sha256": "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9",
+      "documents": [
+        {
+          "rasters": [
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ],
+            [
+              1275,
+              1649
+            ]
+          ],
+          "outcome": "SUCCESS",
+          "document_layout_tables": 9,
+          "filename": "amazon-q4-2025.pdf",
+          "pdf_sha256": "ad8d84cbcc0a4ce35b803b93e8186c29ea0b06b4455d04fb584ab5ad29c42915",
+          "document_layout_calls": 14
+        }
+      ],
+      "java": "25.0.4+7-LTS",
+      "structure_sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990"
+    }
+  },
+  "local_capture_hashes": {
+    "21": {
+      "balance-sheet/source.json": "3f489bdd832c3fea6a4429070b00e9ae0494575538d4dcf6ec8a29c9379499f1",
+      "balance-sheet/native-live.json": "9dd385af9465c0704d2be3cb2b134c187e9efcb6c8b1fdb423d340a2d37edb7d",
+      "operations/source.json": "d3bf39581eb9e9e6e13d77355597224a1c0b3c63e96fcd50b7468670c9f8c105",
+      "operations/native-live.json": "eb48bf3dd9039c848fa17269957c7d75b7409e56a10676c6c36a9ef30743ac3a"
+    },
+    "25": {
+      "balance-sheet/source.json": "79b9f2783883955be6534efa9745f168f770fed8fece7b333ba026dd22a10ede",
+      "balance-sheet/native-live.json": "5db0128fc9590bcd96a87d0ce941c70ac518495e2e7a4a14510cc6795b9e2001",
+      "operations/source.json": "2066e8c5a7e19a350b56450c4ee222994650e8e83ddaace6644d01842a3ce0eb",
+      "operations/native-live.json": "bfd566a3ea12935b242595988119bdd6cd8fe7a1dbd6cb193acbdabb2be12e32"
+    }
+  },
+  "verification_log_hashes": {
+    "21": {
+      "full_verify": "db0d0eaa0563d2b16cdb3857cc2700e7a7051887ddd2e6d5400d0fe3c1b2090f",
+      "scientific_regression": "eef8627fbcdd4080fd6b0874353c18188a2279ea3261ee033213b11aede20569",
+      "helper_private_javadocs": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "25": {
+      "full_verify": "d455199e688acfd0bb5c0b84a3fe7d6a8c838a2760ceb22f298f311c156a6bbd",
+      "scientific_regression": "577ce5bb8c6f6c30dfcd4c8c5cb22c885c464de8cec148a2f7f9f48df6ed542a",
+      "helper_private_javadocs": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

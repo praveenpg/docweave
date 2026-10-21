@@ -1,0 +1,22 @@
+{
+  "scope": "Independent published rectangle coverage, not glyph completeness or recognition accuracy",
+  "full_verify_tests_each_jvm": 876,
+  "paired_result_entries_identical": true,
+  "optional_installed_ocr_profiles_selected": false,
+  "source_anchors": 1380,
+  "totals": {
+    "labeled": 1230,
+    "unlabeled": 150,
+    "invalid_annotations": 0,
+    "missing_anchor": 131,
+    "center_inside": 1045,
+    "full_inside": 311,
+    "full_inside_one_source_pixel": 675,
+    "rounded_crop_full_inside": 454,
+    "label_area_fraction_sum": 957.449366043702,
+    "rounded_crop_label_area_fraction_sum": 975.8544427689443
+  },
+  "mean_per_label_rounded_crop_area_overlap": 0.7933775957471092,
+  "missing_anchor_boxes_count_as_zero_coverage": true,
+  "source_bbox_coordinates_repaired": false
+}

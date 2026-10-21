@@ -1,0 +1,268 @@
+{
+  "schema_version" : 1,
+  "source_chunks_sha256" : "acd8dfb7d7821d6099e02d1a6ca4eb58a8230480f2f38fcfd68e974fa97550fa",
+  "queries_sha256" : "331eff5e284d9f8fba0f292d6c86dda39c90d62cad1176db8eb99c2add208546",
+  "contexts_sha256" : "56155b66c133d960cd0d2637acdc095a524087861e61f5cc87a002ca3edd62b9",
+  "embedding_model" : {
+    "model_id" : "embeddinggemma:latest",
+    "revision" : "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+    "provider_id" : "ollama"
+  },
+  "retrieval_config" : {
+    "tie_break" : "original_chunk_ordinal",
+    "top_k" : 1,
+    "query_representation" : "same_raw_query_for_both",
+    "metric" : "cosine",
+    "truncate" : false
+  },
+  "baseline" : {
+    "score" : {
+      "mean_reciprocal_rank_at_k" : 0.8333333333333334,
+      "source_chunks" : 9,
+      "macro_recall_at_k" : 0.8333333333333334,
+      "failed_queries" : 0,
+      "missing_queries" : 0,
+      "reference_queries" : 12,
+      "top_k" : 1,
+      "hit_queries_at_k" : 10,
+      "queries" : [ {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-1",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-2",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-3",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-4",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 0,
+        "recall_at_k" : 0.0,
+        "reciprocal_rank_at_k" : 0.0,
+        "first_relevant_rank_at_k" : 0
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-5",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 0,
+        "recall_at_k" : 0.0,
+        "reciprocal_rank_at_k" : 0.0,
+        "first_relevant_rank_at_k" : 0
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-6",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-7",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-8",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-9",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-10",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-11",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-12",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      } ],
+      "hit_rate_at_k" : 0.8333333333333334,
+      "successful_queries" : 12
+    },
+    "outcome" : "SUCCESS",
+    "capture_sha256" : "0ca20899646b0fd5d5c555c0ed89e81213f83c4e2f015076565eb283b04146ab"
+  },
+  "contextual" : {
+    "score" : {
+      "mean_reciprocal_rank_at_k" : 0.9166666666666666,
+      "source_chunks" : 9,
+      "macro_recall_at_k" : 0.9166666666666666,
+      "failed_queries" : 0,
+      "missing_queries" : 0,
+      "reference_queries" : 12,
+      "top_k" : 1,
+      "hit_queries_at_k" : 11,
+      "queries" : [ {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-1",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-2",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-3",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-4",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-5",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 0,
+        "recall_at_k" : 0.0,
+        "reciprocal_rank_at_k" : 0.0,
+        "first_relevant_rank_at_k" : 0
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-6",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-7",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-8",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-9",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-10",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-11",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      }, {
+        "observed_ranks" : 9,
+        "query_id" : "corpus-12",
+        "outcome" : "SUCCESS",
+        "relevant_chunks" : 1,
+        "relevant_hits_at_k" : 1,
+        "recall_at_k" : 1.0,
+        "reciprocal_rank_at_k" : 1.0,
+        "first_relevant_rank_at_k" : 1
+      } ],
+      "hit_rate_at_k" : 0.9166666666666666,
+      "successful_queries" : 12
+    },
+    "outcome" : "SUCCESS",
+    "capture_sha256" : "46ce3d55c45f7461661e1c5902921c32be89ca85381e466b6766a3e3c02ef275"
+  }
+}

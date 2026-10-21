@@ -1,0 +1,21 @@
+[ {
+  "text" : "Is Acme Holdings a real company in its 2026 annual report?",
+  "id" : "owned-1",
+  "relevant_chunk_ids" : [ "bdadae13-9021-4d79-8d79-7648d8bcd76f" ]
+}, {
+  "text" : "What revenue did Acme Holdings report for fiscal year 2026?",
+  "id" : "owned-2",
+  "relevant_chunk_ids" : [ "11a7d5c0-c167-48c8-9203-9929f5678bd9" ]
+}, {
+  "text" : "How much 2026 revenue came from Acme Holdings' manufacturing and service divisions?",
+  "id" : "owned-3",
+  "relevant_chunk_ids" : [ "11a7d5c0-c167-48c8-9203-9929f5678bd9" ]
+}, {
+  "text" : "What operating risk and mitigation plan did Acme Holdings report for 2026?",
+  "id" : "owned-4",
+  "relevant_chunk_ids" : [ "3db2b1f4-08d7-4b72-9c13-ae3c85905fd6" ]
+}, {
+  "text" : "Does Acme Holdings forecast revenue for 2027?",
+  "id" : "owned-5",
+  "relevant_chunk_ids" : [ "3db2b1f4-08d7-4b72-9c13-ae3c85905fd6" ]
+} ]

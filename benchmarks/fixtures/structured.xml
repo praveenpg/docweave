@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="urn:docweave:report" xmlns:m="urn:docweave:meta" m:id="001">
+  <title>Quarterly 🧵 report</title>
+  <paragraph>Before <emphasis>important</emphasis> after.</paragraph>
+  <code xml:space="preserve"><![CDATA[  int value = 1;
+    next();]]></code>
+  <section name="details"><item id="007">Café &amp; tea</item></section>
+</report>

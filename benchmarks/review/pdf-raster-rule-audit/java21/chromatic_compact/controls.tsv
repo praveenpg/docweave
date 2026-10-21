@@ -1,0 +1,8 @@
+control	expected_tables	observed_tables
+normal_closed	1	1
+compact_closed	1	1
+colored_compact	1	1
+gray_compact	0	0
+under_minimum	0	0
+broken_outer	0	0
+thick_block	0	0

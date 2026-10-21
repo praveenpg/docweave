@@ -1,0 +1,7 @@
+{
+  "recorded_at": "2026-10-19T17:27:24.405959+00:00",
+  "manifest_unchanged": "Original source/reference/model selection and frozen XML-sequence ordering remain unchanged; no reference transcriptions, geometry or sequence is repaired against candidate output.",
+  "finding": "1879 PAGE file has explicit region order but lacks all line readingOrder annotations. Three line positions in XML sequence differ substantially from their vertical positions. A logical-page recognition/reading-order claim cannot be made from its XML sequence.",
+  "policy": "Keep every line and complete transcriptions. Report geometry-only line association and local exact text normally. For undeclared line order, relabel whole-sequence edit/rate fields xml_sequence_* and mark reference_line_order_explicit=false. These are diagnostics, not validated logical-page CER/WER. The1835 page has explicit complete line indices.",
+  "return_task": "Independent review or explicitly separate physical-order labels for1879 page; do not silently sort GT to match OCR. Park while continuing other PDF work."
+}

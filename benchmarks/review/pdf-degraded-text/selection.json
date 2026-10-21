@@ -1,0 +1,43 @@
+{
+  "frozen_at": "2026-10-19T17:35:57.527504+00:00",
+  "repository": "https://github.com/tboenig/18_frak_complex",
+  "commit": "559892f099b32710c83d0dddbd21cde3128293a4",
+  "rule": "First lexical PAGE XML in first lexical work with page-level low-contrast metadata; first lexical PAGE XML in first lexical work with page-level stains metadata. METS first page matches each selected XML. Selection precedes source XML/image fetch and OCR. No result-based exclusions.",
+  "profiles": "Both historical pinned deu and deu_latf models uniformly on both pages, same lossless whole-image OCR pipeline; unknown training overlap.",
+  "cases": [
+    {
+      "id": "buerger_gedichte_1778_0039",
+      "condition": "low-contrast",
+      "metadata_sha256": "23377303d964bb201178d13ab32f53cfec795d60c0374a9873748425cbe178b0",
+      "inputs": [
+        {
+          "path": "data/buerger_gedichte_1778/GT-PAGE/buerger_gedichte_1778_0039.xml",
+          "git_blob_sha1": "983e7be65b38e96eaee34978c77cd9ec7033debd",
+          "bytes": 40761
+        },
+        {
+          "path": "data/buerger_gedichte_1778/GT-PAGE/buerger_gedichte_1778_0039.tif",
+          "git_blob_sha1": "7bdae065d2ca94da2efe9fee54c5059e6233560f",
+          "bytes": 9002676
+        }
+      ]
+    },
+    {
+      "id": "nn_besuch_1780_00001",
+      "condition": "stains",
+      "metadata_sha256": "42207ff8916024e0b1d84136c3be8a1947696661c5399369f8a5ead140141c29",
+      "inputs": [
+        {
+          "path": "data/nn_besuch_1780/GT-PAGE/nn_besuch_1780_00001.xml",
+          "git_blob_sha1": "ad9616622f8b8575cb38cd782589f692ebd16648",
+          "bytes": 13105
+        },
+        {
+          "path": "data/nn_besuch_1780/GT-PAGE/nn_besuch_1780_00001.tif",
+          "git_blob_sha1": "83a79d7fd54c60630812c6b55c2420e26d96b49d",
+          "bytes": 13648136
+        }
+      ]
+    }
+  ]
+}

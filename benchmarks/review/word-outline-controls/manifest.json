@@ -1,0 +1,50 @@
+{
+  "scope": "Direct-heading diagnostics only; candidate comparator does not support direct heading ranges",
+  "independent_review": "pending",
+  "cases": [
+    {
+      "file": "plain-direct-outline-0.docx",
+      "sha256": "ed18e4d310526ae53648a7c74a898dba749698609fd7b17df0e97b04859b3de6",
+      "seed_file": "plain-direct-body.docx",
+      "seed_sha256": "d0cc9000f57914abac138c5a04678b25b5a39bc96183cc5d70096c3ee1b05d11",
+      "rows": 3,
+      "columns": 3,
+      "direct_outline_level": 0,
+      "question": "Does direct heading outline override the conditional table style?",
+      "independent_review": "pending"
+    },
+    {
+      "file": "plain-direct-outline-3.docx",
+      "sha256": "51e46aa37db3a98a378de2f382d04d12998d5e38429619ec13336b56938f1752",
+      "seed_file": "plain-direct-body.docx",
+      "seed_sha256": "d0cc9000f57914abac138c5a04678b25b5a39bc96183cc5d70096c3ee1b05d11",
+      "rows": 3,
+      "columns": 3,
+      "direct_outline_level": 3,
+      "question": "Does direct heading outline override the conditional table style?",
+      "independent_review": "pending"
+    },
+    {
+      "file": "conditional-direct-outline-0.docx",
+      "sha256": "c61d24d5fe4f56d898b46d0ce11515d40f0bf0fcff55d351566437bd6cb021eb",
+      "seed_file": "conditional-direct-body.docx",
+      "seed_sha256": "87cee6766919a516a8454d6111dc45058249b6d621c9747de852906ee16bbb51",
+      "rows": 3,
+      "columns": 3,
+      "direct_outline_level": 0,
+      "question": "Does direct heading outline override the conditional table style?",
+      "independent_review": "pending"
+    },
+    {
+      "file": "conditional-direct-outline-3.docx",
+      "sha256": "e8dbdf71ba2fdbbbbfd77ec5b4a0b5decd97a9272aac00f4767bdb319638d96a",
+      "seed_file": "conditional-direct-body.docx",
+      "seed_sha256": "87cee6766919a516a8454d6111dc45058249b6d621c9747de852906ee16bbb51",
+      "rows": 3,
+      "columns": 3,
+      "direct_outline_level": 3,
+      "question": "Does direct heading outline override the conditional table style?",
+      "independent_review": "pending"
+    }
+  ]
+}

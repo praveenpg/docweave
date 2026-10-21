@@ -1,0 +1,54 @@
+{
+  "independent_review": "pending",
+  "scope": "Owned generated review cases; candidate observations are not Word ground truth",
+  "cases": [
+    {
+      "columns": 3,
+      "independent_review": "pending",
+      "sha256": "000100279167f1c6b9368d73c37a4ae1a502a2ff5d6633e3a20cfb330df9f399",
+      "file": "unsized-bands.docx",
+      "rows": 3,
+      "question": "Does an absent band size enable outline bands or leave body outline?"
+    },
+    {
+      "columns": 3,
+      "independent_review": "pending",
+      "sha256": "7c05b6bed5fe7dcbe9b2ca71ac2f4bd2e0d29fc90d2e7f0ebee0f12235a14410",
+      "file": "edge-flag-without-branch.docx",
+      "rows": 3,
+      "question": "Does a first-row flag shift stripes when the style has no first-row branch?"
+    },
+    {
+      "columns": 3,
+      "independent_review": "pending",
+      "sha256": "75e8681c5c383e121742bb8224b968fc740d29e92b6f632fbc9beb93a1fd1c1b",
+      "file": "row-column-overlap.docx",
+      "rows": 3,
+      "question": "Which outline wins where enabled first-row and first-column branches overlap?"
+    },
+    {
+      "columns": 3,
+      "independent_review": "pending",
+      "sha256": "1d773982b0f1ef84853e635f7e3acecbb02821d71370ebd5fcb7508b4073932d",
+      "file": "whole-table-branch.docx",
+      "rows": 3,
+      "question": "Does Word apply the wholeTable paragraph outline or ignore the branch?"
+    },
+    {
+      "columns": 3,
+      "independent_review": "pending",
+      "sha256": "1e2d24d3ebd759df98e8b7883b3d15786d1cefac9c96d7ed9366181c58b85083",
+      "file": "table-style-numbering.docx",
+      "rows": 3,
+      "question": "Does Word apply numbering supplied only by table-style paragraph properties?"
+    },
+    {
+      "columns": 3,
+      "independent_review": "pending",
+      "sha256": "8f5071b94f306a2761e464533d1ae51ec60e5e2783af5867833cbc7ad2b5c4cd",
+      "file": "direct-override-control.docx",
+      "rows": 3,
+      "question": "Do direct body-outline and numId zero shield table-style properties?"
+    }
+  ]
+}

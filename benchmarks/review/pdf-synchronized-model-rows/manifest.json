@@ -1,0 +1,25 @@
+{
+  "scope": "Experimental synchronized native-gap model-row refinement, every original page and both model profiles. No production change, reference repair or accuracy improvement claim.",
+  "base_commit": "00ca0f1",
+  "source_sha256": "89de999d7155649197672bf490c519607f1abbcdc96e2e4c6718bf6ecbb13564",
+  "identities": {
+    "benchmarks/tools/AuditSynchronizedModelRows.java": "801a9d351dd9438fbe82a55e91b130966b1193261b5b57dee282d9942b12738a",
+    "benchmarks/tools/RefineSynchronizedModelRows.java": "95505399b246f2f8e4106868735420c8d6fc1962a64b72f30d7a57d4e1e0e510",
+    "benchmarks/tools/ReplayNativeLayoutCaptures.java": "9fc39919def458a9ddab98cfb69964ab2aa564cdd15294e943abda6b4e6473b9",
+    "benchmarks/review/pdf-model-cell-baselines/java21.json": "8fd4bd3d939f2a7adb3cc7d88e92a9258861482f8390e198c11ec9de8153e36f",
+    "benchmarks/review/pdf-nvidia-proposal-structures/replay-manifest.json": "5ded274dc78dfdd2db6d5fedad11ec261e035ad4148c137570fd72b1244c38eb"
+  },
+  "scorer": {
+    "git_commit": "8c4e990",
+    "path": "docweave-validation/src/test/java/dev/docweave/validation/PdfCurrentBusinessRowsTest.java",
+    "sha256": "f88af667ef1c160906003b3dc2b235107d3c34d7c2e4b7bb25b8d39de04c85f6",
+    "execution": "Isolated working directory and classpath override compiled from exact frozen source; current checkout unchanged."
+  },
+  "initial_replay": "Stopped before extraction because current scorer source hash differs. Recovered exact frozen scorer from8c4e990, verified expected hash and executed unchanged replay with isolated source/class override. No manifest scorer pin changed.",
+  "controls": {
+    "synchronized_gate": 8,
+    "native_gaps": 6
+  },
+  "runtime_policy": "Java21 only; Java25 deferred",
+  "raw_sources_redistributed": false
+}

@@ -1,0 +1,15 @@
+{
+  "full_verify_tests_each_jvm": 874,
+  "strict_javadocs": true,
+  "installed_engine_families": 10,
+  "owned_orientation_observations_identical_except_runtime": true,
+  "separate_engine_quarter_turns": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "exact_cells_per_owned_table": 6,
+  "original_image_and_outside_marker_retained": true,
+  "independent_scanned_accuracy_measured": false
+}

@@ -1,0 +1,8 @@
+{
+  "prior_rows_unchanged" : 27,
+  "reference_rows_per_profile" : 113,
+  "all_failures_and_denominators_retained" : true,
+  "case_profiles" : 30,
+  "paired_results_equal" : true,
+  "manifest_sha256" : "62d93eec7c0231f861599e042b2f50c6d8b96108b211def2138b0942831f8c8e"
+}

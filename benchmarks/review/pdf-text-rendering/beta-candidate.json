@@ -1,0 +1,42 @@
+{
+  "release": {
+    "version": "0.1.0-beta.2",
+    "zip": "docweave-0.1.0-beta.2-central.zip",
+    "sha256": "38420b6f691fe0c077c147adbeaeaee9743f80dd88561720a922f34b116a08aa",
+    "signer": "2AB2C6EC15BFAD082E407EB4858774B14CB559E9",
+    "canonical_files": 65,
+    "zip_entries": 260,
+    "status": "LOCAL_ONLY"
+  },
+  "source_revision": "2346b1f7251e866c9407d2517df319faba2b4dc2",
+  "runs": {
+    "21": {
+      "tests": 905,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "strict_javadocs": "passed",
+      "archive_guard": "passed",
+      "build_log_sha256": "35b17a930dde637833d3764781db82e9cc4dafb473ba7115f87fef7e9f750aa9",
+      "standalone_pdf_ocr_onnx_consumers": "passed on same captured Java21-built artifacts"
+    },
+    "25": {
+      "tests": 905,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "strict_javadocs": "passed",
+      "archive_guard": "passed",
+      "build_log_sha256": "ff315f41a8745fd8483c0833557baf6a14c6aadf25e3643644941b643b3487f9",
+      "standalone_pdf_ocr_onnx_consumers": "passed on same captured Java21-built artifacts"
+    }
+  },
+  "signatures_verified_with_public_key": 65,
+  "scope": "LOCAL SIGNED CANDIDATE; not uploaded/published; no new external OCR/model selection",
+  "feature_ci": {
+    "run": 39159851319,
+    "source_commit": "2346b1f7251e866c9407d2517df319faba2b4dc2",
+    "java21": "success",
+    "java25": "success"
+  }
+}

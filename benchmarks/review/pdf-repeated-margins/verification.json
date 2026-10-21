@@ -1,0 +1,24 @@
+{
+  "java": {
+    "21": {
+      "tests": 765,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "25": {
+      "tests": 765,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "strict_javadocs": "passed both JDKs",
+  "formatter": "23.1.1 passed",
+  "independent_margin_accuracy": "not established; owned controls only",
+  "sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfMarginClassifier.java": "1eb5b5392bf967c781ac7732d67372865906922f28a78f0d6115651ad6535903",
+    "docweave-pdf/src/main/java/dev/docweave/partition/DefaultPdfMarginClassifier.java": "e03c09c3a8ff6d60ff216200b54f768e51ccbacbcd33f70ea7a93d9c79576961",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfMarginClassifierTest.java": "1bd588559ad5a72d8546b50e4927f7081fdeb31387f9134139e08f706ca7bf43"
+  }
+}

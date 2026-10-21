@@ -1,0 +1,37 @@
+{
+  "scope": "Explicit OSD corpus diagnostics; no physical-scan accuracy or calibration claim",
+  "verification": {
+    "actual_java21": [
+      848,
+      0,
+      0,
+      0
+    ],
+    "actual_java25": [
+      848,
+      0,
+      0,
+      0
+    ],
+    "strict_javadocs": true,
+    "installed_engine_families": 10
+  },
+  "paired_result_entries_identical": true,
+  "matched_profile_extraction_identical_to_prior": true,
+  "table_image_samples": 20,
+  "table_image_abstentions": 20,
+  "physical_baseline_samples": 4,
+  "physical_baseline_abstentions": 4,
+  "table_image_detected_tables": 19,
+  "table_image_complete_topologies": 14,
+  "table_image_exact_cells": 320,
+  "table_image_complete_text_tables": 0,
+  "physical_complete_tables": 0,
+  "official_rotation_samples": 4,
+  "official_default15_accepted": 0,
+  "official_default15_exact_transcriptions": 2,
+  "official_unfiltered0_correct_corrections": 4,
+  "official_unfiltered0_exact_transcriptions": 4,
+  "unfiltered0_is_recommended_default": false,
+  "auto_page_diagnostic": "Retained separately; PAGE segmentation differs from prior SINGLE_BLOCK, not an orientation delta"
+}

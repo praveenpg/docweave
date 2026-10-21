@@ -1,0 +1,11 @@
+--- /tmp/docweave-scirep-caption21/sources/ScorePublisherCaptions.java
++++ /tmp/docweave-caption-edge21/transfer-sources/ScorePublisherCaptions.java
+@@ -77,7 +77,7 @@
+                 final var options =
+                         PdfOptions.defaults()
+                                 .withFigureCaptions(Boolean.getBoolean("docweave.caption.transfer.titles")
+-                                                            ? PdfOptions.FigureCaptions.IMAGE_ADJACENT_NUMBERED_TITLES
++                                                            ? PdfOptions.FigureCaptions.IMAGE_EDGE_ALIGNED_NUMBERED_TITLES
+                                                             : PdfOptions.FigureCaptions.NONE)
+                                 .withUnicodeNormalization(Boolean.getBoolean("docweave.caption.transfer.presentation")
+                                                                   ? PdfOptions.UnicodeNormalization.PRESENTATION_FORMS

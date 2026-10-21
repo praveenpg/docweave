@@ -1,0 +1,34 @@
+{
+  "scope": "Selected whole-original Scientific Reports transfer before DocWeave extraction; source identity and all main-body captions retained. Published-version PMC distribution; no raw redistribution.",
+  "code_commit": "4e4ac27",
+  "source_distribution": "Official NIH NLM PMC Article Datasets on AWS",
+  "metadata_url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12917242.1/PMC12917242.1.json",
+  "metadata_sha256": "c1c7bfa4d76e3352c37de6ec164b6760f458df7ae5948a0147f7e6868b9186c6",
+  "source_version": 1,
+  "license_code": "CC BY-NC-ND",
+  "is_manuscript": false,
+  "is_retracted": false,
+  "cases": [
+    {
+      "id": "scirep",
+      "doi": "10.1038/s41598-026-36762-1",
+      "pdf": "article.pdf",
+      "jats": "article.xml",
+      "inputs": [
+        {
+          "filename": "article.pdf",
+          "bytes": 1814416,
+          "sha256": "2f92f07c33b2290b8f3ad0e8933eb57ce27d545d61829e59cc9c00dfb9357360",
+          "distribution_url": "s3://pmc-oa-opendata/PMC12917242.1/PMC12917242.1.pdf?md5=25fbc10ca57e77fb53e72b361a090232"
+        },
+        {
+          "filename": "article.xml",
+          "bytes": 78052,
+          "sha256": "1eff1e6c481712a2a2d32e90b295aa1cf440e5db4b645286fa7c9e9532e79501",
+          "distribution_url": "s3://pmc-oa-opendata/PMC12917242.1/PMC12917242.1.xml?md5=402a315db45d15612be4e57b974020e6"
+        }
+      ]
+    }
+  ],
+  "raw_sources_redistributed": false
+}

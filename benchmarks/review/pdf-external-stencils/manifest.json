@@ -1,0 +1,53 @@
+{
+  "frozen_at" : "2026-10-20T14:22:21.460524969Z",
+  "code_commit" : "9584553",
+  "scope" : "Prospective full-original PNG payload regression, prior packaged PDF JAR versus candidate, same pinned PDFBox/JDK/Jackson/runtime and unchanged native defaults except includeImageBytes=true. All3cases/all5pages and all187Poppler entries retained:183stencils/4ordinary. Native source-only audit contains183patternstencils/3ordinary; auxiliary raster discrepancy retained, not removed. Compare full parsed output after removing only candidate image_stencil/image_pixel_policy fields, plus exact encodedPNG hashes/dimensions. Pattern metadata is mask semantics, not page render/caption/figure accuracy. No source/label repair or new tuning. Complete typed failures retain all source references.",
+  "selection_sha256" : "9535ceb48aff80adc9139e676975f2a371bc7122a1fe2f387eaf6854f0f50d8b",
+  "source_inventory_sha256" : "d66e69e8e81e0cb8bfe21e6b59cc00b5fa867c386791cde943fe3da9c95d4043",
+  "capture_tool" : "benchmarks/tools/CapturePdfDefaults.java",
+  "capture_tool_sha256" : "b797b3aa6338d550fa35cab00fb23be53ee216aac518ef132b34d396e2b266bd",
+  "capture_mode" : "payloads",
+  "baseline_pdf_jar_sha256" : "9dc8254a3b67a97794186ff21ebaa94aa513868ed74f13f6f3c9adfda1b62879",
+  "candidate_pdf_jar_sha256" : "2e2275deb34bcca2fe4340388bda02c9162c4b574c2b3e28d2f6a5263a87e8fc",
+  "pdfimages_sha256" : "b40a628e118acf5a46a7da3bf16593c5097931ac683cbe66f0830af32d0b0047",
+  "cases" : [ {
+    "bytes" : 1451709,
+    "pdf" : "PDFBOX-6077-example.pdf",
+    "id" : "pdfbox-6077-1",
+    "poppler_source_bag" : {
+      "1:stencil:2480x3508" : 2
+    },
+    "poppler_listing_sha256" : "a5cb8dc3632a4d3c1bc7466a74459508955a41ea03908dbb0a08bdf97ad87110",
+    "pages" : 1,
+    "sha256" : "120d090e9f037483c0702477537cd2814f66e7ce5aaea33e190bfdc10973a4cc"
+  }, {
+    "bytes" : 360456,
+    "pdf" : "PDFBOX-5842-reduced.pdf",
+    "id" : "pdfbox-6077-2",
+    "poppler_source_bag" : {
+      "1:image:669x97" : 1,
+      "1:stencil:323x47" : 1
+    },
+    "poppler_listing_sha256" : "7f3a844e03e21cda76d6a0e4b4ee13d9daa0e6d43dc2c6b526f64e703875f27b",
+    "pages" : 1,
+    "sha256" : "8ff30cecefc29ae0a6603178c14eb1961b14a3139dd4fb56fa41b4170a4248e6"
+  }, {
+    "bytes" : 1070083,
+    "pdf" : "PDFBOX-5403-bad-rendering.pdf",
+    "id" : "pdfbox-5403",
+    "poppler_source_bag" : {
+      "1:image:1654x2339" : 1,
+      "1:stencil:1654x38" : 1,
+      "1:stencil:1654x39" : 59,
+      "2:image:1654x2339" : 1,
+      "2:stencil:1654x38" : 1,
+      "2:stencil:1654x39" : 59,
+      "3:image:1654x2339" : 1,
+      "3:stencil:1654x38" : 1,
+      "3:stencil:1654x39" : 59
+    },
+    "poppler_listing_sha256" : "41667ed3b8fdf17e9a565616bee5be8f2b4f76969fe121b34e108f1d8788d9a6",
+    "pages" : 3,
+    "sha256" : "c5f06f8157a5ee796d44b2900cbd71fafa4d0c0f06806536af3b0f8a6b980a01"
+  } ]
+}

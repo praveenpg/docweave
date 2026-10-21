@@ -1,0 +1,32 @@
+{
+  "version": "0.1.0-beta.1",
+  "status": "LOCAL ZIP ONLY; NOT UPLOADED OR PORTAL VALIDATED",
+  "namespace": "io.docweave",
+  "namespace_status": "Recorded as Verified in Portal; not independently authenticated",
+  "files": 260,
+  "coordinates": 17,
+  "canonical_artifacts": 65,
+  "detached_signatures_verified": 65,
+  "checksum_sidecars": 130,
+  "checksums": "MD5 and SHA-1 on POM/JAR files; none on signatures",
+  "zip_sha256": "341ac2a65de78ae216a86f1f169804646cbb05725fe7153e54826cc68ab33c98",
+  "zip_bytes": 3439153,
+  "repeat_zip_identical": true,
+  "zip_crc_and_exact_payload": "passed",
+  "inherited_parent_metadata": "checked locally; not Portal validation",
+  "public_key_lookup_2026_10_18": {
+    "keyserver.ubuntu.com": 404,
+    "keys.openpgp.org": 404
+  },
+  "prior_validation": "Signed candidate actual Java21/25 each899tests+strict docs, same canonical artifacts consumers both JVMs; no new Java build for ZIP packaging",
+  "remaining": [
+    "public-key discoverability",
+    "source attribution and beta-scope acceptance",
+    "explicit upload/publication instruction",
+    "Portal validation"
+  ],
+  "_public_projection": {
+    "original_sha256": "93358183b34e91226192ef847845c92006016e5788f3d69408ed4ce2ea0b20aa",
+    "status": "Derived documentation/path projection; historical measurements and embedded fingerprints unchanged"
+  }
+}

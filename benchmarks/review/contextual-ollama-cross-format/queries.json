@@ -1,0 +1,49 @@
+[ {
+  "text" : "What was Cedar Instruments revenue in fiscal 2026?",
+  "relevant_chunk_ids" : [ "49a406f8-6996-410f-8411-9d88927998e1" ],
+  "id" : "corpus-1"
+}, {
+  "text" : "How much did Cedar Instruments calibration services earn?",
+  "relevant_chunk_ids" : [ "49a406f8-6996-410f-8411-9d88927998e1" ],
+  "id" : "corpus-2"
+}, {
+  "text" : "Where and when will Cedar Instruments open its second factory?",
+  "relevant_chunk_ids" : [ "49a406f8-6996-410f-8411-9d88927998e1" ],
+  "id" : "corpus-3"
+}, {
+  "text" : "How does Cedar Instruments mitigate its main supply risk?",
+  "relevant_chunk_ids" : [ "49a406f8-6996-410f-8411-9d88927998e1" ],
+  "id" : "corpus-4"
+}, {
+  "text" : "What was Harbor Materials revenue in fiscal 2026?",
+  "relevant_chunk_ids" : [ "d4858fe3-870f-475c-8543-74a16f52a8c4" ],
+  "id" : "corpus-5"
+}, {
+  "text" : "How much did Harbor Materials logistics services earn?",
+  "relevant_chunk_ids" : [ "d4858fe3-870f-475c-8543-74a16f52a8c4" ],
+  "id" : "corpus-6"
+}, {
+  "text" : "Where and when will Harbor Materials open its second plant?",
+  "relevant_chunk_ids" : [ "a39825b3-951e-4fb7-a928-53bbf946ee36" ],
+  "id" : "corpus-7"
+}, {
+  "text" : "How does Harbor Materials mitigate its main supply risk?",
+  "relevant_chunk_ids" : [ "9873ea90-f726-4b1e-8b53-878e6de2294c" ],
+  "id" : "corpus-8"
+}, {
+  "text" : "How many cells were used in the Lumen Research experiment?",
+  "relevant_chunk_ids" : [ "51f98eed-986a-4a62-b3f3-399928196762" ],
+  "id" : "corpus-9"
+}, {
+  "text" : "What capacity did the coated Lumen cells retain after 800 cycles?",
+  "relevant_chunk_ids" : [ "c730dc16-03e1-481d-8092-067fe35bc663" ],
+  "id" : "corpus-10"
+}, {
+  "text" : "What capacity did the untreated Lumen control retain?",
+  "relevant_chunk_ids" : [ "c730dc16-03e1-481d-8092-067fe35bc663" ],
+  "id" : "corpus-11"
+}, {
+  "text" : "When will Lumen Research test cold-weather performance?",
+  "relevant_chunk_ids" : [ "96affec2-6fc4-4864-83bd-3a75df77fe76" ],
+  "id" : "corpus-12"
+} ]

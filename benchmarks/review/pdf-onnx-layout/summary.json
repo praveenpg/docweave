@@ -1,0 +1,16 @@
+{
+  "scope": "20 published upstream train table images; whole PDF rendering; no held-out-model or general accuracy claim",
+  "samples": 20,
+  "emitted_tables": 19,
+  "complete_positional_span_topologies": 14,
+  "complete_shape_text_tables": 0,
+  "published_anchors": 1380,
+  "emitted_anchors": 1221,
+  "positional_span_matches": 1182,
+  "positional_span_text_matches": 342,
+  "token_overlap": {
+    "matched": 724,
+    "observed": 1751,
+    "reference": 2070
+  }
+}

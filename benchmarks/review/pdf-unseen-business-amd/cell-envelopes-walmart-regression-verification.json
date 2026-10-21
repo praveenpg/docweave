@@ -1,0 +1,10 @@
+{
+  "manifest_sha256" : "076cd9f2318b8034b4477d5877aefafe6f3091de02e75d932ed03ae941cccd5f",
+  "unchanged_case_profiles" : 36,
+  "reference_rows_per_profile" : 105,
+  "report_sha256" : "818a003fcd7dd04e189448ba4376c35fafdd3c12fb31e9651a13faa31ee36076",
+  "all_failures_and_denominators_retained" : true,
+  "case_profiles" : 36,
+  "baseline_report_sha256" : "62aa7535a11a4daeeab8f21faafa4319048cba49aa971c90f4801e0be45cd6b2",
+  "runtime" : "Java 21 only"
+}

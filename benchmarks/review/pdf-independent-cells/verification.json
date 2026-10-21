@@ -1,0 +1,23 @@
+{
+  "java21": "21.0.12.1+12-LTS",
+  "java25": "25.0.4+7-LTS",
+  "tests_each": {
+    "tests": 739,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "strict_javadocs": "passed on both JDKs",
+  "python_reference_guards": 12,
+  "formatter": "clang-format23.1.1 passed",
+  "same_corpus_results": true,
+  "extraction_complete_matches": 0,
+  "sha256": {
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfIndependentCellsTest.java": "956a946edc92add1f736a4514c8a747f24325cc1e44cab191dec416310695f86",
+    "benchmarks/review/pdf-independent-cells/java21-corpus.json": "e669461341f55ab7d523dfb01fa429cf22169c7e7a5fb4a5ba3febdd782d54bc",
+    "benchmarks/review/pdf-independent-cells/java21-tests.json": "3e781cabd628220991397deda50a6f802662eef01fbbafeaa9d5871eab63b27e",
+    "benchmarks/review/pdf-independent-cells/java25-corpus.json": "e08dd13097057ba2d93b5ee9516dfa1ebdd836483d7646a184854bc13f521c10",
+    "benchmarks/review/pdf-independent-cells/java25-tests.json": "3e781cabd628220991397deda50a6f802662eef01fbbafeaa9d5871eab63b27e",
+    "benchmarks/review/pdf-independent-cells/manifest.json": "a4fe8fe1196b89f8872a9348d9ce63d74d9cc1f0fcd3dbdbb8c9076cc880e853"
+  }
+}

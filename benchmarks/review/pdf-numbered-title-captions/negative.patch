@@ -1,0 +1,11 @@
+--- /tmp/docweave-caption-horizontal21/sources/VerifySourceFigureImages.java
++++ /tmp/docweave-caption-titles21/old-sources/VerifySourceFigureImages.java
+@@ -60,7 +60,7 @@
+                     final var d = PdfOptions.defaults();
+                     final var options = new PdfOptions(d.maxPages(), d.maxGlyphsPerPage(), d.maxOperatorsPerPage(),
+                             d.maxImagePixels(), d.maxImageBytes(), true, d.tableLimits())
+-                                                .withFigureCaptions(PdfOptions.FigureCaptions.IMAGE_ADJACENT_HORIZONTAL_LABELS).withTextRendering(rendering);
++                                                .withFigureCaptions(PdfOptions.FigureCaptions.IMAGE_ADJACENT_NUMBERED_TITLES).withTextRendering(rendering);
+                     final var partitioner =
+                             tagged ? PdfPartitioner.createWithTaggedTables(options) : PdfPartitioner.create(options);
+                     try {

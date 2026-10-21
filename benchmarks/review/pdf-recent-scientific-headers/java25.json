@@ -1,0 +1,35 @@
+{
+  "runtime" : "25.0.4+7-LTS",
+  "results" : [ {
+    "runtime" : "25.0.4+7-LTS",
+    "outcome" : "SUCCESS",
+    "tables_on_page" : 1,
+    "associated" : true,
+    "association_iou" : 0.9906374200100507,
+    "expected_anchors" : 136,
+    "observed_anchors" : 137,
+    "expected_rows" : 16,
+    "expected_columns" : 9,
+    "observed_rows" : 16,
+    "observed_columns" : 9,
+    "extraction_method" : "provider_layout_native_glyphs_v1",
+    "matching_span_keys" : 132,
+    "exact_span_text_anchors" : 116,
+    "missing_reference_keys" : 4,
+    "extra_prediction_keys" : 5,
+    "complete_topology" : false,
+    "complete_span_text" : false,
+    "leading_row_window" : {
+      "expected_anchors" : 9,
+      "complete_span_text" : true,
+      "extra_prediction_keys" : 0,
+      "rows" : 1,
+      "exact_span_text_anchors" : 9,
+      "matching_span_keys" : 9,
+      "observed_anchors" : 9
+    },
+    "capture_sha256" : "85b569196112b22acdb62f51941d64aa5653f2ab21996bbbf1084ba10f09fbe0",
+    "id" : "recent-scientific",
+    "reference_kind" : "publisher_jats_logical_table"
+  } ]
+}

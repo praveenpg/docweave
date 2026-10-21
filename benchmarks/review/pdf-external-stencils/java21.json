@@ -1,0 +1,1201 @@
+{
+  "source_reference_occurrences" : 187,
+  "missing_reference_occurrences" : 1,
+  "pattern_stencil_mask_labels" : 183,
+  "valid_png_payloads" : 186,
+  "extra_placement_occurrences" : 0,
+  "complete_cases" : 3,
+  "runtime" : "21.0.12.1+12-LTS",
+  "manifest_sha256" : "1f5468f804170d3eedaca92386b56b7d85056576b939b3b18e6dc33fc0503e00",
+  "results" : [ {
+    "case" : "pdfbox-6077-1",
+    "outcome" : "SUCCESS",
+    "source_pages" : 1,
+    "full_public_output_and_png_bytes_equal_except_stencil_labels" : true,
+    "source_reference_bag" : {
+      "1:stencil:2480x3508" : 2
+    },
+    "observed_placement_bag" : {
+      "1:stencil:2480x3508" : 2
+    },
+    "missing_reference_bag" : { },
+    "extra_placement_bag" : { },
+    "pattern_stencil_mask_labels" : 2,
+    "valid_png_payloads" : 2,
+    "payloads" : [ {
+      "png_sha256" : "509aaa8feadd4c56861ff7fee856c24957d899edd96482a9ea5a772fcd07778c",
+      "pattern_stencil_mask" : true,
+      "height" : 3508,
+      "width" : 2480,
+      "page" : 1
+    }, {
+      "png_sha256" : "509aaa8feadd4c56861ff7fee856c24957d899edd96482a9ea5a772fcd07778c",
+      "pattern_stencil_mask" : true,
+      "height" : 3508,
+      "width" : 2480,
+      "page" : 1
+    } ],
+    "baseline_capture_sha256" : "b690315816ef4a3936ca1bfebdff5e53298fcf1ec3ebdaac1ac9810c778414cc",
+    "candidate_capture_sha256" : "fa8f23c41528c57e9b100647c432b400b02119582fea0ff858efa548d8d8856d"
+  }, {
+    "case" : "pdfbox-6077-2",
+    "outcome" : "SUCCESS",
+    "source_pages" : 1,
+    "full_public_output_and_png_bytes_equal_except_stencil_labels" : true,
+    "source_reference_bag" : {
+      "1:image:669x97" : 1,
+      "1:stencil:323x47" : 1
+    },
+    "observed_placement_bag" : {
+      "1:stencil:323x47" : 1
+    },
+    "missing_reference_bag" : {
+      "1:image:669x97" : 1
+    },
+    "extra_placement_bag" : { },
+    "pattern_stencil_mask_labels" : 1,
+    "valid_png_payloads" : 1,
+    "payloads" : [ {
+      "png_sha256" : "37e384e3647321a8048fb1fb2301c4c0a78a370d13c03ec530c7d688b215fdf8",
+      "pattern_stencil_mask" : true,
+      "height" : 47,
+      "width" : 323,
+      "page" : 1
+    } ],
+    "baseline_capture_sha256" : "a64f068de29b72ae9198599ac4beb9364f44700e2861b3cf15a95eaa5a3ba111",
+    "candidate_capture_sha256" : "9604e2abfb8bb2c01206339685cdf08d84e65261e0a31e247d610daa1ad69d56"
+  }, {
+    "case" : "pdfbox-5403",
+    "outcome" : "SUCCESS",
+    "source_pages" : 3,
+    "full_public_output_and_png_bytes_equal_except_stencil_labels" : true,
+    "source_reference_bag" : {
+      "1:image:1654x2339" : 1,
+      "1:stencil:1654x38" : 1,
+      "1:stencil:1654x39" : 59,
+      "2:image:1654x2339" : 1,
+      "2:stencil:1654x38" : 1,
+      "2:stencil:1654x39" : 59,
+      "3:image:1654x2339" : 1,
+      "3:stencil:1654x38" : 1,
+      "3:stencil:1654x39" : 59
+    },
+    "observed_placement_bag" : {
+      "1:image:1654x2339" : 1,
+      "1:stencil:1654x38" : 1,
+      "1:stencil:1654x39" : 59,
+      "2:image:1654x2339" : 1,
+      "2:stencil:1654x38" : 1,
+      "2:stencil:1654x39" : 59,
+      "3:image:1654x2339" : 1,
+      "3:stencil:1654x38" : 1,
+      "3:stencil:1654x39" : 59
+    },
+    "missing_reference_bag" : { },
+    "extra_placement_bag" : { },
+    "pattern_stencil_mask_labels" : 180,
+    "valid_png_payloads" : 183,
+    "payloads" : [ {
+      "png_sha256" : "70e3beac2620ea3f78bff4879fd0cb52cda549d116e0f326cf48d53193949157",
+      "pattern_stencil_mask" : false,
+      "height" : 2339,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "3bd576eaf36459d056d4e3f91246a1ad2272e122f810e17f1d705a446a4e00de",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "870b49726086a2ee100445af372c564f0e52c4599098f36aa8369ea5e9a3085b",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "b84d8f5c3c343b2bb9eb260cb5d884959ebf02ff13245c1ebef6b44852f2a4a8",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "c7969124314c85eb1ea9e0f144a87a20fc424ffbcedc7bdaecac5f7c0c2c114d",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "4b871b1283591f003bc244354a0b971a4496f57c944d5edfe44c1f49ab8d577e",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "d159d9297d60d34a2941fa33d450735cacbf093a412491f54920c33a4f406522",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "bd3163633e66113c1fb2665102e54805f7c94a95bf34e5075bf457e5c76500d9",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "879f59aa9f90e68690a9471416b2613d0bccbf911bb50ef23a8422b784928969",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "c5ac70b1af91724ad7d9499c0ebf16a52ef8c45ea3f2d4dc649130583ee06285",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "93ecd170d8cc7a3334a2e63d199ebe010f077631bd63c69312e1f3ccd7eafaae",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "86b38794c6c56f186d37940cec4b08e62d0b0fb6aa7620c50a0038a9e5998d57",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "df6ad2a79dc85f371065227acc8c1bcac699e2082b36acaa4232f0a34871879d",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "97ee4af5a0c331e373051a7904dfb84f95b9976c463843c9e0be3262a8e8dca2",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "044002556ce620db9cb0d0900609ebdae75c699f949679ef8708fe3606803e30",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "84de0db84cf3584d6bc99bdc99e9f9d4b8240ab142e7368c7f2b639669e40b13",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "7ac1fc118f827c7d98b65189465a0d0aa8764f869288ccdd603cfea7602c26a7",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "d1ab5d50bfd3d3197b6e358bc6561577538994a8d5066ffabdc2d2ff39619ab4",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "acbb71128ba8c3abd19727ee0fac7e15f39ff9a25e1fa0ffdd52841652248624",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "5a7fedb516914ca9784a600c6cbb5a29dd47c183d0d6d862698a25fc32891db9",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "6c0bf5503d18b1e637c5957b3d5bb9bfc56bbb550aaed1459db7556aafd08850",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "384accc841687c2c5051c781bd6f582bafb47542a65c0ba319c98a5565282d0f",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "b2219ee56a43ca0aab326cce8cdabfd627cfea1cb9f1471bcfd0304f3152862b",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "9e6a04bef6df4a69b927c0bdac3dba5f36f86f07df45a2eeabb6a41557c2426a",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "7b68a20434e912efbf15a8f69cdd7a6f68d5975ed9491608428a7a5d6ccca55a",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "c81378bd62bf9ffaf87143fc2273436f1b38804b24a105caa8fd5bfd93e972f2",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "8deab6111029b6fe9827eab88d3828c1b55089fd3d0a43bb924c1026c9e61512",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "c8e80a51056355585ca22e0f051bdc286d8c11287fba0362cd324a191fbec41f",
+      "pattern_stencil_mask" : true,
+      "height" : 38,
+      "width" : 1654,
+      "page" : 1
+    }, {
+      "png_sha256" : "6f9dd55c5e186e86f52bfc31b3df7e18b9f96128a9e00cb0f2f67cdba2ff3d09",
+      "pattern_stencil_mask" : false,
+      "height" : 2339,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "4ebdbe4b2b2a51ffbf68f0b653a6fa93a9077032e7c896cf971111eb18a0bf03",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "d67be9ce0efcc9a0c2d73b28183c4450bd32e5716050c0c704efa2f0b4d1570b",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "01565c5144df21a5e1a12a1535d03af8738cbaed9b3061b748d939d8fa4e20e7",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "2925019dce523eb012639247078a1bb12ec09c129df7ce2cb65610e6fa5a0fe6",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "517f3820b95dbb41eed7b72ab7110004c6345b72c17e79af9c1ad974b204e358",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "59dd35ceb977d6cc9391c3224cab83b90e235b733c64563cc29f9466223e2c70",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "781b2ba7ff4884fc7dee54d185f9ff51545c58c974b8c4d2fe127cdfbd0a570c",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "5bede9196d0cf720350401828f083aa7c3c3ef6ee8f16e9296109e7cb7d40919",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "6028a0cfd37402f2acc7a0e265909bbc2cd92310bdaa5697b22ecf4b65544fca",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "d250e54d4190da36bd52c5fa4cd95a42f131e6e28652e52dab68e903e59f37df",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "da5e7c2f1ee332cf67f04b39c35052ac98f02d7c514efe71871ce9e9fd4e4145",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "07ff825171343dd3e0f9baa7e304d4c512a6a60e1f3d6b48d845862584754dc1",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "38488b7e88a710b9a2baa874427f438bb384507cca98df7d4cf542f15458b98c",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "0b044250a9eefacbae40ad34c6c6378603df6dc87d390806bd9c5a1b292cbaca",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "c8c2079315f603514d8fbcf76fe7068ca9eed5a74246b4ce39153bfcf9c4c54f",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "2f3d2aa65134141477acca285010f70e3de37fcd7623fcd12e32e3027e663cdd",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "19fb3ac814412b1526fcedab7f6c91b099a824daba7b4f528a436cdf91b4f52a",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "5056d26d1804beac3b448a2c18b29a98e374f7b2310324fbbc2ba4b0d35fc286",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "0b10f5d4564fee64deb092e669e390579161b106dca15768698e81146e26bcce",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "7ce586aad9fac581398ec42108a33292a2fbe1f05e4bb18b0af41abdd118fdab",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "17f9ae122d3b46a83b079c27e8926ebeda5293591d5c0d652b9a014ffc2e8802",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "ba3a6ac1c5d500cc539e68c718c3449b1eae65f03b6e326e537a6cb933b91f2b",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "f733d267ca8d6c0bcf96e44fd3d51be766001a5d414879731102132eac8a6a5a",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "93c4a4e74b4a0a17fe88e2694e10ec7615fb1b6d9a5d143e425b414144e73513",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "1db3c3339613000b887f07a7a10084dda17f33e3badff378f68317f92e6e6f2a",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "2df99570a54a757d14ac9562f9b44f41a8712d8e216fd1c46a0308641ce02374",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "0038a0d130be8b381b5acbb56e014f9391827e01bc98172a51e02e09bdba38b7",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "5b8599c70dba8a6bb8ebce42f3d355a53110b8c60038476f98033fcfdb47a966",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "c198fdeda6ad16bf10d7fb07e3c7b571f64b899cc92a5f45ea859805a2d3f31d",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "24e3e82832dee8b9605a20e6f49b19e0ed4d29cc9c5117a011bc547c021837a1",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "63f39b8599f8765f39c584a18e862074dbed26e93197da62310466a9fd191cec",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "c4ec9400a6abb74db5b2d54a1ca09e57a7a4ae9210cf850ab3e2c0768c4502e6",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "6fe004a6232617243432e832517850d4c1f63420642d0acec8ab08a94c100d9b",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "c9e643af4bcf0f54a8196d6387ea606f8764ef46e3b8859ea06e54cf9c7de888",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "eb6f231044fad772531f7bb4d777007b74ee4b5dbdcb95a45387326fd9de23a0",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "2c4025196e8c1d237fe72aaf79e4e9f0e70e2b888e50985c533c7be254ab9db2",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "c7538b6feec42687e88b9d99990ebc5ce47081a83b66dfe9a5c2aa7aca114ba6",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "932bcd451935f2243ab1f0cca4a809b8a0d155520ee6620c422dd46aebba0f21",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "5cef154e56eac3acea30672587df7ce6d6a8b3e80a3580f0ff4441dddbe9be7a",
+      "pattern_stencil_mask" : true,
+      "height" : 38,
+      "width" : 1654,
+      "page" : 2
+    }, {
+      "png_sha256" : "5b6baf39461ba4fb72c841291b91bb3528e1114b8ac06c6188877f422bf3ceff",
+      "pattern_stencil_mask" : false,
+      "height" : 2339,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "d161f620a0bfda1e42c23dad79de485bbc311e247cec0ca5cf645a4cfd1a3ac0",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "eea5a43ff28eb4d0f56616df0955e03d3434998c36494257a05770e7631b9376",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "d51b122b193f153da1e8aad1d15486568aabfa854c04d90958155cd25ac3e7c3",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "a63de5b6e208125f65e0d9bcd816d489c355ac5badc6f8c862b08a56ff21a0f5",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "c16309c7322814317f09c3dad8c64942d867d0b81e3221e69b0ce536144a9778",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "2788d99d73c3d22c67a85eab0ffe96796e8b6a987f9f75b4a9d4ace92ffd5ac2",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "f9b47ebd4be22a3f9becb13db7da1b64e1866f19f4f35303ead215bccc922462",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "a3c7fe17895ae0135a1beae1b4e91b93f378e70b091c39e9a0e6b52cb402c441",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "10844a611ee18ceba9f50eb5c483127ff80b6793488237b46e7ac31b0a36afad",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "69df61254d64dd3be7777b3a5b6b5e1013a022df6f2f2d8dfd89d7f71ae4b131",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "b8a6ceba934f31bef08bb1400af6138deeee6121021eca600b7d5e18b8a97d0d",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "305a1b01aa247eb4d47186ac2f098146475f63eca1a31f52812f6f0311573330",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "508ee12384dc1fb103625bb6b8366691b3b7ad4ee5f0248b5fb32784a64fcbc6",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "2907ddcbb6aed28e47d078090734d7ff0281b960b13a91c1eb1aa64503ef7a60",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "fe37201efb1178635c81d20d94bb127099bf6ab9a67e4aefb9666607f0684e94",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "f1133aa86dac468389ae639515b72c7a558f8b66141f4721ac6be0488c9144e9",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "73e2f22989f72d9c5d3f8acc1419ad720ed645854549a8afdb9c0d13078cb0ab",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "9a3f2f708c996e17177395448d947d4c32e3bb161366e4aa16960bb370c7fc4d",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "44d9a43273079a8f8181191f520e33f299c8a0d74021c596f878568df16a458a",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "4aa4d72e2e4f042fc1ff5c42699077d8abb7456b81c634be0a8bc2df117dcb1b",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "549be89096ba00e5d060e936bb0620dbf7db45b6cc0ae3a43293d768870a533c",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "e031b39e74c806aeb17feae440af728518bd69281500ccf5c3b9889b6ce82765",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "b921d95b411f89e7274e390e9608fcf6852f2d459bd762de6369c94dfa9f2a1d",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "74a3f32fe5c3d918e3bbbe7d369f999e129e199f0a91b3a6dbf89de3cdb4d843",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "1b6656d8f3fa2661cfef004d6603c2d6758d96f5401e88bb1e95f30a9100c62e",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "cf98b12c07f500f795319b80722d3b345bf6cd46e2d9101ff4d21fac90f76f17",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "eaf355b098b83f500dfd47d225287e10f78ad21257ee3f072d703ba0a18b1931",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "49d3d29349be6f61b42e9b2103240c596669a3875a5c9c20297aa7598e432404",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "ac32e054afd33c38008e57c16ae5c45c677bb6147c6b003f8b9da8379c6653fa",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "cf92f6898b64956a11460f2de978fdabdc3a358a625fe98fceefcd31eff66939",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "5841c2f98eb1537f41cc5f3d6afb7666b0f74cf108728cb36ebc7a16e1b90507",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "492c4e81b10fd3fa0d9163c76532f25efc6d1247e4c4fffb80789eb08723945c",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "665fa7232cae6ad6b1bd2d545a3e77b03a23ff891a757d748a904002de5be4d3",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "3b8ad85737a60c069a863e22bd76508f33d44fb542fbd0026acecc8440e63609",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "4d8bbe22b523bd53b415d80225ebc2a66b5f2013b286783b2f029c791730ff20",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "a2a23a125e401d1296609e8d5adcc88533da4b0c2e0838ff52dfdb195cc2b434",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "1c6b60cf476ecc478fba3a7bfb152a50ed6433b2698a330d1428cbd3a165b240",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "cb2b03bdf271e203b1c73de94bc485d3b2332218e4c4e7cafd677c6951744e59",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "dcfbf592c4f31c0d70e344508aedfd9b0f1fd621fa1c3811a29212e79a462a8f",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "b748853efdd32526697daf4061a6901eae7d367dbcf36cc7315c33f69bc2537d",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "58e386ebbf2c53bfec76de13ce90b7c96c600af8dcf12d566f20ed696132befe",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "998ef13cf50c241d61e74fc73fbc9c052cbd0b082178f7234f725355e096f11f",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "05755c6305187ac4bc6c56be9eb476ac2e5a55eb7cc8534e797803b0f8ef7760",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "6d92d8e39f39c64fd2c51a10630b9cb6334db9c9c95fd199599c1736d5e0b138",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "965dde244b1647c1a0c9bcae672e58cc4cb70ce47e103b35c9575190a836b911",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "896b2d64025ee874264b47e49e3fe2c92556337f9cc0d9e758a36eb87564985c",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "18f97c386286e49ff506215c9d58abfb92048394b1ef7d701d483f143bb29168",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "991a73c7e7faa95b502faab4374c6b1a8341c5e5d9b58b3b6e8dbcaeddfde2f5",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "4fa9617af9b8519836579007ad7be2d2bb1a0f653a174c294a74971f8ddd6e22",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "8b9204329f9978bb5c3cdcd09cfd9fbd1fa6305558cb931fa8fc117b4a538a37",
+      "pattern_stencil_mask" : true,
+      "height" : 39,
+      "width" : 1654,
+      "page" : 3
+    }, {
+      "png_sha256" : "3694cbc5e1f5f27246efb59eab33bc2ed0bae4610f1f9b374813dc75965b6edc",
+      "pattern_stencil_mask" : true,
+      "height" : 38,
+      "width" : 1654,
+      "page" : 3
+    } ],
+    "baseline_capture_sha256" : "5fd48c118a35a9e64ee96f611d21cbc3afde362ec1ef1d1a71039ab7bab2d7c0",
+    "candidate_capture_sha256" : "b71908f678008892248570b03e0a97995193e9b641d833b0306db57e4bcebe97"
+  } ],
+  "all_public_output_equal_except_stencil_labels" : true
+}

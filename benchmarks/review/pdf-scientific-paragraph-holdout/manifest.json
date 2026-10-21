@@ -1,0 +1,45 @@
+{
+  "frozen_at" : "2026-10-19T20:12:55.027706595Z",
+  "production_commit" : "259e1e5d03c15cd5554f74b5d5e9e68351889899",
+  "selection_sha256" : "6ba0307de182e6159769f7f24909ac50a4c7f2089707bad40acc80f8718f36ce",
+  "rule" : "Freeze original identities and first abstract/direct first body-section paragraphs using the unchanged JVM reference helper before any extraction. Run all five prior profiles on the complete original PDF, with unchanged strict normalization/scoring and full missing/duplicate/order-pair denominators. No production tuning after observing results; same publisher, one newly selected source, not population accuracy. No original source strings or assets in Git.",
+  "profiles" : [ "LINES", "PARAGRAPHS", "COLUMN_PARAGRAPHS", "SOURCE_PARAGRAPHS_PRESERVE", "SOURCE_PARAGRAPHS_SOFT_HYPHENS" ],
+  "cases" : [ {
+    "id" : "holdout",
+    "doi" : "10.1371/journal.pone.0360958",
+    "publication_date" : "2026-10-16",
+    "pdf" : "holdout.pdf",
+    "jats" : "holdout.xml",
+    "inputs" : [ {
+      "url" : "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0360958&type=printable",
+      "bytes" : 2529842,
+      "filename" : "holdout.pdf",
+      "sha256" : "dcd83b90a257628b5a1f8beac96dd14cafcbefa50d7077d15cc4f48d86c2e3dc"
+    }, {
+      "url" : "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0360958&type=manuscript",
+      "bytes" : 242392,
+      "filename" : "holdout.xml",
+      "sha256" : "a8c6b4e2690e9e274bbb65204c4d6571f7dc6ee378c4612fc58761dbd29063ad"
+    } ],
+    "reference" : {
+      "reference_paragraphs" : 3,
+      "ordered_reference_sha256" : "5d09746ea47a97c6516e2831f77f4d352f02b277089bfca9c673afc1d7447a43",
+      "paragraphs" : [ {
+        "ordinal" : 0,
+        "section" : "abstract",
+        "code_points" : 1329,
+        "sha256" : "3c099f4bbd0d6d7835a44b1756a8ab116f3e6bf697891b8362b6410fa9eeca04"
+      }, {
+        "ordinal" : 1,
+        "section" : "first_body_section",
+        "code_points" : 1999,
+        "sha256" : "89b255bca7efa24756b8b88da810da0cc0cdba5cc83fe00dbe31d4f2eb658ca3"
+      }, {
+        "ordinal" : 2,
+        "section" : "first_body_section",
+        "code_points" : 2656,
+        "sha256" : "c5734589a42770cd056881ec42f3c60527fe22ab36f2eab4ade27ed9a8c3c0e1"
+      } ]
+    }
+  } ]
+}

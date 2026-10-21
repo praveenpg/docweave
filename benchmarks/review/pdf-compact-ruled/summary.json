@@ -1,0 +1,558 @@
+{
+  "scope": "Actual public rule-only interface strategies; no model/OCR/held-out accuracy claim",
+  "paired_capture_files_identical": 66,
+  "inputs": 9,
+  "reference_tables": 20,
+  "totals": {
+    "standard": {
+      "candidate_tables": 0,
+      "matched_reference_tables_at_iou_0_5": 0,
+      "exact_topologies_one_to_one_at_iou_0_5": 0
+    },
+    "compact": {
+      "candidate_tables": 2,
+      "matched_reference_tables_at_iou_0_5": 2,
+      "exact_topologies_one_to_one_at_iou_0_5": 2
+    }
+  },
+  "results": [
+    {
+      "input": "cTDaR_s001",
+      "reference_tables": 1,
+      "outcome": "OCR_LIMIT",
+      "profiles": {
+        "standard": {
+          "outcome": "OCR_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ]
+        },
+        "compact": {
+          "outcome": "OCR_LIMIT",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s002",
+      "reference_tables": 3,
+      "outcome": "OK",
+      "profiles": {
+        "standard": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ]
+        },
+        "compact": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s003",
+      "reference_tables": 2,
+      "outcome": "OK",
+      "profiles": {
+        "standard": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ]
+        },
+        "compact": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s004",
+      "reference_tables": 1,
+      "outcome": "OK",
+      "profiles": {
+        "standard": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ]
+        },
+        "compact": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s101",
+      "reference_tables": 1,
+      "outcome": "OK",
+      "profiles": {
+        "standard": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ]
+        },
+        "compact": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s102",
+      "reference_tables": 2,
+      "outcome": "OK",
+      "profiles": {
+        "standard": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ]
+        },
+        "compact": {
+          "outcome": "OK",
+          "candidate_tables": 2,
+          "matched_reference_tables_at_iou_0_5": 2,
+          "exact_topologies_one_to_one_at_iou_0_5": 2,
+          "matches": [
+            {
+              "reference": 0,
+              "candidate": 0,
+              "envelope_iou": 0.9951231490803722,
+              "reference_rows": 17,
+              "reference_columns": 4,
+              "predicted_rows": 17,
+              "predicted_columns": 4,
+              "reference_anchors": 68,
+              "predicted_anchors": 68,
+              "matching_anchors": 68,
+              "exact_topology": true
+            },
+            {
+              "reference": 1,
+              "candidate": 1,
+              "envelope_iou": 0.98155794565537,
+              "reference_rows": 5,
+              "reference_columns": 4,
+              "predicted_rows": 5,
+              "predicted_columns": 4,
+              "reference_anchors": 20,
+              "predicted_anchors": 20,
+              "matching_anchors": 20,
+              "exact_topology": true
+            }
+          ],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 2,
+              "best_iou": 0.9951231490803722,
+              "profile": "compact",
+              "predicted_rows": 17,
+              "predicted_columns": 4,
+              "predicted_anchors": 68,
+              "matching_anchors": 68,
+              "exact_topology": true
+            },
+            {
+              "candidates": 2,
+              "best_iou": 0.98155794565537,
+              "profile": "compact",
+              "predicted_rows": 5,
+              "predicted_columns": 4,
+              "predicted_anchors": 20,
+              "matching_anchors": 20,
+              "exact_topology": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s103",
+      "reference_tables": 1,
+      "outcome": "OK",
+      "profiles": {
+        "standard": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ]
+        },
+        "compact": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": "cTDaR_s104",
+      "reference_tables": 8,
+      "outcome": "OK",
+      "profiles": {
+        "standard": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ]
+        },
+        "compact": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            },
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "input": "cTDaR_t00040",
+      "reference_tables": 1,
+      "outcome": "OK",
+      "profiles": {
+        "standard": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ]
+        },
+        "compact": {
+          "outcome": "OK",
+          "candidate_tables": 0,
+          "matched_reference_tables_at_iou_0_5": 0,
+          "exact_topologies_one_to_one_at_iou_0_5": 0,
+          "matches": [],
+          "legacy_highest_positive_overlap": [
+            {
+              "candidates": 0,
+              "best_iou": 0,
+              "exact_topology": false,
+              "matching_anchors": 0,
+              "no_positive_overlap": true
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

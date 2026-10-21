@@ -1,0 +1,12 @@
+{
+  "base_commit": "4185fe4",
+  "stage": "frozen after independent source-only review and before expanded association runs",
+  "scoring_change": "Only complete-population guard generalizes to declared per-source image/figure counts; same matching formulas, profiles and edge tolerance. Original7/5 manifest remains compatible.",
+  "identities": {
+    "benchmarks/tools/ScoreFigureAssociations.java": "85554bb2d2ed231a8793521b16c49179a5f3b3c63cb0e5409c24c489b9341bcb",
+    "benchmarks/review/pdf-figure-association-geometry/expanded/elife-reference.json": "a078867bfc40752498beaafa984d02029a174b5ee2a89741692e1581a9852461",
+    "benchmarks/review/pdf-figure-association-geometry/expanded/next-reference.json": "a74afb30827d55813c00adcf198a426eb93e277d70f227f31804cf422f937713",
+    "benchmarks/review/pdf-figure-association-geometry/expanded/peerj-reference.json": "cdd1fb675e6d442dcb7809c1f1c7baa9e8409d84525bb2c41678d572379d5494",
+    "benchmarks/review/pdf-figure-association-geometry/expanded/scirep-reference.json": "7c3b8c1e5e4c4c122012ed39d25dc42621e88caa13af2f2069fed394185472d0"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "source_doi": "10.7717/peerj.21002",
+  "publisher_pdf_http_status": 403,
+  "publisher_xml_http_status": 403,
+  "publisher_landing_http_status": 403,
+  "extractor_ran": true,
+  "extraction_accuracy_score": null,
+  "status": "Publisher retrieval unavailable; retained source, not a functional extraction failure",
+  "access_control_workaround_used": false,
+  "authorized_pmc_distribution": "PMC13086023.1",
+  "authorized_distribution_status": "Retrieved through documented public PMC cloud service, matching metadata MD5 values",
+  "deprecated_oa_api_http_status": 404,
+  "deprecated_oa_api_status": "Official documentation confirms service retired August2026; no further legacy endpoint retries",
+  "pmc_id_converter_metadata_sha256": "46d2d4cca2196291a0cb7fa436ac53c0f76f3f653f0a706f66bb15868f309f93",
+  "evaluation_status": "All12frozenprofile/configuration runs succeed. Fourofsixcompletecaptionbodies uniquely present, noneclassified, allmisses retained. No general accuracy score."
+}

@@ -1,0 +1,14 @@
+{
+  "production_commit": "127a2f9",
+  "identities": {
+    "benchmarks/tools/PrepareScanTransferManifest.java": "6f78f1e5bd47df5469dddcf490adfb2fbdcd867b35dea6e69897741642f37482",
+    "benchmarks/tools/CompareBackgroundScans.java": "6170b98c6d0cdb201cddf80cd005fb10d3af481dfb5f1ac62d628b625944f943",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfHistoricalTextCorpusTest.java": "ac3f783ccad4d8ee31dc529d8d2565d04d8861d38358df33a75070878f2217bc",
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractWhitepoint.java": "b85690521fa814f44bb1c1ffe022ac88146543934e22bb57206425791cdf541c"
+  },
+  "baseline_report_sha256": "9a6590d85ccaf29ac79e468059be2549c7cc831ad3fbf153cb4b1ac6117b2af4",
+  "managed_report_sha256": "589128d751238018d04232f3fe4bbfc39c1097ecd7c4fa60072f51c84d2f7e3a",
+  "comparison_population": "Exact frozen manifest source/model key set,4completepairs; historical default8pairresultsreproducedexactly",
+  "source_selection_before_fetch_and_ocr": true,
+  "raw_sources_redistributed": false
+}

@@ -1,0 +1,18 @@
+{
+  "source_manifest": "../pdf-pubtabnet/manifest.json",
+  "baseline_report": "../pdf-merge-conflicts/cells-java25.json",
+  "model_manifest": "../pdf-merge-conflicts/manifest.json",
+  "profile": {
+    "prefer_ruled": true,
+    "layout_merge_conflicts": "KEEP_HIGHER_SCORE",
+    "render_dpi": 300,
+    "page_segmentation": "SINGLE_BLOCK",
+    "cell_segmentation": "SINGLE_BLOCK",
+    "cell_borders": "RETAIN",
+    "context_pixels": 0,
+    "cell_scale_factor": 1,
+    "detector_enabled": false,
+    "orientation_enabled": false
+  },
+  "policy": "Validated observed raster grids take precedence over positively overlapping model tables; disjoint model tables retained. Rule cell interiors inset5 pixels. Raw discarded anchors remain charged."
+}

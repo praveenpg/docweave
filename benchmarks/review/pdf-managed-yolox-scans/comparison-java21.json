@@ -1,0 +1,330 @@
+{
+  "protocol_sha256" : "56488d0ca2614daafc3e5d1f79c411e8212cad41cddfec0eab391e258e4eb04c",
+  "tatr_report_sha256" : "a4afbbc1ebfccd96179c60a66b93a70ae354a06c388c4d66e278201bcd2c3470",
+  "totals" : [ {
+    "typed_failure_cases" : 1,
+    "same_dimensions_matches" : 9,
+    "cases" : 9,
+    "family" : "TATR",
+    "emitted_tables" : 12,
+    "published_tables" : 20,
+    "exact_unique_anchor_matches" : 3,
+    "spatial_matches" : 11
+  }, {
+    "typed_failure_cases" : 1,
+    "same_dimensions_matches" : 9,
+    "cases" : 9,
+    "family" : "YOLOX",
+    "emitted_tables" : 14,
+    "published_tables" : 20,
+    "exact_unique_anchor_matches" : 2,
+    "spatial_matches" : 12
+  } ],
+  "yolox_report_sha256" : "a5a56ffcfc92eceb5404dc7d061354c4eade0a887f3656e64754f3628307947b",
+  "scope" : "Geometry-only maximum-cardinality one-to-one IoU>=0.5 association; annotation dimensions/unique-anchor sets scored after matching; no text oracle, per-case routing or default selection",
+  "results" : [ {
+    "input" : "cTDaR_s001",
+    "family" : "TATR",
+    "published_tables" : 1,
+    "emitted_tables" : 0,
+    "spatial_matches" : 0,
+    "same_dimensions_matches" : 0,
+    "exact_unique_anchor_matches" : 0,
+    "matches" : [ ],
+    "typed_failure" : "OCR_LIMIT"
+  }, {
+    "input" : "cTDaR_s002",
+    "family" : "TATR",
+    "published_tables" : 3,
+    "emitted_tables" : 1,
+    "spatial_matches" : 1,
+    "same_dimensions_matches" : 1,
+    "exact_unique_anchor_matches" : 1,
+    "matches" : [ {
+      "same_dimensions" : true,
+      "same_dimensions_and_published_unique_anchors" : true,
+      "reference" : 0,
+      "iou" : 0.825579981084257,
+      "prediction" : 0
+    } ]
+  }, {
+    "input" : "cTDaR_s003",
+    "family" : "TATR",
+    "published_tables" : 2,
+    "emitted_tables" : 1,
+    "spatial_matches" : 0,
+    "same_dimensions_matches" : 0,
+    "exact_unique_anchor_matches" : 0,
+    "matches" : [ ]
+  }, {
+    "input" : "cTDaR_s004",
+    "family" : "TATR",
+    "published_tables" : 1,
+    "emitted_tables" : 0,
+    "spatial_matches" : 0,
+    "same_dimensions_matches" : 0,
+    "exact_unique_anchor_matches" : 0,
+    "matches" : [ ]
+  }, {
+    "input" : "cTDaR_s101",
+    "family" : "TATR",
+    "published_tables" : 1,
+    "emitted_tables" : 1,
+    "spatial_matches" : 1,
+    "same_dimensions_matches" : 0,
+    "exact_unique_anchor_matches" : 0,
+    "matches" : [ {
+      "same_dimensions" : false,
+      "same_dimensions_and_published_unique_anchors" : false,
+      "reference" : 0,
+      "iou" : 0.9445073036232211,
+      "prediction" : 0
+    } ]
+  }, {
+    "input" : "cTDaR_s102",
+    "family" : "TATR",
+    "published_tables" : 2,
+    "emitted_tables" : 2,
+    "spatial_matches" : 2,
+    "same_dimensions_matches" : 2,
+    "exact_unique_anchor_matches" : 2,
+    "matches" : [ {
+      "same_dimensions" : true,
+      "same_dimensions_and_published_unique_anchors" : true,
+      "reference" : 0,
+      "iou" : 0.9085918818725953,
+      "prediction" : 1
+    }, {
+      "same_dimensions" : true,
+      "same_dimensions_and_published_unique_anchors" : true,
+      "reference" : 1,
+      "iou" : 0.8939228209592953,
+      "prediction" : 0
+    } ]
+  }, {
+    "input" : "cTDaR_s103",
+    "family" : "TATR",
+    "published_tables" : 1,
+    "emitted_tables" : 1,
+    "spatial_matches" : 1,
+    "same_dimensions_matches" : 1,
+    "exact_unique_anchor_matches" : 0,
+    "matches" : [ {
+      "same_dimensions" : true,
+      "same_dimensions_and_published_unique_anchors" : false,
+      "reference" : 0,
+      "iou" : 0.731113943325852,
+      "prediction" : 0
+    } ]
+  }, {
+    "input" : "cTDaR_s104",
+    "family" : "TATR",
+    "published_tables" : 8,
+    "emitted_tables" : 6,
+    "spatial_matches" : 6,
+    "same_dimensions_matches" : 5,
+    "exact_unique_anchor_matches" : 0,
+    "matches" : [ {
+      "same_dimensions" : false,
+      "same_dimensions_and_published_unique_anchors" : false,
+      "reference" : 2,
+      "iou" : 0.534509208612536,
+      "prediction" : 4
+    }, {
+      "same_dimensions" : true,
+      "same_dimensions_and_published_unique_anchors" : false,
+      "reference" : 3,
+      "iou" : 0.941641663607804,
+      "prediction" : 0
+    }, {
+      "same_dimensions" : true,
+      "same_dimensions_and_published_unique_anchors" : false,
+      "reference" : 4,
+      "iou" : 0.9381097477841476,
+      "prediction" : 1
+    }, {
+      "same_dimensions" : true,
+      "same_dimensions_and_published_unique_anchors" : false,
+      "reference" : 5,
+      "iou" : 0.940253329990696,
+      "prediction" : 2
+    }, {
+      "same_dimensions" : true,
+      "same_dimensions_and_published_unique_anchors" : false,
+      "reference" : 6,
+      "iou" : 0.8200719441577674,
+      "prediction" : 3
+    }, {
+      "same_dimensions" : true,
+      "same_dimensions_and_published_unique_anchors" : false,
+      "reference" : 7,
+      "iou" : 0.912230763510979,
+      "prediction" : 5
+    } ]
+  }, {
+    "input" : "cTDaR_t00040",
+    "family" : "TATR",
+    "published_tables" : 1,
+    "emitted_tables" : 0,
+    "spatial_matches" : 0,
+    "same_dimensions_matches" : 0,
+    "exact_unique_anchor_matches" : 0,
+    "matches" : [ ]
+  }, {
+    "input" : "cTDaR_s001",
+    "family" : "YOLOX",
+    "published_tables" : 1,
+    "emitted_tables" : 0,
+    "spatial_matches" : 0,
+    "same_dimensions_matches" : 0,
+    "exact_unique_anchor_matches" : 0,
+    "matches" : [ ],
+    "typed_failure" : "OCR_LIMIT"
+  }, {
+    "input" : "cTDaR_s002",
+    "family" : "YOLOX",
+    "published_tables" : 3,
+    "emitted_tables" : 0,
+    "spatial_matches" : 0,
+    "same_dimensions_matches" : 0,
+    "exact_unique_anchor_matches" : 0,
+    "matches" : [ ]
+  }, {
+    "input" : "cTDaR_s003",
+    "family" : "YOLOX",
+    "published_tables" : 2,
+    "emitted_tables" : 0,
+    "spatial_matches" : 0,
+    "same_dimensions_matches" : 0,
+    "exact_unique_anchor_matches" : 0,
+    "matches" : [ ]
+  }, {
+    "input" : "cTDaR_s004",
+    "family" : "YOLOX",
+    "published_tables" : 1,
+    "emitted_tables" : 2,
+    "spatial_matches" : 0,
+    "same_dimensions_matches" : 0,
+    "exact_unique_anchor_matches" : 0,
+    "matches" : [ ]
+  }, {
+    "input" : "cTDaR_s101",
+    "family" : "YOLOX",
+    "published_tables" : 1,
+    "emitted_tables" : 1,
+    "spatial_matches" : 1,
+    "same_dimensions_matches" : 0,
+    "exact_unique_anchor_matches" : 0,
+    "matches" : [ {
+      "same_dimensions" : false,
+      "same_dimensions_and_published_unique_anchors" : false,
+      "reference" : 0,
+      "iou" : 0.9447515803289102,
+      "prediction" : 0
+    } ]
+  }, {
+    "input" : "cTDaR_s102",
+    "family" : "YOLOX",
+    "published_tables" : 2,
+    "emitted_tables" : 2,
+    "spatial_matches" : 2,
+    "same_dimensions_matches" : 2,
+    "exact_unique_anchor_matches" : 2,
+    "matches" : [ {
+      "same_dimensions" : true,
+      "same_dimensions_and_published_unique_anchors" : true,
+      "reference" : 0,
+      "iou" : 0.9097197530685078,
+      "prediction" : 0
+    }, {
+      "same_dimensions" : true,
+      "same_dimensions_and_published_unique_anchors" : true,
+      "reference" : 1,
+      "iou" : 0.8908576851027407,
+      "prediction" : 1
+    } ]
+  }, {
+    "input" : "cTDaR_s103",
+    "family" : "YOLOX",
+    "published_tables" : 1,
+    "emitted_tables" : 1,
+    "spatial_matches" : 1,
+    "same_dimensions_matches" : 1,
+    "exact_unique_anchor_matches" : 0,
+    "matches" : [ {
+      "same_dimensions" : true,
+      "same_dimensions_and_published_unique_anchors" : false,
+      "reference" : 0,
+      "iou" : 0.7496396744443516,
+      "prediction" : 0
+    } ]
+  }, {
+    "input" : "cTDaR_s104",
+    "family" : "YOLOX",
+    "published_tables" : 8,
+    "emitted_tables" : 8,
+    "spatial_matches" : 8,
+    "same_dimensions_matches" : 6,
+    "exact_unique_anchor_matches" : 0,
+    "matches" : [ {
+      "same_dimensions" : true,
+      "same_dimensions_and_published_unique_anchors" : false,
+      "reference" : 0,
+      "iou" : 0.9526180860762476,
+      "prediction" : 3
+    }, {
+      "same_dimensions" : true,
+      "same_dimensions_and_published_unique_anchors" : false,
+      "reference" : 1,
+      "iou" : 0.9534018750776266,
+      "prediction" : 7
+    }, {
+      "same_dimensions" : false,
+      "same_dimensions_and_published_unique_anchors" : false,
+      "reference" : 2,
+      "iou" : 0.8484261722786777,
+      "prediction" : 0
+    }, {
+      "same_dimensions" : false,
+      "same_dimensions_and_published_unique_anchors" : false,
+      "reference" : 3,
+      "iou" : 0.8310340517105154,
+      "prediction" : 6
+    }, {
+      "same_dimensions" : true,
+      "same_dimensions_and_published_unique_anchors" : false,
+      "reference" : 4,
+      "iou" : 0.9485803593616035,
+      "prediction" : 1
+    }, {
+      "same_dimensions" : true,
+      "same_dimensions_and_published_unique_anchors" : false,
+      "reference" : 5,
+      "iou" : 0.9398961137312676,
+      "prediction" : 4
+    }, {
+      "same_dimensions" : true,
+      "same_dimensions_and_published_unique_anchors" : false,
+      "reference" : 6,
+      "iou" : 0.9230519489932429,
+      "prediction" : 2
+    }, {
+      "same_dimensions" : true,
+      "same_dimensions_and_published_unique_anchors" : false,
+      "reference" : 7,
+      "iou" : 0.9120692134400316,
+      "prediction" : 5
+    } ]
+  }, {
+    "input" : "cTDaR_t00040",
+    "family" : "YOLOX",
+    "published_tables" : 1,
+    "emitted_tables" : 0,
+    "spatial_matches" : 0,
+    "same_dimensions_matches" : 0,
+    "exact_unique_anchor_matches" : 0,
+    "matches" : [ ]
+  } ],
+  "historical_tatr_results_exact" : true,
+  "runtime" : "21.0.12.1+12-LTS"
+}

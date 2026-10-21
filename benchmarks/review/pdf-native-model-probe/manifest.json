@@ -1,0 +1,6 @@
+{
+  "frozen_at": "2026-10-19T04:15:20.347264+00:00",
+  "scope": "Offline feasibility probe, not production partitioner. Reuse unchanged model PAGE geometry and original native glyphs. No inference/OCR, no reference ROI/text in projection. Upright origin-zero unit crop only. Half-open glyph-center assignment, PdfGlyphLines spacing and baseline grouping inside each anchor, line join with space. Keep saved topology and all59 issuer reference rows; unchanged ordinal scoring. No geometry or text tuning after execution.",
+  "reference_manifest_sha256": "3656667adb4345c0b7ff0ac74f07b255cf4aa923ce7ab55a7ad13d747a732898",
+  "geometry_report_identities": "../pdf-current-business-model/identities.json"
+}

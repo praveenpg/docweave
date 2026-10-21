@@ -1,0 +1,102 @@
+{
+  "base_commit": "68ee809",
+  "stage": "Frozen before first original crop SLANet inference; owned CPU smoke only already observed",
+  "model_url": "https://www.modelscope.cn/models/RapidAI/RapidTable/resolve/v2.0.0/slanet-plus.onnx",
+  "model_sha256": "d57a942af6a2f57d6a4a0372573c696a2379bf5857c45e2ac69993f3b334514b",
+  "model_bytes": 7758305,
+  "wrapper_revision": "22592283c1f9d7c5a014c96c4ecc57de0b3ebfce",
+  "wrapper_url": "https://github.com/RapidAI/RapidTable/tree/22592283c1f9d7c5a014c96c4ecc57de0b3ebfce",
+  "wrapper_source_identities": {
+    "default_models.yaml": "57b35695f493d5599f9cf775a4325ab16fe75891c92b3b08b927cfe282fef4a9",
+    "pp-main.py": "c3d708e348dc694b91319aa6d0e173ea94ad22f9a5866dd67747995018e5d312",
+    "pre_process.py": "0a394f1f05a7ff3a14d9367aac9e56f0e5e4b3d19cf3c70a5e30f77d257a85b7",
+    "post_process.py": "8371cb9c0c0b12e15f2ffc3138ac14b28db5f82d680730b662649d940c4cb50c",
+    "load_image.py": "ff60ca173707c132240fd84e86314ec967094c00066b318e292ff37aeecd0d9f",
+    "ort-main.py": "6cf9699c0c6f7801b41e6cfc7a6736f21e5673dfc2fb1a0b0866055e8f9e3ac4",
+    "LICENSE": "11412f3b1c5a6b1fb9878351f7ae7fffaf41cafdf53e7720e816ba675db65ba5"
+  },
+  "code_sha256": "ad1f1854ee309cf9fedcfec0844d1fe6a1f45f3431cd438c3410d5546d58d6ef",
+  "prior_replay_manifest_sha256": "5ded274dc78dfdd2db6d5fedad11ec261e035ad4148c137570fd72b1244c38eb",
+  "source_pdf_sha256": "89de999d7155649197672bf490c519607f1abbcdc96e2e4c6718bf6ecbb13564",
+  "scope": "All11 original pages, both frozen detector crop profiles, no source ROI/reference/threshold choice; raw tokens/cell quadrilaterals only, no topology repair or native-text score yet. Source already observed development data.",
+  "preprocessing": "BGR,longestside488 truncation,half-pixel bilinear8bit nearest rounding,official normalization,zero normalized padding. OpenCV bit identity unverified; no Python execution/dependency.",
+  "pages": [
+    {
+      "page": 1,
+      "id": "original-page-0001",
+      "raster_sha256": "00cebfb356f9d9b4bc54e934b795ed104de8908f1d417baea89d6f9b504bb886",
+      "tatr_crops_sha256": "c52c531f1c677da29d14d80bdb289157f75ab55580401f193dda76f320548e0b",
+      "yolox_crops_sha256": "6cb8fec438ce47014f3ddd637d038b0ec54669b784c25b8bbc8f58701be1f73a"
+    },
+    {
+      "page": 2,
+      "id": "original-page-0002",
+      "raster_sha256": "061c7b85f584da9034a767b914e5fc87d5f1bf7d9bd5a5613b9fef081ba47918",
+      "tatr_crops_sha256": "97d18755d49663a93119b5c6816989ca1aa1841b077ce588c0fff106a6ecaed0",
+      "yolox_crops_sha256": "6e021704d4a99f9909b31fc4efd90a95eee6e715100a624b42684db607b64aaf"
+    },
+    {
+      "page": 3,
+      "id": "original-page-0003",
+      "raster_sha256": "0808c5bdcd4c6443b81e6b11651b2559bc21774f89e6b571e2058ec2cc56c512",
+      "tatr_crops_sha256": "5c3483e5a4c1c841954acd583ec77a584dd3f450cfb7bd22a48810db1f05520e",
+      "yolox_crops_sha256": "5c3483e5a4c1c841954acd583ec77a584dd3f450cfb7bd22a48810db1f05520e"
+    },
+    {
+      "page": 4,
+      "id": "original-page-0004",
+      "raster_sha256": "d70ee45946f9dfdb281d5fa17718f942a7d843ceedc1921acf0da20279452fcc",
+      "tatr_crops_sha256": "26a61162a0ee44caffef642f9ec59de58461d0f1c3a935cb9ae53bb47fd09fe6",
+      "yolox_crops_sha256": "c4e712b16cd30f3c51dffafc54cac623e45d2172e77d9aafb59edae546053747"
+    },
+    {
+      "page": 5,
+      "id": "original-page-0005",
+      "raster_sha256": "24f50db57471b54442a8d1994c60e2bb4d3ce657f2d573a958bb8dbbe6d8c793",
+      "tatr_crops_sha256": "05aae12ed02cd7faaa923cc7f78b5bbab0d709b5d5a129352035e0b934cdf188",
+      "yolox_crops_sha256": "48e76da0d6710fc0f3f81fd9e3048be8115132ad2f047c13d3326f6922b9e0a7"
+    },
+    {
+      "page": 6,
+      "id": "original-page-0006",
+      "raster_sha256": "e95cd7f1926834de0fe8666c083a1cd04be0275f509a3b4bac7a6649e5a9145b",
+      "tatr_crops_sha256": "5ff64e87d60afae7860da7f82726e1307f9670c08c2667d3d4a4711b7f761518",
+      "yolox_crops_sha256": "2667583105c546497137461d65b7c3226ef2b3e0ca6698b05587b98b2b055398"
+    },
+    {
+      "page": 7,
+      "id": "original-page-0007",
+      "raster_sha256": "f0b93bd5e577d7e46fa990edb865d475c5e7f5ff4d1792c40e0e7d8f2f34adb4",
+      "tatr_crops_sha256": "5f52fefc7fd4e6bb91300b5e784315fca4b6b93638a30937e3c54f5b3ae4b0c9",
+      "yolox_crops_sha256": "f680d62b85eab1ed341100d91a3bf7d3dac09d2ddf3605b695a2ea67c387f224"
+    },
+    {
+      "page": 8,
+      "id": "original-page-0008",
+      "raster_sha256": "b44930b184996692cdde9a9a894d0d2c78f7bd0507a62781a2d082d1e7589fec",
+      "tatr_crops_sha256": "5c3483e5a4c1c841954acd583ec77a584dd3f450cfb7bd22a48810db1f05520e",
+      "yolox_crops_sha256": "929045cef5ed567ef9e1991b60c3020254d8c273f3a4e484b76c2ae7fe6f7d9c"
+    },
+    {
+      "page": 9,
+      "id": "original-page-0009",
+      "raster_sha256": "ea1acb5a60b92ad59069d3ddc76c8e6c77f9bdee51edf825561faa71a502ca71",
+      "tatr_crops_sha256": "671475e47c1a0f8d6ec489bdc13fc8f9ca111458da208211d33a7218135c7a0f",
+      "yolox_crops_sha256": "226b06f5d114ad735a9652d091cccc2f61a8c28e75eaf5addbe7652e4468fdf5"
+    },
+    {
+      "page": 10,
+      "id": "original-page-0010",
+      "raster_sha256": "168581fdcd40a8964f7a97ef6ae1d2017ee252718f747f52995b7b6fe304b769",
+      "tatr_crops_sha256": "566cf0b39e46b8db7f99de6ef2deae5205946ffc16ddd0ffe81d25fafb9d0403",
+      "yolox_crops_sha256": "5c3483e5a4c1c841954acd583ec77a584dd3f450cfb7bd22a48810db1f05520e"
+    },
+    {
+      "page": 11,
+      "id": "original-page-0011",
+      "raster_sha256": "49277a634535f18d1dfd3d0e32b1c438b9e010f4e686478c7590dcb93b32579c",
+      "tatr_crops_sha256": "74143145603f5664e8ba6499269317608149f25f5742b8808e7780277ac09da8",
+      "yolox_crops_sha256": "5c3483e5a4c1c841954acd583ec77a584dd3f450cfb7bd22a48810db1f05520e"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "java21": "21.0.12.1+12-LTS",
+  "java25": "25.0.4+7-LTS",
+  "tests_each": {
+    "tests": 743,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "strict_javadocs": "passed on both JDKs",
+  "python_reference_guards": 12,
+  "formatter": "clang-format23.1.1 passed",
+  "same_corpus_results": true,
+  "class_major": {
+    "PdfPageGraphics": 65,
+    "FilledPdfRule": 65
+  },
+  "sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java": "d492338e06ea8135cafe056a683576823bd21a9f1933c1f36afba86a8ec954e4",
+    "docweave-pdf/src/main/java/dev/docweave/partition/FilledPdfRule.java": "d7cdeafd9fdbf4be43ce590a9e2437fff6b09414d57cdd037e099829e14cb194",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfFilledRuleTest.java": "3846e554ceaad5b97bae87a8cf1bc4fa23af14180e0d39260265875501f4f8ab",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfIndependentCellsTest.java": "505dedf78c71fa46ceb5b7f673acc98e7e0a8841b74bdfb98da18d092bb6af3d",
+    "benchmarks/review/pdf-filled-rules/java21-corpus.json": "c0696c82bb2ddbcaedcd50b62b46058a9931aa622850930e2089bb6960bf0a4f",
+    "benchmarks/review/pdf-filled-rules/java21-tests.json": "ba22ce5378674434f3ce0ab23752f55f7791f0fca772dfe15a0ee04140bb3b2c",
+    "benchmarks/review/pdf-filled-rules/java25-corpus.json": "dc04f85ee93034e305dac0ea1e70960981d96c830d27ecf6916eae28ee6ab92f",
+    "benchmarks/review/pdf-filled-rules/java25-tests.json": "ba22ce5378674434f3ce0ab23752f55f7791f0fca772dfe15a0ee04140bb3b2c",
+    "benchmarks/review/pdf-filled-rules/upstream-status.json": "76e8b3407c21b3624292359f252d367a416a50f5779bc32ad00ddde6f2265d11",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfPageGraphics.class": "e81463b5182f68a595d36ba0af3e4e7a860a69a758d0c53742e9cf0f16b4e274",
+    "docweave-pdf/target/classes/dev/docweave/partition/FilledPdfRule.class": "df50fa55a7c726662da0cc15812affd36af79ecb2386b6113d9366ad1f852704"
+  }
+}

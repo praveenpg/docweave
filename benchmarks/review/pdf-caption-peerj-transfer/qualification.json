@@ -1,0 +1,14 @@
+{
+  "scope": "Source-only qualification before any DocWeave extraction of selected PeerJ article. Sixmain-bodyfigures, eachonecaption/label/graphic; secure unchanged publisherXML parser; onecasepopulationguard config only. Source DOI matches selected10.7717/peerj.21002, license URI CC BY4.0 in original archive XML. Caption strings not redistributed.",
+  "identities": {
+    "benchmarks/tools/InventoryPublisherFigures.java": "f8ff1214235b823b43a2cff4113fc995efa156f8be52143fc8edad1cc81b617b",
+    "benchmarks/review/pdf-caption-peerj-transfer/source-inventory-population.patch": "b87c9b9c5fe01b5ed63531354770e967ed2ba7b14c58b6d489063aeadf52e2ec",
+    "benchmarks/review/pdf-caption-peerj-transfer/source-manifest.json": "b67dc50a40047bdbfe2a7c47d37e188fe02275a46103a67af3b0f9db4200da7f",
+    "docweave-validation/src/test/java/dev/docweave/validation/ScientificPublisherXml.java": "8bcbf70641298d3d5d50d2bc83cf10a0db356ea9da5db3040ea771b798044abe"
+  },
+  "main_body_figures": 6,
+  "captions": 6,
+  "license_uri": "https://creativecommons.org/licenses/by/4.0/",
+  "pdf_md5_verified": "ecffcfced89cc365e6529ed2244a072c",
+  "xml_md5_verified": "703f098161f6cea3a77fba441ab35764"
+}

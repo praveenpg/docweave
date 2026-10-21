@@ -1,0 +1,23 @@
+{
+  "results" : [ {
+    "changed_tables" : 4,
+    "unchanged_other_metadata_and_ordinary_elements" : true,
+    "profile" : "tatr",
+    "preserved_line_breaks" : 19,
+    "elements" : 541,
+    "original_pages" : 11,
+    "tables" : 8,
+    "unchanged_text_after_lf_projection" : true
+  }, {
+    "changed_tables" : 11,
+    "unchanged_other_metadata_and_ordinary_elements" : true,
+    "profile" : "yolox",
+    "preserved_line_breaks" : 36,
+    "elements" : 315,
+    "original_pages" : 11,
+    "tables" : 14,
+    "unchanged_text_after_lf_projection" : true
+  } ],
+  "scope" : "Whole original source, fixed cached structures, representation/ownership comparison only; no row realignment or accuracy claim",
+  "runtime" : "21.0.12.1+12-LTS"
+}

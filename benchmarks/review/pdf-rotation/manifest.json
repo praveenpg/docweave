@@ -1,0 +1,42 @@
+{
+  "repository": "apache/pdfbox",
+  "commit": "9286e47d89d6877005c9d2d0f2fd38793a62519a",
+  "tag": "3.0.8",
+  "inputs": [
+    {
+      "filename": "PDFBOX-2984-rotations.pdf",
+      "role": "pdf",
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-2984-rotations.pdf",
+      "bytes": 3244,
+      "sha256": "7d8a182b2d8ef95d75bb610159289959bee9c26746413d0c01b10bb65f27cce7",
+      "git_blob_sha1": "5ccc1e807a02635e6b93deb7532511c26606916f",
+      "expectation": "PDFBOX-2984-rotations.pdf.txt"
+    },
+    {
+      "filename": "rotation.pdf",
+      "role": "pdf",
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/rotation.pdf",
+      "bytes": 6605,
+      "sha256": "5087c2afe763d145537d652bb3bc6c321ace3a267b2679ae2c178add3ba7f1d9",
+      "git_blob_sha1": "807dafe5f8b5b1e9b932104d84e1cc13276c6dbf",
+      "expectation": "rotation.pdf.txt"
+    },
+    {
+      "filename": "PDFBOX-2984-rotations.pdf.txt",
+      "role": "expectation",
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/PDFBOX-2984-rotations.pdf.txt",
+      "bytes": 193,
+      "sha256": "441ac62a0f4d3dc1cc7b68b9d047e9e61dd22bae6a98c89c7c9c22fc70f929ed",
+      "git_blob_sha1": "c477aafc78a5c543b7baee499b7ac3b97f94f7b8"
+    },
+    {
+      "filename": "rotation.pdf.txt",
+      "role": "expectation",
+      "url": "https://raw.githubusercontent.com/apache/pdfbox/9286e47d89d6877005c9d2d0f2fd38793a62519a/pdfbox/src/test/resources/input/rotation.pdf.txt",
+      "bytes": 176,
+      "sha256": "b2f8f8bfb8bc91a23f5ced7a7c97fedf88b66313321a2ae9737c41e34b89305a",
+      "git_blob_sha1": "12f7a87a9d2eef43d34794a1e250a4146208cb65"
+    }
+  ],
+  "scope": "Fetch-only independently maintained regression PDFs and saved PDFBox text; no author/application/per-file redistribution provenance or human geometry approval claimed"
+}
