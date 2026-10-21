@@ -73,6 +73,26 @@ class PdfEmptyFormClipTest {
     }
 
     /**
+     * Four-corner line paths must clip the same hidden grid as the equivalent transformed rectangle operator.
+     * @throws Exception if source authoring, raster comparison or public extraction fails
+     */
+    @Test
+    void lineBuiltSkewedClipsMatchRectangleOperators() throws Exception {
+        for (final int rotation : List.of(0, 90, 180, 270)) {
+            for (final String paint : List.of("stroke", "fill", "fillstroke")) {
+                for (final String suffix : List.of("", "-evenodd")) {
+                    final var rectangle = source("path-disjoint-skewed" + suffix, paint, rotation, false);
+                    final var lines = source("path-disjoint-skewed-lines" + suffix, paint, rotation, false);
+                    assertSameRaster(rectangle, lines);
+                    assertEquals(extract(rectangle).elements(), extract(lines).elements());
+                    assertEquals(extract(source("visible", paint, rotation, false)).elements(),
+                            extract(source("path-disjoint-skewed-lines" + suffix, paint, rotation, true)).elements());
+                }
+            }
+        }
+    }
+
+    /**
      * Explicit/implicit closure, even-odd rules and transformed positive clips preserve the original table.
      * @throws Exception if independent raster comparison or extraction fails
      */

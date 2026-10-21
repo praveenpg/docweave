@@ -367,7 +367,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
     }
 
     /**
-     * Starts a subpath and retains a bounded finite candidate for explicit line-built rectangle clipping.
+     * Starts a subpath and retains a bounded finite candidate for explicit line-built clipping.
      * @param x transformed horizontal coordinate
      * @param y transformed vertical coordinate
      */
@@ -386,7 +386,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
     }
 
     /**
-     * Adds a straight path edge, retaining at most five axis-aligned candidate clipping edges.
+     * Adds a straight path edge, retaining at most five finite candidate clipping edges.
      * @param x transformed end x
      * @param y transformed end y
      */
@@ -394,7 +394,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
     public void lineTo(final float x, final float y) {
         final var next = new Point2D.Float(x, y);
         rectangleClip = null;
-        if (lineClipPoints > 0 && lineClipPoints < 6 && !lineClipClosed && axisAligned(current, next)) {
+        if (lineClipPoints > 0 && lineClipPoints < 6 && !lineClipClosed && Float.isFinite(x) && Float.isFinite(y)) {
             lineClipVertices[lineClipPoints * 2] = x;
             lineClipVertices[lineClipPoints * 2 + 1] = y;
             lineClipPoints++;
@@ -432,10 +432,9 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
         return current;
     }
 
-    /** Closes the current subpath and preserves a candidate only when its closing edge is axis-aligned. */
+    /** Closes the current subpath while retaining the bounded finite line candidate. */
     @Override
     public void closePath() {
-        lineClipPoints = axisAligned(current, start) ? lineClipPoints : 0;
         lineClipClosed = true;
         if (rectangleClip != null && axisAligned(current, start)) {
             rectangleClip.closePath();
@@ -552,17 +551,17 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
     }
 
     /**
-     * Defers a single source rectangle clip until the current path finishes painting.
-     * Affine-transformed rectangle operators and bounded axis-aligned move/line rectangles are supported.
+     * Defers one bounded rectangle or four-corner source clip until the current path finishes painting.
+     * Affine rectangle operators, axis-aligned line rectangles and bounded four-corner line paths are supported.
      * Existing graphics-state save/restore and form scopes own its lifetime. Unsupported compound,
-     * general skewed line-built and curved clip paths remain ignored; rule geometry is never partially trimmed.
+     * larger general line-built and curved clip paths remain ignored; rule geometry is never partially trimmed.
      * @param windingRule source clip rule
      */
     @Override
     public void clip(final int windingRule) {
         deferredClip = null;
         if (!curved && subpaths == 1 && pending.size() >= 3 && pending.size() <= 5
-                && (rectangleClip != null || axisAligned(current, start))) {
+                && (rectangleClip != null || lineClipPoints == 4 || axisAligned(current, start))) {
             GeneralPath candidate = rectangleClip;
             if (candidate == null && lineClipPoints >= 4) {
                 candidate = new GeneralPath();
@@ -574,9 +573,13 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
             if (candidate == null) {
                 return;
             }
-            // W/W* implicitly close paths. A transformed re is bounded; line-built paths still require a rectangle.
+            // Four finite corners bound intersection complexity; W/W* also implicitly close the source path.
+            final boolean fourCorners = lineClipPoints == 4
+                                        || lineClipPoints == 5 && lineClipVertices[0] == lineClipVertices[8]
+                                                   && lineClipVertices[1] == lineClipVertices[9];
+            candidate.setWindingRule(windingRule);
             final var area = new Area(candidate);
-            if (rectangleClip != null || area.isEmpty() || area.isRectangular()) {
+            if (rectangleClip != null || fourCorners || area.isEmpty() || area.isRectangular()) {
                 deferredClip = new GeneralPath(candidate);
             }
         }

@@ -1,0 +1,22 @@
+--- a/docweave-pdf/src/main/java/dev/docweave/partition/AlignedPdfTableDetector.java
++++ b/docweave-pdf/src/main/java/dev/docweave/partition/AlignedPdfTableDetector.java
+@@ -140,11 +140,14 @@
+             if (pitch < Math.max(4, height * 1.2) || pitch > Math.min(40, Math.max(18, height * 5))) {
+                 return;
+             }
+-            if (row > 0
+-                    && Math.abs(runs.get(rows.get(row).getFirst()).bottom()
+-                                - runs.get(rows.get(row - 1).getFirst()).bottom() - pitch)
+-                               > Math.max(2, pitch * 0.15)) {
+-                return;
++            if (row > 0) {
++                final float gap = runs.get(rows.get(row).getFirst()).bottom()
++                        - runs.get(rows.get(row - 1).getFirst()).bottom();
++                final float tolerance = Math.max(2, pitch * 0.15f);
++                if (Math.abs(gap - pitch) > tolerance
++                        && !(numeric == FINANCIAL && Math.abs(gap - 2 * pitch) <= tolerance)) {
++                    return;
++                }
+             }
+             for (final int index : rows.get(row)) {
+                 work.step();

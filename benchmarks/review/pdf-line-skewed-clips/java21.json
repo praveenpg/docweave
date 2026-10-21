@@ -1,0 +1,31 @@
+{
+  "scope": "False native table removal under bounded four-corner line-built clips",
+  "before": {
+    "invisible_grid_false_tables": 1
+  },
+  "after": {
+    "invisible_grid_false_tables": 0,
+    "rectangle_line_equivalence_cases": 24,
+    "visible_restore_cases": 24
+  },
+  "focused": {
+    "tests": 21,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "full_java21": {
+    "tests": 1282,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "strict_private_javadocs": "PASS",
+  "scoped_format": "PASS",
+  "sources_sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java": "3dfed9fda7b575d7dcc3e8e348b817576546118bc62f23398750c4489b3e72f8",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfEmptyFormClipTest.java": "fab47638cdaa828df43101a5e14ddac1c345c37dd00fd1a336c5dc49918c8e84"
+  },
+  "verify_log_sha256": "3106b38252ad1d1ba5905a01f4c732a295c040214de48b732664e5743deea0ae",
+  "claim_limit": "Owned extraction counterexamples and raster equivalence, not original-corpus recognition gain or final compositing"
+}

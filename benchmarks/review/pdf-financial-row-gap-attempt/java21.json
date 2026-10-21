@@ -1,0 +1,16 @@
+{
+  "decision": "PARKED_NOT_PROMOTED",
+  "source_pages": 11,
+  "case_profiles": 39,
+  "changed_result_records": 0,
+  "financial_reference_rows": 110,
+  "financial_exact_rows_before": 0,
+  "financial_exact_rows_after": 0,
+  "financial_associated_regions_before": 0,
+  "financial_associated_regions_after": 0,
+  "candidate_source_sha256": "c9007092243d56e77b680c7a3f2c1ade702cc5375df05d5f67b4a1bba080d7cb",
+  "baseline_report_sha256": "50fa67608bf6ad29b183d10211434d04175629dd10a5edcba3b60dca6a82501d",
+  "candidate_report_sha256": "18b04fd4dcaa7bd6a1738457f06bb22caf30dfd695a6058acf621bf76dc2558a",
+  "frozen_scorer_source_sha256": "f88af667ef1c160906003b3dc2b235107d3c34d7c2e4b7bb25b8d39de04c85f6",
+  "runtime_changes": "NONE"
+}

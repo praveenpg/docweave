@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Honor bounded finite four-corner line-built clips, including skewed paths, during
+  native rule traversal. Prevent invisible clipped grids from producing false tables.
+
 - Honor finite affine-transformed rectangle-operator clips during native rule traversal.
   Reject wholly disjoint rule evidence conservatively while preserving visible controls,
   source images and graphics-state restoration.

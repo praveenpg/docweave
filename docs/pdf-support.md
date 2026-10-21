@@ -2998,3 +2998,20 @@ The separate [oriented-profile observation](../benchmarks/review/pdf-native-orie
 confirms that the same complete magazine succeeds with the existing explicit `ORIENTED_LINES`
 policy under the same heap cap, retaining 94 source images. The default rejection remains
 in its original report; this confirms configuration rather than a new algorithm or text-quality score.
+
+### Bounded line-built skewed clips (unreleased)
+
+A single finite four-corner line path can now supply native rule clipping, including
+skewed paths equivalent to affine-transformed rectangle operators. Explicit closure and
+the clipping operator's implicit closure retain their source meaning; an explicit return
+to the first point is accepted. The source winding rule is retained. Candidate storage
+stays fixed at six points; curves, multiple subpaths and larger general polygons remain
+outside this subset. Historical axis-aligned rectangles and known-empty areas remain supported.
+
+This corrects false tables formed from a grid hidden by a line-built skewed clip.
+Owned pairs compare equivalent rectangle-operator and line-built sources under both
+winding rules, three paints and four page rotations with crop/UserUnit metadata. Subsequent
+visible paint retains its table after leaving the clipped form. As before, only wholly
+disjoint evidence is rejected using a conservative inherited-clip envelope; this is not
+partial rule trimming, final compositing or a broad source-corpus accuracy claim.
+See [the extraction regression](../benchmarks/review/pdf-line-skewed-clips/README.md).
