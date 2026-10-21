@@ -2,7 +2,9 @@ package dev.docweave.partition;
 
 import org.apache.pdfbox.contentstream.PDFGraphicsStreamEngine;
 import org.apache.pdfbox.contentstream.operator.Operator;
+import org.apache.pdfbox.contentstream.operator.OperatorName;
 import org.apache.pdfbox.cos.COSBase;
+import org.apache.pdfbox.cos.COSName;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.font.PDType3Font;
 import org.apache.pdfbox.pdmodel.graphics.blend.BlendMode;
@@ -28,6 +30,8 @@ import java.util.Map;
 
 /** Traverses painted paths and raster occurrences, including form XObjects, with an operator budget. */
 final class PdfPageGraphics extends PDFGraphicsStreamEngine {
+    /** Matches the form nesting accepted by the underlying PDFBox graphics operator. */
+    private static final int MAX_FORM_DEPTH = 50;
     /** Hard source-program stack bound, independent from the larger shared page-operator budget. */
     private static final int MAX_TYPE3_DEPTH = 64;
 
@@ -202,7 +206,23 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
         if (++operators > options.maxOperatorsPerPage()) {
             throw new PartitionException(PartitionException.Code.INPUT_TOO_LARGE, "PDF exceeds maxOperatorsPerPage");
         }
+        checkFormDepth(operator, operands);
         super.processOperator(operator, operands);
+    }
+
+    /**
+     * Converts PDFBox's otherwise silent form-depth truncation into a typed source-limit failure.
+     * Image XObjects remain eligible at the deepest accepted form; only another form consumes a level.
+     * @param operator original source operator
+     * @param operands original arguments, retaining existing malformed-operand handling
+     * @throws IOException if a nested form exceeds the source limit or resource lookup fails
+     */
+    private void checkFormDepth(final Operator operator, final List<COSBase> operands) throws IOException {
+        if (getLevel() >= MAX_FORM_DEPTH && OperatorName.DRAW_OBJECT.equals(operator.getName()) && !operands.isEmpty()
+                && operands.getFirst() instanceof final COSName name
+                && getResources().getXObject(name) instanceof PDFormXObject) {
+            throw new PartitionException(PartitionException.Code.INPUT_TOO_LARGE, "PDF form nesting exceeds 50 levels");
+        }
     }
 
     /**
@@ -558,7 +578,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
      * @param shadingName resource name
      */
     @Override
-    public void shadingFill(final org.apache.pdfbox.cos.COSName shadingName) {
+    public void shadingFill(final COSName shadingName) {
     }
 
     /**

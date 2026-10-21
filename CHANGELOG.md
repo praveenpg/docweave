@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Report `INPUT_TOO_LARGE` when native Form XObject nesting exceeds PDFBox's existing
+  50-level boundary, instead of silently returning an extraction with deeper content
+  omitted. Preserve image invocations at the deepest accepted level.
+
 - Bound Type3 glyph-program nesting to 64 active scopes. Reject deeper or cyclic programs
   with `INPUT_TOO_LARGE` rather than a JVM stack overflow; unwind scope state after failure.
 

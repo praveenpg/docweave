@@ -1,0 +1,37 @@
+{
+  "scope": "Explicit native form traversal boundary",
+  "before": {
+    "depth_51": "SUCCESS with silently omitted image",
+    "cyclic_form": "SUCCESS with truncated content"
+  },
+  "after": {
+    "depth_50_leaf_image": "retained",
+    "depth_51": "INPUT_TOO_LARGE",
+    "cyclic_form": "INPUT_TOO_LARGE",
+    "normal_and_transparency_forms": "PASS"
+  },
+  "full_java21": {
+    "tests": 1279,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "focused_tests": 19,
+  "strict_private_javadocs": "PASS",
+  "packaged_consumer": {
+    "artifact_count": 6,
+    "owned_controls": 6,
+    "result": "PASS",
+    "runtime_excludes": [
+      "Jackson",
+      "jsoup",
+      "POI"
+    ],
+    "log_sha256": "b5dd3d9a91bff1d9e9ec3b8217a6f57c4db002e74007e176ccaf65e7729ce528"
+  },
+  "verify_log_sha256": "09e4f452ae4bcfc066d4d4b9e020aa51135f054edecfe3da194563c68a67f104",
+  "sources_sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java": "27f9783ee4e016720cb1996ab19f5a585da4e8fc260ae654c361899904dc8996",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfFormDepthTest.java": "06192c72025fed5b547d9cd0eccf834a50efda855db9afa8c5981027d72b2804"
+  }
+}

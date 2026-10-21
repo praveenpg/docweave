@@ -5,6 +5,19 @@ New options in [Unreleased changes](../CHANGELOG.md#unreleased) require a snapsh
 they are not part of the published beta.6 dependency in the [getting-started example](../README.md#getting-started).
 
 
+## Form nesting and explicit source-limit failures (unreleased)
+
+Native graphics traversal accepts at most 50 nested Form XObject invocations, including
+transparency groups. Invoking a 51st form or reaching that depth through a cycle throws
+`INPUT_TOO_LARGE`. This makes PDFBox's existing form-depth boundary explicit: extraction
+no longer returns success after that operator silently omits deeper source content.
+
+An image inside the 50th form remains eligible; image XObjects do not consume another
+form level. Operator budgets, source-image limits, cancellation and form-local path
+restoration remain active. The limit is a fixed traversal boundary, not a new configurable
+option or a guarantee of complete rendered visibility. It is independent of the 64-level
+Type3 character-program limit described below.
+
 ## Invisible Type3 glyphs and native table evidence (unreleased)
 
 Drawing operators inside an invisible Type3 character program (`Tr 3`, PDFBox
