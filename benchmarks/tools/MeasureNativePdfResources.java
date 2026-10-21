@@ -3,6 +3,9 @@ import dev.docweave.core.ElementType;
 import dev.docweave.partition.DocumentSource;
 import dev.docweave.partition.PartitionException;
 import dev.docweave.partition.PartitionResult;
+import dev.docweave.partition.PartitionerRegistry;
+import dev.docweave.partition.PdfOptions;
+import dev.docweave.partition.PdfPartitioner;
 
 import java.io.OutputStream;
 import java.lang.management.ManagementFactory;
@@ -13,6 +16,7 @@ import java.nio.file.StandardOpenOption;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.util.HexFormat;
+import java.util.List;
 import java.util.Properties;
 
 /** Single-call packaged native PDF resource observation; no throughput or corpus-accuracy claim. */
@@ -22,17 +26,19 @@ public final class MeasureNativePdfResources {
     }
 
     /**
-     * Extracts one complete pinned original with default native options and writes content-free observations.
+     * Extracts one complete pinned original with default or explicit oriented-line native options.
      * Run each source in its own JVM with an explicit heap cap; no warmup, OCR or model invocation occurs.
      * Peak heap-pool usages are summed after extraction and are not a simultaneous process heap peak.
      * Linux VmHWM, when available, includes JVM startup and native memory in this isolated process.
      * Typed extraction failures remain observations with absent output counts; their codes are recorded.
-     * @param args original PDF, expected SHA256 and a fresh properties report
+     * @param args original PDF, expected SHA256, fresh properties report and optional ORIENTED_LINES profile
      * @throws Exception if identity, extraction or report creation fails
      */
     public static void main(final String[] args) throws Exception {
-        if (args.length != 3 || Files.exists(Path.of(args[2]))) {
-            throw new IllegalArgumentException("Expected pinned original, SHA256 and fresh report");
+        if ((args.length != 3 && args.length != 4) || Files.exists(Path.of(args[2]))
+                || args.length == 4 && !args[3].equals("ORIENTED_LINES")) {
+            throw new IllegalArgumentException(
+                    "Expected pinned original, SHA256, fresh report and optional ORIENTED_LINES");
         }
         final var source = Path.of(args[0]);
         final var digest = MessageDigest.getInstance("SHA-256");
@@ -47,13 +53,19 @@ public final class MeasureNativePdfResources {
         PartitionResult result = null;
         PartitionException failure = null;
         try {
-            result = DocWeave.create().partition(DocumentSource.of(source));
+            final var engine =
+                    args.length == 3
+                            ? DocWeave.create()
+                            : DocWeave.create(PartitionerRegistry.of(List.of(PdfPartitioner.create(
+                                      PdfOptions.defaults().withTextLayout(PdfOptions.TextLayout.ORIENTED_LINES)))));
+            result = engine.partition(DocumentSource.of(source));
         } catch (final PartitionException rejected) {
             failure = rejected;
         }
         final long elapsed = System.nanoTime() - started;
         final var report = new Properties();
         report.setProperty("source_sha256", identity);
+        report.setProperty("native_profile", args.length == 3 ? "DEFAULT_DISCOVERY" : args[3]);
         report.setProperty("input_bytes", Long.toString(Files.size(source)));
         report.setProperty("outcome", failure == null ? "SUCCESS" : failure.code().name());
         report.setProperty("elapsed_nanos_including_discovery", Long.toString(elapsed));

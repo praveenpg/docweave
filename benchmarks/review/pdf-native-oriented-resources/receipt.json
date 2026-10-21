@@ -1,0 +1,16 @@
+{
+  "scope": "Targeted existing ORIENTED_LINES configuration check on the same complete 28-page magazine",
+  "source_sha256": "fcbbb6b34a2d9c2b0b3acb546d0dc1ba100e7ed486d2dc7d3b0516fbdec03497",
+  "prior_default_outcome": "UNSUPPORTED_OPTION",
+  "default_report_sha256": "e17441f59fee1cfa32cd2e89ebd07f91ea67dea51c44b3bc77f0e0deb6a68401",
+  "oriented_outcome": "SUCCESS",
+  "oriented_image_occurrences": 94,
+  "runtime_changes": "NONE",
+  "ocr_calls": 0,
+  "model_calls": 0,
+  "java21_heap_cap_bytes": 268435456,
+  "probe_sha256": "54060e5c79f834e5f815b80442219e25f3cb28f5d68c4d1e8981f4f555c737dd",
+  "strict_private_javadocs": "PASS",
+  "standalone_java21_compile_guard": "PASS",
+  "limitations": "Single known-source configuration observation after default rejection; not a new algorithm, speed comparison, reference text score, capacity recommendation or independent held-out acceptance"
+}

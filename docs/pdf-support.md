@@ -2993,3 +2993,8 @@ The business release succeeds; the magazine rejects arbitrary-angle text under d
 policy. The rejected run remains visible and does not count as full-document throughput.
 Single-process timing, heap-pool peak sums and Linux high-water RSS are diagnostic
 observations, not minimum memory requirements, concurrent capacity or total parser bounds.
+
+The separate [oriented-profile observation](../benchmarks/review/pdf-native-oriented-resources/README.md)
+confirms that the same complete magazine succeeds with the existing explicit `ORIENTED_LINES`
+policy under the same heap cap, retaining 94 source images. The default rejection remains
+in its original report; this confirms configuration rather than a new algorithm or text-quality score.
