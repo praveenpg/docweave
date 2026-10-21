@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Keep adjacent partially ruled table headers separate across source-supported column
+  boundaries. Recover all 11 previously mismatching header positions in the retained
+  statistics original (350/350 total), preserving body cells and parent bounds.
+
 - Honor bounded finite four-corner line-built clips, including skewed paths, during
   native rule traversal. Prevent invisible clipped grids from producing false tables.
 

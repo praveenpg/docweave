@@ -3015,3 +3015,17 @@ visible paint retains its table after leaving the clipped form. As before, only 
 disjoint evidence is rejected using a conservative inherited-clip envelope; this is not
 partial rule trimming, final compositing or a broad source-corpus accuracy claim.
 See [the extraction regression](../benchmarks/review/pdf-line-skewed-clips/README.md).
+
+### Source-boundary-aware partial-table headers (unreleased)
+
+The explicit `RULED_AND_PARTIAL_TEXT` strategy separates header groups when a supported
+column edge lies inside a source gap greater than twice the larger font-reported space
+width (minimum one unit). This avoids generic 12-unit line grouping joining adjacent
+column headings. Continuous text and ordinary word spaces retain spanning-header inference;
+widely spaced titles remain potentially ambiguous. Other policies and defaults are unchanged.
+
+The complete retained statistics original improves from 339/350 to 350/350 saved CSV
+positions: headers 24/35 to 35/35, body 315/315 unchanged, same 50-by-7 bounds. This is
+known-source development evidence, not independent span truth or general table accuracy.
+All other 17 case/profile records in the three-document/six-policy regression remain equal.
+See [header evidence](../benchmarks/review/pdf-partial-header-boundaries/README.md).

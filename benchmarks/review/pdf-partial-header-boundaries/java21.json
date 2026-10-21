@@ -1,0 +1,38 @@
+{
+  "scope": "Known original statistics table header-column recovery under explicit partial policy",
+  "source_pages": 6,
+  "reference_positions": 350,
+  "before": {
+    "header": 24,
+    "body": 315,
+    "total": 339
+  },
+  "after": {
+    "header": 35,
+    "body": 315,
+    "total": 350
+  },
+  "reference_header_positions": 35,
+  "reference_body_positions": 315,
+  "parent_coordinates_unchanged": true,
+  "original_regression_case_profiles": 18,
+  "unchanged_case_profiles": 17,
+  "only_changed_case_profile": "education-statistics/partial",
+  "focused_tests": 8,
+  "full_java21": {
+    "tests": 1283,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "strict_private_javadocs": "PASS",
+  "final_standalone_source_compilation": "PASS",
+  "baseline_detector_source_sha256": "f286edcd57340f19015c1c0c9f923e9055a3f47fdfd24e0471efc1cef2935c3a",
+  "sources_sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PartiallyRuledPdfTableDetector.java": "8e2a52bd18d86bf1da552614b6104e6cee1770597fa89274fbc5ddf87f2240f6",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfPartialTableTest.java": "82e01d0f20015e8e08fe9c14ef88cef80ada0ea9c82b90773c8cb64c161f5cf2",
+    "benchmarks/tools/VerifyPartialHeaderReference.java": "606b8e594124edbe7d036d066c2f6ce6442083cd4850d5f6776cf6dbe66bacd6"
+  },
+  "verify_log_sha256": "0ffa3678374c0b02021e7bbb9ace7e549b559a3cb303c197c9edcb3af7585dbf",
+  "claims": "Saved CSV position equality on one known source, not independent span truth or general table accuracy"
+}

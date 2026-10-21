@@ -321,7 +321,7 @@ final class PartiallyRuledPdfTableDetector implements PdfNativeTableDetector {
      */
     private static List<PdfInferredTable.Cell> header(final List<PdfPageText.Glyph> glyphs, final List<Float> xs,
             final float top, final float bottom, final PdfTableWork work) throws IOException {
-        final var lines = PdfGlyphLines.lines(glyphs);
+        final var lines = headerLines(glyphs, xs, work);
         final var result = new ArrayList<PdfInferredTable.Cell>();
         int next = 0;
         boolean letters = false;
@@ -346,6 +346,46 @@ final class PartiallyRuledPdfTableDetector implements PdfNativeTableDetector {
             result.add(cell(next++, 1, "", xs, top, bottom));
         }
         return letters ? List.copyOf(result) : null;
+    }
+
+    /**
+     * Separates adjacent header text only where a supported column edge falls inside a substantial source gap.
+     * Normal word spaces and continuous spanning titles retain the existing line grouping and source text.
+     * @param glyphs one complete source header baseline
+     * @param xs source-supported column boundaries
+     * @param work shared cancellation/geometry budget
+     * @return ordered source lines with unambiguous cross-column gaps separated
+     * @throws IOException if interrupted or over the shared work limit
+     */
+    private static List<PdfLayoutItem> headerLines(
+            final List<PdfPageText.Glyph> glyphs, final List<Float> xs, final PdfTableWork work) throws IOException {
+        final var ordered = new ArrayList<>(glyphs);
+        ordered.sort(Comparator.comparingDouble(PdfPageText.Glyph::x));
+        final var output = new ArrayList<PdfLayoutItem>();
+        final var group = new ArrayList<PdfPageText.Glyph>();
+        float right = Float.NEGATIVE_INFINITY;
+        float space = 0;
+        for (final var glyph : ordered) {
+            work.step();
+            boolean boundary = false;
+            if (!group.isEmpty() && glyph.x() - right > Math.max(1, 2 * Math.max(space, glyph.space()))) {
+                for (int column = 1; column < xs.size() - 1; column++) {
+                    work.step();
+                    boundary |= xs.get(column) >= right && xs.get(column) <= glyph.x();
+                }
+            }
+            if (boundary) {
+                output.addAll(PdfGlyphLines.lines(group));
+                group.clear();
+                right = Float.NEGATIVE_INFINITY;
+                space = 0;
+            }
+            group.add(glyph);
+            right = Math.max(right, glyph.x() + glyph.width());
+            space = Math.max(space, glyph.space());
+        }
+        output.addAll(PdfGlyphLines.lines(group));
+        return List.copyOf(output);
     }
 
     /**

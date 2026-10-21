@@ -23,6 +23,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /** Independently authored partial-rule layouts fix expected strings, spans, ownership and rejection behavior. */
 class PdfPartialTableTest {
+    /** Creates isolated authored partial-table controls. */
+    PdfPartialTableTest() {
+    }
+
+    /**
+     * Checks exact spanning-header output, unchanged defaults and concurrent service reuse.
+     * @throws Exception if source authoring or the expected extraction behavior fails
+     */
     @Test
     void explicitModeInfersHeaderSpanWithoutChangingDefaults() throws Exception {
         final var source = source("normal");
@@ -61,6 +69,24 @@ class PdfPartialTableTest {
         }
     }
 
+    /**
+     * Header words separated across a supported column edge must not become one spurious spanning cell.
+     * @throws Exception if owned PDF authoring or extraction fails
+     */
+    @Test
+    void closeHeaderColumnsRemainSeparateWhileTheTitleRetainsItsSpan() throws Exception {
+        final var result = processor(PdfOptions.defaults()).partition(source("closeheaders"));
+        final var table =
+                result.elements().stream().filter(e -> e.type() == ElementType.Table).findFirst().orElseThrow();
+        final String html = (String) table.metadata().get("text_as_html");
+        assertTrue(html.contains("<td colspan=\"3\">Annual A&amp;B</td>"));
+        assertTrue(html.contains("<tr><td>Left</td><td>Right</td><td>Value</td></tr>"), html);
+    }
+
+    /**
+     * Checks whole-candidate fallback for unsupported or ambiguous source geometry.
+     * @throws Exception if source authoring or the expected extraction behavior fails
+     */
     @Test
     void unsupportedAndAmbiguousSourcesRetainOrdinaryElements() throws Exception {
         for (final var mode : List.of("missing", "prose", "uneven", "overlap", "cross", "image", "unsegmented", "shift",
@@ -71,6 +97,10 @@ class PdfPartialTableTest {
         }
     }
 
+    /**
+     * Checks retained header blanks and supported source body dividers.
+     * @throws Exception if source authoring or the expected extraction behavior fails
+     */
     @Test
     void blanksAndSupportedBodyBoundaryPaintAreExplicit() throws Exception {
         for (final var mode : List.of("blankheader", "vertical")) {
@@ -83,6 +113,10 @@ class PdfPartialTableTest {
         }
     }
 
+    /**
+     * Checks source crop and UserUnit coordinates through explicit conversion.
+     * @throws Exception if source authoring or the expected extraction behavior fails
+     */
     @Test
     void croppedUserUnitFrameKeepsExplicitUnscaledCellCoordinates() throws Exception {
         final var result = processor(PdfOptions.defaults().withTableCellCoordinates(true)).partition(source("crop"));
@@ -100,6 +134,10 @@ class PdfPartialTableTest {
         assertEquals(table, converter.toUserSpace(converter.toPixels(table, 144)));
     }
 
+    /**
+     * Checks spanning-header text length under the caller cell ceiling.
+     * @throws Exception if source authoring or the expected extraction behavior fails
+     */
     @Test
     void headerLengthUsesSupportedSpanAndStillHonorsCallerCellLimit() throws Exception {
         final var source = source("longheader");
@@ -116,6 +154,10 @@ class PdfPartialTableTest {
                 assertThrows(PartitionException.class, () -> processor(options).partition(source)).code());
     }
 
+    /**
+     * Checks table ceilings and immutable option-copy behavior.
+     * @throws Exception if source authoring or the expected extraction behavior fails
+     */
     @Test
     void structuredLimitsAndOptionCopiesRemainEnforced() throws Exception {
         final var source = source("normal");
@@ -134,6 +176,10 @@ class PdfPartialTableTest {
         assertEquals(PdfOptions.TableDetection.RULED_AND_PARTIAL_TEXT, options.tableDetection());
     }
 
+    /**
+     * Checks cancellation, shared work exhaustion and fresh detector reuse.
+     * @throws Exception if source authoring or the expected extraction behavior fails
+     */
     @Test
     void cancellationWorkLimitAndReuseAreBounded() throws Exception {
         final PdfNativeTableDetector detector =
@@ -228,10 +274,15 @@ class PdfPartialTableTest {
                         text(content, "Annual A&B", 100, 85, 24);
                     }
                 }
-                if (!mode.equals("blankheader")) {
-                    text(content, "Item", 48, 110, 10);
+                if (mode.equals("closeheaders")) {
+                    text(content, "Left", 100, 110, 10);
+                    text(content, "Right", 124, 110, 10);
+                } else {
+                    if (!mode.equals("blankheader")) {
+                        text(content, "Item", 48, 110, 10);
+                    }
+                    text(content, "Qty", 128, 110, 10);
                 }
-                text(content, "Qty", 128, 110, 10);
                 text(content, "Value", 208, 110, 10);
                 if (mode.equals("overlap")) {
                     text(content, "note", 80, 110, 10);
