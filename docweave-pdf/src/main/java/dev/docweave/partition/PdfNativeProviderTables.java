@@ -79,8 +79,16 @@ final class PdfNativeProviderTables {
             if ((long) image.getWidth() * image.getHeight() > policy.maxRenderPixels()) {
                 throw limit("Native PDF layout exceeds maxRenderPixels");
             }
-            final var layouts =
+            final var rawLayouts =
                     PdfTableLayouts.locate(provider, image, options.tableLimits(), policy.validation(), work);
+            final double xScale = geometry.width() / (double) image.getWidth();
+            final double yScale = geometry.height() / (double) image.getHeight();
+            final var layouts =
+                    policy.leadingRow() == PdfNativeLayoutOptions.LeadingRow.SOURCE_NUMERIC_ROW
+                            ? PdfTableLayouts.validate(PdfNativeLeadingRow.extend(rawLayouts, glyphs, geometry, xScale,
+                                                               yScale, preferred.tables(), work),
+                                      image, options.tableLimits(), policy.validation(), work)
+                            : rawLayouts;
             long combinedAnchors = preferred.anchors();
             for (final var layout : layouts) {
                 work.step();
@@ -89,8 +97,6 @@ final class PdfNativeProviderTables {
                     throw limit("Native and raw provider tables exceed combined maxTableAnchors");
                 }
             }
-            final double xScale = geometry.width() / (double) image.getWidth();
-            final double yScale = geometry.height() / (double) image.getHeight();
             final var cellCoordinates =
                     options.includeTableCellCoordinates() ? new PdfTableCells(geometry, xScale, yScale) : null;
             final var continuationFrame = options.tableContinuation().providerHeaders()
@@ -100,7 +106,8 @@ final class PdfNativeProviderTables {
                                                   : null;
             final var owned = new boolean[glyphs.size()];
             final var tables = new ArrayList<PdfLayoutItem>();
-            for (final var layout : layouts) {
+            for (int layoutIndex = 0; layoutIndex < layouts.size(); layoutIndex++) {
+                final var layout = layouts.get(layoutIndex);
                 boolean overlapsNative = false;
                 final var envelope = layout.bounds();
                 for (final var table : preferred.tables()) {
@@ -222,6 +229,10 @@ final class PdfNativeProviderTables {
                 metadata.put("pdf_table_method", "provider_layout_native_glyphs_v1");
                 metadata.put("pdf_text_method", "native");
                 metadata.put("pdf_table_layout_provenance", layout.provenance());
+                if (layout != rawLayouts.get(layoutIndex)) {
+                    metadata.put("pdf_table_boundary_policy", "source_leading_numeric_row_v1");
+                    metadata.put("pdf_table_added_leading_rows", 1);
+                }
                 if (layout.headerRows() > 0) {
                     metadata.put("pdf_table_header_rows", layout.headerRows());
                     metadata.put("pdf_table_header_policy", "provider_declared_prefix_v1");

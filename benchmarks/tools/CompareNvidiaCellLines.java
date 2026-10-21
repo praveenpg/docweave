@@ -93,6 +93,24 @@ public final class CompareNvidiaCellLines {
      */
     private static List<Element> extract(final JsonNode manifest, final Path root, final String profile,
             final Path original, final PdfNativeLayoutOptions.CellTextJoin policy) throws Exception {
+        return extract(manifest, root, profile, original, policy, PdfNativeLayoutOptions.LeadingRow.PROVIDER_ONLY);
+    }
+
+    /**
+     * Replays fixed original geometry with an explicitly selected source-boundary policy.
+     * Every original page and raster identity remains required; no additional model call occurs.
+     * @param manifest frozen all-page captures
+     * @param root local numeric capture directory
+     * @param profile fixed detector profile
+     * @param original complete original PDF
+     * @param policy native cell text representation
+     * @param leadingRow explicit source-based leading row policy
+     * @return complete original element sequence
+     * @throws Exception if capture validation or extraction fails
+     */
+    static List<Element> extract(final JsonNode manifest, final Path root, final String profile, final Path original,
+            final PdfNativeLayoutOptions.CellTextJoin policy, final PdfNativeLayoutOptions.LeadingRow leadingRow)
+            throws Exception {
         final var reader = ReplayNativeLayoutCaptures.class.getDeclaredMethod(
                 "snapshots", JsonNode.class, Path.class, String.class);
         reader.setAccessible(true);
@@ -123,7 +141,7 @@ public final class CompareNvidiaCellLines {
         final var partitioner = PdfPartitioner.createWithNativeTablesFirst(
                 PdfOptions.defaults().withTableCellCoordinates(true).withTableDetection(
                         PdfOptions.TableDetection.RULED_AND_PARTIAL_TEXT),
-                new PdfNativeLayoutOptions(150, 16000000, 1024, policy), provider);
+                new PdfNativeLayoutOptions(150, 16000000, 1024, policy).withLeadingRow(leadingRow), provider);
         final var extracted = DocWeave.create(PartitionerRegistry.of(List.of(partitioner)))
                                       .partition(DocumentSource.bytes(
                                               Files.readAllBytes(original), original.getFileName().toString()));

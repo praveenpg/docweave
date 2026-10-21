@@ -1,0 +1,36 @@
+{
+  "scope": "Original complete 11-page source, both frozen detector profiles, unchanged 110 issuer reference rows per profile. One fixed leading numeric row candidate; no model/OCR rerun, crop or reference edits. Known-source development evidence, not held-out accuracy.",
+  "baseline_development_commit": "579951d",
+  "java": "21",
+  "source_sha256": "89de999d7155649197672bf490c519607f1abbcdc96e2e4c6718bf6ecbb13564",
+  "files": {
+    "benchmarks/review/pdf-tatr-fin-structure/replay-manifest.json": "90c47de1e497b7f355425e52e1f77d261765958cbb7894e4629316574a82a2af",
+    "benchmarks/review/pdf-tatr-fin-structure/presence-java21.json": "52fd0cb7bd33510e15d3ab7b7585aee898e8ad8febb82b72cec2d8c8ae311625",
+    "benchmarks/tools/AuditStatementRowPresence.java": "1b67dd358e19b680815508e2e19e4cd48c240d9eacc57f2707ab76f05b126bd9",
+    "benchmarks/tools/CompareNvidiaCellLines.java": "a42c0d6aad4a69e85cfe7ec90284bc83a39eb5c35404f74c3fb6a6bab6ef36a6",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfNativeLeadingRow.java": "b3fd6d852cc445fbfcdf2f73a580e59f9be514c52fcbc6cec4292e8cabccf11d",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfNativeLayoutOptions.java": "d5a92b6d7e639211ad85d01d8c53e9d5a5d85c3b242a6b0ee4842d2299c913bd",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfNativeProviderTables.java": "d7ed3dd6bfb156a51b7ee8abaf29deab23bfc61cb69e8ab80fd2751fedd019e5",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfNativeLeadingRowTest.java": "bf9151c765548b8a24d221632dea4a18017b42e6077f1a9e165dc5944e9f3463"
+  },
+  "reports": {
+    "before-java21.json": "8fd1e869331a556c671bee62733f8afd29a2ca5f52a83f8e517b8c0fa4484baf",
+    "after-java21.json": "def2593e79aa3678d957909dd91aa44069d18261e8227c9a067445efdac55759",
+    "comparison.json": "1748d5f4515c2315d1e6b4a2b8988df78bf14ee14fe4de4389e7fe56f23e7fd2"
+  },
+  "full_java21_verify": {
+    "tests": 1290,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "log_sha256": "7eb748019a2e922e20f8a63a475d324e014b598c2b8e863035c5a027f9d83e18"
+  },
+  "strict_private_doclint": {
+    "result": "PASS",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "standalone_source_compatibility": {
+    "result": "PASS",
+    "log_sha256": "fe88eef629c114f35f844549932730f6a3e094532327f37451d2a5c3cd14d6cb"
+  }
+}

@@ -30,7 +30,7 @@ public final class AuditStatementRowPresence {
      * Reuses the frozen reference parser, region association and full-source extraction for both profiles.
      * Presence consumes exact complete-row occurrences once; unmatched references and extra observations stay.
      * This diagnoses title/header offsets without replacing strict ordinal scores or measuring logical order.
-     * @param args replay manifest, source cache, capture root and fresh report; or --self-test
+     * @param args replay manifest, source cache, capture root and fresh report, optional --leading-row; or --self-test
      * @throws Exception if pins, protocol completeness, controls or extraction infrastructure fail
      */
     public static void main(final String[] args) throws Exception {
@@ -39,7 +39,10 @@ public final class AuditStatementRowPresence {
             System.out.println("Exact statement-row presence controls passed");
             return;
         }
-        require(args.length == 4, "Expected replay, source cache, captures and fresh report");
+        require(args.length == 4 || args.length == 5 && args[4].equals("--leading-row"),
+                "Expected replay, source cache, captures, fresh report and optional --leading-row");
+        final var leadingRow = args.length == 5 ? PdfNativeLayoutOptions.LeadingRow.SOURCE_NUMERIC_ROW
+                                                : PdfNativeLayoutOptions.LeadingRow.PROVIDER_ONLY;
         final var mapper = JsonMapper.builder().build();
         final var replay = mapper.readTree(Files.readAllBytes(Path.of(args[0])));
         final var referencePath = Path.of(replay.get("reference_manifest").asString());
@@ -69,8 +72,9 @@ public final class AuditStatementRowPresence {
         observedReader.setAccessible(true);
         final var regionReader = fragmentClass.getDeclaredMethod("regions");
         regionReader.setAccessible(true);
-        final var extract = CompareNvidiaCellLines.class.getDeclaredMethod("extract", JsonNode.class, Path.class,
-                String.class, Path.class, PdfNativeLayoutOptions.CellTextJoin.class);
+        final var extract =
+                CompareNvidiaCellLines.class.getDeclaredMethod("extract", JsonNode.class, Path.class, String.class,
+                        Path.class, PdfNativeLayoutOptions.CellTextJoin.class, PdfNativeLayoutOptions.LeadingRow.class);
         extract.setAccessible(true);
         final var html = Jsoup.parse(Files.readString(Path.of(args[1], reference.get("source_html").asString())));
         final var results = new ArrayList<Map<String, Object>>();
@@ -82,7 +86,7 @@ public final class AuditStatementRowPresence {
                 @SuppressWarnings("unchecked")
                 final var decoded = (List<Element>) extract.invoke(null, replay, Path.of(args[2]), family,
                         Path.of(args[1], reference.get("source_pdf").asString()),
-                        PdfNativeLayoutOptions.CellTextJoin.SPACE_SEPARATED);
+                        PdfNativeLayoutOptions.CellTextJoin.SPACE_SEPARATED, leadingRow);
                 elements = decoded;
             } catch (final InvocationTargetException failure) {
                 if (failure.getCause() instanceof PartitionException typed) {
@@ -119,9 +123,9 @@ public final class AuditStatementRowPresence {
         Files.writeString(Path.of(args[3]),
                 mapper.writerWithDefaultPrettyPrinter().writeValueAsString(Map.of("scope",
                         "Exact complete-row presence diagnostic only; original ordinal score unchanged; no fuzzy alignment, output repair or logical-order claim",
-                        "runtime", Runtime.version().toString(), "replay_manifest_sha256",
-                        hash(Files.readAllBytes(Path.of(args[0]))), "reference_manifest_sha256",
-                        hash(Files.readAllBytes(referencePath)), "results", results))
+                        "leading_row", leadingRow.name(), "runtime", Runtime.version().toString(),
+                        "replay_manifest_sha256", hash(Files.readAllBytes(Path.of(args[0]))),
+                        "reference_manifest_sha256", hash(Files.readAllBytes(referencePath)), "results", results))
                         + "\n",
                 StandardOpenOption.CREATE_NEW);
     }

@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Add explicit `PdfNativeLayoutOptions.LeadingRow.SOURCE_NUMERIC_ROW` inference for a
+  complete nearby native numeric row above provider tables. Preserve default geometry,
+  original anchors and source ownership; identify inferred boundaries in metadata.
+  Recover one retained NVIDIA reference row under each fixed detector profile.
+
 - Honor bounded two-rectangle compound clips and their source winding rule during
   native rule traversal, preventing fully hidden grids from creating false tables.
 

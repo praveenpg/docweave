@@ -3055,3 +3055,23 @@ pinned models, source 300 DPI and recognition 600 DPI. Fraktur character edits i
 reference. Both still miss one line. This does not recommend magnification generally or
 change defaults. The result is parked with both outcomes preserved; no parameter sweep
 or new runtime functionality follows.
+
+
+### Explicit native leading numeric rows (unreleased)
+
+`PdfNativeLayoutOptions.withLeadingRow(LeadingRow.SOURCE_NUMERIC_ROW)` can recover one
+complete native numeric row immediately above a validated provider table. Existing
+constructors and defaults retain `PROVIDER_ONLY`. The source-based inference requires
+an upright common baseline, at least three unmerged first-row columns, no declared
+header prefix, a label and numeric values fitting every column. Ambiguous/incomplete
+rows and competing table ownership retain the provider table. The original anchors and
+provider provenance remain; metadata identifies the added inferred row and bounds.
+All existing budgets still apply, including added anchors, with full topology revalidation.
+This adds a record component; reflective schemas should be reviewed on upgrade.
+
+The complete retained NVIDIA original improves exact row occurrence presence from
+35/110 to 36/110 under TATR and 66/110 to 67/110 under YOLOX. Both gains recover the
+same missing page-7 numeric row. Strict ordinal equality remains 0/110; titles, section
+boundaries and PDF/HTML presentation differences remain unresolved. This is a scoped
+known-source improvement, not a percentage-complete claim or general table accuracy.
+See [leading-row evidence and usage](../benchmarks/review/pdf-native-leading-row/README.md).

@@ -4,12 +4,29 @@ package dev.docweave.partition;
  * Explicit render and raw-anchor limits for native text assigned to provider table geometry.
  * No OCR engine is invoked. These limits do not bound PDFBox intermediate allocations or provider deadlines.
  * @param cellTextJoin explicit provider-owned native cell text policy; defaults preserve space-separated lines
+ * @param leadingRow optional source-based leading numeric row inference; defaults preserve provider bounds
  * @param dpi render resolution,36 through600
  * @param maxRenderPixels maximum rendered pixels per native-text page
  * @param maxTableAnchors maximum aggregate raw provider anchors per page; native-first composition also
- *                        charges accepted native anchors to this ceiling
+ *                        charges accepted native anchors to this ceiling; inferred leading-row anchors also count
  */
-public record PdfNativeLayoutOptions(int dpi, long maxRenderPixels, int maxTableAnchors, CellTextJoin cellTextJoin) {
+public record PdfNativeLayoutOptions(
+        int dpi, long maxRenderPixels, int maxTableAnchors, CellTextJoin cellTextJoin, LeadingRow leadingRow) {
+    /** Explicit source inference outside an otherwise validated provider table. */
+    public enum LeadingRow {
+        /** Preserves the provider's original row count, bounds and anchors. */
+        PROVIDER_ONLY,
+        /**
+         * Infers at most one complete numeric body row immediately above an upright provider table.
+         * Requires at least three unmerged first-row columns, no declared headers, a letter-bearing
+         * label and one numeric run per remaining column on a common source baseline. Every glyph
+         * must fit the existing column; ambiguous, rotated, overlapping or incomplete rows are retained
+         * as ordinary text. The search band is one original first-row height. No OCR or model rerun occurs.
+         * Added geometry is inferred, not claimed by the provider. Normal table/work limits still apply.
+         */
+        SOURCE_NUMERIC_ROW
+    }
+
     /** Explicit native structured cell text choices; no option changes geometry or OCR output. */
     public enum CellTextJoin {
         /** Preserves the historical space between every grouped native text run. */
@@ -51,13 +68,39 @@ public record PdfNativeLayoutOptions(int dpi, long maxRenderPixels, int maxTable
      * @param maxTableAnchors aggregate native/provider anchor ceiling
      */
     public PdfNativeLayoutOptions(final int dpi, final long maxRenderPixels, final int maxTableAnchors) {
-        this(dpi, maxRenderPixels, maxTableAnchors, CellTextJoin.SPACE_SEPARATED);
+        this(dpi, maxRenderPixels, maxTableAnchors, CellTextJoin.SPACE_SEPARATED, LeadingRow.PROVIDER_ONLY);
+    }
+
+    /**
+     * Preserves the former four-argument constructor without inferring additional geometry.
+     * @param dpi render resolution,36 through600
+     * @param maxRenderPixels rendered pixel ceiling
+     * @param maxTableAnchors aggregate native/provider anchor ceiling
+     * @param cellTextJoin native cell text choice
+     */
+    public PdfNativeLayoutOptions(
+            final int dpi, final long maxRenderPixels, final int maxTableAnchors, final CellTextJoin cellTextJoin) {
+        this(dpi, maxRenderPixels, maxTableAnchors, cellTextJoin, LeadingRow.PROVIDER_ONLY);
+    }
+
+    /**
+     * Copies this policy with explicit leading-row inference for provider-owned native tables only.
+     * Existing anchors and their text remain unchanged; accepted inference adds one row, shifts logical
+     * row indices and expands the table envelope. Metadata identifies the inferred boundary policy.
+     * Source-tagged tables, native heuristic tables and OCR output are unaffected.
+     * @param policy nonnull leading-row choice
+     * @return new immutable policy retaining render limits and cell text selection
+     * @throws NullPointerException if policy is null
+     */
+    public PdfNativeLayoutOptions withLeadingRow(final LeadingRow policy) {
+        return new PdfNativeLayoutOptions(dpi, maxRenderPixels, maxTableAnchors, cellTextJoin, policy);
     }
 
     /**
      * Copies this immutable policy with an explicit cell text strategy.
      * The date policy applies to provider-owned native cells and explicitly enabled source-tagged cells.
-     * Accepted native heuristic tables, ordinary text, OCR and source geometry are unchanged.
+     * This text selection leaves native heuristic tables, ordinary text, OCR and source geometry unchanged.
+     * Any independently selected leading-row inference remains enabled.
      * PRESERVE_LINE_BREAKS retains upright source baselines within existing provider or tagged cells;
      * it does not reconstruct missing physical table rows or change model predictions.
      * INLINE_SCRIPT_RUNS optionally groups unambiguous short small-glyph runs inside those same
@@ -67,16 +110,17 @@ public record PdfNativeLayoutOptions(int dpi, long maxRenderPixels, int maxTable
      * @throws NullPointerException if policy is null
      */
     public PdfNativeLayoutOptions withCellTextJoin(final CellTextJoin policy) {
-        return new PdfNativeLayoutOptions(dpi, maxRenderPixels, maxTableAnchors, policy);
+        return new PdfNativeLayoutOptions(dpi, maxRenderPixels, maxTableAnchors, policy, leadingRow);
     }
 
     /**
      * Validates immutable positive limits without rendering or executing providers.
      * @throws IllegalArgumentException if resolution or either budget is invalid
-     * @throws NullPointerException if cellTextJoin is null
+     * @throws NullPointerException if either policy is null
      */
     public PdfNativeLayoutOptions {
         java.util.Objects.requireNonNull(cellTextJoin, "cellTextJoin");
+        java.util.Objects.requireNonNull(leadingRow, "leadingRow");
         if (dpi < 36 || dpi > 600 || maxRenderPixels < 1 || maxTableAnchors < 1) {
             throw new IllegalArgumentException("Invalid native PDF layout policy");
         }

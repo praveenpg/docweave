@@ -1,0 +1,52 @@
+{
+  "scope" : "Complete three-statement/two-profile frozen population, before and after isolated source row extension",
+  "results" : [ {
+    "case" : "income",
+    "profile" : "tatr",
+    "reference_rows" : 28,
+    "observed_rows" : [ 12, 12 ],
+    "strict_exact_ordinal_rows" : [ 0, 0 ],
+    "exact_row_occurrences_present" : [ 10, 10 ],
+    "missing_exact_occurrences" : [ 18, 18 ]
+  }, {
+    "case" : "balance-sheet",
+    "profile" : "tatr",
+    "reference_rows" : 33,
+    "observed_rows" : [ 28, 28 ],
+    "strict_exact_ordinal_rows" : [ 0, 0 ],
+    "exact_row_occurrences_present" : [ 13, 13 ],
+    "missing_exact_occurrences" : [ 20, 20 ]
+  }, {
+    "case" : "cash-flows",
+    "profile" : "tatr",
+    "reference_rows" : 49,
+    "observed_rows" : [ 26, 27 ],
+    "strict_exact_ordinal_rows" : [ 0, 0 ],
+    "exact_row_occurrences_present" : [ 12, 13 ],
+    "missing_exact_occurrences" : [ 37, 36 ]
+  }, {
+    "case" : "income",
+    "profile" : "yolox",
+    "reference_rows" : 28,
+    "observed_rows" : [ 23, 23 ],
+    "strict_exact_ordinal_rows" : [ 0, 0 ],
+    "exact_row_occurrences_present" : [ 21, 21 ],
+    "missing_exact_occurrences" : [ 7, 7 ]
+  }, {
+    "case" : "balance-sheet",
+    "profile" : "yolox",
+    "reference_rows" : 33,
+    "observed_rows" : [ 26, 26 ],
+    "strict_exact_ordinal_rows" : [ 0, 0 ],
+    "exact_row_occurrences_present" : [ 25, 25 ],
+    "missing_exact_occurrences" : [ 8, 8 ]
+  }, {
+    "case" : "cash-flows",
+    "profile" : "yolox",
+    "reference_rows" : 49,
+    "observed_rows" : [ 41, 42 ],
+    "strict_exact_ordinal_rows" : [ 0, 0 ],
+    "exact_row_occurrences_present" : [ 20, 21 ],
+    "missing_exact_occurrences" : [ 29, 28 ]
+  } ]
+}
