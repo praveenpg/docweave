@@ -229,6 +229,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
      * Retains source traversal inside Type3 glyphs without treating invisible character programs as painted rules.
      * Only rendering mode NEITHER suppresses Type3 paint; other modes keep the glyph's own drawing operators.
      * Source-image accounting, operator budgets and cancellation remain active, including in nested forms/glyphs.
+     * Glyph paths are isolated from unfinished caller paths and restored even after traversal failure.
      * At most 64 simultaneous glyph programs are accepted; deeper or cyclic programs fail before stack exhaustion.
      * @param textRenderingMatrix original glyph transform
      * @param font source Type3 font
@@ -245,11 +246,13 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
                     PartitionException.Code.INPUT_TOO_LARGE, "PDF Type3 glyph nesting exceeds 64 levels");
         }
         final boolean parent = type3PaintSuppressed;
+        final var parentPath = suspendPath();
         type3Depth++;
         try {
             type3PaintSuppressed |= getGraphicsState().getTextState().getRenderingMode() == RenderingMode.NEITHER;
             super.showType3Glyph(textRenderingMatrix, font, code, displacement);
         } finally {
+            resumePath(parentPath);
             type3PaintSuppressed = parent;
             type3Depth--;
         }

@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Isolate Type3 glyph drawing paths from unfinished caller paths, including restoration
+  after cancellation or glyph traversal limits. Glyph strokes no longer consume page paths.
+
 - Report `INPUT_TOO_LARGE` when native Form XObject nesting exceeds PDFBox's existing
   50-level boundary, instead of silently returning an extraction with deeper content
   omitted. Preserve image invocations at the deepest accepted level.

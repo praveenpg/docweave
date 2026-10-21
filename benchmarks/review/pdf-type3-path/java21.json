@@ -1,0 +1,31 @@
+{
+  "scope": "Type3 drawing-path isolation",
+  "before": {
+    "glyph_stroke_segments": 2,
+    "expected_glyph_stroke_segments": 1
+  },
+  "after": {
+    "glyph_stroke_segments": 1,
+    "segments_after_caller_stroke": 2,
+    "pending_path_after_cancellation_and_budget_failure": "retained"
+  },
+  "focused_before_failure_control_extension": {
+    "tests": 17,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "full_java21_final": {
+    "tests": 1280,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "strict_private_javadocs": "PASS",
+  "scoped_format": "PASS",
+  "sources_sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java": "820a027d62c8169a14f187eb0c365446b1cef112acfaa7321a5b6df1fe9aa566",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfType3PaintTest.java": "f90e796ed7d5fc6d7a8f65afc58e644783fbbf43e96bd5c241b4b8f2c6e673cb"
+  },
+  "verify_log_sha256": "b9a41cde9573090d9665a815af76096af51f04bc5eba1d7f5ce9302c680afcdc"
+}

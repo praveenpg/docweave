@@ -2952,3 +2952,18 @@ instruction, including when child processing fails. Collected paint and page-wid
 operator/image budgets remain shared. This prevents invisible child paint from
 erasing caller table rules; it does not add transparency compositing or general
 rendered-visibility inference. See the [owned render-equivalence evidence](../benchmarks/review/pdf-form-paths/README.md).
+
+### Type3 glyph path isolation (unreleased)
+
+Type3 character programs now receive an independent mutable drawing path, as form
+XObjects already do. A glyph stroke cannot paint or discard an unfinished caller path.
+The caller's path, pending clip and path-construction state are restored after normal
+completion, cancellation or a glyph traversal failure. Accumulated image/rule evidence
+and shared operator budgets retain their existing scope.
+
+An owned regression previously observed two segments painted by a glyph stroke when
+only its own segment should have painted. It now observes one glyph segment followed
+by the preserved caller segment when the caller strokes. The existing failure control
+also verifies preservation of a pending caller segment after cancellation and operator
+exhaustion. This addresses native graphics traversal, not text rendering or complete
+rendered-pixel fidelity. See the [evidence](../benchmarks/review/pdf-type3-path/README.md).

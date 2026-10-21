@@ -158,6 +158,8 @@ class PdfType3PaintTest {
             graphics.processPage(page);
             graphics.getGraphicsState().getTextState().setRenderingMode(RenderingMode.NEITHER);
             final var glyphFont = font(document, true);
+            graphics.moveTo(10, 10);
+            graphics.lineTo(80, 10);
             Thread.currentThread().interrupt();
             try {
                 assertThrows(InterruptedIOException.class,
@@ -168,10 +170,10 @@ class PdfType3PaintTest {
             final var limit = assertThrows(PartitionException.class,
                     () -> graphics.showType3Glyph(new Matrix(), glyphFont, 65, new Vector(1, 0)));
             assertEquals(PartitionException.Code.INPUT_TOO_LARGE, limit.code());
-            graphics.moveTo(10, 10);
-            graphics.lineTo(80, 10);
             graphics.strokePath();
             assertEquals(1, graphics.segments().size());
+            assertEquals(10, graphics.segments().getFirst().x1());
+            assertEquals(80, graphics.segments().getFirst().x2());
             assertThrows(
                     PartitionException.class, () -> graphics.processOperator(Operator.getOperator("n"), List.of()));
         }
@@ -297,6 +299,33 @@ class PdfType3PaintTest {
             final var output = new ByteArrayOutputStream();
             document.save(output);
             return output.toByteArray();
+        }
+    }
+
+    /**
+     * A glyph stroke must neither paint an unfinished caller path nor discard it before its own stroke.
+     * @throws Exception if owned glyph authoring or native traversal fails
+     */
+    @Test
+    void glyphStrokePreservesUnfinishedCallerPath() throws Exception {
+        try (final var document = new PDDocument()) {
+            final var page = new PDPage();
+            document.addPage(page);
+            final var options = PdfOptions.defaults();
+            final var graphics =
+                    new PdfPageGraphics(page, options, new PdfImageBudget(options), new PdfPageGeometry(page));
+            graphics.processPage(page);
+            graphics.moveTo(20, 30);
+            graphics.lineTo(80, 30);
+            final var glyphFont = font(document, false);
+            glyphFont.getCharProcs().setItem(
+                    COSName.getPDFName("A"), stream(document, "1 0 d0\n100 100 m 160 100 l S\n"));
+            graphics.showType3Glyph(new Matrix(1000, 0, 0, 1000, 0, 0), glyphFont, 65, new Vector(1, 0));
+            assertEquals(1, graphics.segments().size(), "Only the glyph path should have painted");
+            graphics.strokePath();
+            assertEquals(2, graphics.segments().size(), "The caller path must survive the glyph stroke");
+            assertEquals(20, graphics.segments().getLast().x1());
+            assertEquals(80, graphics.segments().getLast().x2());
         }
     }
 
