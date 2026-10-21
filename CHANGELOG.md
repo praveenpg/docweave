@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Honor finite affine-transformed rectangle-operator clips during native rule traversal.
+  Reject wholly disjoint rule evidence conservatively while preserving visible controls,
+  source images and graphics-state restoration.
+
 - Isolate Type3 glyph drawing paths from unfinished caller paths, including restoration
   after cancellation or glyph traversal limits. Glyph strokes no longer consume page paths.
 

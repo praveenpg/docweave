@@ -893,6 +893,7 @@ or independent human-review gates.
 | Source images | Actual occurrence accounting, normalized PNGs, mask/stencil handling, invocation graphics state and ordered affine placement corners | Source payloads and placements do not reproduce final compositing, clipping, occlusion or generated descriptions. Ordered-corner checks do not establish rendered-pixel equality. |
 | Independent acceptance and operations | Owned regressions, pinned original-source comparisons, bounded parser callbacks, packaged consumer checks | Independent human review, broader authoring-tool diversity, calibrated confidence and production heap/latency evidence remain open. PDFBox/codecs may allocate or delay cancellation before callbacks; limits are not a total decompression/heap bound. |
 
+The [quality backlog](pdf-quality-backlog.md) records parked approaches and return conditions.
 Use one proposed change and one focused validation pass per investigation. Park a
 failed attempt with its evidence and next bounded action, address other issues,
 then return; do not repeat unsuccessful threshold/model grids. Preserve original
@@ -2967,3 +2968,28 @@ by the preserved caller segment when the caller strokes. The existing failure co
 also verifies preservation of a pending caller segment after cancellation and operator
 exhaustion. This addresses native graphics traversal, not text rendering or complete
 rendered-pixel fidelity. See the [evidence](../benchmarks/review/pdf-type3-path/README.md).
+
+### Affine-transformed rectangle clips (unreleased)
+
+A single finite `re` rectangle remains a bounded parallelogram under an affine source
+transform. Native graphics traversal now retains that clip, including skewed rectangle
+operators, under both winding rules. The existing conservative inherited-clip envelope
+can reject wholly disjoint rules. It does not trim partially clipped rules or establish
+visibility inside the enclosing rectangle. General skewed line-built paths, compound
+paths and curves retain their previous unsupported behavior.
+
+Owned tests pair invisible skew-clipped grids with raster-identical no-grid pages,
+exercise stroke/fill/combined paint and all four rotations with a crop and UserUnit,
+and verify later visible paint after the form scope restores. Existing visible skew,
+mirror, scale and unsupported-path controls remain. Source-image occurrences and payloads
+are not filtered or cropped by this change. See the
+[clip evidence](../benchmarks/review/pdf-skewed-rectangle-clips/README.md).
+
+### Packaged native resource observations
+
+The [initial operational probe](../benchmarks/review/pdf-native-resources/README.md)
+retains two complete-original default-native attempts under a fixed 256 MiB JVM heap cap.
+The business release succeeds; the magazine rejects arbitrary-angle text under default
+policy. The rejected run remains visible and does not count as full-document throughput.
+Single-process timing, heap-pool peak sums and Linux high-water RSS are diagnostic
+observations, not minimum memory requirements, concurrent capacity or total parser bounds.

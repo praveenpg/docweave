@@ -1,0 +1,16 @@
+# PDF quality backlog
+
+This queue complements the [remaining quality gates](pdf-support.md#remaining-pdf-quality-gates).
+A parked issue remains open. Review its existing evidence before another attempt; use
+one supported candidate and one focused validation, then switch issues if there is no
+clear gain. Revisit parked issues after the other issues have been addressed or parked,
+using a different supported approach. Preserve all references, failures and denominators.
+
+| Priority / issue | State and retained evidence | Next bounded action / return condition |
+| --- | --- | --- |
+| Business statement structure and crop boundaries | Parked after review of existing negative evidence. [Financial grammar transfer](../benchmarks/review/pdf-financial-aligned-transfer/README.md) retains 0/284 rows for both policies across three originals. [NVIDIA comparison](../benchmarks/review/pdf-nvidia-upstream-hires/README.md) retains all 110 references, including title/header rows and cross-page fragments. No new extraction run or recognition gain is claimed by this review. | Prototype a distinct source-geometry reconstruction strategy that can retain section/header rows and split-page body rows without a detector crop. Freeze its structural proposal before replay; reuse the full reference population. Do not repeat crop-padding, confidence-threshold or numeric-token grids, or split/rewrite rows merely to match HTML reference layout. |
+| Scientific sidebar/paragraph order | Parked. [Disjoint-gutter attempt](../benchmarks/review/pdf-disjoint-gutter/README.md) left native 59/143 and assembled 108/143 paragraph matches unchanged. | Use independently reviewed source reading order to distinguish grouping from order errors before another algorithm change. Do not repeat the rejected gutter inference. |
+| Historical scan recognition/order | Open; source/model and reviewed-order evidence remain under the support document's quality gates. | Select one retained original with a verified transcription/order failure and a specific alternate hypothesis, keeping all original lines in the comparison. |
+| Degraded scan correction | Parked composition. [White-point/sparse experiment](../benchmarks/review/pdf-whitepoint-sparse-composition/README.md) regressed several originals. | Try a different source-supported correction only after another issue is addressed or parked; retain held-out transcription and extra-output penalties. Do not promote the failed composition or retune segmentation per source. |
+| Source clipping/compositing | Bounded transformed-rectangle clip support is implemented; final image visibility/compositing remains open. | Distinguish source payload/placement from rendered visibility. General compound/curved clips, occlusion and enclosing transparency-group composition require separate designs and controls. |
+| Independent acceptance and operations | Open. Owned regressions do not establish corpus accuracy or a total parser/heap bound. | The [initial packaged resource observations](../benchmarks/review/pdf-native-resources/README.md) retain one default success and one typed rejection; they do not close this gate. Add broader authoring-tool and independent review evidence, representative success-path memory/latency and concurrent-load measurements. Run Java 25 at final acceptance rather than each development step. |

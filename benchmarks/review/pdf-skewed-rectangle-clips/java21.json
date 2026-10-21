@@ -1,0 +1,39 @@
+{
+  "scope": "Affine rectangle-operator clip envelopes for native rule evidence",
+  "before": {
+    "raster_equal_to_no_grid": true,
+    "false_table_present": true
+  },
+  "after": {
+    "disjoint_public_controls": 24,
+    "false_tables": 0,
+    "caller_restore_controls": 24
+  },
+  "focused_before_evenodd_extension": {
+    "tests": 26,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "full_java21_final": {
+    "tests": 1281,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "independent_poppler": {
+    "complete_pairs": 22,
+    "new_skewed_pairs": 8,
+    "all_rgb_equal": true
+  },
+  "post_full_standalone_compiler": "PASS",
+  "strict_private_javadocs": "PASS",
+  "scoped_format": "PASS",
+  "sources_sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java": "90b8fbbfd16bf38bf702e0f7d21bcbfb498a07202833dac86fde2615ad606f38",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfEmptyFormClipTest.java": "3770668d331ec08f1eb5a80765b6fe21d2bf9fe98ac3ed3ca014ab97f95c0e94",
+    "benchmarks/tools/VerifyRectangleClipPixels.java": "be5244817ac6dcb4ebd46e0a095c2ee2d134b0f2d4261c873db9d9e891f73265"
+  },
+  "verify_log_sha256": "7830684f47c86600ac7f3e7775b8643ec4855cf0164a6cc85e6588488d5f786f",
+  "standalone_log_sha256": "2442652052c32136f7a813c8f7d109a459cb88f2a7919b6888650bf2b3ba6dca"
+}

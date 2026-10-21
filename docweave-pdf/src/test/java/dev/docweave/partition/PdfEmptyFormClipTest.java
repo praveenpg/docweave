@@ -54,6 +54,25 @@ class PdfEmptyFormClipTest {
     }
 
     /**
+     * A transformed rectangle outside the grid must not supply invisible borders or leak its clip to later paint.
+     * @throws Exception if owned source authoring, raster comparison or extraction fails
+     */
+    @Test
+    void skewedRectangleClipExcludesDisjointRulesAndRestoresCallerState() throws Exception {
+        for (final int rotation : List.of(0, 90, 180, 270)) {
+            for (final String paint : List.of("stroke", "fill", "fillstroke")) {
+                for (final String clip : List.of("path-disjoint-skewed", "path-disjoint-skewed-evenodd")) {
+                    final var invisible = source(clip, paint, rotation, false);
+                    assertSameRaster(source("none", paint, rotation, false), invisible);
+                    assertTrue(extract(invisible).elements().stream().noneMatch(e -> e.type() == ElementType.Table));
+                    assertEquals(extract(source("visible", paint, rotation, false)).elements(),
+                            extract(source(clip, paint, rotation, true)).elements());
+                }
+            }
+        }
+    }
+
+    /**
      * Explicit/implicit closure, even-odd rules and transformed positive clips preserve the original table.
      * @throws Exception if independent raster comparison or extraction fails
      */
@@ -133,7 +152,7 @@ class PdfEmptyFormClipTest {
     }
 
     /**
-     * Even-odd, mirrored and scaled rectangles preserve visible paint; unsupported compound/skewed paths stay
+     * Even-odd, mirrored, scaled and skewed rectangles preserve visible paint; unsupported compound paths stay
      * conservative.
      * @throws Exception if source authoring, exact raster comparison or extraction fails
      */
@@ -343,7 +362,7 @@ class PdfEmptyFormClipTest {
                 final String mode = clip.replace("-lines", "").replace("-open", "").replace("-return", "");
                 final Matrix transform = mode.equals("path-visible-mirrored") ? new Matrix(-1, 0, 0, 1, 400, 0)
                                          : mode.equals("path-visible-scaled") ? new Matrix(2, 0, 0, .5f, -20, 0)
-                                         : mode.equals("path-visible-skewed") ? new Matrix(1, .125f, 0, 1, 0, 0)
+                                         : mode.contains("-skewed")           ? new Matrix(1, .125f, 0, 1, 0, 0)
                                                                               : new Matrix();
                 content.transform(transform);
                 final boolean visible = clip.startsWith("path-visible");
@@ -371,7 +390,7 @@ class PdfEmptyFormClipTest {
                     content.curveTo(0, 5, 5, 5, 5, 0);
                     content.closePath();
                 }
-                if (mode.equals("path-visible-evenodd")) {
+                if (mode.endsWith("-evenodd")) {
                     content.clipEvenOdd();
                 } else {
                     content.clip();

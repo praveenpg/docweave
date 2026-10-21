@@ -1,0 +1,27 @@
+{
+  "scope": "Two complete-original single-call observations; default native PDF; isolated Java21 processes",
+  "jvm_flags": [
+    "-Xms32m",
+    "-Xmx256m"
+  ],
+  "process_deadline_seconds": 60,
+  "input_observations": 2,
+  "successful_extractions": 1,
+  "typed_rejections": 1,
+  "ocr_calls": 0,
+  "model_calls": 0,
+  "consumer_runtime_artifact_count": 6,
+  "artifact_sha256": {
+    "docweave-core-0.1.0-SNAPSHOT.jar": "aace72cd62ac9ef1187ed678f84c5f710d1ed3dcdc8bd779f0e425ff15a1039f",
+    "docweave-pdf-0.1.0-SNAPSHOT.jar": "3dda530848abcadd31873d83517a92a090c538dc41883fd8ee15ae924267c1fc",
+    "pdfbox-3.0.8.jar": "97647cfbde61ebcfc06b4cf8c9b0ffcaaee073396eceb4a7f6836a9b9128903c",
+    "pdfbox-io-3.0.8.jar": "36a0e04001010b4c764857817412b96339930b19755e728959805cc0352061b2",
+    "fontbox-3.0.8.jar": "a1915c24e3edbe0ecec93896dfbf6d41427810b663ade97bd4e8bae86ec3fdab",
+    "commons-logging-1.4.0.jar": "d175dbd751dd782a63bde28c7a039520e971f25e84b79c19b8435edc3603e0dc"
+  },
+  "probe_sha256": "f3c38230f8847d2774a17771313b2bbd69b23cf1e5a168e92eca3a2ed0d49257",
+  "strict_private_javadocs": "PASS",
+  "standalone_java21_compile_guard": "PASS",
+  "runtime_changes": "NONE",
+  "limits": "No throughput, minimum-memory requirement, total parser heap bound, corpus accuracy or JVM25 claim"
+}

@@ -72,7 +72,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
     private Point2D current = new Point2D.Float();
     /** Start of current subpath. */
     private Point2D start = current;
-    /** Bounded source rectangle candidate in transformed PDF coordinates; unsupported paths clear it. */
+    /** Source rectangle-operator candidate in transformed PDF coordinates; later construction clears it. */
     private GeneralPath rectangleClip;
     /** At most six raw vertices for a line-built clip; ordinary move/line paint allocates no extra path. */
     private float[] lineClipVertices = new float[12];
@@ -319,10 +319,15 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
     @Override
     public void appendRectangle(final Point2D p0, final Point2D p1, final Point2D p2, final Point2D p3) {
         lineClipPoints = 0;
-        rectangleClip = subpaths == 0 && axisAligned(p0, p1) && axisAligned(p1, p2) && axisAligned(p2, p3)
-                                        && axisAligned(p3, p0)
-                                ? new GeneralPath()
-                                : null;
+        // The rectangle operator remains a single bounded parallelogram after an affine source transform.
+        rectangleClip =
+                subpaths == 0
+                                && List.of(p0, p1, p2, p3)
+                                           .stream()
+                                           .allMatch(point
+                                                   -> Double.isFinite(point.getX()) && Double.isFinite(point.getY()))
+                        ? new GeneralPath()
+                        : null;
         if (rectangleClip != null) {
             rectangleClip.moveTo(p0.getX(), p0.getY());
             rectangleClip.lineTo(p1.getX(), p1.getY());
@@ -547,16 +552,17 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
     }
 
     /**
-     * Defers a single axis-aligned source rectangle clip until the current path finishes painting.
-     * Both rectangle operators and bounded move/line paths with explicit or implicit closure are supported.
+     * Defers a single source rectangle clip until the current path finishes painting.
+     * Affine-transformed rectangle operators and bounded axis-aligned move/line rectangles are supported.
      * Existing graphics-state save/restore and form scopes own its lifetime. Unsupported compound,
-     * skewed and curved clip paths remain ignored; retained rule geometry is never partially trimmed.
+     * general skewed line-built and curved clip paths remain ignored; rule geometry is never partially trimmed.
      * @param windingRule source clip rule
      */
     @Override
     public void clip(final int windingRule) {
         deferredClip = null;
-        if (!curved && subpaths == 1 && pending.size() >= 3 && pending.size() <= 5 && axisAligned(current, start)) {
+        if (!curved && subpaths == 1 && pending.size() >= 3 && pending.size() <= 5
+                && (rectangleClip != null || axisAligned(current, start))) {
             GeneralPath candidate = rectangleClip;
             if (candidate == null && lineClipPoints >= 4) {
                 candidate = new GeneralPath();
@@ -568,9 +574,9 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
             if (candidate == null) {
                 return;
             }
-            // W/W* implicitly close subpaths; keep only a rectangle or a provably empty bounded area.
+            // W/W* implicitly close paths. A transformed re is bounded; line-built paths still require a rectangle.
             final var area = new Area(candidate);
-            if (area.isEmpty() || area.isRectangular()) {
+            if (rectangleClip != null || area.isEmpty() || area.isRectangular()) {
                 deferredClip = new GeneralPath(candidate);
             }
         }

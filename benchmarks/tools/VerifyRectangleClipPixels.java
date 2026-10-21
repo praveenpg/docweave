@@ -41,7 +41,8 @@ public final class VerifyRectangleClipPixels {
             Files.write(ordinary, (byte[]) source.invoke(null, "none", "stroke", rotation, false),
                     StandardOpenOption.CREATE_NEW);
             final Path baseline = render(executable, ordinary);
-            for (final String clip : List.of("path-empty", "path-disjoint")) {
+            for (final String clip :
+                    List.of("path-empty", "path-disjoint", "path-disjoint-skewed", "path-disjoint-skewed-evenodd")) {
                 final Path candidate = root.resolve(clip + "-" + rotation + ".pdf");
                 Files.write(candidate, (byte[]) source.invoke(null, clip, "stroke", rotation, false),
                         StandardOpenOption.CREATE_NEW);
@@ -67,7 +68,7 @@ public final class VerifyRectangleClipPixels {
                     hash(candidate), "render_png_sha256", hash(rendered), "baseline_source_sha256", hash(visible),
                     "baseline_png_sha256", hash(baseline)));
         }
-        require(results.size() == 14, "Incomplete owned pair population");
+        require(results.size() == 22, "Incomplete owned pair population");
         Files.writeString(Path.of(args[2]),
                 JsonMapper.builder().build().writerWithDefaultPrettyPrinter().writeValueAsString(Map.of("java_runtime",
                         System.getProperty("java.runtime.version"), "renderer_version",
@@ -75,7 +76,7 @@ public final class VerifyRectangleClipPixels {
                         "source_author_sha256",
                         hash(Path.of("docweave-pdf/src/test/java/dev/docweave/partition/PdfEmptyFormClipTest.java")),
                         "probe_sha256", hash(Path.of("benchmarks/tools/VerifyRectangleClipPixels.java")), "scope",
-                        "Fourteen owned complete-source pairs, explicit Poppler72DPI/cropbox, exact RGB; no corpus accuracy claim",
+                        "Twenty-two owned complete-source pairs, explicit Poppler72DPI/cropbox, exact RGB; no corpus accuracy claim",
                         "results", results))
                         + "\n",
                 StandardOpenOption.CREATE_NEW);
