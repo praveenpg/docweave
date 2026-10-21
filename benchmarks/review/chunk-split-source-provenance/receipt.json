@@ -1,0 +1,29 @@
+{
+  "baseline_development_commit": "ebaae9d",
+  "java": "21",
+  "scope": "Owned complete narrative and table cases; actual serialized JSON reduction by explicit provenance omission, not PDF accuracy/heap bound. Source and output text/HTML hashes unchanged.",
+  "source_files": {
+    "docweave-chunking/src/main/java/dev/docweave/chunking/ChunkProvenance.java": "ac47d5a63d76641f32e44dddf52af3dca7078e82d229eb308f8ba4b55a9eed2c",
+    "docweave-chunking/src/main/java/dev/docweave/chunking/DefaultChunker.java": "885c5fdee6474cfb6d4aab80dc57eae7cb0ca1e097d98a000dbcdbaa5fedf9ab",
+    "docweave-chunking/src/main/java/dev/docweave/chunking/MetadataConsolidator.java": "02b7fc3ffcdcdfcb6d9280f3d7f6422054fa7f55880c8e4d8049d83bd73664a4",
+    "docweave-chunking/src/main/java/dev/docweave/chunking/ChunkOptions.java": "cc71ae077f2a73c545c401ea37d4b73c5c47c01ba483823879d5dd3755c70f0c",
+    "docweave-chunking/src/test/java/dev/docweave/chunking/ChunkProvenanceTest.java": "70ee59cd643b5911058fb3ff78c055ecf250d2abcff908f1e40141718f00b230",
+    "benchmarks/tools/ProbeSplitSourceProvenance.java": "822911ddd652fc6029ad08fa5ea5791154d50399a54c53a4605899d4f8f2322e"
+  },
+  "reports": {
+    "before-java21.json": "e3b335146b23439ef654b8deb89cad441ba58b85f8a17cbae7d129ea5f4b8eec",
+    "after-java21.json": "c21063468ca49b7d7cf20000a953254416d59be37c9b975d302c171a9a43e3ee",
+    "comparison.json": "f213582c21202ee71baa12d5a36aa939a64d9e4da3e1ade197203131af46ee2d"
+  },
+  "full_verify": {
+    "tests": 1296,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "logs": {
+    "verify.log": "84f074aa2166ef3b4c1d1957689336f2bd3bf099a4269c8daeec55b9e54e940a",
+    "private-docs.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "final_focused_check_sha256": "78e9005bbf4957e35e04349e181083ff251cacb10a90f0219f1e86d6f0634145"
+}

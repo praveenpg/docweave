@@ -1,0 +1,63 @@
+{
+  "scope": "Official release and incremental main source review, not runtime parity. Historical references and measured0.27.28 unchanged.",
+  "latest_release": {
+    "published_at": "2026-10-20T23:13:41Z",
+    "tag": "0.27.32",
+    "url": "https://github.com/Unstructured-IO/unstructured/releases/tag/0.27.32",
+    "commit": "07d978b8c182404b800fba27c01f4a2c633cfffc"
+  },
+  "reviewed_main": "9a376447d236784a044a4929464179a0164f3329",
+  "previous_main": "07d978b8c182404b800fba27c01f4a2c633cfffc",
+  "incremental_commits": [
+    {
+      "commit": "cb82b5503695cd6c97b4fe2c85842851b815edd2",
+      "title": "fix(chunking): don't repeat a very large split element in every chunk (#4565)",
+      "classification": "reviewed_large_split_singleton_provenance_guard_adopted_with_explicit_JVM_omission_metadata"
+    },
+    {
+      "commit": "97edfcb538b04abc6c0133e5f28f3be7bc111f81",
+      "title": "fix(deps): bump certifi to 2026.10.19 (#4564)",
+      "classification": "Python_certifi_trust_bundle_dependency_outside_JVM_runtime"
+    },
+    {
+      "commit": "2f14175f5c6fc415fa360e4ebcbce9b7a581b98c",
+      "title": "perf: Free decode buffers sooner when restoring original elements (#4524)",
+      "classification": "reviewed_decode_buffer_lifetime_JVM_16MiB_bounded_codec_contract_distinct"
+    },
+    {
+      "commit": "9a376447d236784a044a4929464179a0164f3329",
+      "title": "perf: Free image buffers sooner during figure extraction (#4523)",
+      "classification": "reviewed_figure_buffer_release_JVM_source_PNG_payload_contract_distinct_existing_finally_flush"
+    }
+  ],
+  "responses": {
+    "incremental.json": {
+      "sha256": "8a6d68523f003108889e66fcbe2056b0f4f3698d71640f9e5f65ccb544842a8a",
+      "bytes": 109950
+    },
+    "full-comparison.json": {
+      "sha256": "46d53c17fc67e8c50faf3f9c0dc37f753980a916a14598df13f78070317d61db",
+      "bytes": 534934
+    },
+    "release.json": {
+      "sha256": "3e7ad47a59d4fca792e2194b8b043c4b10fb1eb691c717d7f0b39a8b93614755",
+      "bytes": 3036
+    }
+  },
+  "incremental_changed_paths": [
+    "CHANGELOG.md",
+    "pyproject.toml",
+    "scripts/performance/benchmark_image_extraction_memory.py",
+    "scripts/performance/benchmark_orig_element_decode_memory.py",
+    "test_unstructured/chunking/test_base.py",
+    "test_unstructured/partition/pdf_image/test_extracted_image_memory.py",
+    "test_unstructured/staging/test_decode_buffer_lifetimes.py",
+    "unstructured/__version__.py",
+    "unstructured/chunking/base.py",
+    "unstructured/chunking/basic.py",
+    "unstructured/chunking/title.py",
+    "unstructured/partition/pdf_image/pdf_image_utils.py",
+    "unstructured/staging/base.py",
+    "uv.lock"
+  ]
+}

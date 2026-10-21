@@ -6,10 +6,16 @@ A source review does not silently regenerate references or establish full parity
 | Track | Commit | Status |
 | --- | --- | --- |
 | Saved reference release0.27.27 | 347fbbfd3e84e228017f125e5c5dbdc326ef7de2 | Fixture manifest and seven golden datasets remain unchanged |
-| Latest reviewed release0.27.30 | 08d407ea5ab77dcc7f27775c22cc70bbedae7d58 | Official release/source reviewed; measured PDF runtime remains explicitly0.27.28 |
-| Reviewed main | 08d407ea5ab77dcc7f27775c22cc70bbedae7d58 | Eight commits after historical reference; now also released as0.27.30 |
+| Latest reviewed release0.27.32 | 07d978b8c182404b800fba27c01f4a2c633cfffc | Previously reviewed main changes now released; measured PDF runtime remains explicitly0.27.28 |
+| Reviewed main | 9a376447d236784a044a4929464179a0164f3329 | Eighteen commits after historical reference; four beyond the reviewed release |
 
 The checkpoint is [benchmarks/upstream-status.json](../benchmarks/upstream-status.json).
+The [0.27.32 and subsequent main review](../benchmarks/review/upstream-main-20261021/README.md)
+records the now-released prior main checkpoint and four new main commits. The large split-source
+provenance safeguard is adopted with explicit JVM omission metadata; Python certifi and decode/
+figure buffer lifetime changes retain separate JVM contracts. Main changelog version headings
+do not replace official release metadata. Historical goldens and executed comparisons stay pinned.
+
 The [0.27.30 release review](../benchmarks/review/upstream-release-0.27.30/README.md)
 adds the email metadata fix for readable non-ASCII sender/recipient names. Email remains
 outside implemented formats. No PDF or dependency manifest changed; measured runtime and
@@ -29,8 +35,8 @@ the seventh commit: padded legacy XLS encryption probing, its owned regression f
 an unreleased version bump. It changes no PDF code. XLS/XLSX remain outside implemented formats;
 the released0.27.28 identity and historical0.27.27 reference outputs remain unchanged.
 
-Official sources: [reviewed release](https://github.com/Unstructured-IO/unstructured/releases/tag/0.27.30)
-and [historical-reference-to-main comparison](https://github.com/Unstructured-IO/unstructured/compare/347fbbfd3e84e228017f125e5c5dbdc326ef7de2...08d407ea5ab77dcc7f27775c22cc70bbedae7d58).
+Official sources: [reviewed release](https://github.com/Unstructured-IO/unstructured/releases/tag/0.27.32)
+and [historical-reference-to-main comparison](https://github.com/Unstructured-IO/unstructured/compare/347fbbfd3e84e228017f125e5c5dbdc326ef7de2...9a376447d236784a044a4929464179a0164f3329).
 
 The previously reviewed five commits cover optional langdetect-rs, unknown HTML element text, table captions,
 DOCX per-document style lookup/numbering cache reuse, and XLSX sparse empty-row handling.

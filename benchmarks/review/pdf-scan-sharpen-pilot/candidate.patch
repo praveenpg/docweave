@@ -1,0 +1,11 @@
+--- a/docweave-validation/src/test/java/dev/docweave/validation/PdfHistoricalTextCorpusTest.java
++++ b/docweave-validation/src/test/java/dev/docweave/validation/PdfHistoricalTextCorpusTest.java
+@@ -138,7 +138,7 @@
+         final var manifest = mapper.readTree(Files.readAllBytes(Path.of(System.getProperty(
+                 "docweave.pdf.historical.manifest", "benchmarks/review/pdf-historical-text/manifest.json"))));
+         final boolean sourceResolution = Boolean.getBoolean("docweave.pdf.historical.source.resolution");
+-        final boolean median = Boolean.getBoolean("docweave.pdf.historical.median3x3");
++        final boolean median = Boolean.getBoolean("docweave.pdf.historical.sharpen3x3");
+         final boolean background = Boolean.getBoolean("docweave.pdf.historical.background.whitepoint");
+         final boolean contrast = Boolean.getBoolean("docweave.pdf.historical.contrast.limited");
+         assertTrue(!contrast || sourceResolution, "Contrast trial requires declared TIFF source resolution");

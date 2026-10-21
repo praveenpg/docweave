@@ -26,11 +26,11 @@ final class MetadataConsolidator {
     private static final Set<String> DROP = Set.of("category_depth", "coordinates", "detection_class_prob",
             "detection_origin", "header_footer_type", "image_url", "image_path", "image_base64", "image_mime_type",
             "is_continuation", "is_extracted", "link_start_indexes", "links", "max_characters", "orig_elements",
-            "parent_id", "routing", "routing_score", "table_id", "chunk_index", "num_carried_over_header_rows",
-            "docx_references", "docx_revisions", "docx_list_items", "docx_table_style_paragraphs",
-            "docx_field_instructions", "docx_field_policy", "nested_tables", "nested_tables_version",
-            "segment_start_seconds", "segment_end_seconds", "key_value_pairs", "pdf_table_continuation",
-            "pdf_reading_index", "pdf_table_multiline_cells");
+            "orig_elements_omitted", "orig_elements_source_characters", "parent_id", "routing", "routing_score",
+            "table_id", "chunk_index", "num_carried_over_header_rows", "docx_references", "docx_revisions",
+            "docx_list_items", "docx_table_style_paragraphs", "docx_field_instructions", "docx_field_policy",
+            "nested_tables", "nested_tables_version", "segment_start_seconds", "segment_end_seconds", "key_value_pairs",
+            "pdf_table_continuation", "pdf_reading_index", "pdf_table_multiline_cells");
 
     /**
      * Filters single-table metadata by removing keys listed in {@link #DROP}.

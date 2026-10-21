@@ -1,0 +1,25 @@
+{
+  "results" : [ {
+    "source_text_sha256" : "aa561f61ba69561883bd58d72ce7bb8be0cbb096c633efbf7478ffe36ae763d1",
+    "chunks" : 8,
+    "chunk_text_sha256" : "49b9d8f6c668dfd355987569ea534a30c7e2b2cc3012b8d9d4f313cec11712e8",
+    "chunk_html_sha256" : "538d6440534fa5f615e8a26932792a82a2e4a33a97886e2d815eab8fc216d415",
+    "explicitly_omitted_chunks" : 8,
+    "original_payload_base64_characters" : 0,
+    "serialized_json_utf8_bytes" : 2546,
+    "case" : "narrative"
+  }, {
+    "source_text_sha256" : "35e34937677c7c05694e26797d9b09c4515a64fe5aeef83bca96afd7e6203ad1",
+    "chunks" : 6,
+    "chunk_text_sha256" : "cba3273d3dc8ba497da02fef65f98224d7b6362c0c6f86f94f99c61470dcf529",
+    "chunk_html_sha256" : "52fcd1c4647049ca1d4f8c69ca418659b3d5fc014f7b89816ba5a4dbe1583173",
+    "explicitly_omitted_chunks" : 6,
+    "original_payload_base64_characters" : 0,
+    "serialized_json_utf8_bytes" : 6019,
+    "case" : "table"
+  } ],
+  "png_sha256" : "7cb724dc4c53d2ac2f2df4af2d8efc29f790d39126c5bf71770ab9e05fd7c1be",
+  "scope" : "Owned deterministic512x512RGBPNG, whole-source payload amplification; no peak heap or corpus accuracy claim",
+  "java" : "21.0.12.1+12-LTS",
+  "source_image_base64_characters" : 1050056
+}

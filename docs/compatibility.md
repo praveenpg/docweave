@@ -24,6 +24,17 @@ Initial metadata: filename, filetype, page_number, page_name, parent_id, categor
 
 Implemented provenance: `orig_elements` is a base64 string containing zlib-compressed JSON. Upstream names this gzip but uses zlib. DocWeave encodes/decodes the same container, removes recursively nested provenance when rechunking, and rounds original coordinates/probabilities as upstream does. JSON key ordering, whitespace, escaping, and resulting compression bytes are not byte-for-byte identical. The decoder caps decompressed data at 16 MiB. Encoding also rejects serialized originals above that limit so generated provenance remains decodable.
 
+Unreleased split-source safeguard: a single source over 1,000,000 combined text, raw HTML and
+image-base64 Unicode code points omits repeated `orig_elements` only when it actually produces
+multiple chunks. Every affected chunk records `orig_elements_omitted=oversized_split_source`
+and `orig_elements_source_characters`. Such chunks cannot restore the full original from
+embedded provenance; retain the original partition result where reconstruction is required.
+Text/HTML content, ownership and chunk boundaries stay unchanged. Unsplit large sources,
+exact-threshold sources, multi-source groups and explicit table pass-through keep their contracts.
+See [the measured output reduction](../benchmarks/review/chunk-split-source-provenance/README.md).
+This source-informed safeguard tracks newer upstream main; it does not relabel saved goldens.
+
+
 Coordinates must declare their system and dimensions. Internal coordinates should use a documented top-left origin with explicit units; exporters must convert to upstream systems. Missing pagination stays missing, particularly in DOCX.
 
 Stable-ID compatibility must match upstream input formatting and hashing, including absent values and page sequence counters. Document identity and parser output identity are separate concepts. Do not promise ID equality if element segmentation differs.
@@ -62,7 +73,7 @@ Chunking must specify hard/soft limits, separators, oversized-element splitting,
 | overlap / overlap_all | overlap / overlapAll | Implemented, default 0 / false |
 | multipage_sections | multipageSections | Implemented for by-title, default true |
 | combine_text_under_n_chars | combineTextUnderCharacters | Implemented for by-title, default hard maximum |
-| include_orig_elements | includeOriginalElements | Implemented, default true |
+| include_orig_elements | includeOriginalElements | Default true; oversized actually split singleton sources omit repeated provenance with explicit metadata |
 | isolate_table | isolateTable | Default true; false permits text/table composites, with conservative overlap/metadata differences |
 | max_tokens / tokenizer | — | Deferred |
 | text_splitting_separators | textSplittingSeparators | Ordered literals; default newline/space then code-point fallback; visible delimiters retained |

@@ -19,7 +19,8 @@ import static dev.docweave.chunking.UnicodeText.*;
  * characters as one. Tables are isolated by default; disabling isolation allows mixed composites.
  * Overlap never crosses table-bearing groups, including mixed groups. Mixed composites use stored
  * table text; table HTML/cell geometry remain only in provenance when enabled.
- * Chunk metadata follows field-specific consolidation rules; original elements are retained by default.
+ * Chunk metadata follows field-specific consolidation rules; original elements are retained by default, except
+ * oversized singleton sources actually split into multiple chunks; their provenance omission is explicit in metadata.
  *
  * <p>All processing is synchronous and stages input elements in memory. Generated chunk and
  * split-table IDs are UUIDs, so compare content/metadata rather than byte-exact output across runs.
@@ -255,18 +256,6 @@ final class DefaultChunker implements Chunker {
         final var metadata =
                 new LinkedHashMap<>(table ? MetadataConsolidator.tableMetadata(preChunk.elements().getFirst())
                                           : MetadataConsolidator.consolidate(preChunk.elements()));
-        if (options.includeOriginalElements()) {
-            final var originals =
-                    preChunk.elements()
-                            .stream()
-                            .map(element -> {
-                                final var clean = new LinkedHashMap<>(element.metadata());
-                                clean.remove("orig_elements");
-                                return new Element(element.elementId(), element.type(), element.text(), clean);
-                            })
-                            .toList();
-            metadata.put("orig_elements", json.encodeOriginals(originals));
-        }
         boolean splitTable = table && length(text) > options.maxCharacters();
         // When an isolated table carries non-blank text_as_html, parse its grid model and either emit whole or split
         // structurally.
@@ -289,6 +278,8 @@ final class DefaultChunker implements Chunker {
                 }
                 final var whole = TableFragment.range(model, 0, model.rows().size());
                 if (whole.fits(options.maxCharacters())) {
+                    ChunkProvenance.attach(
+                            metadata, preChunk.elements(), options.includeOriginalElements(), false, json);
                     metadata.put("text_as_html", whole.html());
                     metadata.put("table_row_count", model.rows().size());
                     metadata.put("table_column_count", model.width());
@@ -304,6 +295,8 @@ final class DefaultChunker implements Chunker {
                     splitTable = true;
                 } else {
                     final var fragments = new StructuredTableSplitter(model, options).split();
+                    ChunkProvenance.attach(metadata, preChunk.elements(), options.includeOriginalElements(),
+                            fragments.size() > 1, json);
                     final String tableId = UUID.randomUUID().toString();
                     for (int i = 0; i < fragments.size(); i++) {
                         ChunkCancellation.check();
@@ -343,6 +336,10 @@ final class DefaultChunker implements Chunker {
         do {
             ChunkCancellation.check();
             final var split = splitter.split(text);
+            if (index == 0) {
+                ChunkProvenance.attach(metadata, preChunk.elements(), options.includeOriginalElements(),
+                        !split.remainder().isEmpty(), json);
+            }
             final var chunkMetadata = new LinkedHashMap<>(metadata);
             if (index > 0) {
                 chunkMetadata.put("is_continuation", true);

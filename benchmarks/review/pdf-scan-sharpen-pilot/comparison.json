@@ -1,0 +1,22 @@
+{
+  "results" : [ {
+    "language" : "deu",
+    "outcome" : "SUCCESS",
+    "xml_sequence_character_edits" : [ 419, 416 ],
+    "xml_sequence_word_edits" : [ 126, 120 ],
+    "associated_reference_lines" : [ 17, 18 ],
+    "exact_associated_lines" : [ 0, 1 ],
+    "missing_reference_lines" : [ 21, 20 ],
+    "predicted_lines_without_reference" : [ 11, 9 ]
+  }, {
+    "language" : "deu_latf",
+    "outcome" : "SUCCESS",
+    "xml_sequence_character_edits" : [ 371, 372 ],
+    "xml_sequence_word_edits" : [ 117, 114 ],
+    "associated_reference_lines" : [ 18, 17 ],
+    "exact_associated_lines" : [ 3, 4 ],
+    "missing_reference_lines" : [ 20, 21 ],
+    "predicted_lines_without_reference" : [ 10, 10 ]
+  } ],
+  "scope" : "One full1778source,2pinnedmodels,all38lines,XMLsequence diagnostic only; before/after arrays, no winner selection"
+}

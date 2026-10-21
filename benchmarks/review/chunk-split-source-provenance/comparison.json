@@ -1,0 +1,17 @@
+{
+  "results" : [ {
+    "serialized_json_utf8_bytes_after" : 2546,
+    "case" : "narrative",
+    "unchanged_source_text_and_chunk_text_html" : true,
+    "serialized_json_utf8_bytes_before" : 8439602,
+    "chunks" : 8
+  }, {
+    "serialized_json_utf8_bytes_after" : 6019,
+    "case" : "table",
+    "unchanged_source_text_and_chunk_text_html" : true,
+    "serialized_json_utf8_bytes_before" : 6334867,
+    "chunks" : 6
+  } ],
+  "source_png_sha256" : "7cb724dc4c53d2ac2f2df4af2d8efc29f790d39126c5bf71770ab9e05fd7c1be",
+  "scope" : "Owned payload amplification guard, explicit provenance omission; not corpus accuracy or peak heap"
+}

@@ -1,0 +1,31 @@
+package dev.docweave.validation;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+/** Fixed source-preserving evaluation prototype; no production API or parameter search. */
+final class HistoricalSharpenTrial {
+ private HistoricalSharpenTrial() {}
+ static BufferedImage apply(final BufferedImage source, final long maximum) throws IOException {
+  final int w=source.getWidth(),h=source.getHeight();
+  if((long)w*h>maximum)throw new IllegalArgumentException("Pixel limit");
+  final var result=new BufferedImage(w,h,BufferedImage.TYPE_INT_RGB);
+  try {
+   for(int y=0;y<h;y++) {
+    if(Thread.currentThread().isInterrupted())throw new java.io.InterruptedIOException("Cancelled");
+    for(int x=0;x<w;x++) {
+     int total=0;
+     for(int dy=-1;dy<=1;dy++)for(int dx=-1;dx<=1;dx++) {
+      final int weight=(dy==0?2:1)*(dx==0?2:1);
+      total+=weight*gray(source.getRGB(Math.max(0,Math.min(w-1,x+dx)),Math.max(0,Math.min(h-1,y+dy))));
+     }
+     final int value=Math.max(0,Math.min(255,2*gray(source.getRGB(x,y))-(total+8)/16));
+     result.setRGB(x,y,value*0x010101);
+    }
+   }
+   return result;
+  }catch(final IOException|RuntimeException failure){result.flush();throw failure;}
+ }
+ private static int gray(final int rgb) {
+  final int l=(77*((rgb>>>16)&255)+150*((rgb>>>8)&255)+29*(rgb&255)+128)>>>8;
+  final int a=rgb>>>24;return (l*a+255*(255-a)+127)/255;
+ }
+}

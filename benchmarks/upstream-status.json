@@ -1,18 +1,18 @@
 {
-  "checked_at": "2026-10-20T23:08:45.191231291Z",
+  "checked_at": "2026-10-21T23:20:46.915497590Z",
   "repository": "Unstructured-IO/unstructured",
   "reference_commit": "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",
   "latest_release": {
-    "published_at": "2026-10-19T23:08:14Z",
-    "tag": "0.27.30",
-    "url": "https://github.com/Unstructured-IO/unstructured/releases/tag/0.27.30",
-    "commit": "08d407ea5ab77dcc7f27775c22cc70bbedae7d58"
+    "published_at": "2026-10-20T23:13:41Z",
+    "tag": "0.27.32",
+    "url": "https://github.com/Unstructured-IO/unstructured/releases/tag/0.27.32",
+    "commit": "07d978b8c182404b800fba27c01f4a2c633cfffc"
   },
-  "reviewed_main": "07d978b8c182404b800fba27c01f4a2c633cfffc",
-  "ahead_by": 14,
-  "comparison_url": "https://github.com/Unstructured-IO/unstructured/compare/347fbbfd3e84e228017f125e5c5dbdc326ef7de2...07d978b8c182404b800fba27c01f4a2c633cfffc",
-  "compare_response_sha256": "d4e37264b5d2078790678923387b480aca15fa0f14bcf173996e060eed459461",
-  "release_response_sha256": "e62a8f63f4b002691c006193238b3c1277eb525d3d2ab148c9f3ee3c5cafe571",
+  "reviewed_main": "9a376447d236784a044a4929464179a0164f3329",
+  "ahead_by": 18,
+  "comparison_url": "https://github.com/Unstructured-IO/unstructured/compare/347fbbfd3e84e228017f125e5c5dbdc326ef7de2...9a376447d236784a044a4929464179a0164f3329",
+  "compare_response_sha256": "46d53c17fc67e8c50faf3f9c0dc37f753980a916a14598df13f78070317d61db",
+  "release_response_sha256": "3e7ad47a59d4fca792e2194b8b043c4b10fb1eb691c717d7f0b39a8b93614755",
   "changed_paths": [
     ".github/workflows/ci.yml",
     "CHANGELOG.md",
@@ -20,7 +20,10 @@
     "example-docs/xlwt-padded-workbook.xls",
     "pyproject.toml",
     "scripts/performance/benchmark_chunking_memory.py",
+    "scripts/performance/benchmark_image_extraction_memory.py",
+    "scripts/performance/benchmark_orig_element_decode_memory.py",
     "scripts/performance/benchmark_pdf_ocr_memory.py",
+    "test_unstructured/chunking/test_base.py",
     "test_unstructured/chunking/test_image_payload_memory.py",
     "test_unstructured/file_utils/test_filetype.py",
     "test_unstructured/partition/common/test_common.py",
@@ -28,6 +31,7 @@
     "test_unstructured/partition/html/test_convert.py",
     "test_unstructured/partition/html/test_parser.py",
     "test_unstructured/partition/html/test_partition.py",
+    "test_unstructured/partition/pdf_image/test_extracted_image_memory.py",
     "test_unstructured/partition/pdf_image/test_pdf_streaming_memory.py",
     "test_unstructured/partition/test_auto.py",
     "test_unstructured/partition/test_docx.py",
@@ -38,9 +42,12 @@
     "test_unstructured/partition/test_xlsx_reader.py",
     "test_unstructured/partition/utils/ocr_models/test_ocr_interface.py",
     "test_unstructured/partition/utils/test_config.py",
+    "test_unstructured/staging/test_decode_buffer_lifetimes.py",
     "test_unstructured/staging/test_streamed_orig_elements.py",
     "unstructured/__version__.py",
     "unstructured/chunking/base.py",
+    "unstructured/chunking/basic.py",
+    "unstructured/chunking/title.py",
     "unstructured/documents/html_sanitization.py",
     "unstructured/file_utils/filetype.py",
     "unstructured/partition/common/common.py",
@@ -130,10 +137,30 @@
       "commit": "07d978b8c182404b800fba27c01f4a2c633cfffc",
       "title": "perf(xlsx): reduce dense-worksheet partitioning memory (#4563)",
       "classification": "outside_current_formats_XLSX_dense_worksheet_memory_and_runtime_networkx_removal"
+    },
+    {
+      "commit": "cb82b5503695cd6c97b4fe2c85842851b815edd2",
+      "title": "fix(chunking): don't repeat a very large split element in every chunk (#4565)",
+      "classification": "reviewed_large_split_singleton_provenance_guard_adopted_with_explicit_JVM_omission_metadata"
+    },
+    {
+      "commit": "97edfcb538b04abc6c0133e5f28f3be7bc111f81",
+      "title": "fix(deps): bump certifi to 2026.10.19 (#4564)",
+      "classification": "Python_certifi_trust_bundle_dependency_outside_JVM_runtime"
+    },
+    {
+      "commit": "2f14175f5c6fc415fa360e4ebcbce9b7a581b98c",
+      "title": "perf: Free decode buffers sooner when restoring original elements (#4524)",
+      "classification": "reviewed_decode_buffer_lifetime_JVM_16MiB_bounded_codec_contract_distinct"
+    },
+    {
+      "commit": "9a376447d236784a044a4929464179a0164f3329",
+      "title": "perf: Free image buffers sooner during figure extraction (#4523)",
+      "classification": "reviewed_figure_buffer_release_JVM_source_PNG_payload_contract_distinct_existing_finally_flush"
     }
   ],
   "policy": "Historical reference release/goldens stay pinned independently of the latest reviewed release and main. Freshness validates each saved identity against its own track; no automatic reference rewrite or full parity claim.",
-  "assessment": "Latest official release remains0.27.30; unreleased main07d978b adds6commits beyond that release (14beyond unchanged0.27.27goldens): DOCX numbered heading/section-break semantics; Python spooled-upload ownership; PDF pagewise OCR memory/owned-image release; chunk image/provenance serialization memory; guarded XLSX worksheet reader. JVM already renders/flushes one OCR page at a time but retains bounded whole-input bytes. No Python stream cursor or XLSX API parity is claimed. DOCX semantics await post-PDF work; JVM provenance serialization now streams under its existing16MiB ceiling with exact owned decoded-wire regression coverage; caller-owned List input/final payload retention remains distinct. Preserve measured0.27.28 comparisons and0.27.27goldens; source review is not executed runtime parity. Additional dense-XLSX traversal/row-render memory change and NetworkX runtime removal remain outside current formats; main changelog versions do not replace official release metadata.",
+  "assessment": "Official0.27.32 releases the previously reviewed07d978b main checkpoint (14commits beyond unchanged0.27.27goldens). New main9a376447 adds4commits: oversized singleton split provenance guard, Python certifi update, earlier decode-buffer release, and earlier figure page/crop/JPEG release. JVM now omits repeated orig_elements only for actually split singleton sources over1,000,000 text/HTML/image code points, with explicit omission reason and size; text/HTML/fragments unchanged. This is source-informed owned Java behavior, not executed0.27.32/main parity. JVM PNG source-image payloads and16MiB JSON provenance codec remain distinct; no complete heap bound is claimed. Python certifi is not a JVM dependency. Preserve measured0.27.28 comparison identities and0.27.27goldens; no automatic dependency or golden regeneration.",
   "reference_release": {
     "tag": "0.27.27",
     "commit": "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",

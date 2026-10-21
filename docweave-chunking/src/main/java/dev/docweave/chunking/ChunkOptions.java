@@ -25,7 +25,9 @@ import java.util.List;
  * @param overlapAll whether normal pre-chunk boundaries also receive overlap, default false
  * @param multipageSections whether by-title sections may span pages, default true
  * @param combineTextUnderCharacters by-title small-section threshold; zero disables combining
- * @param includeOriginalElements whether compressed source provenance is attached, default true
+ * @param includeOriginalElements whether compressed source provenance is attached, default true; singleton
+ *         sources exceeding1,000,000 combined text/HTML/image code points omit repeated provenance when
+ *         actually split into multiple chunks, with explicit omission metadata
  * @param repeatTableHeaders whether leading table headers may repeat when they fit and align with fragment columns,
  *         default true
  * @param skipTableChunking whether isolated tables pass through unchanged, exempt from chunk budgets
@@ -185,7 +187,11 @@ public record ChunkOptions(int maxCharacters, int newAfterCharacters, int overla
          */
         Builder combineTextUnderCharacters(final int value);
         /**
-         * Configures compressed original-element provenance.
+         * Configures compressed original-element provenance. An actually split singleton source exceeding
+         * 1,000,000 combined text, text_as_html and image_base64 code points omits repeated provenance.
+         * Each affected chunk reports orig_elements_omitted=oversized_split_source and the source size.
+         * Unsplit sources, smaller sources, multi-element groups and explicit table pass-through retain
+         * their existing contracts. This does not bound caller-owned inputs or total output allocation.
          * @param value whether to include compressed source elements
          * @return this builder
          */

@@ -1,0 +1,10 @@
+{
+  "baseline_development_commit": "ebaae9d",
+  "source_manifest_sha256": "edd819f902d5986b9a473d50762870cd7cbe11e1f0cdd26447cbc3c882a797e1",
+  "original_input_byte_hashes_verified": true,
+  "candidate_and_defaults": "Isolated replacement class only; production unchanged. Same original143reference paragraphs,4942pairs perprofile,three complete originals, native compound columns and explicit source-line-wrap assembly. No complete-paragraph gain; candidate not promoted.",
+  "reports": {
+    "java21.json": "58989098a5101f344fb6d4066b4050d8f4aa49bbfa1097c9aabc4e3f21bd6052"
+  },
+  "source_diagnosis": "Existing native sidebar/body runs already have distinct boxes. The fixed12unit glyph-run threshold was not demonstrated as their cause. Candidate changes paragraph continuation across intervening horizontally disjoint ordinary text, with original joins,64itemlookahead and existing work guards. No source-gap change or repeated gutter inference."
+}

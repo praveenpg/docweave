@@ -3075,3 +3075,20 @@ same missing page-7 numeric row. Strict ordinal equality remains 0/110; titles, 
 boundaries and PDF/HTML presentation differences remain unresolved. This is a scoped
 known-source improvement, not a percentage-complete claim or general table accuracy.
 See [leading-row evidence and usage](../benchmarks/review/pdf-native-leading-row/README.md).
+
+
+### Oversized split-source provenance (unreleased)
+
+PDF tables and other extracted elements can carry large image/HTML payloads. Chunking a
+singleton source over 1,000,000 combined raw text/HTML/image code points into multiple
+fragments now omits repeated `orig_elements` with explicit reason/size metadata. Chunk
+text, structural HTML and cell ownership are unchanged. Preserve the original partition
+result when full reconstruction is needed. The retained owned PNG/table probe reduces
+serialized table output from 6,334,867 to 6,019 bytes for the same six fragments; this is
+an output-amplification safeguard, not an extraction accuracy or peak-memory claim.
+See [scope, upgrade impact and measurements](../benchmarks/review/chunk-split-source-provenance/README.md).
+
+The [scientific continuation attempt](../benchmarks/review/pdf-sidebar-continuation-attempt/README.md)
+and [1778 sharpening pilot](../benchmarks/review/pdf-scan-sharpen-pilot/README.md) remain parked:
+the former has no exact-paragraph gain; the latter has mixed model outcomes. Neither adds
+a production policy or changes defaults.

@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Avoid repeating oversized singleton source provenance across narrative and table chunks.
+  Actually split sources above 1,000,000 text/HTML/image code points omit `orig_elements`
+  with an explicit omission reason and source size. Preserve text, HTML and fragment ownership.
+  Retain originals separately when full-source reconstruction is needed.
+
 - Add explicit `PdfNativeLayoutOptions.LeadingRow.SOURCE_NUMERIC_ROW` inference for a
   complete nearby native numeric row above provider tables. Preserve default geometry,
   original anchors and source ownership; identify inferred boundaries in metadata.

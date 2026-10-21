@@ -1,0 +1,14 @@
+{
+  "scope": "Complete1778 original,2fixedmodels,38refs each, source300DPI AUTO/ENGINE_DEFAULT; one uniform fixed3x3unsharp mask, no production change; mixed ->parked",
+  "baseline_development_commit": "ebaae9d",
+  "baseline_report_sha256": "95db19b628dee8930d16620d894b60e8d47dc1b804ad01c5d8d4b3a2836ae84c",
+  "metadata_correction": "Raw capture inherited the median descriptor; actual call is HistoricalSharpenTrial.apply. Derived java21.json explicitly corrects only that descriptor, binds raw SHA, and leaves every numeric metric/frame/model hash unchanged. Raw capture is preserved, not overwritten. No extra inference for a label-only change.",
+  "files": {
+    "manifest.json": "d11549b8c208b11b9e4be19b5e012feea18cddd4bca788ac894ea784d231c6fa",
+    "raw-capture-java21.json": "6a2dd86331e96078a7b5ec1ac7d0e89a75e276c5929abd6e516ab22b51740171",
+    "java21.json": "870b0b497c2e57ea7e07ad6089bbff0d0e9f32dab64468e2e7ae0ca4b5365c38",
+    "comparison.json": "51a8d03921475e5726c1103a93c7b22488fd9368db41f9eff2e9f34440d0d825",
+    "candidate.patch": "7bdbcda946a72301929aaca3bbf6c0e25e4b3a4de305b3d07ed10b7958ff5ec7",
+    "filter-source.txt": "c9ddf6e115a3c697315f3a169206b8d4661134fb83757873b9ee33b28d05e049"
+  }
+}
