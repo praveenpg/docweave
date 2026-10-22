@@ -1,0 +1,242 @@
+diff --git a/docweave-pdf/src/main/java/dev/docweave/partition/DefaultPdfCoordinateConverter.java b/docweave-pdf/src/main/java/dev/docweave/partition/DefaultPdfCoordinateConverter.java
+index 8f51c8b..87bdd57 100644
+--- a/docweave-pdf/src/main/java/dev/docweave/partition/DefaultPdfCoordinateConverter.java
++++ b/docweave-pdf/src/main/java/dev/docweave/partition/DefaultPdfCoordinateConverter.java
+@@ -52,6 +52,14 @@ final class DefaultPdfCoordinateConverter implements PdfCoordinateConverter {
+                     "pdf_image_coordinates", coordinates(metadata.get("pdf_image_coordinates"), target, dpi, unit));
+             changed = true;
+         }
++        if (metadata.containsKey("pdf_image_clip_bounds")) {
++            final var clip = mapping(metadata.get("pdf_image_clip_bounds"));
++            if (clip.containsKey("bounds")) {
++                clip.put("bounds", coordinates(clip.get("bounds"), target, dpi, unit));
++            }
++            metadata.put("pdf_image_clip_bounds", clip);
++            changed = true;
++        }
+         if (metadata.containsKey("pdf_table_cells")) {
+             final var grid = mapping(metadata.get("pdf_table_cells"));
+             if (!(grid.get("cells") instanceof List<?> cells)) {
+diff --git a/docweave-pdf/src/main/java/dev/docweave/partition/PdfCoordinateConverter.java b/docweave-pdf/src/main/java/dev/docweave/partition/PdfCoordinateConverter.java
+index b09455a..1ab5c54 100644
+--- a/docweave-pdf/src/main/java/dev/docweave/partition/PdfCoordinateConverter.java
++++ b/docweave-pdf/src/main/java/dev/docweave/partition/PdfCoordinateConverter.java
+@@ -8,7 +8,9 @@ import dev.docweave.core.Element;
+  * Source crop boxes and embedded image pixel dimensions remain source attributes. Instances are
+  * stateless and safe to share across threads. Unsupported or malformed coordinate maps are rejected.
+  * The image's {@code pdf_image_coordinates} map retains its original corner order during conversion;
+- * mirroring and shear are not replaced by an axis-aligned rectangle.
++ * mirroring and shear are not replaced by an axis-aligned rectangle. An optional {@code pdf_image_clip_bounds}
++ * map's nested {@code bounds} converts in the same frame; its EMPTY/UNBOUNDED classifications carry no
++ * coordinates and are returned unchanged.
+  */
+ public interface PdfCoordinateConverter {
+     /**
+diff --git a/docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java b/docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java
+index b4ef8a0..d591510 100644
+--- a/docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java
++++ b/docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java
+@@ -23,11 +23,14 @@ package dev.docweave.partition;
+  * @param unicodeNormalization explicit native per-glyph presentation-form expansion; RAW preserves decoded text
+  * @param textRendering explicit native rendering-mode selection; ALL preserves invisible searchable text
+  * @param figureCaptions optional conservative native caption classification; NONE preserves historical types
++ * @param includeImageClipBounds whether Image metadata includes a conservative invocation clip-bounds
++ *         classification under {@code pdf_image_clip_bounds}; defaults preserve historical image metadata
+  */
+ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPerPage, long maxImagePixels,
+         int maxImageBytes, boolean includeImageBytes, TableLimits tableLimits, TableDetection tableDetection,
+         TextLayout textLayout, boolean includeTableCellCoordinates, TableContinuation tableContinuation,
+-        UnicodeNormalization unicodeNormalization, TextRendering textRendering, FigureCaptions figureCaptions) {
++        UnicodeNormalization unicodeNormalization, TextRendering textRendering, FigureCaptions figureCaptions,
++        boolean includeImageClipBounds) {
+     /** Optional source-geometry heuristics; no policy generates text or guarantees semantic caption correctness. */
+     public enum FigureCaptions {
+         /** Preserves native text categories without caption inference. */ NONE,
+@@ -277,6 +280,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+      * @param unicodeNormalization nonnull native Unicode policy
+      * @param textRendering nonnull native text rendering-mode policy
+      * @param figureCaptions nonnull explicit native caption policy
++     * @param includeImageClipBounds whether to describe the invocation clip-bounds classification
+      * @throws IllegalArgumentException if a budget is not positive
+      * @throws NullPointerException if a required policy is null
+      */
+@@ -294,6 +298,34 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+         java.util.Objects.requireNonNull(figureCaptions, "figureCaptions");
+     }
+ 
++    /**
++     * Preserves the pre-image-clip-bounds full constructor without the clip-bounds classification.
++     * @param maxPages maximum page count
++     * @param maxGlyphsPerPage visited source-position ceiling, including filtered positions
++     * @param maxOperatorsPerPage content-operator ceiling
++     * @param maxImagePixels decoded image pixel ceiling
++     * @param maxImageBytes cumulative PNG byte ceiling
++     * @param includeImageBytes whether to retain PNG payloads
++     * @param tableLimits nonnull table budgets
++     * @param tableDetection nonnull table policy
++     * @param textLayout nonnull native grouping policy
++     * @param includeTableCellCoordinates whether to describe table cells
++     * @param tableContinuation nonnull linking policy
++     * @param unicodeNormalization nonnull native Unicode policy
++     * @param textRendering nonnull rendering-mode policy
++     * @param figureCaptions nonnull explicit native caption policy
++     */
++    public PdfOptions(final int maxPages, final int maxGlyphsPerPage, final int maxOperatorsPerPage,
++            final long maxImagePixels, final int maxImageBytes, final boolean includeImageBytes,
++            final TableLimits tableLimits, final TableDetection tableDetection, final TextLayout textLayout,
++            final boolean includeTableCellCoordinates, final TableContinuation tableContinuation,
++            final UnicodeNormalization unicodeNormalization, final TextRendering textRendering,
++            final FigureCaptions figureCaptions) {
++        this(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes, includeImageBytes,
++                tableLimits, tableDetection, textLayout, includeTableCellCoordinates, tableContinuation,
++                unicodeNormalization, textRendering, figureCaptions, false);
++    }
++
+     /**
+      * Preserves the rendering-policy constructor without optional caption classification.
+      * @param maxPages maximum page count
+@@ -456,7 +488,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+     public PdfOptions withTableDetection(final TableDetection detection) {
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, detection, textLayout, includeTableCellCoordinates, tableContinuation,
+-                unicodeNormalization, textRendering, figureCaptions);
++                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds);
+     }
+ 
+     /**
+@@ -468,7 +500,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+     public PdfOptions withTextLayout(final TextLayout layout) {
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, layout, includeTableCellCoordinates, tableContinuation,
+-                unicodeNormalization, textRendering, figureCaptions);
++                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds);
+     }
+ 
+     /**
+@@ -481,7 +513,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+     public PdfOptions withTableCellCoordinates(final boolean include) {
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, textLayout, include, tableContinuation,
+-                unicodeNormalization, textRendering, figureCaptions);
++                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds);
+     }
+ 
+     /**
+@@ -494,7 +526,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+     public PdfOptions withTableContinuation(final TableContinuation continuation) {
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates, continuation,
+-                unicodeNormalization, textRendering, figureCaptions);
++                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds);
+     }
+ 
+     /**
+@@ -508,7 +540,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+     public PdfOptions withUnicodeNormalization(final UnicodeNormalization normalization) {
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
+-                tableContinuation, normalization, textRendering, figureCaptions);
++                tableContinuation, normalization, textRendering, figureCaptions, includeImageClipBounds);
+     }
+ 
+     /**
+@@ -529,7 +561,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+     public PdfOptions withTextRendering(final TextRendering rendering) {
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
+-                tableContinuation, unicodeNormalization, rendering, figureCaptions);
++                tableContinuation, unicodeNormalization, rendering, figureCaptions, includeImageClipBounds);
+     }
+ 
+     /**
+@@ -544,7 +576,22 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+     public PdfOptions withFigureCaptions(final FigureCaptions policy) {
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
+-                tableContinuation, unicodeNormalization, textRendering, policy);
++                tableContinuation, unicodeNormalization, textRendering, policy, includeImageClipBounds);
++    }
++
++    /**
++     * Copies this policy with a conservative per-image invocation clip-bounds classification.
++     * Reuses the same bounded, already-validated enclosing-rectangle geometry used for native rule filtering;
++     * it is always a superset of the true clip and never a complete final-visibility oracle. Any ancestor
++     * clip operator unsupported by this traversal is simply not intersected, so the reported rectangle may be
++     * wider than the actual clip; it never proves nonempty image coverage, opacity or final page occlusion.
++     * @param include whether to emit the versioned pdf_image_clip_bounds extension
++     * @return immutable copy retaining every other extraction, layout and resource setting
++     */
++    public PdfOptions withImageClipBounds(final boolean include) {
++        return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
++                includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
++                tableContinuation, unicodeNormalization, textRendering, figureCaptions, include);
+     }
+ 
+     /**
+diff --git a/docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java b/docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java
+index a5e513b..933195a 100644
+--- a/docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java
++++ b/docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java
+@@ -15,6 +15,7 @@ import org.apache.pdfbox.pdmodel.graphics.color.PDICCBased;
+ import org.apache.pdfbox.pdmodel.graphics.form.PDFormXObject;
+ import org.apache.pdfbox.pdmodel.graphics.form.PDTransparencyGroup;
+ import org.apache.pdfbox.pdmodel.graphics.image.PDImage;
++import org.apache.pdfbox.pdmodel.graphics.state.PDGraphicsState;
+ import org.apache.pdfbox.pdmodel.graphics.state.RenderingMode;
+ import org.apache.pdfbox.util.Matrix;
+ import org.apache.pdfbox.util.Vector;
+@@ -305,10 +306,54 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
+                                 .stream()
+                                 .map(point -> List.of(point.getX(), point.getY()))
+                                 .toList()));
++        if (options.includeImageClipBounds()) {
++            metadata.put("pdf_image_clip_bounds", clipBounds(state, left, top, right, bottom));
++        }
+         budget.extract(image, getGraphicsState().getNonStrokingColor(), metadata);
+         images.add(new Image(left, bottom, right - left, top - bottom, metadata));
+     }
+ 
++    /**
++     * Describes this invocation's conservative clip envelope without claiming final page visibility.
++     * Reuses the same bounded enclosing-rectangle geometry already used for native rule filtering: a clip
++     * operator this traversal cannot interpret (curved or larger compound paths) is simply never intersected,
++     * so the reported envelope may be wider than the true clip, but is never narrower. BOUNDED and UNBOUNDED
++     * both leave visibility open; only EMPTY and a BOUNDED envelope disjoint from the image's own placement
++     * prove the image contributes no pixels to the page. Group composition, soft masks, intrinsic sample
++     * alpha and later opaque overpainting remain outside this classification.
++     * @param state current invocation graphics state
++     * @param left displayed placement left edge
++     * @param top displayed placement top edge
++     * @param right displayed placement right edge
++     * @param bottom displayed placement bottom edge
++     * @return immutable classification map
++     */
++    private Map<String, Object> clipBounds(final PDGraphicsState state, final float left, final float top,
++            final float right, final float bottom) {
++        final var clip = PdfInheritedRuleClip.fill(state, geometry);
++        final var placement = List.of(new Segment(left, bottom, right, bottom), new Segment(right, bottom, right, top),
++                new Segment(right, top, left, top), new Segment(left, top, left, bottom));
++        final boolean unbounded = !Double.isFinite(clip.left()) || !Double.isFinite(clip.top())
++                                  || !Double.isFinite(clip.right()) || !Double.isFinite(clip.bottom());
++        final var result = new LinkedHashMap<String, Object>();
++        if (clip.empty()) {
++            result.put("classification", "EMPTY");
++            result.put("excludes_image_placement", true);
++        } else if (unbounded) {
++            result.put("classification", "UNBOUNDED");
++            result.put("excludes_image_placement", false);
++        } else {
++            result.put("classification", "BOUNDED");
++            result.put("bounds",
++                    Map.of("system", "PDFUserSpace", "layout_width", (double) geometry.width(), "layout_height",
++                            (double) geometry.height(), "points",
++                            List.of(List.of(clip.left(), clip.top()), List.of(clip.right(), clip.top()),
++                                    List.of(clip.right(), clip.bottom()), List.of(clip.left(), clip.bottom()))));
++            result.put("excludes_image_placement", !clip.intersects(placement));
++        }
++        return Map.copyOf(result);
++    }
++
+     /**
+      * Appends transformed rectangle edges to the current path.
+      * @param p0 first corner

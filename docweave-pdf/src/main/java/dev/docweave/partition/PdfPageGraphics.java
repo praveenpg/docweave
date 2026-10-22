@@ -15,6 +15,7 @@ import org.apache.pdfbox.pdmodel.graphics.color.PDICCBased;
 import org.apache.pdfbox.pdmodel.graphics.form.PDFormXObject;
 import org.apache.pdfbox.pdmodel.graphics.form.PDTransparencyGroup;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImage;
+import org.apache.pdfbox.pdmodel.graphics.state.PDGraphicsState;
 import org.apache.pdfbox.pdmodel.graphics.state.RenderingMode;
 import org.apache.pdfbox.util.Matrix;
 import org.apache.pdfbox.util.Vector;
@@ -305,8 +306,52 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
                                 .stream()
                                 .map(point -> List.of(point.getX(), point.getY()))
                                 .toList()));
+        if (options.includeImageClipBounds()) {
+            metadata.put("pdf_image_clip_bounds", clipBounds(state, left, top, right, bottom));
+        }
         budget.extract(image, getGraphicsState().getNonStrokingColor(), metadata);
         images.add(new Image(left, bottom, right - left, top - bottom, metadata));
+    }
+
+    /**
+     * Describes this invocation's conservative clip envelope without claiming final page visibility.
+     * Reuses the same bounded enclosing-rectangle geometry already used for native rule filtering: a clip
+     * operator this traversal cannot interpret (curved or larger compound paths) is simply never intersected,
+     * so the reported envelope may be wider than the true clip, but is never narrower. BOUNDED and UNBOUNDED
+     * both leave visibility open; only EMPTY and a BOUNDED envelope disjoint from the image's own placement
+     * prove the image contributes no pixels to the page. Group composition, soft masks, intrinsic sample
+     * alpha and later opaque overpainting remain outside this classification.
+     * @param state current invocation graphics state
+     * @param left displayed placement left edge
+     * @param top displayed placement top edge
+     * @param right displayed placement right edge
+     * @param bottom displayed placement bottom edge
+     * @return immutable classification map
+     */
+    private Map<String, Object> clipBounds(
+            final PDGraphicsState state, final float left, final float top, final float right, final float bottom) {
+        final var clip = PdfInheritedRuleClip.fill(state, geometry);
+        final var placement = List.of(new Segment(left, bottom, right, bottom), new Segment(right, bottom, right, top),
+                new Segment(right, top, left, top), new Segment(left, top, left, bottom));
+        final boolean unbounded = !Double.isFinite(clip.left()) || !Double.isFinite(clip.top())
+                                  || !Double.isFinite(clip.right()) || !Double.isFinite(clip.bottom());
+        final var result = new LinkedHashMap<String, Object>();
+        if (clip.empty()) {
+            result.put("classification", "EMPTY");
+            result.put("excludes_image_placement", true);
+        } else if (unbounded) {
+            result.put("classification", "UNBOUNDED");
+            result.put("excludes_image_placement", false);
+        } else {
+            result.put("classification", "BOUNDED");
+            result.put("bounds",
+                    Map.of("system", "PDFUserSpace", "layout_width", (double) geometry.width(), "layout_height",
+                            (double) geometry.height(), "points",
+                            List.of(List.of(clip.left(), clip.top()), List.of(clip.right(), clip.top()),
+                                    List.of(clip.right(), clip.bottom()), List.of(clip.left(), clip.bottom()))));
+            result.put("excludes_image_placement", !clip.intersects(placement));
+        }
+        return Map.copyOf(result);
     }
 
     /**

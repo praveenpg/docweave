@@ -1,0 +1,47 @@
+{
+  "baseline_development_commit": "88d196f",
+  "scope": "Reviewed opt-in conservative invocation clip-envelope metadata, not final visibility or improved PNG pixels",
+  "java": "21",
+  "full_verify": {
+    "tests": 1325,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "new_methods": 17,
+  "focused_image_clip_tests": 47,
+  "final_owned_and_standalone_verification": "PASS after equivalent documented converter constructor was added",
+  "strict_private_javadocs": "PASS",
+  "formatting": "clang-format 23.1.1 scoped checks PASS",
+  "source_files": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "dc7d567ee7b6626c0b344c3f7b6a619f00b798b76ea5aade7488ae808e7baa93",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java": "e1adcfac92791ebe5bee37f9d4384af803581661434dae1094092ba0ff76145e",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfCoordinateConverter.java": "d446b929a83078e4937f85a202de3aa3b18402e96aa21dbd2c9bcc60f2cc99e3",
+    "docweave-pdf/src/main/java/dev/docweave/partition/DefaultPdfCoordinateConverter.java": "bb1e4fd411261176c9883dc78d9fa10112fc346a237c007118f2113d3673816e",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfImageClipBoundsTest.java": "6af74a9353c15ce742fcce0b890b9dbcc79da8866043d683f3c9896703c7a97b",
+    "docweave-integration-tests/src/test/java/dev/docweave/partition/PdfImageClipBoundsIntegrationTest.java": "9bbabb70375d0f699899e6f41ef97dc57caa97cdc97694b601e29d303564dfa1",
+    "benchmarks/tools/VerifySourceFigureImages.java": "ed73bef4afe1cce634149e565e141653018ca2f42d4d4c9f901218a742343c10"
+  },
+  "logs": {
+    "verify.log": "965556861be5244895821a488cd597a3c4344d4dc9caef1026afdc79cb7cda75",
+    "focused.log": "07c4210b010a1dd31b807f744622451b02fb6b0a20336f67cf7c385230d8cc3d",
+    "final-owned-standalone.log": "b013540a1411e7c6d59e59b8053b680af89f58cef82350c750d50ab1d1ec9fda",
+    "private-docs-final.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "numeric_reports": {
+    "integrated-qualified-default18.json": "8ed8347edb01067c481b47fb6c056f44fb865a2053c8ff577adfd06f22f20eb1",
+    "integrated-qualified-clip18.json": "25824f935556ef17ba385ec146a17893e5c9327a71058655fca71abafb2d264d",
+    "integrated-qualified-current24.json": "a79dfe4596e42ae06f37beda9ab5e274efe18d10082a64bea73f2edcc2355a23",
+    "integrated-qualified-current-clip24.json": "46e54522a7fb62be7bf01f724735f6a23eec21c1c8596d6860b93cc0203dbe40",
+    "integrated-magazine-java21.json": "75f900d27156cb03047c09d7590402fb1eea49dd5d84187233a2baf9bb307524"
+  },
+  "qualified_manifest": "Original 18-profile manifest unchanged; additive 24-profile schedule recorded separately",
+  "qualified_comparison": "Complete result arrays including PNG hashes equal between default and opted-in runs, verified by JVM comparator",
+  "magazine_control": "94 source occurrences and all four frozen affine references preserved under default policy",
+  "known_limits": [
+    "UNBOUNDED defensive branch has no authored-source control",
+    "Unknown actual clip shapes may leave wider envelopes",
+    "No complete compositor, visibility oracle, occlusion inference or image cropping",
+    "PdfOptions gains a record component; old constructors retained but reflective record schemas change"
+  ]
+}

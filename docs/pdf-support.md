@@ -890,7 +890,7 @@ or independent human-review gates.
 | Scientific reading order | Native/oriented lines, paragraph and compound-column layouts, source-tagged paragraphs, figure-caption association | Complete-body paragraph fidelity and asymmetric sidebar order remain unresolved. Physical wrap hyphens and reference whitespace differences are separate from lost/interleaved text. The sidebar investigation is parked; do not replace missing references or relax scoring to close it. |
 | Historical scans | Explicit language/model selection, managed OCR, quarter-turn correction, deskew and source-frame word geometry | Recognition and physical reading order vary across originals. Earlier language/model and segmentation comparisons are retained; no universal winning profile or automatic engine selection is established. |
 | Degraded scans | Explicit raster correction, white-point preprocessing and OCR magnification | Improvements are source-dependent; the tested white-point/sparse composition regressed several originals and is not promoted. Broader held-out transcription and calibration remain open. |
-| Source images | Actual occurrence accounting, normalized PNGs, mask/stencil handling, invocation graphics state and ordered affine placement corners | Source payloads and placements do not reproduce final compositing, clipping, occlusion or generated descriptions. Ordered-corner checks do not establish rendered-pixel equality. |
+| Source images | Actual occurrence accounting, normalized PNGs, mask/stencil handling, invocation graphics state, ordered affine placement corners and opt-in conservative clip bounds | Source payloads and placements do not reproduce final compositing, clipping, occlusion or generated descriptions. Ordered-corner checks do not establish rendered-pixel equality. |
 | Independent acceptance and operations | Owned regressions, pinned original-source comparisons, bounded parser callbacks, packaged consumer checks | Independent human review, broader authoring-tool diversity, calibrated confidence and production heap/latency evidence remain open. PDFBox/codecs may allocate or delay cancellation before callbacks; limits are not a total decompression/heap bound. |
 
 The [quality backlog](pdf-quality-backlog.md) records parked approaches and return conditions.
@@ -3124,3 +3124,38 @@ The complete NVIDIA source/capture replay improves YOLOX exact complete-row pres
 scores remain 0/110 under both profiles. A separate four-column owned PDF transfers the
 behavior at a different rendering resolution; it is not a second independent publisher
 benchmark. See [section-row evidence](../benchmarks/review/pdf-native-section-row/README.md).
+
+
+### Conservative image clip bounds (unreleased)
+
+```java
+final var options = PdfOptions.defaults().withImageClipBounds(true);
+final var partitioner = PdfPartitioner.create(options);
+```
+
+Each native source Image optionally carries `pdf_image_clip_bounds`:
+
+| Field | Meaning |
+| --- | --- |
+| `classification` | `EMPTY`, `BOUNDED` or defensive `UNBOUNDED` for the interpreted invocation clip envelope |
+| `bounds` | Present only for `BOUNDED`; four displayed `PDFUserSpace` points and page layout dimensions |
+| `excludes_image_placement` | True only when the tracked conservative envelope is empty or disjoint from the image placement; false leaves visibility unresolved |
+
+An ordinary unclipped page has a bounded crop envelope. Unsupported curved/larger-compound
+clips can leave a wider envelope than the actual clip. An overlapping rectangle is not an
+exact supported clip shape and does not prove visible image pixels. Transparency-group
+composition, soft-mask alpha, intrinsic pixel transparency and later overpainting remain
+separate. Source occurrences and normalized payloads are retained even when exclusion is
+reported. This option adds metadata; it does not render, crop or filter images.
+
+`PdfCoordinateConverter` converts nested `bounds` in the same frame as placement geometry;
+empty/unbounded classifications carry no coordinates. Existing option constructors select
+false and all copy methods preserve the selection. The added `PdfOptions` record component
+changes reflective record schemas, generated equality/hash/toString shapes and serializers
+that inspect record components; review those consumers when upgrading.
+
+Verification retains all 94 magazine occurrences and all four frozen affine references.
+Both the original 18-slot qualified-figure schedule and an additive 24-slot schedule preserve
+payload hashes and outcomes with the option enabled. These are regression checks; no
+original-document pixel-fidelity improvement or closure of the compositing gate is claimed.
+See [image-clip evidence](../benchmarks/review/pdf-image-clip-bounds/README.md).

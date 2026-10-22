@@ -29,18 +29,33 @@ public final class VerifySourceFigureImages {
     }
 
     /**
-     * Runs every qualified original under both factories and every explicit text-rendering policy.
+     * Runs every qualified original under both factories and every text-rendering policy declared in the manifest.
      * Independent Poppler image inventory supplies expected placement count/dimensions, not pixel correctness.
      * Alternative/ActualText properties never supply caption strings to this verifier.
-     * @param args qualified source manifest, original cache and NEW numeric report
+     * @param args qualified source manifest, original cache and NEW numeric report; optional --clip-bounds
      * @throws Exception if original identities, complete populations, fresh output or independent contracts fail
      */
     public static void main(final String[] args) throws Exception {
-        require(args.length == 3 && !Files.exists(Path.of(args[2])),
-                "Expected qualified sources, cache and NEW report");
+        require((args.length == 3 || args.length == 4 && args[3].equals("--clip-bounds"))
+                        && !Files.exists(Path.of(args[2])),
+                "Expected qualified sources, cache, NEW report and optional --clip-bounds");
+        final boolean clipBounds = args.length == 4;
         final var mapper = JsonMapper.builder().build();
         final byte[] protocol = Files.readAllBytes(Path.of(args[0]));
         final var manifest = mapper.readTree(protocol);
+        require(manifest.get("profiles").isArray() && !manifest.get("profiles").isEmpty(),
+                "Explicit rendering profiles are required");
+        final var renderings = new ArrayList<PdfOptions.TextRendering>();
+        for (final var profile : manifest.get("profiles")) {
+            final var rendering = PdfOptions.TextRendering.valueOf(profile.asString());
+            require(!renderings.contains(rendering), "Duplicate rendering profile");
+            renderings.add(rendering);
+        }
+        require(manifest.get("factories").size() == 2 && manifest.get("factories").get(0).asString().equals("NATIVE")
+                        && manifest.get("factories").get(1).asString().equals("SOURCE_TAGGED"),
+                "Expected both declared factory profiles in order");
+        require(manifest.get("expected_case_profiles").asInt() == manifest.get("inputs").size() * 2 * renderings.size(),
+                "Declared profile population differs from manifest schedule");
         final var rows = new ArrayList<Map<String, Object>>();
         for (final var input : manifest.get("inputs")) {
             final String filename = input.get("filename").asString();
@@ -51,7 +66,7 @@ public final class VerifySourceFigureImages {
             final var bytes = Files.readAllBytes(path);
             require(hash(bytes).equals(input.get("sha256").asString()), "Original source changed");
             for (final boolean tagged : List.of(false, true)) {
-                for (final var rendering : PdfOptions.TextRendering.values()) {
+                for (final var rendering : renderings) {
                     final var row = new LinkedHashMap<String, Object>();
                     row.put("filename", filename);
                     row.put("source_sha256", hash(bytes));
@@ -60,7 +75,8 @@ public final class VerifySourceFigureImages {
                     final var d = PdfOptions.defaults();
                     final var options = new PdfOptions(d.maxPages(), d.maxGlyphsPerPage(), d.maxOperatorsPerPage(),
                             d.maxImagePixels(), d.maxImageBytes(), true, d.tableLimits())
-                                                .withTextRendering(rendering);
+                                                .withTextRendering(rendering)
+                                                .withImageClipBounds(clipBounds);
                     final var partitioner =
                             tagged ? PdfPartitioner.createWithTaggedTables(options) : PdfPartitioner.create(options);
                     try {
@@ -77,6 +93,8 @@ public final class VerifySourceFigureImages {
                         final var payloads = new ArrayList<Map<String, Object>>();
                         for (final var image : images) {
                             final var metadata = image.metadata();
+                            require(metadata.containsKey("pdf_image_clip_bounds") == clipBounds,
+                                    "Requested image clipping metadata selection differs");
                             final byte[] png = Base64.getDecoder().decode((String) metadata.get("image_base64"));
                             final var decoded = ImageIO.read(new ByteArrayInputStream(png));
                             require(decoded != null, "PNG payload did not decode");
@@ -111,8 +129,8 @@ public final class VerifySourceFigureImages {
         Files.writeString(Path.of(args[2]),
                 mapper.writerWithDefaultPrettyPrinter().writeValueAsString(Map.of("scope",
                         "Complete original source Figure image-count/dimension and no-invented-caption contracts; no pixel/color/semantic-caption accuracy claim",
-                        "runtime", Runtime.version().toString(), "qualified_manifest_sha256", hash(protocol), "results",
-                        rows))
+                        "runtime", Runtime.version().toString(), "qualified_manifest_sha256", hash(protocol),
+                        "image_clip_bounds_enabled", clipBounds, "results", rows))
                         + "\n",
                 StandardOpenOption.CREATE_NEW);
         require(rows.stream().allMatch(row -> Boolean.TRUE.equals(row.get("matches_independent_inventory"))),

@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Add opt-in per-image invocation clip bounds through `PdfOptions.withImageClipBounds(true)`.
+  Describe conservative empty/bounded/unbounded clipping and proven placement exclusion,
+  preserving source occurrences, PNG payloads and existing defaults. Convert nested bounds
+  alongside other PDF geometry; clipping metadata does not establish final visibility.
+
 - Add opt-in native leading section-row recovery above provider tables. Preserve separated
   currency runs and source indentation when checking first-body-row support; reject
   multiline, incomplete and misaligned source. The retained NVIDIA YOLOX comparison

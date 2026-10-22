@@ -1,0 +1,6 @@
+f50acbd8eb824506dfb055187d6c8f69d58948d8b9a827223a0a587c8757bb4c  docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java
+19b1d6a1d407b5ade51ae9a726f148c87d717ca8daf1428a0e9dd02f669734be  docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java
+1e366b5876f7338c5fbdc59a7ef0b80236ae0d9f2225566f0fc4ab3bb6db504d  docweave-pdf/src/main/java/dev/docweave/partition/DefaultPdfCoordinateConverter.java
+d446b929a83078e4937f85a202de3aa3b18402e96aa21dbd2c9bcc60f2cc99e3  docweave-pdf/src/main/java/dev/docweave/partition/PdfCoordinateConverter.java
+db931abb93cce79dd302cada9ce4aa044733422ade9d44e6ed3bd28b5d6c367e  docweave-pdf/src/test/java/dev/docweave/partition/PdfImageClipBoundsTest.java
+a02ac4ef4218a982609974d45810222d7a7ffc047d5dddd7a6b58975c26d2e0f  docweave-integration-tests/src/test/java/dev/docweave/partition/PdfImageClipBoundsIntegrationTest.java

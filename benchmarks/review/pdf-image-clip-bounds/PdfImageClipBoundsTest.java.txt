@@ -1,0 +1,522 @@
+package dev.docweave.partition;
+
+import dev.docweave.DocWeave;
+import dev.docweave.core.Element;
+import dev.docweave.core.ElementType;
+import org.apache.pdfbox.cos.COSDictionary;
+import org.apache.pdfbox.cos.COSName;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDFormContentStream;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.PDResources;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.graphics.form.PDFormXObject;
+import org.apache.pdfbox.pdmodel.graphics.form.PDTransparencyGroup;
+import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
+import org.apache.pdfbox.pdmodel.graphics.state.PDExtendedGraphicsState;
+import org.junit.jupiter.api.Test;
+
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.util.List;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+ * Owned controls for the opt-in, conservative per-image invocation clip-bounds classification.
+ * Every case is independently computed from source rectangles, never from the production geometry helper,
+ * and never claims final page visibility: only EMPTY and a BOUNDED envelope disjoint from the image's own
+ * placement prove the image contributes no pixels. BOUNDED-overlapping and UNBOUNDED stay explicitly open.
+ */
+class PdfImageClipBoundsTest {
+    /** Creates independent clip-bounds controls. */
+    PdfImageClipBoundsTest() {
+    }
+
+    /**
+     * The default policy omits the new map entirely, preserving every historical image metadata field.
+     * @throws Exception if owned source authoring or public extraction fails
+     */
+    @Test
+    void defaultPolicyOmitsClipBoundsAndPreservesExistingFields() throws Exception {
+        final byte[] source = page(100, 60, (doc, page2) -> {
+            page2.drawImage(raster(doc), 10, 10, 20, 20);
+        });
+        final var image = images(source, PdfOptions.defaults()).getFirst();
+        assertFalse(image.metadata().containsKey("pdf_image_clip_bounds"));
+        assertTrue(image.metadata().containsKey("image_width"));
+        assertTrue(image.metadata().containsKey("image_height"));
+        assertTrue(image.metadata().containsKey("pdf_image_coordinates"));
+        assertTrue(image.metadata().containsKey("pdf_image_graphics_state"));
+    }
+
+    /**
+     * An entirely unclipped invocation reports a BOUNDED envelope equal to the full crop box, never excluded.
+     * @throws Exception if owned source authoring or public extraction fails
+     */
+    @Test
+    void unclippedInvocationReportsFullCropEnvelope() throws Exception {
+        final byte[] source = page(100, 60, (doc, page2) -> {
+            page2.drawImage(raster(doc), 10, 10, 20, 20);
+        });
+        final var clip = clip(images(source, options()).getFirst());
+        assertEquals("BOUNDED", clip.get("classification"));
+        assertBounds(0, 0, 100, 60, clip);
+        assertEquals(false, clip.get("excludes_image_placement"));
+    }
+
+    /**
+     * A rectangular clip wholly disjoint from the image's own placement proves the image paints nothing.
+     * @throws Exception if owned source authoring or public extraction fails
+     */
+    @Test
+    void disjointRectangularClipExcludesTheImage() throws Exception {
+        final byte[] source = page(100, 60, (doc, page2) -> {
+            page2.saveGraphicsState();
+            page2.addRect(70, 0, 20, 20);
+            page2.clip();
+            page2.drawImage(raster(doc), 10, 10, 20, 20);
+            page2.restoreGraphicsState();
+        });
+        final var clip = clip(images(source, options()).getFirst());
+        assertEquals("BOUNDED", clip.get("classification"));
+        assertBounds(70, 40, 90, 60, clip);
+        assertEquals(true, clip.get("excludes_image_placement"));
+    }
+
+    /**
+     * A rectangular clip that genuinely overlaps the placement never claims exclusion.
+     * @throws Exception if owned source authoring or public extraction fails
+     */
+    @Test
+    void overlappingRectangularClipDoesNotExcludeTheImage() throws Exception {
+        final byte[] source = page(100, 60, (doc, page2) -> {
+            page2.saveGraphicsState();
+            page2.addRect(20, 0, 20, 60);
+            page2.clip();
+            page2.drawImage(raster(doc), 10, 10, 20, 20);
+            page2.restoreGraphicsState();
+        });
+        final var clip = clip(images(source, options()).getFirst());
+        assertEquals("BOUNDED", clip.get("classification"));
+        assertBounds(20, 0, 40, 60, clip);
+        assertEquals(false, clip.get("excludes_image_placement"));
+    }
+
+    /**
+     * Restoring the graphics state after a disjoint clip returns later invocations to the full crop envelope.
+     * @throws Exception if owned source authoring or public extraction fails
+     */
+    @Test
+    void restoredGraphicsStateRevertsClipForALaterInvocation() throws Exception {
+        final byte[] source = page(100, 60, (doc, page2) -> {
+            page2.saveGraphicsState();
+            page2.addRect(70, 0, 20, 20);
+            page2.clip();
+            page2.drawImage(raster(doc), 10, 10, 20, 20);
+            page2.restoreGraphicsState();
+            page2.drawImage(raster(doc), 10, 10, 20, 20);
+        });
+        final var images = images(source, options());
+        assertEquals(2, images.size());
+        final var excluded = clip(images.get(0));
+        final var restored = clip(images.get(1));
+        assertEquals(true, excluded.get("excludes_image_placement"));
+        assertEquals("BOUNDED", restored.get("classification"));
+        assertBounds(0, 0, 100, 60, restored);
+        assertEquals(false, restored.get("excludes_image_placement"));
+    }
+
+    /**
+     * A page-level clip is inherited by an unclipped image drawn inside a later form, like ordinary graphics state.
+     * @throws Exception if owned source authoring or public extraction fails
+     */
+    @Test
+    void inheritedFormClipReflectsThePageLevelClip() throws Exception {
+        try (final var document = new PDDocument()) {
+            final var page = new PDPage(new PDRectangle(100, 60));
+            document.addPage(page);
+            final var form = new PDFormXObject(document);
+            form.setResources(new PDResources());
+            form.setBBox(new PDRectangle(40, 40));
+            try (final var content = new PDFormContentStream(form)) {
+                content.drawImage(raster(document), 5, 5, 20, 20);
+            }
+            try (final var content = new PDPageContentStream(document, page)) {
+                content.addRect(5, 5, 30, 30);
+                content.clip();
+                content.drawForm(form);
+            }
+            final var output = new ByteArrayOutputStream();
+            document.save(output);
+            final var clip = clip(images(output.toByteArray(), options()).getFirst());
+            assertEquals("BOUNDED", clip.get("classification"));
+            assertBounds(5, 25, 35, 55, clip);
+            assertEquals(false, clip.get("excludes_image_placement"));
+        }
+    }
+
+    /**
+     * The same raster drawn twice under different clips in independent save/restore scopes is classified
+     * independently; reuse of one source raster never merges or carries over clip state between occurrences.
+     * @throws Exception if owned source authoring or public extraction fails
+     */
+    @Test
+    void repeatedRasterInstancesAreClassifiedIndependently() throws Exception {
+        final byte[] source = page(100, 60, (doc, page2) -> {
+            final var image = raster(doc);
+            page2.saveGraphicsState();
+            page2.addRect(70, 0, 20, 20);
+            page2.clip();
+            page2.drawImage(image, 10, 10, 20, 20);
+            page2.restoreGraphicsState();
+            page2.saveGraphicsState();
+            page2.addRect(20, 0, 20, 60);
+            page2.clip();
+            page2.drawImage(image, 10, 10, 20, 20);
+            page2.restoreGraphicsState();
+        });
+        final var images = images(source, options());
+        assertEquals(2, images.size());
+        assertEquals(images.get(0).metadata().get("image_width"), images.get(1).metadata().get("image_width"));
+        assertEquals(true, clip(images.get(0)).get("excludes_image_placement"));
+        assertEquals(false, clip(images.get(1)).get("excludes_image_placement"));
+    }
+
+    /**
+     * A nonzero crop origin and a quarter-turn rotation transform the clip envelope exactly like placement corners.
+     * @throws Exception if owned source authoring or public extraction fails
+     */
+    @Test
+    void nonzeroCropOriginAndRotationTransformTheClipEnvelope() throws Exception {
+        try (final var document = new PDDocument()) {
+            final var page = new PDPage(new PDRectangle(300, 300));
+            page.setCropBox(new PDRectangle(10, 20, 200, 140));
+            page.setRotation(90);
+            document.addPage(page);
+            try (final var content = new PDPageContentStream(document, page)) {
+                content.addRect(30, 40, 20, 60);
+                content.clip();
+                content.drawImage(raster(document), 35, 45, 10, 10);
+            }
+            final var output = new ByteArrayOutputStream();
+            document.save(output);
+            final var clip = clip(images(output.toByteArray(), options()).getFirst());
+            assertEquals("BOUNDED", clip.get("classification"));
+            assertBounds(20, 20, 80, 40, clip);
+            assertEquals(false, clip.get("excludes_image_placement"));
+        }
+    }
+
+    /**
+     * An unsupported curved clip is ignored rather than narrowing the envelope, even when its real shape would
+     * have excluded the image; this is the explicit "do not claim more than is sound" behavior under test.
+     * @throws Exception if owned source authoring or public extraction fails
+     */
+    @Test
+    void unsupportedCurvedClipIsIgnoredNotAppliedNarrower() throws Exception {
+        final byte[] source = page(100, 60, (doc, page2) -> {
+            page2.moveTo(65, 5);
+            page2.curveTo(85, 5, 85, 25, 65, 25);
+            page2.curveTo(45, 25, 45, 5, 65, 5);
+            page2.closePath();
+            page2.clip();
+            page2.drawImage(raster(doc), 10, 10, 20, 20);
+        });
+        final var clip = clip(images(source, options()).getFirst());
+        assertEquals("BOUNDED", clip.get("classification"));
+        assertBounds(0, 0, 100, 60, clip);
+        assertEquals(false, clip.get("excludes_image_placement"));
+    }
+
+    /**
+     * An unsupported curved clip followed by a supported rectangular clip reports only the rectangle's effect;
+     * the ignored curve never narrows it further, demonstrating sound handling of unsupported clip history.
+     * @throws Exception if owned source authoring or public extraction fails
+     */
+    @Test
+    void unsupportedClipHistoryFollowedBySupportedClipReflectsOnlyTheSupportedClip() throws Exception {
+        final byte[] source = page(100, 60, (doc, page2) -> {
+            page2.saveGraphicsState();
+            page2.moveTo(65, 5);
+            page2.curveTo(85, 5, 85, 25, 65, 25);
+            page2.curveTo(45, 25, 45, 5, 65, 5);
+            page2.closePath();
+            page2.clip();
+            page2.addRect(70, 0, 20, 20);
+            page2.clip();
+            page2.drawImage(raster(doc), 10, 10, 20, 20);
+            page2.restoreGraphicsState();
+        });
+        final var clip = clip(images(source, options()).getFirst());
+        assertEquals("BOUNDED", clip.get("classification"));
+        assertBounds(70, 40, 90, 60, clip);
+        assertEquals(true, clip.get("excludes_image_placement"));
+    }
+
+    /**
+     * A nested transparency-group soft mask produces a sound, non-crashing classification without asserting
+     * anything about the mask's own alpha compositing; {@code has_soft_mask} already carries that fact separately.
+     * @throws Exception if owned source authoring or public extraction fails
+     */
+    @Test
+    void softMaskedInvocationStillReportsASoundClassification() throws Exception {
+        final byte[] source;
+        try (final var document = new PDDocument()) {
+            final var page = new PDPage(new PDRectangle(100, 60));
+            document.addPage(page);
+            final var group = new PDTransparencyGroup(document);
+            group.setResources(new PDResources());
+            group.setBBox(new PDRectangle(100, 60));
+            final var attributes = new COSDictionary();
+            attributes.setItem(COSName.S, COSName.TRANSPARENCY);
+            group.getCOSObject().setItem(COSName.GROUP, attributes);
+            try (final var mask = new PDFormContentStream(group)) {
+                mask.setNonStrokingColor(Color.WHITE);
+                mask.addRect(0, 0, 100, 60);
+                mask.fill();
+            }
+            final var softMask = new COSDictionary();
+            softMask.setItem(COSName.S, COSName.ALPHA);
+            softMask.setItem(COSName.G, group);
+            final var masked = new PDExtendedGraphicsState();
+            masked.getCOSObject().setItem(COSName.SMASK, softMask);
+            try (final var content = new PDPageContentStream(document, page)) {
+                content.saveGraphicsState();
+                content.setGraphicsStateParameters(masked);
+                content.drawImage(raster(document), 10, 10, 20, 20);
+                content.restoreGraphicsState();
+            }
+            final var output = new ByteArrayOutputStream();
+            document.save(output);
+            source = output.toByteArray();
+        }
+        final var image = images(source, options()).getFirst();
+        assertEquals(true, ((Map<?, ?>) image.metadata().get("pdf_image_graphics_state")).get("has_soft_mask"));
+        final var clip = clip(image);
+        assertEquals("BOUNDED", clip.get("classification"));
+        assertBounds(0, 0, 100, 60, clip);
+        assertEquals(false, clip.get("excludes_image_placement"));
+    }
+
+    /**
+     * Later opaque overpainting never changes an earlier image's own invocation-time clip-bounds metadata;
+     * this classification is never a final-visibility or occlusion oracle.
+     * @throws Exception if owned source authoring or public extraction fails
+     */
+    @Test
+    void laterOpaqueOverpaintingDoesNotChangeTheEarlierImagesClipBounds() throws Exception {
+        final byte[] source = page(100, 60, (doc, page2) -> {
+            page2.drawImage(raster(doc), 10, 10, 20, 20);
+            page2.setNonStrokingColor(Color.BLACK);
+            page2.addRect(0, 0, 100, 60);
+            page2.fill();
+        });
+        final var clip = clip(images(source, options()).getFirst());
+        assertEquals("BOUNDED", clip.get("classification"));
+        assertBounds(0, 0, 100, 60, clip);
+        assertEquals(false, clip.get("excludes_image_placement"));
+    }
+
+    /**
+     * The returned classification map, and its nested bounds map, reject mutation like other image metadata.
+     * @throws Exception if owned source authoring or public extraction fails
+     */
+    @Test
+    void clipBoundsMapsAreImmutable() throws Exception {
+        final byte[] source = page(100, 60, (doc, page2) -> {
+            page2.drawImage(raster(doc), 10, 10, 20, 20);
+        });
+        final var clip = clip(images(source, options()).getFirst());
+        assertThrows(UnsupportedOperationException.class, () -> clip.put("classification", "EMPTY"));
+        @SuppressWarnings("unchecked")
+        final var bounds = (Map<String, Object>) clip.get("bounds");
+        assertThrows(UnsupportedOperationException.class, () -> bounds.put("system", "other"));
+    }
+
+    /**
+     * Coordinate conversion handles the nested bounds map consistently with the ordinary image coordinates,
+     * and round-trips back to the original PDFUserSpace numbers; EMPTY/UNBOUNDED classifications carry no
+     * coordinates and pass through conversion unchanged.
+     * @throws Exception if owned source authoring, public extraction or conversion fails
+     */
+    @Test
+    void coordinateConversionHandlesClipBoundsConsistently() throws Exception {
+        final byte[] bounded = page(100, 60, (doc, page2) -> {
+            page2.saveGraphicsState();
+            page2.addRect(20, 0, 20, 60);
+            page2.clip();
+            page2.drawImage(raster(doc), 10, 10, 20, 20);
+            page2.restoreGraphicsState();
+        });
+        final var source = images(bounded, options()).getFirst();
+        final var converter = PdfCoordinateConverter.create();
+        final var points = converter.toPoints(source);
+        final var pixels = converter.toPixels(source, 144);
+        final var millimeters = converter.toMillimeters(source);
+        final var sourceCorners = (List<?>) ((Map<?, ?>) clip(source).get("bounds")).get("points");
+        for (final var converted : List.of(points, pixels, millimeters)) {
+            final var restored = converter.toUserSpace(converted);
+            final var restoredCorners = (List<?>) ((Map<?, ?>) clip(restored).get("bounds")).get("points");
+            for (int corner = 0; corner < 4; corner++) {
+                for (int axis = 0; axis < 2; axis++) {
+                    assertEquals(
+                            ((Number) ((List<?>) sourceCorners.get(corner)).get(axis)).doubleValue(),
+                            ((Number) ((List<?>) restoredCorners.get(corner)).get(axis)).doubleValue(), 1e-9);
+                }
+            }
+        }
+        final var pixelCorners = (List<?>) ((Map<?, ?>) clip(pixels).get("bounds")).get("points");
+        for (int corner = 0; corner < 4; corner++) {
+            for (int axis = 0; axis < 2; axis++) {
+                final double expected =
+                        ((Number) ((List<?>) sourceCorners.get(corner)).get(axis)).doubleValue() * 2;
+                assertEquals(expected, ((Number) ((List<?>) pixelCorners.get(corner)).get(axis)).doubleValue(), 1e-9);
+            }
+        }
+    }
+
+    /**
+     * A clip reduced to a proven-empty area reports EMPTY, excludes the image and carries no coordinates
+     * to convert; conversion must pass this classification through unchanged rather than inventing bounds.
+     * @throws Exception if owned source authoring, public extraction or conversion fails
+     */
+    @Test
+    void emptyClipPassesThroughConversionUnchanged() throws Exception {
+        final byte[] source = page(100, 60, (doc, page2) -> {
+            page2.saveGraphicsState();
+            page2.addRect(0, 0, 10, 10);
+            page2.clip();
+            page2.addRect(50, 50, 10, 10);
+            page2.clip();
+            page2.drawImage(raster(doc), 10, 10, 20, 20);
+            page2.restoreGraphicsState();
+        });
+        final var image = images(source, options()).getFirst();
+        final var clip = clip(image);
+        assertEquals("EMPTY", clip.get("classification"));
+        assertEquals(true, clip.get("excludes_image_placement"));
+        assertFalse(clip.containsKey("bounds"));
+        final var converter = PdfCoordinateConverter.create();
+        for (final var converted : List.of(converter.toPoints(image), converter.toPixels(image, 144),
+                converter.toMillimeters(image), converter.toUserSpace(image))) {
+            assertEquals(clip, clip(converted));
+        }
+    }
+
+    /**
+     * Builds one shared immutable options policy with the new classification enabled and small resource limits.
+     * @return owned extraction policy
+     */
+    private static PdfOptions options() {
+        return new PdfOptions(10, 10_000, 10_000, 100, 10_000, false, TableLimits.defaults()).withImageClipBounds(true);
+    }
+
+    /**
+     * Authors one page with the given content and returns the complete owned source bytes.
+     * @param width page width
+     * @param height page height
+     * @param content authoring callback receiving an open content stream
+     * @return complete owned PDF bytes
+     * @throws Exception if source authoring fails
+     */
+    private static byte[] page(final float width, final float height, final ContentStreamAuthor content)
+            throws Exception {
+        try (final var document = new PDDocument()) {
+            final var page = new PDPage(new PDRectangle(width, height));
+            document.addPage(page);
+            try (final var stream = new PDPageContentStream(document, page)) {
+                content.write(document, stream);
+            }
+            final var output = new ByteArrayOutputStream();
+            document.save(output);
+            return output.toByteArray();
+        }
+    }
+
+    /** Authors page content against the owning document, retaining checked PDFBox failures. */
+    private interface ContentStreamAuthor {
+        /**
+         * Writes owned content.
+         * @param document owning document
+         * @param stream open content stream
+         * @throws Exception if writing fails
+         */
+        void write(PDDocument document, PDPageContentStream stream) throws Exception;
+    }
+
+    /**
+     * Creates one small opaque multicolor raster, reused across every owned invocation in this file.
+     * @param document owning document
+     * @return embedded source image
+     * @throws Exception if source encoding fails
+     */
+    private static PDImageXObject raster(final PDDocument document) throws Exception {
+        final var pixels = new BufferedImage(2, 2, BufferedImage.TYPE_INT_RGB);
+        pixels.setRGB(0, 0, Color.RED.getRGB());
+        pixels.setRGB(1, 0, Color.GREEN.getRGB());
+        pixels.setRGB(0, 1, Color.BLUE.getRGB());
+        pixels.setRGB(1, 1, Color.YELLOW.getRGB());
+        try {
+            return LosslessFactory.createFromImage(document, pixels);
+        } finally {
+            pixels.flush();
+        }
+    }
+
+    /**
+     * Runs the unchanged public source-image extraction path.
+     * @param source complete owned PDF bytes
+     * @param options explicit extraction policy
+     * @return every original image occurrence, in painted order
+     * @throws Exception if public partitioning fails
+     */
+    private static List<Element> images(final byte[] source, final PdfOptions options) throws Exception {
+        return DocWeave.create(PartitionerRegistry.of(List.of(PdfPartitioner.create(options))))
+                .partition(DocumentSource.bytes(source, "owned-image-clip-bounds.pdf"))
+                .elements()
+                .stream()
+                .filter(element -> element.type() == ElementType.Image)
+                .toList();
+    }
+
+    /**
+     * Reads the immutable public clip-bounds classification map.
+     * @param image original or converted image element
+     * @return classification metadata
+     */
+    @SuppressWarnings("unchecked")
+    private static Map<String, Object> clip(final Element image) {
+        return (Map<String, Object>) image.metadata().get("pdf_image_clip_bounds");
+    }
+
+    /**
+     * Asserts the bounded envelope's four corners match the expected displayed rectangle within rounding.
+     * @param left expected minimum displayed horizontal edge
+     * @param top expected minimum displayed vertical edge
+     * @param right expected maximum displayed horizontal edge
+     * @param bottom expected maximum displayed vertical edge
+     * @param clip actual classification map
+     */
+    @SuppressWarnings("unchecked")
+    private static void assertBounds(
+            final double left, final double top, final double right, final double bottom, final Map<?, ?> clip) {
+        final var bounds = (Map<String, Object>) clip.get("bounds");
+        assertEquals("PDFUserSpace", bounds.get("system"));
+        final var points = (List<?>) bounds.get("points");
+        assertEquals(4, points.size());
+        final double delta = 1e-3;
+        assertEquals(left, ((Number) ((List<?>) points.get(0)).get(0)).doubleValue(), delta);
+        assertEquals(top, ((Number) ((List<?>) points.get(0)).get(1)).doubleValue(), delta);
+        assertEquals(right, ((Number) ((List<?>) points.get(1)).get(0)).doubleValue(), delta);
+        assertEquals(top, ((Number) ((List<?>) points.get(1)).get(1)).doubleValue(), delta);
+        assertEquals(right, ((Number) ((List<?>) points.get(2)).get(0)).doubleValue(), delta);
+        assertEquals(bottom, ((Number) ((List<?>) points.get(2)).get(1)).doubleValue(), delta);
+        assertEquals(left, ((Number) ((List<?>) points.get(3)).get(0)).doubleValue(), delta);
+        assertEquals(bottom, ((Number) ((List<?>) points.get(3)).get(1)).doubleValue(), delta);
+    }
+}

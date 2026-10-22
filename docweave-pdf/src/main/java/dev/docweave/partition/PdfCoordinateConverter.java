@@ -8,7 +8,9 @@ import dev.docweave.core.Element;
  * Source crop boxes and embedded image pixel dimensions remain source attributes. Instances are
  * stateless and safe to share across threads. Unsupported or malformed coordinate maps are rejected.
  * The image's {@code pdf_image_coordinates} map retains its original corner order during conversion;
- * mirroring and shear are not replaced by an axis-aligned rectangle.
+ * mirroring and shear are not replaced by an axis-aligned rectangle. An optional {@code pdf_image_clip_bounds}
+ * map's nested {@code bounds} converts in the same frame; its EMPTY/UNBOUNDED classifications carry no
+ * coordinates and are returned unchanged.
  */
 public interface PdfCoordinateConverter {
     /**

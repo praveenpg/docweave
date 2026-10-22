@@ -9,6 +9,10 @@ import java.util.Objects;
 
 /** Stateless physical-unit conversion; recognition and source frames remain untouched. */
 final class DefaultPdfCoordinateConverter implements PdfCoordinateConverter {
+    /** Creates the stateless implementation used by the public converter factory. */
+    DefaultPdfCoordinateConverter() {
+    }
+
     @Override
     public Element toPoints(final Element element) {
         return convert(element, "PDFPoints", 1);
@@ -50,6 +54,14 @@ final class DefaultPdfCoordinateConverter implements PdfCoordinateConverter {
         if (metadata.containsKey("pdf_image_coordinates")) {
             metadata.put(
                     "pdf_image_coordinates", coordinates(metadata.get("pdf_image_coordinates"), target, dpi, unit));
+            changed = true;
+        }
+        if (metadata.containsKey("pdf_image_clip_bounds")) {
+            final var clip = mapping(metadata.get("pdf_image_clip_bounds"));
+            if (clip.containsKey("bounds")) {
+                clip.put("bounds", coordinates(clip.get("bounds"), target, dpi, unit));
+            }
+            metadata.put("pdf_image_clip_bounds", clip);
             changed = true;
         }
         if (metadata.containsKey("pdf_table_cells")) {

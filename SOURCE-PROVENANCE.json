@@ -1,6 +1,6 @@
 {
-  "source_commit": "88d196f2dec59a2e7107c4928d462914155bbfc2",
-  "unchanged_files": 4120,
+  "source_commit": "baa6c46de07a457bf1f93d41a4b16a361694efa6",
+  "unchanged_files": 4137,
   "derived_files": [
     {
       "path": "benchmarks/corpus/docx-forms/ownership-body-scope-review.json",
@@ -126,6 +126,12 @@
       "path": "benchmarks/review/pdf-detector-resolution/manifest.json",
       "original_sha256": "e085422f50c7ecf9fe02a9ceba16e8ffaa14565eb4d900160ab3d17c34a3e93b",
       "public_sha256": "a2fe39cfb6c65e819592a6797baec41f94a2915be27be2516f31b63b4d869f69",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/pdf-image-clip-bounds/full-verify-java21.log",
+      "original_sha256": "92fa1c91bfeda03775420c627b0e91df9238833ba92a354c8f4b0516b1374a7a",
+      "public_sha256": "cff70ba2e7bd2e20ba431e0e85b62792d79f65db6079bd94d060927b92aca4b7",
       "action": "derived"
     },
     {

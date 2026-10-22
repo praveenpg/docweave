@@ -1,0 +1,14 @@
+import java.nio.file.*;
+import tools.jackson.databind.json.JsonMapper;
+class CompareFigureControls {
+ public static void main(String[] args) throws Exception {
+  final var m=JsonMapper.builder().build();
+  for(int i=0;i<args.length;i+=3) {
+   final var a=m.readTree(Files.readAllBytes(Path.of(args[i])));
+   final var b=m.readTree(Files.readAllBytes(Path.of(args[i+1])));
+   if(a.get("results").size()!=Integer.parseInt(args[i+2]) || !a.get("results").equals(b.get("results")))
+    throw new AssertionError("Complete figure control results differ");
+   System.out.println("Preserved full "+args[i+2]+"-slot figure population including payload hashes");
+  }
+ }
+}

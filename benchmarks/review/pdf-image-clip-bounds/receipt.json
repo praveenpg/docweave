@@ -1,0 +1,42 @@
+{
+  "scope": "Opt-in per-image invocation clip-bounds classification; defaults and frozen references unchanged",
+  "baseline_commit": "88d196f",
+  "java": "21",
+  "decision": "ready_to_integrate_candidate",
+  "default_behavior": "unchanged (includeImageClipBounds defaults to false)",
+  "new_field": "pdf_image_clip_bounds",
+  "new_option": "PdfOptions.includeImageClipBounds / withImageClipBounds(boolean)",
+  "owned_tests": {
+    "PdfImageClipBoundsTest": 15,
+    "PdfImageClipBoundsIntegrationTest": 1
+  },
+  "focused_regression": {
+    "PdfImageGraphicsStateTest+PdfImageCornersTest+PdfImageMaskBudgetTest+PdfStencilImageTest+PdfEmptyFormClipTest+PdfEmptyTextClipTest": "31/31 unchanged",
+    "PdfImageGraphicsStateIntegrationTest": "1/1 unchanged"
+  },
+  "full_reactor_verify": {
+    "outcome": "BUILD SUCCESS",
+    "tests_total": 1324,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "documented_baseline_tests": 1308,
+    "added_by_this_change": 16
+  },
+  "magazine_affine_control": {
+    "source_image_occurrences": 94,
+    "source_corner_maps": 94,
+    "frozen_affine_references_passed": 4
+  },
+  "qualified_figures_control": {
+    "frozen_tool_outcome": "pre-existing failure, unrelated to this change",
+    "reason": "qualified.json (expected_case_profiles=18) frozen at commit 6df7618, predates commit d88cf5b which added a fourth PdfOptions.TextRendering value, growing the real profile count (3 sources x 2 factories x renderings) to 24",
+    "direct_substitute_check": "each of the 3 qualified sources still emits exactly 1 image under default options"
+  },
+  "limitations": [
+    "UNBOUNDED classification has no owned control; unreachable from ordinary authored-PDF geometry, inherited from PdfInheritedRuleClip's own existing defensive fallback",
+    "BOUNDED envelopes for arbitrary supported quadrilateral clips remain a conservative rectangle, not the exact shape",
+    "classification never asserts final page visibility, group composition, soft-mask alpha or occlusion",
+    "qualified-figures frozen tool/manifest drift is reported, not repaired (out of scope; would rewrite a historical goldens file)"
+  ]
+}

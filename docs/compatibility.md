@@ -730,3 +730,11 @@ record shape nor provider interfaces. Added source-derived geometry is identifie
 metadata and is subject to existing ownership, topology and resource limits. Geometry and
 colon punctuation cannot establish semantic membership in every document; use the default
 when retaining exact provider bounds is required. See the [PDF policy and limitations](pdf-support.md#explicit-native-leading-section-rows-unreleased).
+
+
+`PdfOptions.withImageClipBounds(true)` opts into conservative image clipping metadata.
+Existing constructors remain available and default to false. Adding the boolean record
+component changes reflective schemas, canonical constructor shape and record-derived
+serialization/equality/hash/toString behavior. Source image payloads and occurrence defaults
+remain unchanged. `PdfCoordinateConverter` converts the new nested bounds where present;
+empty or unbounded states contain no coordinates. See [the field contract](pdf-support.md#conservative-image-clip-bounds-unreleased).
