@@ -40,3 +40,10 @@ coverage. Next bounded action, if pursued: obtain an independently reviewed deci
 parenthesis spacing should be normalized in the reference protocol (a protocol change, not an
 extraction change), and separately a design for gap-separated trailing section rows with owned
 footnote-absorption negatives.
+
+## Reproducible spacing diagnostic
+
+An [explicit JVM diagnostic](../pdf-business-parenthesis-diagnostic/README.md) now reproduces
+all 21 YOLOX and 15 TATR spacing-only cases with exact-first, one-to-one matching and
+numeric-token-only normalization. Every strict result record is unchanged. This does
+not adopt a normalized reference protocol or establish additional extraction accuracy.

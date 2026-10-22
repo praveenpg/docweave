@@ -19,9 +19,14 @@ import java.util.HexFormat;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 /** Exact complete-row presence diagnostic alongside unchanged ordinal scoring; never repairs or reorders output. */
 public final class AuditStatementRowPresence {
+    /** Numeric accounting tokens only; ASCII spaces before the closing parenthesis are diagnostic. */
+    private static final Pattern ACCOUNTING_PARENTHESIS =
+            Pattern.compile("\\(([0-9]+(?:,[0-9]{3})*(?:\\.[0-9]+)?) +\\)");
+
     /** Prevents standalone diagnostic construction. */
     private AuditStatementRowPresence() {
     }
@@ -31,7 +36,7 @@ public final class AuditStatementRowPresence {
      * Presence consumes exact complete-row occurrences once; unmatched references and extra observations stay.
      * This diagnoses title/header offsets without replacing strict ordinal scores or measuring logical order.
      * @param args replay manifest, source cache, capture root and fresh report, optional --leading-row or
-     *         --section-row; or --self-test
+     *         --section-row or --section-row-parenthesis-diagnostic; or --self-test
      * @throws Exception if pins, protocol completeness, controls or extraction infrastructure fail
      */
     public static void main(final String[] args) throws Exception {
@@ -41,10 +46,13 @@ public final class AuditStatementRowPresence {
             return;
         }
         require(args.length == 4
-                        || args.length == 5 && (args[4].equals("--leading-row") || args[4].equals("--section-row")),
-                "Expected replay, source cache, captures, fresh report and optional --leading-row or --section-row");
+                        || args.length == 5
+                                   && (args[4].equals("--leading-row") || args[4].equals("--section-row")
+                                           || args[4].equals("--section-row-parenthesis-diagnostic")),
+                "Expected replay, source cache, captures, fresh report and an optional supported row-policy flag");
+        final boolean spacingDiagnostic = args.length == 5 && args[4].equals("--section-row-parenthesis-diagnostic");
         final var leadingRow = args.length == 4 ? PdfNativeLayoutOptions.LeadingRow.PROVIDER_ONLY
-                               : args[4].equals("--section-row")
+                               : (args[4].equals("--section-row") || spacingDiagnostic)
                                        ? PdfNativeLayoutOptions.LeadingRow.SOURCE_NUMERIC_OR_SECTION_ROW
                                        : PdfNativeLayoutOptions.LeadingRow.SOURCE_NUMERIC_ROW;
         final var mapper = JsonMapper.builder().build();
@@ -116,6 +124,9 @@ public final class AuditStatementRowPresence {
                 final var associated = fragments.invoke(null, elements, regions);
                 @SuppressWarnings("unchecked") final var observed = (List<String>) observedReader.invoke(associated);
                 final var result = new LinkedHashMap<String, Object>(presence(expected, observed));
+                if (spacingDiagnostic) {
+                    result.put("parenthesis_spacing_diagnostic", spacing(expected, observed));
+                }
                 result.put("case", selected.get("id").asString());
                 result.put("profile", family);
                 result.put("outcome", outcome);
@@ -163,8 +174,68 @@ public final class AuditStatementRowPresence {
                 expected.size() - present, "reference_occurrences", rows, "unmatched_observed_indices", extra);
     }
 
+    /**
+     * Associates remaining whole rows only after exact matches have consumed their observations.
+     * Only ASCII spaces before a closing parenthesis in an unsigned numeric token are ignored.
+     * This is a presentation diagnostic, not cell alignment, semantic equivalence or a revised score.
+     * @param expected original frozen reference rows
+     * @param observed original emitted rows
+     * @return index-only additional pairs, preserving every strict measurement separately
+     */
+    private static List<Map<String, Integer>> spacing(final List<String> expected, final List<String> observed) {
+        final var unmatched = new LinkedHashMap<String, ArrayDeque<Integer>>();
+        for (int index = 0; index < observed.size(); index++) {
+            unmatched.computeIfAbsent(observed.get(index), ignored -> new ArrayDeque<>()).add(index);
+        }
+        final var missing = new ArrayList<Integer>();
+        for (int index = 0; index < expected.size(); index++) {
+            final var exact = unmatched.get(expected.get(index));
+            if (exact != null && !exact.isEmpty()) {
+                exact.removeFirst();
+            } else {
+                missing.add(index);
+            }
+        }
+        final var candidates = new LinkedHashMap<String, ArrayDeque<Integer>>();
+        unmatched.values()
+                .stream()
+                .flatMap(java.util.Collection::stream)
+                .sorted()
+                .forEach(index
+                        -> candidates.computeIfAbsent(accounting(observed.get(index)), ignored -> new ArrayDeque<>())
+                                .add(index));
+        final var pairs = new ArrayList<Map<String, Integer>>();
+        for (final int index : missing) {
+            final var available = candidates.get(accounting(expected.get(index)));
+            if (available != null && !available.isEmpty()) {
+                pairs.add(Map.of("reference_index", index, "observed_index", available.removeFirst()));
+            }
+        }
+        return List.copyOf(pairs);
+    }
+
+    /**
+     * Produces a temporary comparison key without modifying either captured row.
+     * @param row original row text
+     * @return key with only the declared numeric-parenthesis spacing removed
+     */
+    private static String accounting(final String row) {
+        return ACCOUNTING_PARENTHESIS.matcher(row).replaceAll("($1)");
+    }
+
     /** Tests offset distinction, duplicate consumption, excess output, missing output and exact whitespace. */
     private static void controls() {
+        require(spacing(List.of("Loss (5,491 )"), List.of("Loss (5,491)")).size() == 1,
+                "Accounting presentation missed");
+        require(spacing(List.of("(2 )", "(2)"), List.of("(2)")).isEmpty(), "Exact occurrence stolen");
+        require(spacing(List.of("(2 )", "(2 )"), List.of("(2)")).size() == 1, "Observation reused");
+        require(spacing(List.of("(2 )"), List.of("(2 )")).isEmpty(), "Exact match counted twice");
+        require(spacing(List.of("(2.50  )"), List.of("(2.50)")).size() == 1, "Decimal presentation missed");
+        for (final var pair : List.of(List.of("(2 )", "(3)"), List.of("(2 )", "2"), List.of("(word )", "(word)"),
+                     List.of("(5,49 )", "(5,49)"), List.of("(2\u00a0)", "(2)"), List.of("(2 ) A", "(2) a"),
+                     List.of("(2 )", "(-2)"), List.of("(2 )", "(2.0)"))) {
+            require(spacing(pair.subList(0, 1), pair.subList(1, 2)).isEmpty(), "Nonspacing difference waived");
+        }
         final var shifted = presence(List.of("title", "a", "b"), List.of("a", "b"));
         require(shifted.get("strict_exact_ordinal_rows").equals(0)
                         && shifted.get("exact_row_occurrences_present").equals(2),

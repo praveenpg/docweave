@@ -1,0 +1,62 @@
+import tools.jackson.databind.json.JsonMapper;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
+/** Requires unchanged strict evidence and checks every supplemental match against its prior classification. */
+public final class CheckSpacingReplay {
+    /** Prevents construction. */
+    private CheckSpacingReplay() {}
+    /**
+     * Compares complete row results without changing scores or reference definitions.
+     * @param args baseline, supplemental replay and historical classification
+     * @throws Exception if a strict result changes or the diagnostic cannot reproduce the classification
+     */
+    public static void main(final String[] args) throws Exception {
+        final var mapper = JsonMapper.builder().build();
+        final var baseline = mapper.readTree(Files.readAllBytes(Path.of(args[0]))).get("results");
+        final var replay = mapper.readTree(Files.readAllBytes(Path.of(args[1]))).get("results");
+        final var classes = mapper.readTree(Files.readAllBytes(Path.of(args[2]))).get("results");
+        if (baseline.size() != 6 || replay.size() != 6 || classes.size() != 6) {
+            throw new AssertionError("Incomplete population");
+        }
+        final var totals = new HashMap<String, Integer>();
+        for (int i = 0; i < 6; i++) {
+            final var before = baseline.get(i);
+            final var after = replay.get(i);
+            final var fields = before.properties();
+            for (final var field : fields) {
+                if (!field.getValue().equals(after.get(field.getKey()))) {
+                    throw new AssertionError("Strict evidence changed: " + field.getKey());
+                }
+            }
+            final String profile = after.get("profile").asString();
+            final var previous = classes.get(i);
+            if (!profile.equals(previous.get("profile").asString())) {
+                throw new AssertionError("Profile order changed");
+            }
+            final Set<Integer> expected = new HashSet<>();
+            for (final var index : previous.get("missing_by_class").path("reference_parenthesis_spacing")) {
+                expected.add(index.asInt());
+            }
+            final Set<Integer> seen = new HashSet<>();
+            final Set<Integer> observed = new HashSet<>();
+            for (final var pair : after.get("parenthesis_spacing_diagnostic")) {
+                if (!seen.add(pair.get("reference_index").asInt())
+                        || !observed.add(pair.get("observed_index").asInt())) {
+                    throw new AssertionError("Duplicate association");
+                }
+            }
+            if (!expected.equals(seen)) {
+                throw new AssertionError("Supplemental diagnostic differs from archived classification");
+            }
+            totals.merge(profile, seen.size(), Integer::sum);
+        }
+        if (!totals.equals(java.util.Map.of("tatr", 15, "yolox", 21))) {
+            throw new AssertionError("Wrong totals: " + totals);
+        }
+        System.out.println("PASS: all six strict result records unchanged; spacing-only associations TATR15, YOLOX21.");
+    }
+}

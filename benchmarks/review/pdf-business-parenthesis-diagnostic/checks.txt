@@ -1,0 +1,3 @@
+PASS: all six strict result records unchanged; spacing-only associations TATR15, YOLOX21.
+PASS: standalone Java 21 source compatibility and diagnostic controls.
+PASS: strict private Javadocs for AuditStatementRowPresence.
