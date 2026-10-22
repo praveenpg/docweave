@@ -42,3 +42,10 @@ gutters and over-splits wide intra-row spacing on the same page; tuning it would
 search and is not attempted. Next distinct hypothesis: page-level gutter evidence (a vertical
 whitespace band consistent across many lines) instead of per-line gaps, with owned single-column,
 tab-stop and two-column controls, applied uniformly to both pages and models.
+
+## Page-level candidate follow-up
+
+The [fixed page-gutter candidate](../pdf-page-gutter-attempt/README.md) gained line
+associations on1778 but regressed strongly on1879 and worsened1778 Fraktur joint
+character alignment. The complete eight-observation result is retained and the candidate
+was reverted. Repeated gaps alone are insufficient; no threshold retuning followed.

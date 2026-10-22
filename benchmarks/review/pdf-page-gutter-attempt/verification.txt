@@ -1,0 +1,5 @@
+Candidate-only Java 21 full mvn verify: BUILD SUCCESS, 45.112 seconds.
+Owned candidate controls: five new tests; seven prior splitting tests pass.
+Private strict Javadocs pass.
+Despite passing tests, historical real-source transfer fails; candidate not promoted.
+Full candidate verify log SHA-256: ef3729f70bb74109c4fce59beaabf8b2f371721291eb86804f0dfcf77b0ee9e0

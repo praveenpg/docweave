@@ -47,3 +47,9 @@ An [explicit JVM diagnostic](../pdf-business-parenthesis-diagnostic/README.md) n
 all 21 YOLOX and 15 TATR spacing-only cases with exact-first, one-to-one matching and
 numeric-token-only normalization. Every strict result record is unchanged. This does
 not adopt a normalized reference protocol or establish additional extraction accuracy.
+
+## Source-supported trailing-row check
+
+A [bounded source-support probe](../pdf-trailing-source-support/README.md) found no
+document structure tree or long supporting rules in the page7 trailing-row band.
+This distinct extension hypothesis was parked without changing provider bounds.

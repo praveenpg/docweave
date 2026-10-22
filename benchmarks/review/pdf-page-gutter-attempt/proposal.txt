@@ -1,0 +1,8 @@
+Frozen before candidate OCR measurement: PAGE_GUTTERS opt-in, WIDE_GAPS fallback only if no page gutter.
+One page gutter from recognition-order consecutive-word gaps in the central half of raster width.
+Eligible gap >= median word height, at least two recognized words on either side in its source line.
+Sweep gap intervals; require support from at least four distinct top coordinates spanning >=four median heights.
+Choose greatest distinct-line support, then widest overlap interval (first leftmost exact tie).
+Split only gaps crossing the selected midpoint. Preserve all characters and word order.
+Controls: four supported two-column rows with intra-column wide gaps; narrow gutter; insufficient support;
+single-column/tab-stop numeric row; limits and detailed view. No threshold tuning after source result.

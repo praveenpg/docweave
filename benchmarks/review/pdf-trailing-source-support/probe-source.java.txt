@@ -1,0 +1,22 @@
+package dev.docweave.partition;
+import org.apache.pdfbox.Loader;
+import java.nio.file.Path;
+/** Tests whether independent source tags or painted column rules can support a trailing-row candidate. */
+public final class ProbeTrailingSupport {
+ public static void main(String[] args) throws Exception {
+  try(final var document=Loader.loadPDF(Path.of(args[0]).toFile())) {
+   System.out.println("structure_tree="+(document.getDocumentCatalog().getStructureTreeRoot()!=null));
+   final var page=document.getPage(6);
+   final var options=PdfOptions.defaults();
+   final var visitor=new PdfPageGraphics(page,options,new PdfImageBudget(options),new PdfPageGeometry(page));
+   visitor.processPage(page);
+   int horizontal=0,vertical=0;
+   for(final var s:visitor.segments()) {
+    if(Math.max(s.y1(),s.y2())<573.6 || Math.min(s.y1(),s.y2())>635)continue;
+    if(Math.abs(s.y1()-s.y2())<0.1 && Math.abs(s.x1()-s.x2())>100)horizontal++;
+    if(Math.abs(s.x1()-s.x2())<0.1 && Math.abs(s.y1()-s.y2())>10)vertical++;
+   }
+   System.out.println("page=7; source_band_top=573.6; source_band_bottom=635.0; long_horizontal_rules="+horizontal+"; vertical_column_rules="+vertical);
+  }
+ }
+}

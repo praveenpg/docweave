@@ -1,0 +1,37 @@
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+import tools.jackson.databind.json.JsonMapper;
+
+/** Requires unchanged recognition text and source/model identities for all eight candidate observations. */
+public final class CheckGutterText {
+    /** Prevents construction. */
+    private CheckGutterText() {}
+    /**
+     * Checks full paired reports without choosing successful pages or models.
+     * @param args historical baseline/candidate followed by degraded baseline/candidate
+     * @throws Exception if any paired population, identity or recognized text differs
+     */
+    public static void main(final String[] args) throws Exception {
+        final var mapper = JsonMapper.builder().build();
+        int count = 0;
+        for (int domain = 0; domain < 4; domain += 2) {
+            final var baseline = mapper.readTree(Files.readAllBytes(Path.of(args[domain]))).get("results");
+            final var candidate = mapper.readTree(Files.readAllBytes(Path.of(args[domain + 1]))).get("results");
+            if (baseline.size() != 4 || candidate.size() != 4) {
+                throw new AssertionError("Incomplete population");
+            }
+            for (int i = 0; i < 4; i++) {
+                for (final String field : List.of("id", "language", "model_sha256", "source_rgb_sha256",
+                             "reference_text_sha256", "prediction_text_sha256", "global_prediction_code_points",
+                             "ocr_frames", "outcome")) {
+                    if (!baseline.get(i).get(field).equals(candidate.get(i).get(field))) {
+                        throw new AssertionError("Changed " + field);
+                    }
+                }
+                count++;
+            }
+        }
+        System.out.println("PASS: all " + count + " source/model/frame/text identities unchanged.");
+    }
+}

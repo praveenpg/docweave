@@ -1,0 +1,342 @@
+diff --git a/docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractOptions.java b/docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractOptions.java
+index 711385a..8c94aab 100644
+--- a/docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractOptions.java
++++ b/docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractOptions.java
+@@ -186,7 +186,7 @@ public record TesseractOptions(Path executable, Path tessdataDirectory, List<Str
+ 
+     /**
+      * Copies this policy with explicit output-line grouping; pixels, recognition and word text are unchanged.
+-     * WIDE_GAPS can separate a genuine tab-stop or table row into several lines; it does not reorder words.
++     * WIDE_GAPS and PAGE_GUTTERS may split genuine tab-stop or table rows; neither reorders words.
+      * @param splitting nonnull line grouping policy
+      * @return validated immutable copy retaining every other value
+      * @throws NullPointerException if splitting is null
+@@ -197,7 +197,7 @@ public record TesseractOptions(Path executable, Path tessdataDirectory, List<Str
+                 pageSegmentation, cellBorders, splitting);
+     }
+ 
+-    /** Explicit grouping of recognized words into returned lines; neither value changes recognition. */
++    /** Explicit grouping of recognized words into returned lines; these values do not change recognition. */
+     public enum LineSplitting {
+         /** Returns one line per Tesseract block/paragraph/line identity, as before. */
+         TESSERACT_LINES,
+@@ -207,7 +207,13 @@ public record TesseractOptions(Path executable, Path tessdataDirectory, List<Str
+          * or intentional spacing within a logical row; the rule does not establish semantic line membership.
+          * Words keep their recognition order and text; the extra lines still count against maxLines.
+          */
+-        WIDE_GAPS
++        WIDE_GAPS,
++        /**
++         * Uses one repeatedly supported central page gutter instead of individual wide gaps when available.
++         * Requires at least four source lines with two words on either side; otherwise uses WIDE_GAPS.
++         * Geometric support does not prove semantic columns, and aligned prose or tab stops may still split.
++         */
++        PAGE_GUTTERS
+     }
+ 
+     /** Explicit isolated-cell preprocessing; no image is modified in place and geometry stays unchanged. */
+diff --git a/docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractTsv.java b/docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractTsv.java
+index 65d2149..2bbbc22 100644
+--- a/docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractTsv.java
++++ b/docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractTsv.java
+@@ -74,7 +74,7 @@ final class TesseractTsv {
+                                  .decode(ByteBuffer.wrap(bytes))
+                                  .toString();
+         final var lines = new LinkedHashMap<String, Words>();
+-        final boolean split = options.lineSplitting() == TesseractOptions.LineSplitting.WIDE_GAPS;
++        final boolean split = options.lineSplitting() != TesseractOptions.LineSplitting.TESSERACT_LINES;
+         int characters = 0;
+         try (final var reader = new BufferedReader(new StringReader(text))) {
+             if (!HEADER.equals(reader.readLine())) {
+@@ -124,12 +124,17 @@ final class TesseractTsv {
+                 characters += cells[11].length() + separator;
+             }
+         }
++        final double gutter =
++                options.lineSplitting() == TesseractOptions.LineSplitting.PAGE_GUTTERS
++                        ? TesseractPageGutter.locate(
++                                  lines.values().stream().map(value -> value.tokens).toList(), width, deadline)
++                        : Double.NaN;
+         final var result = new ArrayList<PdfOcrProvider.Line>(lines.size());
+         final var detailed = retainWords ? new ArrayList<PdfWordOcrProvider.WordLine>(lines.size()) : null;
+         for (final var words : lines.values()) {
+             deadline.remaining();
+             if (split) {
+-                for (final var segment : segments(words.tokens, options.maxLines() - result.size(), deadline)) {
++                for (final var segment : segments(words.tokens, options.maxLines() - result.size(), gutter, deadline)) {
+                     if (result.size() >= options.maxLines()) {
+                         throw new PartitionException(PartitionException.Code.OCR_LIMIT, "Tesseract exceeds maxLines");
+                     }
+@@ -152,16 +157,17 @@ final class TesseractTsv {
+     }
+ 
+     /**
+-     * Divides one Tesseract line where a horizontal gap between consecutive words, in recognition order, exceeds
+-     * three times the line's tallest word. Overlapping or right-to-left steps never split. Words are not reordered.
++     * Divides one Tesseract line at the supported page gutter when present, otherwise where a horizontal gap
++     * exceeds three times its tallest word. Overlapping or right-to-left steps never split. Words are not reordered.
+      * @param tokens one Tesseract line's recognized words
+      * @param maxSegments remaining returned-line allowance, checked before retaining new fragments
++     * @param gutter supported page gutter, or NaN for the per-line wide-gap fallback
+      * @param deadline shared recognition deadline and interruption check
+      * @return nonempty consecutive word segments
+      * @throws IOException if cancelled, timed out or the returned-line budget is exhausted
+      */
+     private static List<List<PdfWordOcrProvider.Word>> segments(final List<PdfWordOcrProvider.Word> tokens,
+-            final int maxSegments, final OcrDeadline deadline) throws IOException {
++            final int maxSegments, final double gutter, final OcrDeadline deadline) throws IOException {
+         if (maxSegments < 1) {
+             throw new PartitionException(PartitionException.Code.OCR_LIMIT, "Tesseract exceeds maxLines");
+         }
+@@ -174,7 +180,10 @@ final class TesseractTsv {
+         var current = new ArrayList<PdfWordOcrProvider.Word>();
+         for (final var word : tokens) {
+             deadline.remaining();
+-            if (!current.isEmpty() && word.left() - current.getLast().right() > 3 * height) {
++            if (!current.isEmpty()
++                    && (Double.isNaN(gutter) ? word.left() - current.getLast().right() > 3 * height
++                                             : current.getLast().right() <= gutter && word.left() >= gutter
++                                                       && word.left() > current.getLast().right())) {
+                 if (result.size() + 1 >= maxSegments) {
+                     throw new PartitionException(PartitionException.Code.OCR_LIMIT, "Tesseract exceeds maxLines");
+                 }
+diff --git a/docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractPageGutter.java b/docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractPageGutter.java
+new file mode 100644
+index 0000000..3653cdc
+--- /dev/null
++++ b/docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractPageGutter.java
+@@ -0,0 +1,90 @@
++package dev.docweave.ocr;
++
++import dev.docweave.partition.PdfWordOcrProvider;
++
++import java.io.IOException;
++import java.util.ArrayList;
++import java.util.List;
++import java.util.TreeMap;
++
++/** Bounded sweep of repeatedly observed word gaps; no pixels, models or reference text are inspected. */
++final class TesseractPageGutter {
++    /** Prevents construction. */
++    private TesseractPageGutter() {
++    }
++
++    /**
++     * One gap edge and the source line top that supports it.
++     * @param top source line top coordinate
++     * @param delta admission or removal count
++     */
++    private record Edge(double top, int delta) {}
++
++    /**
++     * Chooses one central gap supported by four vertically separated source lines, or declines.
++     * @param lines original recognition-ordered word populations
++     * @param width source raster width
++     * @param deadline shared recognition deadline and interruption check
++     * @return gutter midpoint or NaN if evidence is insufficient
++     * @throws IOException if cancelled or timed out
++     */
++    static double locate(final List<List<PdfWordOcrProvider.Word>> lines, final int width, final OcrDeadline deadline)
++            throws IOException {
++        final var heights = new ArrayList<Double>();
++        for (final var line : lines) {
++            for (final var word : line) {
++                deadline.remaining();
++                heights.add(word.bottom() - word.top());
++            }
++        }
++        if (heights.isEmpty()) {
++            return Double.NaN;
++        }
++        heights.sort(Double::compare);
++        deadline.remaining();
++        final double height = heights.get(heights.size() / 2);
++        final var edges = new TreeMap<Double, List<Edge>>();
++        for (final var line : lines) {
++            double top = Double.POSITIVE_INFINITY;
++            for (final var word : line) {
++                deadline.remaining();
++                top = Math.min(top, word.top());
++            }
++            for (int i = 2; i <= line.size() - 2; i++) {
++                deadline.remaining();
++                final double left = Math.max(width * .25, line.get(i - 1).right());
++                final double right = Math.min(width * .75, line.get(i).left());
++                if (right - left >= height) {
++                    edges.computeIfAbsent(left, ignored -> new ArrayList<>()).add(new Edge(top, 1));
++                    edges.computeIfAbsent(right, ignored -> new ArrayList<>()).add(new Edge(top, -1));
++                }
++            }
++        }
++        final var active = new TreeMap<Double, Integer>();
++        int support = 0;
++        double bestWidth = 0;
++        double gutter = Double.NaN;
++        for (final var entry : edges.entrySet()) {
++            deadline.remaining();
++            for (final var edge : entry.getValue()) {
++                deadline.remaining();
++                final int count = active.getOrDefault(edge.top(), 0) + edge.delta();
++                if (count == 0) {
++                    active.remove(edge.top());
++                } else {
++                    active.put(edge.top(), count);
++                }
++            }
++            final Double right = edges.higherKey(entry.getKey());
++            if (right != null && active.size() >= 4 && active.lastKey() - active.firstKey() >= 4 * height) {
++                final double span = right - entry.getKey();
++                if (active.size() > support || active.size() == support && span > bestWidth) {
++                    support = active.size();
++                    bestWidth = span;
++                    gutter = (entry.getKey() + right) / 2;
++                }
++            }
++        }
++        return gutter;
++    }
++}
+diff --git a/docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractPageGutterTest.java b/docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractPageGutterTest.java
+new file mode 100644
+index 0000000..562ea20
+--- /dev/null
++++ b/docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractPageGutterTest.java
+@@ -0,0 +1,138 @@
++package dev.docweave.ocr;
++
++import dev.docweave.partition.PartitionException;
++import org.junit.jupiter.api.Test;
++
++import java.nio.charset.StandardCharsets;
++
++import static org.junit.jupiter.api.Assertions.*;
++
++/** Owned page-level gutter controls; no external engine is started. */
++class TesseractPageGutterTest {
++    /** Engine schema shared by the owned source rows. */
++    private static final String HEADER =
++            "level\tpage_num\tblock_num\tpar_num\tline_num\tword_num\tleft\ttop\twidth\theight\tconf\ttext\n";
++
++    /** Creates the owned source controls. */
++    TesseractPageGutterTest() {
++    }
++
++    /**
++     * A consistent narrow column gap splits while a wider intra-column gap stays in its source line.
++     * @throws Exception if parsing fails
++     */
++    @Test
++    void supportedGutterAvoidsIntraColumnSplits() throws Exception {
++        final String input = rows(4, false);
++        final var lines = parse(input, TesseractOptions.LineSplitting.PAGE_GUTTERS);
++        assertEquals(8, lines.size());
++        assertEquals("left words", lines.getFirst().text());
++        assertEquals("right words", lines.get(1).text());
++        assertEquals(400, lines.getFirst().right());
++        assertEquals(420, lines.get(1).left());
++        assertNotEquals(lines, parse(input, TesseractOptions.LineSplitting.WIDE_GAPS));
++    }
++
++    /**
++     * Fewer than four supporting lines retain the established wide-gap fallback.
++     * @throws Exception if parsing fails
++     */
++    @Test
++    void insufficientSupportRetainsFallback() throws Exception {
++        assertEquals(parse(rows(3, false), TesseractOptions.LineSplitting.WIDE_GAPS),
++                parse(rows(3, false), TesseractOptions.LineSplitting.PAGE_GUTTERS));
++    }
++
++    /**
++     * Several identities on the same physical baseline cannot manufacture page-level support.
++     * @throws Exception if parsing fails
++     */
++    @Test
++    void repeatedBaselineDoesNotManufactureSupport() throws Exception {
++        assertEquals(parse(rows(4, true), TesseractOptions.LineSplitting.WIDE_GAPS),
++                parse(rows(4, true), TesseractOptions.LineSplitting.PAGE_GUTTERS));
++    }
++
++    /**
++     * A numeric tab-stop row with only one right token cannot support the two-column hypothesis.
++     * @throws Exception if parsing fails
++     */
++    @Test
++    void singleNumericTabStopRetainsFallback() throws Exception {
++        final var text = new StringBuilder(HEADER);
++        for (int i = 1; i <= 4; i++) {
++            text.append(word(i, 10 + 20 * i, 100, 20, "left"));
++            text.append(word(i, 10 + 20 * i, 380, 20, "label"));
++            text.append(word(i, 10 + 20 * i, 420, 20, "12"));
++        }
++        assertEquals(parse(text.toString(), TesseractOptions.LineSplitting.WIDE_GAPS),
++                parse(text.toString(), TesseractOptions.LineSplitting.PAGE_GUTTERS));
++    }
++
++    /**
++     * The detailed view and output-line budget use exactly the same split decisions.
++     * @throws Exception if parsing fails
++     */
++    @Test
++    void detailedViewAndLineBudgetRemainConsistent() throws Exception {
++        final var options = TesseractOptions.defaults().withLineSplitting(TesseractOptions.LineSplitting.PAGE_GUTTERS);
++        final var words = TesseractTsv.parseWords(rows(4, false).getBytes(StandardCharsets.UTF_8), 1000, 200, options,
++                new OcrDeadline(options.timeout()));
++        assertEquals(8, words.size());
++        assertEquals(2, words.getFirst().words().size());
++        final var limited = new TesseractOptions(options.executable(), options.tessdataDirectory(), options.languages(),
++                options.timeout(), options.maxConcurrentProcesses(), options.maxImagePixels(), options.maxPngBytes(),
++                options.maxOutputBytes(), 7, options.maxCharacters())
++                                    .withLineSplitting(options.lineSplitting());
++        final var failure = assertThrows(PartitionException.class,
++                ()
++                        -> TesseractTsv.parse(rows(4, false).getBytes(StandardCharsets.UTF_8), 1000, 200, limited,
++                                new OcrDeadline(limited.timeout())));
++        assertEquals(PartitionException.Code.OCR_LIMIT, failure.code());
++    }
++
++    /**
++     * Builds independent physical rows with one central gap and intentionally wider internal spacing.
++     * @param count source line count
++     * @param sameBaseline whether all identities share one physical baseline
++     * @return complete TSV
++     */
++    private static String rows(final int count, final boolean sameBaseline) {
++        final var text = new StringBuilder(HEADER);
++        for (int i = 1; i <= count; i++) {
++            final int top = sameBaseline ? 10 : 10 + 20 * i;
++            text.append(word(i, top, 100, 20, "left"));
++            text.append(word(i, top, 380, 20, "words"));
++            text.append(word(i, top, 420, 20, "right"));
++            text.append(word(i, top, 450, 20, "words"));
++        }
++        return text.toString();
++    }
++
++    /**
++     * Parses owned source words under the selected policy.
++     * @param text complete TSV
++     * @param policy explicit splitting choice
++     * @return parsed lines
++     * @throws Exception if parsing fails
++     */
++    private static java.util.List<dev.docweave.partition.PdfOcrProvider.Line> parse(
++            final String text, final TesseractOptions.LineSplitting policy) throws Exception {
++        final var options = TesseractOptions.defaults().withLineSplitting(policy);
++        return TesseractTsv.parse(
++                text.getBytes(StandardCharsets.UTF_8), 1000, 200, options, new OcrDeadline(options.timeout()));
++    }
++
++    /**
++     * Builds one source token without deriving expected line geometry from the candidate.
++     * @param line source line identity
++     * @param top source vertical edge
++     * @param left horizontal edge
++     * @param width word width
++     * @param text recognized content
++     * @return one TSV row
++     */
++    private static String word(final int line, final int top, final int left, final int width, final String text) {
++        return "5\t1\t1\t1\t" + line + "\t1\t" + left + "\t" + top + "\t" + width + "\t10\t90\t" + text + "\n";
++    }
++}
