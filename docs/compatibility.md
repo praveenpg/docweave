@@ -23,6 +23,11 @@ CodeSnippet is also supported so chunking can preserve its whitespace. Unknown e
 Initial metadata: filename, filetype, page_number, page_name, parent_id, category_depth, coordinates, languages, links, text_as_html, data_source, is_continuation, orig_elements.
 
 Implemented provenance: `orig_elements` is a base64 string containing zlib-compressed JSON. Upstream names this gzip but uses zlib. DocWeave encodes/decodes the same container, removes recursively nested provenance when rechunking, and rounds original coordinates/probabilities as upstream does. JSON key ordering, whitespace, escaping, and resulting compression bytes are not byte-for-byte identical. The decoder caps decompressed data at 16 MiB. Encoding also rejects serialized originals above that limit so generated provenance remains decodable.
+The decoder validates base64 in bounded aligned blocks before streaming inflation, retaining
+strict encoded-tail rejection and the historical UTF-8/zlib-member behavior. It avoids whole
+encoded/compressed byte-array copies; decompressed JSON and final elements still materialize.
+See [owned compatibility and scoped allocation evidence](../benchmarks/review/originals-bounded-decode/README.md).
+
 
 Unreleased split-source safeguard: a single source over 1,000,000 combined text, raw HTML and
 image-base64 Unicode code points omits repeated `orig_elements` only when it actually produces

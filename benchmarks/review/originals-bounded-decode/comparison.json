@@ -1,0 +1,8 @@
+{
+  "scope" : "Same complete owned source and decoded wire; JFR maximum observed decoder byte-array objects including headers. Sampled events, not total allocation or peak heap.",
+  "maximum_observed_decoder_array_bytes_after" : 0,
+  "unchanged_complete_decoded_original" : true,
+  "maximum_observed_decoder_array_bytes_before" : 1054720,
+  "decoded_wire_sha256" : "df9cdb1d2e47ebf8677589bd2b036ad8870f1cb8a76b05f23e5c355bf39fcf45",
+  "encoded_payload_sha256" : "f4e4d98e58c0d86fc4cdc560f0a94493d2dac0629d231f4fd5b9fc1efd407e06"
+}

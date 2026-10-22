@@ -6,7 +6,6 @@ import tools.jackson.core.JacksonException;
 import tools.jackson.databind.DeserializationFeature;
 import tools.jackson.databind.json.JsonMapper;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -280,14 +279,28 @@ final class DefaultElementJson implements ElementJson {
         if (payload.length() > MAX_ORIGINAL_BYTES * 2) {
             throw new IllegalArgumentException("Original-element payload too large");
         }
-        try (final var compressed =
-                        new InflaterInputStream(new ByteArrayInputStream(Base64.getDecoder().decode(payload)))) {
-            byte[] bytes = compressed.readNBytes(MAX_ORIGINAL_BYTES + 1);
+        final String text = originalJson(payload);
+        return new DefaultElementJson(new JsonReadOptions(MAX_ORIGINAL_BYTES, Integer.MAX_VALUE, 1000, 20_000_000))
+                .read(text);
+    }
+
+    /**
+     * Inflates validated base64 with bounded temporary decoder buffers before building the element graph.
+     * The raw decompressed array and stream scopes end before parsing; the JSON String and final graph
+     * still materialize. UTF-8 replacement and the later normalized UTF-8 preflight retain legacy behavior.
+     * @param payload source whose overall32MiB encoded-character ceiling is already checked
+     * @return complete compatibility JSON within the unchanged16MiB decompressed-byte ceiling
+     * @throws IllegalArgumentException if base64, zlib data or decompressed size is invalid
+     * @throws java.util.concurrent.CancellationException if interrupted; flag preserved
+     */
+    private static String originalJson(final String payload) {
+        try (final var encoded = OriginalsBase64Input.open(payload);
+                final var compressed = new InflaterInputStream(Base64.getDecoder().wrap(encoded))) {
+            final byte[] bytes = compressed.readNBytes(MAX_ORIGINAL_BYTES + 1);
             if (bytes.length > MAX_ORIGINAL_BYTES) {
                 throw new IllegalArgumentException("Decoded original elements exceed 16 MiB");
             }
-            return new DefaultElementJson(new JsonReadOptions(MAX_ORIGINAL_BYTES, Integer.MAX_VALUE, 1000, 20_000_000))
-                    .read(new String(bytes, StandardCharsets.UTF_8));
+            return new String(bytes, StandardCharsets.UTF_8);
         } catch (final IOException error) {
             throw new IllegalArgumentException("Invalid compressed original elements", error);
         }

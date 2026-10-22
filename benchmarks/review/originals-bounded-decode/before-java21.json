@@ -1,0 +1,12 @@
+{
+  "scope" : "Owned complete source; JFR observed Base64 decoder byte-array objects including headers. New-TLAB events are sampled. Not total allocation or retained/peak heap.",
+  "java" : "21.0.12.1+12-LTS",
+  "png_sha256" : "7cb724dc4c53d2ac2f2df4af2d8efc29f790d39126c5bf71770ab9e05fd7c1be",
+  "encoded_payload_characters" : 1054704,
+  "encoded_payload_sha256" : "f4e4d98e58c0d86fc4cdc560f0a94493d2dac0629d231f4fd5b9fc1efd407e06",
+  "decoded_wire_sha256" : "df9cdb1d2e47ebf8677589bd2b036ad8870f1cb8a76b05f23e5c355bf39fcf45",
+  "decoded_elements" : 1,
+  "observed_decoder_byte_array_events" : 2,
+  "maximum_observed_decoder_byte_array_allocation_bytes" : 1054720,
+  "sum_observed_decoder_byte_array_allocation_bytes" : 1845768
+}

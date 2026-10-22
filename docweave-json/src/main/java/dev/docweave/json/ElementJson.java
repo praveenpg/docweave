@@ -102,9 +102,13 @@ public interface ElementJson {
     /**
      * Decodes upstream-compatible zlib provenance with a 16 MiB decompressed-data limit.
      * Encoded strings over 32 MiB are rejected before allocating decoded data.
+     * Basic base64 is fully validated in bounded blocks before streaming inflation, preserving strict
+     * rejection of malformed encoded tails. A validation pass trades additional scanning for avoiding
+     * whole encoded/compressed byte-array copies. Decompressed JSON text and final elements still materialize.
      * Compression bytes can differ between implementations; decoded elements define compatibility.
      * @param payload base64-encoded zlib JSON
      * @return an immutable ordered list of original elements
+     * @throws java.util.concurrent.CancellationException if interrupted; the caller's flag is preserved
      * @throws IllegalArgumentException if base64, compression, schema or size is invalid
      * @throws tools.jackson.core.JacksonException if decompressed JSON syntax is invalid
      */

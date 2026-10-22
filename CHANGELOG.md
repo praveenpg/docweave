@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Decode compressed original-element provenance through bounded base64 input buffers.
+  Preserve whole-input validation, size limits and decoded wire content while avoiding
+  full encoded/compressed input byte-array copies. JSON text and final elements still materialize.
+
 - Avoid repeating oversized singleton source provenance across narrative and table chunks.
   Actually split sources above 1,000,000 text/HTML/image code points omit `orig_elements`
   with an explicit omission reason and source size. Preserve text, HTML and fragment ownership.

@@ -1,0 +1,29 @@
+{
+  "baseline_development_commit": "0224a8f",
+  "java": "21",
+  "scope": "Same complete encoded source and decoded original; removal of full encoded/compressed input arrays. JFR sampled observations are not a complete heap/throughput measurement.",
+  "source_files": {
+    "docweave-json/src/main/java/dev/docweave/json/DefaultElementJson.java": "8e366fa307114fb0b5e70a858c65b9c1cbda7aaa154bdb5197ad56ac467e4c9f",
+    "docweave-json/src/main/java/dev/docweave/json/ElementJson.java": "d18fbe016e02ff7aed5c1dd3e02b0423cbe68fac5e3bf36b56014fd66f4bda1f",
+    "docweave-json/src/main/java/dev/docweave/json/OriginalsBase64Input.java": "dc426541a2d83950202324924d823f46601fc891767d0be02b4de18690456b34",
+    "docweave-integration-tests/src/test/java/dev/docweave/json/OriginalsDecodeTest.java": "73031753b551ddc42217f1d397031ec938853bae37990e7deda35eeea3367f44",
+    "benchmarks/tools/ProbeOriginalDecodeBuffers.java": "be9ac88e2bee43b7528316234c057733dcf489439af6729fe6ae833d7d6da331"
+  },
+  "reports": {
+    "before-java21.json": "b8ff97e45235145842611d8981639843175b3aa6befd6f669653f34726dcd728",
+    "after-java21.json": "0c90af1bc2b2aeaa49fc66881dbc1e9ffc34e56560eb93d2bebb8a4dc3b016ee",
+    "comparison.json": "85d24e6c785c4b4702bbb9f54d917a302be25379f05c208ce29e824a62be3770"
+  },
+  "full_verify": {
+    "tests": 1301,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "logs": {
+    "verify-final.log": "05c62e28333b8668f2b1623bbf3a2cef69d5277d82424c9e6fa3bee0b1c7ff87",
+    "private-docs.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "owned-final.log": "10c062685d652a376fa039e148b1d7821b46d35d2bae705151ce8a071bb3670d"
+  },
+  "initial_validation_note": "Initial full verification stopped at test compilation because an added noncanonical-padding loop was placed in another test method. Moved to the intended acceptance control; corrected focused and full runs pass. Production implementation was unchanged by the test correction."
+}

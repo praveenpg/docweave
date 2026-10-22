@@ -151,7 +151,7 @@
     {
       "commit": "2f14175f5c6fc415fa360e4ebcbce9b7a581b98c",
       "title": "perf: Free decode buffers sooner when restoring original elements (#4524)",
-      "classification": "reviewed_decode_buffer_lifetime_JVM_16MiB_bounded_codec_contract_distinct"
+      "classification": "reviewed_JVM_bounded_base64_input_adopted_16MiB_and_legacy_UTF8_JSON_contract_retained"
     },
     {
       "commit": "9a376447d236784a044a4929464179a0164f3329",
@@ -160,7 +160,7 @@
     }
   ],
   "policy": "Historical reference release/goldens stay pinned independently of the latest reviewed release and main. Freshness validates each saved identity against its own track; no automatic reference rewrite or full parity claim.",
-  "assessment": "Official0.27.32 releases the previously reviewed07d978b main checkpoint (14commits beyond unchanged0.27.27goldens). New main9a376447 adds4commits: oversized singleton split provenance guard, Python certifi update, earlier decode-buffer release, and earlier figure page/crop/JPEG release. JVM now omits repeated orig_elements only for actually split singleton sources over1,000,000 text/HTML/image code points, with explicit omission reason and size; text/HTML/fragments unchanged. This is source-informed owned Java behavior, not executed0.27.32/main parity. JVM PNG source-image payloads and16MiB JSON provenance codec remain distinct; no complete heap bound is claimed. Python certifi is not a JVM dependency. Preserve measured0.27.28 comparison identities and0.27.27goldens; no automatic dependency or golden regeneration.",
+  "assessment": "Official0.27.32 releases the previously reviewed07d978b main checkpoint (14commits beyond unchanged0.27.27goldens). New main9a376447 adds4commits: oversized singleton split provenance guard, Python certifi update, earlier decode-buffer release, and earlier figure page/crop/JPEG release. JVM now omits repeated orig_elements only for actually split singleton sources over1,000,000 text/HTML/image code points, with explicit omission reason and size; text/HTML/fragments unchanged. This is source-informed owned Java behavior, not executed0.27.32/main parity. JVM PNG source-image payloads and16MiB JSON provenance codec remain distinct; no complete heap bound is claimed. Python certifi is not a JVM dependency. Preserve measured0.27.28 comparison identities and0.27.27goldens; no automatic dependency or golden regeneration. A subsequent JVM decoder follow-up removes full encoded/compressed input byte-array copies using strict bounded base64 validation and streaming inflation; owned content/compatibility controls and scoped JFR observations do not establish whole-heap or runtime parity.",
   "reference_release": {
     "tag": "0.27.27",
     "commit": "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",

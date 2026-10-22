@@ -24,3 +24,10 @@ installation, model execution or automatic golden rewrite is implied by source r
 
 Official sources: [release](https://github.com/Unstructured-IO/unstructured/releases/tag/0.27.32),
 [incremental main](https://github.com/Unstructured-IO/unstructured/compare/07d978b8c182404b800fba27c01f4a2c633cfffc...9a376447d236784a044a4929464179a0164f3329).
+
+
+A subsequent [JVM decoder follow-up](../originals-bounded-decode/README.md) adopts strict
+bounded base64 input and earlier inflation-buffer scope release. Legacy decoded content,
+limits and malformed/tail handling remain under owned comparison controls. Scoped JFR
+observations demonstrate removal of large input-decoder buffers in one owned case, without
+claiming total heap, throughput or complete upstream runtime parity.

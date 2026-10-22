@@ -12,8 +12,9 @@ A source review does not silently regenerate references or establish full parity
 The checkpoint is [benchmarks/upstream-status.json](../benchmarks/upstream-status.json).
 The [0.27.32 and subsequent main review](../benchmarks/review/upstream-main-20261021/README.md)
 records the now-released prior main checkpoint and four new main commits. The large split-source
-provenance safeguard is adopted with explicit JVM omission metadata; Python certifi and decode/
-figure buffer lifetime changes retain separate JVM contracts. Main changelog version headings
+provenance safeguard is adopted with explicit JVM omission metadata. The JVM decoder now also
+uses strict bounded base64 input; Python certifi and figure/decode behavior retain separate
+JVM contracts and no full-memory parity claim. Main changelog version headings
 do not replace official release metadata. Historical goldens and executed comparisons stay pinned.
 
 The [0.27.30 release review](../benchmarks/review/upstream-release-0.27.30/README.md)
