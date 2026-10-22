@@ -25,12 +25,14 @@ package dev.docweave.partition;
  * @param figureCaptions optional conservative native caption classification; NONE preserves historical types
  * @param includeImageClipBounds whether Image metadata includes a conservative invocation clip-bounds
  *         classification under {@code pdf_image_clip_bounds}; defaults preserve historical image metadata
+ * @param includeImageGroupContext whether Image metadata lists enclosing painted transparency-group invocation
+ *         states under {@code pdf_image_group_context}; defaults preserve historical image metadata
  */
 public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPerPage, long maxImagePixels,
         int maxImageBytes, boolean includeImageBytes, TableLimits tableLimits, TableDetection tableDetection,
         TextLayout textLayout, boolean includeTableCellCoordinates, TableContinuation tableContinuation,
         UnicodeNormalization unicodeNormalization, TextRendering textRendering, FigureCaptions figureCaptions,
-        boolean includeImageClipBounds) {
+        boolean includeImageClipBounds, boolean includeImageGroupContext) {
     /** Optional source-geometry heuristics; no policy generates text or guarantees semantic caption correctness. */
     public enum FigureCaptions {
         /** Preserves native text categories without caption inference. */ NONE,
@@ -281,6 +283,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
      * @param textRendering nonnull native text rendering-mode policy
      * @param figureCaptions nonnull explicit native caption policy
      * @param includeImageClipBounds whether to describe the invocation clip-bounds classification
+     * @param includeImageGroupContext whether to list enclosing painted transparency-group invocation states
      * @throws IllegalArgumentException if a budget is not positive
      * @throws NullPointerException if a required policy is null
      */
@@ -296,6 +299,35 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
         java.util.Objects.requireNonNull(unicodeNormalization, "unicodeNormalization");
         java.util.Objects.requireNonNull(textRendering, "textRendering");
         java.util.Objects.requireNonNull(figureCaptions, "figureCaptions");
+    }
+
+    /**
+     * Preserves the pre-group-context full constructor without enclosing transparency-group metadata.
+     * @param maxPages maximum page count
+     * @param maxGlyphsPerPage visited source-position ceiling, including filtered positions
+     * @param maxOperatorsPerPage content-operator ceiling
+     * @param maxImagePixels decoded image pixel ceiling
+     * @param maxImageBytes cumulative PNG byte ceiling
+     * @param includeImageBytes whether to retain PNG payloads
+     * @param tableLimits nonnull table budgets
+     * @param tableDetection nonnull table policy
+     * @param textLayout nonnull native grouping policy
+     * @param includeTableCellCoordinates whether to describe table cells
+     * @param tableContinuation nonnull linking policy
+     * @param unicodeNormalization nonnull native Unicode policy
+     * @param textRendering nonnull rendering-mode policy
+     * @param figureCaptions nonnull explicit native caption policy
+     * @param includeImageClipBounds whether to describe the invocation clip-bounds classification
+     */
+    public PdfOptions(final int maxPages, final int maxGlyphsPerPage, final int maxOperatorsPerPage,
+            final long maxImagePixels, final int maxImageBytes, final boolean includeImageBytes,
+            final TableLimits tableLimits, final TableDetection tableDetection, final TextLayout textLayout,
+            final boolean includeTableCellCoordinates, final TableContinuation tableContinuation,
+            final UnicodeNormalization unicodeNormalization, final TextRendering textRendering,
+            final FigureCaptions figureCaptions, final boolean includeImageClipBounds) {
+        this(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes, includeImageBytes,
+                tableLimits, tableDetection, textLayout, includeTableCellCoordinates, tableContinuation,
+                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, false);
     }
 
     /**
@@ -488,7 +520,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
     public PdfOptions withTableDetection(final TableDetection detection) {
         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
                 includeImageBytes, tableLimits, detection, textLayout, includeTableCellCoordinates, tableContinuation,
-                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds);
+                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, includeImageGroupContext);
     }
 
     /**
@@ -500,7 +532,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
     public PdfOptions withTextLayout(final TextLayout layout) {
         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
                 includeImageBytes, tableLimits, tableDetection, layout, includeTableCellCoordinates, tableContinuation,
-                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds);
+                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, includeImageGroupContext);
     }
 
     /**
@@ -513,7 +545,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
     public PdfOptions withTableCellCoordinates(final boolean include) {
         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
                 includeImageBytes, tableLimits, tableDetection, textLayout, include, tableContinuation,
-                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds);
+                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, includeImageGroupContext);
     }
 
     /**
@@ -526,7 +558,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
     public PdfOptions withTableContinuation(final TableContinuation continuation) {
         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates, continuation,
-                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds);
+                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, includeImageGroupContext);
     }
 
     /**
@@ -540,7 +572,8 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
     public PdfOptions withUnicodeNormalization(final UnicodeNormalization normalization) {
         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
-                tableContinuation, normalization, textRendering, figureCaptions, includeImageClipBounds);
+                tableContinuation, normalization, textRendering, figureCaptions, includeImageClipBounds,
+                includeImageGroupContext);
     }
 
     /**
@@ -561,7 +594,8 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
     public PdfOptions withTextRendering(final TextRendering rendering) {
         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
-                tableContinuation, unicodeNormalization, rendering, figureCaptions, includeImageClipBounds);
+                tableContinuation, unicodeNormalization, rendering, figureCaptions, includeImageClipBounds,
+                includeImageGroupContext);
     }
 
     /**
@@ -576,7 +610,8 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
     public PdfOptions withFigureCaptions(final FigureCaptions policy) {
         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
-                tableContinuation, unicodeNormalization, textRendering, policy, includeImageClipBounds);
+                tableContinuation, unicodeNormalization, textRendering, policy, includeImageClipBounds,
+                includeImageGroupContext);
     }
 
     /**
@@ -591,7 +626,25 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
     public PdfOptions withImageClipBounds(final boolean include) {
         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
-                tableContinuation, unicodeNormalization, textRendering, figureCaptions, include);
+                tableContinuation, unicodeNormalization, textRendering, figureCaptions, include,
+                includeImageGroupContext);
+    }
+
+    /**
+     * Copies this policy with each image's enclosing painted transparency-group invocation states.
+     * Entries are ordered outermost to innermost and snapshot the caller state at each group's Do operator:
+     * nonstroking alpha, blend mode, soft-mask presence, alpha-source flag and the group's isolated/knockout
+     * attributes (PDF default false when absent). Ordinary forms add no entry; soft-mask groups are not painted
+     * groups. The existing current-stream {@code pdf_image_graphics_state} and PNG samples are unchanged.
+     * Entries are source provenance only: their alpha constants are not an effective or final opacity.
+     * @param include whether to emit the pdf_image_group_context extension
+     * @return immutable copy retaining every other extraction, layout and resource setting
+     */
+    public PdfOptions withImageGroupContext(final boolean include) {
+        return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
+                tableContinuation, unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds,
+                include);
     }
 
     /**

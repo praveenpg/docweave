@@ -738,3 +738,13 @@ component changes reflective schemas, canonical constructor shape and record-der
 serialization/equality/hash/toString behavior. Source image payloads and occurrence defaults
 remain unchanged. `PdfCoordinateConverter` converts the new nested bounds where present;
 empty or unbounded states contain no coordinates. See [the field contract](pdf-support.md#conservative-image-clip-bounds-unreleased).
+
+
+`PdfOptions.withImageGroupContext(true)` opts into enclosing painted transparency-group
+source snapshots. Defaults remain false and the prior 15-argument constructor is retained.
+The new sixteenth record component changes canonical/reflective record schemas and
+record-derived serializers, equality, hash and textual representation. Current-stream
+image state, normalized PNGs and source occurrence accounting are unchanged. Group
+snapshots are scalar metadata, so coordinate conversion retains them without scaling.
+Absent/malformed isolation and knockout values follow PDFBox's false fallback and are
+not distinguished as raw source syntax. See [the field contract](pdf-support.md#enclosing-image-transparency-group-context-unreleased).

@@ -1,0 +1,1059 @@
+diff --git a/benchmarks/tools/VerifySourceFigureImages.java b/benchmarks/tools/VerifySourceFigureImages.java
+index e2fa70b..f3daa89 100644
+--- a/benchmarks/tools/VerifySourceFigureImages.java
++++ b/benchmarks/tools/VerifySourceFigureImages.java
+@@ -32,14 +32,17 @@ public final class VerifySourceFigureImages {
+      * Runs every qualified original under both factories and every text-rendering policy declared in the manifest.
+      * Independent Poppler image inventory supplies expected placement count/dimensions, not pixel correctness.
+      * Alternative/ActualText properties never supply caption strings to this verifier.
+-     * @param args qualified source manifest, original cache and NEW numeric report; optional --clip-bounds
++     * @param args qualified source manifest, original cache and NEW numeric report; optional --clip-bounds or
++     *         --group-context
+      * @throws Exception if original identities, complete populations, fresh output or independent contracts fail
+      */
+     public static void main(final String[] args) throws Exception {
+-        require((args.length == 3 || args.length == 4 && args[3].equals("--clip-bounds"))
++        require((args.length == 3
++                        || args.length == 4 && (args[3].equals("--clip-bounds") || args[3].equals("--group-context")))
+                         && !Files.exists(Path.of(args[2])),
+-                "Expected qualified sources, cache, NEW report and optional --clip-bounds");
+-        final boolean clipBounds = args.length == 4;
++                "Expected qualified sources, cache, NEW report and optional --clip-bounds or --group-context");
++        final boolean clipBounds = args.length == 4 && args[3].equals("--clip-bounds");
++        final boolean groupContext = args.length == 4 && args[3].equals("--group-context");
+         final var mapper = JsonMapper.builder().build();
+         final byte[] protocol = Files.readAllBytes(Path.of(args[0]));
+         final var manifest = mapper.readTree(protocol);
+@@ -76,7 +79,8 @@ public final class VerifySourceFigureImages {
+                     final var options = new PdfOptions(d.maxPages(), d.maxGlyphsPerPage(), d.maxOperatorsPerPage(),
+                             d.maxImagePixels(), d.maxImageBytes(), true, d.tableLimits())
+                                                 .withTextRendering(rendering)
+-                                                .withImageClipBounds(clipBounds);
++                                                .withImageClipBounds(clipBounds)
++                                                .withImageGroupContext(groupContext);
+                     final var partitioner =
+                             tagged ? PdfPartitioner.createWithTaggedTables(options) : PdfPartitioner.create(options);
+                     try {
+@@ -95,6 +99,8 @@ public final class VerifySourceFigureImages {
+                             final var metadata = image.metadata();
+                             require(metadata.containsKey("pdf_image_clip_bounds") == clipBounds,
+                                     "Requested image clipping metadata selection differs");
++                            require(metadata.containsKey("pdf_image_group_context") == groupContext,
++                                    "Requested image group-context metadata selection differs");
+                             final byte[] png = Base64.getDecoder().decode((String) metadata.get("image_base64"));
+                             final var decoded = ImageIO.read(new ByteArrayInputStream(png));
+                             require(decoded != null, "PNG payload did not decode");
+@@ -106,8 +112,13 @@ public final class VerifySourceFigureImages {
+                                            && ((Number) metadata.get("image_height")).intValue() == decoded.getHeight()
+                                            && image.text().isEmpty()
+                                            && !metadata.containsKey("pdf_native_text_rendering_policy");
+-                                payloads.add(Map.of("width", decoded.getWidth(), "height", decoded.getHeight(),
+-                                        "png_sha256", hash(png)));
++                                final var payload = new LinkedHashMap<String, Object>(Map.of("width",
++                                        decoded.getWidth(), "height", decoded.getHeight(), "png_sha256", hash(png)));
++                                if (groupContext) {
++                                    payload.put("group_context_depth",
++                                            ((List<?>) metadata.get("pdf_image_group_context")).size());
++                                }
++                                payloads.add(payload);
+                             } finally {
+                                 decoded.flush();
+                             }
+@@ -126,12 +137,14 @@ public final class VerifySourceFigureImages {
+             }
+         }
+         require(rows.size() == manifest.get("expected_case_profiles").asInt(), "Incomplete qualified population");
+-        Files.writeString(Path.of(args[2]),
+-                mapper.writerWithDefaultPrettyPrinter().writeValueAsString(Map.of("scope",
+-                        "Complete original source Figure image-count/dimension and no-invented-caption contracts; no pixel/color/semantic-caption accuracy claim",
+-                        "runtime", Runtime.version().toString(), "qualified_manifest_sha256", hash(protocol),
+-                        "image_clip_bounds_enabled", clipBounds, "results", rows))
+-                        + "\n",
++        final var report = new LinkedHashMap<String, Object>(Map.of("scope",
++                "Complete original source Figure image-count/dimension and no-invented-caption contracts; no pixel/color/semantic-caption accuracy claim",
++                "runtime", Runtime.version().toString(), "qualified_manifest_sha256", hash(protocol),
++                "image_clip_bounds_enabled", clipBounds, "results", rows));
++        if (groupContext) {
++            report.put("image_group_context_enabled", true);
++        }
++        Files.writeString(Path.of(args[2]), mapper.writerWithDefaultPrettyPrinter().writeValueAsString(report) + "\n",
+                 StandardOpenOption.CREATE_NEW);
+         require(rows.stream().allMatch(row -> Boolean.TRUE.equals(row.get("matches_independent_inventory"))),
+                 "Original Figure contract mismatch; complete numeric report retained");
+diff --git a/benchmarks/tools/VerifySourceImageCornerMaps.java b/benchmarks/tools/VerifySourceImageCornerMaps.java
+index 4eabf53..c1feeab 100644
+--- a/benchmarks/tools/VerifySourceImageCornerMaps.java
++++ b/benchmarks/tools/VerifySourceImageCornerMaps.java
+@@ -1,6 +1,7 @@
+ package dev.docweave.validation;
+ 
+ import dev.docweave.DocWeave;
++import dev.docweave.core.Element;
+ import dev.docweave.core.ElementType;
+ import dev.docweave.partition.DocumentSource;
+ import dev.docweave.partition.PartitionerRegistry;
+@@ -15,6 +16,7 @@ import java.security.MessageDigest;
+ import java.util.ArrayList;
+ import java.util.HashSet;
+ import java.util.HexFormat;
++import java.util.LinkedHashMap;
+ import java.util.List;
+ import java.util.Map;
+ 
+@@ -24,6 +26,39 @@ public final class VerifySourceImageCornerMaps {
+     private VerifySourceImageCornerMaps() {
+     }
+ 
++    /**
++     * Re-extracts with enclosing painted transparency-group context and checks it is purely additive.
++     * Every occurrence keeps its position and all other metadata; only the selected list is added.
++     * @param source original PDF
++     * @param images default-selection occurrences in emitted order
++     * @return context depth histogram over the complete population
++     * @throws Exception if extraction fails or any other metadata differs
++     */
++    private static Map<String, Object> groupContext(final Path source, final List<Element> images) throws Exception {
++        final var selected =
++                DocWeave.create(PartitionerRegistry.of(List.of(PdfPartitioner.create(
++                                        PdfOptions.defaults()
++                                                .withTextLayout(PdfOptions.TextLayout.ORIENTED_LINES)
++                                                .withImageGroupContext(true)))))
++                        .partition(DocumentSource.bytes(Files.readAllBytes(source), source.getFileName().toString()))
++                        .elements()
++                        .stream()
++                        .filter(e -> e.type() == ElementType.Image)
++                        .toList();
++        require(selected.size() == images.size(), "Group-context selection changed the occurrence population");
++        final var depths = new java.util.TreeMap<Integer, Integer>();
++        for (int index = 0; index < selected.size(); index++) {
++            final var metadata = new LinkedHashMap<>(selected.get(index).metadata());
++            require(metadata.remove("pdf_image_group_context") instanceof List<?>,
++                    "Missing selected group context");
++            require(metadata.equals(images.get(index).metadata()), "Group-context selection changed other metadata");
++            depths.merge(((List<?>) selected.get(index).metadata().get("pdf_image_group_context")).size(), 1,
++                    Integer::sum);
++        }
++        return Map.of("occurrences", selected.size(), "other_metadata_unchanged", true, "depth_histogram",
++                depths.entrySet().stream().map(e -> List.of(e.getKey(), e.getValue())).toList());
++    }
++
+     /**
+      * Hashes exact source or numerical reference bytes without modifying them.
+      * @param path pinned existing input
+@@ -48,12 +83,14 @@ public final class VerifySourceImageCornerMaps {
+     /**
+      * Processes the complete original28-page magazine, matching all four frozen independent affine references.
+      * Cairo's raster top-left corresponds to PDF source unit corner01; order is retained, never fitted.
+-     * @param args original PDF, original Cairo numeric reference and fresh numeric report
++     * @param args original PDF, original Cairo numeric reference and fresh numeric report; optional --group-context
++     *         also extracts with enclosing group context and requires every other metadata entry to be unchanged
+      * @throws Exception if input identity, complete population or ordered corner correspondence differs
+      */
+     @SuppressWarnings("unchecked")
+     public static void main(final String[] args) throws Exception {
+-        require(args.length == 3, "Expected original PDF, numeric reference and fresh output");
++        require(args.length == 3 || args.length == 4 && args[3].equals("--group-context"),
++                "Expected original PDF, numeric reference, fresh output and optional --group-context");
+         final var mapper = JsonMapper.builder().build();
+         final var source = Path.of(args[0]);
+         final var referencePath = Path.of(args[1]);
+@@ -122,12 +159,14 @@ public final class VerifySourceImageCornerMaps {
+                     ((Map<?, ?>) images.get(matches.getFirst()).metadata().get("pdf_image_coordinates")).get("points"),
+                     "maximum_coordinate_difference", errors.getFirst(), "matching_occurrences", matches.size()));
+         }
+-        Files.writeString(Path.of(args[2]),
+-                mapper.writerWithDefaultPrettyPrinter().writeValueAsString(
+-                        Map.of("source_sha256", hash(source), "reference_sha256", hash(referencePath),
+-                                "source_image_occurrences", images.size(), "source_corner_maps", images.size(),
+-                                "maximum_coordinate_difference_points", 2, "results", observations))
+-                        + "\n",
++        final var report = new LinkedHashMap<String, Object>(
++                Map.of("source_sha256", hash(source), "reference_sha256", hash(referencePath),
++                        "source_image_occurrences", images.size(), "source_corner_maps", images.size(),
++                        "maximum_coordinate_difference_points", 2, "results", observations));
++        if (args.length == 4) {
++            report.put("group_context", groupContext(source, images));
++        }
++        Files.writeString(Path.of(args[2]), mapper.writerWithDefaultPrettyPrinter().writeValueAsString(report) + "\n",
+                 StandardOpenOption.CREATE_NEW);
+     }
+ }
+diff --git a/docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java b/docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java
+index 19bba8a..d020f5c 100644
+--- a/docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java
++++ b/docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java
+@@ -25,12 +25,14 @@ package dev.docweave.partition;
+  * @param figureCaptions optional conservative native caption classification; NONE preserves historical types
+  * @param includeImageClipBounds whether Image metadata includes a conservative invocation clip-bounds
+  *         classification under {@code pdf_image_clip_bounds}; defaults preserve historical image metadata
++ * @param includeImageGroupContext whether Image metadata lists enclosing painted transparency-group invocation
++ *         states under {@code pdf_image_group_context}; defaults preserve historical image metadata
+  */
+ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPerPage, long maxImagePixels,
+         int maxImageBytes, boolean includeImageBytes, TableLimits tableLimits, TableDetection tableDetection,
+         TextLayout textLayout, boolean includeTableCellCoordinates, TableContinuation tableContinuation,
+         UnicodeNormalization unicodeNormalization, TextRendering textRendering, FigureCaptions figureCaptions,
+-        boolean includeImageClipBounds) {
++        boolean includeImageClipBounds, boolean includeImageGroupContext) {
+     /** Optional source-geometry heuristics; no policy generates text or guarantees semantic caption correctness. */
+     public enum FigureCaptions {
+         /** Preserves native text categories without caption inference. */ NONE,
+@@ -281,6 +283,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+      * @param textRendering nonnull native text rendering-mode policy
+      * @param figureCaptions nonnull explicit native caption policy
+      * @param includeImageClipBounds whether to describe the invocation clip-bounds classification
++     * @param includeImageGroupContext whether to list enclosing painted transparency-group invocation states
+      * @throws IllegalArgumentException if a budget is not positive
+      * @throws NullPointerException if a required policy is null
+      */
+@@ -298,6 +301,35 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+         java.util.Objects.requireNonNull(figureCaptions, "figureCaptions");
+     }
+ 
++    /**
++     * Preserves the pre-group-context full constructor without enclosing transparency-group metadata.
++     * @param maxPages maximum page count
++     * @param maxGlyphsPerPage visited source-position ceiling, including filtered positions
++     * @param maxOperatorsPerPage content-operator ceiling
++     * @param maxImagePixels decoded image pixel ceiling
++     * @param maxImageBytes cumulative PNG byte ceiling
++     * @param includeImageBytes whether to retain PNG payloads
++     * @param tableLimits nonnull table budgets
++     * @param tableDetection nonnull table policy
++     * @param textLayout nonnull native grouping policy
++     * @param includeTableCellCoordinates whether to describe table cells
++     * @param tableContinuation nonnull linking policy
++     * @param unicodeNormalization nonnull native Unicode policy
++     * @param textRendering nonnull rendering-mode policy
++     * @param figureCaptions nonnull explicit native caption policy
++     * @param includeImageClipBounds whether to describe the invocation clip-bounds classification
++     */
++    public PdfOptions(final int maxPages, final int maxGlyphsPerPage, final int maxOperatorsPerPage,
++            final long maxImagePixels, final int maxImageBytes, final boolean includeImageBytes,
++            final TableLimits tableLimits, final TableDetection tableDetection, final TextLayout textLayout,
++            final boolean includeTableCellCoordinates, final TableContinuation tableContinuation,
++            final UnicodeNormalization unicodeNormalization, final TextRendering textRendering,
++            final FigureCaptions figureCaptions, final boolean includeImageClipBounds) {
++        this(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes, includeImageBytes,
++                tableLimits, tableDetection, textLayout, includeTableCellCoordinates, tableContinuation,
++                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, false);
++    }
++
+     /**
+      * Preserves the pre-image-clip-bounds full constructor without the clip-bounds classification.
+      * @param maxPages maximum page count
+@@ -488,7 +520,8 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+     public PdfOptions withTableDetection(final TableDetection detection) {
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, detection, textLayout, includeTableCellCoordinates, tableContinuation,
+-                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds);
++                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds,
++                includeImageGroupContext);
+     }
+ 
+     /**
+@@ -500,7 +533,8 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+     public PdfOptions withTextLayout(final TextLayout layout) {
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, layout, includeTableCellCoordinates, tableContinuation,
+-                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds);
++                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds,
++                includeImageGroupContext);
+     }
+ 
+     /**
+@@ -513,7 +547,8 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+     public PdfOptions withTableCellCoordinates(final boolean include) {
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, textLayout, include, tableContinuation,
+-                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds);
++                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds,
++                includeImageGroupContext);
+     }
+ 
+     /**
+@@ -526,7 +561,8 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+     public PdfOptions withTableContinuation(final TableContinuation continuation) {
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates, continuation,
+-                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds);
++                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds,
++                includeImageGroupContext);
+     }
+ 
+     /**
+@@ -540,7 +576,8 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+     public PdfOptions withUnicodeNormalization(final UnicodeNormalization normalization) {
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
+-                tableContinuation, normalization, textRendering, figureCaptions, includeImageClipBounds);
++                tableContinuation, normalization, textRendering, figureCaptions, includeImageClipBounds,
++                includeImageGroupContext);
+     }
+ 
+     /**
+@@ -561,7 +598,8 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+     public PdfOptions withTextRendering(final TextRendering rendering) {
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
+-                tableContinuation, unicodeNormalization, rendering, figureCaptions, includeImageClipBounds);
++                tableContinuation, unicodeNormalization, rendering, figureCaptions, includeImageClipBounds,
++                includeImageGroupContext);
+     }
+ 
+     /**
+@@ -576,7 +614,8 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+     public PdfOptions withFigureCaptions(final FigureCaptions policy) {
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
+-                tableContinuation, unicodeNormalization, textRendering, policy, includeImageClipBounds);
++                tableContinuation, unicodeNormalization, textRendering, policy, includeImageClipBounds,
++                includeImageGroupContext);
+     }
+ 
+     /**
+@@ -591,7 +630,25 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+     public PdfOptions withImageClipBounds(final boolean include) {
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
+-                tableContinuation, unicodeNormalization, textRendering, figureCaptions, include);
++                tableContinuation, unicodeNormalization, textRendering, figureCaptions, include,
++                includeImageGroupContext);
++    }
++
++    /**
++     * Copies this policy with each image's enclosing painted transparency-group invocation states.
++     * Entries are ordered outermost to innermost and snapshot the caller state at each group's Do operator:
++     * nonstroking alpha, blend mode, soft-mask presence, alpha-source flag and the group's isolated/knockout
++     * attributes (PDF default false when absent). Ordinary forms add no entry; soft-mask groups are not painted
++     * groups. The existing current-stream {@code pdf_image_graphics_state} and PNG samples are unchanged.
++     * Entries are source provenance only: their alpha constants are not an effective or final opacity.
++     * @param include whether to emit the versioned pdf_image_group_context extension
++     * @return immutable copy retaining every other extraction, layout and resource setting
++     */
++    public PdfOptions withImageGroupContext(final boolean include) {
++        return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
++                includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
++                tableContinuation, unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds,
++                include);
+     }
+ 
+     /**
+diff --git a/docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java b/docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java
+index eb274da..2ccb6cb 100644
+--- a/docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java
++++ b/docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java
+@@ -69,6 +69,8 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
+     private List<Segment> pending = new ArrayList<>();
+     /** Raster occurrences, including repeated and inline images. */
+     private final List<Image> images = new ArrayList<>();
++    /** Immutable caller-state snapshots of enclosing painted transparency groups, outermost first. */
++    private final List<Map<String, Object>> groupContext = new ArrayList<>();
+     /** Current path point in transformed PDF space. */
+     private Point2D current = new Point2D.Float();
+     /** Start of current subpath. */
+@@ -165,20 +167,46 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
+ 
+     /**
+      * Applies the same path isolation to the separate transparency-group dispatch route.
+-     * This does not render group compositing or change source-paint eligibility.
++     * When selected, the caller state is snapshotted before PDFBox's group reset and popped in finally, so
++     * failures or cancellation never leave a stale entry. Only painted groups use this route; auxiliary
++     * soft-mask groups are not traversed. This does not render group compositing or change paint eligibility.
+      * @param group original transparency group
+      * @throws IOException if child parsing, cancellation or existing budgets fail
+      */
+     @Override
+     public void showTransparencyGroup(final PDTransparencyGroup group) throws IOException {
+         final var parent = suspendPath();
++        final boolean context = options.includeImageGroupContext();
++        if (context) {
++            // Snapshot before PDFBox resets alpha, blend mode and soft mask for the group's own stream.
++            groupContext.add(groupInvocation(group));
++        }
+         try {
+             super.showTransparencyGroup(group);
+         } finally {
++            if (context) {
++                groupContext.removeLast();
++            }
+             resumePath(parent);
+         }
+     }
+ 
++    /**
++     * Captures the caller state under which a painted transparency group is composed, as immutable scalars.
++     * Isolated/knockout use the PDF default of false when absent; PDFBox also reads a malformed entry as false.
++     * The alpha constant is the invocation's nonstroking value, not an effective or final opacity.
++     * @param group directly painted transparency group, not an auxiliary soft-mask group
++     * @return immutable source-provenance snapshot
++     */
++    private Map<String, Object> groupInvocation(final PDTransparencyGroup group) {
++        final var state = getGraphicsState();
++        final var attributes = group.getGroup();
++        return Map.of("nonstroking_alpha", state.getNonStrokeAlphaConstant(), "blend_mode",
++                state.getBlendMode().getCOSName().getName(), "has_soft_mask", state.getSoftMask() != null,
++                "alpha_is_shape", state.isAlphaSource(), "isolated", attributes != null && attributes.isIsolated(),
++                "knockout", attributes != null && attributes.isKnockout());
++    }
++
+     /**
+      * Initializes a visitor with the shared displayed-page geometry.
+      * @param page source page
+@@ -309,6 +337,9 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
+         if (options.includeImageClipBounds()) {
+             metadata.put("pdf_image_clip_bounds", clipBounds(state, left, top, right, bottom));
+         }
++        if (options.includeImageGroupContext()) {
++            metadata.put("pdf_image_group_context", List.copyOf(groupContext));
++        }
+         budget.extract(image, getGraphicsState().getNonStrokingColor(), metadata);
+         images.add(new Image(left, bottom, right - left, top - bottom, metadata));
+     }
+diff --git a/docweave-pdf/src/test/java/dev/docweave/partition/PdfImageGroupContextTest.java b/docweave-pdf/src/test/java/dev/docweave/partition/PdfImageGroupContextTest.java
+new file mode 100644
+index 0000000..74edf20
+--- /dev/null
++++ b/docweave-pdf/src/test/java/dev/docweave/partition/PdfImageGroupContextTest.java
+@@ -0,0 +1,539 @@
++package dev.docweave.partition;
++
++import dev.docweave.DocWeave;
++import dev.docweave.core.Element;
++import dev.docweave.core.ElementType;
++import org.apache.pdfbox.Loader;
++import org.apache.pdfbox.cos.COSDictionary;
++import org.apache.pdfbox.cos.COSName;
++import org.apache.pdfbox.pdmodel.PDDocument;
++import org.apache.pdfbox.pdmodel.PDFormContentStream;
++import org.apache.pdfbox.pdmodel.PDPage;
++import org.apache.pdfbox.pdmodel.PDPageContentStream;
++import org.apache.pdfbox.pdmodel.PDResources;
++import org.apache.pdfbox.pdmodel.common.PDRectangle;
++import org.apache.pdfbox.pdmodel.graphics.blend.BlendMode;
++import org.apache.pdfbox.pdmodel.graphics.form.PDFormXObject;
++import org.apache.pdfbox.pdmodel.graphics.form.PDTransparencyGroup;
++import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory;
++import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
++import org.apache.pdfbox.pdmodel.graphics.state.PDExtendedGraphicsState;
++import org.apache.pdfbox.rendering.PDFRenderer;
++import org.junit.jupiter.api.Test;
++
++import java.awt.Color;
++import java.awt.image.BufferedImage;
++import java.io.ByteArrayOutputStream;
++import java.util.List;
++import java.util.Map;
++
++import static org.junit.jupiter.api.Assertions.*;
++
++/**
++ * Owned controls for opt-in enclosing painted transparency-group context. Expected entries are written
++ * independently from the authored source; the current-stream state map and PNG samples stay unchanged.
++ */
++class PdfImageGroupContextTest {
++    /** Creates independent group-context controls. */
++    PdfImageGroupContextTest() {
++    }
++
++    /**
++     * Reproduces the existing form/group/direct sequence: internal maps are unchanged and only the group's
++     * image gains one enclosing entry describing the caller's .5/Multiply state.
++     * @throws Exception if source authoring or public extraction fails
++     */
++    @Test
++    void groupImageGainsEnclosingCallerStateWhileInternalStateStaysReset() throws Exception {
++        final byte[] source;
++        try (final var document = new PDDocument()) {
++            final var page = page(document);
++            final var image = raster(document);
++            final var form = new PDFormXObject(document);
++            form.setResources(new PDResources());
++            form.setBBox(new PDRectangle(200, 100));
++            try (final var content = new PDFormContentStream(form)) {
++                content.drawImage(image, 0, 40, 5, 20);
++            }
++            final var group = group(document, image, null, null);
++            try (final var content = new PDPageContentStream(document, page)) {
++                content.setGraphicsStateParameters(state(.5f, BlendMode.MULTIPLY));
++                content.drawForm(form);
++                content.drawForm(group);
++                content.drawImage(image, 90, 40, 20, 20);
++            }
++            source = save(document);
++        }
++        final var selected = images(source, options(true));
++        final var historical = images(source, options(false));
++        assertEquals(3, selected.size());
++        assertEquals(3, historical.size());
++        assertEquals(List.of(paint(.5, "Multiply"), paint(1, "Normal"), paint(.5, "Multiply")),
++                selected.stream().map(e -> e.metadata().get("pdf_image_graphics_state")).toList());
++        assertEquals(List.of(List.of(), List.of(entry(.5, "Multiply", false, false, false)), List.of()),
++                selected.stream().map(PdfImageGroupContextTest::context).toList());
++        for (int index = 0; index < 3; index++) {
++            assertFalse(historical.get(index).metadata().containsKey("pdf_image_group_context"));
++            final var withoutContext = new java.util.LinkedHashMap<>(selected.get(index).metadata());
++            withoutContext.remove("pdf_image_group_context");
++            assertEquals(historical.get(index).metadata(), withoutContext);
++        }
++    }
++
++    /**
++     * Nested groups are listed outermost first; each entry is the caller state at its own Do operator.
++     * An image painted in the outer group after the inner group returns to a one-entry context.
++     * @throws Exception if source authoring or public extraction fails
++     */
++    @Test
++    void nestedGroupsAreOrderedOutermostFirstWithOwnInvocationState() throws Exception {
++        final byte[] source;
++        try (final var document = new PDDocument()) {
++            final var page = page(document);
++            final var image = raster(document);
++            final var inner = group(document, image, true, true);
++            final var outer = new PDTransparencyGroup(document);
++            attributes(outer, null, null);
++            outer.setResources(new PDResources());
++            outer.setBBox(new PDRectangle(200, 100));
++            try (final var content = new PDFormContentStream(outer)) {
++                content.setGraphicsStateParameters(state(.25f, BlendMode.SCREEN));
++                content.drawForm(inner);
++                content.drawImage(image, 50, 40, 20, 20);
++            }
++            try (final var content = new PDPageContentStream(document, page)) {
++                content.setGraphicsStateParameters(state(.5f, BlendMode.MULTIPLY));
++                content.drawForm(outer);
++            }
++            source = save(document);
++        }
++        final var actual = images(source, options(true));
++        assertEquals(2, actual.size());
++        assertEquals(paint(1, "Normal"), actual.get(0).metadata().get("pdf_image_graphics_state"));
++        assertEquals(List.of(entry(.5, "Multiply", false, false, false), entry(.25, "Screen", false, true, true)),
++                context(actual.get(0)));
++        assertEquals(paint(.25, "Screen"), actual.get(1).metadata().get("pdf_image_graphics_state"));
++        assertEquals(List.of(entry(.5, "Multiply", false, false, false)), context(actual.get(1)));
++    }
++
++    /**
++     * One group invoked twice under different outer states yields per-occurrence immutable contexts that
++     * never leak into a later direct image.
++     * @throws Exception if source authoring or public extraction fails
++     */
++    @Test
++    void reusedGroupContextsArePerOccurrenceImmutableAndDoNotLeak() throws Exception {
++        final byte[] source;
++        try (final var document = new PDDocument()) {
++            final var page = page(document);
++            final var image = raster(document);
++            final var group = group(document, image, null, null);
++            try (final var content = new PDPageContentStream(document, page)) {
++                content.saveGraphicsState();
++                content.setGraphicsStateParameters(state(.5f, BlendMode.MULTIPLY));
++                content.drawForm(group);
++                content.restoreGraphicsState();
++                content.saveGraphicsState();
++                content.setGraphicsStateParameters(state(0, BlendMode.NORMAL));
++                content.drawForm(group);
++                content.restoreGraphicsState();
++                content.drawImage(image, 90, 40, 20, 20);
++            }
++            source = save(document);
++        }
++        final var actual = images(source, options(true));
++        assertEquals(3, actual.size());
++        assertEquals(List.of(entry(.5, "Multiply", false, false, false)), context(actual.get(0)));
++        assertEquals(List.of(entry(0, "Normal", false, false, false)), context(actual.get(1)));
++        assertEquals(List.of(), context(actual.get(2)));
++        assertThrows(UnsupportedOperationException.class, () -> context(actual.get(0)).clear());
++        @SuppressWarnings("unchecked")
++        final var first = (Map<String, Object>) context(actual.get(0)).getFirst();
++        assertThrows(UnsupportedOperationException.class, () -> first.put("nonstroking_alpha", 1.0));
++    }
++
++    /**
++     * Ordinary forms never add an entry: a group inside a form and a form inside a group each yield exactly
++     * one entry, and the page state after both is restored for a later direct image.
++     * @throws Exception if source authoring or public extraction fails
++     */
++    @Test
++    void onlyActualGroupBoundariesContributeAcrossFormNesting() throws Exception {
++        final byte[] source;
++        try (final var document = new PDDocument()) {
++            final var page = page(document);
++            final var image = raster(document);
++            final var innerGroup = group(document, image, null, null);
++            final var outerForm = new PDFormXObject(document);
++            outerForm.setResources(new PDResources());
++            outerForm.setBBox(new PDRectangle(200, 100));
++            try (final var content = new PDFormContentStream(outerForm)) {
++                content.setGraphicsStateParameters(state(.75f, BlendMode.DARKEN));
++                content.drawForm(innerGroup);
++            }
++            final var innerForm = new PDFormXObject(document);
++            innerForm.setResources(new PDResources());
++            innerForm.setBBox(new PDRectangle(200, 100));
++            try (final var content = new PDFormContentStream(innerForm)) {
++                content.drawImage(image, 50, 40, 20, 20);
++            }
++            final var outerGroup = new PDTransparencyGroup(document);
++            attributes(outerGroup, true, null);
++            outerGroup.setResources(new PDResources());
++            outerGroup.setBBox(new PDRectangle(200, 100));
++            try (final var content = new PDFormContentStream(outerGroup)) {
++                content.drawForm(innerForm);
++            }
++            try (final var content = new PDPageContentStream(document, page)) {
++                content.setGraphicsStateParameters(state(.5f, BlendMode.MULTIPLY));
++                content.saveGraphicsState();
++                content.drawForm(outerForm);
++                content.restoreGraphicsState();
++                content.drawForm(outerGroup);
++                content.drawImage(image, 90, 40, 20, 20);
++            }
++            source = save(document);
++        }
++        final var actual = images(source, options(true));
++        assertEquals(3, actual.size());
++        assertEquals(List.of(entry(.75, "Darken", false, false, false)), context(actual.get(0)));
++        assertEquals(List.of(entry(.5, "Multiply", false, true, false)), context(actual.get(1)));
++        assertEquals(paint(1, "Normal"), actual.get(1).metadata().get("pdf_image_graphics_state"));
++        assertEquals(List.of(), context(actual.get(2)));
++        assertEquals(paint(.5, "Multiply"), actual.get(2).metadata().get("pdf_image_graphics_state"));
++    }
++
++    /**
++     * Controlled diagnostic only: an opaque raster in an isolated-default, non-knockout group painted at alpha 0
++     * leaves the white page pixel unchanged in a PDFBox rendering, while alpha .5 changes it. Both source
++     * occurrences and identical PNG payloads are retained; no general visibility claim follows from this.
++     * @throws Exception if source authoring, rendering or public extraction fails
++     */
++    @Test
++    void zeroAndFractionalGroupAlphaRetainOccurrencesAndPayloads() throws Exception {
++        final byte[] source;
++        try (final var document = new PDDocument()) {
++            final var page = page(document);
++            final var image = raster(document);
++            final var left = group(document, image, null, null);
++            final var right = new PDTransparencyGroup(document);
++            attributes(right, null, null);
++            right.setResources(new PDResources());
++            right.setBBox(new PDRectangle(200, 100));
++            try (final var content = new PDFormContentStream(right)) {
++                content.drawImage(image, 120, 40, 20, 20);
++            }
++            try (final var content = new PDPageContentStream(document, page)) {
++                content.saveGraphicsState();
++                content.setGraphicsStateParameters(state(0, BlendMode.NORMAL));
++                content.drawForm(left);
++                content.restoreGraphicsState();
++                content.setGraphicsStateParameters(state(.5f, BlendMode.NORMAL));
++                content.drawForm(right);
++            }
++            source = save(document);
++        }
++        final var actual = images(source, options(true).withImageClipBounds(false));
++        final var payloads = images(source,
++                new PdfOptions(10, 10_000, 10_000, 100, 10_000, true, TableLimits.defaults()).withImageGroupContext(
++                        true));
++        assertEquals(2, actual.size());
++        assertEquals(2, payloads.size());
++        assertEquals(List.of(entry(0, "Normal", false, false, false)), context(actual.get(0)));
++        assertEquals(List.of(entry(.5, "Normal", false, false, false)), context(actual.get(1)));
++        assertEquals(payloads.get(0).metadata().get("image_base64"), payloads.get(1).metadata().get("image_base64"));
++        try (final var original = Loader.loadPDF(source)) {
++            final var rendered = new PDFRenderer(original).renderImage(0);
++            try {
++                assertEquals(Color.WHITE.getRGB(), rendered.getRGB(20, 50));
++                assertNotEquals(Color.WHITE.getRGB(), rendered.getRGB(130, 50));
++                assertNotEquals(Color.RED.getRGB(), rendered.getRGB(130, 50));
++            } finally {
++                rendered.flush();
++            }
++        }
++    }
++
++    /**
++     * A soft mask at the group's invocation is reported as a source descriptor; the auxiliary mask group's own
++     * raster is not traversed or emitted as an additional page occurrence.
++     * @throws Exception if source authoring or public extraction fails
++     */
++    @Test
++    void invocationSoftMaskIsADescriptorAndMaskRastersAreNotEmitted() throws Exception {
++        final byte[] source;
++        try (final var document = new PDDocument()) {
++            final var page = page(document);
++            final var image = raster(document);
++            final var mask = new PDTransparencyGroup(document);
++            attributes(mask, null, null);
++            mask.setResources(new PDResources());
++            mask.setBBox(new PDRectangle(200, 100));
++            try (final var content = new PDFormContentStream(mask)) {
++                content.drawImage(image, 0, 0, 200, 100);
++            }
++            final var softMask = new COSDictionary();
++            softMask.setItem(COSName.S, COSName.LUMINOSITY);
++            softMask.setItem(COSName.G, mask);
++            final var masked = state(1, BlendMode.NORMAL);
++            masked.getCOSObject().setItem(COSName.SMASK, softMask);
++            masked.setAlphaSourceFlag(true);
++            final var group = group(document, image, null, null);
++            try (final var content = new PDPageContentStream(document, page)) {
++                content.setGraphicsStateParameters(masked);
++                content.drawForm(group);
++            }
++            source = save(document);
++        }
++        final var actual = images(source, options(true));
++        assertEquals(1, actual.size());
++        assertEquals(List.of(entry(1, "Normal", true, false, false, true)), context(actual.getFirst()));
++        // Group entry resets alpha, blend mode and soft mask only; the alpha-source flag is inherited.
++        assertEquals(Map.of("nonstroking_alpha", 1.0, "blend_mode", "Normal", "has_soft_mask", false,
++                             "alpha_is_shape", true),
++                actual.getFirst().metadata().get("pdf_image_graphics_state"));
++    }
++
++    /**
++     * Self-recursive groups hit the existing typed form-depth limit, and a tight operator budget fails typed;
++     * an independent later extraction from the same options remains usable with empty contexts.
++     * @throws Exception if source authoring or an unexpected failure occurs
++     */
++    @Test
++    void typedFailuresInNestedGroupsLeaveLaterExtractionUsable() throws Exception {
++        final byte[] recursive;
++        try (final var document = new PDDocument()) {
++            final var page = page(document);
++            final var group = new PDTransparencyGroup(document);
++            attributes(group, null, null);
++            group.setResources(new PDResources());
++            group.setBBox(new PDRectangle(200, 100));
++            try (final var content = new PDFormContentStream(group)) {
++                content.drawForm(group);
++            }
++            try (final var content = new PDPageContentStream(document, page)) {
++                content.drawForm(group);
++            }
++            recursive = save(document);
++        }
++        final var options = options(true);
++        final var depth = assertThrows(PartitionException.class, () -> images(recursive, options));
++        assertEquals(PartitionException.Code.INPUT_TOO_LARGE, depth.code());
++        final byte[] busy;
++        try (final var document = new PDDocument()) {
++            final var page = page(document);
++            final var image = raster(document);
++            final var group = group(document, image, null, null);
++            try (final var content = new PDPageContentStream(document, page)) {
++                for (int index = 0; index < 20; index++) {
++                    content.drawForm(group);
++                }
++            }
++            busy = save(document);
++        }
++        final var tight = new PdfOptions(10, 10_000, 10, 100, 10_000, false, TableLimits.defaults())
++                                  .withImageGroupContext(true);
++        final var budget = assertThrows(PartitionException.class, () -> images(busy, tight));
++        assertEquals(PartitionException.Code.INPUT_TOO_LARGE, budget.code());
++        final byte[] plain;
++        try (final var document = new PDDocument()) {
++            final var page = page(document);
++            try (final var content = new PDPageContentStream(document, page)) {
++                content.drawImage(raster(document), 10, 10, 20, 20);
++            }
++            plain = save(document);
++        }
++        assertEquals(List.of(), context(images(plain, options).getFirst()));
++    }
++
++    /**
++     * Defaults and every retained constructor leave the option off; copy methods preserve it independently.
++     */
++    @Test
++    void defaultsConstructorsAndCopiesPreserveTheSelection() {
++        final var base = new PdfOptions(10, 10_000, 10_000, 100, 10_000, false, TableLimits.defaults());
++        assertFalse(PdfOptions.defaults().includeImageGroupContext());
++        assertFalse(base.includeImageGroupContext());
++        assertFalse(new PdfOptions(10, 10_000, 10_000, 100, 10_000, false, TableLimits.defaults(),
++                PdfOptions.TableDetection.RULED_ONLY, PdfOptions.TextLayout.LINES, false,
++                PdfOptions.TableContinuation.NONE, PdfOptions.UnicodeNormalization.RAW, PdfOptions.TextRendering.ALL,
++                PdfOptions.FigureCaptions.NONE, true).includeImageGroupContext());
++        final var selected = base.withImageGroupContext(true);
++        assertTrue(selected.withTextLayout(PdfOptions.TextLayout.PARAGRAPHS).withImageClipBounds(true)
++                           .withFigureCaptions(PdfOptions.FigureCaptions.NONE).includeImageGroupContext());
++        assertTrue(selected.withImageClipBounds(true).includeImageClipBounds());
++        assertFalse(selected.includeImageClipBounds());
++        assertFalse(selected.withImageGroupContext(false).includeImageGroupContext());
++    }
++
++    /**
++     * Builds expected current-stream state independently of production helpers.
++     * @param alpha nonstroking constant
++     * @param blend blend-mode name
++     * @return expected map
++     */
++    private static Map<String, Object> paint(final double alpha, final String blend) {
++        return Map.of("nonstroking_alpha", alpha, "blend_mode", blend, "has_soft_mask", false, "alpha_is_shape", false);
++    }
++
++    /**
++     * Builds one expected group invocation entry without an alpha-source flag.
++     * @param alpha caller nonstroking constant
++     * @param blend caller blend-mode name
++     * @param softMask whether a caller soft mask is active
++     * @param isolated group isolated attribute
++     * @param knockout group knockout attribute
++     * @return expected entry
++     */
++    private static Map<String, Object> entry(final double alpha, final String blend, final boolean softMask,
++            final boolean isolated, final boolean knockout) {
++        return entry(alpha, blend, softMask, isolated, knockout, false);
++    }
++
++    /**
++     * Builds one expected group invocation entry.
++     * @param alpha caller nonstroking constant
++     * @param blend caller blend-mode name
++     * @param softMask whether a caller soft mask is active
++     * @param isolated group isolated attribute
++     * @param knockout group knockout attribute
++     * @param shape caller alpha-source flag
++     * @return expected entry
++     */
++    private static Map<String, Object> entry(final double alpha, final String blend, final boolean softMask,
++            final boolean isolated, final boolean knockout, final boolean shape) {
++        return Map.of("nonstroking_alpha", alpha, "blend_mode", blend, "has_soft_mask", softMask, "alpha_is_shape",
++                shape, "isolated", isolated, "knockout", knockout);
++    }
++
++    /**
++     * Creates a 200x100 page.
++     * @param document owning document
++     * @return added page
++     */
++    private static PDPage page(final PDDocument document) {
++        final var page = new PDPage(new PDRectangle(200, 100));
++        document.addPage(page);
++        return page;
++    }
++
++    /**
++     * Authors a transparency group drawing one image at (10,40) with optional explicit I/K attributes.
++     * @param document owning document
++     * @param image reused raster
++     * @param isolated explicit isolated value, or null to omit
++     * @param knockout explicit knockout value, or null to omit
++     * @return group XObject
++     * @throws Exception if authoring fails
++     */
++    private static PDTransparencyGroup group(final PDDocument document, final PDImageXObject image,
++            final Boolean isolated, final Boolean knockout) throws Exception {
++        final var group = new PDTransparencyGroup(document);
++        attributes(group, isolated, knockout);
++        group.setResources(new PDResources());
++        group.setBBox(new PDRectangle(200, 100));
++        try (final var content = new PDFormContentStream(group)) {
++            content.drawImage(image, 10, 40, 20, 20);
++        }
++        return group;
++    }
++
++    /**
++     * Writes a transparency /Group dictionary with optional explicit I/K booleans.
++     * @param group target group
++     * @param isolated explicit isolated value, or null to omit
++     * @param knockout explicit knockout value, or null to omit
++     */
++    private static void attributes(final PDTransparencyGroup group, final Boolean isolated, final Boolean knockout) {
++        final var attributes = new COSDictionary();
++        attributes.setItem(COSName.S, COSName.TRANSPARENCY);
++        if (isolated != null) {
++            attributes.setBoolean(COSName.I, isolated);
++        }
++        if (knockout != null) {
++            attributes.setBoolean(COSName.K, knockout);
++        }
++        group.getCOSObject().setItem(COSName.GROUP, attributes);
++    }
++
++    /**
++     * Builds a graphics state with explicit nonstroking alpha and blend mode.
++     * @param alpha nonstroking constant
++     * @param blend blend mode
++     * @return owned state
++     */
++    private static PDExtendedGraphicsState state(final float alpha, final BlendMode blend) {
++        final var result = new PDExtendedGraphicsState();
++        result.setNonStrokingAlphaConstant(alpha);
++        result.setBlendMode(blend);
++        return result;
++    }
++
++    /**
++     * Creates an opaque red 2x2 raster.
++     * @param document owning document
++     * @return embedded image
++     * @throws Exception if encoding fails
++     */
++    private static PDImageXObject raster(final PDDocument document) throws Exception {
++        final var pixels = new BufferedImage(2, 2, BufferedImage.TYPE_INT_RGB);
++        for (int y = 0; y < 2; y++) {
++            for (int x = 0; x < 2; x++) {
++                pixels.setRGB(x, y, Color.RED.getRGB());
++            }
++        }
++        try {
++            return LosslessFactory.createFromImage(document, pixels);
++        } finally {
++            pixels.flush();
++        }
++    }
++
++    /**
++     * Saves an owned document.
++     * @param document authored document
++     * @return complete bytes
++     * @throws Exception if encoding fails
++     */
++    private static byte[] save(final PDDocument document) throws Exception {
++        final var output = new ByteArrayOutputStream();
++        document.save(output);
++        return output.toByteArray();
++    }
++
++    /**
++     * Builds small-budget options with explicit group-context selection.
++     * @param include whether to emit group context
++     * @return immutable options
++     */
++    private static PdfOptions options(final boolean include) {
++        return new PdfOptions(10, 10_000, 10_000, 100, 10_000, false, TableLimits.defaults())
++                .withImageGroupContext(include);
++    }
++
++    /**
++     * Runs the public extraction path.
++     * @param source complete bytes
++     * @param options extraction policy
++     * @return image occurrences in painted order
++     * @throws Exception if partitioning fails
++     */
++    private static List<Element> images(final byte[] source, final PdfOptions options) throws Exception {
++        return DocWeave.create(PartitionerRegistry.of(List.of(PdfPartitioner.create(options))))
++                .partition(DocumentSource.bytes(source, "owned-image-group-context.pdf"))
++                .elements()
++                .stream()
++                .filter(element -> element.type() == ElementType.Image)
++                .toList();
++    }
++
++    /**
++     * Reads the immutable public group-context list.
++     * @param image emitted image
++     * @return ordered entries
++     */
++    private static List<?> context(final Element image) {
++        assertInstanceOf(List.class, image.metadata().get("pdf_image_group_context"));
++        return (List<?>) image.metadata().get("pdf_image_group_context");
++    }
++}
+diff --git a/docweave-integration-tests/src/test/java/dev/docweave/partition/PdfImageGroupContextIntegrationTest.java b/docweave-integration-tests/src/test/java/dev/docweave/partition/PdfImageGroupContextIntegrationTest.java
+new file mode 100644
+index 0000000..72db5c7
+--- /dev/null
++++ b/docweave-integration-tests/src/test/java/dev/docweave/partition/PdfImageGroupContextIntegrationTest.java
+@@ -0,0 +1,96 @@
++package dev.docweave.partition;
++
++import dev.docweave.DocWeave;
++import dev.docweave.core.ElementType;
++import dev.docweave.json.ElementJson;
++import org.apache.pdfbox.cos.COSDictionary;
++import org.apache.pdfbox.cos.COSName;
++import org.apache.pdfbox.pdmodel.PDDocument;
++import org.apache.pdfbox.pdmodel.PDFormContentStream;
++import org.apache.pdfbox.pdmodel.PDPage;
++import org.apache.pdfbox.pdmodel.PDPageContentStream;
++import org.apache.pdfbox.pdmodel.PDResources;
++import org.apache.pdfbox.pdmodel.common.PDRectangle;
++import org.apache.pdfbox.pdmodel.graphics.blend.BlendMode;
++import org.apache.pdfbox.pdmodel.graphics.form.PDTransparencyGroup;
++import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory;
++import org.apache.pdfbox.pdmodel.graphics.state.PDExtendedGraphicsState;
++import org.junit.jupiter.api.Test;
++
++import java.awt.Color;
++import java.awt.image.BufferedImage;
++import java.io.ByteArrayOutputStream;
++import java.util.List;
++import java.util.Map;
++
++import static org.junit.jupiter.api.Assertions.*;
++
++/** Cross-module preservation of opt-in enclosing transparency-group context through JSON and unit conversion. */
++class PdfImageGroupContextIntegrationTest {
++    /** Creates an isolated integration control without shared PDF/model resources. */
++    PdfImageGroupContextIntegrationTest() {
++    }
++
++    /**
++     * The ordered scalar context survives ElementJson round trips and is untouched by coordinate conversion,
++     * while source identity, corners and PNG payload remain unchanged.
++     * @throws Exception if source authoring, public extraction, serialization or conversion fails
++     */
++    @Test
++    void groupContextSurvivesJsonAndPhysicalCoordinateConversion() throws Exception {
++        final byte[] source;
++        try (final var document = new PDDocument()) {
++            final var page = new PDPage(new PDRectangle(100, 60));
++            document.addPage(page);
++            final var pixels = new BufferedImage(2, 2, BufferedImage.TYPE_INT_RGB);
++            pixels.setRGB(0, 0, Color.RED.getRGB());
++            final var image = LosslessFactory.createFromImage(document, pixels);
++            pixels.flush();
++            final var group = new PDTransparencyGroup(document);
++            final var attributes = new COSDictionary();
++            attributes.setItem(COSName.S, COSName.TRANSPARENCY);
++            attributes.setBoolean(COSName.I, true);
++            group.getCOSObject().setItem(COSName.GROUP, attributes);
++            group.setResources(new PDResources());
++            group.setBBox(new PDRectangle(100, 60));
++            try (final var content = new PDFormContentStream(group)) {
++                content.drawImage(image, 10, 10, 20, 20);
++            }
++            final var state = new PDExtendedGraphicsState();
++            state.setNonStrokingAlphaConstant(.25f);
++            state.setBlendMode(BlendMode.MULTIPLY);
++            try (final var content = new PDPageContentStream(document, page)) {
++                content.setGraphicsStateParameters(state);
++                content.drawForm(group);
++            }
++            final var output = new ByteArrayOutputStream();
++            document.save(output);
++            source = output.toByteArray();
++        }
++        final var options = new PdfOptions(10, 10_000, 10_000, 100, 10_000, true, TableLimits.defaults())
++                                    .withImageGroupContext(true);
++        final var elements = DocWeave.create(PartitionerRegistry.of(List.of(PdfPartitioner.create(options))))
++                                     .partition(DocumentSource.bytes(source, "image-group-context-roundtrip.pdf"))
++                                     .elements();
++        final var image =
++                elements.stream().filter(element -> element.type() == ElementType.Image).findFirst().orElseThrow();
++        final var expected = List.of(Map.of("nonstroking_alpha", .25, "blend_mode", "Multiply", "has_soft_mask", false,
++                "alpha_is_shape", false, "isolated", true, "knockout", false));
++        final var original = ElementJson.create().write(elements);
++        final var decoded = ElementJson.create()
++                                    .read(original)
++                                    .stream()
++                                    .filter(element -> element.type() == ElementType.Image)
++                                    .findFirst()
++                                    .orElseThrow();
++        assertEquals(image, decoded);
++        final var pixels = PdfCoordinateConverter.create().toPixels(decoded, 144);
++        final var points = PdfCoordinateConverter.create().toPoints(pixels);
++        for (final var value : List.of(image, decoded, pixels, points)) {
++            assertEquals(expected, value.metadata().get("pdf_image_group_context"));
++            assertEquals(image.elementId(), value.elementId());
++            assertEquals(image.metadata().get("image_base64"), value.metadata().get("image_base64"));
++        }
++        assertEquals(original, ElementJson.create().write(elements));
++    }
++}

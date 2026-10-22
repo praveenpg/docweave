@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Add opt-in enclosing transparency-group context for source images through
+  `PdfOptions.withImageGroupContext(true)`. Preserve ordered caller-state snapshots
+  alongside current-stream image state, including group isolation/knockout interpretation.
+  Keep PNGs, defaults and occurrence accounting unchanged; no effective-opacity claim.
+
 - Add opt-in per-image invocation clip bounds through `PdfOptions.withImageClipBounds(true)`.
   Describe conservative empty/bounded/unbounded clipping and proven placement exclusion,
   preserving source occurrences, PNG payloads and existing defaults. Convert nested bounds

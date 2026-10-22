@@ -1,0 +1,127 @@
+{
+  "source_sha256" : "fcbbb6b34a2d9c2b0b3acb546d0dc1ba100e7ed486d2dc7d3b0516fbdec03497",
+  "reference_sha256" : "efd1e14b49aa4a296a5318678fab258101d76756d1ab533c1902583dd37985e7",
+  "maximum_coordinate_difference_points" : 2,
+  "source_corner_maps" : 94,
+  "source_image_occurrences" : 94,
+  "results" : [ {
+    "maximum_coordinate_difference" : 0.5597144101562321,
+    "page" : 8,
+    "emitted_source_ordered_corners" : [ [ 402.98150634765625, 711.5277709960938 ], [ 442.29681396484375, 715.3134155273438 ], [ 460.77154541015625, 523.4461669921875 ], [ 421.4562072753906, 519.6605224609375 ] ],
+    "matching_occurrences" : 1,
+    "expected_cairo_source_ordered_corners" : [ [ 402.4919822, 711.119995 ], [ 441.7595642, 714.9010298000001 ], [ 460.211831, 523.2666978000001 ], [ 420.944249, 519.485663 ] ],
+    "id" : "source-98"
+  }, {
+    "maximum_coordinate_difference" : 0.4052196866406348,
+    "page" : 8,
+    "emitted_source_ordered_corners" : [ [ 294.1135559082031, 691.043212890625 ], [ 333.5660705566406, 690.3545532226562 ], [ 330.1966247558594, 497.3189697265625 ], [ 290.7441101074219, 498.0075988769531 ] ],
+    "matching_occurrences" : 1,
+    "expected_cairo_source_ordered_corners" : [ [ 293.75628286999995, 690.66012 ], [ 333.16085087, 689.97231045 ], [ 329.79549499999996, 497.17123245 ], [ 290.390927, 497.859042 ] ],
+    "id" : "source-117"
+  }, {
+    "maximum_coordinate_difference" : 0.5967700351562826,
+    "page" : 8,
+    "emitted_source_ordered_corners" : [ [ 355.9164733886719, 629.8113403320312 ], [ 480.54888916015625, 641.8120727539062 ], [ 491.18756103515625, 531.325439453125 ], [ 366.55511474609375, 519.32470703125 ] ],
+    "matching_occurrences" : 1,
+    "expected_cairo_source_ordered_corners" : [ [ 355.4841096, 629.50269 ], [ 479.9650496, 641.4888436 ], [ 490.59079099999997, 531.1364176 ], [ 366.109851, 519.150264 ] ],
+    "id" : "source-152"
+  }, {
+    "maximum_coordinate_difference" : 0.613562081250052,
+    "page" : 8,
+    "emitted_source_ordered_corners" : [ [ 505.07861328125, 463.7286071777344 ], [ 368.164794921875, 450.5453186035156 ], [ 362.9957275390625, 504.2279052734375 ], [ 499.9095764160156, 517.4111938476562 ] ],
+    "matching_occurrences" : 1,
+    "expected_cairo_source_ordered_corners" : [ [ 504.46505119999995, 463.621718 ], [ 367.7175392, 450.4544204 ], [ 362.55477199999996, 504.0717764 ], [ 499.302284, 517.239074 ] ],
+    "id" : "source-168"
+  } ],
+  "group_context" : {
+    "depth_histogram" : [ [ 0, 89 ], [ 1, 5 ] ],
+    "occurrences" : 94,
+    "other_metadata_unchanged" : true,
+    "nonempty_contexts" : [ {
+      "page" : 8,
+      "group_context" : [ {
+        "isolated" : false,
+        "knockout" : false,
+        "nonstroking_alpha" : 0.5700070261955261,
+        "alpha_is_shape" : false,
+        "has_soft_mask" : false,
+        "blend_mode" : "Normal"
+      } ],
+      "image_graphics_state" : {
+        "alpha_is_shape" : false,
+        "nonstroking_alpha" : 1.0,
+        "blend_mode" : "Normal",
+        "has_soft_mask" : true
+      },
+      "occurrence_index" : 31
+    }, {
+      "page" : 11,
+      "group_context" : [ {
+        "isolated" : false,
+        "knockout" : false,
+        "nonstroking_alpha" : 1.0,
+        "alpha_is_shape" : false,
+        "has_soft_mask" : false,
+        "blend_mode" : "Multiply"
+      } ],
+      "image_graphics_state" : {
+        "alpha_is_shape" : false,
+        "nonstroking_alpha" : 1.0,
+        "blend_mode" : "Normal",
+        "has_soft_mask" : false
+      },
+      "occurrence_index" : 40
+    }, {
+      "page" : 11,
+      "group_context" : [ {
+        "isolated" : false,
+        "knockout" : false,
+        "nonstroking_alpha" : 1.0,
+        "alpha_is_shape" : false,
+        "has_soft_mask" : false,
+        "blend_mode" : "Multiply"
+      } ],
+      "image_graphics_state" : {
+        "alpha_is_shape" : false,
+        "nonstroking_alpha" : 1.0,
+        "blend_mode" : "Normal",
+        "has_soft_mask" : false
+      },
+      "occurrence_index" : 41
+    }, {
+      "page" : 11,
+      "group_context" : [ {
+        "isolated" : false,
+        "knockout" : false,
+        "nonstroking_alpha" : 1.0,
+        "alpha_is_shape" : false,
+        "has_soft_mask" : false,
+        "blend_mode" : "Multiply"
+      } ],
+      "image_graphics_state" : {
+        "alpha_is_shape" : false,
+        "nonstroking_alpha" : 1.0,
+        "blend_mode" : "Normal",
+        "has_soft_mask" : true
+      },
+      "occurrence_index" : 42
+    }, {
+      "page" : 20,
+      "group_context" : [ {
+        "isolated" : false,
+        "knockout" : false,
+        "nonstroking_alpha" : 1.0,
+        "alpha_is_shape" : false,
+        "has_soft_mask" : false,
+        "blend_mode" : "Multiply"
+      } ],
+      "image_graphics_state" : {
+        "alpha_is_shape" : false,
+        "nonstroking_alpha" : 1.0,
+        "blend_mode" : "Normal",
+        "has_soft_mask" : true
+      },
+      "occurrence_index" : 67
+    } ]
+  }
+}

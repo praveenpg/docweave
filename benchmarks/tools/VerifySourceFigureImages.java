@@ -32,14 +32,17 @@ public final class VerifySourceFigureImages {
      * Runs every qualified original under both factories and every text-rendering policy declared in the manifest.
      * Independent Poppler image inventory supplies expected placement count/dimensions, not pixel correctness.
      * Alternative/ActualText properties never supply caption strings to this verifier.
-     * @param args qualified source manifest, original cache and NEW numeric report; optional --clip-bounds
+     * @param args qualified source manifest, original cache and NEW numeric report; optional --clip-bounds or
+     *         --group-context
      * @throws Exception if original identities, complete populations, fresh output or independent contracts fail
      */
     public static void main(final String[] args) throws Exception {
-        require((args.length == 3 || args.length == 4 && args[3].equals("--clip-bounds"))
+        require((args.length == 3
+                        || args.length == 4 && (args[3].equals("--clip-bounds") || args[3].equals("--group-context")))
                         && !Files.exists(Path.of(args[2])),
-                "Expected qualified sources, cache, NEW report and optional --clip-bounds");
-        final boolean clipBounds = args.length == 4;
+                "Expected qualified sources, cache, NEW report and optional --clip-bounds or --group-context");
+        final boolean clipBounds = args.length == 4 && args[3].equals("--clip-bounds");
+        final boolean groupContext = args.length == 4 && args[3].equals("--group-context");
         final var mapper = JsonMapper.builder().build();
         final byte[] protocol = Files.readAllBytes(Path.of(args[0]));
         final var manifest = mapper.readTree(protocol);
@@ -76,7 +79,8 @@ public final class VerifySourceFigureImages {
                     final var options = new PdfOptions(d.maxPages(), d.maxGlyphsPerPage(), d.maxOperatorsPerPage(),
                             d.maxImagePixels(), d.maxImageBytes(), true, d.tableLimits())
                                                 .withTextRendering(rendering)
-                                                .withImageClipBounds(clipBounds);
+                                                .withImageClipBounds(clipBounds)
+                                                .withImageGroupContext(groupContext);
                     final var partitioner =
                             tagged ? PdfPartitioner.createWithTaggedTables(options) : PdfPartitioner.create(options);
                     try {
@@ -95,6 +99,8 @@ public final class VerifySourceFigureImages {
                             final var metadata = image.metadata();
                             require(metadata.containsKey("pdf_image_clip_bounds") == clipBounds,
                                     "Requested image clipping metadata selection differs");
+                            require(metadata.containsKey("pdf_image_group_context") == groupContext,
+                                    "Requested image group-context metadata selection differs");
                             final byte[] png = Base64.getDecoder().decode((String) metadata.get("image_base64"));
                             final var decoded = ImageIO.read(new ByteArrayInputStream(png));
                             require(decoded != null, "PNG payload did not decode");
@@ -106,8 +112,13 @@ public final class VerifySourceFigureImages {
                                            && ((Number) metadata.get("image_height")).intValue() == decoded.getHeight()
                                            && image.text().isEmpty()
                                            && !metadata.containsKey("pdf_native_text_rendering_policy");
-                                payloads.add(Map.of("width", decoded.getWidth(), "height", decoded.getHeight(),
-                                        "png_sha256", hash(png)));
+                                final var payload = new LinkedHashMap<String, Object>(Map.of("width",
+                                        decoded.getWidth(), "height", decoded.getHeight(), "png_sha256", hash(png)));
+                                if (groupContext) {
+                                    payload.put("group_context_depth",
+                                            ((List<?>) metadata.get("pdf_image_group_context")).size());
+                                }
+                                payloads.add(payload);
                             } finally {
                                 decoded.flush();
                             }
@@ -126,12 +137,14 @@ public final class VerifySourceFigureImages {
             }
         }
         require(rows.size() == manifest.get("expected_case_profiles").asInt(), "Incomplete qualified population");
-        Files.writeString(Path.of(args[2]),
-                mapper.writerWithDefaultPrettyPrinter().writeValueAsString(Map.of("scope",
-                        "Complete original source Figure image-count/dimension and no-invented-caption contracts; no pixel/color/semantic-caption accuracy claim",
-                        "runtime", Runtime.version().toString(), "qualified_manifest_sha256", hash(protocol),
-                        "image_clip_bounds_enabled", clipBounds, "results", rows))
-                        + "\n",
+        final var report = new LinkedHashMap<String, Object>(Map.of("scope",
+                "Complete original source Figure image-count/dimension and no-invented-caption contracts; no pixel/color/semantic-caption accuracy claim",
+                "runtime", Runtime.version().toString(), "qualified_manifest_sha256", hash(protocol),
+                "image_clip_bounds_enabled", clipBounds, "results", rows));
+        if (groupContext) {
+            report.put("image_group_context_enabled", true);
+        }
+        Files.writeString(Path.of(args[2]), mapper.writerWithDefaultPrettyPrinter().writeValueAsString(report) + "\n",
                 StandardOpenOption.CREATE_NEW);
         require(rows.stream().allMatch(row -> Boolean.TRUE.equals(row.get("matches_independent_inventory"))),
                 "Original Figure contract mismatch; complete numeric report retained");

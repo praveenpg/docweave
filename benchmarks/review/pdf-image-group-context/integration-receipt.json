@@ -1,0 +1,59 @@
+{
+  "baseline_development_commit": "baa6c46",
+  "scope": "Opt-in enclosing painted transparency-group caller-state metadata; no final-opacity or pixel rendering claim",
+  "java": "21",
+  "full_verify": {
+    "tests": 1334,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "new_test_methods": 9,
+  "focused_pdf_image_tests": 51,
+  "private_javadocs": "PASS",
+  "formatter": "clang-format 23.1.1 scoped PASS",
+  "sources": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "dbdcfab354a9ec6dd9adb1cb1826bb30ea1c39fe3ee52b7b6ecb28cc9957af09",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java": "ba3546ee3e03879c7fe008d19adf1b9b0e1f567e8082cf51ade36bd3a34d4893",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfImageGroupContextTest.java": "df98921e8f08c48821e161d1622953f128f91e9ccb30c1177fcca656d7b58738",
+    "docweave-integration-tests/src/test/java/dev/docweave/partition/PdfImageGroupContextIntegrationTest.java": "0537060c7d5cbcdd2acded334b14b849cfa90674bb7ade28364c24a46d1ac85a",
+    "benchmarks/tools/VerifySourceFigureImages.java": "09ce4abd57504b49125f1deaab2a02ce59516545e4603349df05a4092947a87b",
+    "benchmarks/tools/VerifySourceImageCornerMaps.java": "656aec00b6773df70b0756d5c8eefa7aa34f9f290abae17fdec26c689853cf02"
+  },
+  "logs": {
+    "verify.log": "d8dc28d173e7e99c8bb590a9a1f5207c417e8f09d5044b31e8ae15dfd09120d3",
+    "focused.log": "c5c8ab75b5fee021d1c9c1e6535c76df8229c0b2e5f14b595c713bc0a6eee15c",
+    "private-docs.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "integrated_reports": {
+    "integrated-magazine-group-java21.json": "56bdfb88a60963a3e757336637460875d796d72af540cf3e2ae39ef3d194fa38",
+    "integrated-qualified18-group-java21.json": "2f28cb1acd5f314ef44b924ed9a53e854fe554ef1d644e59dd9844eb10c58038",
+    "integrated-qualified24-group-java21.json": "178d7393ae9bb73f562fa0352b655a132c3d95cbd32451ad874d01cf77eb5c50"
+  },
+  "magazine": {
+    "complete_occurrences": 94,
+    "frozen_affine_references": 4,
+    "depth_histogram": [
+      [
+        0,
+        89
+      ],
+      [
+        1,
+        5
+      ]
+    ],
+    "identity_type_text_other_metadata_unchanged": true,
+    "nonempty_contexts_recorded": 5
+  },
+  "qualified_figure_slots": [
+    18,
+    24
+  ],
+  "known_limitations": [
+    "Interpreted isolated/knockout false does not distinguish absence from malformed booleans",
+    "Source context is not combined opacity, group color space, mask contents or final visibility",
+    "Controlled rendering shares PDFBox machinery; no independent pixel-fidelity claim"
+  ],
+  "local_cache_note": "Snapshot Maven installation occurred only in local dependency cache; no artifact publication"
+}

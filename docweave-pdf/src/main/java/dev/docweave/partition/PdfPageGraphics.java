@@ -69,6 +69,8 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
     private List<Segment> pending = new ArrayList<>();
     /** Raster occurrences, including repeated and inline images. */
     private final List<Image> images = new ArrayList<>();
+    /** Immutable caller-state snapshots of enclosing painted transparency groups, outermost first. */
+    private final List<Map<String, Object>> groupContext = new ArrayList<>();
     /** Current path point in transformed PDF space. */
     private Point2D current = new Point2D.Float();
     /** Start of current subpath. */
@@ -165,18 +167,46 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
 
     /**
      * Applies the same path isolation to the separate transparency-group dispatch route.
-     * This does not render group compositing or change source-paint eligibility.
+     * When selected, the caller state is snapshotted before PDFBox's group reset and popped in finally, so
+     * failures or cancellation never leave a stale entry. Only painted groups use this route; auxiliary
+     * soft-mask groups are not traversed. This does not render group compositing or change paint eligibility.
      * @param group original transparency group
      * @throws IOException if child parsing, cancellation or existing budgets fail
      */
     @Override
     public void showTransparencyGroup(final PDTransparencyGroup group) throws IOException {
         final var parent = suspendPath();
+        final boolean context = options.includeImageGroupContext();
+        boolean captured = false;
         try {
+            if (context) {
+                // Snapshot inside the restoration scope, before PDFBox resets the group's internal state.
+                groupContext.add(groupInvocation(group));
+                captured = true;
+            }
             super.showTransparencyGroup(group);
         } finally {
+            if (captured) {
+                groupContext.removeLast();
+            }
             resumePath(parent);
         }
+    }
+
+    /**
+     * Captures the caller state under which a painted transparency group is composed, as immutable scalars.
+     * Isolated/knockout use the PDF default of false when absent; PDFBox also reads a malformed entry as false.
+     * The alpha constant is the invocation's nonstroking value, not an effective or final opacity.
+     * @param group directly painted transparency group, not an auxiliary soft-mask group
+     * @return immutable source-provenance snapshot
+     */
+    private Map<String, Object> groupInvocation(final PDTransparencyGroup group) {
+        final var state = getGraphicsState();
+        final var attributes = group.getGroup();
+        return Map.of("nonstroking_alpha", state.getNonStrokeAlphaConstant(), "blend_mode",
+                state.getBlendMode().getCOSName().getName(), "has_soft_mask", state.getSoftMask() != null,
+                "alpha_is_shape", state.isAlphaSource(), "isolated", attributes != null && attributes.isIsolated(),
+                "knockout", attributes != null && attributes.isKnockout());
     }
 
     /**
@@ -308,6 +338,9 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
                                 .toList()));
         if (options.includeImageClipBounds()) {
             metadata.put("pdf_image_clip_bounds", clipBounds(state, left, top, right, bottom));
+        }
+        if (options.includeImageGroupContext()) {
+            metadata.put("pdf_image_group_context", List.copyOf(groupContext));
         }
         budget.extract(image, getGraphicsState().getNonStrokingColor(), metadata);
         images.add(new Image(left, bottom, right - left, top - bottom, metadata));

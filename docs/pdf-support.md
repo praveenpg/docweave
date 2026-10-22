@@ -890,7 +890,7 @@ or independent human-review gates.
 | Scientific reading order | Native/oriented lines, paragraph and compound-column layouts, source-tagged paragraphs, figure-caption association | Complete-body paragraph fidelity and asymmetric sidebar order remain unresolved. Physical wrap hyphens and reference whitespace differences are separate from lost/interleaved text. The sidebar investigation is parked; do not replace missing references or relax scoring to close it. |
 | Historical scans | Explicit language/model selection, managed OCR, quarter-turn correction, deskew and source-frame word geometry | Recognition and physical reading order vary across originals. Earlier language/model and segmentation comparisons are retained; no universal winning profile or automatic engine selection is established. |
 | Degraded scans | Explicit raster correction, white-point preprocessing and OCR magnification | Improvements are source-dependent; the tested white-point/sparse composition regressed several originals and is not promoted. Broader held-out transcription and calibration remain open. |
-| Source images | Actual occurrence accounting, normalized PNGs, mask/stencil handling, invocation graphics state, ordered affine placement corners and opt-in conservative clip bounds | Source payloads and placements do not reproduce final compositing, clipping, occlusion or generated descriptions. Ordered-corner checks do not establish rendered-pixel equality. |
+| Source images | Actual occurrence accounting, normalized PNGs, mask/stencil handling, invocation graphics state, ordered affine placement corners, opt-in conservative clip bounds and enclosing group context | Source payloads and placements do not reproduce final compositing, clipping, occlusion or generated descriptions. Ordered-corner checks do not establish rendered-pixel equality. |
 | Independent acceptance and operations | Owned regressions, pinned original-source comparisons, bounded parser callbacks, packaged consumer checks | Independent human review, broader authoring-tool diversity, calibrated confidence and production heap/latency evidence remain open. PDFBox/codecs may allocate or delay cancellation before callbacks; limits are not a total decompression/heap bound. |
 
 The [quality backlog](pdf-quality-backlog.md) records parked approaches and return conditions.
@@ -3159,3 +3159,45 @@ Both the original 18-slot qualified-figure schedule and an additive 24-slot sche
 payload hashes and outcomes with the option enabled. These are regression checks; no
 original-document pixel-fidelity improvement or closure of the compositing gate is claimed.
 See [image-clip evidence](../benchmarks/review/pdf-image-clip-bounds/README.md).
+
+
+### Enclosing image transparency-group context (unreleased)
+
+```java
+final var options = PdfOptions.defaults().withImageGroupContext(true);
+final var partitioner = PdfPartitioner.create(options);
+```
+
+When selected, every native source Image carries `pdf_image_group_context`, an immutable
+outermost-to-innermost list of enclosing painted transparency-group invocation snapshots.
+An empty list means no enclosing painted group. Each entry contains:
+
+| Fields | Meaning |
+| --- | --- |
+| `nonstroking_alpha`, `blend_mode`, `has_soft_mask`, `alpha_is_shape` | Interpreted caller graphics state before the group's internal reset |
+| `isolated`, `knockout` | Group attributes interpreted by PDFBox; absent and malformed nonboolean values both resolve to false |
+
+The existing `pdf_image_graphics_state` retains its current-stream meaning. A group's
+internal image can correctly report `1 / Normal` while its enclosing group is invoked
+under reduced alpha or Multiply blending. Ordinary forms do not add group entries.
+Auxiliary soft-mask groups are not directly painted groups and do not become additional
+source Images. Alpha-as-shape is not reset by group entry; source state is preserved.
+
+These snapshots are provenance, not effective opacity or final rendering. Their alpha
+constants are not multiplied into PNG samples or flattened across groups. Backdrop,
+soft-mask contents, group color space, isolation/knockout effects and later occlusion
+remain outside this feature. Group entries are plain scalar metadata and survive JSON
+round trips and coordinate conversion without unit scaling. Clip bounds are separately
+selected with `withImageClipBounds(true)`; the options can be used together.
+
+The default is false and previous constructors remain available. Adding the sixteenth
+`PdfOptions` record component changes canonical/reflective schemas and record-derived
+serialization/equality/hash/toString behavior; review those consumers on upgrade. Every
+copy method preserves independent group-context and clip-bounds selections.
+
+The complete 28-page magazine retains all 94 occurrences and all four frozen affine
+references. Five occurrences now expose additional group context: one on page 8 with
+invocation alpha approximately 0.57, and four on pages 11/20 with Multiply blending,
+while their internal image alpha/blend remain 1/Normal. Every other image metadata field
+and identity remains unchanged. This is a real source-metadata gap filled, not a new
+rendered-pixel accuracy result. See [the evidence](../benchmarks/review/pdf-image-group-context/README.md).

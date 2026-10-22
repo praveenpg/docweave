@@ -1,6 +1,7 @@
 package dev.docweave.validation;
 
 import dev.docweave.DocWeave;
+import dev.docweave.core.Element;
 import dev.docweave.core.ElementType;
 import dev.docweave.partition.DocumentSource;
 import dev.docweave.partition.PartitionerRegistry;
@@ -15,6 +16,7 @@ import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.HexFormat;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,6 +24,49 @@ import java.util.Map;
 public final class VerifySourceImageCornerMaps {
     /** Prevents standalone utility construction. */
     private VerifySourceImageCornerMaps() {
+    }
+
+    /**
+     * Re-extracts with enclosing painted transparency-group context and checks it is purely additive.
+     * Every occurrence keeps its position and all other metadata; only the selected list is added.
+     * @param source original PDF
+     * @param images default-selection occurrences in emitted order
+     * @return context depth histogram over the complete population
+     * @throws Exception if extraction fails or any other metadata differs
+     */
+    private static Map<String, Object> groupContext(final Path source, final List<Element> images) throws Exception {
+        final var selected =
+                DocWeave.create(PartitionerRegistry.of(List.of(PdfPartitioner.create(PdfOptions.defaults()
+                                                .withTextLayout(PdfOptions.TextLayout.ORIENTED_LINES)
+                                                .withImageGroupContext(true)))))
+                        .partition(DocumentSource.bytes(Files.readAllBytes(source), source.getFileName().toString()))
+                        .elements()
+                        .stream()
+                        .filter(e -> e.type() == ElementType.Image)
+                        .toList();
+        require(selected.size() == images.size(), "Group-context selection changed the occurrence population");
+        final var depths = new java.util.TreeMap<Integer, Integer>();
+        final var nonempty = new ArrayList<Map<String, Object>>();
+        for (int index = 0; index < selected.size(); index++) {
+            final var candidate = selected.get(index);
+            final var original = images.get(index);
+            require(candidate.elementId().equals(original.elementId()) && candidate.type() == original.type()
+                            && candidate.text().equals(original.text()),
+                    "Group-context selection changed image identity, type or text");
+            final var metadata = new LinkedHashMap<>(candidate.metadata());
+            require(metadata.remove("pdf_image_group_context") instanceof List<?>, "Missing selected group context");
+            require(metadata.equals(images.get(index).metadata()), "Group-context selection changed other metadata");
+            final var context = (List<?>) candidate.metadata().get("pdf_image_group_context");
+            depths.merge(context.size(), 1, Integer::sum);
+            if (!context.isEmpty()) {
+                nonempty.add(Map.of("occurrence_index", index, "page", candidate.metadata().get("page_number"),
+                        "image_graphics_state", candidate.metadata().get("pdf_image_graphics_state"), "group_context",
+                        context));
+            }
+        }
+        return Map.of("occurrences", selected.size(), "other_metadata_unchanged", true, "depth_histogram",
+                depths.entrySet().stream().map(e -> List.of(e.getKey(), e.getValue())).toList(), "nonempty_contexts",
+                nonempty);
     }
 
     /**
@@ -48,12 +93,14 @@ public final class VerifySourceImageCornerMaps {
     /**
      * Processes the complete original28-page magazine, matching all four frozen independent affine references.
      * Cairo's raster top-left corresponds to PDF source unit corner01; order is retained, never fitted.
-     * @param args original PDF, original Cairo numeric reference and fresh numeric report
+     * @param args original PDF, original Cairo numeric reference and fresh numeric report; optional --group-context
+     *         also extracts with enclosing group context and requires every other metadata entry to be unchanged
      * @throws Exception if input identity, complete population or ordered corner correspondence differs
      */
     @SuppressWarnings("unchecked")
     public static void main(final String[] args) throws Exception {
-        require(args.length == 3, "Expected original PDF, numeric reference and fresh output");
+        require(args.length == 3 || args.length == 4 && args[3].equals("--group-context"),
+                "Expected original PDF, numeric reference, fresh output and optional --group-context");
         final var mapper = JsonMapper.builder().build();
         final var source = Path.of(args[0]);
         final var referencePath = Path.of(args[1]);
@@ -122,12 +169,13 @@ public final class VerifySourceImageCornerMaps {
                     ((Map<?, ?>) images.get(matches.getFirst()).metadata().get("pdf_image_coordinates")).get("points"),
                     "maximum_coordinate_difference", errors.getFirst(), "matching_occurrences", matches.size()));
         }
-        Files.writeString(Path.of(args[2]),
-                mapper.writerWithDefaultPrettyPrinter().writeValueAsString(
-                        Map.of("source_sha256", hash(source), "reference_sha256", hash(referencePath),
-                                "source_image_occurrences", images.size(), "source_corner_maps", images.size(),
-                                "maximum_coordinate_difference_points", 2, "results", observations))
-                        + "\n",
+        final var report = new LinkedHashMap<String, Object>(Map.of("source_sha256", hash(source), "reference_sha256",
+                hash(referencePath), "source_image_occurrences", images.size(), "source_corner_maps", images.size(),
+                "maximum_coordinate_difference_points", 2, "results", observations));
+        if (args.length == 4) {
+            report.put("group_context", groupContext(source, images));
+        }
+        Files.writeString(Path.of(args[2]), mapper.writerWithDefaultPrettyPrinter().writeValueAsString(report) + "\n",
                 StandardOpenOption.CREATE_NEW);
     }
 }
