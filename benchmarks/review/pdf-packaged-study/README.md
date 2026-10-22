@@ -102,3 +102,10 @@ Do not compare those as pure parser throughput or infer minimum memory/capacity 
 Fresh smoke reports/protocol and source/JAR/log hashes are recorded under integrated names
 and integration-receipt.json. The four original profiles still contain no successful table
 workload. OCR/ONNX/provider workload measurements and independent acceptance remain open.
+
+## Native table workload follow-up
+
+The [two-source packaged table study](../pdf-packaged-tables/README.md) now exercises
+nonzero native table output: 48 extractions across six child JVMs, with stable
+per-profile hashes and all declared resource gates passing. This additive evidence
+does not change the historical zero-table NVIDIA observation or complete independent review.

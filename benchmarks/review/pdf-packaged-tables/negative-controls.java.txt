@@ -1,0 +1,51 @@
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+
+/** Negative controls for the retained report checker; no product extraction is rerun. */
+public final class CheckPackagedTablesControls {
+    /** Prevents construction. */
+    private CheckPackagedTablesControls() {
+    }
+
+    /**
+     * Requires rejection of individually corrupted gate observations.
+     * @param args frozen protocol and valid measured report
+     * @throws Exception if a mutation is ineffective or accepted
+     */
+    public static void main(final String[] args) throws Exception {
+        final String original = Files.readString(Path.of(args[1]));
+        final var edits = List.of(
+                new String[] {"\"tables\": \"1\"", "\"tables\": \"0\""},
+                new String[] {"\"attempts\": \"8\"", "\"attempts\": \"7\""},
+                new String[] {"\"exit_code\": 0", "\"exit_code\": 1"},
+                new String[] {"\"exited_before_deadline\": true", "\"exited_before_deadline\": false"},
+                new String[] {"\"vm_hwm_kib\": \"160772\"", "\"vm_hwm_kib\": \"524288\""},
+                new String[] {"\"process\": 1", "\"process\": 2"},
+                new String[] {"96ef2fef43ca275deb8c0fc3f67c3e8b581135e1cb5293ba7d146ad750ddacee",
+                        "06ef2fef43ca275deb8c0fc3f67c3e8b581135e1cb5293ba7d146ad750ddacee"});
+        final Path temporary = Files.createTempFile("packaged-table-negative-", ".json");
+        try {
+            for (final String[] edit : edits) {
+                final int at = original.indexOf(edit[0]);
+                if (at < 0) {
+                    throw new AssertionError("Missing mutation target");
+                }
+                Files.writeString(temporary,
+                        original.substring(0, at) + edit[1] + original.substring(at + edit[0].length()));
+                boolean rejected = false;
+                try {
+                    CheckPackagedTables.main(new String[] {args[0], temporary.toString()});
+                } catch (final AssertionError expected) {
+                    rejected = true;
+                }
+                if (!rejected) {
+                    throw new AssertionError("Corrupted observation accepted: " + edit[0]);
+                }
+            }
+        } finally {
+            Files.deleteIfExists(temporary);
+        }
+        System.out.println("PASS: all seven corrupted reports rejected.");
+    }
+}

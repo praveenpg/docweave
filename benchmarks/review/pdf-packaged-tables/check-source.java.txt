@@ -1,0 +1,75 @@
+import tools.jackson.databind.json.JsonMapper;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.security.MessageDigest;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.HexFormat;
+import java.util.Map;
+import java.util.Set;
+
+/** Validates the frozen two-source packaged table study without altering its observations. */
+public final class CheckPackagedTables {
+    /** Prevents construction of the report checker. */
+    private CheckPackagedTables() {
+    }
+
+    /**
+     * Requires the complete declared population, table output, deterministic hashes and resource gates.
+     * @param args frozen protocol followed by its JSON report
+     * @throws Exception if input is invalid or any declared gate fails
+     */
+    public static void main(final String[] args) throws Exception {
+        final var report = JsonMapper.builder().build().readTree(Files.readAllBytes(Path.of(args[1])));
+        final String protocolHash = HexFormat.of().formatHex(
+                MessageDigest.getInstance("SHA-256").digest(Files.readAllBytes(Path.of(args[0]))));
+        require(protocolHash.equals(report.get("protocol_sha256").asString()), "Protocol identity");
+        require(report.get("runtime").asString().startsWith("21."), "Java 21");
+        require(report.get("jvm_options").asString().equals("-Xms32m -Xmx256m"), "Heap policy");
+        require(report.get("runs").size() == 6, "Six child processes");
+        final var slots = new HashSet<String>();
+        final Map<String, String> hashes = new HashMap<>();
+        final Map<String, Integer> tables = new HashMap<>();
+        long peak = 0;
+        for (final var run : report.get("runs")) {
+            final String profile = run.get("profile").asString();
+            final int slot = run.get("process").asInt();
+            require(Set.of("financial", "procurement").contains(profile), "Declared profile");
+            require(slot >= 1 && slot <= 3 && slots.add(profile + ":" + slot), "Unique declared slot");
+            require(run.get("exited_before_deadline").asBoolean() && run.get("exit_code").asInt() == 0,
+                    "Successful bounded child");
+            require(run.get("process_wall_ms").asDouble() < 60_000, "Process wall deadline");
+            require(run.get("attempts").asString().equals("8"), "Complete schedule");
+            require(run.get("failures").asString().equals("{}"), "Zero typed failures");
+            require(run.get("max_heap_bytes").asString().equals("268435456"), "256 MiB heap");
+            require(run.get("output_sha256_encoding").asString().equals("typed-length-prefixed-v1"),
+                    "Fingerprint encoding");
+            final String hash = run.get("output_sha256_distinct").asString();
+            require(hash.matches("\\[[0-9a-f]{64}\\]"), "One successful hash within child");
+            final String previous = hashes.putIfAbsent(profile, hash);
+            require(previous == null || previous.equals(hash), "Same hash across child JVMs");
+            final int count = Integer.parseInt(run.get("tables").asString());
+            require(count > 0, "Nonzero table workload");
+            final Integer previousCount = tables.putIfAbsent(profile, count);
+            require(previousCount == null || previousCount == count, "Stable table count");
+            final long rss = Long.parseLong(run.get("vm_hwm_kib").asString());
+            require(rss > 0 && rss < 524_288, "Positive Linux VmHWM below 512 MiB");
+            peak = Math.max(peak, rss);
+        }
+        System.out.println("PASS: 48 extractions, six child JVMs, two profiles, nonzero tables, stable hashes.");
+        System.out.println("Tables per extraction: financial=" + tables.get("financial")
+                + ", procurement=" + tables.get("procurement") + "; peak VmHWM=" + peak + " KiB.");
+    }
+
+    /**
+     * Fails immediately when a report violates its frozen gate.
+     * @param condition expected observation
+     * @param message failed gate
+     */
+    private static void require(final boolean condition, final String message) {
+        if (!condition) {
+            throw new AssertionError(message);
+        }
+    }
+}

@@ -1,0 +1,3 @@
+PASS: 48 extractions, six child JVMs, two profiles, nonzero tables, stable hashes.
+Tables per extraction: financial=1, procurement=5; peak VmHWM=235892 KiB.
+PASS: all seven corrupted reports rejected.
