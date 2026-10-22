@@ -12,6 +12,13 @@ final class PdfNativeLeadingRow {
     private static final Pattern NUMBER =
             Pattern.compile("(?:[+-]?[0-9]+(?:,[0-9]{3})*(?:\\.[0-9]+)?%?|\\([0-9]+(?:,[0-9]{3})*(?:\\.[0-9]+)?\\))");
 
+    /**
+     * One leading generic currency glyph and its following gap, used only by the section-row numeric check.
+     * A currency mark commonly sits on its own displayed run, separated from its digits by a column-wide gap;
+     * this strips that mark before matching {@link #NUMBER}, without widening the shared numeric-row pattern.
+     */
+    private static final Pattern CURRENCY_PREFIX = Pattern.compile("^[$£€]\\s*");
+
     /** Utility type; candidates and source positions remain page-confined. */
     private PdfNativeLeadingRow() {
     }
@@ -25,6 +32,7 @@ final class PdfNativeLeadingRow {
      * @param geometry displayed source frame
      * @param xs displayed units per rendered horizontal pixel
      * @param ys displayed units per rendered vertical pixel
+     * @param sections whether an aligned colon-terminated section label is eligible
      * @param preferred previously accepted native table envelopes
      * @param work shared page geometry/cancellation budget
      * @return immutable same-order population; changed table identity marks inferred rows
@@ -32,15 +40,33 @@ final class PdfNativeLeadingRow {
      */
     static List<PdfTableLayoutProvider.Table> extend(final List<PdfTableLayoutProvider.Table> tables,
             final List<PdfPageText.Glyph> glyphs, final PdfPageGeometry geometry, final double xs, final double ys,
-            final List<PdfLayoutItem> preferred, final PdfTableWork work) throws IOException {
+            final List<PdfLayoutItem> preferred, final boolean sections, final PdfTableWork work) throws IOException {
         final var result = new ArrayList<PdfTableLayoutProvider.Table>();
         for (final var table : tables) {
             work.step();
-            final var candidate = candidate(table, glyphs, geometry, xs, ys, work);
+            final var candidate = candidate(table, glyphs, geometry, xs, ys, sections, work);
             result.add(candidate != table && conflicts(candidate, table, tables, preferred, xs, ys, work) ? table
                                                                                                           : candidate);
         }
         return List.copyOf(result);
+    }
+
+    /**
+     * Retains the numeric-only internal entry point.
+     * @param tables validated provider tables
+     * @param glyphs unclaimed native glyphs
+     * @param geometry displayed page frame
+     * @param xs horizontal frame scale
+     * @param ys vertical frame scale
+     * @param preferred accepted native table envelopes
+     * @param work shared bounded work counter
+     * @return numeric-only extensions in provider order
+     * @throws IOException if interrupted or the work ceiling is exceeded
+     */
+    static List<PdfTableLayoutProvider.Table> extend(final List<PdfTableLayoutProvider.Table> tables,
+            final List<PdfPageText.Glyph> glyphs, final PdfPageGeometry geometry, final double xs, final double ys,
+            final List<PdfLayoutItem> preferred, final PdfTableWork work) throws IOException {
+        return extend(tables, glyphs, geometry, xs, ys, preferred, false, work);
     }
 
     /**
@@ -50,13 +76,14 @@ final class PdfNativeLeadingRow {
      * @param geometry shared source frame
      * @param xs horizontal source/pixel scale
      * @param ys vertical source/pixel scale
+     * @param sections whether section inference was explicitly selected
      * @param work shared bounded counter
      * @return original table when ambiguous, otherwise one inferred leading row
      * @throws IOException if cancelled or the work budget is exceeded
      */
     private static PdfTableLayoutProvider.Table candidate(final PdfTableLayoutProvider.Table table,
             final List<PdfPageText.Glyph> glyphs, final PdfPageGeometry geometry, final double xs, final double ys,
-            final PdfTableWork work) throws IOException {
+            final boolean sections, final PdfTableWork work) throws IOException {
         final var first = new ArrayList<PdfTableLayoutProvider.Anchor>();
         for (final var anchor : table.anchors()) {
             work.step();
@@ -128,13 +155,18 @@ final class PdfNativeLeadingRow {
                 work.step();
             }
             final var lines = PdfGlyphLines.displayed(cell, geometry);
-            if (lines.size() != 1) {
+            if (lines.size() > 1) {
                 return table;
             }
-            values.add(lines.getFirst().text());
+            values.add(lines.isEmpty() ? "" : lines.getFirst().text());
         }
+        final var sectionBox = new PdfTableLayoutProvider.Box(
+                first.getFirst().bounds().left(), Math.max(0, top - height), first.getFirst().bounds().right(), top);
+        final boolean section = sections && values.getFirst().endsWith(":")
+                                && values.subList(1, values.size()).stream().allMatch(String::isEmpty)
+                                && supportsSection(first, sectionBox, minBaseline, glyphs, geometry, xs, ys, work);
         if (!values.getFirst().codePoints().anyMatch(Character::isLetter)
-                || values.subList(1, values.size()).stream().anyMatch(v -> !NUMBER.matcher(v).matches())) {
+                || !section && values.subList(1, values.size()).stream().anyMatch(v -> !NUMBER.matcher(v).matches())) {
             return table;
         }
         final double newTop = Math.max(0, minTop - 1);
@@ -154,6 +186,113 @@ final class PdfNativeLeadingRow {
                 new PdfTableLayoutProvider.Box(
                         table.bounds().left(), newTop, table.bounds().right(), table.bounds().bottom()),
                 anchors, table.provenance());
+    }
+
+    /**
+     * Requires a matching left-aligned label above a complete numeric first body row.
+     * A colon alone is insufficient: centered headings, empty bodies and incomplete numeric cells stay text.
+     * A body cell may still legitimately span more than one displayed run, for example a leading currency
+     * mark separated from its digits by a column-wide gap; its runs are joined in reading order before the
+     * label/numeric check, matching how an established provider cell's own text is already assembled elsewhere.
+     * Left alignment compares each line's true run origin, including a leading indentation space, not only its
+     * first visible character; excluding that space would understate genuine alignment between a section label
+     * and an indented body label sharing one left margin.
+     * Source characters are never classified by financial vocabulary or reference strings.
+     * @param first uniform first-row anchors
+     * @param sectionBox displayed geometry of the proposed section label's column
+     * @param sectionBaseline source baseline of the proposed label
+     * @param glyphs unclaimed source positions
+     * @param geometry displayed frame
+     * @param xs horizontal frame scale
+     * @param ys vertical frame scale
+     * @param work shared work counter
+     * @return whether the existing body supplies unambiguous alignment and numeric support
+     * @throws IOException if interrupted or bounded work is exhausted
+     */
+    private static boolean supportsSection(final List<PdfTableLayoutProvider.Anchor> first,
+            final PdfTableLayoutProvider.Box sectionBox, final double sectionBaseline,
+            final List<PdfPageText.Glyph> glyphs, final PdfPageGeometry geometry, final double xs, final double ys,
+            final PdfTableWork work) throws IOException {
+        final var cells = new ArrayList<List<PdfPageText.Glyph>>();
+        for (final var ignored : first) {
+            cells.add(new ArrayList<>());
+        }
+        double minBaseline = Double.POSITIVE_INFINITY, maxBaseline = Double.NEGATIVE_INFINITY;
+        for (final var glyph : glyphs) {
+            work.step();
+            if (glyph.text().isBlank()) {
+                continue;
+            }
+            final var center = geometry.center(glyph);
+            final double x = center.x / xs, y = center.y / ys;
+            for (int column = 0; column < first.size(); column++) {
+                work.step();
+                final var box = first.get(column).bounds();
+                if (x >= box.left() && x < box.right() && y >= box.top() && y < box.bottom()) {
+                    if (geometry.textRotation(glyph.direction()) != 0 || glyph.x() / xs < box.left()
+                            || (glyph.x() + glyph.width()) / xs > box.right()) {
+                        return false;
+                    }
+                    cells.get(column).add(glyph);
+                    minBaseline = Math.min(minBaseline, glyph.y());
+                    maxBaseline = Math.max(maxBaseline, glyph.y());
+                    break;
+                }
+            }
+        }
+        if (maxBaseline - minBaseline > 2) {
+            return false;
+        }
+        for (int column = 0; column < cells.size(); column++) {
+            final var cell = cells.get(column);
+            for (final var ignored : cell) {
+                work.step();
+            }
+            final var lines = PdfGlyphLines.displayed(cell, geometry);
+            final String joined = String.join(" ", lines.stream().map(PdfLayoutItem::text).toList());
+            if (lines.isEmpty()
+                    || (column == 0 ? lines.size() != 1 || !joined.codePoints().anyMatch(Character::isLetter)
+                                    : !NUMBER.matcher(CURRENCY_PREFIX.matcher(joined).replaceFirst("")).matches())) {
+                return false;
+            }
+        }
+        final double labelLeft = leftEdge(glyphs, sectionBox, sectionBaseline, geometry, xs, ys, work);
+        final double bodyLeft = leftEdge(glyphs, first.getFirst().bounds(), minBaseline, geometry, xs, ys, work);
+        return Math.abs(labelLeft - bodyLeft) <= 2;
+    }
+
+    /**
+     * Finds the leftmost native glyph origin inside one displayed box, including whitespace glyphs.
+     * Whitespace is part of a line's true run origin (for example a leading indentation space); excluding it
+     * would compare an unindented candidate label against a body label's first visible, non-blank character
+     * rather than its actual run start, understating genuine alignment.
+     * @param glyphs source positions to search
+     * @param box displayed containment box
+     * @param baseline selected nonblank source baseline; unrelated whitespace is excluded
+     * @param geometry displayed frame
+     * @param xs horizontal frame scale
+     * @param ys vertical frame scale
+     * @param work shared work counter
+     * @return leftmost native x, or positive infinity if no glyph with text falls inside the box
+     * @throws IOException if interrupted
+     */
+    private static double leftEdge(final List<PdfPageText.Glyph> glyphs, final PdfTableLayoutProvider.Box box,
+            final double baseline, final PdfPageGeometry geometry, final double xs, final double ys,
+            final PdfTableWork work) throws IOException {
+        double left = Double.POSITIVE_INFINITY;
+        for (final var glyph : glyphs) {
+            work.step();
+            if (glyph.text().isEmpty() || geometry.textRotation(glyph.direction()) != 0
+                    || Math.abs(glyph.y() - baseline) > 2) {
+                continue;
+            }
+            final var center = geometry.center(glyph);
+            final double x = center.x / xs, y = center.y / ys;
+            if (x >= box.left() && x < box.right() && y >= box.top() && y < box.bottom()) {
+                left = Math.min(left, glyph.x());
+            }
+        }
+        return left;
     }
 
     /**

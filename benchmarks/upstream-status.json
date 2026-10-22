@@ -1,18 +1,18 @@
 {
-  "checked_at": "2026-10-21T23:20:46.915497590Z",
+  "checked_at": "2026-10-22T03:58:55.094680+00:00",
   "repository": "Unstructured-IO/unstructured",
   "reference_commit": "347fbbfd3e84e228017f125e5c5dbdc326ef7de2",
   "latest_release": {
-    "published_at": "2026-10-20T23:13:41Z",
-    "tag": "0.27.32",
-    "url": "https://github.com/Unstructured-IO/unstructured/releases/tag/0.27.32",
-    "commit": "07d978b8c182404b800fba27c01f4a2c633cfffc"
+    "published_at": "2026-10-22T00:01:06Z",
+    "tag": "0.27.33",
+    "url": "https://github.com/Unstructured-IO/unstructured/releases/tag/0.27.33",
+    "commit": "97edfcb538b04abc6c0133e5f28f3be7bc111f81"
   },
-  "reviewed_main": "9a376447d236784a044a4929464179a0164f3329",
-  "ahead_by": 18,
-  "comparison_url": "https://github.com/Unstructured-IO/unstructured/compare/347fbbfd3e84e228017f125e5c5dbdc326ef7de2...9a376447d236784a044a4929464179a0164f3329",
-  "compare_response_sha256": "46d53c17fc67e8c50faf3f9c0dc37f753980a916a14598df13f78070317d61db",
-  "release_response_sha256": "3e7ad47a59d4fca792e2194b8b043c4b10fb1eb691c717d7f0b39a8b93614755",
+  "reviewed_main": "33779f9a218ec6229b37ddd30b1a1cfd5c59a9a7",
+  "ahead_by": 20,
+  "comparison_url": "https://github.com/Unstructured-IO/unstructured/compare/347fbbfd3e84e228017f125e5c5dbdc326ef7de2...33779f9a218ec6229b37ddd30b1a1cfd5c59a9a7",
+  "compare_response_sha256": "9209d5e70e20b2964d6ffc759cd0322c3756d0a2926e8f364c38dbd176f051b0",
+  "release_response_sha256": "ef06b68299611e83099148d99881c30845bb8ea106e9ee024a9510f1e36fdf59",
   "changed_paths": [
     ".github/workflows/ci.yml",
     "CHANGELOG.md",
@@ -36,6 +36,8 @@
     "test_unstructured/partition/test_auto.py",
     "test_unstructured/partition/test_docx.py",
     "test_unstructured/partition/test_email.py",
+    "test_unstructured/partition/test_json.py",
+    "test_unstructured/partition/test_ndjson.py",
     "test_unstructured/partition/test_pptx.py",
     "test_unstructured/partition/test_xlsx.py",
     "test_unstructured/partition/test_xlsx_dense_memory.py",
@@ -50,11 +52,15 @@
     "unstructured/chunking/title.py",
     "unstructured/documents/html_sanitization.py",
     "unstructured/file_utils/filetype.py",
+    "unstructured/partition/auto.py",
     "unstructured/partition/common/common.py",
+    "unstructured/partition/common/json_partitioning.py",
     "unstructured/partition/common/lang.py",
     "unstructured/partition/docx.py",
     "unstructured/partition/email.py",
     "unstructured/partition/html/parser.py",
+    "unstructured/partition/json.py",
+    "unstructured/partition/ndjson.py",
     "unstructured/partition/pdf.py",
     "unstructured/partition/pdf_image/ocr.py",
     "unstructured/partition/pdf_image/pdf_image_utils.py",
@@ -157,6 +163,16 @@
       "commit": "9a376447d236784a044a4929464179a0164f3329",
       "title": "perf: Free image buffers sooner during figure extraction (#4523)",
       "classification": "reviewed_figure_buffer_release_JVM_source_PNG_payload_contract_distinct_existing_finally_flush"
+    },
+    {
+      "commit": "0b7ef709103206ae8b74dc04e720abfe1eba5da0",
+      "title": "fix: honor encoding= in partition_json and partition_ndjson (#4483)",
+      "classification": "reviewed_JSON_NDJSON_explicit_encoding_and_detection_distinct_JVM_SourceLoader_contract_no_PDF_change"
+    },
+    {
+      "commit": "33779f9a218ec6229b37ddd30b1a1cfd5c59a9a7",
+      "title": "fix(pptx): read a line break as a newline instead of a vertical tab (#4571)",
+      "classification": "outside_current_formats_PPTX_line_break_normalization_no_PDF_change"
     }
   ],
   "policy": "Historical reference release/goldens stay pinned independently of the latest reviewed release and main. Freshness validates each saved identity against its own track; no automatic reference rewrite or full parity claim.",

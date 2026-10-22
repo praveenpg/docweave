@@ -4,7 +4,7 @@ package dev.docweave.partition;
  * Explicit render and raw-anchor limits for native text assigned to provider table geometry.
  * No OCR engine is invoked. These limits do not bound PDFBox intermediate allocations or provider deadlines.
  * @param cellTextJoin explicit provider-owned native cell text policy; defaults preserve space-separated lines
- * @param leadingRow optional source-based leading numeric row inference; defaults preserve provider bounds
+ * @param leadingRow optional source-based leading row inference; defaults preserve provider bounds
  * @param dpi render resolution,36 through600
  * @param maxRenderPixels maximum rendered pixels per native-text page
  * @param maxTableAnchors maximum aggregate raw provider anchors per page; native-first composition also
@@ -24,7 +24,18 @@ public record PdfNativeLayoutOptions(
          * as ordinary text. The search band is one original first-row height. No OCR or model rerun occurs.
          * Added geometry is inferred, not claimed by the provider. Normal table/work limits still apply.
          */
-        SOURCE_NUMERIC_ROW
+        SOURCE_NUMERIC_ROW,
+        /**
+         * Also accepts a single colon-terminated section label above a complete numeric first body row.
+         * Other leading cells must be empty, and the label must align within two displayed units of
+         * the first body label, including source indentation spaces on the selected baseline.
+         * Supporting numeric cells may contain one leading dollar, pound or euro mark separated
+         * horizontally from digits; multiple body baselines remain unsupported.
+         * The numeric-row topology, source band, ownership and budget safeguards remain in force. This is conservative
+         * source inference, not semantic proof of membership; unrelated aligned colon headings can still be ambiguous.
+         * Default provider bounds are unchanged.
+         */
+        SOURCE_NUMERIC_OR_SECTION_ROW
     }
 
     /** Explicit native structured cell text choices; no option changes geometry or OCR output. */

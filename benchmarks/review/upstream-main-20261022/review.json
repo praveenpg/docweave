@@ -1,0 +1,57 @@
+{
+  "scope": "Official release and two incremental main commits; source review only, no new reference execution",
+  "previous_main": "9a376447d236784a044a4929464179a0164f3329",
+  "latest_release": {
+    "published_at": "2026-10-22T00:01:06Z",
+    "tag": "0.27.33",
+    "url": "https://github.com/Unstructured-IO/unstructured/releases/tag/0.27.33",
+    "commit": "97edfcb538b04abc6c0133e5f28f3be7bc111f81"
+  },
+  "reviewed_main": "33779f9a218ec6229b37ddd30b1a1cfd5c59a9a7",
+  "incremental_commits": [
+    {
+      "commit": "0b7ef709103206ae8b74dc04e720abfe1eba5da0",
+      "title": "fix: honor encoding= in partition_json and partition_ndjson (#4483)",
+      "classification": "reviewed_JSON_NDJSON_explicit_encoding_and_detection_distinct_JVM_SourceLoader_contract_no_PDF_change"
+    },
+    {
+      "commit": "33779f9a218ec6229b37ddd30b1a1cfd5c59a9a7",
+      "title": "fix(pptx): read a line break as a newline instead of a vertical tab (#4571)",
+      "classification": "outside_current_formats_PPTX_line_break_normalization_no_PDF_change"
+    }
+  ],
+  "incremental_changed_paths": [
+    "CHANGELOG.md",
+    "test_unstructured/partition/test_auto.py",
+    "test_unstructured/partition/test_json.py",
+    "test_unstructured/partition/test_ndjson.py",
+    "test_unstructured/partition/test_pptx.py",
+    "unstructured/__version__.py",
+    "unstructured/partition/auto.py",
+    "unstructured/partition/common/json_partitioning.py",
+    "unstructured/partition/json.py",
+    "unstructured/partition/ndjson.py",
+    "unstructured/partition/pptx.py"
+  ],
+  "responses": {
+    "upstream-release.json": {
+      "sha256": "ef06b68299611e83099148d99881c30845bb8ea106e9ee024a9510f1e36fdf59",
+      "bytes": 2467
+    },
+    "upstream-release-commit.json": {
+      "sha256": "1a25b026cdd73095218e4ee7c71a687c8c3beec0e64b61480fe0bb12bc16a5d2",
+      "bytes": 14635
+    },
+    "upstream-incremental.json": {
+      "sha256": "e90b67d380cdc603077befad783706e704df43ee1cbbfc18ec3f2f78ca53555a",
+      "bytes": 80105
+    },
+    "upstream-full.json": {
+      "sha256": "9209d5e70e20b2964d6ffc759cd0322c3756d0a2926e8f364c38dbd176f051b0",
+      "bytes": 589892
+    }
+  },
+  "historical_reference": "0.27.27 unchanged",
+  "executed_pdf_comparison_runtime": "0.27.28 unchanged",
+  "pdf_runtime_changes": false
+}

@@ -1,0 +1,44 @@
+{
+  "scope": "Complete original NVIDIA PDF, all eleven pages, both frozen profiles, all 110 issuer rows each",
+  "production_baseline": "7090144",
+  "java": "21.0.12.1+12-LTS",
+  "decision": "parked; no runtime or API change",
+  "permissive_candidate": "One label-only leading row ending in colon, other cells empty; existing numeric policy guards retained",
+  "guarded_candidate": "Additionally require single-run complete numeric first body row and label-left alignment within two displayed units",
+  "permissive_outcome": {
+    "yolox": [
+      67,
+      68
+    ],
+    "tatr": [
+      36,
+      36
+    ],
+    "denominator_per_profile": 110,
+    "strict_ordinal": [
+      0,
+      0
+    ]
+  },
+  "guarded_outcome": {
+    "yolox": [
+      67,
+      67
+    ],
+    "tatr": [
+      36,
+      36
+    ],
+    "denominator_per_profile": 110,
+    "strict_ordinal": [
+      0,
+      0
+    ]
+  },
+  "limitations": [
+    "Permissive gain does not establish section membership; unrelated colon headings remain ambiguous.",
+    "Guarded candidate did not retain the gain; no further guard/threshold/model/crop search.",
+    "Prototype report leading_row identifies the invoked numeric option; isolated helper override additionally accepted sections. Guarded report identifies its experimental section enum, which is not shipped."
+  ],
+  "patch_sha256": "0b06cc76164264fdb1026aa7a22487f598c093e4fde39c6305a0d11b6e6c6ad3"
+}

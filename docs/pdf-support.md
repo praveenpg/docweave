@@ -3092,3 +3092,35 @@ The [scientific continuation attempt](../benchmarks/review/pdf-sidebar-continuat
 and [1778 sharpening pilot](../benchmarks/review/pdf-scan-sharpen-pilot/README.md) remain parked:
 the former has no exact-paragraph gain; the latter has mixed model outcomes. Neither adds
 a production policy or changes defaults.
+
+
+### Explicit native leading section rows (unreleased)
+
+`PdfNativeLayoutOptions.LeadingRow.SOURCE_NUMERIC_OR_SECTION_ROW` additionally permits
+one colon-terminated section label immediately above a provider table. The other leading
+cells must be empty. The first body row must contain a single label run and complete ASCII
+numeric values on a common upright baseline, optionally preceded by one `$`, `£` or `€`.
+Separated currency/digit runs on that same baseline are supported. Alignment compares
+source origins including indentation-space glyphs on the corresponding baseline, within
+two displayed units. Multiple body baselines, missing values, overlapping table ownership
+and the existing numeric policy's unsupported topology retain the original table.
+
+```java
+final var layoutOptions = PdfNativeLayoutOptions.defaults()
+        .withLeadingRow(PdfNativeLayoutOptions.LeadingRow.SOURCE_NUMERIC_OR_SECTION_ROW);
+```
+
+Pass these options to the existing native-layout factory with a caller-supplied provider.
+`PROVIDER_ONLY` remains the default; `SOURCE_NUMERIC_ROW` retains its existing contract.
+The new enum member requires exhaustive switches to be updated when recompiling. It adds
+no record components or dependencies. Metadata identifies the combined inference policy as
+`source_leading_numeric_or_section_row_v1`; original anchors and provider provenance stay
+intact, and added anchors count against normal limits. An aligned colon heading above
+numeric content can still be semantically ambiguous: this is explicit geometry-based
+inference, not proof that the source author considered the text a table row.
+
+The complete NVIDIA source/capture replay improves YOLOX exact complete-row presence
+67 -> 68/110, recovering the page-6 section label. TATR remains 36/110 and strict ordinal
+scores remain 0/110 under both profiles. A separate four-column owned PDF transfers the
+behavior at a different rendering resolution; it is not a second independent publisher
+benchmark. See [section-row evidence](../benchmarks/review/pdf-native-section-row/README.md).

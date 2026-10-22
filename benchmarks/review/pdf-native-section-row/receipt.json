@@ -1,0 +1,32 @@
+{
+  "baseline_development_commit": "7090144",
+  "scope": "Complete original NVIDIA 11-page PDF; two frozen capture profiles; all 110 reference rows each",
+  "source_sha256": "89de999d7155649197672bf490c519607f1abbcdc96e2e4c6718bf6ecbb13564",
+  "runtime": "Java 21",
+  "full_verify": {
+    "tests": 1308,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "focused_tests": 13,
+  "owned_transfer": "Four-column PDF, separated pound currency, explicit indentation, 144 DPI versus three-column 72 DPI control; not independent source acceptance",
+  "private_doclint": "PASS",
+  "production_policy": "SOURCE_NUMERIC_OR_SECTION_ROW (explicit opt-in)",
+  "remaining_limitations": [
+    "Strict ordinal remains zero.",
+    "Aligned colon headings can remain semantically ambiguous.",
+    "One original publisher source, plus owned transfer; no held-out general accuracy claim."
+  ],
+  "logs": {
+    "verify.log": "1edbb17dc05d5638bc49f71559a9a8600b3da16bd7ed42149695c6a58a0bf5a1",
+    "section-focused.log": "9bbde01ad371a786085b067184b2289ddd0021a99dcbaf98ccb30490f49db6b7",
+    "docs-accepted.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "artifacts": {
+    "before-java21.json": "def2593e79aa3678d957909dd91aa44069d18261e8227c9a067445efdac55759",
+    "after-java21.json": "5ca56d49f600da34a53062f1867afded5c8a63b7a9cc4ca6e1cb318d83edc9b4",
+    "numeric-only-java21.json": "0a427755d16374146b8a4051165f0d77619ef8c9528faa1fc4d38c335d96c7b5",
+    "comparison.json": "65d6a5eb0d34d8255be770e13aebe80da8b7f601cf1630c64e5da2e761e14eda"
+  }
+}

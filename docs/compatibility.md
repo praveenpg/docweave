@@ -720,3 +720,13 @@ LibreOffice sample explicitly references a missing TableGrid style. Vector rende
 are outside the current text model. An unresolved explicit table style does not inherit the default
 table style as a substitute. Owned controls retain surrounding text/IDs, emit no fabricated image or
 page break, and require exact diagnostic causes. This audit changes validation, not parser semantics.
+
+
+Native provider layouts optionally infer section rows with
+`PdfNativeLayoutOptions.LeadingRow.SOURCE_NUMERIC_OR_SECTION_ROW`. The default remains
+`PROVIDER_ONLY`; the earlier numeric-only policy is unchanged. This enum addition may
+require an extra branch in exhaustive client switches. It changes neither the options
+record shape nor provider interfaces. Added source-derived geometry is identified in table
+metadata and is subject to existing ownership, topology and resource limits. Geometry and
+colon punctuation cannot establish semantic membership in every document; use the default
+when retaining exact provider bounds is required. See the [PDF policy and limitations](pdf-support.md#explicit-native-leading-section-rows-unreleased).

@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Add opt-in native leading section-row recovery above provider tables. Preserve separated
+  currency runs and source indentation when checking first-body-row support; reject
+  multiline, incomplete and misaligned source. The retained NVIDIA YOLOX comparison
+  improves exact complete-row presence from 67/110 to 68/110; defaults stay unchanged.
+
 - Decode compressed original-element provenance through bounded base64 input buffers.
   Preserve whole-input validation, size limits and decoded wire content while avoiding
   full encoded/compressed input byte-array copies. JSON text and final elements still materialize.

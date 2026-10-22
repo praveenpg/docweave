@@ -84,9 +84,13 @@ final class PdfNativeProviderTables {
             final double xScale = geometry.width() / (double) image.getWidth();
             final double yScale = geometry.height() / (double) image.getHeight();
             final var layouts =
-                    policy.leadingRow() == PdfNativeLayoutOptions.LeadingRow.SOURCE_NUMERIC_ROW
+                    policy.leadingRow() != PdfNativeLayoutOptions.LeadingRow.PROVIDER_ONLY
                             ? PdfTableLayouts.validate(PdfNativeLeadingRow.extend(rawLayouts, glyphs, geometry, xScale,
-                                                               yScale, preferred.tables(), work),
+                                                               yScale, preferred.tables(),
+                                                               policy.leadingRow()
+                                                                       == PdfNativeLayoutOptions.LeadingRow
+                                                                               .SOURCE_NUMERIC_OR_SECTION_ROW,
+                                                               work),
                                       image, options.tableLimits(), policy.validation(), work)
                             : rawLayouts;
             long combinedAnchors = preferred.anchors();
@@ -230,7 +234,10 @@ final class PdfNativeProviderTables {
                 metadata.put("pdf_text_method", "native");
                 metadata.put("pdf_table_layout_provenance", layout.provenance());
                 if (layout != rawLayouts.get(layoutIndex)) {
-                    metadata.put("pdf_table_boundary_policy", "source_leading_numeric_row_v1");
+                    metadata.put("pdf_table_boundary_policy",
+                            policy.leadingRow() == PdfNativeLayoutOptions.LeadingRow.SOURCE_NUMERIC_OR_SECTION_ROW
+                                    ? "source_leading_numeric_or_section_row_v1"
+                                    : "source_leading_numeric_row_v1");
                     metadata.put("pdf_table_added_leading_rows", 1);
                 }
                 if (layout.headerRows() > 0) {

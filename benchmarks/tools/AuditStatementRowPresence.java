@@ -30,7 +30,8 @@ public final class AuditStatementRowPresence {
      * Reuses the frozen reference parser, region association and full-source extraction for both profiles.
      * Presence consumes exact complete-row occurrences once; unmatched references and extra observations stay.
      * This diagnoses title/header offsets without replacing strict ordinal scores or measuring logical order.
-     * @param args replay manifest, source cache, capture root and fresh report, optional --leading-row; or --self-test
+     * @param args replay manifest, source cache, capture root and fresh report, optional --leading-row or
+     *         --section-row; or --self-test
      * @throws Exception if pins, protocol completeness, controls or extraction infrastructure fail
      */
     public static void main(final String[] args) throws Exception {
@@ -39,10 +40,13 @@ public final class AuditStatementRowPresence {
             System.out.println("Exact statement-row presence controls passed");
             return;
         }
-        require(args.length == 4 || args.length == 5 && args[4].equals("--leading-row"),
-                "Expected replay, source cache, captures, fresh report and optional --leading-row");
-        final var leadingRow = args.length == 5 ? PdfNativeLayoutOptions.LeadingRow.SOURCE_NUMERIC_ROW
-                                                : PdfNativeLayoutOptions.LeadingRow.PROVIDER_ONLY;
+        require(args.length == 4
+                        || args.length == 5 && (args[4].equals("--leading-row") || args[4].equals("--section-row")),
+                "Expected replay, source cache, captures, fresh report and optional --leading-row or --section-row");
+        final var leadingRow = args.length == 4 ? PdfNativeLayoutOptions.LeadingRow.PROVIDER_ONLY
+                               : args[4].equals("--section-row")
+                                       ? PdfNativeLayoutOptions.LeadingRow.SOURCE_NUMERIC_OR_SECTION_ROW
+                                       : PdfNativeLayoutOptions.LeadingRow.SOURCE_NUMERIC_ROW;
         final var mapper = JsonMapper.builder().build();
         final var replay = mapper.readTree(Files.readAllBytes(Path.of(args[0])));
         final var referencePath = Path.of(replay.get("reference_manifest").asString());
