@@ -1,0 +1,63 @@
+{
+  "results" : [ {
+    "group_context" : [ {
+      "alpha_is_shape" : false,
+      "has_soft_mask" : false,
+      "blend_mode" : "Normal",
+      "isolated" : true,
+      "knockout" : false,
+      "nonstroking_alpha" : 0.0
+    } ],
+    "page" : 1,
+    "source_png_sha256" : "fc413db821e509581923499bea1ad6eaf402a408990859ea51c25765a6736b27",
+    "clip_bounds" : {
+      "classification" : "BOUNDED",
+      "bounds" : {
+        "points" : [ [ -2.802596928649634E-45, -7.629395440744702E-6 ], [ 200.00003051757812, -7.629395440744702E-6 ], [ 200.00003051757812, 120.00000762939453 ], [ -2.802596928649634E-45, 120.00000762939453 ] ],
+        "layout_height" : 120.0,
+        "system" : "PDFUserSpace",
+        "layout_width" : 200.0
+      },
+      "excludes_image_placement" : false
+    },
+    "source_center_rgb" : 16711680
+  }, {
+    "group_context" : [ {
+      "alpha_is_shape" : false,
+      "has_soft_mask" : false,
+      "blend_mode" : "Normal",
+      "isolated" : true,
+      "knockout" : false,
+      "nonstroking_alpha" : 0.5
+    } ],
+    "page" : 2,
+    "source_png_sha256" : "fc413db821e509581923499bea1ad6eaf402a408990859ea51c25765a6736b27",
+    "clip_bounds" : {
+      "classification" : "BOUNDED",
+      "bounds" : {
+        "points" : [ [ -2.802596928649634E-45, -7.629395440744702E-6 ], [ 200.00003051757812, -7.629395440744702E-6 ], [ 200.00003051757812, 120.00000762939453 ], [ -2.802596928649634E-45, 120.00000762939453 ] ],
+        "layout_height" : 120.0,
+        "system" : "PDFUserSpace",
+        "layout_width" : 200.0
+      },
+      "excludes_image_placement" : false
+    },
+    "source_center_rgb" : 16711680
+  }, {
+    "group_context" : [ ],
+    "page" : 3,
+    "source_png_sha256" : "fc413db821e509581923499bea1ad6eaf402a408990859ea51c25765a6736b27",
+    "clip_bounds" : {
+      "classification" : "BOUNDED",
+      "bounds" : {
+        "points" : [ [ 39.99999237060547, 39.9999885559082 ], [ 60.00000762939453, 39.9999885559082 ], [ 60.00000762939453, 80.00000762939453 ], [ 39.99999237060547, 80.00000762939453 ] ],
+        "layout_height" : 120.0,
+        "system" : "PDFUserSpace",
+        "layout_width" : 200.0
+      },
+      "excludes_image_placement" : false
+    },
+    "source_center_rgb" : 16711680
+  } ],
+  "source_sha256" : "caf9ffba13dab1ec1f274246366d1a483912652cf9ca5f8a6df046d8d002c437"
+}

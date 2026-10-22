@@ -1,0 +1,46 @@
+import java.nio.file.*;
+import java.security.MessageDigest;
+import java.util.*;
+import javax.imageio.ImageIO;
+import tools.jackson.databind.json.JsonMapper;
+
+/** JVM-only pixel comparison of an owned rendered crop and original source-raster contract. */
+public final class CheckImageContract {
+    private CheckImageContract() {}
+    private static void require(boolean pass) { if(!pass)throw new AssertionError("Image contract control failed"); }
+    private static List<Integer> rgb(int pixel) {return List.of((pixel>>16)&255,(pixel>>8)&255,pixel&255);}
+    public static void main(String[] args)throws Exception {
+        final Path root=Path.of(args[0]);
+        final var mapper=JsonMapper.builder().build();
+        final var nativeReport=mapper.readTree(Files.readAllBytes(root.resolve("native.json")));
+        final var upstream=mapper.readTree(Files.readAllBytes(root.resolve("upstream.json")));
+        require(nativeReport.get("source_sha256").equals(upstream.get("source_sha256")));
+        require(upstream.get("unstructured_version").asString().equals("0.27.28"));
+        require(nativeReport.get("results").size()==3 && upstream.get("crops").size()==3);
+        final var hashes=new HashSet<String>();
+        final var rows=new ArrayList<Map<String,Object>>();
+        for(int i=0;i<3;i++) {
+            final var nativeRow=nativeReport.get("results").get(i);
+            require(nativeRow.get("page").asInt()==i+1 && nativeRow.get("source_center_rgb").asInt()==0xff0000);
+            hashes.add(nativeRow.get("source_png_sha256").asString());
+            final var crop=upstream.get("crops").get(i);
+            final Path path=root.resolve("upstream-crops").resolve(crop.get("filename").asString());
+            require(HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(Files.readAllBytes(path)))
+                    .equals(crop.get("sha256").asString()));
+            final var image=ImageIO.read(path.toFile());
+            require(image.getWidth()==40 && image.getHeight()==40);
+            final var left=rgb(image.getRGB(5,20));
+            final var right=rgb(image.getRGB(35,20));
+            if(i==0) {require(left.stream().allMatch(v->v>=250) && right.stream().allMatch(v->v>=250));}
+            if(i==1) {require(left.get(0)>=250 && left.get(1)>=120 && left.get(1)<=135 && left.get(2)>=120 && left.get(2)<=135);}
+            if(i==2) {require(left.get(0)>=245 && left.get(1)<=10 && left.get(2)<=10 && right.stream().allMatch(v->v>=250));}
+            rows.add(Map.of("page",i+1,"source_rgb",List.of(255,0,0),"upstream_left_rgb",left,"upstream_right_rgb",right,
+                    "crop_width",image.getWidth(),"crop_height",image.getHeight()));
+        }
+        require(hashes.size()==1);
+        Files.writeString(root.resolve("comparison.json"),mapper.writerWithDefaultPrettyPrinter().writeValueAsString(Map.of(
+                "scope","Owned known-region save_elements helper, not detector or general visibility accuracy",
+                "source_sha256",nativeReport.get("source_sha256").asString(),"results",rows)),StandardOpenOption.CREATE_NEW);
+        System.out.println("PASS: identical original raster payloads; upstream crops show zero/half group alpha and half-image clipping.");
+    }
+}

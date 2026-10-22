@@ -1,0 +1,19 @@
+{
+  "unstructured_version": "0.27.28",
+  "source_sha256": "caf9ffba13dab1ec1f274246366d1a483912652cf9ca5f8a6df046d8d002c437",
+  "scope": "Direct save_elements helper with owned regions; no detector inference or detection accuracy claim",
+  "crops": [
+    {
+      "filename": "figure-1-1.jpg",
+      "sha256": "7a7cea604157e1548ea5bbeaac4f9bd2e7b615c82f19609ccf287505010318b6"
+    },
+    {
+      "filename": "figure-2-2.jpg",
+      "sha256": "8c06cc821db065d7575bcf44a78d1a2c60a6c95b701801b7a45cfe2cdbcec320"
+    },
+    {
+      "filename": "figure-3-3.jpg",
+      "sha256": "1c17b298e2117f03d749ad1cb45c8735585592816502943f5add7b6922ef67fc"
+    }
+  ]
+}

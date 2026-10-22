@@ -14,7 +14,7 @@ those acceptance gates close. See the [progress ledger](pdf-progress.md).
 | Later native business correction | Commit `58b465f`, actual Java21/25; three complete known-source PDFs, fixed publisher row references and all ten native policies. Separate from the earlier paired upstream corpus |
 | Later managed detector and caption work | Through `75a28e1`, Java21; explicit managed YOLOX, paired physical-scan regression, native alpha filtering and numbered figure-title cues. Full verify1,160 tests passes; earlier paired measurements keep their original versions |
 | Public Maven release | `0.1.0-beta.6`, source `fedf209cba9ded60d7ae715e2008ead1a0176274`; later paragraph page fragments, logical assembly, single-column OCR and strategy presets remain unreleased |
-| Latest reviewed Unstructured OSS | `0.27.30`, commit `08d407ea5ab77dcc7f27775c22cc70bbedae7d58`; measured runtime remains0.27.28 |
+| Latest reviewed Unstructured OSS | `0.27.33`, commit `97edfcb538b04abc6c0133e5f28f3be7bc111f81`; measured runtime remains0.27.28 |
 | Executed upstream PDF comparison | Unstructured0.27.28, inference1.6.13, transformers4.57.6, CPU PyTorch2.10.0, Python3.12.15; complete dependency/model hashes linked below |
 | Historical generic reference outputs | Unstructured0.27.27 at `347fbbfd3e84e228017f125e5c5dbdc326ef7de2`; these goldens are not silently repinned by current source review |
 
@@ -22,6 +22,31 @@ Hosted Unstructured services, commercial model quality, connectors and non-PDF f
 outside this comparison. The historical [identity manifest](../benchmarks/review/pdf-comparison-20261019/manifest.json)
 pins earlier implementation/evidence snapshots. The current [interim plan](../benchmarks/review/pdf-interim-comparison/README.md) fixes nine development documents and records completed versus pending tracks. Reviewing current source and executing reference
 outputs are separate activities; see [upstream tracking](upstream-tracking.md).
+
+## Specific remaining gaps: index-level follow-up
+
+The [known-gap comparison](../benchmarks/review/pdf-known-gap-upstream-comparison/README.md)
+checks the actual missing references using existing complete Unstructured0.27.28 captures,
+fresh JVM scoring and current accepted DocWeave observations. No broad accuracy ranking or
+claim about executed0.27.33 output follows from the source/release review.
+
+- All three structural NVIDIA rows missing from DocWeave YOLOX tables also miss both tested
+  upstream table profiles. Their reference strings occur elsewhere in upstream public text;
+  this is not evidence of total document text loss. Title/split-date reference misses are
+  also shared under these configurations. Conversely, upstream YOLOX covers18(default) or
+  24(explicit shared weights) of the42 rows missing under DocWeave's TATR proposal profile.
+- All57 upstream-fast unique scientific paragraphs are included in DocWeave's explicit113/143
+  result. The same30 references remain unmatched/ambiguous in both; nine are repeated source
+  references. This establishes shared exact-span symptoms, not identical sidebar ordering causes.
+- Configured OCR public-text results retain mixed historical/degraded errors in both tools.
+  Current DocWeave text hashes equal the paired captures. Upstream text blocks are not equivalent
+  line boxes, so the same gutter/line-IoU failure counts cannot honestly be asserted.
+- A new three-page known-region image helper control confirms upstream rendered crops reflect
+  group alpha0/0.5 and half-width clipping. DocWeave original raster PNGs remain identical and
+  expose source paint metadata separately. This is not a detector comparison or magazine crop oracle.
+
+The packet retains every reference index, full population, source/runtime identities and all
+strict scores. It adds comparison evidence, not production extraction changes.
 
 ## Functionality matrix
 

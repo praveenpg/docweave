@@ -1,0 +1,272 @@
+import java.nio.file.*;
+import java.security.MessageDigest;
+import java.util.*;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.json.JsonMapper;
+
+/**
+ * Index-level gap comparison of complete, independently pinned existing
+ * JVM-scored populations.
+ */
+public final class CompareKnownGapReports {
+  private static final JsonMapper JSON = JsonMapper.builder().build();
+  private static final Map<String, String> INPUTS = new LinkedHashMap<>();
+  private static Path sourceRoot;
+  private static Path workRoot;
+  /** Prevents report-checker construction. */
+  private CompareKnownGapReports() {}
+  /**
+   * Reads exact evidence and retains an unambiguous relative-path identity.
+   * @param path unchanged evidence file
+   * @return decoded numeric report
+   * @throws Exception if reading or hashing fails
+   */
+  private static JsonNode read(final Path path) throws Exception {
+    final byte[] bytes = Files.readAllBytes(path);
+    INPUTS.put(path.startsWith(sourceRoot)
+                   ? "repo/" + sourceRoot.relativize(path)
+                   : "work/" + workRoot.relativize(path),
+               HexFormat.of().formatHex(
+                   MessageDigest.getInstance("SHA-256").digest(bytes)));
+    return JSON.readTree(bytes);
+  }
+  /**
+   * Rejects incomplete or changed evidence without repairing observations.
+   * @param pass required invariant
+   */
+  private static void require(final boolean pass) {
+    if (!pass) {
+      throw new AssertionError("Complete evidence/identity invariant failed");
+    }
+  }
+  /**
+   * Compares all known selected gaps; never reruns extraction or changes
+   * reference labels.
+   * @param args repository root, freshly rescored report directory and fresh
+   *     output
+   * @throws Exception if any population, reference identity or output guard
+   *     fails
+   */
+  public static void main(final String[] args) throws Exception {
+    final Path repo = Path.of(args[0]), work = Path.of(args[1]);
+    sourceRoot = repo;
+    workRoot = work;
+    final var dw = read(repo.resolve(
+        "benchmarks/review/pdf-business-parenthesis-diagnostic/java21.json"));
+    final var classes = read(
+        repo.resolve("benchmarks/review/pdf-business-miss-classification/" +
+                     "classification.json"));
+    final var defaults = read(work.resolve("business-default.json"));
+    final var shared = read(work.resolve("business-shared.json"));
+    for (final String[] pair :
+         List.of(new String[] {"business-default.json",
+                               "pdf-nvidia-upstream-hires"},
+                 new String[] {"business-shared.json",
+                               "pdf-nvidia-upstream-shared"})) {
+      final var fresh = pair[0].contains("default") ? defaults : shared;
+      final var old =
+          read(repo.resolve("benchmarks/review/" + pair[1] + "/java21.json"));
+      require(fresh.get("raw_capture_sha256")
+                  .equals(old.get("raw_capture_sha256")));
+      require(fresh.get("runtime_sha256").equals(old.get("runtime_sha256")));
+      for (int i = 0; i < 3; i++) {
+        for (final var field : old.get("results").get(i).properties()) {
+          require(field.getValue().equals(
+              fresh.get("results").get(i).get(field.getKey())));
+        }
+      }
+    }
+    require(dw.get("results").size() == 6 &&
+            classes.get("results").size() == 6);
+    final var business = new ArrayList<Map<String, Object>>();
+    final var businessKeys = new HashSet<String>();
+    for (int i = 0; i < 6; i++) {
+      final var row = dw.get("results").get(i);
+      final var diagnostic = classes.get("results").get(i);
+      final int statement = i % 3;
+      final var def = defaults.get("results").get(statement);
+      final var alt = shared.get("results").get(statement);
+      require(row.get("case").equals(def.get("case")) &&
+              row.get("case").equals(alt.get("case")));
+      require(row.get("profile").equals(diagnostic.get("profile")));
+      require(diagnostic.get("html_table_index").asInt() == 2 + statement);
+      require(
+          diagnostic.get("reference_rows").equals(row.get("reference_rows")));
+      require(businessKeys.add(row.get("case").asString() + "/" +
+                               row.get("profile").asString()));
+      final var missingIndices = new HashSet<Integer>();
+      final var gaps = new LinkedHashMap<String, Object>();
+      for (final var category :
+           diagnostic.get("missing_by_class").properties()) {
+        final var observations = new ArrayList<Map<String, Object>>();
+        for (final var indexNode : category.getValue()) {
+          final int index = indexNode.asInt();
+          require(missingIndices.add(index));
+          require(row.get("reference_occurrences")
+                      .get(index)
+                      .get("exact_occurrence_index")
+                      .asInt() < 0);
+          final var entry = new LinkedHashMap<String, Object>();
+          entry.put("reference_index", index);
+          entry.put("upstream_default_exact",
+                    def.get("reference_row_presence").get(index).asBoolean());
+          entry.put("upstream_shared_exact",
+                    alt.get("reference_row_presence").get(index).asBoolean());
+          entry.put("upstream_default_spacing_only", spacing(def, index));
+          entry.put("upstream_shared_spacing_only", spacing(alt, index));
+          if (category.getKey().equals("structural_outside_proposal")) {
+            entry.put("upstream_default_public_text_exact_row_substring",
+                      def.get("full_document_exact_row_substring")
+                          .get(index)
+                          .asBoolean());
+            entry.put("upstream_shared_public_text_exact_row_substring",
+                      alt.get("full_document_exact_row_substring")
+                          .get(index)
+                          .asBoolean());
+          }
+          observations.add(entry);
+        }
+        gaps.put(category.getKey(), observations);
+      }
+      require(missingIndices.size() ==
+              row.get("missing_exact_occurrences").asInt());
+      business.add(Map.of("case", row.get("case").asString(),
+                          "docweave_profile", row.get("profile").asString(),
+                          "reference_rows", row.get("reference_rows").asInt(),
+                          "missing_categories", gaps));
+    }
+    final var scientificNative =
+        read(repo.resolve("benchmarks/review/pdf-scientific-diagnosis/" +
+                          "integrated-inline-scripts-java21.json"));
+    final var scientificUpstream =
+        read(work.resolve("scientific-upstream.json"));
+    final var oldScience = read(repo.resolve(
+        "benchmarks/review/pdf-scientific-full-body/upstream-java21.json"));
+    require(
+        scientificUpstream.get("results").equals(oldScience.get("results")));
+    final var scientific = new ArrayList<Map<String, Object>>();
+    int references = 0;
+    for (final var up : scientificUpstream.get("results")) {
+      JsonNode nativeRow = null;
+      for (final var candidate : scientificNative.get("results")) {
+        if (candidate.get("id").equals(up.get("id")) &&
+            candidate.get("profile").asString().equals(
+                "SOURCE_PARAGRAPHS_INLINE_SCRIPTS_ASSEMBLED")) {
+          require(nativeRow == null);
+          nativeRow = candidate;
+        }
+      }
+      require(nativeRow != null &&
+              nativeRow.get("ordered_reference_sha256")
+                  .equals(up.get("ordered_reference_sha256")));
+      final var bothMissing = new ArrayList<Integer>();
+      final var upstreamOnly = new ArrayList<Integer>();
+      final var nativeOnly = new ArrayList<Integer>();
+      int both = 0;
+      final int count = up.get("reference_paragraphs").asInt();
+      references += count;
+      for (int index = 0; index < count; index++) {
+        final var a = nativeRow.get("paragraphs").get(index);
+        final var b = up.get("paragraphs").get(index);
+        require(a.get("reference_sha256").equals(b.get("reference_sha256")));
+        final boolean first = a.get("occurrences").asInt() == 1;
+        final boolean second = b.get("occurrences").asInt() == 1;
+        if (first && second) {
+          both++;
+        } else if (first) {
+          nativeOnly.add(index);
+        } else if (second) {
+          upstreamOnly.add(index);
+        } else {
+          bothMissing.add(index);
+        }
+      }
+      require(both + nativeOnly.size() ==
+              nativeRow.get("uniquely_matched_paragraphs").asInt());
+      require(both + upstreamOnly.size() ==
+              up.get("uniquely_matched_paragraphs").asInt());
+      scientific.add(Map.of(
+          "case", up.get("id").asString(), "reference_paragraphs", count,
+          "both_unique", both, "docweave_only_indices", nativeOnly,
+          "upstream_only_indices", upstreamOnly, "neither_unique_indices",
+          bothMissing, "docweave_unique",
+          nativeRow.get("uniquely_matched_paragraphs").asInt(),
+          "upstream_unique", up.get("uniquely_matched_paragraphs").asInt()));
+    }
+    require(references == 143 && scientific.size() == 3);
+    final var paired = read(work.resolve("scans.json"));
+    final var oldPaired =
+        read(repo.resolve("benchmarks/review/pdf-interim-scans/java21.json"));
+    require(paired.get("results").equals(oldPaired.get("results")));
+    final var scans = new ArrayList<Map<String, Object>>();
+    for (final String domain : List.of("historical", "degraded")) {
+      final var current = read(
+          repo.resolve("benchmarks/review/pdf-ocr-wide-gap-lines/integrated-" +
+                       domain + "-java21.json"));
+      for (final var row : current.get("results")) {
+        final String id =
+            row.get("id").asString() + "-" + row.get("language").asString();
+        JsonNode before = null, upstream = null;
+        for (final var old : paired.get("results")) {
+          if (old.get("id").asString().equals(id)) {
+            if (old.get("profile").asString().equals(
+                    "DOCWEAVE_CONFIGURED_OCR")) {
+              require(before == null);
+              before = old;
+            } else {
+              require(upstream == null);
+              upstream = old;
+            }
+          }
+        }
+        require(before != null && upstream != null);
+        require(row.get("prediction_text_sha256")
+                    .equals(before.get("prediction_text_sha256")));
+        require(row.get("model_sha256").equals(upstream.get("model_sha256")));
+        require(row.get("reference_text_sha256")
+                    .equals(upstream.get("reference_text_sha256")));
+        final String metric =
+            row.get("reference_line_order_explicit").asBoolean()
+                ? "global_character_edits"
+                : "xml_sequence_character_edits";
+        require(row.get(metric).equals(before.get(metric)));
+        scans.add(Map.of("case", id, "metric", metric, "docweave_edits",
+                         row.get(metric).asInt(), "upstream_edits",
+                         upstream.get(metric).asInt(), "reference_code_points",
+                         upstream.get("reference_code_points").asInt(),
+                         "same_line_geometry_metric_available", false));
+      }
+    }
+    require(scans.size() == 8);
+    Files.writeString(
+        Path.of(args[2]),
+        JSON.writerWithDefaultPrettyPrinter().writeValueAsString(
+            Map.of("scope",
+                   "Known development sources; existing Unstructured0.27.28 " +
+                   "captures freshly rescored on Java21; no new accuracy or " +
+                   "latest-release claim",
+                   "business", business, "scientific", scientific, "scans",
+                   scans, "input_sha256", INPUTS)) +
+            "\n",
+        StandardOpenOption.CREATE_NEW);
+    System.out.println(
+        "PASS: complete six business profiles, three scientific sources/143 " +
+        "paragraphs, eight paired scan cases; historical outputs unchanged.");
+  }
+  /**
+   * Checks the separately computed exact-first diagnostic without converting it
+   * into strict presence.
+   * @param row complete upstream statement result
+   * @param index original reference row index
+   * @return whether the supplementary numeric-parenthesis comparison associates
+   *     this row
+   */
+  private static boolean spacing(final JsonNode row, final int index) {
+    for (final var pair : row.get("parenthesis_spacing_diagnostic")) {
+      if (pair.get("reference_index").asInt() == index) {
+        return true;
+      }
+    }
+    return false;
+  }
+}

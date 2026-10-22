@@ -1,0 +1,172 @@
+{
+  "java_version" : "21.0.12.1",
+  "manifest_sha256" : "a278a7f37a9cb94a86b94fbed54449025eb17367a16dcdc61ad20e5095ccb577",
+  "raw_capture_sha256" : "1ca552a996023651e7db816fb579623de7a6502d8de07087fddae916bc8ad9e6",
+  "runtime_sha256" : "04faf69f4c53944a795ba1f87de510bc89d37bdf16f6f711a51c1a85a55b7d5a",
+  "results" : [ {
+    "case" : "income",
+    "mode" : "UNSTRUCTURED_HI_RES_EXPLICIT_V1_1_ALL",
+    "outcome" : "SUCCESS",
+    "document_elements" : 14,
+    "source_pages" : [ 4, 5 ],
+    "regions" : [ {
+      "selected_page_elements" : 1,
+      "page_text_nonblank" : false,
+      "source_page" : 4,
+      "tables_on_page" : 1,
+      "association_iou" : 0.7022715513811775,
+      "observed_content_rows" : 14,
+      "associated" : true
+    }, {
+      "selected_page_elements" : 2,
+      "page_text_nonblank" : false,
+      "source_page" : 5,
+      "tables_on_page" : 2,
+      "association_iou" : 0.8262729869495966,
+      "observed_content_rows" : 11,
+      "associated" : true
+    } ],
+    "associated_regions" : 2,
+    "all_regions_associated" : true,
+    "reference_content_rows" : 28,
+    "observed_content_rows" : 25,
+    "exact_ordinal_rows" : 0,
+    "missing_row_positions" : 3,
+    "extra_row_positions" : 0,
+    "complete_row_content" : false,
+    "warning_codes" : [ ],
+    "exact_reference_rows_present" : 14,
+    "reference_row_presence" : [ false, false, false, false, true, false, false, false, true, true, true, true, true, true, true, true, false, true, false, true, true, false, true, false, false, false, true, false ],
+    "parenthesis_spacing_diagnostic" : [ {
+      "reference_index" : 16,
+      "observed_index" : 12
+    } ],
+    "full_document_exact_row_substring" : [ true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, true, false, false, false, true, true, false, false, true, false, false ],
+    "adapted_table_elements_only" : true,
+    "raw_document_elements" : 241
+  }, {
+    "case" : "balance-sheet",
+    "mode" : "UNSTRUCTURED_HI_RES_EXPLICIT_V1_1_ALL",
+    "outcome" : "SUCCESS",
+    "document_elements" : 14,
+    "source_pages" : [ 5, 6 ],
+    "regions" : [ {
+      "selected_page_elements" : 2,
+      "page_text_nonblank" : false,
+      "source_page" : 5,
+      "tables_on_page" : 2,
+      "association_iou" : 0.7183501316381548,
+      "observed_content_rows" : 14,
+      "associated" : true
+    }, {
+      "selected_page_elements" : 2,
+      "page_text_nonblank" : false,
+      "source_page" : 6,
+      "tables_on_page" : 2,
+      "association_iou" : 0.6982718310268475,
+      "observed_content_rows" : 10,
+      "associated" : true
+    } ],
+    "associated_regions" : 2,
+    "all_regions_associated" : true,
+    "reference_content_rows" : 33,
+    "observed_content_rows" : 24,
+    "exact_ordinal_rows" : 0,
+    "missing_row_positions" : 9,
+    "extra_row_positions" : 0,
+    "complete_row_content" : false,
+    "warning_codes" : [ ],
+    "exact_reference_rows_present" : 23,
+    "reference_row_presence" : [ false, false, false, false, false, false, false, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false, true, true, true, true, true, true, true, true, true, false ],
+    "parenthesis_spacing_diagnostic" : [ ],
+    "full_document_exact_row_substring" : [ true, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true, true, true, true, true, true, true, false ],
+    "adapted_table_elements_only" : true,
+    "raw_document_elements" : 241
+  }, {
+    "case" : "cash-flows",
+    "mode" : "UNSTRUCTURED_HI_RES_EXPLICIT_V1_1_ALL",
+    "outcome" : "SUCCESS",
+    "document_elements" : 14,
+    "source_pages" : [ 6, 7 ],
+    "regions" : [ {
+      "selected_page_elements" : 2,
+      "page_text_nonblank" : false,
+      "source_page" : 6,
+      "tables_on_page" : 2,
+      "association_iou" : 0.7354029990754292,
+      "observed_content_rows" : 17,
+      "associated" : true
+    }, {
+      "selected_page_elements" : 1,
+      "page_text_nonblank" : false,
+      "source_page" : 7,
+      "tables_on_page" : 1,
+      "association_iou" : 0.8206035082517316,
+      "observed_content_rows" : 24,
+      "associated" : true
+    } ],
+    "associated_regions" : 2,
+    "all_regions_associated" : true,
+    "reference_content_rows" : 49,
+    "observed_content_rows" : 41,
+    "exact_ordinal_rows" : 0,
+    "missing_row_positions" : 8,
+    "extra_row_positions" : 0,
+    "complete_row_content" : false,
+    "warning_codes" : [ ],
+    "exact_reference_rows_present" : 14,
+    "reference_row_presence" : [ false, false, false, false, true, false, false, true, false, true, true, true, true, false, false, false, true, false, false, false, true, false, false, true, true, true, true, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, true, false, false, false ],
+    "parenthesis_spacing_diagnostic" : [ {
+      "reference_index" : 13,
+      "observed_index" : 8
+    }, {
+      "reference_index" : 14,
+      "observed_index" : 9
+    }, {
+      "reference_index" : 17,
+      "observed_index" : 12
+    }, {
+      "reference_index" : 18,
+      "observed_index" : 13
+    }, {
+      "reference_index" : 19,
+      "observed_index" : 14
+    }, {
+      "reference_index" : 28,
+      "observed_index" : 22
+    }, {
+      "reference_index" : 29,
+      "observed_index" : 23
+    }, {
+      "reference_index" : 31,
+      "observed_index" : 25
+    }, {
+      "reference_index" : 32,
+      "observed_index" : 26
+    }, {
+      "reference_index" : 34,
+      "observed_index" : 28
+    }, {
+      "reference_index" : 37,
+      "observed_index" : 31
+    }, {
+      "reference_index" : 38,
+      "observed_index" : 32
+    }, {
+      "reference_index" : 39,
+      "observed_index" : 33
+    }, {
+      "reference_index" : 40,
+      "observed_index" : 34
+    }, {
+      "reference_index" : 43,
+      "observed_index" : 37
+    }, {
+      "reference_index" : 44,
+      "observed_index" : 38
+    } ],
+    "full_document_exact_row_substring" : [ true, true, true, true, true, true, true, true, true, true, true, true, true, false, false, false, true, false, false, false, true, false, false, true, true, true, true, true, false, false, false, false, false, true, false, true, true, false, false, false, false, false, false, false, false, true, true, true, true ],
+    "adapted_table_elements_only" : true,
+    "raw_document_elements" : 241
+  } ]
+}

@@ -1,0 +1,92 @@
+import dev.docweave.DocWeave;
+import dev.docweave.partition.*;
+import org.apache.pdfbox.cos.*;
+import org.apache.pdfbox.pdmodel.*;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.graphics.form.PDTransparencyGroup;
+import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory;
+import org.apache.pdfbox.pdmodel.graphics.state.PDExtendedGraphicsState;
+import tools.jackson.databind.json.JsonMapper;
+
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.nio.file.*;
+import java.security.MessageDigest;
+import java.util.*;
+import javax.imageio.ImageIO;
+
+/** Authors fixed image-paint controls and records source-image behavior through the public Java API. */
+public final class CreateImageContractControl {
+    /** Prevents construction. */
+    private CreateImageContractControl() {}
+    /**
+     * Creates one three-page source; no model or reference selection enters extraction.
+     * @param args fresh output directory
+     * @throws Exception if source creation or extraction fails
+     */
+    public static void main(final String[] args) throws Exception {
+        final Path root = Path.of(args[0]);
+        Files.createDirectories(root);
+        final Path source = root.resolve("image-contract.pdf");
+        try (final var document = new PDDocument()) {
+            final var raster = new BufferedImage(8, 8, BufferedImage.TYPE_INT_RGB);
+            for (int y = 0; y < 8; y++) {
+                for (int x = 0; x < 8; x++) { raster.setRGB(x, y, Color.RED.getRGB()); }
+            }
+            final var image = LosslessFactory.createFromImage(document, raster);
+            for (int index = 0; index < 3; index++) {
+                final var page = new PDPage(new PDRectangle(200, 120));
+                document.addPage(page);
+                try (final var paint = new PDPageContentStream(document, page)) {
+                    if (index < 2) {
+                        final var group = new PDTransparencyGroup(document);
+                        group.setResources(new PDResources());
+                        group.setBBox(new PDRectangle(200, 120));
+                        final var attributes = new COSDictionary();
+                        attributes.setItem(COSName.S, COSName.TRANSPARENCY);
+                        attributes.setBoolean(COSName.I, true);
+                        group.getCOSObject().setItem(COSName.GROUP, attributes);
+                        try (final var content = new PDFormContentStream(group)) {
+                            content.drawImage(image, 40, 40, 40, 40);
+                        }
+                        final var state = new PDExtendedGraphicsState();
+                        state.setNonStrokingAlphaConstant(index == 0 ? 0f : .5f);
+                        paint.setGraphicsStateParameters(state);
+                        paint.drawForm(group);
+                    } else {
+                        paint.addRect(40, 40, 20, 40);
+                        paint.clip();
+                        paint.drawImage(image, 40, 40, 40, 40);
+                    }
+                }
+            }
+            document.save(source.toFile());
+        }
+        final var options = new PdfOptions(10, 10_000, 10_000, 100, 10_000, true, TableLimits.defaults())
+                .withImageClipBounds(true).withImageGroupContext(true);
+        final var elements = DocWeave.create(PartitionerRegistry.of(List.of(PdfPartitioner.create(options))))
+                .partition(DocumentSource.of(source)).elements();
+        final var results = new ArrayList<Map<String, Object>>();
+        for (final var element : elements) {
+            if (!element.type().name().equals("Image")) { continue; }
+            final var metadata = element.metadata();
+            final byte[] png = Base64.getDecoder().decode(metadata.get("image_base64").toString());
+            final var pixels = ImageIO.read(new java.io.ByteArrayInputStream(png));
+            results.add(Map.of("page", metadata.get("page_number"), "source_png_sha256", hash(png),
+                    "source_center_rgb", pixels.getRGB(4, 4) & 0xffffff,
+                    "group_context", metadata.get("pdf_image_group_context"),
+                    "clip_bounds", metadata.get("pdf_image_clip_bounds")));
+        }
+        Files.writeString(root.resolve("native.json"), JsonMapper.builder().build().writerWithDefaultPrettyPrinter()
+                .writeValueAsString(Map.of("source_sha256", hash(Files.readAllBytes(source)), "results", results)));
+    }
+    /**
+     * Hashes bytes without publishing binary source/payload data.
+     * @param bytes original bytes
+     * @return lowercase SHA-256
+     * @throws Exception if unavailable
+     */
+    private static String hash(final byte[] bytes) throws Exception {
+        return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(bytes));
+    }
+}

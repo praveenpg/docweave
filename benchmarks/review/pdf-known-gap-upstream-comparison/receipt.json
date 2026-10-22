@@ -1,0 +1,26 @@
+{
+  "scope": "Existing complete captures rescored and gap indices compared on Java21; one new owned crop-helper diagnostic; no production changes",
+  "measured_unstructured": "0.27.28",
+  "latest_official_release_reviewed": "0.27.33",
+  "latest_release_executed": false,
+  "checks": {
+    "business": "Two complete upstream profiles; all old report fields/capture/runtime identities unchanged; six DocWeave gap populations retained",
+    "scientific": "Three sources/143 references; source/runner/runtime/reference guards; all upstream results equal historical report; 57 upstream unique subset of113 configured DocWeave unique",
+    "scans": "Sixteen existing paired rows equal historical report; all eight current DocWeave recognized-text hashes unchanged",
+    "images": "Actual installed save_elements with three authored regions; Java pixel checks; no detector/model inference"
+  },
+  "image_helper_official_source": {
+    "url": "https://raw.githubusercontent.com/Unstructured-IO/unstructured/0.27.28/unstructured/partition/pdf_image/pdf_image_utils.py",
+    "installed_and_released_sha256": "ad2f737b86d75d018d1b8af7b65094e17db8a24a7d3bd44c4870593cecf24259",
+    "exact_bytes_equal": true
+  },
+  "open": [
+    "Current0.27.33 execution",
+    "Comparable OCR line geometry",
+    "Independent visual/sidebar labels and held-out acceptance",
+    "General image compositing/curved source clip equivalence"
+  ],
+  "production_full_verify": "Previous accepted1348-testJava21run; not repeated for evidence-only comparison",
+  "focused_verification": "PdfInterimScanComparisonTest passes; immutable prior scorer records checked directly on JVM",
+  "raw_work_directory": "Retained outside Git; no third-party text or binaries in this packet"
+}

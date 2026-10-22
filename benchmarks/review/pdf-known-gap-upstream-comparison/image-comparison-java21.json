@@ -1,0 +1,26 @@
+{
+  "scope" : "Owned known-region save_elements helper, not detector or general visibility accuracy",
+  "source_sha256" : "caf9ffba13dab1ec1f274246366d1a483912652cf9ca5f8a6df046d8d002c437",
+  "results" : [ {
+    "crop_width" : 40,
+    "upstream_right_rgb" : [ 255, 255, 255 ],
+    "source_rgb" : [ 255, 0, 0 ],
+    "upstream_left_rgb" : [ 255, 255, 255 ],
+    "page" : 1,
+    "crop_height" : 40
+  }, {
+    "crop_width" : 40,
+    "upstream_right_rgb" : [ 254, 128, 129 ],
+    "source_rgb" : [ 255, 0, 0 ],
+    "upstream_left_rgb" : [ 254, 128, 129 ],
+    "page" : 2,
+    "crop_height" : 40
+  }, {
+    "crop_width" : 40,
+    "upstream_right_rgb" : [ 255, 255, 255 ],
+    "source_rgb" : [ 255, 0, 0 ],
+    "upstream_left_rgb" : [ 254, 0, 0 ],
+    "page" : 3,
+    "crop_height" : 40
+  } ]
+}

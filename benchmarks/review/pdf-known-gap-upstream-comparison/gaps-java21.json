@@ -1,0 +1,863 @@
+{
+  "input_sha256" : {
+    "repo/benchmarks/review/pdf-business-parenthesis-diagnostic/java21.json" : "38e9de1a2043053229658fc43bb30c83bb86b43577e61e17d19336bf4172991e",
+    "repo/benchmarks/review/pdf-business-miss-classification/classification.json" : "213f46353ebf1eb4df8dc116cc28282551cc542327694ef6a7060ecac10e60e3",
+    "work/business-default.json" : "b75869a3bec17dde4fdfcb4d3c46940a9b3563f437cd0a372f0c2c841048e732",
+    "work/business-shared.json" : "da24843065d5192de20eda50d577951a367b9b640d288a00162ec783ac032a2d",
+    "repo/benchmarks/review/pdf-nvidia-upstream-hires/java21.json" : "738e459078e10c48f283e32984a4ef48ec0c3d638f31ce74694f1899ffec51a0",
+    "repo/benchmarks/review/pdf-nvidia-upstream-shared/java21.json" : "707156c1cdbb7718c665e42432607b2577655814fc3668c4475c43a0ae3a138a",
+    "repo/benchmarks/review/pdf-scientific-diagnosis/integrated-inline-scripts-java21.json" : "42aa52dce0fd37f607a2cbaa45498297c9723326f31b9f5203316fd875b20819",
+    "work/scientific-upstream.json" : "6dab68ed5ebba18239d04843a737f3c4c992c21a6d8b86db6c8104dec3114933",
+    "repo/benchmarks/review/pdf-scientific-full-body/upstream-java21.json" : "6dab68ed5ebba18239d04843a737f3c4c992c21a6d8b86db6c8104dec3114933",
+    "work/scans.json" : "8cfd2172c9692761094d801a0a2bd50755c68afbc4c728aa55b9af37bda9c977",
+    "repo/benchmarks/review/pdf-interim-scans/java21.json" : "8cfd2172c9692761094d801a0a2bd50755c68afbc4c728aa55b9af37bda9c977",
+    "repo/benchmarks/review/pdf-ocr-wide-gap-lines/integrated-historical-java21.json" : "028d814f2c009dcabc0134b44320bebf527e0dd379d788ac2472cb616838ba6a",
+    "repo/benchmarks/review/pdf-ocr-wide-gap-lines/integrated-degraded-java21.json" : "6657c30107b13f9722263d2f8c362076f51405652acd1ca243591127ca16e68a"
+  },
+  "scientific" : [ {
+    "case" : "recent",
+    "both_unique" : 3,
+    "docweave_only_indices" : [ 0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22, 24, 26, 27, 28, 31, 32 ],
+    "reference_paragraphs" : 33,
+    "upstream_only_indices" : [ ],
+    "upstream_unique" : 3,
+    "docweave_unique" : 28,
+    "neither_unique_indices" : [ 7, 17, 25, 29, 30 ]
+  }, {
+    "case" : "next",
+    "both_unique" : 54,
+    "docweave_only_indices" : [ 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 16, 17, 29, 34, 38, 39, 40, 46, 48, 51, 55, 56, 58, 60, 63, 66, 79, 80, 89 ],
+    "reference_paragraphs" : 93,
+    "upstream_only_indices" : [ ],
+    "upstream_unique" : 54,
+    "docweave_unique" : 84,
+    "neither_unique_indices" : [ 23, 70, 71, 72, 73, 74, 75, 76, 77 ]
+  }, {
+    "case" : "elife",
+    "both_unique" : 0,
+    "docweave_only_indices" : [ 15 ],
+    "reference_paragraphs" : 17,
+    "upstream_only_indices" : [ ],
+    "upstream_unique" : 0,
+    "docweave_unique" : 1,
+    "neither_unique_indices" : [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16 ]
+  } ],
+  "business" : [ {
+    "case" : "income",
+    "missing_categories" : {
+      "absent_or_partial_proposal" : [ {
+        "reference_index" : 18,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 19,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 20,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 21,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 22,
+        "upstream_default_exact" : true,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 23,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 24,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 25,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 26,
+        "upstream_default_exact" : true,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 27,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      } ],
+      "reference_parenthesis_spacing" : [ {
+        "reference_index" : 16,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      } ],
+      "split_date_header_rows" : [ {
+        "reference_index" : 4,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 5,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 6,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      } ],
+      "statement_title_outside_table" : [ {
+        "reference_index" : 0,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 1,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 2,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 3,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      } ]
+    },
+    "reference_rows" : 28,
+    "docweave_profile" : "tatr"
+  }, {
+    "case" : "balance-sheet",
+    "missing_categories" : {
+      "absent_or_partial_proposal" : [ {
+        "reference_index" : 6,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 7,
+        "upstream_default_exact" : true,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 8,
+        "upstream_default_exact" : true,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 11,
+        "upstream_default_exact" : true,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 20,
+        "upstream_default_exact" : true,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 21,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 22,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 23,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 24,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 25,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 26,
+        "upstream_default_exact" : true,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 27,
+        "upstream_default_exact" : true,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 28,
+        "upstream_default_exact" : true,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 29,
+        "upstream_default_exact" : true,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 30,
+        "upstream_default_exact" : true,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 31,
+        "upstream_default_exact" : true,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 32,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      } ],
+      "split_date_header_rows" : [ {
+        "reference_index" : 4,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 5,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      } ],
+      "statement_title_outside_table" : [ {
+        "reference_index" : 1,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      } ]
+    },
+    "reference_rows" : 33,
+    "docweave_profile" : "tatr"
+  }, {
+    "case" : "cash-flows",
+    "missing_categories" : {
+      "absent_or_partial_proposal" : [ {
+        "reference_index" : 7,
+        "upstream_default_exact" : true,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 8,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 9,
+        "upstream_default_exact" : true,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 10,
+        "upstream_default_exact" : true,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 11,
+        "upstream_default_exact" : true,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 12,
+        "upstream_default_exact" : true,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 13,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 14,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 15,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 16,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 17,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 18,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 19,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 20,
+        "upstream_default_exact" : true,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 21,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      } ],
+      "reference_parenthesis_spacing" : [ {
+        "reference_index" : 28,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 29,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 30,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 31,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 32,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 34,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 37,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 38,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 39,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 40,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 41,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 42,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 43,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 44,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      } ],
+      "split_date_header_rows" : [ {
+        "reference_index" : 4,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : true,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 5,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 6,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      } ],
+      "statement_title_outside_table" : [ {
+        "reference_index" : 0,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 1,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 2,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 3,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      } ]
+    },
+    "reference_rows" : 49,
+    "docweave_profile" : "tatr"
+  }, {
+    "case" : "income",
+    "missing_categories" : {
+      "reference_parenthesis_spacing" : [ {
+        "reference_index" : 16,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      } ],
+      "split_date_header_rows" : [ {
+        "reference_index" : 5,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 6,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      } ],
+      "statement_title_outside_table" : [ {
+        "reference_index" : 0,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 1,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 2,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 3,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      } ]
+    },
+    "reference_rows" : 28,
+    "docweave_profile" : "yolox"
+  }, {
+    "case" : "balance-sheet",
+    "missing_categories" : {
+      "split_date_header_rows" : [ {
+        "reference_index" : 4,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 5,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      } ],
+      "statement_title_outside_table" : [ {
+        "reference_index" : 0,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 1,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 2,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 3,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      } ],
+      "structural_outside_proposal" : [ {
+        "reference_index" : 21,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false,
+        "upstream_default_public_text_exact_row_substring" : true,
+        "upstream_shared_public_text_exact_row_substring" : true
+      } ]
+    },
+    "reference_rows" : 33,
+    "docweave_profile" : "yolox"
+  }, {
+    "case" : "cash-flows",
+    "missing_categories" : {
+      "reference_parenthesis_spacing" : [ {
+        "reference_index" : 13,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 14,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 15,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 17,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 18,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 19,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 28,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 29,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 30,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 31,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 32,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 34,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 37,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 38,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 39,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 40,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 41,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 42,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 43,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      }, {
+        "reference_index" : 44,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : true,
+        "upstream_shared_spacing_only" : true
+      } ],
+      "split_date_header_rows" : [ {
+        "reference_index" : 5,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 6,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      } ],
+      "statement_title_outside_table" : [ {
+        "reference_index" : 0,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 1,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 2,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      }, {
+        "reference_index" : 3,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false
+      } ],
+      "structural_outside_proposal" : [ {
+        "reference_index" : 47,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false,
+        "upstream_default_public_text_exact_row_substring" : true,
+        "upstream_shared_public_text_exact_row_substring" : true
+      }, {
+        "reference_index" : 48,
+        "upstream_default_exact" : false,
+        "upstream_shared_exact" : false,
+        "upstream_default_spacing_only" : false,
+        "upstream_shared_spacing_only" : false,
+        "upstream_default_public_text_exact_row_substring" : true,
+        "upstream_shared_public_text_exact_row_substring" : true
+      } ]
+    },
+    "reference_rows" : 49,
+    "docweave_profile" : "yolox"
+  } ],
+  "scope" : "Known development sources; existing Unstructured0.27.28 captures freshly rescored on Java21; no new accuracy or latest-release claim",
+  "scans" : [ {
+    "docweave_edits" : 104,
+    "same_line_geometry_metric_available" : false,
+    "reference_code_points" : 1059,
+    "upstream_edits" : 107,
+    "metric" : "global_character_edits",
+    "case" : "arnimb_goethe03_1835-deu"
+  }, {
+    "docweave_edits" : 51,
+    "same_line_geometry_metric_available" : false,
+    "reference_code_points" : 1059,
+    "upstream_edits" : 50,
+    "metric" : "global_character_edits",
+    "case" : "arnimb_goethe03_1835-deu_latf"
+  }, {
+    "docweave_edits" : 291,
+    "same_line_geometry_metric_available" : false,
+    "reference_code_points" : 3049,
+    "upstream_edits" : 300,
+    "metric" : "xml_sequence_character_edits",
+    "case" : "bebel_frau_1879-deu"
+  }, {
+    "docweave_edits" : 334,
+    "same_line_geometry_metric_available" : false,
+    "reference_code_points" : 3049,
+    "upstream_edits" : 334,
+    "metric" : "xml_sequence_character_edits",
+    "case" : "bebel_frau_1879-deu_latf"
+  }, {
+    "docweave_edits" : 419,
+    "same_line_geometry_metric_available" : false,
+    "reference_code_points" : 948,
+    "upstream_edits" : 413,
+    "metric" : "xml_sequence_character_edits",
+    "case" : "buerger_gedichte_1778_0039-deu"
+  }, {
+    "docweave_edits" : 371,
+    "same_line_geometry_metric_available" : false,
+    "reference_code_points" : 948,
+    "upstream_edits" : 374,
+    "metric" : "xml_sequence_character_edits",
+    "case" : "buerger_gedichte_1778_0039-deu_latf"
+  }, {
+    "docweave_edits" : 103,
+    "same_line_geometry_metric_available" : false,
+    "reference_code_points" : 322,
+    "upstream_edits" : 108,
+    "metric" : "xml_sequence_character_edits",
+    "case" : "nn_besuch_1780_00001-deu"
+  }, {
+    "docweave_edits" : 82,
+    "same_line_geometry_metric_available" : false,
+    "reference_code_points" : 322,
+    "upstream_edits" : 85,
+    "metric" : "xml_sequence_character_edits",
+    "case" : "nn_besuch_1780_00001-deu_latf"
+  } ]
+}
