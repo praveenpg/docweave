@@ -1,0 +1,23 @@
+import java.nio.file.*;
+import java.util.*;
+import tools.jackson.databind.json.JsonMapper;
+/** Checks all declared smoke outcomes and typed fingerprints, without claiming the earlier full study was repeated. */
+class CheckStudySmoke {
+ public static void main(String[] args) throws Exception {
+  final var root=JsonMapper.builder().build().readTree(Files.readAllBytes(Path.of(args[0])));
+  if(root.get("runs").size()!=4) throw new AssertionError("Incomplete smoke population");
+  final var profiles=new HashSet<String>();
+  for(final var run:root.get("runs")) {
+   final String profile=run.get("profile").asString();
+   if(!profiles.add(profile) || !run.get("exited_before_deadline").asBoolean() || run.get("exit_code").asInt()!=0
+       || !run.get("attempts").asString().equals("3") || !run.get("output_sha256_encoding").asString().equals("typed-length-prefixed-v1")
+       || Long.parseLong(run.get("vm_hwm_kib").asString())>512*1024)throw new AssertionError("Smoke protocol mismatch");
+   final boolean failure=profile.equals("magazine-default");
+   if(!run.get("failures").asString().equals(failure?"{UNSUPPORTED_OPTION=3}":"{}")
+       || !(failure?run.get("output_sha256_distinct").asString().equals("[]")
+                    :run.get("output_sha256_distinct").asString().matches("\\[[0-9a-f]{64}\\]")))throw new AssertionError("Wrong observation");
+   System.out.println(profile+": complete 3-attempt smoke passed");
+  }
+  if(!profiles.equals(Set.of("nvidia-default","nvidia-partial-tables","magazine-oriented","magazine-default")))throw new AssertionError("Wrong profiles");
+ }
+}

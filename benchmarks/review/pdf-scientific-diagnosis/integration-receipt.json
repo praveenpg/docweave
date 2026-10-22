@@ -1,0 +1,15 @@
+{
+  "scope": "Existing configuration evidence only; no scientific runtime fix or score normalization",
+  "baseline_native": 59,
+  "baseline_assembled": 108,
+  "existing_inline_script_configuration": 113,
+  "paragraph_denominator": 143,
+  "preserved_pairs": 3864,
+  "pair_denominator": 4942,
+  "reversed_matched_pairs": 0,
+  "replay": "All fifteen complete case/profile records equal original supplied configuration capture, verified on JVM",
+  "logs": {
+    "scientific-final.log": "2e7d0d50a1c6cbc71ea958c371e34d5af1a0e116f305a416eb236db5c66af6e9",
+    "scientific-replay-check.log": "30a2a3c456aecb266d63fb1341a2717d1713572ec54861de0a408509d1625979"
+  }
+}

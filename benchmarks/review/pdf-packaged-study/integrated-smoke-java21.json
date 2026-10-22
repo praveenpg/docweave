@@ -1,0 +1,12 @@
+{
+  "protocol_sha256": "ef43df46d4c65d8c6b09154078b220c3c5f1812cd024ffd89e592ab250226838",
+  "runtime": "21.0.12.1+12-LTS",
+  "java": "/tmp/docweave-jdk21/bin/java",
+  "jvm_options": "-Xms32m -Xmx256m -Duser.language=fr -Duser.country=FR",
+  "runs": [
+    {"profile": "nvidia-default", "process": 1, "exited_before_deadline": true, "exit_code": 0, "process_wall_ms": 883.9, "attempts": "3", "cold_ms": "462.5", "concurrent_round_ms": "[142.6]", "elements": "1052", "failures": "{}", "images": "1", "max_heap_bytes": "268435456", "output_sha256_distinct": "[dde5fb54b6dfda439dd88c94a9960aac94e8643af00fde77caa59c0a527c5be4]", "output_sha256_encoding": "typed-length-prefixed-v1", "tables": "0", "vm_hwm_kib": "307020", "warm_sequential_ms": "[142.3]"},
+    {"profile": "nvidia-partial-tables", "process": 1, "exited_before_deadline": true, "exit_code": 0, "process_wall_ms": 964.8, "attempts": "3", "cold_ms": "554.8", "concurrent_round_ms": "[133.5]", "elements": "1052", "failures": "{}", "images": "1", "max_heap_bytes": "268435456", "output_sha256_distinct": "[dde5fb54b6dfda439dd88c94a9960aac94e8643af00fde77caa59c0a527c5be4]", "output_sha256_encoding": "typed-length-prefixed-v1", "tables": "0", "vm_hwm_kib": "276832", "warm_sequential_ms": "[160.3]"},
+    {"profile": "magazine-oriented", "process": 1, "exited_before_deadline": true, "exit_code": 0, "process_wall_ms": 1482.7, "attempts": "3", "cold_ms": "732.0", "concurrent_round_ms": "[253.4]", "elements": "2847", "failures": "{}", "images": "94", "max_heap_bytes": "268435456", "output_sha256_distinct": "[00e9f7380166d3e92f527f76c3fe0f7575e4dded7aa4128671219af40584a189]", "output_sha256_encoding": "typed-length-prefixed-v1", "tables": "0", "vm_hwm_kib": "433236", "warm_sequential_ms": "[331.0]"},
+    {"profile": "magazine-default", "process": 1, "exited_before_deadline": true, "exit_code": 0, "process_wall_ms": 825.1, "attempts": "3", "cold_ms": "495.0", "concurrent_round_ms": "[129.9]", "elements": "0", "failures": "{UNSUPPORTED_OPTION=3}", "images": "0", "max_heap_bytes": "268435456", "output_sha256_distinct": "[]", "output_sha256_encoding": "typed-length-prefixed-v1", "tables": "0", "vm_hwm_kib": "210128", "warm_sequential_ms": "[122.0]"}
+  ]
+}

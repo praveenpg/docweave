@@ -47,11 +47,14 @@ class StandaloneSourceCompatibilityTest {
         }
         for (final String helper : List.of("ProbeNativeModelText", "AuditCapturedRowBands", "AuditPublishedRowBands",
                      "ProbeHeaderWrapGeometry", "AuditCapturedHeaderPrefixes", "AuditHeaderCellOwnership",
-                     "HeaderSpanEvaluation", "ScoreScientificNativeComparison", "AuditScientificTextDifferences")) {
+                     "HeaderSpanEvaluation", "ScoreScientificNativeComparison", "AuditScientificTextDifferences",
+                     "MeasurePackagedPdfStudy")) {
             // A subprocess keeps each diagnostic and package-private native helpers in the same class loader.
             final var controls = new ProcessBuilder(Path.of(System.getProperty("java.home"), "bin", "java").toString(),
                     "-cp", destination + java.io.File.pathSeparator + System.getProperty("java.class.path"),
-                    (helper.equals("ScoreScientificNativeComparison") || helper.equals("AuditScientificTextDifferences")
+                    (helper.equals("MeasurePackagedPdfStudy") ? ""
+                            : helper.equals("ScoreScientificNativeComparison")
+                                            || helper.equals("AuditScientificTextDifferences")
                                     ? "dev.docweave.validation."
                                     : "dev.docweave.partition.")
                             + helper,

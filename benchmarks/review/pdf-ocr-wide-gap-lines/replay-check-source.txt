@@ -1,0 +1,29 @@
+import java.nio.file.*;
+import java.util.*;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.json.JsonMapper;
+/** Verifies complete replay identities and all candidate metrics without comparing random PDF container IDs. */
+class CheckOcrReplay {
+ public static void main(String[] args) throws Exception {
+  final var mapper=JsonMapper.builder().build();
+  for(int offset=0;offset<args.length;offset+=3) {
+   final var baseline=mapper.readTree(Files.readAllBytes(Path.of(args[offset])));
+   final var candidate=mapper.readTree(Files.readAllBytes(Path.of(args[offset+1])));
+   final var replay=mapper.readTree(Files.readAllBytes(Path.of(args[offset+2])));
+   for(final var report:List.of(baseline,candidate,replay)) {
+    if(report.get("results").size()!=4)throw new AssertionError("Incomplete population");
+    if(!report.get("executable_sha256").equals(replay.get("executable_sha256")))throw new AssertionError("Engine changed");
+   }
+   for(int i=0;i<4;i++) {
+    final var a=baseline.get("results").get(i);final var b=candidate.get("results").get(i);final var c=replay.get("results").get(i);
+    for(final var field:List.of("id","language","model_sha256","outcome","source_rgb_sha256","reference_text_sha256","prediction_text_sha256")) {
+     if(!a.get(field).equals(c.get(field)))throw new AssertionError("Baseline identity/text mismatch: "+field);
+    }
+    for(final var field:List.of("id","language","line_splitting","recognized_lines","associated_reference_lines","exact_associated_lines","missing_reference_lines","predicted_lines_without_reference","joint_reference_line_character_errors","reference_line_code_points","prediction_text_sha256","reference_line_order_explicit","container_dpi","engine_source_dpi","ocr_frames","source_render_rgb_equal")) {
+     if(!b.get(field).equals(c.get(field)))throw new AssertionError("Candidate replay mismatch: "+field);
+    }
+    System.out.println(c.get("id").asString()+"/"+c.get("language").asString()+": source/text unchanged; all candidate metrics reproduced");
+   }
+  }
+ }
+}

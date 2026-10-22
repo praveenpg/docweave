@@ -1,0 +1,391 @@
+diff --git a/docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractOptions.java b/docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractOptions.java
+index f5c5035..6404ac3 100644
+--- a/docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractOptions.java
++++ b/docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractOptions.java
+@@ -23,11 +23,12 @@ import java.util.Objects;
+  * @param cellSegmentation explicit table-cell segmentation, independent of page layout
+  * @param pageSegmentation explicit page layout assumption; automatic mode remains the default
+  * @param cellBorders explicit edge-rule removal for TABLE_CELL inputs; RETAIN preserves source pixels
++ * @param lineSplitting explicit output-line grouping; TESSERACT_LINES preserves the engine's line identities
+  */
+ public record TesseractOptions(Path executable, Path tessdataDirectory, List<String> languages, Duration timeout,
+         int maxConcurrentProcesses, long maxImagePixels, long maxPngBytes, int maxOutputBytes, int maxLines,
+         int maxCharacters, CellSegmentation cellSegmentation, PageSegmentation pageSegmentation,
+-        CellBorders cellBorders) {
++        CellBorders cellBorders, LineSplitting lineSplitting) {
+     /**
+      * Defensively copies languages and validates bounded positive policies.
+      * @throws NullPointerException if required values are null
+@@ -39,6 +40,7 @@ public record TesseractOptions(Path executable, Path tessdataDirectory, List<Str
+         Objects.requireNonNull(cellSegmentation, "cellSegmentation");
+         Objects.requireNonNull(pageSegmentation, "pageSegmentation");
+         Objects.requireNonNull(cellBorders, "cellBorders");
++        Objects.requireNonNull(lineSplitting, "lineSplitting");
+         languages = List.copyOf(languages);
+         if (executable.toString().isBlank() || languages.isEmpty() || timeout.isNegative() || timeout.isZero()
+                 || timeout.compareTo(Duration.ofDays(1)) > 0 || maxConcurrentProcesses < 1 || maxImagePixels < 1
+@@ -52,6 +54,32 @@ public record TesseractOptions(Path executable, Path tessdataDirectory, List<Str
+         }
+     }
+ 
++    /**
++     * Preserves the cell-border constructor with the engine's own line grouping.
++     * @param executable trusted executable path or bare command
++     * @param tessdataDirectory optional installed model directory
++     * @param languages ordered installed model identifiers
++     * @param timeout total bounded recognition deadline
++     * @param maxConcurrentProcesses provider-wide admitted calls
++     * @param maxImagePixels borrowed raster pixel ceiling
++     * @param maxPngBytes temporary PNG byte ceiling
++     * @param maxOutputBytes TSV byte ceiling
++     * @param maxLines returned line ceiling
++     * @param maxCharacters returned UTF-16 unit ceiling
++     * @param cellSegmentation explicit TABLE_CELL segmentation
++     * @param pageSegmentation explicit PAGE segmentation
++     * @param cellBorders explicit TABLE_CELL edge policy
++     */
++    public TesseractOptions(final Path executable, final Path tessdataDirectory, final List<String> languages,
++            final Duration timeout, final int maxConcurrentProcesses, final long maxImagePixels, final long maxPngBytes,
++            final int maxOutputBytes, final int maxLines, final int maxCharacters,
++            final CellSegmentation cellSegmentation, final PageSegmentation pageSegmentation,
++            final CellBorders cellBorders) {
++        this(executable, tessdataDirectory, languages, timeout, maxConcurrentProcesses, maxImagePixels, maxPngBytes,
++                maxOutputBytes, maxLines, maxCharacters, cellSegmentation, pageSegmentation, cellBorders,
++                LineSplitting.TESSERACT_LINES);
++    }
++
+     /**
+      * Preserves the page/cell segmentation constructor without changing input pixels.
+      * @param executable trusted executable path or bare command
+@@ -127,7 +155,7 @@ public record TesseractOptions(Path executable, Path tessdataDirectory, List<Str
+     public TesseractOptions withCellSegmentation(final CellSegmentation segmentation) {
+         return new TesseractOptions(executable, tessdataDirectory, languages, timeout, maxConcurrentProcesses,
+                 maxImagePixels, maxPngBytes, maxOutputBytes, maxLines, maxCharacters, segmentation, pageSegmentation,
+-                cellBorders);
++                cellBorders, lineSplitting);
+     }
+ 
+     /**
+@@ -141,7 +169,7 @@ public record TesseractOptions(Path executable, Path tessdataDirectory, List<Str
+     public TesseractOptions withPageSegmentation(final PageSegmentation segmentation) {
+         return new TesseractOptions(executable, tessdataDirectory, languages, timeout, maxConcurrentProcesses,
+                 maxImagePixels, maxPngBytes, maxOutputBytes, maxLines, maxCharacters, cellSegmentation, segmentation,
+-                cellBorders);
++                cellBorders, lineSplitting);
+     }
+ 
+     /**
+@@ -153,7 +181,32 @@ public record TesseractOptions(Path executable, Path tessdataDirectory, List<Str
+     public TesseractOptions withCellBorders(final CellBorders borders) {
+         return new TesseractOptions(executable, tessdataDirectory, languages, timeout, maxConcurrentProcesses,
+                 maxImagePixels, maxPngBytes, maxOutputBytes, maxLines, maxCharacters, cellSegmentation,
+-                pageSegmentation, borders);
++                pageSegmentation, borders, lineSplitting);
++    }
++
++    /**
++     * Copies this policy with explicit output-line grouping; pixels, recognition and word text are unchanged.
++     * WIDE_GAPS can separate a genuine tab-stop or table row into several lines; it does not reorder words.
++     * @param splitting nonnull line grouping policy
++     * @return validated immutable copy retaining every other value
++     */
++    public TesseractOptions withLineSplitting(final LineSplitting splitting) {
++        return new TesseractOptions(executable, tessdataDirectory, languages, timeout, maxConcurrentProcesses,
++                maxImagePixels, maxPngBytes, maxOutputBytes, maxLines, maxCharacters, cellSegmentation,
++                pageSegmentation, cellBorders, splitting);
++    }
++
++    /** Explicit grouping of recognized words into returned lines; neither value changes recognition. */
++    public enum LineSplitting {
++        /** Returns one line per Tesseract block/paragraph/line identity, as before. */
++        TESSERACT_LINES,
++        /**
++         * Also starts a new returned line where the horizontal gap between consecutive recognized words of one
++         * Tesseract line exceeds three times that line's tallest word box. Typographic word spacing is a fraction
++         * of an em, so only gutter-sized gaps (for example an isolated mark far from its text) split a line.
++         * Words keep their recognition order and text; the extra lines still count against maxLines.
++         */
++        WIDE_GAPS
+     }
+ 
+     /** Explicit isolated-cell preprocessing; no image is modified in place and geometry stays unchanged. */
+diff --git a/docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractTsv.java b/docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractTsv.java
+index d8122c3..f037b58 100644
+--- a/docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractTsv.java
++++ b/docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractTsv.java
+@@ -74,6 +74,7 @@ final class TesseractTsv {
+                                  .decode(ByteBuffer.wrap(bytes))
+                                  .toString();
+         final var lines = new LinkedHashMap<String, Words>();
++        final boolean split = options.lineSplitting() == TesseractOptions.LineSplitting.WIDE_GAPS;
+         int characters = 0;
+         try (final var reader = new BufferedReader(new StringReader(text))) {
+             if (!HEADER.equals(reader.readLine())) {
+@@ -116,7 +117,7 @@ final class TesseractTsv {
+                     if (lines.size() >= options.maxLines()) {
+                         throw new PartitionException(PartitionException.Code.OCR_LIMIT, "Tesseract exceeds maxLines");
+                     }
+-                    words = new Words(retainWords);
++                    words = new Words(retainWords || split);
+                     lines.put(key, words);
+                 }
+                 words.add(cells[11], left, top, left + wordWidth, top + wordHeight);
+@@ -127,6 +128,19 @@ final class TesseractTsv {
+         final var detailed = retainWords ? new ArrayList<PdfWordOcrProvider.WordLine>(lines.size()) : null;
+         for (final var words : lines.values()) {
+             deadline.remaining();
++            if (split) {
++                for (final var segment : segments(words.tokens)) {
++                    if (result.size() >= options.maxLines()) {
++                        throw new PartitionException(PartitionException.Code.OCR_LIMIT, "Tesseract exceeds maxLines");
++                    }
++                    final var line = line(segment);
++                    result.add(line);
++                    if (detailed != null) {
++                        detailed.add(new PdfWordOcrProvider.WordLine(line, segment));
++                    }
++                }
++                continue;
++            }
+             final var line =
+                     new PdfOcrProvider.Line(words.text.toString(), words.left, words.top, words.right, words.bottom);
+             result.add(line);
+@@ -137,6 +151,54 @@ final class TesseractTsv {
+         return new Parsed(List.copyOf(result), detailed == null ? List.of() : List.copyOf(detailed));
+     }
+ 
++    /**
++     * Divides one Tesseract line where a horizontal gap between consecutive words, in recognition order, exceeds
++     * three times the line's tallest word. Overlapping or right-to-left steps never split. Words are not reordered.
++     * @param tokens one Tesseract line's recognized words
++     * @return nonempty consecutive word segments
++     */
++    private static List<List<PdfWordOcrProvider.Word>> segments(final List<PdfWordOcrProvider.Word> tokens) {
++        double height = 0;
++        for (final var word : tokens) {
++            height = Math.max(height, word.bottom() - word.top());
++        }
++        final var result = new ArrayList<List<PdfWordOcrProvider.Word>>();
++        var current = new ArrayList<PdfWordOcrProvider.Word>();
++        for (final var word : tokens) {
++            if (!current.isEmpty() && word.left() - current.getLast().right() > 3 * height) {
++                result.add(List.copyOf(current));
++                current = new ArrayList<>();
++            }
++            current.add(word);
++        }
++        result.add(List.copyOf(current));
++        return result;
++    }
++
++    /**
++     * Builds one returned line from consecutive words with single-space separators and their enclosing box.
++     * @param words nonempty segment
++     * @return immutable line value
++     */
++    private static PdfOcrProvider.Line line(final List<PdfWordOcrProvider.Word> words) {
++        final var text = new StringBuilder();
++        double left = Double.POSITIVE_INFINITY;
++        double top = Double.POSITIVE_INFINITY;
++        double right = Double.NEGATIVE_INFINITY;
++        double bottom = Double.NEGATIVE_INFINITY;
++        for (final var word : words) {
++            if (!text.isEmpty()) {
++                text.append(' ');
++            }
++            text.append(word.text());
++            left = Math.min(left, word.left());
++            top = Math.min(top, word.top());
++            right = Math.max(right, word.right());
++            bottom = Math.max(bottom, word.bottom());
++        }
++        return new PdfOcrProvider.Line(text.toString(), left, top, right, bottom);
++    }
++
+     /**
+      * Internal immutable parser views; token collection is absent for historical line-only calls.
+      * @param lines original recognition-ordered lines
+diff --git a/docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractLineSplittingTest.java b/docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractLineSplittingTest.java
+new file mode 100644
+index 0000000..87b609d
+--- /dev/null
++++ b/docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractLineSplittingTest.java
+@@ -0,0 +1,150 @@
++package dev.docweave.ocr;
++
++import dev.docweave.partition.PartitionException;
++import dev.docweave.partition.PdfOcrProvider;
++import org.junit.jupiter.api.Test;
++
++import java.nio.charset.StandardCharsets;
++import java.nio.file.Path;
++import java.time.Duration;
++import java.util.List;
++
++import static org.junit.jupiter.api.Assertions.*;
++
++/** Owned TSV controls for the explicit wide-gap line-splitting policy; no engine process is started. */
++class TesseractLineSplittingTest {
++    /** TSV schema header shared by every owned input. */
++    private static final String HEADER =
++            "level\tpage_num\tblock_num\tpar_num\tline_num\tword_num\tleft\ttop\twidth\theight\tconf\ttext\n";
++
++    /** Creates independent parser controls. */
++    TesseractLineSplittingTest() {
++    }
++
++    /**
++     * The default keeps one line per Tesseract line identity even across a page-wide gap, as before.
++     * @throws Exception if parsing fails
++     */
++    @Test
++    void defaultKeepsEngineLineIdentities() throws Exception {
++        final var lines =
++                parse(HEADER + word(1, "falten.", 0, 30) + word(1, ";", 900, 10), TesseractOptions.defaults());
++        assertEquals(List.of("falten. ;"), lines.stream().map(PdfOcrProvider.Line::text).toList());
++        assertEquals(0, lines.getFirst().left());
++        assertEquals(910, lines.getFirst().right());
++    }
++
++    /**
++     * A gap wider than three times the tallest word starts a new line with its own box; text and order stay.
++     * @throws Exception if parsing fails
++     */
++    @Test
++    void wideGapSplitsIntoConsecutiveLinesWithOwnBoxes() throws Exception {
++        final var lines =
++                parse(HEADER + word(1, "falten.", 0, 30) + word(1, ";", 900, 10) + word(2, "next", 0, 20), gaps());
++        assertEquals(List.of("falten.", ";", "next"), lines.stream().map(PdfOcrProvider.Line::text).toList());
++        assertEquals(30, lines.getFirst().right());
++        assertEquals(900, lines.get(1).left());
++        assertEquals(910, lines.get(1).right());
++    }
++
++    /**
++     * Ordinary word spacing, an exactly-threshold gap and a right-to-left step never split a line.
++     * @throws Exception if parsing fails
++     */
++    @Test
++    void ordinaryThresholdAndBackwardStepsDoNotSplit() throws Exception {
++        final String ordinary = word(1, "ein", 0, 20) + word(1, "Wort", 25, 30);
++        final String threshold = word(2, "a", 0, 10) + word(2, "b", 40, 10);
++        final String backward = word(3, "x", 500, 10) + word(3, "y", 0, 10);
++        final var lines = parse(HEADER + ordinary + threshold + backward, gaps());
++        assertEquals(List.of("ein Wort", "a b", "x y"), lines.stream().map(PdfOcrProvider.Line::text).toList());
++    }
++
++    /**
++     * Two words separated by a column gutter become two lines; three words with two gutters become three.
++     * @throws Exception if parsing fails
++     */
++    @Test
++    void columnGuttersSplitEveryWideStep() throws Exception {
++        final var lines = parse(HEADER + word(1, "left", 0, 40) + word(1, "column", 45, 60) + word(1, "right", 400, 50)
++                                        + word(1, "far", 800, 30),
++                gaps());
++        assertEquals(List.of("left column", "right", "far"), lines.stream().map(PdfOcrProvider.Line::text).toList());
++    }
++
++    /**
++     * The detailed word view splits identically, and each segment's words stay inside its line.
++     * @throws Exception if parsing fails
++     */
++    @Test
++    void detailedWordsFollowTheSameSegments() throws Exception {
++        final var policy = gaps();
++        final var detailed = TesseractTsv.parseWords(
++                (HEADER + word(1, "falten.", 0, 30) + word(1, ";", 900, 10)).getBytes(StandardCharsets.UTF_8), 1000,
++                100, policy, new OcrDeadline(policy.timeout()));
++        assertEquals(2, detailed.size());
++        assertEquals("falten.", detailed.getFirst().line().text());
++        assertEquals(List.of(";"), detailed.get(1).words().stream().map(w -> w.text()).toList());
++    }
++
++    /**
++     * Additional split lines still count against maxLines and fail with the existing typed OCR limit.
++     */
++    @Test
++    void splitLinesRespectMaxLines() {
++        final var limited = new TesseractOptions(Path.of("tesseract"), null, List.of("eng"), Duration.ofSeconds(5), 1,
++                1_000_000, 1_000_000, 1_000_000, 1, 1_000)
++                                    .withLineSplitting(TesseractOptions.LineSplitting.WIDE_GAPS);
++        final var failure = assertThrows(
++                PartitionException.class, () -> parse(HEADER + word(1, "a", 0, 10) + word(1, "b", 900, 10), limited));
++        assertEquals(PartitionException.Code.OCR_LIMIT, failure.code());
++    }
++
++    /**
++     * Defaults and retained constructors keep engine lines; copy methods preserve the selected policy.
++     */
++    @Test
++    void defaultsConstructorsAndCopiesPreserveTheSelection() {
++        assertEquals(TesseractOptions.LineSplitting.TESSERACT_LINES, TesseractOptions.defaults().lineSplitting());
++        final var selected = gaps();
++        assertEquals(TesseractOptions.LineSplitting.WIDE_GAPS,
++                selected.withPageSegmentation(TesseractOptions.PageSegmentation.SINGLE_COLUMN)
++                        .withCellSegmentation(TesseractOptions.CellSegmentation.SINGLE_BLOCK)
++                        .withCellBorders(TesseractOptions.CellBorders.REMOVE_EDGE_RULES)
++                        .lineSplitting());
++        assertThrows(NullPointerException.class, () -> TesseractOptions.defaults().withLineSplitting(null));
++    }
++
++    /**
++     * Builds the explicit wide-gap policy.
++     * @return selected options
++     */
++    private static TesseractOptions gaps() {
++        return TesseractOptions.defaults().withLineSplitting(TesseractOptions.LineSplitting.WIDE_GAPS);
++    }
++
++    /**
++     * Parses owned TSV against a 1000x100 raster.
++     * @param input complete TSV
++     * @param policy parser options
++     * @return returned lines
++     * @throws Exception if parsing fails
++     */
++    private static List<PdfOcrProvider.Line> parse(final String input, final TesseractOptions policy) throws Exception {
++        return TesseractTsv.parse(
++                input.getBytes(StandardCharsets.UTF_8), 1000, 100, policy, new OcrDeadline(policy.timeout()));
++    }
++
++    /**
++     * Builds one level-5 word row of height 10 at top 10.
++     * @param line Tesseract line number
++     * @param text recognized word
++     * @param left horizontal pixel edge
++     * @param width word width
++     * @return TSV row
++     */
++    private static String word(final int line, final String text, final int left, final int width) {
++        return "5\t1\t1\t1\t" + line + "\t1\t" + left + "\t10\t" + width + "\t10\t90\t" + text + "\n";
++    }
++}
+diff --git a/docweave-validation/src/test/java/dev/docweave/validation/PdfHistoricalTextCorpusTest.java b/docweave-validation/src/test/java/dev/docweave/validation/PdfHistoricalTextCorpusTest.java
+index 7e36c44..5e50127 100644
+--- a/docweave-validation/src/test/java/dev/docweave/validation/PdfHistoricalTextCorpusTest.java
++++ b/docweave-validation/src/test/java/dev/docweave/validation/PdfHistoricalTextCorpusTest.java
+@@ -216,7 +216,12 @@ class PdfHistoricalTextCorpusTest {
+                 final var frames = new ArrayList<Map<String, Object>>();
+                 final var options = new TesseractOptions(Path.of(executable), Path.of(data), resolved.languages(),
+                         Duration.ofSeconds(60), 1, MAX_PIXELS, 32L * 1024 * 1024, 4 * 1024 * 1024, 10_000, 1_000_000)
+-                                            .withPageSegmentation(segmentation(profile));
++                                            .withPageSegmentation(segmentation(profile))
++                                            .withLineSplitting(
++                                                    profile.has("line_splitting")
++                                                            ? TesseractOptions.LineSplitting.valueOf(
++                                                                      profile.get("line_splitting").asString())
++                                                            : TesseractOptions.LineSplitting.TESSERACT_LINES);
+                 final var engine = managedBackground ? TesseractOcr.create(options, thresholding(profile), dpi,
+                                                                dev.docweave.ocr.TesseractPreprocessing.LOCAL_WHITEPOINT)
+                                    : sourceResolution ? TesseractOcr.create(options, thresholding(profile), dpi)
+@@ -291,6 +296,9 @@ class PdfHistoricalTextCorpusTest {
+                 result.put("id", selected.get("id").asString());
+                 result.put("year", selected.get("year").asInt());
+                 result.put("language", profile.get("language").asString());
++                if (profile.has("line_splitting")) {
++                    result.put("line_splitting", profile.get("line_splitting").asString());
++                }
+                 result.put("page_segmentation", options.pageSegmentation().name());
+                 result.put("thresholding", thresholding(profile).name());
+                 if (median || background || contrast) {

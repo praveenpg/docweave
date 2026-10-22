@@ -216,7 +216,12 @@ class PdfHistoricalTextCorpusTest {
                 final var frames = new ArrayList<Map<String, Object>>();
                 final var options = new TesseractOptions(Path.of(executable), Path.of(data), resolved.languages(),
                         Duration.ofSeconds(60), 1, MAX_PIXELS, 32L * 1024 * 1024, 4 * 1024 * 1024, 10_000, 1_000_000)
-                                            .withPageSegmentation(segmentation(profile));
+                                            .withPageSegmentation(segmentation(profile))
+                                            .withLineSplitting(
+                                                    profile.has("line_splitting")
+                                                            ? TesseractOptions.LineSplitting.valueOf(
+                                                                      profile.get("line_splitting").asString())
+                                                            : TesseractOptions.LineSplitting.TESSERACT_LINES);
                 final var engine = managedBackground ? TesseractOcr.create(options, thresholding(profile), dpi,
                                                                dev.docweave.ocr.TesseractPreprocessing.LOCAL_WHITEPOINT)
                                    : sourceResolution ? TesseractOcr.create(options, thresholding(profile), dpi)
@@ -291,6 +296,9 @@ class PdfHistoricalTextCorpusTest {
                 result.put("id", selected.get("id").asString());
                 result.put("year", selected.get("year").asInt());
                 result.put("language", profile.get("language").asString());
+                if (profile.has("line_splitting")) {
+                    result.put("line_splitting", profile.get("line_splitting").asString());
+                }
                 result.put("page_segmentation", options.pageSegmentation().name());
                 result.put("thresholding", thresholding(profile).name());
                 if (median || background || contrast) {

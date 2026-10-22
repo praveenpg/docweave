@@ -1,0 +1,37 @@
+{
+  "scope": "Reviewed JDK-only packaged measurement harness; original full study not rerun or relabelled",
+  "original_full_study_baseline": "add2ab6",
+  "reviewed_runtime_baseline": "25b0016 (same verified runtime code; subsequent changes are documentation only)",
+  "reviewed_harness_fingerprint": "typed-length-prefixed-v1; element type/text/metadata, not full result envelope or element IDs",
+  "smoke": "Four profiles x one child x three attempts; French supervisor and child locale; exact expected outcomes checked on JVM; no latency/capacity claim",
+  "smoke_runtime_jars": {
+    "docweave-core/target/docweave-core-0.1.0-SNAPSHOT.jar": "e420b9967036c75b1585fff46daf6b63a5ab17b0f61717fa0191f397b7af1a2b",
+    "docweave-pdf/target/docweave-pdf-0.1.0-SNAPSHOT.jar": "af7dfa3fa6294f24eb817025db4d61986a7cc18df7264bc9afd8c3df9bd5fb95",
+    "M2/org/apache/pdfbox/pdfbox/3.0.8/pdfbox-3.0.8.jar": "97647cfbde61ebcfc06b4cf8c9b0ffcaaee073396eceb4a7f6836a9b9128903c",
+    "M2/org/apache/pdfbox/pdfbox-io/3.0.8/pdfbox-io-3.0.8.jar": "36a0e04001010b4c764857817412b96339930b19755e728959805cc0352061b2",
+    "M2/org/apache/pdfbox/fontbox/3.0.8/fontbox-3.0.8.jar": "a1915c24e3edbe0ecec93896dfbf6d41427810b663ade97bd4e8bae86ec3fdab",
+    "M2/commons-logging/commons-logging/1.4.0/commons-logging-1.4.0.jar": "d175dbd751dd782a63bde28c7a039520e971f25e84b79c19b8435edc3603e0dc"
+  },
+  "sources": {
+    "benchmarks/tools/MeasurePackagedPdfStudy.java": "a3f375fc5f9798e9ffaf930058304d577a632a00134f7cc317ffbb8828fcc56b",
+    "docweave-validation/src/test/java/dev/docweave/validation/StandaloneSourceCompatibilityTest.java": "792cfceadcdd90884986321c10783828fa8fda16b0d26669c4e2ea57e6f54a5d"
+  },
+  "logs": {
+    "final-verify.log": "91b99d40bf27943cbd60b1a344e76fdd1bf3e13b301774bf0b2ba26ec1ac3d58",
+    "curve-docs.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "study-smoke.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "study-smoke-check.log": "5e041e0e8516836c7dedcddac7adbbe81a197d572d724605a37a98086d01c119"
+  },
+  "original_study_limits": [
+    "The partial-text NVIDIA profile emits zero tables and is not table-workload evidence",
+    "No independent human review, total heap bound or held-out general accuracy claim",
+    "Historical hashes use the previous fingerprint representation; no comparison across encodings"
+  ],
+  "improvements": [
+    "Locale-independent numeric output",
+    "Type/length-delimited deterministic fingerprint with source surrogate escaping",
+    "Bounded child-log suffix reads and bounded force-kill wait",
+    "Destroy child and preserve interrupt flag if supervisor is interrupted",
+    "Owned self-checks run by standalone compatibility suite"
+  ]
+}

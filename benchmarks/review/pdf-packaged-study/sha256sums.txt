@@ -1,0 +1,2 @@
+aa3e7ad4eb98c327dcd2fd42ffc8aa27fbcfc7e2075e3c6a351777bec036a9ac  benchmarks/review/pdf-packaged-study/candidate.patch
+d7db9fb512f420f07971c5713f09272830662476c8b2f695b3c92a92e2267ff0  benchmarks/review/pdf-packaged-study/protocol.properties

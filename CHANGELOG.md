@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- Add explicit curved-clip control-point envelopes for graphics traversal. Tighten opt-in
+  image clipping bounds and native rule eligibility while preserving default behavior.
+  The envelope remains a rectangle; native-text path filtering and final rendering are unchanged.
+
+- Add explicit Tesseract `LineSplitting.WIDE_GAPS` output grouping. Separate distant recognized
+  word runs without changing recognition order or characters. Preserve engine-line defaults,
+  deadline checks and returned-line limits; wide intra-row spacing can also split.
+
 - Add opt-in enclosing transparency-group context for source images through
   `PdfOptions.withImageGroupContext(true)`. Preserve ordered caller-state snapshots
   alongside current-stream image state, including group isolation/knockout interpretation.

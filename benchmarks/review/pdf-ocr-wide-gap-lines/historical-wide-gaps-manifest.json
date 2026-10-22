@@ -1,0 +1,94 @@
+{
+  "frozen_at": "2026-10-19T18:40:33.924669377Z",
+  "selection_sha256": "7110dcd68db67ea332b5cfaca6e28712bff9082b764bdf1acdcdf62978e1c2a6",
+  "profiles": [
+    {
+      "language": "deu",
+      "filename": "deu.traineddata",
+      "bytes": 8628461,
+      "sha256": "8407331d6aa0229dc927685c01a7938fc5a641d1a9524f74838cdac599f0d06e",
+      "git_blob_sha1": "6dd654880db617f3edfa00bc2ed9c9e3107b8fd0",
+      "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/deu.traineddata",
+      "page_segmentation": "AUTO",
+      "thresholding": "ENGINE_DEFAULT",
+      "line_splitting": "WIDE_GAPS"
+    },
+    {
+      "language": "deu_latf",
+      "filename": "deu_latf.traineddata",
+      "bytes": 12938047,
+      "sha256": "429b8c33d37e1a4823a2bb082a644ff13e252f735b7945e08a518d22ddcc459e",
+      "git_blob_sha1": "cc64c41d469dd0d2791e26d6da8c0fa5d4ef94c0",
+      "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/deu_latf.traineddata",
+      "page_segmentation": "AUTO",
+      "thresholding": "ENGINE_DEFAULT",
+      "line_splitting": "WIDE_GAPS"
+    }
+  ],
+  "cases": [
+    {
+      "id": "arnimb_goethe03_1835",
+      "year": 1835,
+      "image": "arnimb_goethe03_1835.tif",
+      "xml": "arnimb_goethe03_1835.xml",
+      "width": 1675,
+      "height": 2286,
+      "expected_lines": 22,
+      "reference_code_points": 1059,
+      "reference_text_sha256": "5e76b0630d86aa651978057208e87159031c788fc347d11f6c9648b2cd86cb20",
+      "inputs": [
+        {
+          "filename": "arnimb_goethe03_1835.tif",
+          "bytes": 12156546,
+          "sha256": "ad0320478393bf50cfecfeaa957cf84937a6aadae25deac29d028a925f30e264",
+          "git_blob_sha1": "d989fd0c9ded1916cc89313f4a10d55f1e7688c5"
+        },
+        {
+          "filename": "arnimb_goethe03_1835.xml",
+          "bytes": 78215,
+          "sha256": "7204b05a4b4ca99b790f93baf2def833690aa48abb93a123d75c20b77b291713",
+          "git_blob_sha1": "4965d7544104a49eedd28037753aa2e1439aea0c"
+        }
+      ],
+      "source_dpi": 300
+    },
+    {
+      "id": "bebel_frau_1879",
+      "year": 1879,
+      "image": "bebel_frau_1879.tif",
+      "xml": "bebel_frau_1879.xml",
+      "width": 3068,
+      "height": 4660,
+      "expected_lines": 50,
+      "reference_code_points": 3049,
+      "reference_text_sha256": "8cedf62f0111a95d1c5a63d62303086acb25c5a4be572d9dbfd0fbfae80def7d",
+      "inputs": [
+        {
+          "filename": "bebel_frau_1879.tif",
+          "bytes": 268414,
+          "sha256": "261b727a9175152eab3b1175497f07e15f4ba35942e5a4322996a7745f0c89ea",
+          "git_blob_sha1": "ce63a3d731fd64ef5da1c253691c7843ffd1fa6b"
+        },
+        {
+          "filename": "bebel_frau_1879.xml",
+          "bytes": 177176,
+          "sha256": "c604c931b76195730b61513208d9998162331b4f841eba153d0ca8b629696315",
+          "git_blob_sha1": "0155f803add9f249ce99fa8e9002c72ef2f83ebb"
+        }
+      ],
+      "source_dpi": 600
+    }
+  ],
+  "evaluation_resolution": "explicit original TIFF inch DPI, physical PDF page dimensions, unchanged exact rendered RGB, public PDF coordinates mapped to source pixels",
+  "prior_manifest_sha256": "4a903f4c7a80e80c6c814f73c10161db52078d71275f6c4689f6b7565498d2d8",
+  "prior_selection_sha256": "5bb929c65d363e94e2e5fab1e1f25ebba81e191c09754754f2d39eee419a5c57",
+  "handoff_derivation": {
+    "derived_at": "2026-10-22T05:03:17.222462+00:00",
+    "parent_manifest": "benchmarks/review/pdf-scan-source-resolution/manifest.json",
+    "parent_sha256": "f2a41b55576aab652abdd5eb51c9e1d08beaa1be78bf5f07f39bc10c2537669c",
+    "selection": "All retained original pages in this domain, both pinned models, AUTO/ENGINE_DEFAULT only; not selected from new candidate output",
+    "expected_case_profiles": 4,
+    "preserved": "Original source/reference/model/DPI pins and original parent selection metadata; frozen_at is inherited parent time, not a new prospective experiment freeze"
+  },
+  "candidate_derivation": "Same cases, sources, references, models, DPI and profiles as the parent; each profile adds explicit line_splitting=WIDE_GAPS, frozen before candidate inference."
+}

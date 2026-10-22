@@ -1,0 +1,44 @@
+import org.apache.pdfbox.Loader;
+import org.apache.pdfbox.contentstream.PDFGraphicsStreamEngine;
+import org.apache.pdfbox.cos.COSName;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.graphics.form.PDFormXObject;
+import org.apache.pdfbox.pdmodel.graphics.form.PDTransparencyGroup;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImage;
+import java.awt.geom.Point2D;
+import java.io.File;
+import java.util.*;
+
+/** Diagnostic only: per image occurrence, which clip constructs are in effect (curved, compound, straight). */
+public final class ClipKindProbe extends PDFGraphicsStreamEngine {
+    private final Deque<Set<String>> stack = new ArrayDeque<>(List.of(new TreeSet<>()));
+    private boolean curved; private int subpaths; private int segments;
+    private final Map<String, Integer> tally;
+    private final int page;
+    ClipKindProbe(PDPage p, int page, Map<String, Integer> tally) { super(p); this.page = page; this.tally = tally; }
+    @Override public void saveGraphicsState() { super.saveGraphicsState(); stack.push(new TreeSet<>(stack.peek())); }
+    @Override public void restoreGraphicsState() { super.restoreGraphicsState(); stack.pop(); }
+    @Override public void showForm(PDFormXObject f) throws java.io.IOException { stack.push(new TreeSet<>(stack.peek())); try { super.showForm(f); } finally { stack.pop(); } }
+    @Override public void showTransparencyGroup(PDTransparencyGroup g) throws java.io.IOException { stack.push(new TreeSet<>(stack.peek())); try { super.showTransparencyGroup(g); } finally { stack.pop(); } }
+    @Override public void drawImage(PDImage i) { String k = stack.peek().isEmpty() ? "none" : String.join("+", stack.peek()); tally.merge(k, 1, Integer::sum); System.out.println("p" + page + " image clips=" + k); }
+    @Override public void appendRectangle(Point2D a, Point2D b, Point2D c, Point2D d) { subpaths++; segments += 4; }
+    @Override public void clip(int rule) { stack.peek().add(curved ? "curved" : subpaths > 2 ? "compound" : "straight"); }
+    @Override public void moveTo(float x, float y) { subpaths++; }
+    @Override public void lineTo(float x, float y) { segments++; }
+    @Override public void curveTo(float a, float b, float c, float d, float e, float f) { curved = true; }
+    @Override public Point2D getCurrentPoint() { return new Point2D.Float(); }
+    @Override public void closePath() { }
+    @Override public void endPath() { curved = false; subpaths = 0; segments = 0; }
+    @Override public void strokePath() { endPath(); }
+    @Override public void fillPath(int r) { endPath(); }
+    @Override public void fillAndStrokePath(int r) { endPath(); }
+    @Override public void shadingFill(COSName n) { }
+    public static void main(String[] a) throws Exception {
+        var tally = new TreeMap<String, Integer>();
+        try (var doc = Loader.loadPDF(new File(a[0]))) {
+            int n = 0;
+            for (var page : doc.getPages()) { n++; new ClipKindProbe(page, n, tally).processPage(page); }
+        }
+        System.out.println("TALLY " + tally + " total=" + tally.values().stream().mapToInt(Integer::intValue).sum());
+    }
+}

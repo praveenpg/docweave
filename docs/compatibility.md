@@ -748,3 +748,18 @@ image state, normalized PNGs and source occurrence accounting are unchanged. Gro
 snapshots are scalar metadata, so coordinate conversion retains them without scaling.
 Absent/malformed isolation and knockout values follow PDFBox's false fallback and are
 not distinguished as raw source syntax. See [the field contract](pdf-support.md#enclosing-image-transparency-group-context-unreleased).
+
+
+`TesseractOptions.withLineSplitting(WIDE_GAPS)` explicitly changes recognized words' returned
+line grouping and boxes. Default engine-line grouping is unchanged. The 14th record component
+retains previous constructors but changes canonical/reflective schemas and record-derived
+serialization/equality/hash/text. Added lines still count against the same returned-line
+limit. Source recognition is unchanged; callers must not assume each fragment is a complete
+semantic row. See [the PDF OCR policy](pdf-support.md#explicit-ocr-wide-gap-line-splitting-unreleased).
+
+
+`PdfOptions.withCurvedClipEnvelopes(true)` adds conservative curved-path envelopes to the
+graphics visitor. The 17th record component retains previous constructors but changes
+canonical/reflective schemas and record-derived serialization/equality/hash/text. Native
+rule eligibility can change independently of image metadata selection; the separate text
+visitor is unchanged. The default remains false. See [the contract](pdf-support.md#curved-clipping-envelopes-unreleased).

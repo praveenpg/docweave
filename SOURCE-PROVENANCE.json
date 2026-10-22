@@ -1,6 +1,6 @@
 {
-  "source_commit": "add2ab635c260b9c05f1e914d3a8b5a49b7b9283",
-  "unchanged_files": 4152,
+  "source_commit": "aceffe370be9de320194e2a44cccc7f251d09268",
+  "unchanged_files": 4213,
   "derived_files": [
     {
       "path": "benchmarks/corpus/docx-forms/ownership-body-scope-review.json",
@@ -123,6 +123,12 @@
       "action": "derived"
     },
     {
+      "path": "benchmarks/review/pdf-curved-clip-envelopes/full-verify-java21.log",
+      "original_sha256": "3cf518fa242d6dee9d33d5c3d40428c2b90bc25feb6ea48cd9c30c146fc6814f",
+      "public_sha256": "fd788e4700fcb00c446ceec6b5e4a39c4e3b7dc0fb960add6d04ff7bd9201d5e",
+      "action": "derived"
+    },
+    {
       "path": "benchmarks/review/pdf-detector-resolution/manifest.json",
       "original_sha256": "e085422f50c7ecf9fe02a9ceba16e8ffaa14565eb4d900160ab3d17c34a3e93b",
       "public_sha256": "a2fe39cfb6c65e819592a6797baec41f94a2915be27be2516f31b63b4d869f69",
@@ -138,6 +144,12 @@
       "path": "benchmarks/review/pdf-image-group-context/full-verify-java21.log",
       "original_sha256": "8b8a67f9c1c9d060b5d176f30ed6ed579495870e53c07dc9a9453a5198a002d3",
       "public_sha256": "1f804586c52e632f4d04ef4eb50df6c5a239e59ab5ed1a8c183822af51d2c817",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/pdf-ocr-wide-gap-lines/full-verify-java21.log",
+      "original_sha256": "8d854c64ee3ce02826efb653b9009d659b1a41f864f3d294a3dfbba68ad9ae0d",
+      "public_sha256": "acc2a095d9b78da6c25415e5f49b15ad4c7ce1c0903a358c29dde006f601c7b4",
       "action": "derived"
     },
     {

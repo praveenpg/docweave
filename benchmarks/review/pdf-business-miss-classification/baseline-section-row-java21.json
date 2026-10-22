@@ -1,0 +1,1056 @@
+{
+  "runtime" : "21.0.12.1+12-LTS",
+  "results" : [ {
+    "strict_exact_ordinal_rows" : 0,
+    "reference_rows" : 28,
+    "observed_rows" : 12,
+    "unmatched_observed_indices" : [ 0, 10 ],
+    "missing_exact_occurrences" : 18,
+    "reference_occurrences" : [ {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 0
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 1
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 2
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 3
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 4
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 5
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 6
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 1,
+      "reference_index" : 7
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 2,
+      "reference_index" : 8
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 3,
+      "reference_index" : 9
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 4,
+      "reference_index" : 10
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 5,
+      "reference_index" : 11
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 6,
+      "reference_index" : 12
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 7,
+      "reference_index" : 13
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 8,
+      "reference_index" : 14
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 9,
+      "reference_index" : 15
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 16
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 11,
+      "reference_index" : 17
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 18
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 19
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 20
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 21
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 22
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 23
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 24
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 25
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 26
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 27
+    } ],
+    "exact_row_occurrences_present" : 10,
+    "case" : "income",
+    "profile" : "tatr",
+    "outcome" : "SUCCESS",
+    "regions" : [ {
+      "selected_page_elements" : 33,
+      "page_text_nonblank" : true,
+      "source_page" : 4,
+      "tables_on_page" : 1,
+      "association_iou" : 0.651182249603731,
+      "observed_content_rows" : 12,
+      "associated" : true
+    }, {
+      "selected_page_elements" : 6,
+      "page_text_nonblank" : true,
+      "source_page" : 5,
+      "tables_on_page" : 1,
+      "association_iou" : 0.0,
+      "observed_content_rows" : 0,
+      "associated" : false
+    } ]
+  }, {
+    "strict_exact_ordinal_rows" : 0,
+    "reference_rows" : 33,
+    "observed_rows" : 28,
+    "unmatched_observed_indices" : [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 14, 15, 16, 19 ],
+    "missing_exact_occurrences" : 20,
+    "reference_occurrences" : [ {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 10,
+      "reference_index" : 0
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 1
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 12,
+      "reference_index" : 2
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 13,
+      "reference_index" : 3
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 4
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 5
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 6
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 7
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 8
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 17,
+      "reference_index" : 9
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 18,
+      "reference_index" : 10
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 11
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 20,
+      "reference_index" : 12
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 21,
+      "reference_index" : 13
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 22,
+      "reference_index" : 14
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 23,
+      "reference_index" : 15
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 24,
+      "reference_index" : 16
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 25,
+      "reference_index" : 17
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 26,
+      "reference_index" : 18
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 27,
+      "reference_index" : 19
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 20
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 21
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 22
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 23
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 24
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 25
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 26
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 27
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 28
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 29
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 30
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 31
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 32
+    } ],
+    "exact_row_occurrences_present" : 13,
+    "case" : "balance-sheet",
+    "profile" : "tatr",
+    "outcome" : "SUCCESS",
+    "regions" : [ {
+      "selected_page_elements" : 6,
+      "page_text_nonblank" : true,
+      "source_page" : 5,
+      "tables_on_page" : 1,
+      "association_iou" : 0.543697078090787,
+      "observed_content_rows" : 28,
+      "associated" : true
+    }, {
+      "selected_page_elements" : 59,
+      "page_text_nonblank" : true,
+      "source_page" : 6,
+      "tables_on_page" : 1,
+      "association_iou" : 0.0,
+      "observed_content_rows" : 0,
+      "associated" : false
+    } ]
+  }, {
+    "strict_exact_ordinal_rows" : 0,
+    "reference_rows" : 49,
+    "observed_rows" : 27,
+    "unmatched_observed_indices" : [ 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19, 20, 21, 22 ],
+    "missing_exact_occurrences" : 36,
+    "reference_occurrences" : [ {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 0
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 1
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 2
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 3
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 4
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 5
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 6
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 7
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 8
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 9
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 10
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 11
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 12
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 13
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 14
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 15
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 16
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 17
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 18
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 19
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 20
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 21
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 0,
+      "reference_index" : 22
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 1,
+      "reference_index" : 23
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 2,
+      "reference_index" : 24
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 3,
+      "reference_index" : 25
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 4,
+      "reference_index" : 26
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 5,
+      "reference_index" : 27
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 28
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 29
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 30
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 31
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 32
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 11,
+      "reference_index" : 33
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 34
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 13,
+      "reference_index" : 35
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 14,
+      "reference_index" : 36
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 37
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 38
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 39
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 40
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 41
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 42
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 43
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 44
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 23,
+      "reference_index" : 45
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 24,
+      "reference_index" : 46
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 25,
+      "reference_index" : 47
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 26,
+      "reference_index" : 48
+    } ],
+    "exact_row_occurrences_present" : 13,
+    "case" : "cash-flows",
+    "profile" : "tatr",
+    "outcome" : "SUCCESS",
+    "regions" : [ {
+      "selected_page_elements" : 59,
+      "page_text_nonblank" : true,
+      "source_page" : 6,
+      "tables_on_page" : 1,
+      "association_iou" : 0.0,
+      "observed_content_rows" : 0,
+      "associated" : false
+    }, {
+      "selected_page_elements" : 12,
+      "page_text_nonblank" : true,
+      "source_page" : 7,
+      "tables_on_page" : 1,
+      "association_iou" : 0.8697716058352577,
+      "observed_content_rows" : 27,
+      "associated" : true
+    } ]
+  }, {
+    "strict_exact_ordinal_rows" : 0,
+    "reference_rows" : 28,
+    "observed_rows" : 23,
+    "unmatched_observed_indices" : [ 1, 11 ],
+    "missing_exact_occurrences" : 7,
+    "reference_occurrences" : [ {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 0
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 1
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 2
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 3
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 0,
+      "reference_index" : 4
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 5
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 6
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 2,
+      "reference_index" : 7
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 3,
+      "reference_index" : 8
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 4,
+      "reference_index" : 9
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 5,
+      "reference_index" : 10
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 6,
+      "reference_index" : 11
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 7,
+      "reference_index" : 12
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 8,
+      "reference_index" : 13
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 9,
+      "reference_index" : 14
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 10,
+      "reference_index" : 15
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 16
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 12,
+      "reference_index" : 17
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 13,
+      "reference_index" : 18
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 14,
+      "reference_index" : 19
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 15,
+      "reference_index" : 20
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 16,
+      "reference_index" : 21
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 17,
+      "reference_index" : 22
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 18,
+      "reference_index" : 23
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 19,
+      "reference_index" : 24
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 20,
+      "reference_index" : 25
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 21,
+      "reference_index" : 26
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 22,
+      "reference_index" : 27
+    } ],
+    "exact_row_occurrences_present" : 21,
+    "case" : "income",
+    "profile" : "yolox",
+    "outcome" : "SUCCESS",
+    "regions" : [ {
+      "selected_page_elements" : 31,
+      "page_text_nonblank" : true,
+      "source_page" : 4,
+      "tables_on_page" : 1,
+      "association_iou" : 0.6918344264323528,
+      "observed_content_rows" : 13,
+      "associated" : true
+    }, {
+      "selected_page_elements" : 7,
+      "page_text_nonblank" : true,
+      "source_page" : 5,
+      "tables_on_page" : 2,
+      "association_iou" : 0.8037598046057502,
+      "observed_content_rows" : 10,
+      "associated" : true
+    } ]
+  }, {
+    "strict_exact_ordinal_rows" : 0,
+    "reference_rows" : 33,
+    "observed_rows" : 27,
+    "unmatched_observed_indices" : [ 0 ],
+    "missing_exact_occurrences" : 7,
+    "reference_occurrences" : [ {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 0
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 1
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 2
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 3
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 4
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 5
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 1,
+      "reference_index" : 6
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 2,
+      "reference_index" : 7
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 3,
+      "reference_index" : 8
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 4,
+      "reference_index" : 9
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 5,
+      "reference_index" : 10
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 6,
+      "reference_index" : 11
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 7,
+      "reference_index" : 12
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 8,
+      "reference_index" : 13
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 9,
+      "reference_index" : 14
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 10,
+      "reference_index" : 15
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 11,
+      "reference_index" : 16
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 12,
+      "reference_index" : 17
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 13,
+      "reference_index" : 18
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 14,
+      "reference_index" : 19
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 15,
+      "reference_index" : 20
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 21
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 16,
+      "reference_index" : 22
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 17,
+      "reference_index" : 23
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 18,
+      "reference_index" : 24
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 19,
+      "reference_index" : 25
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 20,
+      "reference_index" : 26
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 21,
+      "reference_index" : 27
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 22,
+      "reference_index" : 28
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 23,
+      "reference_index" : 29
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 24,
+      "reference_index" : 30
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 25,
+      "reference_index" : 31
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 26,
+      "reference_index" : 32
+    } ],
+    "exact_row_occurrences_present" : 26,
+    "case" : "balance-sheet",
+    "profile" : "yolox",
+    "outcome" : "SUCCESS",
+    "regions" : [ {
+      "selected_page_elements" : 7,
+      "page_text_nonblank" : true,
+      "source_page" : 5,
+      "tables_on_page" : 2,
+      "association_iou" : 0.6708319493311049,
+      "observed_content_rows" : 16,
+      "associated" : true
+    }, {
+      "selected_page_elements" : 6,
+      "page_text_nonblank" : true,
+      "source_page" : 6,
+      "tables_on_page" : 2,
+      "association_iou" : 0.7437660312244057,
+      "observed_content_rows" : 11,
+      "associated" : true
+    } ]
+  }, {
+    "strict_exact_ordinal_rows" : 0,
+    "reference_rows" : 49,
+    "observed_rows" : 42,
+    "unmatched_observed_indices" : [ 1, 8, 9, 10, 12, 13, 14, 23, 24, 25, 26, 27, 29, 32, 33, 34, 35, 36, 37, 38, 39 ],
+    "missing_exact_occurrences" : 28,
+    "reference_occurrences" : [ {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 0
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 1
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 2
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 3
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 0,
+      "reference_index" : 4
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 5
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 6
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 2,
+      "reference_index" : 7
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 3,
+      "reference_index" : 8
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 4,
+      "reference_index" : 9
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 5,
+      "reference_index" : 10
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 6,
+      "reference_index" : 11
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 7,
+      "reference_index" : 12
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 13
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 14
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 15
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 11,
+      "reference_index" : 16
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 17
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 18
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 19
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 15,
+      "reference_index" : 20
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 16,
+      "reference_index" : 21
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 17,
+      "reference_index" : 22
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 18,
+      "reference_index" : 23
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 19,
+      "reference_index" : 24
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 20,
+      "reference_index" : 25
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 21,
+      "reference_index" : 26
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 22,
+      "reference_index" : 27
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 28
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 29
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 30
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 31
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 32
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 28,
+      "reference_index" : 33
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 34
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 30,
+      "reference_index" : 35
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 31,
+      "reference_index" : 36
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 37
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 38
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 39
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 40
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 41
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 42
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 43
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 44
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 40,
+      "reference_index" : 45
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : 41,
+      "reference_index" : 46
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 47
+    }, {
+      "exact_ordinal" : false,
+      "exact_occurrence_index" : -1,
+      "reference_index" : 48
+    } ],
+    "exact_row_occurrences_present" : 21,
+    "case" : "cash-flows",
+    "profile" : "yolox",
+    "outcome" : "SUCCESS",
+    "regions" : [ {
+      "selected_page_elements" : 6,
+      "page_text_nonblank" : true,
+      "source_page" : 6,
+      "tables_on_page" : 2,
+      "association_iou" : 0.724283637008443,
+      "observed_content_rows" : 17,
+      "associated" : true
+    }, {
+      "selected_page_elements" : 19,
+      "page_text_nonblank" : true,
+      "source_page" : 7,
+      "tables_on_page" : 1,
+      "association_iou" : 0.7892644918355847,
+      "observed_content_rows" : 25,
+      "associated" : true
+    } ]
+  } ],
+  "replay_manifest_sha256" : "90c47de1e497b7f355425e52e1f77d261765958cbb7894e4629316574a82a2af",
+  "reference_manifest_sha256" : "2c0ad481b1a42eb5edfc7e6af2d8ec6c76f5e1ab206d7d539c492b156dabb3b6",
+  "scope" : "Exact complete-row presence diagnostic only; original ordinal score unchanged; no fuzzy alignment, output repair or logical-order claim",
+  "leading_row" : "SOURCE_NUMERIC_OR_SECTION_ROW"
+}

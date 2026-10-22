@@ -23,11 +23,12 @@ import java.util.Objects;
  * @param cellSegmentation explicit table-cell segmentation, independent of page layout
  * @param pageSegmentation explicit page layout assumption; automatic mode remains the default
  * @param cellBorders explicit edge-rule removal for TABLE_CELL inputs; RETAIN preserves source pixels
+ * @param lineSplitting explicit output-line grouping; TESSERACT_LINES preserves the engine's line identities
  */
 public record TesseractOptions(Path executable, Path tessdataDirectory, List<String> languages, Duration timeout,
         int maxConcurrentProcesses, long maxImagePixels, long maxPngBytes, int maxOutputBytes, int maxLines,
         int maxCharacters, CellSegmentation cellSegmentation, PageSegmentation pageSegmentation,
-        CellBorders cellBorders) {
+        CellBorders cellBorders, LineSplitting lineSplitting) {
     /**
      * Defensively copies languages and validates bounded positive policies.
      * @throws NullPointerException if required values are null
@@ -39,6 +40,7 @@ public record TesseractOptions(Path executable, Path tessdataDirectory, List<Str
         Objects.requireNonNull(cellSegmentation, "cellSegmentation");
         Objects.requireNonNull(pageSegmentation, "pageSegmentation");
         Objects.requireNonNull(cellBorders, "cellBorders");
+        Objects.requireNonNull(lineSplitting, "lineSplitting");
         languages = List.copyOf(languages);
         if (executable.toString().isBlank() || languages.isEmpty() || timeout.isNegative() || timeout.isZero()
                 || timeout.compareTo(Duration.ofDays(1)) > 0 || maxConcurrentProcesses < 1 || maxImagePixels < 1
@@ -50,6 +52,32 @@ public record TesseractOptions(Path executable, Path tessdataDirectory, List<Str
                 throw new IllegalArgumentException("Invalid Tesseract language identifier");
             }
         }
+    }
+
+    /**
+     * Preserves the cell-border constructor with the engine's own line grouping.
+     * @param executable trusted executable path or bare command
+     * @param tessdataDirectory optional installed model directory
+     * @param languages ordered installed model identifiers
+     * @param timeout total bounded recognition deadline
+     * @param maxConcurrentProcesses provider-wide admitted calls
+     * @param maxImagePixels borrowed raster pixel ceiling
+     * @param maxPngBytes temporary PNG byte ceiling
+     * @param maxOutputBytes TSV byte ceiling
+     * @param maxLines returned line ceiling
+     * @param maxCharacters returned UTF-16 unit ceiling
+     * @param cellSegmentation explicit TABLE_CELL segmentation
+     * @param pageSegmentation explicit PAGE segmentation
+     * @param cellBorders explicit TABLE_CELL edge policy
+     */
+    public TesseractOptions(final Path executable, final Path tessdataDirectory, final List<String> languages,
+            final Duration timeout, final int maxConcurrentProcesses, final long maxImagePixels, final long maxPngBytes,
+            final int maxOutputBytes, final int maxLines, final int maxCharacters,
+            final CellSegmentation cellSegmentation, final PageSegmentation pageSegmentation,
+            final CellBorders cellBorders) {
+        this(executable, tessdataDirectory, languages, timeout, maxConcurrentProcesses, maxImagePixels, maxPngBytes,
+                maxOutputBytes, maxLines, maxCharacters, cellSegmentation, pageSegmentation, cellBorders,
+                LineSplitting.TESSERACT_LINES);
     }
 
     /**
@@ -127,7 +155,7 @@ public record TesseractOptions(Path executable, Path tessdataDirectory, List<Str
     public TesseractOptions withCellSegmentation(final CellSegmentation segmentation) {
         return new TesseractOptions(executable, tessdataDirectory, languages, timeout, maxConcurrentProcesses,
                 maxImagePixels, maxPngBytes, maxOutputBytes, maxLines, maxCharacters, segmentation, pageSegmentation,
-                cellBorders);
+                cellBorders, lineSplitting);
     }
 
     /**
@@ -141,7 +169,7 @@ public record TesseractOptions(Path executable, Path tessdataDirectory, List<Str
     public TesseractOptions withPageSegmentation(final PageSegmentation segmentation) {
         return new TesseractOptions(executable, tessdataDirectory, languages, timeout, maxConcurrentProcesses,
                 maxImagePixels, maxPngBytes, maxOutputBytes, maxLines, maxCharacters, cellSegmentation, segmentation,
-                cellBorders);
+                cellBorders, lineSplitting);
     }
 
     /**
@@ -153,7 +181,33 @@ public record TesseractOptions(Path executable, Path tessdataDirectory, List<Str
     public TesseractOptions withCellBorders(final CellBorders borders) {
         return new TesseractOptions(executable, tessdataDirectory, languages, timeout, maxConcurrentProcesses,
                 maxImagePixels, maxPngBytes, maxOutputBytes, maxLines, maxCharacters, cellSegmentation,
-                pageSegmentation, borders);
+                pageSegmentation, borders, lineSplitting);
+    }
+
+    /**
+     * Copies this policy with explicit output-line grouping; pixels, recognition and word text are unchanged.
+     * WIDE_GAPS can separate a genuine tab-stop or table row into several lines; it does not reorder words.
+     * @param splitting nonnull line grouping policy
+     * @return validated immutable copy retaining every other value
+     * @throws NullPointerException if splitting is null
+     */
+    public TesseractOptions withLineSplitting(final LineSplitting splitting) {
+        return new TesseractOptions(executable, tessdataDirectory, languages, timeout, maxConcurrentProcesses,
+                maxImagePixels, maxPngBytes, maxOutputBytes, maxLines, maxCharacters, cellSegmentation,
+                pageSegmentation, cellBorders, splitting);
+    }
+
+    /** Explicit grouping of recognized words into returned lines; neither value changes recognition. */
+    public enum LineSplitting {
+        /** Returns one line per Tesseract block/paragraph/line identity, as before. */
+        TESSERACT_LINES,
+        /**
+         * Also starts a new returned line where the horizontal gap between consecutive recognized words of one
+         * Tesseract line exceeds three times that line's tallest word box. A large gap may be a column gutter
+         * or intentional spacing within a logical row; the rule does not establish semantic line membership.
+         * Words keep their recognition order and text; the extra lines still count against maxLines.
+         */
+        WIDE_GAPS
     }
 
     /** Explicit isolated-cell preprocessing; no image is modified in place and geometry stays unchanged. */

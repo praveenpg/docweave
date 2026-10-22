@@ -1,0 +1,13 @@
+import java.nio.file.*;
+import tools.jackson.databind.json.JsonMapper;
+/** Preserves all five declared profiles on all three complete papers, without changing scoring. */
+class CheckScientificReplay {
+ public static void main(String[] args) throws Exception {
+  final var mapper=JsonMapper.builder().build();
+  final var before=mapper.readTree(Files.readAllBytes(Path.of(args[0])));
+  final var after=mapper.readTree(Files.readAllBytes(Path.of(args[1])));
+  if(after.get("results").size()!=15 || !before.get("results").equals(after.get("results")))
+   throw new AssertionError("Scientific configuration replay changed or is incomplete");
+  System.out.println("All fifteen scientific case/profile results reproduced exactly");
+ }
+}

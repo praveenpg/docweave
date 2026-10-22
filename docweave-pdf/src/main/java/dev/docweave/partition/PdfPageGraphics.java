@@ -91,6 +91,8 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
     private boolean curved;
     /** Number of path subpaths, capped at three to distinguish the supported two-rectangle clip subset. */
     private int subpaths;
+    /** Opt-in path/control-point extent; absent under historical defaults. */
+    private double[] hull;
     /** Invisible Type3 glyph scopes suppress native rule/band evidence while retaining source traversal. */
     private boolean type3PaintSuppressed;
     /** Active Type3 character-program scopes; restored even when a descendant fails. */
@@ -109,9 +111,11 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
      * @param closed original explicit closure marker
      * @param curved whether the original path contains curves
      * @param subpaths original bounded subpath count
+     * @param hull original path point and control-point extent
      */
     private record PathState(List<Segment> pending, Point2D current, Point2D start, GeneralPath rectangleClip,
-            GeneralPath deferredClip, float[] vertices, int points, boolean closed, boolean curved, int subpaths) {}
+            GeneralPath deferredClip, float[] vertices, int points, boolean closed, boolean curved, int subpaths,
+            double[] hull) {}
 
     /**
      * Transfers caller path ownership before entering a form, retaining no copied source-edge population.
@@ -119,7 +123,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
      */
     private PathState suspendPath() {
         final var state = new PathState(pending, current, start, rectangleClip, deferredClip, lineClipVertices,
-                lineClipPoints, lineClipClosed, curved, subpaths);
+                lineClipPoints, lineClipClosed, curved, subpaths, hull);
         pending = new ArrayList<>();
         current = new Point2D.Float();
         start = current;
@@ -130,6 +134,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
         lineClipClosed = false;
         curved = false;
         subpaths = 0;
+        hull = options.curvedClipEnvelopes() ? emptyHull() : null;
         return state;
     }
 
@@ -148,6 +153,31 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
         lineClipClosed = state.closed();
         curved = state.curved();
         subpaths = state.subpaths();
+        hull = state.hull();
+    }
+
+    /**
+     * Creates an empty path extent.
+     * @return mutable minimum-x, minimum-y, maximum-x, maximum-y accumulator
+     */
+    private static double[] emptyHull() {
+        return new double[] {
+                Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY};
+    }
+
+    /**
+     * Extends the current path extent by one transformed point or Bezier control point.
+     * @param x transformed horizontal coordinate
+     * @param y transformed vertical coordinate
+     */
+    private void include(final double x, final double y) {
+        if (hull == null) {
+            return;
+        }
+        hull[0] = Math.min(hull[0], x);
+        hull[1] = Math.min(hull[1], y);
+        hull[2] = Math.max(hull[2], x);
+        hull[3] = Math.max(hull[3], y);
     }
 
     /**
@@ -222,6 +252,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
         this.geometry = geometry;
         rowBands = options.tableDetection().shadedRows() ? new ArrayList<>() : List.of();
         this.options = options;
+        hull = options.curvedClipEnvelopes() ? emptyHull() : null;
         this.budget = budget;
     }
 
@@ -415,6 +446,12 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
             rectangleClip.closePath();
         }
         subpaths = Math.min(3, subpaths + 1);
+        if (hull != null) {
+            include(p0.getX(), p0.getY());
+            include(p1.getX(), p1.getY());
+            include(p2.getX(), p2.getY());
+            include(p3.getX(), p3.getY());
+        }
         edge(p0, p1);
         edge(p1, p2);
         edge(p2, p3);
@@ -460,6 +497,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
             lineClipVertices[1] = y;
         }
         subpaths = Math.min(3, subpaths + 1);
+        include(x, y);
         current = new Point2D.Float(x, y);
         start = current;
     }
@@ -480,6 +518,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
         } else {
             lineClipPoints = 0;
         }
+        include(x, y);
         edge(current, next);
         current = next;
     }
@@ -499,6 +538,11 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
         curved = true;
         rectangleClip = null;
         lineClipPoints = 0;
+        // A cubic segment lies inside the convex hull of its start point and three control points.
+        include(current.getX(), current.getY());
+        include(x1, y1);
+        include(x2, y2);
+        include(x3, y3);
         current = new Point2D.Float(x3, y3);
     }
 
@@ -537,6 +581,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
         pending.clear();
         curved = false;
         subpaths = 0;
+        hull = options.curvedClipEnvelopes() ? emptyHull() : null;
     }
 
     /**
@@ -634,7 +679,10 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
      * Affine rectangle operators, axis-aligned line rectangles and bounded four-corner line paths are supported.
      * Two rectangle-operator subpaths also retain the source winding rule; larger compound paths are ignored.
      * Existing graphics-state save/restore and form scopes own its lifetime. Unsupported
-     * larger line-built and curved clip paths remain ignored; rule geometry is never partially trimmed.
+     * larger line-built paths and unselected curved clips remain ignored; rule geometry is never partially trimmed.
+     * When curved clip envelopes are explicitly selected, a curved clip path instead contributes the axis-aligned
+     * rectangle enclosing every path point and Bezier control point. By the convex-hull property this rectangle
+     * contains the true clip under either winding rule, so it is a sound, coarser substitute, not the curve itself.
      * @param windingRule source clip rule
      */
     @Override
@@ -667,6 +715,17 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
             if (rectangleClip != null || fourCorners || area.isEmpty() || area.isRectangular()) {
                 deferredClip = new GeneralPath(candidate);
             }
+            return;
+        }
+        if (curved && options.curvedClipEnvelopes() && Double.isFinite(hull[0]) && Double.isFinite(hull[1])
+                && Double.isFinite(hull[2]) && Double.isFinite(hull[3])) {
+            final var envelope = new GeneralPath();
+            envelope.moveTo(hull[0], hull[1]);
+            envelope.lineTo(hull[2], hull[1]);
+            envelope.lineTo(hull[2], hull[3]);
+            envelope.lineTo(hull[0], hull[3]);
+            envelope.closePath();
+            deferredClip = envelope;
         }
     }
 

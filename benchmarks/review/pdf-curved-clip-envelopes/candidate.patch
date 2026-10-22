@@ -1,0 +1,641 @@
+diff --git a/docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java b/docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java
+index 8456486..cc342d5 100644
+--- a/docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java
++++ b/docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java
+@@ -27,12 +27,14 @@ package dev.docweave.partition;
+  *         classification under {@code pdf_image_clip_bounds}; defaults preserve historical image metadata
+  * @param includeImageGroupContext whether Image metadata lists enclosing painted transparency-group invocation
+  *         states under {@code pdf_image_group_context}; defaults preserve historical image metadata
++ * @param curvedClipEnvelopes whether curved clip paths are interpreted by the rectangle enclosing their points
++ *         and Bezier control points; defaults keep ignoring curved clips for every clip consumer
+  */
+ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPerPage, long maxImagePixels,
+         int maxImageBytes, boolean includeImageBytes, TableLimits tableLimits, TableDetection tableDetection,
+         TextLayout textLayout, boolean includeTableCellCoordinates, TableContinuation tableContinuation,
+         UnicodeNormalization unicodeNormalization, TextRendering textRendering, FigureCaptions figureCaptions,
+-        boolean includeImageClipBounds, boolean includeImageGroupContext) {
++        boolean includeImageClipBounds, boolean includeImageGroupContext, boolean curvedClipEnvelopes) {
+     /** Optional source-geometry heuristics; no policy generates text or guarantees semantic caption correctness. */
+     public enum FigureCaptions {
+         /** Preserves native text categories without caption inference. */ NONE,
+@@ -284,6 +286,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+      * @param figureCaptions nonnull explicit native caption policy
+      * @param includeImageClipBounds whether to describe the invocation clip-bounds classification
+      * @param includeImageGroupContext whether to list enclosing painted transparency-group invocation states
++     * @param curvedClipEnvelopes whether curved clip paths contribute their enclosing control-point rectangle
+      * @throws IllegalArgumentException if a budget is not positive
+      * @throws NullPointerException if a required policy is null
+      */
+@@ -301,6 +304,38 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+         java.util.Objects.requireNonNull(figureCaptions, "figureCaptions");
+     }
+ 
++    /**
++     * Preserves the pre-curved-clip full constructor; curved clip paths remain ignored.
++     * @param maxPages maximum page count
++     * @param maxGlyphsPerPage visited source-position ceiling, including filtered positions
++     * @param maxOperatorsPerPage content-operator ceiling
++     * @param maxImagePixels decoded image pixel ceiling
++     * @param maxImageBytes cumulative PNG byte ceiling
++     * @param includeImageBytes whether to retain PNG payloads
++     * @param tableLimits nonnull table budgets
++     * @param tableDetection nonnull table policy
++     * @param textLayout nonnull native grouping policy
++     * @param includeTableCellCoordinates whether to describe table cells
++     * @param tableContinuation nonnull linking policy
++     * @param unicodeNormalization nonnull native Unicode policy
++     * @param textRendering nonnull rendering-mode policy
++     * @param figureCaptions nonnull explicit native caption policy
++     * @param includeImageClipBounds whether to describe the invocation clip-bounds classification
++     * @param includeImageGroupContext whether to list enclosing painted transparency-group invocation states
++     */
++    public PdfOptions(final int maxPages, final int maxGlyphsPerPage, final int maxOperatorsPerPage,
++            final long maxImagePixels, final int maxImageBytes, final boolean includeImageBytes,
++            final TableLimits tableLimits, final TableDetection tableDetection, final TextLayout textLayout,
++            final boolean includeTableCellCoordinates, final TableContinuation tableContinuation,
++            final UnicodeNormalization unicodeNormalization, final TextRendering textRendering,
++            final FigureCaptions figureCaptions, final boolean includeImageClipBounds,
++            final boolean includeImageGroupContext) {
++        this(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes, includeImageBytes,
++                tableLimits, tableDetection, textLayout, includeTableCellCoordinates, tableContinuation,
++                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, includeImageGroupContext,
++                false);
++    }
++
+     /**
+      * Preserves the pre-group-context full constructor without enclosing transparency-group metadata.
+      * @param maxPages maximum page count
+@@ -520,7 +555,8 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+     public PdfOptions withTableDetection(final TableDetection detection) {
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, detection, textLayout, includeTableCellCoordinates, tableContinuation,
+-                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, includeImageGroupContext);
++                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, includeImageGroupContext,
++                curvedClipEnvelopes);
+     }
+ 
+     /**
+@@ -532,7 +568,8 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+     public PdfOptions withTextLayout(final TextLayout layout) {
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, layout, includeTableCellCoordinates, tableContinuation,
+-                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, includeImageGroupContext);
++                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, includeImageGroupContext,
++                curvedClipEnvelopes);
+     }
+ 
+     /**
+@@ -545,7 +582,8 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+     public PdfOptions withTableCellCoordinates(final boolean include) {
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, textLayout, include, tableContinuation,
+-                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, includeImageGroupContext);
++                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, includeImageGroupContext,
++                curvedClipEnvelopes);
+     }
+ 
+     /**
+@@ -558,7 +596,8 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+     public PdfOptions withTableContinuation(final TableContinuation continuation) {
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates, continuation,
+-                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, includeImageGroupContext);
++                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, includeImageGroupContext,
++                curvedClipEnvelopes);
+     }
+ 
+     /**
+@@ -573,7 +612,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
+                 tableContinuation, normalization, textRendering, figureCaptions, includeImageClipBounds,
+-                includeImageGroupContext);
++                includeImageGroupContext, curvedClipEnvelopes);
+     }
+ 
+     /**
+@@ -595,7 +634,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
+                 tableContinuation, unicodeNormalization, rendering, figureCaptions, includeImageClipBounds,
+-                includeImageGroupContext);
++                includeImageGroupContext, curvedClipEnvelopes);
+     }
+ 
+     /**
+@@ -611,7 +650,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
+                 tableContinuation, unicodeNormalization, textRendering, policy, includeImageClipBounds,
+-                includeImageGroupContext);
++                includeImageGroupContext, curvedClipEnvelopes);
+     }
+ 
+     /**
+@@ -627,7 +666,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
+                 tableContinuation, unicodeNormalization, textRendering, figureCaptions, include,
+-                includeImageGroupContext);
++                includeImageGroupContext, curvedClipEnvelopes);
+     }
+ 
+     /**
+@@ -641,10 +680,26 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
+      * @return immutable copy retaining every other extraction, layout and resource setting
+      */
+     public PdfOptions withImageGroupContext(final boolean include) {
++        return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
++                includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
++                tableContinuation, unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, include,
++                curvedClipEnvelopes);
++    }
++
++    /**
++     * Copies this policy with explicit conservative interpretation of curved clip paths.
++     * A curved clip contributes the axis-aligned rectangle enclosing its path points and Bezier control points,
++     * which contains the true clip region. Every clip consumer then sees this tighter but still conservative
++     * clip: native rule filtering, empty-clip text filtering and the optional image clip-bounds envelope. The
++     * rectangle is never the exact curve; overlap still does not prove visibility.
++     * @param include whether curved clips contribute their control-point rectangle
++     * @return immutable copy retaining every other extraction, layout and resource setting
++     */
++    public PdfOptions withCurvedClipEnvelopes(final boolean include) {
+         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
+                 tableContinuation, unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds,
+-                include);
++                includeImageGroupContext, include);
+     }
+ 
+     /**
+diff --git a/docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java b/docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java
+index 9698ea8..fb3fa6f 100644
+--- a/docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java
++++ b/docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java
+@@ -91,6 +91,8 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
+     private boolean curved;
+     /** Number of path subpaths, capped at three to distinguish the supported two-rectangle clip subset. */
+     private int subpaths;
++    /** Minimum x/y and maximum x/y of every transformed path point, including Bezier control points. */
++    private double[] hull = emptyHull();
+     /** Invisible Type3 glyph scopes suppress native rule/band evidence while retaining source traversal. */
+     private boolean type3PaintSuppressed;
+     /** Active Type3 character-program scopes; restored even when a descendant fails. */
+@@ -109,9 +111,11 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
+      * @param closed original explicit closure marker
+      * @param curved whether the original path contains curves
+      * @param subpaths original bounded subpath count
++     * @param hull original path point and control-point extent
+      */
+     private record PathState(List<Segment> pending, Point2D current, Point2D start, GeneralPath rectangleClip,
+-            GeneralPath deferredClip, float[] vertices, int points, boolean closed, boolean curved, int subpaths) {}
++            GeneralPath deferredClip, float[] vertices, int points, boolean closed, boolean curved, int subpaths,
++            double[] hull) {}
+ 
+     /**
+      * Transfers caller path ownership before entering a form, retaining no copied source-edge population.
+@@ -119,7 +123,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
+      */
+     private PathState suspendPath() {
+         final var state = new PathState(pending, current, start, rectangleClip, deferredClip, lineClipVertices,
+-                lineClipPoints, lineClipClosed, curved, subpaths);
++                lineClipPoints, lineClipClosed, curved, subpaths, hull);
+         pending = new ArrayList<>();
+         current = new Point2D.Float();
+         start = current;
+@@ -130,6 +134,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
+         lineClipClosed = false;
+         curved = false;
+         subpaths = 0;
++        hull = emptyHull();
+         return state;
+     }
+ 
+@@ -148,6 +153,28 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
+         lineClipClosed = state.closed();
+         curved = state.curved();
+         subpaths = state.subpaths();
++        hull = state.hull();
++    }
++
++    /**
++     * Creates an empty path extent.
++     * @return mutable minimum-x, minimum-y, maximum-x, maximum-y accumulator
++     */
++    private static double[] emptyHull() {
++        return new double[] {
++                Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY};
++    }
++
++    /**
++     * Extends the current path extent by one transformed point or Bezier control point.
++     * @param x transformed horizontal coordinate
++     * @param y transformed vertical coordinate
++     */
++    private void include(final double x, final double y) {
++        hull[0] = Math.min(hull[0], x);
++        hull[1] = Math.min(hull[1], y);
++        hull[2] = Math.max(hull[2], x);
++        hull[3] = Math.max(hull[3], y);
+     }
+ 
+     /**
+@@ -415,6 +442,9 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
+             rectangleClip.closePath();
+         }
+         subpaths = Math.min(3, subpaths + 1);
++        for (final var point : List.of(p0, p1, p2, p3)) {
++            include(point.getX(), point.getY());
++        }
+         edge(p0, p1);
+         edge(p1, p2);
+         edge(p2, p3);
+@@ -460,6 +490,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
+             lineClipVertices[1] = y;
+         }
+         subpaths = Math.min(3, subpaths + 1);
++        include(x, y);
+         current = new Point2D.Float(x, y);
+         start = current;
+     }
+@@ -480,6 +511,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
+         } else {
+             lineClipPoints = 0;
+         }
++        include(x, y);
+         edge(current, next);
+         current = next;
+     }
+@@ -499,6 +531,11 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
+         curved = true;
+         rectangleClip = null;
+         lineClipPoints = 0;
++        // A cubic segment lies inside the convex hull of its start point and three control points.
++        include(current.getX(), current.getY());
++        include(x1, y1);
++        include(x2, y2);
++        include(x3, y3);
+         current = new Point2D.Float(x3, y3);
+     }
+ 
+@@ -537,6 +574,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
+         pending.clear();
+         curved = false;
+         subpaths = 0;
++        hull = emptyHull();
+     }
+ 
+     /**
+@@ -635,6 +673,9 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
+      * Two rectangle-operator subpaths also retain the source winding rule; larger compound paths are ignored.
+      * Existing graphics-state save/restore and form scopes own its lifetime. Unsupported
+      * larger line-built and curved clip paths remain ignored; rule geometry is never partially trimmed.
++     * When curved clip envelopes are explicitly selected, a curved clip path instead contributes the axis-aligned
++     * rectangle enclosing every path point and Bezier control point. By the convex-hull property this rectangle
++     * contains the true clip under either winding rule, so it is a sound, coarser substitute, not the curve itself.
+      * @param windingRule source clip rule
+      */
+     @Override
+@@ -667,6 +708,17 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
+             if (rectangleClip != null || fourCorners || area.isEmpty() || area.isRectangular()) {
+                 deferredClip = new GeneralPath(candidate);
+             }
++            return;
++        }
++        if (curved && options.curvedClipEnvelopes() && Double.isFinite(hull[0]) && Double.isFinite(hull[1])
++                && Double.isFinite(hull[2]) && Double.isFinite(hull[3])) {
++            final var envelope = new GeneralPath();
++            envelope.moveTo(hull[0], hull[1]);
++            envelope.lineTo(hull[2], hull[1]);
++            envelope.lineTo(hull[2], hull[3]);
++            envelope.lineTo(hull[0], hull[3]);
++            envelope.closePath();
++            deferredClip = envelope;
+         }
+     }
+ 
+diff --git a/docweave-pdf/src/test/java/dev/docweave/partition/PdfCurvedClipEnvelopeTest.java b/docweave-pdf/src/test/java/dev/docweave/partition/PdfCurvedClipEnvelopeTest.java
+new file mode 100644
+index 0000000..ca36524
+--- /dev/null
++++ b/docweave-pdf/src/test/java/dev/docweave/partition/PdfCurvedClipEnvelopeTest.java
+@@ -0,0 +1,318 @@
++package dev.docweave.partition;
++
++import dev.docweave.DocWeave;
++import dev.docweave.core.Element;
++import dev.docweave.core.ElementType;
++import org.apache.pdfbox.Loader;
++import org.apache.pdfbox.pdmodel.PDDocument;
++import org.apache.pdfbox.pdmodel.PDFormContentStream;
++import org.apache.pdfbox.pdmodel.PDPage;
++import org.apache.pdfbox.pdmodel.PDPageContentStream;
++import org.apache.pdfbox.pdmodel.PDResources;
++import org.apache.pdfbox.pdmodel.common.PDRectangle;
++import org.apache.pdfbox.pdmodel.graphics.form.PDFormXObject;
++import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory;
++import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
++import org.apache.pdfbox.rendering.PDFRenderer;
++import org.junit.jupiter.api.Test;
++
++import java.awt.Color;
++import java.awt.image.BufferedImage;
++import java.io.ByteArrayOutputStream;
++import java.util.List;
++import java.util.Map;
++
++import static org.junit.jupiter.api.Assertions.*;
++
++/**
++ * Owned controls for explicit curved-clip envelopes. Expected rectangles are computed by hand from authored
++ * path and control points, never from production geometry. The envelope is conservative, not the curve.
++ */
++class PdfCurvedClipEnvelopeTest {
++    /** Cubic circle control-point ratio. */
++    private static final float KAPPA = 0.5522848f;
++
++    /** Creates independent curved-clip controls. */
++    PdfCurvedClipEnvelopeTest() {
++    }
++
++    /**
++     * A circular clip is ignored by default and contributes its control-point rectangle only when selected.
++     * @throws Exception if source authoring or public extraction fails
++     */
++    @Test
++    void circularClipContributesControlPointRectangleOnlyWhenSelected() throws Exception {
++        final byte[] source = page(100, 60, (document, content) -> {
++            circle(content, 50, 30, 10);
++            content.clip();
++            content.drawImage(raster(document), 40, 20, 20, 20);
++        });
++        final var ignored = clip(images(source, options(false)).getFirst());
++        assertBounds(0, 0, 100, 60, ignored);
++        final var selected = clip(images(source, options(true)).getFirst());
++        assertEquals("BOUNDED", selected.get("classification"));
++        assertBounds(40, 20, 60, 40, selected);
++        assertEquals(false, selected.get("excludes_image_placement"));
++    }
++
++    /**
++     * An image wholly outside a curved clip's control-point rectangle is proven excluded only when selected.
++     * @throws Exception if source authoring or public extraction fails
++     */
++    @Test
++    void disjointCurvedClipProvesExclusionOnlyWhenSelected() throws Exception {
++        final byte[] source = page(100, 60, (document, content) -> {
++            circle(content, 85, 30, 5);
++            content.clip();
++            content.drawImage(raster(document), 10, 10, 20, 20);
++        });
++        assertEquals(false, clip(images(source, options(false)).getFirst()).get("excludes_image_placement"));
++        final var selected = clip(images(source, options(true)).getFirst());
++        assertBounds(80, 25, 90, 35, selected);
++        assertEquals(true, selected.get("excludes_image_placement"));
++    }
++
++    /**
++     * A bulging curve's control points lie beyond the curve itself: the envelope reaches the control points
++     * (displayed top 10), while a PDFBox rendering of a clipped fill leaves a point inside the envelope but
++     * outside the true curve unpainted. The envelope is a superset, not the exact clip.
++     * @throws Exception if source authoring, rendering or public extraction fails
++     */
++    @Test
++    void envelopeIsAConservativeSupersetNotTheCurve() throws Exception {
++        final byte[] source = page(100, 60, (document, content) -> {
++            content.moveTo(10, 10);
++            content.curveTo(10, 50, 50, 50, 50, 10);
++            content.closePath();
++            content.clip();
++            content.setNonStrokingColor(Color.RED);
++            content.addRect(0, 0, 100, 60);
++            content.fill();
++            content.drawImage(raster(document), 20, 15, 10, 10);
++        });
++        assertBounds(10, 10, 50, 50, clip(images(source, options(true)).getFirst()));
++        try (final var original = Loader.loadPDF(source)) {
++            final var rendered = new PDFRenderer(original).renderImage(0);
++            try {
++                // True curve peaks at y = 40 (displayed 20); y = 45 (displayed 15) is inside the envelope only.
++                assertEquals(Color.WHITE.getRGB(), rendered.getRGB(30, 15));
++                assertEquals(Color.RED.getRGB(), rendered.getRGB(30, 35));
++            } finally {
++                rendered.flush();
++            }
++        }
++    }
++
++    /**
++     * Restoring the graphics state discards the curved envelope, and an ordinary form inherits it.
++     * @throws Exception if source authoring or public extraction fails
++     */
++    @Test
++    void restoreAndFormScopesFollowGraphicsState() throws Exception {
++        final byte[] source;
++        try (final var document = new PDDocument()) {
++            final var page = new PDPage(new PDRectangle(100, 60));
++            document.addPage(page);
++            final var image = raster(document);
++            final var form = new PDFormXObject(document);
++            form.setResources(new PDResources());
++            form.setBBox(new PDRectangle(100, 60));
++            try (final var content = new PDFormContentStream(form)) {
++                content.drawImage(image, 45, 25, 5, 5);
++            }
++            try (final var content = new PDPageContentStream(document, page)) {
++                content.saveGraphicsState();
++                circle(content, 50, 30, 10);
++                content.clip();
++                content.drawForm(form);
++                content.restoreGraphicsState();
++                content.drawImage(image, 80, 25, 5, 5);
++            }
++            source = save(document);
++        }
++        final var actual = images(source, options(true));
++        assertEquals(2, actual.size());
++        assertBounds(40, 20, 60, 40, clip(actual.get(0)));
++        assertBounds(0, 0, 100, 60, clip(actual.get(1)));
++    }
++
++    /**
++     * Transfer control: nonzero crop origin and a quarter-turn rotation transform the curved envelope exactly
++     * like other clip envelopes (crop (10,20,200,140), rotation 90: displayed point = (y - 20, x - 10)).
++     * @throws Exception if source authoring or public extraction fails
++     */
++    @Test
++    void cropAndRotationTransformTheCurvedEnvelope() throws Exception {
++        final byte[] source;
++        try (final var document = new PDDocument()) {
++            final var page = new PDPage(new PDRectangle(300, 300));
++            page.setCropBox(new PDRectangle(10, 20, 200, 140));
++            page.setRotation(90);
++            document.addPage(page);
++            try (final var content = new PDPageContentStream(document, page)) {
++                circle(content, 60, 80, 10);
++                content.clip();
++                content.drawImage(raster(document), 55, 75, 10, 10);
++            }
++            source = save(document);
++        }
++        assertBounds(50, 40, 70, 60, clip(images(source, options(true)).getFirst()));
++    }
++
++    /**
++     * Straight-only documents produce byte-identical elements with and without the option, and copies preserve it.
++     * @throws Exception if source authoring or public extraction fails
++     */
++    @Test
++    void straightClipsAndOptionCopiesAreUnaffected() throws Exception {
++        final byte[] source = page(100, 60, (document, content) -> {
++            content.addRect(20, 0, 20, 60);
++            content.clip();
++            content.drawImage(raster(document), 10, 10, 20, 20);
++        });
++        assertEquals(images(source, options(false)), images(source, options(true)));
++        final var base = new PdfOptions(10, 10_000, 10_000, 100, 10_000, false, TableLimits.defaults());
++        assertFalse(base.curvedClipEnvelopes());
++        assertFalse(PdfOptions.defaults().curvedClipEnvelopes());
++        assertFalse(base.withImageGroupContext(true).withImageClipBounds(true).curvedClipEnvelopes());
++        final var selected = base.withCurvedClipEnvelopes(true);
++        assertTrue(selected.withImageGroupContext(true)
++                        .withTextLayout(PdfOptions.TextLayout.PARAGRAPHS)
++                        .curvedClipEnvelopes());
++        assertFalse(selected.includeImageClipBounds());
++        assertFalse(selected.withCurvedClipEnvelopes(false).curvedClipEnvelopes());
++    }
++
++    /**
++     * Appends a four-segment cubic circle approximation whose control points stay inside its bounding square.
++     * @param content target stream
++     * @param x center horizontal position
++     * @param y center vertical position
++     * @param r radius
++     * @throws Exception if writing fails
++     */
++    private static void circle(final PDPageContentStream content, final float x, final float y, final float r)
++            throws Exception {
++        final float k = KAPPA * r;
++        content.moveTo(x + r, y);
++        content.curveTo(x + r, y + k, x + k, y + r, x, y + r);
++        content.curveTo(x - k, y + r, x - r, y + k, x - r, y);
++        content.curveTo(x - r, y - k, x - k, y - r, x, y - r);
++        content.curveTo(x + k, y - r, x + r, y - k, x + r, y);
++        content.closePath();
++    }
++
++    /**
++     * Builds small-budget options with clip bounds and an explicit curved-clip selection.
++     * @param curved whether curved clips contribute envelopes
++     * @return immutable options
++     */
++    private static PdfOptions options(final boolean curved) {
++        return new PdfOptions(10, 10_000, 10_000, 100, 10_000, false, TableLimits.defaults())
++                .withImageClipBounds(true)
++                .withCurvedClipEnvelopes(curved);
++    }
++
++    /** Authors page content against its owning document. */
++    private interface Author {
++        /**
++         * Writes owned content.
++         * @param document owning document
++         * @param content open page stream
++         * @throws Exception if writing fails
++         */
++        void write(PDDocument document, PDPageContentStream content) throws Exception;
++    }
++
++    /**
++     * Authors one page and returns complete bytes.
++     * @param width page width
++     * @param height page height
++     * @param author content callback
++     * @return owned PDF bytes
++     * @throws Exception if authoring fails
++     */
++    private static byte[] page(final float width, final float height, final Author author) throws Exception {
++        try (final var document = new PDDocument()) {
++            final var page = new PDPage(new PDRectangle(width, height));
++            document.addPage(page);
++            try (final var content = new PDPageContentStream(document, page)) {
++                author.write(document, content);
++            }
++            return save(document);
++        }
++    }
++
++    /**
++     * Saves an owned document.
++     * @param document authored document
++     * @return complete bytes
++     * @throws Exception if encoding fails
++     */
++    private static byte[] save(final PDDocument document) throws Exception {
++        final var output = new ByteArrayOutputStream();
++        document.save(output);
++        return output.toByteArray();
++    }
++
++    /**
++     * Creates an opaque two-pixel raster.
++     * @param document owning document
++     * @return embedded image
++     * @throws Exception if encoding fails
++     */
++    private static PDImageXObject raster(final PDDocument document) throws Exception {
++        final var pixels = new BufferedImage(2, 1, BufferedImage.TYPE_INT_RGB);
++        pixels.setRGB(0, 0, Color.BLUE.getRGB());
++        pixels.setRGB(1, 0, Color.GREEN.getRGB());
++        try {
++            return LosslessFactory.createFromImage(document, pixels);
++        } finally {
++            pixels.flush();
++        }
++    }
++
++    /**
++     * Runs the public extraction path.
++     * @param source complete bytes
++     * @param options extraction policy
++     * @return image occurrences
++     * @throws Exception if partitioning fails
++     */
++    private static List<Element> images(final byte[] source, final PdfOptions options) throws Exception {
++        return DocWeave.create(PartitionerRegistry.of(List.of(PdfPartitioner.create(options))))
++                .partition(DocumentSource.bytes(source, "owned-curved-clip.pdf"))
++                .elements()
++                .stream()
++                .filter(element -> element.type() == ElementType.Image)
++                .toList();
++    }
++
++    /**
++     * Reads the clip-bounds map.
++     * @param image emitted image
++     * @return classification map
++     */
++    private static Map<?, ?> clip(final Element image) {
++        return (Map<?, ?>) image.metadata().get("pdf_image_clip_bounds");
++    }
++
++    /**
++     * Asserts a BOUNDED envelope's displayed rectangle within outward-rounding tolerance.
++     * @param left expected left
++     * @param top expected top
++     * @param right expected right
++     * @param bottom expected bottom
++     * @param clip classification map
++     */
++    private static void assertBounds(
++            final double left, final double top, final double right, final double bottom, final Map<?, ?> clip) {
++        assertEquals("BOUNDED", clip.get("classification"));
++        final var points = (List<?>) ((Map<?, ?>) clip.get("bounds")).get("points");
++        final double delta = 1e-3;
++        assertEquals(left, ((Number) ((List<?>) points.get(0)).get(0)).doubleValue(), delta);
++        assertEquals(top, ((Number) ((List<?>) points.get(0)).get(1)).doubleValue(), delta);
++        assertEquals(right, ((Number) ((List<?>) points.get(2)).get(0)).doubleValue(), delta);
++        assertEquals(bottom, ((Number) ((List<?>) points.get(2)).get(1)).doubleValue(), delta);
++    }
++}

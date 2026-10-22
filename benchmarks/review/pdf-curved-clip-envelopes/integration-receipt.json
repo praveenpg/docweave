@@ -1,0 +1,26 @@
+{
+  "baseline_commit": "3a62201",
+  "java": "21",
+  "full_combined_verify": {
+    "tests": 1348,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "new_curved_clip_tests": 7,
+  "private_doclint": "PASS",
+  "scope_correction": "Graphics rule filtering and image clip metadata change; separate native-text visitor does not inherit this state",
+  "default_allocation": "Path extent arrays and rectangle-point lists are not allocated when the option is disabled",
+  "original_transfer": "94 occurrences, 83 unchanged envelopes, 11 tighter, 0 widened, 0 newly excluded; all other image metadata equal",
+  "sources": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "6376c71d12ea559ba1c03763e78d52811d7c2b48be7aff07b14ca7b7a182fcd2",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfPageGraphics.java": "6f78b1d1a8b51527e1bbf968800fff80d2d157c23c75a2246d416eff2a14eba9",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfCurvedClipEnvelopeTest.java": "20d6b9f0882164ffaed968ff0a1ca60b402411435ae2b9c0d4650661f9b92f1a"
+  },
+  "logs": {
+    "final-verify.log": "91b99d40bf27943cbd60b1a344e76fdd1bf3e13b301774bf0b2ba26ec1ac3d58",
+    "curve-focused.log": "af13cd52d579a4e7c0bc3820ea071375ee0bddc08ecd72720ab127abc7bb64af",
+    "curve-docs.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "curve-magazine-final.log": "094b704201eb70b0c883cd3d60e3ebd812ffcd84c31a81acd6028b520ee36d56"
+  }
+}

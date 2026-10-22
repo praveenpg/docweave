@@ -1,0 +1,1090 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] DocWeave parent                                                    [pom]
+[INFO] DocWeave core                                                      [jar]
+[INFO] DocWeave json                                                      [jar]
+[INFO] DocWeave chunking                                                  [jar]
+[INFO] DocWeave batch                                                     [jar]
+[INFO] DocWeave txt                                                       [jar]
+[INFO] DocWeave html                                                      [jar]
+[INFO] DocWeave markdown                                                  [jar]
+[INFO] DocWeave delimited                                                 [jar]
+[INFO] DocWeave csv                                                       [jar]
+[INFO] DocWeave tsv                                                       [jar]
+[INFO] DocWeave xml                                                       [jar]
+[INFO] DocWeave docx                                                      [jar]
+[INFO] DocWeave pdf                                                       [jar]
+[INFO] DocWeave optional Tesseract OCR                                    [jar]
+[INFO] DocWeave optional ONNX table layout                                [jar]
+[INFO] DocWeave all                                                       [jar]
+[INFO] DocWeave integration-tests                                         [jar]
+[INFO] DocWeave validation                                                [jar]
+[INFO] 
+[INFO] --------------------< io.docweave:docweave-parent >---------------------
+[INFO] Building DocWeave parent 0.1.0-SNAPSHOT                           [1/19]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- javadoc:3.12.0:javadoc-no-fork (verify-javadocs) @ docweave-parent ---
+[INFO] Skipping org.apache.maven.plugins:maven-javadoc-plugin:3.12.0:javadoc-no-fork report goal
+[INFO] 
+[INFO] ---------------------< io.docweave:docweave-core >----------------------
+[INFO] Building DocWeave core 0.1.0-SNAPSHOT                             [2/19]
+[INFO]   from docweave-core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ docweave-core ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-core/src/main/resources
+[INFO] Copying 2 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ docweave-core ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ docweave-core ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-core/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ docweave-core ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ docweave-core ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.docweave.partition.BinaryBufferContextTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 s -- in dev.docweave.partition.BinaryBufferContextTest
+[INFO] Running dev.docweave.partition.CoreModuleTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in dev.docweave.partition.CoreModuleTest
+[INFO] Running dev.docweave.partition.ElementIdGeneratorTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 s -- in dev.docweave.partition.ElementIdGeneratorTest
+[INFO] Running dev.docweave.partition.NestedTableDescriptorsTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in dev.docweave.partition.NestedTableDescriptorsTest
+[INFO] Running dev.docweave.partition.NestedTableOptionsTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s -- in dev.docweave.partition.NestedTableOptionsTest
+[INFO] Running dev.docweave.partition.ServiceDiscoveryTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s -- in dev.docweave.partition.ServiceDiscoveryTest
+[INFO] Running dev.docweave.partition.Utf8DigestTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 s -- in dev.docweave.partition.Utf8DigestTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ docweave-core ---
+[INFO] 
+[INFO] --- javadoc:3.12.0:javadoc-no-fork (verify-javadocs) @ docweave-core ---
+[INFO] 
+[INFO] ---------------------< io.docweave:docweave-json >----------------------
+[INFO] Building DocWeave json 0.1.0-SNAPSHOT                             [3/19]
+[INFO]   from docweave-json/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ docweave-json ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-json/src/main/resources
+[INFO] Copying 2 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ docweave-json ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ docweave-json ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-json/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ docweave-json ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ docweave-json ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ docweave-json ---
+[INFO] 
+[INFO] --- javadoc:3.12.0:javadoc-no-fork (verify-javadocs) @ docweave-json ---
+[INFO] 
+[INFO] -------------------< io.docweave:docweave-chunking >--------------------
+[INFO] Building DocWeave chunking 0.1.0-SNAPSHOT                         [4/19]
+[INFO]   from docweave-chunking/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ docweave-chunking ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-chunking/src/main/resources
+[INFO] Copying 2 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ docweave-chunking ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ docweave-chunking ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-chunking/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ docweave-chunking ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ docweave-chunking ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.docweave.chunking.ChunkProvenanceTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.381 s -- in dev.docweave.chunking.ChunkProvenanceTest
+[INFO] Running dev.docweave.chunking.ContextualChunkerTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.024 s -- in dev.docweave.chunking.ContextualChunkerTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ docweave-chunking ---
+[INFO] 
+[INFO] --- javadoc:3.12.0:javadoc-no-fork (verify-javadocs) @ docweave-chunking ---
+[INFO] 
+[INFO] ---------------------< io.docweave:docweave-batch >---------------------
+[INFO] Building DocWeave batch 0.1.0-SNAPSHOT                            [5/19]
+[INFO]   from docweave-batch/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ docweave-batch ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-batch/src/main/resources
+[INFO] Copying 2 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ docweave-batch ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ docweave-batch ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-batch/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ docweave-batch ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ docweave-batch ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ docweave-batch ---
+[INFO] 
+[INFO] --- javadoc:3.12.0:javadoc-no-fork (verify-javadocs) @ docweave-batch ---
+[INFO] 
+[INFO] ----------------------< io.docweave:docweave-txt >----------------------
+[INFO] Building DocWeave txt 0.1.0-SNAPSHOT                              [6/19]
+[INFO]   from docweave-txt/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ docweave-txt ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 2 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ docweave-txt ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ docweave-txt ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-txt/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ docweave-txt ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ docweave-txt ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.docweave.partition.TxtModuleTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s -- in dev.docweave.partition.TxtModuleTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ docweave-txt ---
+[INFO] 
+[INFO] --- javadoc:3.12.0:javadoc-no-fork (verify-javadocs) @ docweave-txt ---
+[INFO] 
+[INFO] ---------------------< io.docweave:docweave-html >----------------------
+[INFO] Building DocWeave html 0.1.0-SNAPSHOT                             [7/19]
+[INFO]   from docweave-html/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ docweave-html ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] Copying 2 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ docweave-html ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ docweave-html ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-html/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ docweave-html ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ docweave-html ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.docweave.partition.HtmlInlineTextTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s -- in dev.docweave.partition.HtmlInlineTextTest
+[INFO] Running dev.docweave.partition.HtmlModuleTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.070 s -- in dev.docweave.partition.HtmlModuleTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ docweave-html ---
+[INFO] 
+[INFO] --- javadoc:3.12.0:javadoc-no-fork (verify-javadocs) @ docweave-html ---
+[INFO] 
+[INFO] -------------------< io.docweave:docweave-markdown >--------------------
+[INFO] Building DocWeave markdown 0.1.0-SNAPSHOT                         [8/19]
+[INFO]   from docweave-markdown/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ docweave-markdown ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 2 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ docweave-markdown ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ docweave-markdown ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-markdown/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ docweave-markdown ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ docweave-markdown ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.docweave.partition.MarkdownModuleTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s -- in dev.docweave.partition.MarkdownModuleTest
+[INFO] Running dev.docweave.partition.MarkdownPreservationServiceTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s -- in dev.docweave.partition.MarkdownPreservationServiceTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ docweave-markdown ---
+[INFO] 
+[INFO] --- javadoc:3.12.0:javadoc-no-fork (verify-javadocs) @ docweave-markdown ---
+[INFO] 
+[INFO] -------------------< io.docweave:docweave-delimited >-------------------
+[INFO] Building DocWeave delimited 0.1.0-SNAPSHOT                        [9/19]
+[INFO]   from docweave-delimited/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ docweave-delimited ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-delimited/src/main/resources
+[INFO] Copying 2 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ docweave-delimited ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ docweave-delimited ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-delimited/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ docweave-delimited ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ docweave-delimited ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ docweave-delimited ---
+[INFO] 
+[INFO] --- javadoc:3.12.0:javadoc-no-fork (verify-javadocs) @ docweave-delimited ---
+[INFO] 
+[INFO] ----------------------< io.docweave:docweave-csv >----------------------
+[INFO] Building DocWeave csv 0.1.0-SNAPSHOT                             [10/19]
+[INFO]   from docweave-csv/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ docweave-csv ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 2 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ docweave-csv ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ docweave-csv ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-csv/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ docweave-csv ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ docweave-csv ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.docweave.partition.CsvModuleTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s -- in dev.docweave.partition.CsvModuleTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ docweave-csv ---
+[INFO] 
+[INFO] --- javadoc:3.12.0:javadoc-no-fork (verify-javadocs) @ docweave-csv ---
+[INFO] 
+[INFO] ----------------------< io.docweave:docweave-tsv >----------------------
+[INFO] Building DocWeave tsv 0.1.0-SNAPSHOT                             [11/19]
+[INFO]   from docweave-tsv/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ docweave-tsv ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 2 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ docweave-tsv ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ docweave-tsv ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-tsv/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ docweave-tsv ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ docweave-tsv ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.docweave.partition.TsvModuleTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 s -- in dev.docweave.partition.TsvModuleTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ docweave-tsv ---
+[INFO] 
+[INFO] --- javadoc:3.12.0:javadoc-no-fork (verify-javadocs) @ docweave-tsv ---
+[INFO] 
+[INFO] ----------------------< io.docweave:docweave-xml >----------------------
+[INFO] Building DocWeave xml 0.1.0-SNAPSHOT                             [12/19]
+[INFO]   from docweave-xml/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ docweave-xml ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 2 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ docweave-xml ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ docweave-xml ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-xml/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ docweave-xml ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ docweave-xml ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.docweave.partition.XmlModuleTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s -- in dev.docweave.partition.XmlModuleTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ docweave-xml ---
+[INFO] 
+[INFO] --- javadoc:3.12.0:javadoc-no-fork (verify-javadocs) @ docweave-xml ---
+[INFO] 
+[INFO] ---------------------< io.docweave:docweave-docx >----------------------
+[INFO] Building DocWeave docx 0.1.0-SNAPSHOT                            [13/19]
+[INFO]   from docweave-docx/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ docweave-docx ---
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO] Copying 2 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ docweave-docx ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ docweave-docx ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-docx/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ docweave-docx ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ docweave-docx ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.docweave.partition.DocxModuleTest
+2026-10-22T05:20:16.718211934Z main ERROR Log4j API could not find a logging provider.
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.320 s -- in dev.docweave.partition.DocxModuleTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ docweave-docx ---
+[INFO] 
+[INFO] --- javadoc:3.12.0:javadoc-no-fork (verify-javadocs) @ docweave-docx ---
+[INFO] 
+[INFO] ----------------------< io.docweave:docweave-pdf >----------------------
+[INFO] Building DocWeave pdf 0.1.0-SNAPSHOT                             [14/19]
+[INFO]   from docweave-pdf/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ docweave-pdf ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 2 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ docweave-pdf ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ docweave-pdf ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-pdf/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ docweave-pdf ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ docweave-pdf ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.docweave.partition.FilledPdfRowBandTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s -- in dev.docweave.partition.FilledPdfRowBandTest
+[INFO] Running dev.docweave.partition.PdfAngledTextTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.263 s -- in dev.docweave.partition.PdfAngledTextTest
+[INFO] Running dev.docweave.partition.PdfBinaryBufferTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in dev.docweave.partition.PdfBinaryBufferTest
+[INFO] Running dev.docweave.partition.PdfBorderlessTableTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.148 s -- in dev.docweave.partition.PdfBorderlessTableTest
+[INFO] Running dev.docweave.partition.PdfCellInlineScriptsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 s -- in dev.docweave.partition.PdfCellInlineScriptsTest
+[INFO] Running dev.docweave.partition.PdfCellWordWrapTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 s -- in dev.docweave.partition.PdfCellWordWrapTest
+[INFO] Running dev.docweave.partition.PdfCompactRuledLayoutTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 s -- in dev.docweave.partition.PdfCompactRuledLayoutTest
+[INFO] Running dev.docweave.partition.PdfCoordinateConverterTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in dev.docweave.partition.PdfCoordinateConverterTest
+[INFO] Running dev.docweave.partition.PdfDeskewEstimatorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.477 s -- in dev.docweave.partition.PdfDeskewEstimatorTest
+[INFO] Running dev.docweave.partition.PdfDoubleBorderTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s -- in dev.docweave.partition.PdfDoubleBorderTest
+[INFO] Running dev.docweave.partition.PdfEmptyFormClipTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.020 s -- in dev.docweave.partition.PdfEmptyFormClipTest
+[INFO] Running dev.docweave.partition.PdfEmptyTextClipTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s -- in dev.docweave.partition.PdfEmptyTextClipTest
+[INFO] Running dev.docweave.partition.PdfFigureCaptionTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s -- in dev.docweave.partition.PdfFigureCaptionTest
+[INFO] Running dev.docweave.partition.PdfFilledRuleTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s -- in dev.docweave.partition.PdfFilledRuleTest
+[INFO] Running dev.docweave.partition.PdfFinancialAlignedTableTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in dev.docweave.partition.PdfFinancialAlignedTableTest
+[INFO] Running dev.docweave.partition.PdfFontInspectorTest
+Oct 21, 2026 10:20:19 PM org.apache.pdfbox.pdmodel.font.PDSimpleFont toUnicode
+WARNING: No Unicode mapping for .notdef (65) in font Helvetica
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 s -- in dev.docweave.partition.PdfFontInspectorTest
+[INFO] Running dev.docweave.partition.PdfFormDepthTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s -- in dev.docweave.partition.PdfFormDepthTest
+[INFO] Running dev.docweave.partition.PdfFormPathTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 s -- in dev.docweave.partition.PdfFormPathTest
+[INFO] Running dev.docweave.partition.PdfHorizontalTableTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 s -- in dev.docweave.partition.PdfHorizontalTableTest
+[INFO] Running dev.docweave.partition.PdfImageClipBoundsTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s -- in dev.docweave.partition.PdfImageClipBoundsTest
+[INFO] Running dev.docweave.partition.PdfImageCornersTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in dev.docweave.partition.PdfImageCornersTest
+[INFO] Running dev.docweave.partition.PdfImageGraphicsStateTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in dev.docweave.partition.PdfImageGraphicsStateTest
+[INFO] Running dev.docweave.partition.PdfImageGroupContextTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in dev.docweave.partition.PdfImageGroupContextTest
+[INFO] Running dev.docweave.partition.PdfImageMaskBudgetTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s -- in dev.docweave.partition.PdfImageMaskBudgetTest
+[INFO] Running dev.docweave.partition.PdfListBoundaryTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in dev.docweave.partition.PdfListBoundaryTest
+[INFO] Running dev.docweave.partition.PdfMarginClassifierTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in dev.docweave.partition.PdfMarginClassifierTest
+[INFO] Running dev.docweave.partition.PdfMixedOcrTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 s -- in dev.docweave.partition.PdfMixedOcrTest
+[INFO] Running dev.docweave.partition.PdfModuleTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s -- in dev.docweave.partition.PdfModuleTest
+[INFO] Running dev.docweave.partition.PdfNativeCellTextTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in dev.docweave.partition.PdfNativeCellTextTest
+[INFO] Running dev.docweave.partition.PdfNativeCompoundWrapTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s -- in dev.docweave.partition.PdfNativeCompoundWrapTest
+[INFO] Running dev.docweave.partition.PdfNativeFirstTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s -- in dev.docweave.partition.PdfNativeFirstTest
+[INFO] Running dev.docweave.partition.PdfNativeLayoutTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s -- in dev.docweave.partition.PdfNativeLayoutTest
+[INFO] Running dev.docweave.partition.PdfNativeLeadingRowTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in dev.docweave.partition.PdfNativeLeadingRowTest
+[INFO] Running dev.docweave.partition.PdfNativeSectionRowTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s -- in dev.docweave.partition.PdfNativeSectionRowTest
+[INFO] Running dev.docweave.partition.PdfOcrScalingTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in dev.docweave.partition.PdfOcrScalingTest
+[INFO] Running dev.docweave.partition.PdfOcrTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in dev.docweave.partition.PdfOcrTest
+[INFO] Running dev.docweave.partition.PdfOpenGridLimitTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in dev.docweave.partition.PdfOpenGridLimitTest
+[INFO] Running dev.docweave.partition.PdfOrientationTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s -- in dev.docweave.partition.PdfOrientationTest
+[INFO] Running dev.docweave.partition.PdfOrientedColumnTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s -- in dev.docweave.partition.PdfOrientedColumnTest
+[INFO] Running dev.docweave.partition.PdfOverlaidDigitPaddingTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in dev.docweave.partition.PdfOverlaidDigitPaddingTest
+[INFO] Running dev.docweave.partition.PdfParagraphAssemblerTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in dev.docweave.partition.PdfParagraphAssemblerTest
+[INFO] Running dev.docweave.partition.PdfParagraphInlineScriptsTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s -- in dev.docweave.partition.PdfParagraphInlineScriptsTest
+[INFO] Running dev.docweave.partition.PdfPartialTableTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.100 s -- in dev.docweave.partition.PdfPartialTableTest
+[INFO] Running dev.docweave.partition.PdfPasswordTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 s -- in dev.docweave.partition.PdfPasswordTest
+[INFO] Running dev.docweave.partition.PdfPresentationFormsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in dev.docweave.partition.PdfPresentationFormsTest
+[INFO] Running dev.docweave.partition.PdfProviderContinuationTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.174 s -- in dev.docweave.partition.PdfProviderContinuationTest
+[INFO] Running dev.docweave.partition.PdfProviderTableTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s -- in dev.docweave.partition.PdfProviderTableTest
+[INFO] Running dev.docweave.partition.PdfReadingOrderTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 s -- in dev.docweave.partition.PdfReadingOrderTest
+[INFO] Running dev.docweave.partition.PdfRotationTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s -- in dev.docweave.partition.PdfRotationTest
+[INFO] Running dev.docweave.partition.PdfRuledFirstLayoutTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s -- in dev.docweave.partition.PdfRuledFirstLayoutTest
+[INFO] Running dev.docweave.partition.PdfRuledTableTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s -- in dev.docweave.partition.PdfRuledTableTest
+[INFO] Running dev.docweave.partition.PdfScannedMergedTableTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.293 s -- in dev.docweave.partition.PdfScannedMergedTableTest
+[INFO] Running dev.docweave.partition.PdfScannedTableTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.209 s -- in dev.docweave.partition.PdfScannedTableTest
+[INFO] Running dev.docweave.partition.PdfScannedWordTableTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s -- in dev.docweave.partition.PdfScannedWordTableTest
+[INFO] Running dev.docweave.partition.PdfShadedHeaderBoundsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in dev.docweave.partition.PdfShadedHeaderBoundsTest
+[INFO] Running dev.docweave.partition.PdfSmallGlyphRunsTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in dev.docweave.partition.PdfSmallGlyphRunsTest
+[INFO] Running dev.docweave.partition.PdfSourceHyphenWrapsTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s -- in dev.docweave.partition.PdfSourceHyphenWrapsTest
+[INFO] Running dev.docweave.partition.PdfStencilImageTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s -- in dev.docweave.partition.PdfStencilImageTest
+[INFO] Running dev.docweave.partition.PdfStrategyTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in dev.docweave.partition.PdfStrategyTest
+[INFO] Running dev.docweave.partition.PdfStrokeOpacityTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s -- in dev.docweave.partition.PdfStrokeOpacityTest
+[INFO] Running dev.docweave.partition.PdfTableCellCoordinatesTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 s -- in dev.docweave.partition.PdfTableCellCoordinatesTest
+[INFO] Running dev.docweave.partition.PdfTableContinuationTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.200 s -- in dev.docweave.partition.PdfTableContinuationTest
+[INFO] Running dev.docweave.partition.PdfTaggedAttributeClassesTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in dev.docweave.partition.PdfTaggedAttributeClassesTest
+[INFO] Running dev.docweave.partition.PdfTaggedParagraphTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s -- in dev.docweave.partition.PdfTaggedParagraphTest
+[INFO] Running dev.docweave.partition.PdfTaggedSoftHyphenTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s -- in dev.docweave.partition.PdfTaggedSoftHyphenTest
+[INFO] Running dev.docweave.partition.PdfTaggedTablesTest
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.126 s -- in dev.docweave.partition.PdfTaggedTablesTest
+[INFO] Running dev.docweave.partition.PdfTextAlphaTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s -- in dev.docweave.partition.PdfTextAlphaTest
+[INFO] Running dev.docweave.partition.PdfTextRenderingTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in dev.docweave.partition.PdfTextRenderingTest
+[INFO] Running dev.docweave.partition.PdfType3PaintTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in dev.docweave.partition.PdfType3PaintTest
+[INFO] Running dev.docweave.partition.PdfUnifiedOrderTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in dev.docweave.partition.PdfUnifiedOrderTest
+[INFO] Running dev.docweave.partition.PdfWordOcrProviderTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in dev.docweave.partition.PdfWordOcrProviderTest
+[INFO] Running dev.docweave.partition.PdfWordOcrTransformTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s -- in dev.docweave.partition.PdfWordOcrTransformTest
+[INFO] Running dev.docweave.partition.RotatedPdfOcrProviderTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in dev.docweave.partition.RotatedPdfOcrProviderTest
+[INFO] Running dev.docweave.partition.SegmentedRowsPdfTableDetectorTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s -- in dev.docweave.partition.SegmentedRowsPdfTableDetectorTest
+[INFO] Running dev.docweave.partition.ShadedRowsPdfTableTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in dev.docweave.partition.ShadedRowsPdfTableTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 503, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ docweave-pdf ---
+[INFO] 
+[INFO] --- javadoc:3.12.0:javadoc-no-fork (verify-javadocs) @ docweave-pdf ---
+[INFO] 
+[INFO] -----------------< io.docweave:docweave-ocr-tesseract >-----------------
+[INFO] Building DocWeave optional Tesseract OCR 0.1.0-SNAPSHOT          [15/19]
+[INFO]   from docweave-ocr-tesseract/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ docweave-ocr-tesseract ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-ocr-tesseract/src/main/resources
+[INFO] Copying 2 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ docweave-ocr-tesseract ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ docweave-ocr-tesseract ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-ocr-tesseract/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ docweave-ocr-tesseract ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 19 source files with javac [debug release 21] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ docweave-ocr-tesseract ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.docweave.ocr.TesseractCellImageTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.324 s -- in dev.docweave.ocr.TesseractCellImageTest
+[INFO] Running dev.docweave.ocr.TesseractCellInstalledTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in dev.docweave.ocr.TesseractCellInstalledTest
+[INFO] Running dev.docweave.ocr.TesseractContinuationInstalledTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in dev.docweave.ocr.TesseractContinuationInstalledTest
+[INFO] Running dev.docweave.ocr.TesseractInstalledTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in dev.docweave.ocr.TesseractInstalledTest
+[INFO] Running dev.docweave.ocr.TesseractLineSplittingTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in dev.docweave.ocr.TesseractLineSplittingTest
+[INFO] Running dev.docweave.ocr.TesseractMergedTableInstalledTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in dev.docweave.ocr.TesseractMergedTableInstalledTest
+[INFO] Running dev.docweave.ocr.TesseractMixedInstalledTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in dev.docweave.ocr.TesseractMixedInstalledTest
+[INFO] Running dev.docweave.ocr.TesseractOcrTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.744 s -- in dev.docweave.ocr.TesseractOcrTest
+[INFO] Running dev.docweave.ocr.TesseractOrientationInstalledTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in dev.docweave.ocr.TesseractOrientationInstalledTest
+[INFO] Running dev.docweave.ocr.TesseractOrientationTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.950 s -- in dev.docweave.ocr.TesseractOrientationTest
+[INFO] Running dev.docweave.ocr.TesseractPreprocessingTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.392 s -- in dev.docweave.ocr.TesseractPreprocessingTest
+[INFO] Running dev.docweave.ocr.TesseractResolutionTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.106 s -- in dev.docweave.ocr.TesseractResolutionTest
+[INFO] Running dev.docweave.ocr.TesseractRotationInstalledTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in dev.docweave.ocr.TesseractRotationInstalledTest
+[INFO] Running dev.docweave.ocr.TesseractStrategyInstalledTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in dev.docweave.ocr.TesseractStrategyInstalledTest
+[INFO] Running dev.docweave.ocr.TesseractTableInstalledTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in dev.docweave.ocr.TesseractTableInstalledTest
+[INFO] Running dev.docweave.ocr.TesseractTsvTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in dev.docweave.ocr.TesseractTsvTest
+[INFO] Running dev.docweave.ocr.TesseractWhitepointTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in dev.docweave.ocr.TesseractWhitepointTest
+[INFO] Running dev.docweave.ocr.TesseractWordTableInstalledTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in dev.docweave.ocr.TesseractWordTableInstalledTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 54, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ docweave-ocr-tesseract ---
+[INFO] 
+[INFO] --- javadoc:3.12.0:javadoc-no-fork (verify-javadocs) @ docweave-ocr-tesseract ---
+[INFO] 
+[INFO] ------------------< io.docweave:docweave-layout-onnx >------------------
+[INFO] Building DocWeave optional ONNX table layout 0.1.0-SNAPSHOT      [16/19]
+[INFO]   from docweave-layout-onnx/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ docweave-layout-onnx ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] Copying 2 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ docweave-layout-onnx ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ docweave-layout-onnx ---
+[INFO] Copying 4 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ docweave-layout-onnx ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ docweave-layout-onnx ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.docweave.layout.DetectedOnnxTableLayoutTest
+2026-10-21 22:20:33.343055311 [E:onnxruntime:, sequential_executor.cc:572 ExecuteKernel] Non-zero status code returned while running Loop node. Name:'' Status Message: Exiting due to terminate flag being set to true.
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.336 s -- in dev.docweave.layout.DetectedOnnxTableLayoutTest
+[INFO] Running dev.docweave.layout.DetectionCropsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in dev.docweave.layout.DetectionCropsTest
+[INFO] Running dev.docweave.layout.OnnxRealModelTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in dev.docweave.layout.OnnxRealModelTest
+[INFO] Running dev.docweave.layout.OnnxTableLayoutTest
+2026-10-21 22:20:34.040093927 [E:onnxruntime:, sequential_executor.cc:572 ExecuteKernel] Non-zero status code returned while running Loop node. Name:'' Status Message: Exiting due to terminate flag being set to true.
+2026-10-21 22:20:34.585675688 [E:onnxruntime:, sequential_executor.cc:572 ExecuteKernel] Non-zero status code returned while running Loop node. Name:'' Status Message: Exiting due to terminate flag being set to true.
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.868 s -- in dev.docweave.layout.OnnxTableLayoutTest
+[INFO] Running dev.docweave.layout.TableImageTransformTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.091 s -- in dev.docweave.layout.TableImageTransformTest
+[INFO] Running dev.docweave.layout.TableTopologyTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in dev.docweave.layout.TableTopologyTest
+[INFO] Running dev.docweave.layout.YoloXTableLayoutTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.845 s -- in dev.docweave.layout.YoloXTableLayoutTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 38, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ docweave-layout-onnx ---
+[INFO] 
+[INFO] --- javadoc:3.12.0:javadoc-no-fork (verify-javadocs) @ docweave-layout-onnx ---
+[INFO] 
+[INFO] ------------------------< io.docweave:docweave >------------------------
+[INFO] Building DocWeave all 0.1.0-SNAPSHOT                             [17/19]
+[INFO]   from docweave-all/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ docweave ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 2 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ docweave ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ docweave ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-all/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ docweave ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ docweave ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ docweave ---
+[INFO] 
+[INFO] --- javadoc:3.12.0:javadoc-no-fork (verify-javadocs) @ docweave ---
+[INFO] Skipping org.apache.maven.plugins:maven-javadoc-plugin:3.12.0:javadoc-no-fork report goal
+[INFO] 
+[INFO] ---------------< io.docweave:docweave-integration-tests >---------------
+[INFO] Building DocWeave integration-tests 0.1.0-SNAPSHOT               [18/19]
+[INFO]   from docweave-integration-tests/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ docweave-integration-tests ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-integration-tests/src/main/resources
+[INFO] Copying 2 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ docweave-integration-tests ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ docweave-integration-tests ---
+[INFO] Copying 7 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ docweave-integration-tests ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ docweave-integration-tests ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.docweave.batch.BatchDeadlineTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.468 s -- in dev.docweave.batch.BatchDeadlineTest
+[INFO] Running dev.docweave.batch.BatchDeliveryTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.595 s -- in dev.docweave.batch.BatchDeliveryTest
+[INFO] Running dev.docweave.batch.BatchProcessorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s -- in dev.docweave.batch.BatchProcessorTest
+[INFO] Running dev.docweave.batch.DocumentBatchTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.030 s -- in dev.docweave.batch.DocumentBatchTest
+[INFO] Running dev.docweave.batch.DocumentDeadlineTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.316 s -- in dev.docweave.batch.DocumentDeadlineTest
+[INFO] Running dev.docweave.chunking.ChunkCancellationTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.308 s -- in dev.docweave.chunking.ChunkCancellationTest
+[INFO] Running dev.docweave.chunking.ChunkerTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s -- in dev.docweave.chunking.ChunkerTest
+[INFO] Running dev.docweave.chunking.ContextualChunkingIntegrationTest
+2026-10-22T05:20:38.927546261Z main ERROR Log4j API could not find a logging provider.
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.373 s -- in dev.docweave.chunking.ContextualChunkingIntegrationTest
+[INFO] Running dev.docweave.chunking.CustomSeparatorTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s -- in dev.docweave.chunking.CustomSeparatorTest
+[INFO] Running dev.docweave.chunking.PdfProviderHeaderChunkTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.148 s -- in dev.docweave.chunking.PdfProviderHeaderChunkTest
+[INFO] Running dev.docweave.chunking.StructuredTableChunkTest
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.264 s -- in dev.docweave.chunking.StructuredTableChunkTest
+[INFO] Running dev.docweave.chunking.TableIsolationTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in dev.docweave.chunking.TableIsolationTest
+[INFO] Running dev.docweave.chunking.UpstreamGoldenTest
+[INFO] Tests run: 41, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s -- in dev.docweave.chunking.UpstreamGoldenTest
+[INFO] Running dev.docweave.json.ElementJsonTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s -- in dev.docweave.json.ElementJsonTest
+[INFO] Running dev.docweave.json.JsonReadLimitsTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in dev.docweave.json.JsonReadLimitsTest
+[INFO] Running dev.docweave.json.OriginalsDecodeTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s -- in dev.docweave.json.OriginalsDecodeTest
+[INFO] Running dev.docweave.json.OriginalsStreamingTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.271 s -- in dev.docweave.json.OriginalsStreamingTest
+[INFO] Running dev.docweave.partition.BoundedFileInputTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 s -- in dev.docweave.partition.BoundedFileInputTest
+[INFO] Running dev.docweave.partition.DecodedTextInputTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s -- in dev.docweave.partition.DecodedTextInputTest
+[INFO] Running dev.docweave.partition.DelimitedPartitionTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in dev.docweave.partition.DelimitedPartitionTest
+[INFO] Running dev.docweave.partition.DocxContentTest
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.428 s -- in dev.docweave.partition.DocxContentTest
+[INFO] Running dev.docweave.partition.DocxDefaultStyleTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 s -- in dev.docweave.partition.DocxDefaultStyleTest
+[INFO] Running dev.docweave.partition.DocxDocumentDefaultsTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 s -- in dev.docweave.partition.DocxDocumentDefaultsTest
+[INFO] Running dev.docweave.partition.DocxNestedTableTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.175 s -- in dev.docweave.partition.DocxNestedTableTest
+[INFO] Running dev.docweave.partition.DocxNumberingStyleTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.112 s -- in dev.docweave.partition.DocxNumberingStyleTest
+[INFO] Running dev.docweave.partition.DocxOmissionDiagnosticsTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 s -- in dev.docweave.partition.DocxOmissionDiagnosticsTest
+[INFO] Running dev.docweave.partition.DocxPartitionTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.145 s -- in dev.docweave.partition.DocxPartitionTest
+[INFO] Running dev.docweave.partition.DocxReferenceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in dev.docweave.partition.DocxReferenceTest
+[INFO] Running dev.docweave.partition.DocxTableStyleTest
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.275 s -- in dev.docweave.partition.DocxTableStyleTest
+[INFO] Running dev.docweave.partition.DocxWordBandEvidenceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in dev.docweave.partition.DocxWordBandEvidenceTest
+[INFO] Running dev.docweave.partition.DocxWordDirectOutlineEvidenceTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s -- in dev.docweave.partition.DocxWordDirectOutlineEvidenceTest
+[INFO] Running dev.docweave.partition.DocxWordNumberingEvidenceTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s -- in dev.docweave.partition.DocxWordNumberingEvidenceTest
+[INFO] Running dev.docweave.partition.DocxWordOverlapEvidenceTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in dev.docweave.partition.DocxWordOverlapEvidenceTest
+[INFO] Running dev.docweave.partition.DocxWordWholeTableEvidenceTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in dev.docweave.partition.DocxWordWholeTableEvidenceTest
+[INFO] Running dev.docweave.partition.HtmlNestedTableTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s -- in dev.docweave.partition.HtmlNestedTableTest
+[INFO] Running dev.docweave.partition.HtmlTextEscaperTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s -- in dev.docweave.partition.HtmlTextEscaperTest
+[INFO] Running dev.docweave.partition.HtmlUpstreamReviewTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in dev.docweave.partition.HtmlUpstreamReviewTest
+[INFO] Running dev.docweave.partition.MarkdownNestedTableTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s -- in dev.docweave.partition.MarkdownNestedTableTest
+[INFO] Running dev.docweave.partition.MarkdownPartitionTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s -- in dev.docweave.partition.MarkdownPartitionTest
+[INFO] Running dev.docweave.partition.MarkupReferenceTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in dev.docweave.partition.MarkupReferenceTest
+[INFO] Running dev.docweave.partition.NestedTableBaselineTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in dev.docweave.partition.NestedTableBaselineTest
+[INFO] Running dev.docweave.partition.NestedTableCorpusTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.431 s -- in dev.docweave.partition.NestedTableCorpusTest
+[INFO] Running dev.docweave.partition.NestedTableFoundationTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in dev.docweave.partition.NestedTableFoundationTest
+[INFO] Running dev.docweave.partition.PartitionCancellationTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in dev.docweave.partition.PartitionCancellationTest
+[INFO] Running dev.docweave.partition.PartitionTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s -- in dev.docweave.partition.PartitionTest
+[INFO] Running dev.docweave.partition.PartitionerRegistryTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in dev.docweave.partition.PartitionerRegistryTest
+[INFO] Running dev.docweave.partition.PdfImageClipBoundsIntegrationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in dev.docweave.partition.PdfImageClipBoundsIntegrationTest
+[INFO] Running dev.docweave.partition.PdfImageGraphicsStateIntegrationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in dev.docweave.partition.PdfImageGraphicsStateIntegrationTest
+[INFO] Running dev.docweave.partition.PdfImageGroupContextIntegrationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in dev.docweave.partition.PdfImageGroupContextIntegrationTest
+[INFO] Running dev.docweave.partition.PdfPipelineTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.135 s -- in dev.docweave.partition.PdfPipelineTest
+[INFO] Running dev.docweave.partition.StrictTextDecoderTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s -- in dev.docweave.partition.StrictTextDecoderTest
+[INFO] Running dev.docweave.partition.TextClassificationTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s -- in dev.docweave.partition.TextClassificationTest
+[INFO] Running dev.docweave.partition.TextReferenceTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in dev.docweave.partition.TextReferenceTest
+[INFO] Running dev.docweave.partition.TextScanCancellationTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in dev.docweave.partition.TextScanCancellationTest
+[INFO] Running dev.docweave.partition.TxtPartitionTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in dev.docweave.partition.TxtPartitionTest
+[INFO] Running dev.docweave.partition.XmlPartitionTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s -- in dev.docweave.partition.XmlPartitionTest
+[INFO] Running dev.docweave.partition.XmlReferenceTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in dev.docweave.partition.XmlReferenceTest
+[INFO] Running dev.docweave.PublicApiTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in dev.docweave.PublicApiTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 516, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ docweave-integration-tests ---
+[INFO] 
+[INFO] --- javadoc:3.12.0:javadoc-no-fork (verify-javadocs) @ docweave-integration-tests ---
+[INFO] Skipping org.apache.maven.plugins:maven-javadoc-plugin:3.12.0:javadoc-no-fork report goal
+[INFO] 
+[INFO] ------------------< io.docweave:docweave-validation >-------------------
+[INFO] Building DocWeave validation 0.1.0-SNAPSHOT                      [19/19]
+[INFO]   from docweave-validation/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ docweave-validation ---
+[INFO] skip non existing resourceDirectory __LOCAL_HOME__/Projects/JavaProjects/docweave/docweave-validation/src/main/resources
+[INFO] Copying 2 resources from .. to target/classes/META-INF
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ docweave-validation ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ docweave-validation ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ docweave-validation ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 78 source files with javac [debug release 21] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ docweave-validation ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.docweave.validation.BackgroundWhitepointScanProbeTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 s -- in dev.docweave.validation.BackgroundWhitepointScanProbeTest
+[INFO] Running dev.docweave.validation.ContextualRetrievalEvaluationTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in dev.docweave.validation.ContextualRetrievalEvaluationTest
+[INFO] Running dev.docweave.validation.ContextualRetrievalReplayTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.146 s -- in dev.docweave.validation.ContextualRetrievalReplayTest
+[INFO] Running dev.docweave.validation.ContrastLimitedScanProbeTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.020 s -- in dev.docweave.validation.ContrastLimitedScanProbeTest
+[INFO] Running dev.docweave.validation.CorpusFeatureChecksTest
+2026-10-22T05:20:45.245330077Z main ERROR Log4j API could not find a logging provider.
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.698 s -- in dev.docweave.validation.CorpusFeatureChecksTest
+[INFO] Running dev.docweave.validation.CorpusLegacyTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.302 s -- in dev.docweave.validation.CorpusLegacyTest
+[INFO] Running dev.docweave.validation.CorpusReviewTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.503 s -- in dev.docweave.validation.CorpusReviewTest
+[INFO] Running dev.docweave.validation.CorpusWarningContractTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.324 s -- in dev.docweave.validation.CorpusWarningContractTest
+[INFO] Running dev.docweave.validation.DocxCorpusSourceTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in dev.docweave.validation.DocxCorpusSourceTest
+[INFO] Running dev.docweave.validation.DocxOwnershipTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in dev.docweave.validation.DocxOwnershipTest
+[INFO] Running dev.docweave.validation.DocxStyleProbeTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.214 s -- in dev.docweave.validation.DocxStyleProbeTest
+[INFO] Running dev.docweave.validation.MedianScanProbeTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in dev.docweave.validation.MedianScanProbeTest
+[INFO] Running dev.docweave.validation.OllamaContextExampleTest
+Generated model context for 1 chunks; original text/provenance retained. Wrote /tmp/junit-9557199844201096996/first.json
+Generated model context for 1 chunks; original text/provenance retained. Wrote /tmp/junit-9557199844201096996/second.json
+Generated model context for 1 chunks; original text/provenance retained. Wrote /tmp/junit-14928657148131470415/generation.json
+Generated model context for 1 chunks; original text/provenance retained. Wrote /tmp/junit-1420373970858045370/success.json
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.725 s -- in dev.docweave.validation.OllamaContextExampleTest
+[INFO] Running dev.docweave.validation.PdfCurrentBusinessRowsTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s -- in dev.docweave.validation.PdfCurrentBusinessRowsTest
+[INFO] Running dev.docweave.validation.PdfDefaultComparisonTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in dev.docweave.validation.PdfDefaultComparisonTest
+[INFO] Running dev.docweave.validation.PdfFontCorpusTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in dev.docweave.validation.PdfFontCorpusTest
+[INFO] Running dev.docweave.validation.PdfHistoricalTextCorpusTest
+[Fatal Error] :1:10: DOCTYPE is disallowed when the feature "http://apache.org/xml/features/disallow-doctype-decl" set to true.
+[Fatal Error] :1:10: DOCTYPE is disallowed when the feature "http://apache.org/xml/features/disallow-doctype-decl" set to true.
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.172 s -- in dev.docweave.validation.PdfHistoricalTextCorpusTest
+[INFO] Running dev.docweave.validation.PdfImageMaskOriginalsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in dev.docweave.validation.PdfImageMaskOriginalsTest
+[INFO] Running dev.docweave.validation.PdfIndependentAngleTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in dev.docweave.validation.PdfIndependentAngleTest
+[INFO] Running dev.docweave.validation.PdfIndependentCellsTest
+[Fatal Error] :1:10: DOCTYPE is disallowed when the feature "http://apache.org/xml/features/disallow-doctype-decl" set to true.
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in dev.docweave.validation.PdfIndependentCellsTest
+[INFO] Running dev.docweave.validation.PdfIndependentMarginsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in dev.docweave.validation.PdfIndependentMarginsTest
+[INFO] Running dev.docweave.validation.PdfIndependentOrientationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in dev.docweave.validation.PdfIndependentOrientationTest
+[INFO] Running dev.docweave.validation.PdfIndependentWordRotationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in dev.docweave.validation.PdfIndependentWordRotationTest
+[INFO] Running dev.docweave.validation.PdfInterimScanComparisonTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in dev.docweave.validation.PdfInterimScanComparisonTest
+[INFO] Running dev.docweave.validation.PdfInterimTableComparisonTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s -- in dev.docweave.validation.PdfInterimTableComparisonTest
+[INFO] Running dev.docweave.validation.PdfLayoutModelsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.160 s -- in dev.docweave.validation.PdfLayoutModelsTest
+[INFO] Running dev.docweave.validation.PdfMultilineCorpusTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in dev.docweave.validation.PdfMultilineCorpusTest
+[INFO] Running dev.docweave.validation.PdfPhysicalScanCorpusTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in dev.docweave.validation.PdfPhysicalScanCorpusTest
+[INFO] Running dev.docweave.validation.PdfPubTabNetCorpusTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in dev.docweave.validation.PdfPubTabNetCorpusTest
+[INFO] Running dev.docweave.validation.PdfReadingCorpusTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in dev.docweave.validation.PdfReadingCorpusTest
+[INFO] Running dev.docweave.validation.PdfRotationCorpusTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in dev.docweave.validation.PdfRotationCorpusTest
+[INFO] Running dev.docweave.validation.PdfScannedTableCorpusTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in dev.docweave.validation.PdfScannedTableCorpusTest
+[INFO] Running dev.docweave.validation.PdfScientificReadingOrderTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s -- in dev.docweave.validation.PdfScientificReadingOrderTest
+[INFO] Running dev.docweave.validation.PdfScientificSpanTest
+[Fatal Error] :1:10: DOCTYPE is disallowed when the feature "http://apache.org/xml/features/disallow-doctype-decl" set to true.
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in dev.docweave.validation.PdfScientificSpanTest
+[INFO] Running dev.docweave.validation.PdfUnicodeCorpusTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in dev.docweave.validation.PdfUnicodeCorpusTest
+[INFO] Running dev.docweave.validation.SavedOutputComparatorTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.531 s -- in dev.docweave.validation.SavedOutputComparatorTest
+[INFO] Running dev.docweave.validation.StandaloneSourceCompatibilityTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.972 s -- in dev.docweave.validation.StandaloneSourceCompatibilityTest
+[INFO] Running dev.docweave.validation.UpstreamStatusTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in dev.docweave.validation.UpstreamStatusTest
+[INFO] Running dev.docweave.validation.WordEvidenceComparatorTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s -- in dev.docweave.validation.WordEvidenceComparatorTest
+[INFO] Running dev.docweave.validation.WordEvidenceReplayTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.301 s -- in dev.docweave.validation.WordEvidenceReplayTest
+[INFO] Running dev.docweave.validation.WordFixtureGeneratorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 s -- in dev.docweave.validation.WordFixtureGeneratorTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 159, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ docweave-validation ---
+[INFO] 
+[INFO] --- javadoc:3.12.0:javadoc-no-fork (verify-javadocs) @ docweave-validation ---
+[INFO] Skipping org.apache.maven.plugins:maven-javadoc-plugin:3.12.0:javadoc-no-fork report goal
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for DocWeave parent 0.1.0-SNAPSHOT:
+[INFO] 
+[INFO] DocWeave parent .................................... SUCCESS [  0.354 s]
+[INFO] DocWeave core ...................................... SUCCESS [  0.925 s]
+[INFO] DocWeave json ...................................... SUCCESS [  0.062 s]
+[INFO] DocWeave chunking .................................. SUCCESS [  1.705 s]
+[INFO] DocWeave batch ..................................... SUCCESS [  0.045 s]
+[INFO] DocWeave txt ....................................... SUCCESS [  0.341 s]
+[INFO] DocWeave html ...................................... SUCCESS [  0.390 s]
+[INFO] DocWeave markdown .................................. SUCCESS [  0.362 s]
+[INFO] DocWeave delimited ................................. SUCCESS [  0.053 s]
+[INFO] DocWeave csv ....................................... SUCCESS [  0.356 s]
+[INFO] DocWeave tsv ....................................... SUCCESS [  0.336 s]
+[INFO] DocWeave xml ....................................... SUCCESS [  0.336 s]
+[INFO] DocWeave docx ...................................... SUCCESS [  0.644 s]
+[INFO] DocWeave pdf ....................................... SUCCESS [  5.422 s]
+[INFO] DocWeave optional Tesseract OCR .................... SUCCESS [  9.648 s]
+[INFO] DocWeave optional ONNX table layout ................ SUCCESS [  3.509 s]
+[INFO] DocWeave all ....................................... SUCCESS [  0.009 s]
+[INFO] DocWeave integration-tests ......................... SUCCESS [  7.970 s]
+[INFO] DocWeave validation ................................ SUCCESS [  9.781 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  42.328 s
+[INFO] Finished at: 2026-10-21T22:20:53-07:00
+[INFO] ------------------------------------------------------------------------

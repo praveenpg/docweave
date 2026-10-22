@@ -3201,3 +3201,76 @@ invocation alpha approximately 0.57, and four on pages 11/20 with Multiply blend
 while their internal image alpha/blend remain 1/Normal. Every other image metadata field
 and identity remains unchanged. This is a real source-metadata gap filled, not a new
 rendered-pixel accuracy result. See [the evidence](../benchmarks/review/pdf-image-group-context/README.md).
+
+
+### Explicit OCR wide-gap line splitting (unreleased)
+
+```java
+final var tesseractOptions = TesseractOptions.defaults()
+        .withLineSplitting(TesseractOptions.LineSplitting.WIDE_GAPS);
+```
+
+Use these options with the existing explicit Tesseract provider configuration. The default
+`TESSERACT_LINES` preserves engine line identities. `WIDE_GAPS` divides a recognized line
+when the horizontal gap between consecutive words exceeds three times that line's tallest
+word box. It preserves recognition order, words and source frames; it changes returned line
+boundaries and boxes, including detailed word-line grouping. It is not a new OCR model,
+recognition improvement or automatic column detector. The setting applies to the provider's
+returned lines and may split a genuine tab-stop/table-cell row; choose it explicitly.
+
+All emitted fragments count against `maxLines`. Fragment accumulation checks the remaining
+allowance before retaining excess fragments; all new scans check the shared deadline and
+interruption. Existing character limits remain conservative. The new 14th `TesseractOptions`
+component retains the prior constructor but changes canonical/reflective record schemas
+and record-derived serialization/equality/hash/toString behavior.
+
+On the complete retained 1879 scan, both fixed models improve associated lines 49 -> 50/50,
+missing 1 -> 0, without changing recognized text. On degraded 1778, associations improve
+17 -> 26/38 (German) and 18 -> 27/38 (Fraktur), while extra fragments increase 11 -> 17
+and 10 -> 12. The 1835 and 1780 outcomes are unchanged. These are geometric association
+gains, not character-recognition gains; local line errors do not charge every extra fragment.
+See [complete outcomes and limitations](../benchmarks/review/pdf-ocr-wide-gap-lines/README.md).
+
+
+### Curved clipping envelopes (unreleased)
+
+```java
+final var options = PdfOptions.defaults()
+        .withImageClipBounds(true)
+        .withCurvedClipEnvelopes(true);
+```
+
+The explicit curved-clip option accumulates the transformed path endpoints and Bezier
+control points, then intersects their enclosing rectangle into the graphics visitor's
+interpreted clip state. This encloses the true curve, including multi-subpath winding
+cases, but is not the actual shape. Existing save/restore and form/Type3 path isolation
+apply. Invalid/nonfinite extent falls back to the existing conservative behavior.
+
+This affects image clip metadata and native rule eligibility in the graphics traversal,
+including when image metadata is not selected. The separate native-text visitor's explicit
+path-clip filtering is unchanged. It does not add pixel cropping, actual curved rendering,
+soft-mask composition or occlusion. The default remains false and allocates no new path
+extent arrays. Existing constructors remain available; the 17th PdfOptions record component
+changes canonical/reflective schemas and record-derived serialization/equality/hash/text.
+
+All 94 retained magazine occurrences remain, with exactly 11 page-8 clip envelopes tighter,
+83 unchanged, none widened and no newly proven exclusions. Other image metadata remains
+unchanged. Seven owned controls cover the image behavior, source frame/form restoration,
+control-point over-approximation and independently selected native-rule filtering. See
+[the full evidence](../benchmarks/review/pdf-curved-clip-envelopes/README.md).
+
+
+### Existing scientific inline-script configuration evidence
+
+The retained complete scientific evaluation improves from 108/143 to 113/143 exact
+paragraphs when the existing tagged-paragraph configuration additionally selects
+`PdfTaggedParagraphOptions.InlineScripts.NEARBY_SMALL_GLYPHS`, alongside SOURCE_LINE_WRAPS,
+PAGE_FRAGMENTS and explicit PdfParagraphAssembler assembly. Preserved pairs are
+3,864/4,942; unmatched/duplicated references remain. This is configuration evidence,
+not newly implemented reading order, lexical repair or held-out accuracy. Untagged fallback
+and publisher/PDF text differences remain. See [the complete diagnosis](../benchmarks/review/pdf-scientific-diagnosis/README.md).
+
+The [business miss classification](../benchmarks/review/pdf-business-miss-classification/README.md)
+identifies reference parenthesis spacing separately from titles, date-header presentation
+and actual proposal coverage. The strict original scores remain unchanged; no reference
+normalization decision or extraction repair is implied by that diagnostic.

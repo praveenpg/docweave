@@ -1,0 +1,29 @@
+{
+  "baseline_commit": "add2ab6",
+  "scope": "Explicit output-line geometry regrouping, not improved character recognition",
+  "java": "21",
+  "full_verify": {
+    "tests": 1341,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "private_doclint": "PASS",
+  "real_engine_calls": 8,
+  "replay": "All eight complete case/model outcomes reproduced; prediction-text and source/reference/model hashes preserved, checked on JVM",
+  "budget_review": "Shared deadline checks in all new loops; fragment population bounded before excess accumulation",
+  "sources": {
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractOptions.java": "f3a0aa48373c81a6db56b9c60b03c04f5d6a5b22719239a21737f34077f368f1",
+    "docweave-ocr-tesseract/src/main/java/dev/docweave/ocr/TesseractTsv.java": "aeca173d9e2ea3e36a7f3f28de223e6f551081bb39bd559e1cf34f9320b46945",
+    "docweave-ocr-tesseract/src/test/java/dev/docweave/ocr/TesseractLineSplittingTest.java": "0337b2b8b50c59ac39c24797e36d0c0c2bd85bfb7af6a20536c227f0ca121d07",
+    "docweave-validation/src/test/java/dev/docweave/validation/PdfHistoricalTextCorpusTest.java": "24c2756f2af96a4bd6b834e2807e0a48b628cb28f1cef4856d3d213145af00b1"
+  },
+  "logs": {
+    "ocr-verify.log": "7cd8215a90d2b050513097431fe19d17da6c4b90fe83349d31e4c01520419e28",
+    "ocr-focused.log": "8afcc238b1cb0a158ce009c3e3779d330992ebbe17db2ad50f5e97af9e1e8065",
+    "ocr-docs.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ocr-replay-check.log": "cb2510d6cb4a387e86edadb59313eb19a365016734bb25bceade68eddbdfd64c",
+    "historical-final.log": "409a201ac37a219cf6fad9d33bad0eb5203592b60301018c1270363f28d6d3b1",
+    "degraded-final.log": "9545f5ec5343b55db76199f7d912b65595b9f35ecce03d897c9274449c6bb177"
+  }
+}

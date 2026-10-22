@@ -74,6 +74,7 @@ final class TesseractTsv {
                                  .decode(ByteBuffer.wrap(bytes))
                                  .toString();
         final var lines = new LinkedHashMap<String, Words>();
+        final boolean split = options.lineSplitting() == TesseractOptions.LineSplitting.WIDE_GAPS;
         int characters = 0;
         try (final var reader = new BufferedReader(new StringReader(text))) {
             if (!HEADER.equals(reader.readLine())) {
@@ -116,7 +117,7 @@ final class TesseractTsv {
                     if (lines.size() >= options.maxLines()) {
                         throw new PartitionException(PartitionException.Code.OCR_LIMIT, "Tesseract exceeds maxLines");
                     }
-                    words = new Words(retainWords);
+                    words = new Words(retainWords || split);
                     lines.put(key, words);
                 }
                 words.add(cells[11], left, top, left + wordWidth, top + wordHeight);
@@ -127,6 +128,19 @@ final class TesseractTsv {
         final var detailed = retainWords ? new ArrayList<PdfWordOcrProvider.WordLine>(lines.size()) : null;
         for (final var words : lines.values()) {
             deadline.remaining();
+            if (split) {
+                for (final var segment : segments(words.tokens, options.maxLines() - result.size(), deadline)) {
+                    if (result.size() >= options.maxLines()) {
+                        throw new PartitionException(PartitionException.Code.OCR_LIMIT, "Tesseract exceeds maxLines");
+                    }
+                    final var line = line(segment, deadline);
+                    result.add(line);
+                    if (detailed != null) {
+                        detailed.add(new PdfWordOcrProvider.WordLine(line, segment));
+                    }
+                }
+                continue;
+            }
             final var line =
                     new PdfOcrProvider.Line(words.text.toString(), words.left, words.top, words.right, words.bottom);
             result.add(line);
@@ -135,6 +149,70 @@ final class TesseractTsv {
             }
         }
         return new Parsed(List.copyOf(result), detailed == null ? List.of() : List.copyOf(detailed));
+    }
+
+    /**
+     * Divides one Tesseract line where a horizontal gap between consecutive words, in recognition order, exceeds
+     * three times the line's tallest word. Overlapping or right-to-left steps never split. Words are not reordered.
+     * @param tokens one Tesseract line's recognized words
+     * @param maxSegments remaining returned-line allowance, checked before retaining new fragments
+     * @param deadline shared recognition deadline and interruption check
+     * @return nonempty consecutive word segments
+     * @throws IOException if cancelled, timed out or the returned-line budget is exhausted
+     */
+    private static List<List<PdfWordOcrProvider.Word>> segments(final List<PdfWordOcrProvider.Word> tokens,
+            final int maxSegments, final OcrDeadline deadline) throws IOException {
+        if (maxSegments < 1) {
+            throw new PartitionException(PartitionException.Code.OCR_LIMIT, "Tesseract exceeds maxLines");
+        }
+        double height = 0;
+        for (final var word : tokens) {
+            deadline.remaining();
+            height = Math.max(height, word.bottom() - word.top());
+        }
+        final var result = new ArrayList<List<PdfWordOcrProvider.Word>>();
+        var current = new ArrayList<PdfWordOcrProvider.Word>();
+        for (final var word : tokens) {
+            deadline.remaining();
+            if (!current.isEmpty() && word.left() - current.getLast().right() > 3 * height) {
+                if (result.size() + 1 >= maxSegments) {
+                    throw new PartitionException(PartitionException.Code.OCR_LIMIT, "Tesseract exceeds maxLines");
+                }
+                result.add(List.copyOf(current));
+                current = new ArrayList<>();
+            }
+            current.add(word);
+        }
+        result.add(List.copyOf(current));
+        return result;
+    }
+
+    /**
+     * Builds one returned line from consecutive words with single-space separators and their enclosing box.
+     * @param words nonempty segment
+     * @param deadline shared recognition deadline and interruption check
+     * @return immutable line value
+     * @throws IOException if recognition is interrupted or times out
+     */
+    private static PdfOcrProvider.Line line(final List<PdfWordOcrProvider.Word> words, final OcrDeadline deadline)
+            throws IOException {
+        final var text = new StringBuilder();
+        double left = Double.POSITIVE_INFINITY;
+        double top = Double.POSITIVE_INFINITY;
+        double right = Double.NEGATIVE_INFINITY;
+        double bottom = Double.NEGATIVE_INFINITY;
+        for (final var word : words) {
+            deadline.remaining();
+            if (!text.isEmpty()) {
+                text.append(' ');
+            }
+            text.append(word.text());
+            left = Math.min(left, word.left());
+            top = Math.min(top, word.top());
+            right = Math.max(right, word.right());
+            bottom = Math.max(bottom, word.bottom());
+        }
+        return new PdfOcrProvider.Line(text.toString(), left, top, right, bottom);
     }
 
     /**

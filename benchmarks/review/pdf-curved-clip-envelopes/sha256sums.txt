@@ -1,0 +1,1 @@
+abe2b0cac3b0609a355138cf9388db68681d2a88d1980c2f6ba0dfba210b3e8b  benchmarks/review/pdf-curved-clip-envelopes/candidate.patch
