@@ -85,7 +85,8 @@ use Maven 3.9+ and run `mvn verify`; the beta dependency above is for consuming 
 - [Release notes and version-tag checklist](docs/releases/README.md)
 - [Draft PDF beta scope and release checklist](docs/pdf-beta-checklist.md)
 - [Compatibility specification](docs/compatibility.md)
-- [Implementation backlog](docs/roadmap.md)
+- [Product roadmap](docs/product-roadmap.md)
+- [Detailed implementation backlog](docs/roadmap.md)
 - [Benchmark workflow](benchmarks/README.md)
 - Deeply immutable Java element model in `docweave-core/src/main/java/dev/docweave/core`.
 - Jackson 3 JSON codec, including zlib/base64 original-element provenance.

@@ -1,5 +1,9 @@
 # Implementation backlog
 
+For product direction and delivery priorities, see the [DocWeave roadmap](product-roadmap.md).
+This file retains earlier implementation notes and planning context; current task dispositions
+are recorded in [pending work](pending-work.md).
+
 Current work dispositions are consolidated in [pending work](pending-work.md), including parked
 PDF improvements and completed items. The [dated deferred-functionality audit](deferred-functionality-audit.md)
 is retained as historical evidence; its earlier pending states do not override that index.
