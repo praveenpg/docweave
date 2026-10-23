@@ -42,7 +42,8 @@ public final class CompareUpstreamTextAgreement {
      * @param args frozen manifest, original source directory, raw upstream capture directory, a fresh report and
      *         optionally {@code --inline-scripts}, which adds the explicit native small-glyph run policy to the
      *         defaults, or {@code --profile=LAYOUT[+MODIFIER]...}, which selects a native layout with explicit
-     *         policies ({@code INLINE_SCRIPTS}, {@code SIDE_STREAMS} or {@code SIDE_STREAMS_ROW_TIES}); or
+     *         policies ({@code INLINE_SCRIPTS}, {@code SIDE_STREAMS}, {@code SIDE_STREAMS_ROW_TIES} or
+     *         {@code SIDE_STREAMS_ROW_FRAGMENTS}); or
      *         {@code --self-test}
      * @throws Exception if an identity or control fails
      */
@@ -141,7 +142,7 @@ public final class CompareUpstreamTextAgreement {
      * Builds a native layout profile with optional explicit policy modifiers separated by {@code +}.
      *
      * @param name layout name followed by optional {@code INLINE_SCRIPTS} and {@code SIDE_STREAMS} or
-     *         {@code SIDE_STREAMS_ROW_TIES} modifiers
+     *         {@code SIDE_STREAMS_ROW_TIES} or {@code SIDE_STREAMS_ROW_FRAGMENTS} modifiers
      * @return extraction options
      */
     static PdfOptions profile(final String name) {
@@ -153,6 +154,8 @@ public final class CompareUpstreamTextAgreement {
                 case "SIDE_STREAMS" -> options.withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS);
                 case "SIDE_STREAMS_ROW_TIES" ->
                     options.withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_ROW_TIES);
+                case "SIDE_STREAMS_ROW_FRAGMENTS" ->
+                    options.withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_ROW_FRAGMENTS);
                 default -> throw new IllegalArgumentException("Unknown profile modifier");
             };
         }

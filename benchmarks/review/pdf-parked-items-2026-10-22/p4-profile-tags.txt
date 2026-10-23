@@ -1,0 +1,16 @@
+arnimb_goethe03_1835.tif profile_sha=3c9140c447e92d57 bytes=669068 desc_intent=0
+  tag 41324230 221806 ffd1a25b47ac292d
+  tag 41324231 221806 ffd1a25b47ac292d
+  tag 41324232 221806 ffd1a25b47ac292d
+bebel_frau_1879.tif profile_sha=87e382b9336e6a04 bytes=6876 desc_intent=0
+  tag 41324230 absent
+  tag 41324231 absent
+  tag 41324232 absent
+buerger_gedichte_1778_0039.tif profile_sha=3c9140c447e92d57 bytes=669068 desc_intent=0
+  tag 41324230 221806 ffd1a25b47ac292d
+  tag 41324231 221806 ffd1a25b47ac292d
+  tag 41324232 221806 ffd1a25b47ac292d
+nn_besuch_1780_00001.tif profile_sha=e5f6ffb83b6d3491 bytes=560 desc_intent=0
+  tag 41324230 absent
+  tag 41324231 absent
+  tag 41324232 absent

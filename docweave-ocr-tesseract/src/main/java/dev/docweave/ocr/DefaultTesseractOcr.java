@@ -184,13 +184,16 @@ final class DefaultTesseractOcr implements TesseractOcr, PdfWordOcrProvider {
             }
             command.addAll(List.of("-c", "tessedit_create_tsv=1"));
             final var bytes = TesseractProcess.run(command, options.maxOutputBytes(), deadline);
+            // Only page calls may consult source pixels for a printed column rule; cells keep text-only grouping.
+            final var source = kind == InputKind.PAGE ? image : null;
             if (retainWords) {
                 final var words =
-                        TesseractTsv.parseWords(bytes, image.getWidth(), image.getHeight(), options, deadline);
+                        TesseractTsv.parseWords(bytes, image.getWidth(), image.getHeight(), options, deadline, source);
                 return new Recognized(List.of(), words);
             }
             return new Recognized(
-                    TesseractTsv.parse(bytes, image.getWidth(), image.getHeight(), options, deadline), List.of());
+                    TesseractTsv.parse(bytes, image.getWidth(), image.getHeight(), options, deadline, source),
+                    List.of());
         } catch (final PartitionException | InterruptedIOException failure) {
             throw failure;
         } catch (final IOException | RuntimeException failure) {

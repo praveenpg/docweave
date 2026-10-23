@@ -1,0 +1,158 @@
+{
+ "scope": "P3 frozen simulations; counts only (appended line text kept private). Targets: apple p3 two rows, amazon p7 one row.",
+ "line_baseline_grouping_units": 2.0,
+ "simulations": {
+  "BANDS-apple": [
+   {
+    "page": 1,
+    "table": 1,
+    "rows": 33,
+    "appended": 0
+   },
+   {
+    "page": 2,
+    "table": 1,
+    "rows": 17,
+    "appended": 0
+   },
+   {
+    "page": 2,
+    "table": 2,
+    "rows": 11,
+    "appended": 7
+   },
+   {
+    "page": 2,
+    "table": 3,
+    "rows": 5,
+    "appended": 0
+   },
+   {
+    "page": 3,
+    "table": 1,
+    "rows": 34,
+    "appended": 0
+   }
+  ],
+  "BANDS-amazon": [
+   {
+    "page": 6,
+    "table": 1,
+    "rows": 45,
+    "appended": 0
+   },
+   {
+    "page": 7,
+    "table": 1,
+    "rows": 26,
+    "appended": 0
+   },
+   {
+    "page": 8,
+    "table": 1,
+    "rows": 12,
+    "appended": 0
+   },
+   {
+    "page": 10,
+    "table": 1,
+    "rows": 31,
+    "appended": 0
+   },
+   {
+    "page": 11,
+    "table": 1,
+    "rows": 26,
+    "appended": 0
+   },
+   {
+    "page": 12,
+    "table": 1,
+    "rows": 33,
+    "appended": 0
+   },
+   {
+    "page": 13,
+    "table": 1,
+    "rows": 31,
+    "appended": 0
+   }
+  ],
+  "NUMERIC-apple": [
+   {
+    "page": 1,
+    "table": 1,
+    "rows": 33,
+    "appended": 0
+   },
+   {
+    "page": 2,
+    "table": 1,
+    "rows": 17,
+    "appended": 0
+   },
+   {
+    "page": 2,
+    "table": 2,
+    "rows": 11,
+    "appended": 0
+   },
+   {
+    "page": 2,
+    "table": 3,
+    "rows": 5,
+    "appended": 0
+   },
+   {
+    "page": 3,
+    "table": 1,
+    "rows": 34,
+    "appended": 0
+   }
+  ],
+  "NUMERIC-amazon": [
+   {
+    "page": 6,
+    "table": 1,
+    "rows": 45,
+    "appended": 0
+   },
+   {
+    "page": 7,
+    "table": 1,
+    "rows": 26,
+    "appended": 1
+   },
+   {
+    "page": 8,
+    "table": 1,
+    "rows": 12,
+    "appended": 0
+   },
+   {
+    "page": 10,
+    "table": 1,
+    "rows": 31,
+    "appended": 0
+   },
+   {
+    "page": 11,
+    "table": 1,
+    "rows": 26,
+    "appended": 0
+   },
+   {
+    "page": 12,
+    "table": 1,
+    "rows": 33,
+    "appended": 0
+   },
+   {
+    "page": 13,
+    "table": 1,
+    "rows": 31,
+    "appended": 0
+   }
+  ]
+ }
+}

@@ -2,6 +2,30 @@
 
 ## Unreleased
 
+- Add explicit `PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_ROW_FRAGMENTS`, which builds on the
+  row-tie policy for column-paragraph layouts. When a side block starts on the row of the last line
+  of a multi-line main paragraph, the paragraph is emitted as two marked fragments with the side
+  block between them. The split happens only when the fragments rejoin exactly, and provenance
+  keys allow lossless rejoining. Against pinned Unstructured page-1 order, recent goes from 6 to 0
+  reversed pairs and next from 1 to 0, with no correct pair lost. Rejoined output equals the
+  row-tie output on 17 PDFs × all layouts, and existing policies are byte-identical. Limitation:
+  consumers that need whole paragraphs must rejoin fragments; the results are post-hoc development
+  evidence.
+- Add explicit `PdfNativeLayoutOptions.RowLines.SPLIT_ALIGNED_TWO_LINE_ROWS`, which splits
+  provider rows whose cells hold two aligned physical lines, such as a month-day over year date
+  header. The options record gains a `rowLines` component, and earlier constructors are kept. On
+  the NVIDIA replay, YOLOX goes from 71 to 77/110 and TATR from 36 to 38/110, with every gained row
+  a split date header and no lost or extra rows. On Apple/Amazon provider captures, 5
+  source-consistent splits are made. Limitation: this is a physical-line rule, not semantic header
+  detection, and the whitespace-spacer exclusion was a disclosed amendment after the first
+  measurement.
+- Add explicit `TesseractOptions.LineSplitting.WIDE_GAPS_AND_PRINTED_RULE`, which also splits page
+  lines at one faint printed vertical rule found in the page pixels by a relative-contrast ridge
+  test. On the degraded 1778 scan, associated lines go from 27 to 31/38 under both models, with
+  fewer missing and extra lines and fewer character errors. Three controls and two transfer pages
+  are unchanged. Limitations: the option detects ruled columns only, and no independent two-column
+  scan has been tested.
+
 - Add explicit `PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_ROW_TIES`. It produces the
   `SMALLER_TYPE_BLOCKS` elements, then moves an intact side element back past one adjacent
   single-line main element when the side element lies wholly to its left and starts within its

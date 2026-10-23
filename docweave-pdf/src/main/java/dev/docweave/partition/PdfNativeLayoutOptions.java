@@ -6,6 +6,8 @@ package dev.docweave.partition;
  * @param cellTextJoin explicit provider-owned native cell text policy; defaults preserve space-separated lines
  * @param leadingRow optional source-based leading row inference; defaults preserve provider bounds
  * @param trailingRows optional source-based trailing row inference; defaults preserve provider bounds
+ * @param rowLines optional splitting of provider rows whose cells hold two aligned physical lines; defaults
+ *                 preserve provider rows
  * @param dpi render resolution,36 through600
  * @param maxRenderPixels maximum rendered pixels per native-text page
  * @param maxTableAnchors maximum aggregate raw provider anchors per page; native-first composition also
@@ -13,7 +15,41 @@ package dev.docweave.partition;
  *                        anchors also count
  */
 public record PdfNativeLayoutOptions(int dpi, long maxRenderPixels, int maxTableAnchors, CellTextJoin cellTextJoin,
-        LeadingRow leadingRow, TrailingRows trailingRows) {
+        LeadingRow leadingRow, TrailingRows trailingRows, RowLines rowLines) {
+    /** Explicit splitting of provider rows by aligned physical source lines. */
+    public enum RowLines {
+        /** Preserves the provider's rows; multi-line cell text is joined by the cell text policy. */
+        PROVIDER_ROWS,
+        /**
+         * Splits a provider row into two rows when every one of its cells that owns visible native glyphs (at least
+         * two cells; whitespace glyphs such as empty-cell spacers are ignored) holds exactly two upright physical
+         * source lines, the first lines of all those cells end within two
+         * displayed units of each other, the second lines likewise, and every first line ends above every second
+         * line. The row is cut midway between the lowest first-line bottom and the highest second-line top; each of
+         * its cells becomes two cells, later rows move down by one and a declared header prefix covering the row
+         * grows by one. Rows reached by a vertical span, or holding one, are never split. A two-line date header
+         * drawn as month-and-day over year is an example. Only geometry is read, not text; split tables pass the
+         * existing topology validation again, and added anchors count toward maxTableAnchors. Provider-owned native
+         * tables only, after any leading- and trailing-row inference. A deliberately two-line single row is also split;
+         * this is a physical-line rule, not semantic header detection.
+         */
+        SPLIT_ALIGNED_TWO_LINE_ROWS
+    }
+
+    /**
+     * Preserves the former six-argument constructor without splitting provider rows.
+     * @param dpi render resolution,36 through600
+     * @param maxRenderPixels rendered pixel ceiling
+     * @param maxTableAnchors aggregate native/provider anchor ceiling
+     * @param cellTextJoin native cell text choice
+     * @param leadingRow leading-row inference choice
+     * @param trailingRows trailing-row inference choice
+     */
+    public PdfNativeLayoutOptions(final int dpi, final long maxRenderPixels, final int maxTableAnchors,
+            final CellTextJoin cellTextJoin, final LeadingRow leadingRow, final TrailingRows trailingRows) {
+        this(dpi, maxRenderPixels, maxTableAnchors, cellTextJoin, leadingRow, trailingRows, RowLines.PROVIDER_ROWS);
+    }
+
     /** Explicit source inference below an otherwise validated provider table. */
     public enum TrailingRows {
         /** Preserves the provider's original row count, bounds and anchors. */
@@ -142,7 +178,8 @@ public record PdfNativeLayoutOptions(int dpi, long maxRenderPixels, int maxTable
      * @throws NullPointerException if policy is null
      */
     public PdfNativeLayoutOptions withLeadingRow(final LeadingRow policy) {
-        return new PdfNativeLayoutOptions(dpi, maxRenderPixels, maxTableAnchors, cellTextJoin, policy, trailingRows);
+        return new PdfNativeLayoutOptions(
+                dpi, maxRenderPixels, maxTableAnchors, cellTextJoin, policy, trailingRows, rowLines);
     }
 
     /**
@@ -152,11 +189,25 @@ public record PdfNativeLayoutOptions(int dpi, long maxRenderPixels, int maxTable
      * Leading-row inference, when also selected, runs first. Source-tagged tables, native heuristic tables and
      * OCR output are unaffected.
      * @param policy nonnull trailing-row choice
-     * @return new immutable policy retaining render limits, cell text and leading-row selection
+     * @return new immutable policy retaining render limits, cell text, leading-row and row-line selection
      * @throws NullPointerException if policy is null
      */
     public PdfNativeLayoutOptions withTrailingRows(final TrailingRows policy) {
-        return new PdfNativeLayoutOptions(dpi, maxRenderPixels, maxTableAnchors, cellTextJoin, leadingRow, policy);
+        return new PdfNativeLayoutOptions(
+                dpi, maxRenderPixels, maxTableAnchors, cellTextJoin, leadingRow, policy, rowLines);
+    }
+
+    /**
+     * Copies this policy with explicit physical-line row splitting for provider-owned native tables only.
+     * Accepted splits add rows, shift later row indices and record the policy and split count in metadata.
+     * Source-tagged tables, native heuristic tables and OCR output are unaffected.
+     * @param policy nonnull row-line choice
+     * @return new immutable policy retaining every other selection
+     * @throws NullPointerException if policy is null
+     */
+    public PdfNativeLayoutOptions withRowLines(final RowLines policy) {
+        return new PdfNativeLayoutOptions(
+                dpi, maxRenderPixels, maxTableAnchors, cellTextJoin, leadingRow, trailingRows, policy);
     }
 
     /**
@@ -173,7 +224,8 @@ public record PdfNativeLayoutOptions(int dpi, long maxRenderPixels, int maxTable
      * @throws NullPointerException if policy is null
      */
     public PdfNativeLayoutOptions withCellTextJoin(final CellTextJoin policy) {
-        return new PdfNativeLayoutOptions(dpi, maxRenderPixels, maxTableAnchors, policy, leadingRow, trailingRows);
+        return new PdfNativeLayoutOptions(
+                dpi, maxRenderPixels, maxTableAnchors, policy, leadingRow, trailingRows, rowLines);
     }
 
     /**
@@ -185,6 +237,7 @@ public record PdfNativeLayoutOptions(int dpi, long maxRenderPixels, int maxTable
         java.util.Objects.requireNonNull(cellTextJoin, "cellTextJoin");
         java.util.Objects.requireNonNull(leadingRow, "leadingRow");
         java.util.Objects.requireNonNull(trailingRows, "trailingRows");
+        java.util.Objects.requireNonNull(rowLines, "rowLines");
         if (dpi < 36 || dpi > 600 || maxRenderPixels < 1 || maxTableAnchors < 1) {
             throw new IllegalArgumentException("Invalid native PDF layout policy");
         }

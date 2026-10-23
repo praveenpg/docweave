@@ -1,0 +1,34 @@
+import dev.docweave.DocWeave;
+import dev.docweave.partition.*;
+import java.io.ByteArrayOutputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+import org.apache.pdfbox.cos.*;
+import org.apache.pdfbox.pdmodel.*;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.common.PDStream;
+import org.apache.pdfbox.pdmodel.font.*;
+public class ProbeTabGlyph {
+    public static void main(String[] a) throws Exception {
+        byte[] pdf;
+        try (var doc = new PDDocument(); var out = new ByteArrayOutputStream()) {
+            var page = new PDPage(new PDRectangle(300, 100)); doc.addPage(page);
+            var helv = new PDType1Font(Standard14Fonts.FontName.HELVETICA);
+            var font = new COSDictionary(); font.setName(COSName.TYPE, "Font"); font.setName(COSName.SUBTYPE, "Type1"); font.setName(COSName.BASE_FONT, "Helvetica"); font.setItem(COSName.ENCODING, COSName.WIN_ANSI_ENCODING);
+            font.setInt(COSName.FIRST_CHAR, 9); font.setInt(COSName.LAST_CHAR, 126); var widths = new COSArray();
+            for (int c = 9; c <= 126; c++) widths.add(COSInteger.get(c < 32 ? (c == 9 ? 220 : 0) : Math.round(helv.getWidth(c))));
+            font.setItem(COSName.WIDTHS, widths);
+            var cmap = "/CIDInit /ProcSet findresource begin 12 dict begin begincmap /CMapName /T def 1 begincodespacerange <00> <FF> endcodespacerange 1 beginbfchar <09> <0009> endbfchar 1 beginbfrange <20> <7E> <0020> endbfrange endcmap CMapName currentdict /CMap defineresource pop end end";
+            var tu = new PDStream(doc); try (var os = tu.createOutputStream()) { os.write(cmap.getBytes(StandardCharsets.US_ASCII)); }
+            font.setItem(COSName.TO_UNICODE, tu);
+            var res = new PDResources(); var fonts = new COSDictionary(); fonts.setItem(COSName.getPDFName("F1"), font); res.getCOSObject().setItem(COSName.FONT, fonts); page.setResources(res);
+            var content = new PDStream(doc); try (var os = content.createOutputStream()) { os.write("BT /F1 8 Tf 20 60 Td (Black\t&\tWhite Printers) Tj ET".getBytes(StandardCharsets.ISO_8859_1)); }
+            page.setContents(content); doc.save(out); pdf = out.toByteArray();
+        }
+        for (var layout : List.of(PdfOptions.TextLayout.LINES, PdfOptions.TextLayout.PARAGRAPHS)) {
+            var els = DocWeave.create(PartitionerRegistry.of(List.of(PdfPartitioner.create(PdfOptions.defaults().withTextLayout(layout))))).partition(DocumentSource.bytes(pdf, "tab.pdf")).elements();
+            for (var e : els) System.out.println(layout + " [" + e.text().replace("\t", "\\t") + "]");
+        }
+        java.nio.file.Files.write(java.nio.file.Path.of(a[0]), pdf);
+    }
+}

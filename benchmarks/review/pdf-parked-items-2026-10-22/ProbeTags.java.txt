@@ -1,0 +1,20 @@
+import java.awt.color.*;
+import java.nio.file.*;
+import java.security.MessageDigest;
+import java.util.HexFormat;
+import javax.imageio.ImageIO;
+public class ProbeTags {
+    public static void main(String[] a) throws Exception {
+        try (var in = ImageIO.createImageInputStream(Path.of(a[0]).toFile())) {
+            var r = ImageIO.getImageReaders(in).next(); r.setInput(in);
+            var cs = r.read(0).getColorModel().getColorSpace(); r.dispose();
+            if (!(cs instanceof ICC_ColorSpace icc)) { System.out.println(a[0] + " untagged " + cs.getType()); return; }
+            var prof = icc.getProfile(); byte[] d = prof.getData();
+            System.out.printf("%s profile_sha=%s bytes=%d desc_intent=%d%n", Path.of(a[0]).getFileName(), sha(d).substring(0,16), d.length, d[67]);
+            for (int sig : new int[]{ICC_Profile.icSigAToB0Tag, ICC_Profile.icSigAToB1Tag, ICC_Profile.icSigAToB2Tag}) {
+                byte[] t = prof.getData(sig); System.out.printf("  tag %08x %s%n", sig, t == null ? "absent" : t.length + " " + sha(t).substring(0,16));
+            }
+        }
+    }
+    static String sha(byte[] b) throws Exception { return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(b)); }
+}

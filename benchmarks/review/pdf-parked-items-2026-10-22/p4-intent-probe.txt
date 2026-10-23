@@ -1,0 +1,5 @@
+colorspace=ICC_ColorSpace
+header_intent=0 class=scnr pcs=Lab  has_A2B0=true has_A2B1=true
+managed mean_abs_dY_vs_managed=0.000 differing_fraction=0.0000 box_min=85 box_mean=163.6
+stored mean_abs_dY_vs_managed=16.153 differing_fraction=1.0000 box_min=63 box_mean=140.8
+relative mean_abs_dY_vs_managed=0.000 differing_fraction=0.0000 box_min=85 box_mean=163.6

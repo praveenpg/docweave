@@ -1,0 +1,78 @@
+{
+  "scope" : "Owned-fixture prototypes of isolated-contribution and final-visibility contracts; PDFBox rendering at 72 DPI; evaluation only, no runtime API.",
+  "java_version" : "21.0.12.1",
+  "failures" : 1,
+  "fixtures" : [ {
+    "fixture" : "PLAIN",
+    "sample_x" : [ 50, 70, 140 ],
+    "isolated_alpha" : [ 255, 255, 0 ],
+    "isolated_expected" : [ 255, 255, 0 ],
+    "isolated_pass" : true,
+    "visible_alpha" : [ 255, 255, 0 ],
+    "visible_expected" : [ 255, 255, 0 ],
+    "visible_pass" : true
+  }, {
+    "fixture" : "CLIP",
+    "sample_x" : [ 50, 70, 140 ],
+    "isolated_alpha" : [ 255, 0, 0 ],
+    "isolated_expected" : [ 255, 0, 0 ],
+    "isolated_pass" : true,
+    "visible_alpha" : [ 255, 0, 0 ],
+    "visible_expected" : [ 255, 0, 0 ],
+    "visible_pass" : true
+  }, {
+    "fixture" : "ALPHA",
+    "sample_x" : [ 50, 70, 140 ],
+    "isolated_alpha" : [ 128, 128, 0 ],
+    "isolated_expected" : [ 128, 128, 0 ],
+    "isolated_pass" : true,
+    "visible_alpha" : [ 255, 255, 0 ],
+    "visible_expected" : [ 255, 255, 0 ],
+    "visible_pass" : true
+  }, {
+    "fixture" : "OVERPAINT",
+    "sample_x" : [ 50, 70, 140 ],
+    "isolated_alpha" : [ 255, 255, 0 ],
+    "isolated_expected" : [ 255, 255, 0 ],
+    "isolated_pass" : true,
+    "visible_alpha" : [ 0, 0, 0 ],
+    "visible_expected" : [ 0, 0, 0 ],
+    "visible_pass" : true
+  }, {
+    "fixture" : "GROUP_ALPHA",
+    "sample_x" : [ 50, 70, 140 ],
+    "isolated_alpha" : [ 128, 128, 0 ],
+    "isolated_expected" : [ 128, 128, 0 ],
+    "isolated_pass" : true,
+    "visible_alpha" : [ 255, 255, 0 ],
+    "visible_expected" : [ 255, 255, 0 ],
+    "visible_pass" : true
+  }, {
+    "fixture" : "REPEATED",
+    "sample_x" : [ 50, 70, 140 ],
+    "isolated_alpha" : [ 0, 0, 255 ],
+    "isolated_expected" : [ 0, 0, 255 ],
+    "isolated_pass" : true,
+    "visible_alpha" : [ 0, 0, 255 ],
+    "visible_expected" : [ 0, 0, 255 ],
+    "visible_pass" : true
+  }, {
+    "fixture" : "MULTIPLY",
+    "sample_x" : [ 50, 70, 140 ],
+    "isolated_alpha" : [ 255, 255, 0 ],
+    "isolated_expected" : [ 255, 255, 0 ],
+    "isolated_pass" : true,
+    "visible_alpha" : [ 255, 255, 0 ],
+    "visible_expected" : [ 255, 255, 0 ],
+    "visible_pass" : true
+  }, {
+    "fixture" : "SOFT_MASK",
+    "sample_x" : [ 50, 70, 140 ],
+    "isolated_alpha" : [ 0, 0, 0 ],
+    "isolated_expected" : [ 255, 0, 0 ],
+    "isolated_pass" : false,
+    "visible_alpha" : [ 255, 0, 0 ],
+    "visible_expected" : [ 255, 0, 0 ],
+    "visible_pass" : true
+  } ]
+}

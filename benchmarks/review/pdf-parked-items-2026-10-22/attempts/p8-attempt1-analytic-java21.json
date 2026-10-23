@@ -1,0 +1,48 @@
+{
+  "scope" : "Owned fractional-coverage crop check; BOX_4X at 72 DPI on WHITE; evaluation only.",
+  "java_version" : "21.0.12.1",
+  "crop_origin" : [ 0, 0, 100, 60 ],
+  "max_abs_difference_analytic" : 12,
+  "max_abs_difference_independent" : "NOT_RUN",
+  "pixels" : [ {
+    "x" : 10,
+    "y" : 10,
+    "expected" : 0,
+    "box4x" : 0
+  }, {
+    "x" : 20,
+    "y" : 10,
+    "expected" : 64,
+    "box4x" : 64
+  }, {
+    "x" : 21,
+    "y" : 10,
+    "expected" : 191,
+    "box4x" : 191
+  }, {
+    "x" : 30,
+    "y" : 10,
+    "expected" : 128,
+    "box4x" : 128
+  }, {
+    "x" : 31,
+    "y" : 10,
+    "expected" : 128,
+    "box4x" : 128
+  }, {
+    "x" : 40,
+    "y" : 10,
+    "expected" : 191,
+    "box4x" : 191
+  }, {
+    "x" : 41,
+    "y" : 10,
+    "expected" : 64,
+    "box4x" : 64
+  }, {
+    "x" : 60,
+    "y" : 10,
+    "expected" : 191,
+    "box4x" : 179
+  } ]
+}

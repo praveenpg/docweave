@@ -261,7 +261,7 @@ public final class EvaluateOcrColumnAlignment {
      * @param additions at most one additional boundary per original line
      * @return immutable lines retaining the original token sequence
      */
-    private static List<PdfOcrProvider.Line> regroup(
+    static List<PdfOcrProvider.Line> regroup(
             final List<PdfWordOcrProvider.WordLine> lines, final Map<Integer, Integer> additions) {
         final var output = new ArrayList<PdfOcrProvider.Line>();
         for (int i = 0; i < lines.size(); i++) {
@@ -297,8 +297,7 @@ public final class EvaluateOcrColumnAlignment {
      * @throws Exception if reference parsing or scorer invocation fails
      */
     @SuppressWarnings("unchecked")
-    private static Map<String, Object> score(final byte[] xml, final List<PdfOcrProvider.Line> predictions)
-            throws Exception {
+    static Map<String, Object> score(final byte[] xml, final List<PdfOcrProvider.Line> predictions) throws Exception {
         final Class<?> suite = PdfHistoricalTextCorpusTest.class;
         final var refMethod = suite.getDeclaredMethod("reference", byte[].class);
         refMethod.setAccessible(true);

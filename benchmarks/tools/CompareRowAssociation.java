@@ -321,7 +321,7 @@ public final class CompareRowAssociation {
 
     /**
      * Extracts with a native layout and optional {@code +INLINE_SCRIPTS} and {@code +SIDE_STREAMS} or
-     * {@code +SIDE_STREAMS_ROW_TIES} modifiers.
+     * {@code +SIDE_STREAMS_ROW_TIES} or {@code +SIDE_STREAMS_ROW_FRAGMENTS} modifiers.
      *
      * @param profile profile name
      * @param bytes original bytes
@@ -337,6 +337,8 @@ public final class CompareRowAssociation {
                 case "SIDE_STREAMS" -> options.withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS);
                 case "SIDE_STREAMS_ROW_TIES" ->
                     options.withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_ROW_TIES);
+                case "SIDE_STREAMS_ROW_FRAGMENTS" ->
+                    options.withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_ROW_FRAGMENTS);
                 default -> throw new IllegalArgumentException("Unknown profile modifier");
             };
         }

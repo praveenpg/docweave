@@ -1,0 +1,2 @@
+amp#1 y=402.2 gap=-0.03 :: [U+0009 x=121.35 w=1.76 sp=4.97 font=DALDPD+Cambria] [U+0026 x=123.12 w=5.49 sp=4.97 font=DALDPD+Cambria] [U+0009 x=128.58 w=1.76 sp=4.97 font=DALDPD+Cambria] [U+0057 x=130.35 w=7.35 sp=4.97 font=DALDPD+Cambria]
+amp#2 y=468.3 gap=-0.03 :: [U+0009 x=151.03 w=1.76 sp=4.97 font=DALDPD+Cambria] [U+0026 x=72.90 w=5.49 sp=4.97 font=DALDPD+Cambria] [U+0009 x=78.36 w=1.76 sp=4.97 font=DALDPD+Cambria] [U+0057 x=80.10 w=7.35 sp=4.97 font=DALDPD+Cambria]

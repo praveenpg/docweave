@@ -3,6 +3,7 @@ package dev.docweave.validation;
 import dev.docweave.core.Element;
 import dev.docweave.partition.PartitionException;
 import dev.docweave.partition.PdfNativeLayoutOptions;
+import dev.docweave.partition.PdfOptions;
 import org.jsoup.Jsoup;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.json.JsonMapper;
@@ -36,7 +37,9 @@ public final class AuditStatementRowPresence {
      * Presence consumes exact complete-row occurrences once; unmatched references and extra observations stay.
      * This diagnoses title/header offsets without replacing strict ordinal scores or measuring logical order.
      * @param args replay manifest, source cache, capture root and fresh report, optional --leading-row,
-     *         --section-row, --section-row-trailing-spacers or --section-row-parenthesis-diagnostic; or --self-test
+     *         --section-row, --section-row-trailing-spacers, --section-row-trailing-spacers-row-lines (also splits
+     *         aligned two-line provider rows), --section-row-trailing-spacers-aligned-text (native-first aligned-text
+     *         detection) or --section-row-parenthesis-diagnostic; or --self-test
      * @throws Exception if pins, protocol completeness, controls or extraction infrastructure fail
      */
     public static void main(final String[] args) throws Exception {
@@ -49,10 +52,15 @@ public final class AuditStatementRowPresence {
                         || args.length == 5
                                    && (args[4].equals("--leading-row") || args[4].equals("--section-row")
                                            || args[4].equals("--section-row-trailing-spacers")
+                                           || args[4].equals("--section-row-trailing-spacers-row-lines")
+                                           || args[4].equals("--section-row-trailing-spacers-aligned-text")
                                            || args[4].equals("--section-row-parenthesis-diagnostic")),
                 "Expected replay, source cache, captures, fresh report and an optional supported row-policy flag");
         final boolean spacingDiagnostic = args.length == 5 && args[4].equals("--section-row-parenthesis-diagnostic");
-        final boolean trailingSpacers = args.length == 5 && args[4].equals("--section-row-trailing-spacers");
+        final boolean rowLines = args.length == 5 && args[4].equals("--section-row-trailing-spacers-row-lines");
+        final boolean alignedText = args.length == 5 && args[4].equals("--section-row-trailing-spacers-aligned-text");
+        final boolean trailingSpacers =
+                args.length == 5 && (args[4].equals("--section-row-trailing-spacers") || rowLines || alignedText);
         final var leadingRow = args.length == 4 ? PdfNativeLayoutOptions.LeadingRow.PROVIDER_ONLY
                                : (args[4].equals("--section-row") || spacingDiagnostic || trailingSpacers)
                                        ? PdfNativeLayoutOptions.LeadingRow.SOURCE_NUMERIC_OR_SECTION_ROW
@@ -90,7 +98,8 @@ public final class AuditStatementRowPresence {
         regionReader.setAccessible(true);
         final var extract = CompareNvidiaCellLines.class.getDeclaredMethod("extract", JsonNode.class, Path.class,
                 String.class, Path.class, PdfNativeLayoutOptions.CellTextJoin.class,
-                PdfNativeLayoutOptions.LeadingRow.class, PdfNativeLayoutOptions.TrailingRows.class);
+                PdfNativeLayoutOptions.LeadingRow.class, PdfNativeLayoutOptions.TrailingRows.class,
+                PdfNativeLayoutOptions.RowLines.class, PdfOptions.TableDetection.class);
         extract.setAccessible(true);
         final var html = Jsoup.parse(Files.readString(Path.of(args[1], reference.get("source_html").asString())));
         final var results = new ArrayList<Map<String, Object>>();
@@ -102,7 +111,11 @@ public final class AuditStatementRowPresence {
                 @SuppressWarnings("unchecked")
                 final var decoded = (List<Element>) extract.invoke(null, replay, Path.of(args[2]), family,
                         Path.of(args[1], reference.get("source_pdf").asString()),
-                        PdfNativeLayoutOptions.CellTextJoin.SPACE_SEPARATED, leadingRow, trailingRows);
+                        PdfNativeLayoutOptions.CellTextJoin.SPACE_SEPARATED, leadingRow, trailingRows,
+                        rowLines ? PdfNativeLayoutOptions.RowLines.SPLIT_ALIGNED_TWO_LINE_ROWS
+                                 : PdfNativeLayoutOptions.RowLines.PROVIDER_ROWS,
+                        alignedText ? PdfOptions.TableDetection.RULED_AND_ALIGNED_TEXT
+                                    : PdfOptions.TableDetection.RULED_AND_PARTIAL_TEXT);
                 elements = decoded;
             } catch (final InvocationTargetException failure) {
                 if (failure.getCause() instanceof PartitionException typed) {

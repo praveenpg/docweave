@@ -3098,6 +3098,53 @@ there separated a row pair, so the pass is scoped to column-paragraph layouts. T
 from post-hoc development evidence and is not held-out accuracy. See the
 [row-tie policy evidence](../benchmarks/review/pdf-sidebar-row-tie-policy/README.md).
 
+#### Same-row sidebar paragraph fragments (unreleased)
+
+Whole-element ordering cannot place a sidebar between two lines of one paragraph. When a side
+block's first line starts on the row of the last line of a multi-line main paragraph, the explicit
+fragment policy represents that order with two marked fragments:
+
+```java
+var options = PdfOptions.defaults()
+        .withTextLayout(PdfOptions.TextLayout.COLUMN_PARAGRAPHS)
+        .withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_ROW_FRAGMENTS);
+```
+
+Output equals `SMALLER_TYPE_BLOCKS_ROW_TIES`, except for that case. There the paragraph becomes
+two elements, its earlier lines and its last line, with the side block between them. The tie
+uses the row-tie geometry (that line's top ≤ side top < its bottom; side wholly to its left).
+A split happens only when the first fragment's text, one space and the last line's text equal
+the unsplit paragraph exactly, so a retained hyphen wrap is never split.
+
+Both fragments carry:
+
+- `pdf_reading_order_fragment_policy=row_tie_fragments_v1`;
+- `pdf_paragraph_fragment_group`, a page-local ordinal;
+- `pdf_paragraph_fragment_index`, 1 or 2;
+- `pdf_paragraph_fragment_count`, 2.
+
+To restore the row-tie paragraph, join each group's fragments with one space and take the union
+of their bounds. Consumers that need whole paragraphs must rejoin or choose another policy. The
+policy applies to column-paragraph layouts only; plain `PARAGRAPHS` keeps `SMALLER_TYPE_BLOCKS`
+placement.
+
+**Measured results:**
+
+- **Line order:** against pinned Unstructured 0.27.28 page-1 order on the four development papers,
+  every column profile goes from 6 to 0 reversed pairs on recent and from 1 to 0 on next.
+  Holdout (17/18) and eLife (43) are unchanged, with no correct pair lost or newly unmatched.
+- **Reconstruction:** across 17 pinned control PDFs, every layout and both inline-script choices
+  (204 source profiles), rejoined output equals the row-tie output exactly. One fragment group
+  occurs per column profile, on page 1 of recent and next only.
+- **Strict paragraphs:** results, measured without rejoining, are unchanged at 58/59/60/61 of 143.
+- **Row association:** without rejoining, one next row pair goes from separated to kept, and
+  nothing regresses.
+- **Existing policies:** default, `SMALLER_TYPE_BLOCKS` and row-tie outputs are byte-identical to
+  before (612 hashes).
+
+These are post-hoc development results, not held-out accuracy. See the
+[parked-items evidence](../benchmarks/review/pdf-parked-items-2026-10-22/README.md).
+
 ### Explicit logical paragraph assembly (unreleased)
 
 To make complete linked page fragments contiguous, apply the separate `PdfParagraphAssembler`
@@ -3369,6 +3416,53 @@ producers that paint no whitespace cells. See
 [trailing-row evidence](../benchmarks/review/pdf-trailing-cell-spacer-rows/README.md).
 
 
+### Explicit physical-line provider rows (unreleased)
+
+`PdfNativeLayoutOptions.RowLines.SPLIT_ALIGNED_TWO_LINE_ROWS` splits a provider table row into two
+rows when the row's cells hold two aligned physical source lines. A typical case is a date header
+printed as month and day over year, which a provider proposes as one row.
+
+All of these must hold:
+
+- every cell of the row that owns visible native glyphs (at least two cells) holds exactly two
+  upright physical lines;
+- the first lines of all those cells end within two displayed units of each other, and the second
+  lines likewise;
+- every first line ends above every second line.
+
+Whitespace-only glyphs, such as a producer's empty-cell spacers, are ignored. The row is cut
+midway between the lowest first-line bottom and the highest second-line top. Later rows move down
+by one, and a declared header prefix that covers the row grows by one. Rows reached by or holding
+a vertical span are never split.
+
+```java
+final var layoutOptions = PdfNativeLayoutOptions.defaults()
+        .withRowLines(PdfNativeLayoutOptions.RowLines.SPLIT_ALIGNED_TWO_LINE_ROWS);
+```
+
+The split runs after leading- and trailing-row inference and is validated again by the existing
+topology checks. Added anchors count against `maxTableAnchors`. Accepted tables carry
+`pdf_table_row_line_policy` (`aligned_two_line_rows_v1`) and `pdf_table_split_rows`.
+`PROVIDER_ROWS` remains the default. `PdfNativeLayoutOptions` gains a seventh record component,
+`rowLines`; earlier constructor signatures are kept, so existing six-argument calls remain
+compatible. Record deconstruction patterns and consumers that inspect the canonical record
+schema must account for the new component.
+
+**NVIDIA replay** (together with the section-row and spacer-row policies):
+
+- YOLOX exact complete-row presence rises 71 → 77/110 and TATR 36 → 38/110;
+- the gained rows are exactly the classified split date-header rows;
+- no reference row is lost, and unmatched observed rows fall;
+- strict ordinal stays 0/110.
+
+**Transfer** (retained Apple and Amazon provider captures): 5 rows split, characters are
+unchanged, and every split is a two-line period header or a body row the provider had merged.
+
+This is a physical-line rule, not semantic header detection: a deliberately two-line single row
+is also split. The first frozen wording counted whitespace spacer glyphs as lines and split
+nothing. The whitespace exclusion is a disclosed amendment made after that result. See the
+[parked-items evidence](../benchmarks/review/pdf-parked-items-2026-10-22/README.md).
+
 ### Conservative image clip bounds (unreleased)
 
 ```java
@@ -3474,6 +3568,40 @@ and 10 -> 12. The 1835 and 1780 outcomes are unchanged. These are geometric asso
 gains, not character-recognition gains; local line errors do not charge every extra fragment.
 See [complete outcomes and limitations](../benchmarks/review/pdf-ocr-wide-gap-lines/README.md).
 
+
+### Explicit OCR printed-rule line splitting (unreleased)
+
+```java
+final var tesseractOptions = TesseractOptions.defaults()
+        .withLineSplitting(TesseractOptions.LineSplitting.WIDE_GAPS_AND_PRINTED_RULE);
+```
+
+This applies `WIDE_GAPS` and also splits page lines at one printed vertical column rule found in
+the page pixels:
+
+- **Rule evidence:** a pixel at least eight luminance levels darker than the mean of the pixels two
+  columns to its left and right.
+- **Rule:** the single longest vertical run of such pixels, with gaps of up to two rows bridged,
+  inside the central 10–90% of the recognized-word extent. It is accepted only if it is at least
+  eight median word heights long.
+- **Split:** a recognized line overlapping the run vertically is split at the rule when it has
+  words on both sides and no word box crosses the rule.
+
+Table-cell calls never use the rule. Words keep their order and text, extra lines count against
+`maxLines`, and the pixel scan checks the call deadline.
+
+On the degraded 1778 scan, the rule is found at x≈968 and associated lines rise 27 → 31/38 under
+both pinned models. Missing lines fall 11 → 7, extra predictions fall (13 → 11, 11 → 9) and joint
+character errors fall (364 → 311, 319 → 260). XML-sequence edits are unchanged, and XML-order
+reversed pairs rise 30 → 43 as matched pairs grow.
+
+The 1835, 1879 and 1780 controls and two unused transfer pages (1778/0066, 1780/00002) give
+output identical to `WIDE_GAPS`. On 1780 the detector accepts the scanner border as a rule but
+makes no split. The runtime option reproduces the evaluated rule exactly on all 12 observations.
+
+This is a heuristic for faint printed column rules. It does not detect unruled columns, and an
+independent labelled two-column scan has not been tested. See the
+[parked-items evidence](../benchmarks/review/pdf-parked-items-2026-10-22/README.md).
 
 ### Curved clipping envelopes (unreleased)
 

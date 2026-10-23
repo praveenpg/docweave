@@ -1,0 +1,42 @@
+import java.awt.image.BufferedImage;
+import java.nio.file.*;
+import java.util.*;
+import javax.imageio.ImageIO;
+import javax.xml.parsers.DocumentBuilderFactory;
+import tools.jackson.databind.json.JsonMapper;
+/** P6 pixel/replay-only feasibility probe for frozen T6 scanner-border masking. Args: tif xml capture1 capture2 */
+public class ProbeBorders {
+    public static void main(String[] a) throws Exception {
+        BufferedImage img;
+        try (var in = ImageIO.createImageInputStream(Path.of(a[0]).toFile())) { var r = ImageIO.getImageReaders(in).next(); r.setInput(in); var d = r.read(0); r.dispose();
+            img = new BufferedImage(d.getWidth(), d.getHeight(), BufferedImage.TYPE_INT_RGB); img.getGraphics().drawImage(d,0,0,null); }
+        int w=img.getWidth(), h=img.getHeight(); int[][] y=new int[h][w]; long[] hist=new long[256];
+        for(int j=0;j<h;j++)for(int i=0;i<w;i++){int v=img.getRGB(i,j);int l=(299*((v>>16)&255)+587*((v>>8)&255)+114*(v&255))/1000;y[j][i]=l;hist[l]++;}
+        int t=otsu(hist,(long)w*h);
+        double[] col=new double[w], row=new double[h];
+        for(int j=0;j<h;j++)for(int i=0;i<w;i++){col[i]+=y[j][i];row[j]+=y[j][i];}
+        for(int i=0;i<w;i++)col[i]/=h; for(int j=0;j<h;j++)row[j]/=w;
+        int left=0; while(left<w&&col[left]<t)left++;
+        int right=w; while(right>left&&col[right-1]<t)right--;
+        int top=0; while(top<h&&row[top]<t)top++;
+        int bottom=h; while(bottom>top&&row[bottom-1]<t)bottom--;
+        System.out.printf("%s size=%dx%d otsu=%d bands: left=[0,%d) right=[%d,%d) top=[0,%d) bottom=[%d,%d) masked_fraction=%.4f%n", Path.of(a[0]).getFileName(), w,h,t,left,right,w,top,bottom,h,
+            1-((right-left)*(double)(bottom-top))/(w*(double)h));
+        // reference lines
+        var doc=DocumentBuilderFactory.newNSInstance().newDocumentBuilder().parse(Path.of(a[1]).toFile());
+        var lines=doc.getElementsByTagNameNS("*","TextLine"); List<double[]> refs=new ArrayList<>();
+        for(int k=0;k<lines.getLength();k++){var el=(org.w3c.dom.Element)lines.item(k); var coords=(org.w3c.dom.Element)el.getElementsByTagNameNS("*","Coords").item(0);
+            double x0=1e9,y0=1e9,x1=-1,y1=-1; for(String p:coords.getAttribute("points").trim().split("\\s+")){var xy=p.split(",");double px=Double.parseDouble(xy[0]),py=Double.parseDouble(xy[1]);x0=Math.min(x0,px);y0=Math.min(y0,py);x1=Math.max(x1,px);y1=Math.max(y1,py);} refs.add(new double[]{x0,y0,x1,y1});}
+        int S=0; for(var r:refs) if(inBand(r,left,right,top,bottom)) S++;
+        System.out.printf("  reference_lines=%d S_intersecting_mask=%d%n", refs.size(), S);
+        var mapper=JsonMapper.builder().build();
+        for(int c=2;c<a.length;c++){var cap=mapper.readTree(Files.readAllBytes(Path.of(a[c]))); int n=0,inMask=0,assocInMask=0; double maxR=0;
+            for(var wl:cap.get("word_lines")){var l=wl.get("line"); double[] b={l.get("left").asDouble(),l.get("top").asDouble(),l.get("right").asDouble(),l.get("bottom").asDouble()}; n++; maxR=Math.max(maxR,b[2]);
+                double cx=(b[0]+b[2])/2, cy=(b[1]+b[3])/2; boolean m = cx<left||cx>=right||cy<top||cy>=bottom;
+                if(m){inMask++; boolean assoc=false; for(var r:refs) if(overlap(b,r)) assoc=true; if(assoc)assocInMask++;}}
+            System.out.printf("  %s predicted_lines=%d centre_in_mask=%d of_which_overlapping_reference=%d removable_extras=%d max_right=%.0f%n", Path.of(a[c]).getFileName(), n, inMask, assocInMask, inMask-assocInMask, maxR);}
+    }
+    static boolean inBand(double[] r,int l,int rt,int t,int b){return r[0]<l||r[2]>rt||r[1]<t||r[3]>b;}
+    static boolean overlap(double[] a,double[] b){return Math.min(a[2],b[2])>Math.max(a[0],b[0])&&Math.min(a[3],b[3])>Math.max(a[1],b[1]);}
+    static int otsu(long[] h,long total){double sum=0;for(int i=0;i<256;i++)sum+=i*(double)h[i];double sb=0,max=-1;long wb=0;int best=0;for(int i=0;i<256;i++){wb+=h[i];if(wb==0)continue;long wf=total-wb;if(wf==0)break;sb+=i*(double)h[i];double mb=sb/wb,mf=(sum-sb)/wf;double v=(double)wb*wf*(mb-mf)*(mb-mf);if(v>max){max=v;best=i;}}return best;}
+}

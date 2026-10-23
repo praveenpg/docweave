@@ -152,6 +152,13 @@ class PdfHistoricalTextCorpusTest {
         final boolean storedSamples = Boolean.getBoolean("docweave.pdf.historical.stored.samples");
         assertTrue(!storedSamples || System.getProperty("docweave.pdf.historical.container.cache") == null,
                 "Stored-sample decoding cannot reuse color-managed container captures");
+        // Diagnostic secondary passes: add only non-overlapping lines from stored samples or sparse segmentation.
+        final boolean dualUnion = Boolean.getBoolean("docweave.pdf.historical.dual.decode.union");
+        final boolean sparseUnion = Boolean.getBoolean("docweave.pdf.historical.sparse.union");
+        assertTrue(!(dualUnion || sparseUnion)
+                           || (!(dualUnion && sparseUnion) && !storedSamples && !median && !background && !contrast
+                                   && !managedBackground),
+                "Secondary-pass unions are independent hypotheses and cannot be composed");
         final var profiles = new ArrayList<LanguageProfile>();
         for (final var profile : manifest.get("profiles")) {
             profiles.add(languageProfile(Path.of(data), profile));
@@ -192,6 +199,7 @@ class PdfHistoricalTextCorpusTest {
             final var decoded =
                     image(Path.of(cache, selected.get("image").asString()), reference.width(), reference.height());
             final var stored = storedSamples ? storedSamples(decoded) : null;
+            final var secondary = dualUnion ? storedSamples(decoded) : null;
             final var image = stored == null ? decoded : stored;
             if (stored != null) {
                 decoded.flush();
@@ -235,6 +243,16 @@ class PdfHistoricalTextCorpusTest {
                                                                dev.docweave.ocr.TesseractPreprocessing.LOCAL_WHITEPOINT)
                                    : sourceResolution ? TesseractOcr.create(options, thresholding(profile), dpi)
                                                       : TesseractOcr.create(options, thresholding(profile));
+                final var sparse =
+                        !sparseUnion ? null
+                        : sourceResolution
+                                ? TesseractOcr.create(
+                                          options.withPageSegmentation(TesseractOptions.PageSegmentation.SPARSE_TEXT),
+                                          thresholding(profile), dpi)
+                                : TesseractOcr.create(
+                                          options.withPageSegmentation(TesseractOptions.PageSegmentation.SPARSE_TEXT),
+                                          thresholding(profile));
+                final var added = new int[1];
                 final PdfOcrProvider observed = raster -> {
                     assertEquals(reference.width(), raster.getWidth());
                     assertEquals(reference.height(), raster.getHeight());
@@ -242,6 +260,13 @@ class PdfHistoricalTextCorpusTest {
                             "Source-resolution replay must retain exact RGB pixels before OCR");
                     frames.add(Map.of(
                             "width", raster.getWidth(), "height", raster.getHeight(), "rgb_sha256", pixels(raster)));
+                    if (secondary != null || sparse != null) {
+                        final var primary = engine.recognize(raster);
+                        final var union = union(
+                                primary, secondary != null ? engine.recognize(secondary) : sparse.recognize(raster));
+                        added[0] = union.size() - primary.size();
+                        return union;
+                    }
                     if ((!median && !background && !contrast) || managedBackground) {
                         return engine.recognize(raster);
                     }
@@ -322,6 +347,12 @@ class PdfHistoricalTextCorpusTest {
                 if (storedSamples) {
                     result.put("source_sample_decoding", stored == null ? "DECODED_RGB_NO_EMBEDDED_PROFILE"
                                                                         : "STORED_SAMPLES_EMBEDDED_PROFILE_IGNORED");
+                }
+                if (dualUnion || sparseUnion) {
+                    result.put("secondary_line_union", dualUnion ? (secondary == null ? "NONE_NO_EMBEDDED_PROFILE"
+                                                                                      : "STORED_SAMPLES_NONOVERLAPPING")
+                                                                 : "SPARSE_TEXT_NONOVERLAPPING");
+                    result.put("secondary_lines_added", added[0]);
                 }
                 result.put("container_dpi", dpi);
                 result.put("engine_source_dpi", sourceResolution ? dpi : "ENGINE_DEFAULT");
@@ -504,6 +535,23 @@ class PdfHistoricalTextCorpusTest {
         final var gray = new BufferedImage(2, 1, BufferedImage.TYPE_BYTE_GRAY);
         assertNull(storedSamples(srgb));
         assertNull(storedSamples(gray));
+    }
+
+    /**
+     * The secondary-pass union keeps primary lines verbatim, drops any overlapping secondary line and inserts the
+     * rest at their vertical position; touching edges do not count as overlap.
+     */
+    @Test
+    void secondaryUnionAddsOnlyNonOverlappingLinesAtTheirTopPosition() {
+        final var first = new PdfOcrProvider.Line("a", 10, 100, 200, 120);
+        final var second = new PdfOcrProvider.Line("b", 10, 200, 200, 220);
+        final var number = new PdfOcrProvider.Line("19", 300, 20, 330, 40);
+        final var overlapping = new PdfOcrProvider.Line("x", 150, 110, 250, 130);
+        final var touching = new PdfOcrProvider.Line("t", 200, 150, 260, 170);
+        final var result = union(List.of(first, second), List.of(overlapping, touching, number));
+        assertEquals(List.of(number, first, touching, second), result);
+        assertEquals(List.of(first, second), union(List.of(first, second), List.of()));
+        assertEquals(List.of(number), union(List.of(), List.of(number)));
     }
 
     /**
@@ -1156,6 +1204,34 @@ class PdfHistoricalTextCorpusTest {
             }
         }
         return stored;
+    }
+
+    /**
+     * Diagnostic union of a primary recognition with a secondary pass. Every primary line is kept unchanged and in
+     * order; a secondary line is added only when its box intersects no primary line box with positive area, and it
+     * is inserted before the first primary line whose top lies below its own top. Secondary lines that overlap one
+     * another are all eligible; the rule never selects by text or confidence.
+     * @param primary primary lines in engine order
+     * @param secondary secondary-pass lines in engine order
+     * @return primary lines plus non-overlapping secondary lines
+     */
+    static List<PdfOcrProvider.Line> union(
+            final List<PdfOcrProvider.Line> primary, final List<PdfOcrProvider.Line> secondary) {
+        final var result = new ArrayList<>(primary);
+        for (final var line : secondary) {
+            final boolean overlaps = primary.stream().anyMatch(kept
+                    -> Math.min(kept.right(), line.right()) > Math.max(kept.left(), line.left())
+                               && Math.min(kept.bottom(), line.bottom()) > Math.max(kept.top(), line.top()));
+            if (overlaps) {
+                continue;
+            }
+            int index = 0;
+            while (index < result.size() && result.get(index).top() <= line.top()) {
+                index++;
+            }
+            result.add(index, line);
+        }
+        return List.copyOf(result);
     }
 
     /**

@@ -94,12 +94,18 @@ final class PdfNativeProviderTables {
                                       image, options.tableLimits(), policy.validation(), work)
                             : rawLayouts;
             // Trailing inference sees any accepted leading row, so both extensions share one ownership check.
-            final var layouts =
+            final var trailingLayouts =
                     policy.trailingRows() != PdfNativeLayoutOptions.TrailingRows.PROVIDER_ONLY
                             ? PdfTableLayouts.validate(PdfNativeTrailingRows.extend(leadingLayouts, glyphs, geometry,
                                                                xScale, yScale, preferred.tables(), work),
                                       image, options.tableLimits(), policy.validation(), work)
                             : leadingLayouts;
+            // Row splitting sees every inferred boundary row, then the complete topology is validated again.
+            final var layouts = policy.rowLines() != PdfNativeLayoutOptions.RowLines.PROVIDER_ROWS
+                                        ? PdfTableLayouts.validate(PdfNativeRowLines.split(trailingLayouts, glyphs,
+                                                                           geometry, xScale, yScale, work),
+                                                  image, options.tableLimits(), policy.validation(), work)
+                                        : trailingLayouts;
             long combinedAnchors = preferred.anchors();
             for (final var layout : layouts) {
                 work.step();
@@ -247,11 +253,16 @@ final class PdfNativeProviderTables {
                                     : "source_leading_numeric_row_v1");
                     metadata.put("pdf_table_added_leading_rows", 1);
                 }
-                if (layout != leadingLayouts.get(layoutIndex)) {
+                final var trailing = trailingLayouts.get(layoutIndex);
+                if (trailing != leadingLayouts.get(layoutIndex)) {
                     // A separate key keeps the established leading-row metadata unchanged when both are selected.
                     metadata.put("pdf_table_trailing_boundary_policy", "source_trailing_cell_spacer_rows_v1");
                     metadata.put(
-                            "pdf_table_added_trailing_rows", layout.rows() - leadingLayouts.get(layoutIndex).rows());
+                            "pdf_table_added_trailing_rows", trailing.rows() - leadingLayouts.get(layoutIndex).rows());
+                }
+                if (layout != trailing) {
+                    metadata.put("pdf_table_row_line_policy", "aligned_two_line_rows_v1");
+                    metadata.put("pdf_table_split_rows", layout.rows() - trailing.rows());
                 }
                 if (layout.headerRows() > 0) {
                     metadata.put("pdf_table_header_rows", layout.headerRows());

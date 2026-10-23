@@ -1,0 +1,29 @@
+import java.io.File;
+import java.util.*;
+import org.apache.pdfbox.Loader;
+import org.apache.pdfbox.text.*;
+/** P9: raw glyph sequence around every '&' on page 1: is the following space an explicit glyph or a gap? */
+public class ProbeAmpersand extends PDFTextStripper {
+    final List<TextPosition> glyphs = new ArrayList<>();
+    ProbeAmpersand() throws Exception { setStartPage(1); setEndPage(1); }
+    @Override protected void processTextPosition(TextPosition t) { glyphs.add(t); }
+    public static void main(String[] a) throws Exception {
+        try (var d = Loader.loadPDF(new File(a[0]))) {
+            var p = new ProbeAmpersand(); p.getText(d);
+            int n = 0;
+            for (int i = 0; i < p.glyphs.size(); i++) {
+                var g = p.glyphs.get(i);
+                if (!"&".equals(g.getUnicode())) continue;
+                n++;
+                var sb = new StringBuilder();
+                for (int k = Math.max(0,i-1); k < Math.min(p.glyphs.size(), i+3); k++) {
+                    var q = p.glyphs.get(k);
+                    sb.append(String.format(" [U+%04X x=%.2f w=%.2f sp=%.2f font=%s]", (int) q.getUnicode().charAt(0), q.getXDirAdj(), q.getWidthDirAdj(), q.getWidthOfSpace(), q.getFont().getName()));
+                }
+                var next = i + 1 < p.glyphs.size() ? p.glyphs.get(i+1) : null;
+                String cls = next == null ? "end" : " ".equals(next.getUnicode()) ? "EXPLICIT_SPACE_GLYPH" : String.format("gap=%.2f", next.getXDirAdj() - (g.getXDirAdj() + g.getWidthDirAdj()));
+                System.out.printf("amp#%d y=%.1f %s ::%s%n", n, g.getYDirAdj(), cls, sb);
+            }
+        }
+    }
+}

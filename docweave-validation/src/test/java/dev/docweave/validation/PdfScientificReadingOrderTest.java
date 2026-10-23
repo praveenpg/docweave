@@ -312,8 +312,8 @@ class PdfScientificReadingOrderTest {
 
     /**
      * Builds a native layout profile: a text layout name followed by optional {@code +INLINE_SCRIPTS} and
-     * {@code +SIDE_STREAMS} or {@code +SIDE_STREAMS_ROW_TIES} modifiers, each selecting its explicit non-default
-     * policy.
+     * {@code +SIDE_STREAMS} or {@code +SIDE_STREAMS_ROW_TIES} or {@code +SIDE_STREAMS_ROW_FRAGMENTS} modifiers, each
+     * selecting its explicit non-default policy.
      * @param name profile name
      * @return extraction options
      */
@@ -326,6 +326,8 @@ class PdfScientificReadingOrderTest {
                 case "SIDE_STREAMS" -> options.withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS);
                 case "SIDE_STREAMS_ROW_TIES" ->
                     options.withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_ROW_TIES);
+                case "SIDE_STREAMS_ROW_FRAGMENTS" ->
+                    options.withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_ROW_FRAGMENTS);
                 default -> throw new IllegalArgumentException("Unknown profile modifier");
             };
         }

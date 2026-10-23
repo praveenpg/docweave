@@ -131,6 +131,29 @@ public final class CompareNvidiaCellLines {
     static List<Element> extract(final JsonNode manifest, final Path root, final String profile, final Path original,
             final PdfNativeLayoutOptions.CellTextJoin policy, final PdfNativeLayoutOptions.LeadingRow leadingRow,
             final PdfNativeLayoutOptions.TrailingRows trailingRows) throws Exception {
+        return extract(manifest, root, profile, original, policy, leadingRow, trailingRows,
+                PdfNativeLayoutOptions.RowLines.PROVIDER_ROWS, PdfOptions.TableDetection.RULED_AND_PARTIAL_TEXT);
+    }
+
+    /**
+     * Replays fixed original geometry with explicit boundary, row-line and native-first detection policies.
+     * Every original page and raster identity remains required; no additional model call occurs.
+     * @param manifest frozen all-page captures
+     * @param root local numeric capture directory
+     * @param profile fixed detector profile
+     * @param original complete original PDF
+     * @param policy native cell text representation
+     * @param leadingRow explicit source-based leading row policy
+     * @param trailingRows explicit source-based trailing row policy
+     * @param rowLines explicit physical-line row policy
+     * @param detection native-first table detection policy
+     * @return complete original element sequence
+     * @throws Exception if capture validation or extraction fails
+     */
+    static List<Element> extract(final JsonNode manifest, final Path root, final String profile, final Path original,
+            final PdfNativeLayoutOptions.CellTextJoin policy, final PdfNativeLayoutOptions.LeadingRow leadingRow,
+            final PdfNativeLayoutOptions.TrailingRows trailingRows, final PdfNativeLayoutOptions.RowLines rowLines,
+            final PdfOptions.TableDetection detection) throws Exception {
         final var reader = ReplayNativeLayoutCaptures.class.getDeclaredMethod(
                 "snapshots", JsonNode.class, Path.class, String.class);
         reader.setAccessible(true);
@@ -159,11 +182,11 @@ public final class CompareNvidiaCellLines {
             }
         };
         final var partitioner = PdfPartitioner.createWithNativeTablesFirst(
-                PdfOptions.defaults().withTableCellCoordinates(true).withTableDetection(
-                        PdfOptions.TableDetection.RULED_AND_PARTIAL_TEXT),
+                PdfOptions.defaults().withTableCellCoordinates(true).withTableDetection(detection),
                 new PdfNativeLayoutOptions(150, 16000000, 1024, policy)
                         .withLeadingRow(leadingRow)
-                        .withTrailingRows(trailingRows),
+                        .withTrailingRows(trailingRows)
+                        .withRowLines(rowLines),
                 provider);
         final var extracted = DocWeave.create(PartitionerRegistry.of(List.of(partitioner)))
                                       .partition(DocumentSource.bytes(

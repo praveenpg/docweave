@@ -1,0 +1,81 @@
+{
+ "scope": "P2 attempt 1b transfer on retained Apple/Amazon provider captures; counts only; split row text reviewed privately (period headers; one provider-merged body row).",
+ "tables": {
+  "apple": [
+   {
+    "table": 0,
+    "page": 1,
+    "split_rows": 1,
+    "characters_same": true
+   },
+   {
+    "table": 1,
+    "page": 2,
+    "split_rows": 1,
+    "characters_same": true
+   },
+   {
+    "table": 2,
+    "page": 2,
+    "split_rows": null,
+    "characters_same": true
+   },
+   {
+    "table": 3,
+    "page": 2,
+    "split_rows": null,
+    "characters_same": true
+   },
+   {
+    "table": 4,
+    "page": 3,
+    "split_rows": null,
+    "characters_same": true
+   }
+  ],
+  "amazon": [
+   {
+    "table": 0,
+    "page": 6,
+    "split_rows": null,
+    "characters_same": true
+   },
+   {
+    "table": 1,
+    "page": 7,
+    "split_rows": 1,
+    "characters_same": true
+   },
+   {
+    "table": 2,
+    "page": 8,
+    "split_rows": 1,
+    "characters_same": true
+   },
+   {
+    "table": 3,
+    "page": 10,
+    "split_rows": null,
+    "characters_same": true
+   },
+   {
+    "table": 4,
+    "page": 11,
+    "split_rows": 1,
+    "characters_same": true
+   },
+   {
+    "table": 5,
+    "page": 12,
+    "split_rows": null,
+    "characters_same": true
+   },
+   {
+    "table": 6,
+    "page": 13,
+    "split_rows": null,
+    "characters_same": true
+   }
+  ]
+ }
+}

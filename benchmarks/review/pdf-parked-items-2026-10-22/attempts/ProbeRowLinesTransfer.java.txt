@@ -1,0 +1,44 @@
+import dev.docweave.DocWeave;
+import dev.docweave.core.ElementType;
+import dev.docweave.partition.*;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.json.JsonMapper;
+import java.nio.file.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+/** P2 transfer: replays retained provider captures with and without row-line splitting; prints split tables. */
+public class ProbeRowLinesTransfer {
+    public static void main(String[] a) throws Exception {
+        var pages = JsonMapper.builder().build().readTree(Files.readAllBytes(Path.of(a[0])));
+        byte[] pdf = Files.readAllBytes(Path.of(a[1]));
+        var base = run(pages, pdf, PdfNativeLayoutOptions.RowLines.PROVIDER_ROWS);
+        var split = run(pages, pdf, PdfNativeLayoutOptions.RowLines.SPLIT_ALIGNED_TWO_LINE_ROWS);
+        System.out.println("tables base=" + base.size() + " split=" + split.size());
+        int changed = 0;
+        for (int i = 0; i < Math.min(base.size(), split.size()); i++) {
+            var b = base.get(i); var s = split.get(i);
+            var n = s.metadata().get("pdf_table_split_rows");
+            boolean textSame = b.text().replace(" ", "").chars().sorted().boxed().toList().equals(s.text().replace(" ", "").chars().sorted().boxed().toList());
+            System.out.println("table " + i + " page=" + s.metadata().get("page_number") + " split_rows=" + n + " chars_same=" + textSame);
+            if (n != null) { changed++; System.out.println("  BASE " + b.metadata().get("text_as_html").toString()); System.out.println("  SPLIT " + s.metadata().get("text_as_html").toString()); }
+        }
+        System.out.println("tables_with_splits=" + changed);
+    }
+    static List<dev.docweave.core.Element> run(JsonNode pages, byte[] pdf, PdfNativeLayoutOptions.RowLines lines) throws Exception {
+        var calls = new AtomicInteger();
+        PdfTableLayoutProvider provider = image -> {
+            var page = pages.get(calls.getAndIncrement());
+            var out = new ArrayList<PdfTableLayoutProvider.Table>();
+            for (var t : page.get("tables")) {
+                var anchors = new ArrayList<PdfTableLayoutProvider.Anchor>();
+                for (var x : t.get("anchors")) anchors.add(new PdfTableLayoutProvider.Anchor(x.get("row").asInt(), x.get("column").asInt(), x.get("rowSpan").asInt(), x.get("columnSpan").asInt(), box(x.get("bounds"))));
+                out.add(new PdfTableLayoutProvider.Table(t.get("rows").asInt(), t.get("columns").asInt(), box(t.get("bounds")), anchors, t.get("provenance").asString(), t.get("headerRows").asInt()));
+            }
+            return out;
+        };
+        var p = PdfPartitioner.createWithNativeTablesFirst(PdfOptions.defaults().withTableCellCoordinates(true).withTableDetection(PdfOptions.TableDetection.RULED_AND_PARTIAL_TEXT),
+            new PdfNativeLayoutOptions(150, 16000000, 1024, PdfNativeLayoutOptions.CellTextJoin.SPACE_SEPARATED).withLeadingRow(PdfNativeLayoutOptions.LeadingRow.SOURCE_NUMERIC_OR_SECTION_ROW).withTrailingRows(PdfNativeLayoutOptions.TrailingRows.SOURCE_CELL_SPACER_ROWS).withRowLines(lines), provider);
+        return DocWeave.create(PartitionerRegistry.of(List.of(p))).partition(DocumentSource.bytes(pdf, "t.pdf")).elements().stream().filter(e -> e.type() == ElementType.Table).toList();
+    }
+    static PdfTableLayoutProvider.Box box(JsonNode b) { return new PdfTableLayoutProvider.Box(b.get("left").asDouble(), b.get("top").asDouble(), b.get("right").asDouble(), b.get("bottom").asDouble()); }
+}

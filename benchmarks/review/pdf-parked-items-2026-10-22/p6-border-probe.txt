@@ -1,0 +1,16 @@
+arnimb_goethe03_1835.tif size=1675x2286 otsu=132 bands: left=[0,0) right=[1347,1675) top=[0,178) bottom=[2210,2286) masked_fraction=0.2852
+  reference_lines=22 S_intersecting_mask=0
+  arnimb_goethe03_1835-deu.json predicted_lines=21 centre_in_mask=0 of_which_overlapping_reference=0 removable_extras=0 max_right=1119
+  arnimb_goethe03_1835-deu_latf.json predicted_lines=21 centre_in_mask=0 of_which_overlapping_reference=0 removable_extras=0 max_right=1119
+bebel_frau_1879.tif size=3068x4660 otsu=0 bands: left=[0,0) right=[3068,3068) top=[0,0) bottom=[4660,4660) masked_fraction=0.0000
+  reference_lines=50 S_intersecting_mask=0
+  bebel_frau_1879-deu.json predicted_lines=50 centre_in_mask=0 of_which_overlapping_reference=0 removable_extras=0 max_right=2813
+  bebel_frau_1879-deu_latf.json predicted_lines=50 centre_in_mask=0 of_which_overlapping_reference=0 removable_extras=0 max_right=2813
+buerger_gedichte_1778_0039.tif size=1440x1929 otsu=127 bands: left=[0,0) right=[1440,1440) top=[0,0) bottom=[1929,1929) masked_fraction=0.0000
+  reference_lines=38 S_intersecting_mask=0
+  buerger_gedichte_1778_0039-deu.json predicted_lines=27 centre_in_mask=0 of_which_overlapping_reference=0 removable_extras=0 max_right=1357
+  buerger_gedichte_1778_0039-deu_latf.json predicted_lines=27 centre_in_mask=0 of_which_overlapping_reference=0 removable_extras=0 max_right=1357
+nn_besuch_1780_00001.tif size=2000x2271 otsu=131 bands: left=[0,0) right=[1901,2000) top=[0,95) bottom=[2121,2271) masked_fraction=0.1520
+  reference_lines=10 S_intersecting_mask=0
+  nn_besuch_1780_00001-deu.json predicted_lines=18 centre_in_mask=0 of_which_overlapping_reference=0 removable_extras=0 max_right=1884
+  nn_besuch_1780_00001-deu_latf.json predicted_lines=18 centre_in_mask=0 of_which_overlapping_reference=0 removable_extras=0 max_right=1884

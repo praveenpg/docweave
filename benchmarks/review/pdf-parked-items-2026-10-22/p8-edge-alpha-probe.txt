@@ -1,0 +1,4 @@
+WHITE RENDERER quarter-edge(20,20)=ffff0000 interior(10,20)=ffff0000 outside(25,20)=ffffffff | half-edge(20,20)=ff0000ff interior(10,20)=ff0000ff
+WHITE BOX_4X quarter-edge(20,20)=ffffbfbf interior(10,20)=ffff0000 outside(25,20)=ffffffff | half-edge(20,20)=ff8080ff interior(10,20)=ff0000ff
+TRANSPARENT RENDERER quarter-edge(20,20)=ffff0000 interior(10,20)=ffff0000 outside(25,20)=00000000 | half-edge(20,20)=ff0000ff interior(10,20)=ff0000ff
+TRANSPARENT BOX_4X quarter-edge(20,20)=40ff0000 interior(10,20)=ffff0000 outside(25,20)=00000000 | half-edge(20,20)=800000ff interior(10,20)=ff0000ff

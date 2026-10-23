@@ -77,10 +77,13 @@ final class GeometricPdfReadingOrder implements PdfReadingOrder {
         if (gutter == null) {
             return switch (sideStreams) {
                 case PRESERVE -> paragraphs(sorted, work);
-                case SMALLER_TYPE_BLOCKS -> sideStreamParagraphs(sorted, work);
+                case SMALLER_TYPE_BLOCKS -> sideStreamParagraphs(sorted, work, false);
                 case SMALLER_TYPE_BLOCKS_ROW_TIES ->
-                    layout.columns() ? rowTies(sideStreamParagraphs(sorted, work), work)
-                                     : sideStreamParagraphs(sorted, work);
+                    layout.columns() ? rowTies(sideStreamParagraphs(sorted, work, false), work)
+                                     : sideStreamParagraphs(sorted, work, false);
+                case SMALLER_TYPE_BLOCKS_ROW_FRAGMENTS ->
+                    layout.columns() ? rowTies(sideStreamParagraphs(sorted, work, true), work)
+                                     : sideStreamParagraphs(sorted, work, false);
             };
         }
         final var result = new ArrayList<PdfLayoutItem>();
@@ -271,13 +274,16 @@ final class GeometricPdfReadingOrder implements PdfReadingOrder {
      * A side line still ends any adjacent main-stream group, exactly as in historical grouping, so main-stream
      * membership and order are unchanged; each side block is emitted where its first line occurs. A block never
      * crosses an intervening item that overlaps the side column, so it cannot move text past such a barrier.
+     * With {@code fragments}, a block whose first line starts on the row of the last line of a multi-line main group
+     * is placed between that line and the group's earlier lines, as two marked fragments, when the split is lossless.
      * @param sorted page items in top/left order
      * @param work page counter
+     * @param fragments whether row-tie paragraph fragments are emitted
      * @return grouped items
      * @throws IOException if cancelled or over budget
      */
-    private List<PdfLayoutItem> sideStreamParagraphs(final List<PdfLayoutItem> sorted, final Work work)
-            throws IOException {
+    private List<PdfLayoutItem> sideStreamParagraphs(
+            final List<PdfLayoutItem> sorted, final Work work, final boolean fragments) throws IOException {
         final var side = sideLines(sorted, work);
         if (side.isEmpty()) {
             return paragraphs(sorted, work);
@@ -311,12 +317,19 @@ final class GeometricPdfReadingOrder implements PdfReadingOrder {
         blocks.put(first, block(lines, work));
         final var result = new ArrayList<PdfLayoutItem>();
         final var group = new ArrayList<PdfLayoutItem>();
+        int fragmentGroups = 0;
         for (final var item : sorted) {
             work.step();
             if (side.containsKey(item)) {
+                final var block = blocks.get(item);
+                if (fragments && block != null && group.size() >= 2
+                        && fragment(result, group, block, fragmentGroups, work)) {
+                    fragmentGroups++;
+                    group.clear();
+                    continue;
+                }
                 flush(result, group, work);
                 group.clear();
-                final var block = blocks.get(item);
                 if (block != null) {
                     result.add(block);
                 }
@@ -334,6 +347,51 @@ final class GeometricPdfReadingOrder implements PdfReadingOrder {
         }
         flush(result, group, work);
         return List.copyOf(result);
+    }
+
+    /**
+     * Emits a main group as two fragments around a side block that starts on its last line's row, when lossless.
+     * @param result ordered destination
+     * @param group current main group of at least two ordinary lines
+     * @param block side block whose first line ends the group
+     * @param ordinal page-local fragment group ordinal
+     * @param work page counter
+     * @return whether the fragments and the block were emitted; nothing is emitted otherwise
+     * @throws IOException if cancelled or over budget
+     */
+    private boolean fragment(final List<PdfLayoutItem> result, final List<PdfLayoutItem> group,
+            final PdfLayoutItem block, final int ordinal, final Work work) throws IOException {
+        final var last = group.getLast();
+        if (!tie(block.box(), last)) {
+            return false;
+        }
+        final var whole = new ArrayList<PdfLayoutItem>(1);
+        flush(whole, group, work);
+        final var head = new ArrayList<PdfLayoutItem>(1);
+        flush(head, group.subList(0, group.size() - 1), work);
+        if (!whole.getFirst().text().equals(head.getFirst().text() + " " + last.text())) {
+            return false;
+        }
+        result.add(marked(head.getFirst(), ordinal, 1));
+        result.add(block);
+        result.add(marked(last, ordinal, 2));
+        return true;
+    }
+
+    /**
+     * Copies an item with explicit paragraph-fragment provenance.
+     * @param item fragment content
+     * @param ordinal page-local fragment group ordinal
+     * @param index one-based fragment index
+     * @return marked copy with unchanged text and bounds
+     */
+    private static PdfLayoutItem marked(final PdfLayoutItem item, final int ordinal, final int index) {
+        final var metadata = new LinkedHashMap<>(item.metadata());
+        metadata.put("pdf_reading_order_fragment_policy", "row_tie_fragments_v1");
+        metadata.put("pdf_paragraph_fragment_group", ordinal);
+        metadata.put("pdf_paragraph_fragment_index", index);
+        metadata.put("pdf_paragraph_fragment_count", 2);
+        return new PdfLayoutItem(item.type(), item.text(), item.box(), metadata, item.signature());
     }
 
     /**

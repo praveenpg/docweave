@@ -81,7 +81,23 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
          * and line layouts are unchanged. The rule uses geometry only. It came from post-hoc development evidence
          * against a pinned upstream reading order and is not a semantic or accuracy guarantee.
          */
-        SMALLER_TYPE_BLOCKS_ROW_TIES
+        SMALLER_TYPE_BLOCKS_ROW_TIES,
+        /**
+         * Produces {@link #SMALLER_TYPE_BLOCKS_ROW_TIES} output and additionally represents one case that whole
+         * elements cannot: a side-stream block whose first line starts on the visual row of the last line of a
+         * multi-line main paragraph (that line's top &le; side top &lt; that line's bottom, side wholly to its left).
+         * The paragraph is then emitted as two explicit fragments, its earlier lines and its last line, with the side
+         * block between them. A split is made only when the first fragment's text, one space and the last line's text
+         * equal the unsplit paragraph text exactly, so a retained hyphen wrap is never split. Both fragments carry
+         * {@code pdf_reading_order_fragment_policy=row_tie_fragments_v1}, {@code pdf_paragraph_fragment_group} (a
+         * page-local ordinal), {@code pdf_paragraph_fragment_index} (1 or 2) and {@code pdf_paragraph_fragment_count}
+         * (2). Joining each group's fragments with one space and the union of their bounds restores the
+         * {@link #SMALLER_TYPE_BLOCKS_ROW_TIES} paragraph; every other element is identical to that policy's output.
+         * Consumers that require whole paragraphs must rejoin fragments or use another policy. Column-paragraph
+         * layouts only; plain {@link TextLayout#PARAGRAPHS} retains {@link #SMALLER_TYPE_BLOCKS} placement. Post-hoc
+         * development evidence against a pinned upstream reading order, not a semantic or accuracy guarantee.
+         */
+        SMALLER_TYPE_BLOCKS_ROW_FRAGMENTS
     }
 
     /**

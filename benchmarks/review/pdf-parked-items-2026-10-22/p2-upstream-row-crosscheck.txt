@@ -1,0 +1,6 @@
+tatr income docweave 10 upstream 10 upstream_only [(22, 'absent_or_partial_proposal'), (26, 'absent_or_partial_proposal')] both_miss 16 dw_only 2
+tatr balance-sheet docweave 13 upstream 20 upstream_only [(7, 'absent_or_partial_proposal'), (8, 'absent_or_partial_proposal'), (11, 'absent_or_partial_proposal'), (20, 'absent_or_partial_proposal'), (26, 'absent_or_partial_proposal'), (27, 'absent_or_partial_proposal'), (28, 'absent_or_partial_proposal'), (29, 'absent_or_partial_proposal'), (30, 'absent_or_partial_proposal'), (31, 'absent_or_partial_proposal')] both_miss 10 dw_only 3
+tatr cash-flows docweave 13 upstream 12 upstream_only [(7, 'absent_or_partial_proposal'), (9, 'absent_or_partial_proposal'), (10, 'absent_or_partial_proposal'), (11, 'absent_or_partial_proposal'), (12, 'absent_or_partial_proposal'), (20, 'absent_or_partial_proposal')] both_miss 30 dw_only 7
+yolox income docweave 21 upstream 10 upstream_only [] both_miss 7 dw_only 11
+yolox balance-sheet docweave 27 upstream 20 upstream_only [] both_miss 6 dw_only 7
+yolox cash-flows docweave 23 upstream 12 upstream_only [] both_miss 26 dw_only 11

@@ -186,7 +186,8 @@ public record TesseractOptions(Path executable, Path tessdataDirectory, List<Str
 
     /**
      * Copies this policy with explicit output-line grouping; pixels, recognition and word text are unchanged.
-     * WIDE_GAPS can separate a genuine tab-stop or table row into several lines; it does not reorder words.
+     * WIDE_GAPS and WIDE_GAPS_AND_PRINTED_RULE can separate a genuine tab-stop or table row into several lines;
+     * neither reorders words.
      * @param splitting nonnull line grouping policy
      * @return validated immutable copy retaining every other value
      * @throws NullPointerException if splitting is null
@@ -197,7 +198,7 @@ public record TesseractOptions(Path executable, Path tessdataDirectory, List<Str
                 pageSegmentation, cellBorders, splitting);
     }
 
-    /** Explicit grouping of recognized words into returned lines; neither value changes recognition. */
+    /** Explicit grouping of recognized words into returned lines; no value changes recognition. */
     public enum LineSplitting {
         /** Returns one line per Tesseract block/paragraph/line identity, as before. */
         TESSERACT_LINES,
@@ -207,7 +208,21 @@ public record TesseractOptions(Path executable, Path tessdataDirectory, List<Str
          * or intentional spacing within a logical row; the rule does not establish semantic line membership.
          * Words keep their recognition order and text; the extra lines still count against maxLines.
          */
-        WIDE_GAPS
+        WIDE_GAPS,
+        /**
+         * Applies {@link #WIDE_GAPS} and, on page calls only, also splits at one printed vertical rule found in the
+         * page pixels. Rule evidence is a pixel at least eight luminance levels darker than the mean of the pixels
+         * two columns to its left and right. The rule is the single longest vertical run of such pixels (gaps of up
+         * to two rows bridged) whose column lies in the central 10%-90% of the recognized-word extent; it is used
+         * only when the run is at least eight times the median recognized word height. A Tesseract line whose box
+         * overlaps the run vertically is split at the rule when words lie on both sides and no word box crosses
+         * it. Words keep their order and text, table-cell calls never use the rule, and the scan is bounded by the
+         * page pixels and checked against the call deadline. This is a heuristic for faint printed column rules on
+         * degraded scans; it does not detect unruled columns, and a scanner border inside the word extent can be
+         * selected (it then splits only lines that have words on both sides of it). Measured on four development
+         * scans and two transfer pages, not on independent held-out pages.
+         */
+        WIDE_GAPS_AND_PRINTED_RULE
     }
 
     /** Explicit isolated-cell preprocessing; no image is modified in place and geometry stays unchanged. */

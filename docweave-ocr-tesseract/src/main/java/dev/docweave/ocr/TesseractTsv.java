@@ -4,6 +4,7 @@ import dev.docweave.partition.PartitionException;
 import dev.docweave.partition.PdfOcrProvider;
 import dev.docweave.partition.PdfWordOcrProvider;
 
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
@@ -36,7 +37,23 @@ final class TesseractTsv {
      */
     static List<PdfOcrProvider.Line> parse(final byte[] bytes, final int width, final int height,
             final TesseractOptions options, final OcrDeadline deadline) throws IOException {
-        return parseResult(bytes, width, height, options, deadline, false).lines();
+        return parse(bytes, width, height, options, deadline, null);
+    }
+
+    /**
+     * Parses lines, letting the printed-rule policy read the page raster.
+     * @param bytes bounded stdout
+     * @param width input raster width
+     * @param height input raster height
+     * @param options output budgets
+     * @param deadline cooperative parsing deadline
+     * @param page borrowed page raster for a page call, or null for a table-cell call
+     * @return immutable recognition-ordered lines with unioned word boxes
+     * @throws IOException if TSV is invalid, over budget, cancelled or expired
+     */
+    static List<PdfOcrProvider.Line> parse(final byte[] bytes, final int width, final int height,
+            final TesseractOptions options, final OcrDeadline deadline, final BufferedImage page) throws IOException {
+        return parseResult(bytes, width, height, options, deadline, false, page).lines();
     }
 
     /**
@@ -51,7 +68,23 @@ final class TesseractTsv {
      */
     static List<PdfWordOcrProvider.WordLine> parseWords(final byte[] bytes, final int width, final int height,
             final TesseractOptions options, final OcrDeadline deadline) throws IOException {
-        return parseResult(bytes, width, height, options, deadline, true).words();
+        return parseWords(bytes, width, height, options, deadline, null);
+    }
+
+    /**
+     * Retains token boxes, letting the printed-rule policy read the page raster.
+     * @param bytes bounded UTF-8 TSV
+     * @param width input pixel width
+     * @param height input pixel height
+     * @param options existing line/character budgets
+     * @param deadline shared admission/parse deadline
+     * @param page borrowed page raster for a page call, or null for a table-cell call
+     * @return immutable detailed lines
+     * @throws IOException if TSV, bounds, budgets, cancellation or deadline fail
+     */
+    static List<PdfWordOcrProvider.WordLine> parseWords(final byte[] bytes, final int width, final int height,
+            final TesseractOptions options, final OcrDeadline deadline, final BufferedImage page) throws IOException {
+        return parseResult(bytes, width, height, options, deadline, true, page).words();
     }
 
     /**
@@ -62,11 +95,13 @@ final class TesseractTsv {
      * @param options output resource policy
      * @param deadline cooperative deadline
      * @param retainWords whether actual token boxes should be retained
+     * @param page borrowed page raster for the printed-rule policy, or null
      * @return immutable parsed output views
      * @throws IOException if validation, budgets, deadline or cancellation fails
      */
     private static Parsed parseResult(final byte[] bytes, final int width, final int height,
-            final TesseractOptions options, final OcrDeadline deadline, final boolean retainWords) throws IOException {
+            final TesseractOptions options, final OcrDeadline deadline, final boolean retainWords,
+            final BufferedImage page) throws IOException {
         deadline.remaining();
         final var text = StandardCharsets.UTF_8.newDecoder()
                                  .onMalformedInput(CodingErrorAction.REPORT)
@@ -74,7 +109,8 @@ final class TesseractTsv {
                                  .decode(ByteBuffer.wrap(bytes))
                                  .toString();
         final var lines = new LinkedHashMap<String, Words>();
-        final boolean split = options.lineSplitting() == TesseractOptions.LineSplitting.WIDE_GAPS;
+        final boolean ruled = options.lineSplitting() == TesseractOptions.LineSplitting.WIDE_GAPS_AND_PRINTED_RULE;
+        final boolean split = ruled || options.lineSplitting() == TesseractOptions.LineSplitting.WIDE_GAPS;
         int characters = 0;
         try (final var reader = new BufferedReader(new StringReader(text))) {
             if (!HEADER.equals(reader.readLine())) {
@@ -124,12 +160,17 @@ final class TesseractTsv {
                 characters += cells[11].length() + separator;
             }
         }
+        final var rule = ruled && page != null
+                                 ? TesseractPrintedRule.find(
+                                           page, lines.values().stream().map(words -> words.tokens).toList(), deadline)
+                                 : null;
         final var result = new ArrayList<PdfOcrProvider.Line>(lines.size());
         final var detailed = retainWords ? new ArrayList<PdfWordOcrProvider.WordLine>(lines.size()) : null;
         for (final var words : lines.values()) {
             deadline.remaining();
             if (split) {
-                for (final var segment : segments(words.tokens, options.maxLines() - result.size(), deadline)) {
+                for (final var segment : segments(words.tokens, TesseractPrintedRule.split(words.tokens, rule),
+                             options.maxLines() - result.size(), deadline)) {
                     if (result.size() >= options.maxLines()) {
                         throw new PartitionException(PartitionException.Code.OCR_LIMIT, "Tesseract exceeds maxLines");
                     }
@@ -153,15 +194,17 @@ final class TesseractTsv {
 
     /**
      * Divides one Tesseract line where a horizontal gap between consecutive words, in recognition order, exceeds
-     * three times the line's tallest word. Overlapping or right-to-left steps never split. Words are not reordered.
+     * three times the line's tallest word, and before an optional printed-rule word index. Overlapping or
+     * right-to-left steps never split. Words are not reordered.
      * @param tokens one Tesseract line's recognized words
+     * @param ruleSplit index of the first word right of an accepted printed rule, or -1
      * @param maxSegments remaining returned-line allowance, checked before retaining new fragments
      * @param deadline shared recognition deadline and interruption check
      * @return nonempty consecutive word segments
      * @throws IOException if cancelled, timed out or the returned-line budget is exhausted
      */
     private static List<List<PdfWordOcrProvider.Word>> segments(final List<PdfWordOcrProvider.Word> tokens,
-            final int maxSegments, final OcrDeadline deadline) throws IOException {
+            final int ruleSplit, final int maxSegments, final OcrDeadline deadline) throws IOException {
         if (maxSegments < 1) {
             throw new PartitionException(PartitionException.Code.OCR_LIMIT, "Tesseract exceeds maxLines");
         }
@@ -172,9 +215,10 @@ final class TesseractTsv {
         }
         final var result = new ArrayList<List<PdfWordOcrProvider.Word>>();
         var current = new ArrayList<PdfWordOcrProvider.Word>();
-        for (final var word : tokens) {
+        for (int index = 0; index < tokens.size(); index++) {
             deadline.remaining();
-            if (!current.isEmpty() && word.left() - current.getLast().right() > 3 * height) {
+            final var word = tokens.get(index);
+            if (!current.isEmpty() && (index == ruleSplit || word.left() - current.getLast().right() > 3 * height)) {
                 if (result.size() + 1 >= maxSegments) {
                     throw new PartitionException(PartitionException.Code.OCR_LIMIT, "Tesseract exceeds maxLines");
                 }

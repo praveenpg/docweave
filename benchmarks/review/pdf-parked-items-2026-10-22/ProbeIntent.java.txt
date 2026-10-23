@@ -1,0 +1,37 @@
+import java.awt.color.*;
+import java.awt.image.*;
+import java.nio.file.*;
+import javax.imageio.ImageIO;
+/** Pixel-only probe: managed (profile header intent) vs stored samples vs relative-colorimetric conversion. */
+public class ProbeIntent {
+    public static void main(String[] a) throws Exception {
+        BufferedImage decoded;
+        try (var in = ImageIO.createImageInputStream(Path.of(a[0]).toFile())) {
+            var r = ImageIO.getImageReaders(in).next(); r.setInput(in); decoded = r.read(0); r.dispose();
+        }
+        var cs = decoded.getColorModel().getColorSpace();
+        System.out.println("colorspace=" + cs.getClass().getSimpleName());
+        if (!(cs instanceof ICC_ColorSpace icc)) { System.out.println("untagged"); return; }
+        byte[] data = icc.getProfile().getData();
+        System.out.println("header_intent=" + data[67] + " class=" + new String(data,12,4) + " pcs=" + new String(data,20,4)
+            + " has_A2B0=" + (icc.getProfile().getData(ICC_Profile.icSigAToB0Tag)!=null) + " has_A2B1=" + (icc.getProfile().getData(ICC_Profile.icSigAToB1Tag)!=null));
+        int w=decoded.getWidth(), h=decoded.getHeight();
+        var managed = new BufferedImage(w,h,BufferedImage.TYPE_INT_RGB); managed.getGraphics().drawImage(decoded,0,0,null);
+        var raster = decoded.getRaster(); var stored = new BufferedImage(w,h,BufferedImage.TYPE_INT_RGB); int[] p=new int[raster.getNumBands()];
+        for (int y=0;y<h;y++) for (int x=0;x<w;x++){ raster.getPixel(x,y,p); stored.setRGB(x,y,p[0]<<16|p[1]<<8|p[2]); }
+        byte[] rel = data.clone(); rel[64]=0; rel[65]=0; rel[66]=0; rel[67]=1;
+        var relCs = new ICC_ColorSpace(ICC_Profile.getInstance(rel));
+        var relModel = new ComponentColorModel(relCs, false, false, java.awt.Transparency.OPAQUE, raster.getDataBuffer().getDataType());
+        var relSrc = new BufferedImage(relModel, raster, false, null);
+        var relative = new BufferedImage(w,h,BufferedImage.TYPE_INT_RGB); relative.getGraphics().drawImage(relSrc,0,0,null);
+        int[] box = a.length>1 ? java.util.Arrays.stream(a[1].split(",")).mapToInt(Integer::parseInt).toArray() : null;
+        for (var e : new Object[][]{{"managed",managed},{"stored",stored},{"relative",relative}}) {
+            var img=(BufferedImage)e[1]; double sum=0; long diff=0;
+            for (int y=0;y<h;y++) for (int x=0;x<w;x++){ int m=managed.getRGB(x,y), v=img.getRGB(x,y); sum+=Math.abs(lum(v)-lum(m)); if((m&0xffffff)!=(v&0xffffff)) diff++; }
+            String bx="";
+            if (box!=null){ int min=255; double mean=0; int n=0; for(int y=box[1];y<box[3];y++)for(int x=box[0];x<box[2];x++){int l=lum(img.getRGB(x,y)); min=Math.min(min,l); mean+=l; n++;} bx=String.format(" box_min=%d box_mean=%.1f",min,mean/n); }
+            System.out.printf("%s mean_abs_dY_vs_managed=%.3f differing_fraction=%.4f%s%n", e[0], sum/(w*(double)h), diff/(w*(double)h), bx);
+        }
+    }
+    static int lum(int rgb){ return (299*((rgb>>16)&255)+587*((rgb>>8)&255)+114*(rgb&255))/1000; }
+}
