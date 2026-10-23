@@ -2,6 +2,7 @@ package dev.docweave.ocr;
 
 import dev.docweave.partition.PartitionException;
 import dev.docweave.partition.PdfOcrProvider;
+import dev.docweave.partition.PdfWordOcrProvider;
 import org.junit.jupiter.api.Test;
 
 import java.awt.image.BufferedImage;
@@ -99,6 +100,53 @@ class TesseractPrintedRuleTest {
             Thread.interrupted();
         }
         assertEquals(TesseractOptions.LineSplitting.TESSERACT_LINES, TesseractOptions.defaults().lineSplitting());
+    }
+
+    /**
+     * The guarded policy ignores a rule with words on only one side of most overlapping lines, where the earlier
+     * policy splits the single two-sided line; the guarded output then equals WIDE_GAPS exactly.
+     * @throws Exception if parsing fails
+     */
+    @Test
+    void guardedPolicyIgnoresARuleThatDoesNotSeparateText() throws Exception {
+        final String tsv = HEADER + word(1, 30, "links", 440, 55) + word(1, 30, "rechts", 505, 55)
+                           + word(2, 60, "nur", 380, 40) + word(2, 60, "links", 430, 40) + word(3, 90, "auch", 380, 40)
+                           + word(3, 90, "links", 430, 40);
+        final var page = page(500, 20, 420, 235);
+        assertEquals(List.of("links", "rechts", "nur links", "auch links"), texts(parse(tsv, ruled(), page)));
+        assertEquals(parse(tsv, gaps(), page), parse(tsv, guarded(), page));
+    }
+
+    /**
+     * With words on both sides of three lines, the guarded policy splits exactly as the earlier policy and emits the
+     * lines inside the rule's run left column first; lines above and below keep their places.
+     * @throws Exception if parsing fails
+     */
+    @Test
+    void guardedPolicyEmitsLinesInsideTheRunColumnByColumn() throws Exception {
+        final String tsv = HEADER + word(1, 2, "Kopf", 440, 55) + word(2, 30, "a1", 440, 55)
+                           + word(2, 30, "b1", 505, 55) + word(3, 60, "a2", 440, 55) + word(3, 60, "b2", 505, 55)
+                           + word(4, 90, "a3", 440, 55) + word(4, 90, "b3", 505, 55) + word(5, 450, "Fuss", 440, 55);
+        final var page = page(500, 20, 420, 235);
+        final var earlier = parse(tsv, ruled(), page);
+        assertEquals(List.of("Kopf", "a1", "b1", "a2", "b2", "a3", "b3", "Fuss"), texts(earlier));
+        final var guarded = parse(tsv, guarded(), page);
+        assertEquals(List.of("Kopf", "a1", "a2", "a3", "b1", "b2", "b3", "Fuss"), texts(guarded));
+        assertEquals(new java.util.HashSet<>(earlier), new java.util.HashSet<>(guarded));
+        final var policy = guarded();
+        final var detailed = TesseractTsv.parseWords(
+                tsv.getBytes(StandardCharsets.UTF_8), 1000, 500, policy, new OcrDeadline(policy.timeout()), page);
+        assertEquals(guarded, detailed.stream().map(PdfWordOcrProvider.WordLine::line).toList());
+        assertEquals(parse(tsv, gaps(), null), parse(tsv, guarded(), null));
+    }
+
+    /**
+     * Builds the explicit guarded column policy.
+     * @return selected options
+     */
+    private static TesseractOptions guarded() {
+        return TesseractOptions.defaults().withLineSplitting(
+                TesseractOptions.LineSplitting.WIDE_GAPS_AND_GUARDED_RULE_COLUMNS);
     }
 
     /**

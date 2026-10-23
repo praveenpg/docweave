@@ -149,6 +149,64 @@ class PdfNativeRowLinesTest {
     }
 
     /**
+     * A split in one provider table never moves, duplicates or drops a glyph of a second table on the same page.
+     * @throws Exception if owned extraction fails
+     */
+    @Test
+    void competingTablesKeepDisjointOwnership() throws Exception {
+        final var source = new ArrayList<>(header(62, 62, null));
+        source.addAll(List.of(new Text("Cost", 12, 124), new Text("3", 100, 124), new Text("4", 150, 124),
+                new Text("Total", 12, 142), new Text("5", 100, 142), new Text("6", 150, 142)));
+        final var provider = extractTwo(source, PdfNativeLayoutOptions.RowLines.PROVIDER_ROWS);
+        final var split = extractTwo(source, PdfNativeLayoutOptions.RowLines.SPLIT_ALIGNED_TWO_LINE_ROWS);
+        assertEquals(2, provider.tables().size());
+        assertEquals(2, split.tables().size());
+        assertEquals("Jan 25, Jan 26, 2026 2025 Revenue 1 2", split.tables().getFirst().text());
+        assertEquals(1, split.tables().getFirst().metadata().get("pdf_table_split_rows"));
+        assertEquals(provider.tables().get(1), split.tables().get(1));
+        assertEquals("Cost 3 4 Total 5 6", split.tables().get(1).text());
+        assertEquals(provider.remaining(), split.remaining());
+        final String owned =
+                split.tables().get(0).text().replace(" ", "") + split.tables().get(1).text().replace(" ", "");
+        assertEquals(owned.length(), provider.tables().get(0).text().replace(" ", "").length()
+                                             + provider.tables().get(1).text().replace(" ", "").length());
+    }
+
+    /**
+     * Runs the production pipeline with the owned header table and a second, single-line provider table below it.
+     * @param source placements
+     * @param rowLines row-line policy
+     * @return extracted tables and unclaimed glyphs
+     * @throws Exception if extraction fails
+     */
+    private static PdfNativeProviderTables.Result extractTwo(
+            final List<Text> source, final PdfNativeLayoutOptions.RowLines rowLines) throws Exception {
+        try (final var document = document(source)) {
+            final var stripper = new PdfPageText(PdfOptions.defaults());
+            stripper.getText(document);
+            return PdfNativeProviderTables.extract(document, 0, new PdfPageGeometry(document.getPage(0)),
+                    stripper.glyphs(), PdfOptions.defaults(),
+                    new PdfNativeLayoutOptions(72, 500_000, 32).withRowLines(rowLines), image -> {
+                        final double scale = image.getWidth() / 260.0;
+                        final double[] edges = {10, 80, 135, 190};
+                        final double[] rows = {112, 130, 148};
+                        final var anchors = new ArrayList<PdfTableLayoutProvider.Anchor>();
+                        for (int row = 0; row < 2; row++) {
+                            for (int column = 0; column < 3; column++) {
+                                anchors.add(new PdfTableLayoutProvider.Anchor(row, column, 1, 1,
+                                        new PdfTableLayoutProvider.Box(edges[column] * scale, rows[row] * scale,
+                                                edges[column + 1] * scale, rows[row + 1] * scale)));
+                            }
+                        }
+                        return List.of(table(scale, 0, false), new PdfTableLayoutProvider.Table(2, 3,
+                                                                       new PdfTableLayoutProvider.Box(10 * scale,
+                                                                               112 * scale, 190 * scale, 148 * scale),
+                                                                       anchors, "owned-row-lines-second", 0));
+                    });
+        }
+    }
+
+    /**
      * A two-line date header in columns two and three above one body row.
      * @param firstYear baseline of the second line in column two
      * @param secondYear baseline of the second line in column three

@@ -1,0 +1,65 @@
+{
+  "scope" : "Owned-fixture isolated-contribution prototypes (full versus mask-aware suppression); PDFBox rendering at 72 DPI; evaluation only, no runtime API.",
+  "java_version" : "21.0.12.1",
+  "failures" : {
+    "ISOLATED" : 1,
+    "ISOLATED_MASK_AWARE" : 0
+  },
+  "fixtures" : [ {
+    "fixture" : "PLAIN",
+    "isolated_alpha" : [ 255, 255, 0 ],
+    "isolated_pass" : true,
+    "isolated_mask_aware_alpha" : [ 255, 255, 0 ],
+    "isolated_mask_aware_pass" : true,
+    "isolated_expected" : [ 255, 255, 0 ]
+  }, {
+    "fixture" : "CLIP",
+    "isolated_alpha" : [ 255, 0, 0 ],
+    "isolated_pass" : true,
+    "isolated_mask_aware_alpha" : [ 255, 0, 0 ],
+    "isolated_mask_aware_pass" : true,
+    "isolated_expected" : [ 255, 0, 0 ]
+  }, {
+    "fixture" : "ALPHA",
+    "isolated_alpha" : [ 128, 128, 0 ],
+    "isolated_pass" : true,
+    "isolated_mask_aware_alpha" : [ 128, 128, 0 ],
+    "isolated_mask_aware_pass" : true,
+    "isolated_expected" : [ 128, 128, 0 ]
+  }, {
+    "fixture" : "OVERPAINT",
+    "isolated_alpha" : [ 255, 255, 0 ],
+    "isolated_pass" : true,
+    "isolated_mask_aware_alpha" : [ 255, 255, 0 ],
+    "isolated_mask_aware_pass" : true,
+    "isolated_expected" : [ 255, 255, 0 ]
+  }, {
+    "fixture" : "GROUP_ALPHA",
+    "isolated_alpha" : [ 128, 128, 0 ],
+    "isolated_pass" : true,
+    "isolated_mask_aware_alpha" : [ 128, 128, 0 ],
+    "isolated_mask_aware_pass" : true,
+    "isolated_expected" : [ 128, 128, 0 ]
+  }, {
+    "fixture" : "REPEATED",
+    "isolated_alpha" : [ 0, 0, 255 ],
+    "isolated_pass" : true,
+    "isolated_mask_aware_alpha" : [ 0, 0, 255 ],
+    "isolated_mask_aware_pass" : true,
+    "isolated_expected" : [ 0, 0, 255 ]
+  }, {
+    "fixture" : "MULTIPLY",
+    "isolated_alpha" : [ 255, 255, 0 ],
+    "isolated_pass" : true,
+    "isolated_mask_aware_alpha" : [ 255, 255, 0 ],
+    "isolated_mask_aware_pass" : true,
+    "isolated_expected" : [ 255, 255, 0 ]
+  }, {
+    "fixture" : "SOFT_MASK",
+    "isolated_alpha" : [ 0, 0, 0 ],
+    "isolated_pass" : false,
+    "isolated_mask_aware_alpha" : [ 255, 0, 0 ],
+    "isolated_mask_aware_pass" : true,
+    "isolated_expected" : [ 255, 0, 0 ]
+  } ]
+}

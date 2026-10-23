@@ -80,11 +80,17 @@ java -Xmx1g -Djava.awt.headless=true \
   -cp "/tmp/native-business-classes:$DOCWEAVE_CLASSPATH" \
   dev.docweave.partition.CaptureNativeBusinessTables /path/to/cache \
   benchmarks/review/pdf-business-cell-text/cases.tsv /tmp/native-business-new
-python3 benchmarks/tools/compare_business_cell_text.py \
+java -cp "docweave-validation/target/test-classes:$DOCWEAVE_CLASSPATH" \
+  dev.docweave.validation.ScoreBenchmarkCaptures business-cell-text \
   benchmarks/review/pdf-business-cell-text/manifest.json /path/to/cache \
   /tmp/native-business-new /tmp/native-business-summary-new.json \
   --profiles default aligned multiline double-borders horizontal
 ```
+
+The comparator was migrated to the JVM on 2026-10-22 (`ScoreBenchmarkCaptures business-cell-text`, run from the
+repository root after `mvn test-compile`); it reproduces this directory's comparison semantics; byte parity with the retired script was shown on fresh native captures.
+Identity files still pin the retired Python source, which remains in repository history. See the
+[migration evidence](../python-scorer-migration-2026-10-22/README.md).
 
 The output directory and summary file must be new. `java21.json`/`java25.json` retain text-free
 metrics, source-frame identities and local capture hashes. All15 numeric/geometry records and

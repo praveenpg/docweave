@@ -95,7 +95,8 @@ No upstream implementation is patched or mocked during generation.
 All 41 reference comparisons run in Java without Python: 32 compare exact normalized supported
 outputs; nine assert explicit differences (four structural HTML budgets and five new option
 policies). These are synthetic element-only comparisons, not native parser or corpus parity.
-Generator guard tests need only the Python standard library:
+Generator guard tests need only the Python standard library (DocWeave scorers are JVM code in
+`docweave-validation`; see its README):
 
 ```sh
 python3 -m unittest discover -s benchmarks/tools -p 'test_*.py'

@@ -1,0 +1,24 @@
+{
+  "scope" : "Retained pinned upstream hi_res output, no execution: placement of the four reference title rows per statement; counts only",
+  "upstream_output_sha256" : "a3662e0ad74c470df985f3d5a0457da616fc8231c392c27fa4d9b4032e908043",
+  "java_version" : "21.0.12.1",
+  "cases" : [ {
+    "case" : "income",
+    "title_rows" : 4,
+    "inside_upstream_table" : 0,
+    "only_in_non_table_elements" : 4,
+    "absent" : 0
+  }, {
+    "case" : "balance-sheet",
+    "title_rows" : 4,
+    "inside_upstream_table" : 0,
+    "only_in_non_table_elements" : 4,
+    "absent" : 0
+  }, {
+    "case" : "cash-flows",
+    "title_rows" : 4,
+    "inside_upstream_table" : 0,
+    "only_in_non_table_elements" : 4,
+    "absent" : 0
+  } ]
+}

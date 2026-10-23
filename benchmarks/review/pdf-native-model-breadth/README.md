@@ -70,10 +70,16 @@ business/statistics cases. Use `scientific-cases.tsv` here with the original sci
 for the independent table. Supply new output directories. Then use the unchanged comparator:
 
 ```sh
-python3 benchmarks/tools/compare_business_cell_text.py \
+java -cp "docweave-validation/target/test-classes:$DOCWEAVE_CLASSPATH" \
+  dev.docweave.validation.ScoreBenchmarkCaptures business-cell-text \
   benchmarks/review/pdf-business-cell-text/manifest.json /path/to/business-cache \
   /path/to/NEW-business-captures /path/to/NEW-business-score.json --profiles native-live
 ```
+
+The comparator was migrated to the JVM on 2026-10-22 (`ScoreBenchmarkCaptures business-cell-text`, run from the
+repository root after `mvn test-compile`); it reproduces this directory's comparison semantics; byte parity with the retired script was shown on fresh native captures.
+Identity files still pin the retired Python source, which remains in repository history. See the
+[migration evidence](../python-scorer-migration-2026-10-22/README.md).
 
 The scientific Java diagnostic does not execute a provider or download resources:
 

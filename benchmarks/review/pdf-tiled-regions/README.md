@@ -83,11 +83,17 @@ class directory, then run with a NEW output directory:
     -cp "$CAPTURE_CLASSES:$DOCWEAVE_BENCHMARK_CP" dev.docweave.layout.CaptureTiledTableRegions \
     "$SCAN_CACHE" "$JPEG_PINS_TSV" "$NEW_OUTPUT" \
     "$DETECTOR_GRAPH" "$DETECTOR_SHA256" "$STRUCTURE_GRAPH" "$STRUCTURE_SHA256"
-python3 benchmarks/tools/compare_tiled_regions.py \
+java -cp "docweave-validation/target/test-classes:$DOCWEAVE_CLASSPATH" \
+  dev.docweave.validation.ScoreBenchmarkCaptures tiled-regions \
     --capture21 "$OUTPUT21" --capture25 "$OUTPUT25" --cache "$SCAN_CACHE" \
     --manifest benchmarks/review/pdf-physical-scans/extended-manifest.json \
     --output "$NEW_SUMMARY_JSON"
 ```
+
+The comparator was migrated to the JVM on 2026-10-22 (`ScoreBenchmarkCaptures tiled-regions`, run from the
+repository root after `mvn test-compile`); it reproduces this directory's retained report byte for byte.
+Identity files still pin the retired Python source, which remains in repository history. See the
+[migration evidence](../python-scorer-migration-2026-10-22/README.md).
 
 Graph identities and exact fixed settings are in manifest.json. The comparator checks all
 image AND XML pins and refuses overwritten output or different paired numeric captures.

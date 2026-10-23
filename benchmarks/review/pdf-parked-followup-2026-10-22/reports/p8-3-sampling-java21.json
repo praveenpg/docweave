@@ -1,0 +1,23 @@
+{
+  "probe" : "SAMPLING",
+  "scope" : "Owned half-covered pixel; transparent background; renderer and 4x box sampling.",
+  "java_version" : "21.0.12.1",
+  "deviations" : 0,
+  "rows" : [ {
+    "sampling" : "RENDERER",
+    "argb_samples" : {
+      "x9" : [ 0, 0, 0, 0 ],
+      "x10" : [ 0, 0, 0, 0 ],
+      "x11" : [ 255, 255, 0, 0 ]
+    },
+    "issues" : [ ]
+  }, {
+    "sampling" : "BOX_4X",
+    "argb_samples" : {
+      "x9" : [ 0, 0, 0, 0 ],
+      "x10" : [ 128, 255, 0, 0 ],
+      "x11" : [ 255, 255, 0, 0 ]
+    },
+    "issues" : [ ]
+  } ]
+}

@@ -61,8 +61,17 @@ python benchmarks/tools/compare_scan_detectors.py \
   --cache /path/to/ctdar \
   --manifest benchmarks/review/pdf-physical-scans/extended-manifest.json \
   --model /path/to/yolox_l0.05.onnx --output /path/to/NEW-summary.json
-python3 -m unittest discover -s benchmarks/tools -p 'test_*.py'
+# Recompute every reported proposal metric on the JVM (no model execution):
+java -cp "docweave-validation/target/test-classes:$DOCWEAVE_CLASSPATH" \
+  dev.docweave.validation.ScoreBenchmarkCaptures scan-detectors-verify \
+  --report /path/to/NEW-summary.json --capture21 /path/to/capture21 --cache /path/to/ctdar \
+  --manifest benchmarks/review/pdf-physical-scans/extended-manifest.json --output /path/to/NEW-verification.json
 ```
+
+The comparator was migrated to the JVM on 2026-10-22 (`ScoreBenchmarkCaptures scan-detectors-verify`, run from the
+repository root after `mvn test-compile`); it reproduces this directory's retained report metrics exactly; the YOLOX harness itself stays in Python because it executes upstream prediction code.
+Identity files still pin the retired Python source, which remains in repository history. See the
+[migration evidence](../python-scorer-migration-2026-10-22/README.md).
 
 Graphs and installed prediction source must match the tool's hashes. The tool forces offline
 model access and rejects a path containing `quantized`, which upstream uses to switch thresholds.

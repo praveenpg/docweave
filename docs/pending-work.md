@@ -1,6 +1,6 @@
 # Consolidated pending work
 
-Snapshot: 2026-10-22, runtime baseline `cf83cb2`. This is the index of recorded pending
+Snapshot: 2026-10-22, runtime baseline `6a02d01` plus the unreviewed local follow-up. This is the index of recorded pending
 work, including parked improvements. It consolidates the PDF quality backlog, roadmap,
 deferred-functionality audit and latest accepted review. Historical experiments keep their
 original scores. An item being recorded here does not make it a PDF completion blocker,
@@ -10,19 +10,20 @@ an implementation bug, or authorization to publish/run models/acquire another co
 
 | ID | Remaining work | State / concrete next action |
 |---|---|---|
-| P1 | Paragraph-internal scientific sidebar ties | **Addressed for recent/next (opt-in):** `SMALLER_TYPE_BLOCKS_ROW_FRAGMENTS` emits marked paragraph fragments. Recent goes 6→0 and next 1→0 with no correct pair lost; rejoined output equals the row-tie output. Upstream XY-cut ordering was rejected. Holdout 17 and eLife 43 residuals remain; they need an independently supported order signal. |
-| P2 | Broader business-table headers, boundaries and continuation | **Split date headers addressed (opt-in):** `RowLines.SPLIT_ALIGNED_TWO_LINE_ROWS` takes YOLOX 71→77/110 and TATR 36→38/110, every gained row a date header, with 5 source-consistent transfer splits. The whitespace-spacer exclusion was a disclosed amendment. Aligned-text native-first detection is refused by the glyph-ownership contract. Titles, parenthesis spacing and TATR absent proposals remain (Q1). |
-| P3 | Positive non-NVIDIA trailing-row recovery | Two simulations: the painted row-band lattice was rejected (0/3 targets, 7 wrong lines). Numeric column continuation recovered the Amazon row with 0 extras but missed both Apple targets, so it fails acceptance. Optional, because upstream excludes these rows. Next: an independently labelled transfer document. |
-| P4 | Historical OCR recognition, including the 1835 page number | Dual-decode union (harness) recovers 19 with fewer edits (104→101, 51→48) but adds 2 extras on 1778 at transfer, so it is not promoted. Sparse-segmentation union was rejected. A PDF-level change still needs Q2. |
-| P5 | Degraded-scan column separation | **Addressed for ruled columns (opt-in):** `TesseractOptions.LineSplitting.WIDE_GAPS_AND_PRINTED_RULE` takes 1778 from 27→31/38 under both models, with fewer missing/extra lines and character errors; controls and two transfer pages are unchanged. Deskew had no effect. Next: an independent labelled two-column scan. |
-| P6 | Degraded-scan preprocessing | Border masking and large-component suppression were both rejected through OCR (regressions). Reopen only with a different defect tied to observed errors. |
-| P7 | Exact isolated source-image appearance / visibility | Prototypes: final-visibility difference passes 8/8 owned fixtures; isolated contribution passes 7/8 (luminosity soft mask fails under suppression). This is evidence for a consumer contract decision; no API has been added. |
-| P8 | Remaining small-crop renderer disagreement | Analytic fractional-coverage sweep and local Poppler comparison: within 12 and 10 levels. No defect; no fix. |
-| P9 | Procurement reference whitespace discrepancy | Extraction keeps both source separators (owned test added). An additive v2 reference proposal scores 154/154 against v1 152/154, pending independent review. No extraction change. |
+| P1 | Paragraph-internal scientific sidebar ties | **Addressed for recent/next (opt-in):** `SMALLER_TYPE_BLOCKS_ROW_FRAGMENTS` (recent 6→0, next 1→0). The 2026-10-22 follow-up tried four signals. Tagged structure order, content-stream order and a local side-by-side content tie-break were rejected; the best fixed one holdout pair but reversed 6 correct eLife pairs. A JATS check (indicative) suggests eLife's 43 residuals follow the publisher's logical order. Holdout 17 and eLife 43 remain; next, a stated reading-order contract (front matter, sidebar membership), not more geometry. |
+| P2 | Broader business-table headers, boundaries and continuation | **Split date headers addressed (opt-in):** `RowLines.SPLIT_ALIGNED_TWO_LINE_ROWS` (YOLOX 71→77/110, TATR 36→38/110). Follow-up diagnostics, by profile: YOLOX misses 16/150 region lines, which are the statement title blocks, rows 0–3. The pinned upstream also keeps those titles out of tables (no defect). YOLOX cash-flow misses are publisher parenthesis cells. TATR misses are detector recall, which is BLOCKED on model execution or Q1. A competing-table ownership guard was added. |
+| P3 | Positive non-NVIDIA trailing-row recovery | Five simulations were rejected (bands, numeric, content contiguity, gutters, blank-gap numeric); none recovered all three targets with zero extras. Blank-gap numeric recovered 1/3 with 0 extras and 0 false additions on five independent ICDAR-2013 tables. Optional, because upstream excludes these rows. BLOCKED on independently labelled business statements with trailing rows (Q1). |
+| P4 | Historical OCR recognition, including the 1835 page number | A page-number-pattern gate on dual-decode additions passes on cached replays: 1835 21→22 under both models, 1778/1879/1780 unchanged. Margin and model-consensus gates were rejected. Evaluation only: the secondary decode is a TIFF harness behaviour, so PDF applicability needs Q2 plus authorized OCR. |
+| P5 | Degraded-scan column separation | **Addressed (opt-in):** `WIDE_GAPS_AND_PRINTED_RULE` (1778 27→31/38) and the new `WIDE_GAPS_AND_GUARDED_RULE_COLUMNS`. The new policy rejects one-sided rules such as the 1780 border, and emits band lines column by column (XML-order reversed 43→31, sequence edits 413→342 and 374→296). Column order without a guard, and a same-baseline join (`deu` reversals 31→34), were rejected. The 7 remaining missing 1778 lines are segmentation, not recognition. Next: an independent labelled two-column scan. |
+| P6 | Degraded-scan preprocessing | Diagnostics: 1778 errors concentrate in low- and mid-contrast strokes; 1780 extras are small dense specks and thin vertical artifacts. Stroke-weight restoration and speckle/thin-artifact removal are prepared but BLOCKED on current-session authorization to run the pinned Tesseract. Border masking, large components, CLAHE, median and deskew remain rejected or ineffective. |
+| P7 | Exact isolated source-image appearance / visibility | Prototypes on 14 owned fixtures. Mask-aware isolated contribution passes everything, including soft masks, nested and knockout groups and the `/BC` backdrop. Final visibility passes everything, but by construction it misses identical-colour contributions and overpainted images. A consumer contract matrix records the decisions needed; no API added. |
+| P8 | Remaining small-crop renderer disagreement | No defect in six probes: analytic, Poppler, rotation and crop-box offsets, UserUnit/POINTS, premultiplied 4× box sampling, and budget/typed-error boundaries. Rounding follows the documented single-precision renderer scale. |
+| P9 | Procurement reference whitespace discrepancy | **Reference review closed:** a raw content-stream review confirms both v2 separators are painted U+0009-mapped glyphs, so v2 is an additive reference repair (v1 152/154 kept). A whitespace serialization guard was added, and no whitespace-kind mismatch exists elsewhere. Tabula provenance is BLOCKED (download). No extraction change. |
 
-Evidence: [parked-items review](../benchmarks/review/pdf-parked-items-2026-10-22/README.md) and
-[two attempts per item](../benchmarks/review/pdf-parked-items-2026-10-22/attempts/README.md). Three opt-in
-runtime additions resulted (P1, P2, P5); defaults are unchanged.
+Evidence: [parked-items review](../benchmarks/review/pdf-parked-items-2026-10-22/README.md),
+[two attempts per item](../benchmarks/review/pdf-parked-items-2026-10-22/attempts/README.md) and
+[four further attempts per item](../benchmarks/review/pdf-parked-followup-2026-10-22/README.md). Four
+opt-in runtime additions have resulted (P1, P2 and two for P5); defaults are unchanged.
 
 ## Future PDF qualification (not unfinished implementation)
 
@@ -46,7 +47,7 @@ These remain recorded, but PDF priority is unchanged. Contextual chunking itself
 | N5 | Design and implement opt-in token-budget chunking with a pinned tokenizer, explicit overlap/table semantics and a separate dependency boundary. |
 | N6 | Evaluate existing contextual chunk enrichment on independently labelled retrieval data; do not implement ContextualChunker again or generalize the tiny owned live checks. |
 | N7 | Address supported HTML/Markdown/TXT fidelity requirements individually: nested HTML, Markdown DOM/extensions and TXT grouping/classification, using pinned mismatch cases. Preserve XML/browser/network boundaries. |
-| N8 | Migrate remaining Python-based DocWeave scoring/tests to JVM code with frozen-output parity. Retain Python for actual Unstructured generation and its guards; private release/export orchestration is separate. |
+| N8 | **Done 2026-10-22:** DocWeave scoring/tests migrated to JVM (`ScoreBenchmarkCaptures`, 29 Python methods → JUnit, byte-identical replay of retained reports). Python remains only for actual Unstructured/upstream execution and reference-generator guards (18 methods). Private release/export tooling is separate. |
 | N9 | Profile a representative large document and implement one measured per-document allocation/retention or cancellation improvement while preserving immutable ownership and current limits. |
 | N10 | Add a separately scoped PPTX partitioner module with slide metadata and explicit unsupported content. |
 | N11 | Add a separately scoped XLSX partitioner module with sheet/cell metadata, bounded workbook traversal and cached-formula policy. |

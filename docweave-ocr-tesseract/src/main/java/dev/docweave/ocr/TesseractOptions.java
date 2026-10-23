@@ -222,7 +222,22 @@ public record TesseractOptions(Path executable, Path tessdataDirectory, List<Str
          * selected (it then splits only lines that have words on both sides of it). Measured on four development
          * scans and two transfer pages, not on independent held-out pages.
          */
-        WIDE_GAPS_AND_PRINTED_RULE
+        WIDE_GAPS_AND_PRINTED_RULE,
+        /**
+         * Applies {@link #WIDE_GAPS_AND_PRINTED_RULE} with two additions, on page calls only. First, the found rule
+         * is used only when it separates text: at least three Tesseract lines overlapping the run vertically have a
+         * word ending at or left of the rule, and at least three have a word starting at or right of it; otherwise
+         * the output equals {@link #WIDE_GAPS}. This rejects, for example, a scanner border with words on one side.
+         * Second, returned lines whose vertical centre lies within the accepted run are emitted column by column:
+         * lines before the first such line keep their place, then the lines whose horizontal centre lies left of
+         * the rule, then those right of it (each in their original relative order), then the remaining lines in
+         * their original relative order. Text, words, boxes and line counts equal the
+         * {@link #WIDE_GAPS_AND_PRINTED_RULE} output whenever the rule is accepted; only the order changes. The
+         * order is a two-column reading assumption for ruled degraded scans, not semantic reading-order detection.
+         * Measured on four development scans from retained word captures (one accepted rule, one border rejected);
+         * no independent two-column scan has been evaluated.
+         */
+        WIDE_GAPS_AND_GUARDED_RULE_COLUMNS
     }
 
     /** Explicit isolated-cell preprocessing; no image is modified in place and geometry stays unchanged. */

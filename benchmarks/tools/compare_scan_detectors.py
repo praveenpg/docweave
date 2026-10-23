@@ -13,8 +13,47 @@ import os
 from pathlib import Path
 import time
 import sys
+import csv
+import xml.etree.ElementTree as ET
 
-from compare_tiled_regions import iou, reference_tables, rows
+
+# Geometry helpers copied verbatim from the retired compare_tiled_regions.py; the JVM verifier
+# (ScoreBenchmarkCaptures scan-detectors-verify) independently recomputes every reported metric.
+def rows(path):
+    """Read a numeric TSV if a profile completed; absence is handled by its typed outcome."""
+    with path.open() as stream:
+        return list(csv.DictReader(stream, delimiter='\t'))
+
+
+def iou(first, second):
+    """Compute axis-aligned envelope intersection/union, not polygon or text accuracy."""
+    overlap = max(0, min(first[2], second[2]) - max(first[0], second[0])) * max(
+        0, min(first[3], second[3]) - max(first[1], second[1]))
+    area = (first[2] - first[0]) * (first[3] - first[1]) + (second[2] - second[0]) * (second[3] - second[1])
+    return overlap / (area - overlap) if area > overlap else 0
+
+
+def reference_tables(path):
+    """Read original published cell spans/envelopes without repairing missing/duplicate labels."""
+    data = path.read_bytes()
+    if b'<!DOCTYPE' in data.upper() or b'<!ENTITY' in data.upper():
+        raise ValueError('Unexpected XML declaration')
+    result = []
+    for table in ET.fromstring(data).findall('table'):
+        keys = set(); row_count = column_count = 0
+        for cell in table.findall('cell'):
+            row = int(cell.attrib['start-row']); column = int(cell.attrib['start-col'])
+            end_row = int(cell.attrib.get('end-row', row)); end_column = int(cell.attrib.get('end-col', column))
+            if end_row < row or end_column < column:
+                raise ValueError('Invalid published span')
+            keys.add((row, column, end_row - row + 1, end_column - column + 1))
+            row_count = max(row_count, end_row + 1); column_count = max(column_count, end_column + 1)
+        points = [tuple(map(float, pair.split(','))) for pair in table.find('Coords').attrib['points'].split()]
+        result.append({'rows': row_count, 'columns': column_count, 'anchors': keys,
+                       'box': (min(p[0] for p in points), min(p[1] for p in points),
+                               max(p[0] for p in points), max(p[1] for p in points))})
+    return result
+
 
 EXPECTED_MODEL = '134301ca94fb0df8027be9a6dad1908fe6218af8ffa4d34f0819c7c2226195f3'
 EXPECTED_SOURCE = '664280229981663cb6e95c3beb417c71c69260afd82aab254833f3ffc52eecb9'

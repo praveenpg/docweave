@@ -65,10 +65,16 @@ First reproduce the prior region capture, retaining local PNGs. Use the exact pi
 and source-cache identities from the linked manifests. Prepare predictions without annotations:
 
 ```sh
-python3 benchmarks/tools/compare_detector_structures.py prepare \
+java -cp "docweave-validation/target/test-classes:$DOCWEAVE_CLASSPATH" \
+  dev.docweave.validation.ScoreBenchmarkCaptures detector-structures prepare \
   --captures /path/to/region-capture21 --summary /path/to/region-summary.json \
   --output /path/to/NEW-proposals
 ```
+
+The comparator was migrated to the JVM on 2026-10-22 (`ScoreBenchmarkCaptures detector-structures`, run from the
+repository root after `mvn test-compile`); it reproduces this directory's retained report and retained proposal files byte for byte.
+Identity files still pin the retired Python source, which remains in repository history. See the
+[migration evidence](../python-scorer-migration-2026-10-22/README.md).
 
 Compile CaptureDetectorStructures.java with release21 against built core/PDF/ONNX classes and
 runtime dependencies. On each actual JDK, run dev.docweave.layout.CaptureDetectorStructures
@@ -76,12 +82,13 @@ with five arguments: region-capture directory, prepared proposals, NEW structure
 structure graph path, structure SHA256 from manifest.json. Only then evaluate original labels:
 
 ```sh
-python3 benchmarks/tools/compare_detector_structures.py compare \
+java -cp "docweave-validation/target/test-classes:$DOCWEAVE_CLASSPATH" \
+  dev.docweave.validation.ScoreBenchmarkCaptures detector-structures compare \
   --capture21 /path/to/structure21 --capture25 /path/to/structure25 \
   --cache /path/to/ctdar \
   --manifest benchmarks/review/pdf-physical-scans/extended-manifest.json \
   --proposals /path/to/proposals --output /path/to/NEW-summary.json
-python3 -m unittest discover -s benchmarks/tools -p 'test_*.py'
+# JUnit guards for this scorer run in `mvn verify` (docweave-validation).
 ```
 
 The next useful diagnostic is to evaluate the existing observed-rule/model composition on the

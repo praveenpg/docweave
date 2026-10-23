@@ -1,0 +1,27 @@
+{
+  "probe" : "USER_UNIT",
+  "scope" : "Owned UserUnit pages; USER_SPACE and POINTS requests; documented renderer-scale rounding.",
+  "java_version" : "21.0.12.1",
+  "deviations" : 1,
+  "rows" : [ {
+    "user_unit" : 2.0,
+    "dpi" : 72,
+    "renderer_scale" : 2.0,
+    "issues" : [ ]
+  }, {
+    "user_unit" : 2.0,
+    "dpi" : 150,
+    "renderer_scale" : 4.1666665,
+    "issues" : [ "page raster 999x625 expected 999x624" ]
+  }, {
+    "user_unit" : 0.5,
+    "dpi" : 72,
+    "renderer_scale" : 0.5,
+    "issues" : [ ]
+  }, {
+    "user_unit" : 0.5,
+    "dpi" : 150,
+    "renderer_scale" : 1.0416666,
+    "issues" : [ ]
+  } ]
+}

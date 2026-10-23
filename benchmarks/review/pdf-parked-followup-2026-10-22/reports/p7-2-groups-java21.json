@@ -1,0 +1,30 @@
+{
+  "scope" : "Owned nested, knockout and soft-mask backdrop fixtures; mask-aware isolated and final-visibility prototypes; PDFBox rendering at 72 DPI; evaluation only.",
+  "java_version" : "21.0.12.1",
+  "failures" : 0,
+  "fixtures" : [ {
+    "fixture" : "NESTED",
+    "mask_aware_isolated_alpha" : [ 64, 64, 0 ],
+    "mask_aware_isolated_expected" : [ 64, 64, 0 ],
+    "mask_aware_isolated_pass" : true,
+    "visible" : [ 255, 255, 0 ],
+    "visible_expected" : [ 255, 255, 0 ],
+    "visible_pass" : true
+  }, {
+    "fixture" : "KNOCKOUT",
+    "mask_aware_isolated_alpha" : [ 255, 255, 0 ],
+    "mask_aware_isolated_expected" : [ 255, 255, 0 ],
+    "mask_aware_isolated_pass" : true,
+    "visible" : [ 255, 255, 0 ],
+    "visible_expected" : [ 255, 255, 0 ],
+    "visible_pass" : true
+  }, {
+    "fixture" : "BACKDROP",
+    "mask_aware_isolated_alpha" : [ 255, 0, 255 ],
+    "mask_aware_isolated_expected" : [ 255, 0, 255 ],
+    "mask_aware_isolated_pass" : true,
+    "visible" : [ 255, 0, 255 ],
+    "visible_expected" : [ 255, 0, 255 ],
+    "visible_pass" : true
+  } ]
+}

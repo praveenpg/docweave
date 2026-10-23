@@ -1,14 +1,19 @@
 package dev.docweave.ocr;
 
+import dev.docweave.partition.PdfOcrProvider;
 import dev.docweave.partition.PdfWordOcrProvider;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
  * Finds one printed vertical column rule in page pixels for
- * {@link TesseractOptions.LineSplitting#WIDE_GAPS_AND_PRINTED_RULE}.
+ * {@link TesseractOptions.LineSplitting#WIDE_GAPS_AND_PRINTED_RULE} and
+ * {@link TesseractOptions.LineSplitting#WIDE_GAPS_AND_GUARDED_RULE_COLUMNS}, and supplies the guarded policy's
+ * two-sided text check and column-by-column line order.
  *
  * <p>The detector compares each pixel with the pixels two columns to either side, so a faint thin rule is found
  * without a global ink threshold. It never reads recognized text, and the borrowed raster is neither modified nor
@@ -36,6 +41,65 @@ final class TesseractPrintedRule {
      * @param bottom last row of the run
      */
     record Rule(int x, int top, int bottom) {}
+
+    /**
+     * Tests whether a found rule separates text: at least three Tesseract lines overlapping the run vertically have
+     * a word ending at or left of the rule, and at least three have a word starting at or right of it.
+     *
+     * @param rule found rule
+     * @param lines recognized words per Tesseract line
+     * @return whether the guarded policy may use the rule
+     */
+    static boolean separatesText(final Rule rule, final List<List<PdfWordOcrProvider.Word>> lines) {
+        int left = 0;
+        int right = 0;
+        for (final var words : lines) {
+            if (words.isEmpty()) {
+                continue;
+            }
+            final double top = words.stream().mapToDouble(PdfWordOcrProvider.Word::top).min().orElseThrow();
+            final double bottom = words.stream().mapToDouble(PdfWordOcrProvider.Word::bottom).max().orElseThrow();
+            if (bottom < rule.top() || top > rule.bottom()) {
+                continue;
+            }
+            left += words.stream().anyMatch(word -> word.right() <= rule.x()) ? 1 : 0;
+            right += words.stream().anyMatch(word -> word.left() >= rule.x()) ? 1 : 0;
+        }
+        return left >= 3 && right >= 3;
+    }
+
+    /**
+     * Returns the column-by-column emission order of returned lines around an accepted rule.
+     * Lines before the first line centred within the run keep their place; lines centred within the run follow,
+     * left of the rule first and then right of it; all other later lines follow last. Relative order is kept within
+     * each group.
+     *
+     * @param lines returned lines in parsed order
+     * @param rule accepted rule
+     * @return permutation of line indices
+     */
+    static List<Integer> columnOrder(final List<PdfOcrProvider.Line> lines, final Rule rule) {
+        final int[] group = new int[lines.size()];
+        int first = -1;
+        for (int index = 0; index < lines.size(); index++) {
+            final var line = lines.get(index);
+            final double centre = (line.top() + line.bottom()) / 2;
+            if (centre >= rule.top() && centre <= rule.bottom()) {
+                group[index] = (line.left() + line.right()) / 2 < rule.x() ? 1 : 2;
+                first = first < 0 ? index : first;
+            }
+        }
+        final int start = first;
+        final var order = new ArrayList<Integer>(lines.size());
+        for (int index = 0; index < lines.size(); index++) {
+            order.add(index);
+        }
+        order.sort(Comparator.comparingInt((Integer index)
+                                                   -> start < 0 || index < start ? 0
+                                                      : group[index] == 0        ? 3
+                                                                                 : group[index]));
+        return List.copyOf(order);
+    }
 
     /**
      * Finds the single accepted rule, if any.

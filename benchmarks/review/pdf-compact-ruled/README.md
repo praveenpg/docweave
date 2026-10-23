@@ -69,13 +69,19 @@ from the source manifest, NEW output directory and fixed DPI150. It embeds origi
 No diagnostic classpath overrides, private reflection, model or OCR are used in this capture.
 
 ```sh
-python3 benchmarks/tools/compare_compact_layout.py \
+java -cp "docweave-validation/target/test-classes:$DOCWEAVE_CLASSPATH" \
+  dev.docweave.validation.ScoreBenchmarkCaptures compact-layout \
   --capture21 /path/to/capture21 --capture25 /path/to/capture25 \
   --cache /path/to/ctdar \
   --manifest benchmarks/review/pdf-physical-scans/extended-manifest.json \
   --output /path/to/NEW-summary.json
-python3 -m unittest discover -s benchmarks/tools -p 'test_*.py'
+# JUnit guards for this scorer run in `mvn verify` (docweave-validation).
 ```
+
+The comparator was migrated to the JVM on 2026-10-22 (`ScoreBenchmarkCaptures compact-layout`, run from the
+repository root after `mvn test-compile`); it reproduces this directory's retained report byte for byte.
+Identity files still pin the retired Python source, which remains in repository history. See the
+[migration evidence](../python-scorer-migration-2026-10-22/README.md).
 
 All66 captures/JDK are byte-identical (132 hashed numeric files). Actual21/25 clean verification
 passes911 tests each with zero failures/errors/skips and strict Javadocs. The helper also passes

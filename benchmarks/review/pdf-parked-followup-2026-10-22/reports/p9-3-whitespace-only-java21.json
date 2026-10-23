@@ -1,0 +1,113 @@
+{
+  "scope" : "All-Unicode-whitespace diagnostic re-comparison of official mismatches; counts and indices only; official ASCII-only scoring unchanged.",
+  "java_version" : "21.0.12.1",
+  "rows" : [ {
+    "case" : "financial-disclosure",
+    "profile" : "default",
+    "mismatches" : 0,
+    "whitespace_only_mismatches" : 0,
+    "whitespace_only_positions" : [ ]
+  }, {
+    "case" : "financial-disclosure",
+    "profile" : "aligned",
+    "mismatches" : 0,
+    "whitespace_only_mismatches" : 0,
+    "whitespace_only_positions" : [ ]
+  }, {
+    "case" : "financial-disclosure",
+    "profile" : "multiline",
+    "mismatches" : 0,
+    "whitespace_only_mismatches" : 0,
+    "whitespace_only_positions" : [ ]
+  }, {
+    "case" : "financial-disclosure",
+    "profile" : "double-borders",
+    "mismatches" : 0,
+    "whitespace_only_mismatches" : 0,
+    "whitespace_only_positions" : [ ]
+  }, {
+    "case" : "financial-disclosure",
+    "profile" : "horizontal",
+    "mismatches" : 0,
+    "whitespace_only_mismatches" : 0,
+    "whitespace_only_positions" : [ ]
+  }, {
+    "case" : "financial-disclosure",
+    "profile" : "partial",
+    "mismatches" : 0,
+    "whitespace_only_mismatches" : 0,
+    "whitespace_only_positions" : [ ]
+  }, {
+    "case" : "transport-procurement",
+    "profile" : "default",
+    "mismatches" : 2,
+    "whitespace_only_mismatches" : 0,
+    "whitespace_only_positions" : [ ]
+  }, {
+    "case" : "transport-procurement",
+    "profile" : "aligned",
+    "mismatches" : 2,
+    "whitespace_only_mismatches" : 0,
+    "whitespace_only_positions" : [ ]
+  }, {
+    "case" : "transport-procurement",
+    "profile" : "multiline",
+    "mismatches" : 2,
+    "whitespace_only_mismatches" : 0,
+    "whitespace_only_positions" : [ ]
+  }, {
+    "case" : "transport-procurement",
+    "profile" : "double-borders",
+    "mismatches" : 2,
+    "whitespace_only_mismatches" : 0,
+    "whitespace_only_positions" : [ ]
+  }, {
+    "case" : "transport-procurement",
+    "profile" : "horizontal",
+    "mismatches" : 2,
+    "whitespace_only_mismatches" : 0,
+    "whitespace_only_positions" : [ ]
+  }, {
+    "case" : "transport-procurement",
+    "profile" : "partial",
+    "mismatches" : 2,
+    "whitespace_only_mismatches" : 0,
+    "whitespace_only_positions" : [ ]
+  }, {
+    "case" : "education-statistics",
+    "profile" : "default",
+    "mismatches" : 350,
+    "whitespace_only_mismatches" : 0,
+    "whitespace_only_positions" : [ ]
+  }, {
+    "case" : "education-statistics",
+    "profile" : "aligned",
+    "mismatches" : 350,
+    "whitespace_only_mismatches" : 0,
+    "whitespace_only_positions" : [ ]
+  }, {
+    "case" : "education-statistics",
+    "profile" : "multiline",
+    "mismatches" : 350,
+    "whitespace_only_mismatches" : 0,
+    "whitespace_only_positions" : [ ]
+  }, {
+    "case" : "education-statistics",
+    "profile" : "double-borders",
+    "mismatches" : 350,
+    "whitespace_only_mismatches" : 0,
+    "whitespace_only_positions" : [ ]
+  }, {
+    "case" : "education-statistics",
+    "profile" : "horizontal",
+    "mismatches" : 350,
+    "whitespace_only_mismatches" : 0,
+    "whitespace_only_positions" : [ ]
+  }, {
+    "case" : "education-statistics",
+    "profile" : "partial",
+    "mismatches" : 0,
+    "whitespace_only_mismatches" : 0,
+    "whitespace_only_positions" : [ ]
+  } ]
+}

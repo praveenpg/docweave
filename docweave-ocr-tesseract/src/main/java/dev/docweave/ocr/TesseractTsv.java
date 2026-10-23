@@ -109,7 +109,10 @@ final class TesseractTsv {
                                  .decode(ByteBuffer.wrap(bytes))
                                  .toString();
         final var lines = new LinkedHashMap<String, Words>();
-        final boolean ruled = options.lineSplitting() == TesseractOptions.LineSplitting.WIDE_GAPS_AND_PRINTED_RULE;
+        final boolean guarded =
+                options.lineSplitting() == TesseractOptions.LineSplitting.WIDE_GAPS_AND_GUARDED_RULE_COLUMNS;
+        final boolean ruled =
+                guarded || options.lineSplitting() == TesseractOptions.LineSplitting.WIDE_GAPS_AND_PRINTED_RULE;
         final boolean split = ruled || options.lineSplitting() == TesseractOptions.LineSplitting.WIDE_GAPS;
         int characters = 0;
         try (final var reader = new BufferedReader(new StringReader(text))) {
@@ -160,10 +163,9 @@ final class TesseractTsv {
                 characters += cells[11].length() + separator;
             }
         }
-        final var rule = ruled && page != null
-                                 ? TesseractPrintedRule.find(
-                                           page, lines.values().stream().map(words -> words.tokens).toList(), deadline)
-                                 : null;
+        final var tokens = lines.values().stream().map(words -> words.tokens).toList();
+        final var found = ruled && page != null ? TesseractPrintedRule.find(page, tokens, deadline) : null;
+        final var rule = guarded && found != null && !TesseractPrintedRule.separatesText(found, tokens) ? null : found;
         final var result = new ArrayList<PdfOcrProvider.Line>(lines.size());
         final var detailed = retainWords ? new ArrayList<PdfWordOcrProvider.WordLine>(lines.size()) : null;
         for (final var words : lines.values()) {
@@ -188,6 +190,11 @@ final class TesseractTsv {
             if (detailed != null) {
                 detailed.add(new PdfWordOcrProvider.WordLine(line, words.tokens));
             }
+        }
+        if (guarded && rule != null) {
+            final var order = TesseractPrintedRule.columnOrder(result, rule);
+            return new Parsed(order.stream().map(result::get).toList(),
+                    detailed == null ? List.of() : order.stream().map(detailed::get).toList());
         }
         return new Parsed(List.copyOf(result), detailed == null ? List.of() : List.copyOf(detailed));
     }

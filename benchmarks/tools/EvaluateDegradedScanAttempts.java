@@ -291,7 +291,7 @@ public final class EvaluateDegradedScanAttempts {
      * @return WIDE_GAPS regrouping plus rule boundaries
      * @throws Exception if decoding fails
      */
-    private static List<PdfOcrProvider.Line> ruleSplit(final List<PdfWordOcrProvider.WordLine> lines, final Path image,
+    static List<PdfOcrProvider.Line> ruleSplit(final List<PdfWordOcrProvider.WordLine> lines, final Path image,
             final Map<String, Object> details) throws Exception {
         final var rgb = rgb(ImageIO.read(image.toFile()));
         final int width = rgb.getWidth();

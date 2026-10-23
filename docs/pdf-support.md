@@ -3603,6 +3603,45 @@ This is a heuristic for faint printed column rules. It does not detect unruled c
 independent labelled two-column scan has not been tested. See the
 [parked-items evidence](../benchmarks/review/pdf-parked-items-2026-10-22/README.md).
 
+### Explicit OCR guarded rule columns (unreleased)
+
+```java
+final var tesseractOptions = TesseractOptions.defaults()
+        .withLineSplitting(TesseractOptions.LineSplitting.WIDE_GAPS_AND_GUARDED_RULE_COLUMNS);
+```
+
+This keeps `WIDE_GAPS_AND_PRINTED_RULE` unchanged and adds a separate policy with two additions:
+
+- **Guard:** the found rule is used only if at least three Tesseract lines overlapping the run
+  vertically have a word ending at or left of it, and at least three have a word starting at or
+  right of it. Otherwise the output equals `WIDE_GAPS`, which rejects a scanner border that has
+  text on one side only.
+- **Column order:** lines whose vertical centre lies inside the accepted run are emitted left of
+  the rule first, then right of it. Lines before the band keep their place, and later lines follow
+  in their original order.
+
+Text, words, boxes and line counts equal the printed-rule output whenever the rule is accepted;
+only the order changes.
+
+Results on the degraded 1778 scan, under both pinned models (no-rule baseline → printed rule →
+guarded columns):
+
+| Metric | No rule | Printed rule | Guarded columns |
+|---|---|---|---|
+| Associated lines | 27/38 | 31/38 | 31/38 |
+| XML-order reversed pairs | 30 | 43 | 31 |
+| XML-order correct pairs | 321 | 422 | 434 |
+| XML-sequence edits | 413 / 374 | 413 / 374 | 342 / 296 |
+
+The guard rejects the 1780 scanner border. The 1835, 1879 and 1780 controls and the two transfer
+pages give output identical to `WIDE_GAPS`.
+
+These measurements replay retained word captures through the public TSV parser with the page
+rasters. The engine was not re-run in that session. The order is a two-column reading assumption
+for ruled degraded scans, not semantic reading-order detection, and no independent two-column scan
+has been tested. See the
+[parked follow-up evidence](../benchmarks/review/pdf-parked-followup-2026-10-22/README.md).
+
 ### Curved clipping envelopes (unreleased)
 
 ```java

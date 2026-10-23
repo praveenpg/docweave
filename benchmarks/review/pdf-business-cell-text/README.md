@@ -81,10 +81,16 @@ java -Xmx1g -Djava.awt.headless=true -cp "/tmp/business-classes:$DOCWEAVE_CLASSP
   dev.docweave.partition.CaptureBusinessCellText \
   /path/to/cache benchmarks/review/pdf-business-cell-text/cases.tsv \
   /tmp/business-new /path/to/tesseract /path/to/tessdata
-python3 benchmarks/tools/compare_business_cell_text.py \
+java -cp "docweave-validation/target/test-classes:$DOCWEAVE_CLASSPATH" \
+  dev.docweave.validation.ScoreBenchmarkCaptures business-cell-text \
   benchmarks/review/pdf-business-cell-text/manifest.json /path/to/cache \
   /tmp/business-new /tmp/business-new-summary.json
 ```
+
+The comparator was migrated to the JVM on 2026-10-22 (`ScoreBenchmarkCaptures business-cell-text`, run from the
+repository root after `mvn test-compile`); it reproduces this directory's comparison semantics; byte parity with the retired script was shown on fresh native captures.
+Identity files still pin the retired Python source, which remains in repository history. See the
+[migration evidence](../python-scorer-migration-2026-10-22/README.md).
 
 The launcher reads only PDF identities and selected page numbers from `cases.tsv`; it never
 reads CSV labels or reference regions. The comparator verifies all six input identities.

@@ -2,6 +2,28 @@
 
 ## Unreleased
 
+- Add explicit `TesseractOptions.LineSplitting.WIDE_GAPS_AND_GUARDED_RULE_COLUMNS`, which keeps
+  `WIDE_GAPS_AND_PRINTED_RULE` unchanged. The new policy uses the found rule only when at least three
+  overlapping lines have words on each side of it, and emits lines inside the rule's run left column
+  first. On the degraded 1778 scan, under both models, associated lines stay at 31/38 and XML-order
+  reversed pairs fall from 43 to 31 (no-rule baseline 30). Correct pairs rise from 422 to 434, and
+  XML-sequence edits fall from 413 to 342 and from 374 to 296. The guard rejects the 1780 scanner border,
+  and controls and transfer pages are unchanged. Limitations: these are replayed retained word
+  captures through the public parser, not a fresh engine run, and the policy is a two-column
+  assumption tested on development scans only.
+- Migrate the DocWeave benchmark scorers from Python to JVM code in the validation module:
+  - Business cell text, tiled regions, detector structures, compact layout, ruled scans, raster-rule
+    prototypes and audit, scan-detector metric verification, and the upstream table summary.
+    `ScoreBenchmarkCaptures` runs them without Python.
+  - Each retained cTDaR and upstream summary report is reproduced byte for byte. The upstream summary
+    differs only in its own harness hash.
+  - Scoring of fresh native business captures is byte-identical to the retired script.
+  - 29 Python test methods became JUnit tests, plus parity vectors frozen from the retired functions.
+  - Python remains for the upstream YOLOX harness, the Unstructured comparison launcher and the
+    reference-generator guards.
+- Add owned guards for competing provider tables under physical-line row splitting, and for source
+  whitespace (U+0009, U+00A0, U+2003, U+3000, U+200B) through text, ruled-table HTML and JSON.
+
 - Add explicit `PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_ROW_FRAGMENTS`, which builds on the
   row-tie policy for column-paragraph layouts. When a side block starts on the row of the last line
   of a multi-line main paragraph, the paragraph is emitted as two marked fragments with the side

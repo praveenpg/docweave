@@ -97,11 +97,17 @@ javac --release 21 -cp "$DOCWEAVE_CLASSPATH" -d /tmp/partial-native-classes \
 java -cp "/tmp/partial-native-classes:$DOCWEAVE_CLASSPATH" \
   dev.docweave.partition.CaptureNativeBusinessTables /path/to/cache \
   benchmarks/review/pdf-business-cell-text/cases.tsv /tmp/native-partial-new partial
-python3 benchmarks/tools/compare_business_cell_text.py \
+java -cp "docweave-validation/target/test-classes:$DOCWEAVE_CLASSPATH" \
+  dev.docweave.validation.ScoreBenchmarkCaptures business-cell-text \
   benchmarks/review/pdf-business-cell-text/manifest.json /path/to/cache \
   /tmp/native-partial-new /tmp/native-partial-new.json \
   --profiles default aligned multiline double-borders horizontal partial
 ```
+
+The comparator was migrated to the JVM on 2026-10-22 (`ScoreBenchmarkCaptures business-cell-text`, run from the
+repository root after `mvn test-compile`); it reproduces this directory's comparison semantics; byte parity with the retired script was shown on fresh native captures.
+Identity files still pin the retired Python source, which remains in repository history. See the
+[migration evidence](../python-scorer-migration-2026-10-22/README.md).
 
 Official upstream metadata still reports0.27.28/main1b02b4d189c260ed9b1aca29583203e233d853cb,
 six commits beyond the historical0.27.27 pin. This is the same reviewed source delta,

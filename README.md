@@ -105,7 +105,8 @@ Build and test:
 mvn verify
 ```
 
-Run the benchmark harness checks:
+Benchmark scorers run as JUnit tests in `mvn verify`; the remaining Python checks guard only the
+upstream reference generators:
 
 ```sh
 python3 -m unittest discover -s benchmarks/tools -p 'test_*.py'

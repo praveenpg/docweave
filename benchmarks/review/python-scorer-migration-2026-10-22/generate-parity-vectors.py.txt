@@ -1,0 +1,195 @@
+"""Freeze owned synthetic parity vectors from the retired Python scorers (run from benchmarks/tools).
+
+Usage before retirement: cd benchmarks/tools && python3 -I generate-parity-vectors.py OUTPUT.json
+Every input is generated here from a fixed seed; no source document, label or capture is read.
+Errors are recorded as the exception class and message so the JVM ports must fail on the same cases.
+"""
+import csv
+import io
+import json
+import random
+import struct
+import sys
+
+sys.path.insert(0, '.')
+import compare_business_cell_text as business
+import compare_compact_layout as compact
+import compare_detector_structures as detector
+import compare_scan_detectors as scan
+import compare_tiled_regions as tiled
+
+rng = random.Random(20261022)
+
+
+def outcome(function, *arguments):
+    """Record a return value or the raised error type/message."""
+    try:
+        return {'value': function(*arguments)}
+    except Exception as failure:  # noqa: BLE001 - parity of failure paths is the point
+        return {'error': type(failure).__name__, 'message': str(failure)}
+
+
+def box():
+    """Small integer-valued float box, frequently overlapping and sometimes degenerate."""
+    left, top = rng.randint(0, 20), rng.randint(0, 20)
+    return (float(left), float(top), float(left + rng.randint(0, 12)), float(top + rng.randint(0, 12)))
+
+
+CENTERS = [(0, 0, 10, 10), (5, 0, 15, 10), (0, 5, 10, 15), (3, 3, 9, 9)]
+
+
+def cluster_box():
+    """Jittered box near a few shared centers, so one-to-one assignments are contested."""
+    center = rng.choice(CENTERS)
+    return tuple(float(value + rng.choice([-2, -1, 0, 0, 1, 2])) for value in center)
+
+
+def fractional_box():
+    """Arbitrary fractional float box, including inverted coordinates."""
+    return tuple(rng.uniform(-50, 150) for _ in range(4))
+
+
+def anchors():
+    """Small random positional span set."""
+    return {(rng.randint(0, 2), rng.randint(0, 2), rng.randint(1, 2), rng.randint(1, 2)) for _ in range(rng.randint(0, 4))}
+
+
+vectors = {'python': sys.version.split()[0]}
+
+floats = [0.0, -0.0, 1e16, 1e-4, 1e-5, 9.999999999999999e15, 1e15, 0.1, 1 / 3, 5e-324, 1.7976931348623157e308,
+          123456789012345678.0, 1e22, 2.5, -1.5e-7, 100.0, 0.0001234, 12345.678]
+floats += [struct.unpack('<d', struct.pack('<Q', rng.getrandbits(64)))[0] for _ in range(1200)]
+floats += [rng.uniform(-1e6, 1e6) for _ in range(400)] + [rng.uniform(0, 1) for _ in range(400)]
+floats = [value for value in floats if value == value and abs(value) != float('inf')]
+vectors['float_repr'] = [[value, repr(value)] for value in floats]
+vectors['round6'] = [[value, round(value, 6)] for value in floats[:4000]] + [
+    [value, round(value, 6)] for value in (0.1234565, 0.0000005, 2.5e-7, 0.9999995, 1.0000005)]
+
+documents = [{'b': [1, 2.0, -0.0, None, True, False], 'a': {'z': 'é \x01\x7f"\\/\t', 'y': []},
+              'c': {}, '\U0001f600': 1e-7, 'd': [[], {}, [1, [2, {'k': 'v'}]]]}, [], {}, 'plain', 3, 3.5, None]
+vectors['dumps'] = [{'value': document, 'indent': json.dumps(document, indent=2),
+                     'sorted': json.dumps(document, indent=2, sort_keys=True),
+                     'compact': json.dumps(document, separators=(',', ':'))} for document in documents]
+
+csv_texts = ['a,b\r\nc,d\r\n', 'a,"b,c"\n"d""e",f\n', '\n\na\n\n', '"multi\nline",x\ny', 'a"b,c\n', 'x,"y"z\n',
+             'trailing,\n,leading\n', 'r\rs\r', ',\n', '"",""\n', 'no newline at end', '"a"\r\n"b"\r\n']
+vectors['csv'] = [[text, list(csv.reader(io.StringIO(text, newline='')))] for text in csv_texts]
+tsv_texts = ['h1\th2\n1\t2\n\n3\n', 'a\tb\r\nx\ty\r\n', 'a\tb\n"q\tr"\ts\n']
+vectors['tsv'] = [[text, [dict(row) for row in csv.DictReader(io.StringIO(text), delimiter='\t')]] for text in tsv_texts]
+
+pairs = [(box(), box()) for _ in range(400)] + [(fractional_box(), fractional_box()) for _ in range(400)]
+pairs += [((0.0, 0.0, 0.0, 0.0), (0.0, 0.0, 0.0, 0.0)), ((5.0, 5.0, 1.0, 1.0), (0.0, 0.0, 10.0, 10.0))]
+vectors['iou'] = [[list(a), list(b), tiled.iou(a, b)] for a, b in pairs]
+vectors['business_iou'] = [[list(a), list(b), business.iou(a, b)] for a, b in pairs]
+
+matches = []
+for _ in range(300):
+    references = [cluster_box() for _ in range(rng.randint(0, 5))]
+    candidates = [cluster_box() for _ in range(rng.randint(0, 6))]
+    matches.append([[list(b) for b in references], [list(b) for b in candidates],
+                    [list(pair) for pair in scan.maximum_matches(references, candidates)],
+                    scan.metric(references, candidates)])
+vectors['maximum_matches'] = matches
+
+
+def table(profile=None):
+    """Random structure with geometry and spans."""
+    result = {'rows': rng.randint(1, 3), 'columns': rng.randint(1, 3), 'anchors': anchors(), 'box': cluster_box()}
+    if profile is not None:
+        result['profile'] = profile
+    return result
+
+
+structures = []
+for _ in range(250):
+    references = [table() for _ in range(rng.randint(0, 4))]
+    candidates = [table(rng.choice(['whole', 'upper', 'lower'])) for _ in range(rng.randint(0, 5))]
+    if references and candidates and rng.random() < 0.3:
+        clone = dict(references[0], profile='whole')
+        candidates.insert(rng.randint(0, len(candidates)), clone)
+
+    def plain(items):
+        return [{**item, 'anchors': sorted(list(key) for key in item['anchors']), 'box': list(item['box'])} for item in items]
+
+    structures.append([plain(references), plain(candidates), detector.structure_metric(references, candidates)])
+vectors['structure_metric'] = structures
+
+interiors = [(10.5, 20.5, 26.5, 32.5), (10, 10, 26, 22), (10, 10, 20, 20), (0.0, 0.0, 11.0, 11.0), (-3.2, -7.9, 9.1, 4.0)]
+interiors += [fractional_box() for _ in range(300)]
+vectors['interior'] = [[list(item), outcome(compact.interior, item)] for item in interiors]
+
+texts = [' A\t\n B ', 'a', 'A B', '\x0b\x0cX\r\n', '', '   ', 'x y', '\u0085z\u0085']
+vectors['normalize'] = [[text, business.normalize(text)] for text in texts]
+
+
+def cells(html):
+    parser = business.Cells()
+    parser.feed(html)
+    parser.close()
+    if parser.current is not None:
+        raise ValueError('HTML/coordinate anchor mismatch')
+    return parser.values
+
+
+htmls = ['<table><tr><td>A &amp; B&lt;C</td><td>x&gt;y&quot;&apos;&nbsp;z</td></tr></table>',
+         '<table><tr><th>H</th><td>1<br>2<br/>3</td><td/></tr></table>',
+         '<table><TR><TD class="a>b">Q</TD></TR></table>',
+         '<table><tr><td>&#x1;&#x0;&#xd800;&#x85;&#13;&#x10ffff;&#x110000;&#65;&#x41</td></tr></table>',
+         '<table><!-- c --><tr><td>a<!-- in -->b</td></tr></table>',
+         '<table><tr><td><td></td></tr></table>', '<table><tr></td></tr></table>',
+         '<table><tr><td>open</tr></table>', 'outside &amp; <td> inside </td> after']
+vectors['cells'] = [[html, outcome(cells, html)] for html in htmls]
+
+
+def coordinates(left, top, right, bottom):
+    return {'system': 'PDFUserSpace', 'points': [[left, top], [right, top], [right, bottom], [left, bottom]]}
+
+
+selections = []
+for _ in range(200):
+    tables = [{'coordinates': coordinates(*box()), 'id': index} for index in range(rng.randint(0, 4))]
+    roi = list(box())
+    selected, overlap = business.select(tables, roi)
+    selections.append([tables, roi, None if selected is None else selected['id'], overlap, round(overlap, 6)])
+vectors['select'] = selections
+
+
+def grid_table(texts, rows, columns, cells_):
+    html = '<table><tr>' + ''.join('<td>' + text + '</td>' for text in texts) + '</tr></table>'
+    return {'text_as_html': html, 'pdf_table_cells': {'row_count': rows, 'column_count': columns, 'cells': [
+        dict(row_index=r, column_index=c, row_span=rs, column_span=cs) for r, c, rs, cs in cells_]}}
+
+
+comparisons = []
+words = ['A', '', 'b', ' A ', 'x\ty', '&amp;', 'a b']
+for _ in range(250):
+    rows, columns = rng.randint(1, 3), rng.randint(1, 3)
+    reference = [[rng.choice(words).replace('&amp;', '&') for _ in range(columns)] for _ in range(rows)]
+    if rng.random() < 0.1:
+        reference.append(['extra'] * (columns + 1))
+    if rng.random() < 0.2:
+        prediction = None
+    else:
+        grid_rows, grid_columns = rng.randint(1, 3), rng.randint(1, 3)
+        if rng.random() < 0.75:
+            # Tile the emitted grid with in-grid anchors; some cover several slots, some slots stay uncovered.
+            cells_, used = [], set()
+            for r in range(grid_rows):
+                for c in range(grid_columns):
+                    if (r, c) in used or rng.random() < 0.15:
+                        continue
+                    rs = 2 if r + 1 < grid_rows and rng.random() < 0.25 else 1
+                    cs = 2 if c + 1 < grid_columns and rng.random() < 0.25 else 1
+                    if any((r + i, c + j) in used for i in range(rs) for j in range(cs)):
+                        rs = cs = 1
+                    used.update((r + i, c + j) for i in range(rs) for j in range(cs))
+                    cells_.append((r, c, rs, cs))
+        else:
+            cells_ = [(rng.randint(0, 2), rng.randint(0, 2), rng.randint(1, 2), rng.randint(1, 2)) for _ in range(rng.randint(0, 4))]
+        prediction = grid_table([rng.choice(words) for _ in cells_], grid_rows, grid_columns, cells_)
+    comparisons.append([reference, prediction, outcome(business.compare, reference, prediction)])
+vectors['compare'] = comparisons
+
+with open(sys.argv[1], 'x') as output:
+    json.dump(vectors, output, separators=(",", ":"))
+    output.write('\n')

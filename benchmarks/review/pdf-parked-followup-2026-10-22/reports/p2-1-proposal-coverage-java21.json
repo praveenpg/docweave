@@ -1,0 +1,126 @@
+{
+  "scope" : "Line-level detector-crop and emitted-table coverage of frozen NVIDIA reference regions; counts only, no model run, no reference text.",
+  "reference_manifest_sha256" : "2c0ad481b1a42eb5edfc7e6af2d8ec6c76f5e1ab206d7d539c492b156dabb3b6",
+  "java_version" : "21.0.12.1",
+  "rows" : [ {
+    "case" : "income",
+    "page" : 4,
+    "profile" : "tatr",
+    "region_lines" : 18,
+    "outside_every_crop" : 4,
+    "inside_crop_outside_tables" : 1,
+    "inside_emitted_table" : 13,
+    "crops" : 1,
+    "tables" : 1
+  }, {
+    "case" : "income",
+    "page" : 4,
+    "profile" : "yolox",
+    "region_lines" : 18,
+    "outside_every_crop" : 4,
+    "inside_crop_outside_tables" : 0,
+    "inside_emitted_table" : 14,
+    "crops" : 1,
+    "tables" : 1
+  }, {
+    "case" : "income",
+    "page" : 5,
+    "profile" : "tatr",
+    "region_lines" : 11,
+    "outside_every_crop" : 0,
+    "inside_crop_outside_tables" : 0,
+    "inside_emitted_table" : 11,
+    "crops" : 1,
+    "tables" : 1
+  }, {
+    "case" : "income",
+    "page" : 5,
+    "profile" : "yolox",
+    "region_lines" : 11,
+    "outside_every_crop" : 0,
+    "inside_crop_outside_tables" : 0,
+    "inside_emitted_table" : 11,
+    "crops" : 2,
+    "tables" : 2
+  }, {
+    "case" : "balance-sheet",
+    "page" : 5,
+    "profile" : "tatr",
+    "region_lines" : 23,
+    "outside_every_crop" : 2,
+    "inside_crop_outside_tables" : 0,
+    "inside_emitted_table" : 21,
+    "crops" : 1,
+    "tables" : 1
+  }, {
+    "case" : "balance-sheet",
+    "page" : 5,
+    "profile" : "yolox",
+    "region_lines" : 23,
+    "outside_every_crop" : 5,
+    "inside_crop_outside_tables" : 0,
+    "inside_emitted_table" : 18,
+    "crops" : 2,
+    "tables" : 2
+  }, {
+    "case" : "balance-sheet",
+    "page" : 6,
+    "profile" : "tatr",
+    "region_lines" : 11,
+    "outside_every_crop" : 11,
+    "inside_crop_outside_tables" : 0,
+    "inside_emitted_table" : 0,
+    "crops" : 1,
+    "tables" : 1
+  }, {
+    "case" : "balance-sheet",
+    "page" : 6,
+    "profile" : "yolox",
+    "region_lines" : 11,
+    "outside_every_crop" : 1,
+    "inside_crop_outside_tables" : 0,
+    "inside_emitted_table" : 10,
+    "crops" : 2,
+    "tables" : 2
+  }, {
+    "case" : "cash-flows",
+    "page" : 6,
+    "profile" : "tatr",
+    "region_lines" : 24,
+    "outside_every_crop" : 12,
+    "inside_crop_outside_tables" : 0,
+    "inside_emitted_table" : 12,
+    "crops" : 1,
+    "tables" : 1
+  }, {
+    "case" : "cash-flows",
+    "page" : 6,
+    "profile" : "yolox",
+    "region_lines" : 24,
+    "outside_every_crop" : 4,
+    "inside_crop_outside_tables" : 0,
+    "inside_emitted_table" : 20,
+    "crops" : 2,
+    "tables" : 2
+  }, {
+    "case" : "cash-flows",
+    "page" : 7,
+    "profile" : "tatr",
+    "region_lines" : 30,
+    "outside_every_crop" : 1,
+    "inside_crop_outside_tables" : 0,
+    "inside_emitted_table" : 29,
+    "crops" : 1,
+    "tables" : 1
+  }, {
+    "case" : "cash-flows",
+    "page" : 7,
+    "profile" : "yolox",
+    "region_lines" : 30,
+    "outside_every_crop" : 2,
+    "inside_crop_outside_tables" : 1,
+    "inside_emitted_table" : 27,
+    "crops" : 1,
+    "tables" : 1
+  } ]
+}

@@ -1,0 +1,275 @@
+{
+  "scope" : "Zone/contrast attribution of retained baseline recognition errors; counts only, no engine.",
+  "java_version" : "21.0.12.1",
+  "rows" : [ {
+    "id" : "arnimb_goethe03_1835",
+    "language" : "deu",
+    "reference_lines" : 22,
+    "buckets" : {
+      "zone:interior" : {
+        "code_points" : 1038,
+        "missing" : 1,
+        "lines" : 22,
+        "character_errors" : 103
+      },
+      "contrast:low" : {
+        "code_points" : 466,
+        "missing" : 1,
+        "lines" : 11,
+        "character_errors" : 44
+      },
+      "contrast:mid" : {
+        "code_points" : 308,
+        "missing" : 0,
+        "lines" : 6,
+        "character_errors" : 35
+      },
+      "contrast:high" : {
+        "code_points" : 264,
+        "missing" : 0,
+        "lines" : 5,
+        "character_errors" : 24
+      }
+    },
+    "extra_lines_by_zone" : { },
+    "contrast_tercile_bounds" : [ 77, 79 ]
+  }, {
+    "id" : "arnimb_goethe03_1835",
+    "language" : "deu_latf",
+    "reference_lines" : 22,
+    "buckets" : {
+      "zone:interior" : {
+        "code_points" : 1038,
+        "missing" : 1,
+        "lines" : 22,
+        "character_errors" : 50
+      },
+      "contrast:low" : {
+        "code_points" : 466,
+        "missing" : 1,
+        "lines" : 11,
+        "character_errors" : 24
+      },
+      "contrast:mid" : {
+        "code_points" : 308,
+        "missing" : 0,
+        "lines" : 6,
+        "character_errors" : 14
+      },
+      "contrast:high" : {
+        "code_points" : 264,
+        "missing" : 0,
+        "lines" : 5,
+        "character_errors" : 12
+      }
+    },
+    "extra_lines_by_zone" : { },
+    "contrast_tercile_bounds" : [ 77, 79 ]
+  }, {
+    "id" : "bebel_frau_1879",
+    "language" : "deu",
+    "reference_lines" : 50,
+    "buckets" : {
+      "zone:edge" : {
+        "code_points" : 234,
+        "missing" : 0,
+        "lines" : 4,
+        "character_errors" : 1
+      },
+      "contrast:low" : {
+        "code_points" : 3000,
+        "missing" : 0,
+        "lines" : 50,
+        "character_errors" : 7
+      },
+      "zone:interior" : {
+        "code_points" : 2766,
+        "missing" : 0,
+        "lines" : 46,
+        "character_errors" : 6
+      }
+    },
+    "extra_lines_by_zone" : {
+      "interior" : 1
+    },
+    "contrast_tercile_bounds" : [ 255, 255 ]
+  }, {
+    "id" : "bebel_frau_1879",
+    "language" : "deu_latf",
+    "reference_lines" : 50,
+    "buckets" : {
+      "zone:edge" : {
+        "code_points" : 234,
+        "missing" : 0,
+        "lines" : 4,
+        "character_errors" : 6
+      },
+      "contrast:low" : {
+        "code_points" : 3000,
+        "missing" : 0,
+        "lines" : 50,
+        "character_errors" : 53
+      },
+      "zone:interior" : {
+        "code_points" : 2766,
+        "missing" : 0,
+        "lines" : 46,
+        "character_errors" : 47
+      }
+    },
+    "extra_lines_by_zone" : {
+      "interior" : 1
+    },
+    "contrast_tercile_bounds" : [ 255, 255 ]
+  }, {
+    "id" : "buerger_gedichte_1778_0039",
+    "language" : "deu",
+    "reference_lines" : 38,
+    "buckets" : {
+      "zone:interior" : {
+        "code_points" : 659,
+        "missing" : 11,
+        "lines" : 32,
+        "character_errors" : 333
+      },
+      "contrast:mid" : {
+        "code_points" : 243,
+        "missing" : 5,
+        "lines" : 13,
+        "character_errors" : 150
+      },
+      "contrast:low" : {
+        "code_points" : 247,
+        "missing" : 6,
+        "lines" : 13,
+        "character_errors" : 155
+      },
+      "contrast:high" : {
+        "code_points" : 421,
+        "missing" : 0,
+        "lines" : 12,
+        "character_errors" : 59
+      },
+      "zone:edge" : {
+        "code_points" : 252,
+        "missing" : 0,
+        "lines" : 6,
+        "character_errors" : 31
+      }
+    },
+    "extra_lines_by_zone" : {
+      "interior" : 13
+    },
+    "contrast_tercile_bounds" : [ 55, 66 ]
+  }, {
+    "id" : "buerger_gedichte_1778_0039",
+    "language" : "deu_latf",
+    "reference_lines" : 38,
+    "buckets" : {
+      "zone:interior" : {
+        "code_points" : 659,
+        "missing" : 11,
+        "lines" : 32,
+        "character_errors" : 309
+      },
+      "contrast:mid" : {
+        "code_points" : 243,
+        "missing" : 5,
+        "lines" : 13,
+        "character_errors" : 158
+      },
+      "contrast:low" : {
+        "code_points" : 247,
+        "missing" : 6,
+        "lines" : 13,
+        "character_errors" : 136
+      },
+      "contrast:high" : {
+        "code_points" : 421,
+        "missing" : 0,
+        "lines" : 12,
+        "character_errors" : 25
+      },
+      "zone:edge" : {
+        "code_points" : 252,
+        "missing" : 0,
+        "lines" : 6,
+        "character_errors" : 10
+      }
+    },
+    "extra_lines_by_zone" : {
+      "interior" : 11
+    },
+    "contrast_tercile_bounds" : [ 55, 66 ]
+  }, {
+    "id" : "nn_besuch_1780_00001",
+    "language" : "deu",
+    "reference_lines" : 10,
+    "buckets" : {
+      "zone:interior" : {
+        "code_points" : 313,
+        "missing" : 1,
+        "lines" : 10,
+        "character_errors" : 51
+      },
+      "contrast:low" : {
+        "code_points" : 105,
+        "missing" : 1,
+        "lines" : 4,
+        "character_errors" : 17
+      },
+      "contrast:high" : {
+        "code_points" : 97,
+        "missing" : 0,
+        "lines" : 3,
+        "character_errors" : 21
+      },
+      "contrast:mid" : {
+        "code_points" : 111,
+        "missing" : 0,
+        "lines" : 3,
+        "character_errors" : 13
+      }
+    },
+    "extra_lines_by_zone" : {
+      "interior" : 8,
+      "edge" : 1
+    },
+    "contrast_tercile_bounds" : [ 133, 139 ]
+  }, {
+    "id" : "nn_besuch_1780_00001",
+    "language" : "deu_latf",
+    "reference_lines" : 10,
+    "buckets" : {
+      "zone:interior" : {
+        "code_points" : 313,
+        "missing" : 1,
+        "lines" : 10,
+        "character_errors" : 27
+      },
+      "contrast:low" : {
+        "code_points" : 105,
+        "missing" : 1,
+        "lines" : 4,
+        "character_errors" : 14
+      },
+      "contrast:high" : {
+        "code_points" : 97,
+        "missing" : 0,
+        "lines" : 3,
+        "character_errors" : 5
+      },
+      "contrast:mid" : {
+        "code_points" : 111,
+        "missing" : 0,
+        "lines" : 3,
+        "character_errors" : 8
+      }
+    },
+    "extra_lines_by_zone" : {
+      "interior" : 8,
+      "edge" : 1
+    },
+    "contrast_tercile_bounds" : [ 133, 139 ]
+  } ]
+}

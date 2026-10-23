@@ -1,0 +1,62 @@
+{
+  "probe" : "BUDGET",
+  "scope" : "Owned pages; documented crop budgets and typed failures; expectations from the contract.",
+  "java_version" : "21.0.12.1",
+  "deviations" : 0,
+  "rows" : [ {
+    "case" : "crop exactly at maxCropPixels",
+    "outcome" : "OK",
+    "expected" : "OK",
+    "issues" : [ ]
+  }, {
+    "case" : "crop one pixel over maxCropPixels",
+    "outcome" : "IMAGE_LIMIT",
+    "expected" : "IMAGE_LIMIT",
+    "issues" : [ ]
+  }, {
+    "case" : "request outside the page",
+    "outcome" : "UNSUPPORTED_OPTION",
+    "expected" : "UNSUPPORTED_OPTION",
+    "issues" : [ ]
+  }, {
+    "case" : "missing page",
+    "outcome" : "UNSUPPORTED_OPTION",
+    "expected" : "UNSUPPORTED_OPTION",
+    "issues" : [ ]
+  }, {
+    "case" : "page exactly at maxPagePixels",
+    "outcome" : "OK",
+    "expected" : "OK",
+    "issues" : [ ]
+  }, {
+    "case" : "page one pixel over maxPagePixels",
+    "outcome" : "IMAGE_LIMIT",
+    "expected" : "IMAGE_LIMIT",
+    "issues" : [ ]
+  }, {
+    "case" : "supersampled page at maxPagePixels",
+    "outcome" : "OK",
+    "expected" : "OK",
+    "issues" : [ ]
+  }, {
+    "case" : "supersampled page one pixel over",
+    "outcome" : "IMAGE_LIMIT",
+    "expected" : "IMAGE_LIMIT",
+    "issues" : [ ]
+  }, {
+    "case" : "more distinct pages than maxPages",
+    "outcome" : "IMAGE_LIMIT",
+    "expected" : "IMAGE_LIMIT",
+    "issues" : [ ]
+  }, {
+    "case" : "more requests than maxRequests",
+    "outcome" : "IMAGE_LIMIT",
+    "expected" : "IMAGE_LIMIT",
+    "issues" : [ ]
+  }, {
+    "case" : "encoded bytes over maxEncodedBytes",
+    "outcome" : "IMAGE_LIMIT",
+    "expected" : "IMAGE_LIMIT",
+    "issues" : [ ]
+  } ]
+}

@@ -92,14 +92,20 @@ and a fixed DPI150 or300. Run all9 originals for every profile, without per-sour
 Then evaluate annotations only after inference, separately per resolution:
 
 ```sh
-python3 benchmarks/tools/compare_ruled_scans.py \
+java -cp "docweave-validation/target/test-classes:$DOCWEAVE_CLASSPATH" \
+  dev.docweave.validation.ScoreBenchmarkCaptures ruled-scans \
   --capture21 /path/to/dpi150-java21 --capture25 /path/to/dpi150-java25 \
   --cache /path/to/ctdar --dpi 150 \
   --manifest benchmarks/review/pdf-physical-scans/extended-manifest.json \
   --baseline benchmarks/review/pdf-detector-structures --output /path/to/NEW-summary.json
 # Repeat with dpi300 captures, --dpi 300, and a different NEW output.
-python3 -m unittest discover -s benchmarks/tools -p 'test_*.py'
+# JUnit guards for this scorer run in `mvn verify` (docweave-validation).
 ```
+
+The comparator was migrated to the JVM on 2026-10-22 (`ScoreBenchmarkCaptures ruled-scans`, run from the
+repository root after `mvn test-compile`); it reproduces this directory's retained report for both resolutions byte for byte.
+Identity files still pin the retired Python source, which remains in repository history. See the
+[migration evidence](../python-scorer-migration-2026-10-22/README.md).
 
 The comparator verifies all original source/annotation pins, paired bytes, source placement,
 and hashed prior evidence before computing metrics. Only150DPI is required to reproduce that

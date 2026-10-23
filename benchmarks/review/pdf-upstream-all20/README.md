@@ -79,9 +79,15 @@ For each of the20 PNG names in ../pdf-pubtabnet/manifest.json:
 Aggregate all20 with the JDK-independent summary tool:
 
 ```sh
-python3 benchmarks/tools/summarize_pdf_upstream.py --reports /path/to/report-directory --candidate benchmarks/review/pdf-merge-conflicts/cells-java25.json --detector-baseline benchmarks/review/pdf-page-detection/pubtabnet-java25.json --output /tmp/new-all20-summary.json
-/path/to/reference-venv/bin/python -m unittest discover -s benchmarks/reference-tests -p 'test_pdf_upstream*.py'
+java -cp "docweave-validation/target/test-classes:$DOCWEAVE_CLASSPATH" \
+  dev.docweave.validation.ScoreBenchmarkCaptures pdf-upstream-summary --reports /path/to/report-directory --candidate benchmarks/review/pdf-merge-conflicts/cells-java25.json --detector-baseline benchmarks/review/pdf-page-detection/pubtabnet-java25.json --output /tmp/new-all20-summary.json
+/path/to/reference-venv/bin/python -m unittest discover -s benchmarks/reference-tests -p 'test_pdf_upstream.py'
 ```
+
+The comparator was migrated to the JVM on 2026-10-22 (`ScoreBenchmarkCaptures pdf-upstream-summary`, run from the
+repository root after `mvn test-compile`); it reproduces this directory's retained report byte for byte except its own `harness_sha256`; the five aggregation controls are JUnit tests now, so 6 reference-tool tests remain in Python.
+Identity files still pin the retired Python source, which remains in repository history. See the
+[migration evidence](../python-scorer-migration-2026-10-22/README.md).
 
 The aggregator rejects missing/duplicate inputs, mixed model/runtime settings, changed source
 revisions and Python/Java annotation-shape disagreements. Five additional analytical controls

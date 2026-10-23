@@ -72,18 +72,25 @@ Audit and actual-entry-point replay have separate work counters; this is not a c
 transaction. Each source raster is borrowed unchanged and released by the helper after inspection.
 
 ```sh
-python3 benchmarks/tools/audit_raster_rules.py \
+java -cp "docweave-validation/target/test-classes:$DOCWEAVE_CLASSPATH" \
+  dev.docweave.validation.ScoreBenchmarkCaptures raster-rule-prototypes \
   --jdk /path/to/jdk21 --classpath /path/to/runtime-classpath.txt \
   --captures /path/to/pinned-region-capture21 --pins /path/to/jpeg-pins.tsv \
   --output /path/to/NEW-audit21
 # Repeat with actual JDK25 and its identical pinned region capture, into NEW-audit25.
-python3 benchmarks/tools/compare_raster_rule_audit.py \
+java -cp "docweave-validation/target/test-classes:$DOCWEAVE_CLASSPATH" \
+  dev.docweave.validation.ScoreBenchmarkCaptures raster-rule-audit \
   --java21 /path/to/audit21 --java25 /path/to/audit25 \
   --cache /path/to/original-ctdar \
   --manifest benchmarks/review/pdf-physical-scans/extended-manifest.json \
   --output /path/to/NEW-summary.json
-python3 -m unittest discover -s benchmarks/tools -p 'test_*.py'
+# JUnit guards for this scorer run in `mvn verify` (docweave-validation).
 ```
+
+The comparator was migrated to the JVM on 2026-10-22 (`ScoreBenchmarkCaptures raster-rule-audit`, run from the
+repository root after `mvn test-compile`); it reproduces this directory's retained report byte for byte, and `raster-rule-prototypes` reproduces every pinned prototype source hash.
+Identity files still pin the retired Python source, which remains in repository history. See the
+[migration evidence](../python-scorer-migration-2026-10-22/README.md).
 
 Build matching core/PDF classes and assemble an explicit runtime classpath before running. The
 runner requires local resources and downloads nothing. Reproduce input rasters using the earlier
