@@ -1,0 +1,115 @@
+{
+  "source_library_commit" : "60109f7b6f742dfc25d30d5fabe001b9d1709243",
+  "scope" : "Snapshot packaged public API/isolated classpath checks; no release, signing, upload or corpus-quality claim",
+  "all_six_consumers_use_identical_current_installed_libraries" : true,
+  "system_installed_ocr_invoked" : false,
+  "results" : [ {
+    "java" : 21,
+    "consumer" : "pdf",
+    "source_sha256" : "d2b79d998224ec92c800217b7b42507b37b8c5bb784a5dfb335a9193aa02a939",
+    "consumer_jar_sha256" : "ddb37e7892cfb1ce52da8b663b624b14d52f6f550e2e6a27fd7ea72fa657272e",
+    "class_major" : 65,
+    "runtime_dependencies" : {
+      "docweave-pdf-0.1.0-SNAPSHOT.jar" : "d803c410e66e85ed43259bc4b0aaced6ee7f5707f28b6cf4da459b24faa60803",
+      "docweave-core-0.1.0-SNAPSHOT.jar" : "e420b9967036c75b1585fff46daf6b63a5ab17b0f61717fa0191f397b7af1a2b",
+      "pdfbox-3.0.8.jar" : "97647cfbde61ebcfc06b4cf8c9b0ffcaaee073396eceb4a7f6836a9b9128903c",
+      "pdfbox-io-3.0.8.jar" : "36a0e04001010b4c764857817412b96339930b19755e728959805cc0352061b2",
+      "fontbox-3.0.8.jar" : "a1915c24e3edbe0ecec93896dfbf6d41427810b663ade97bd4e8bae86ec3fdab",
+      "commons-logging-1.4.0.jar" : "d175dbd751dd782a63bde28c7a039520e971f25e84b79c19b8435edc3603e0dc"
+    },
+    "build_log_sha256" : "1c7c51cbc9244a76461c6afaaff148ca3a8800a037bb2e121a8d7792ca118d8e",
+    "run_log_sha256" : "e8628a77469d9506d30f744da42fc7dfb65dfa06917dd6103b29e5070932d9d3",
+    "outcome" : "SUCCESS"
+  }, {
+    "java" : 21,
+    "consumer" : "tesseract",
+    "source_sha256" : "5654c9c722b02dfbcec5621c4b82309fa0476a763cce207cfa26a1c6f5afb237",
+    "consumer_jar_sha256" : "79665985978f7fe44ee15ea9bbada7e927f181f113a0937671facdff4019d3b6",
+    "class_major" : 65,
+    "runtime_dependencies" : {
+      "docweave-ocr-tesseract-0.1.0-SNAPSHOT.jar" : "ba7623cc233b8125baf453c4b9a4678430ad9306f3c6167011d9b09f2d49d257",
+      "docweave-pdf-0.1.0-SNAPSHOT.jar" : "d803c410e66e85ed43259bc4b0aaced6ee7f5707f28b6cf4da459b24faa60803",
+      "docweave-core-0.1.0-SNAPSHOT.jar" : "e420b9967036c75b1585fff46daf6b63a5ab17b0f61717fa0191f397b7af1a2b",
+      "pdfbox-3.0.8.jar" : "97647cfbde61ebcfc06b4cf8c9b0ffcaaee073396eceb4a7f6836a9b9128903c",
+      "pdfbox-io-3.0.8.jar" : "36a0e04001010b4c764857817412b96339930b19755e728959805cc0352061b2",
+      "fontbox-3.0.8.jar" : "a1915c24e3edbe0ecec93896dfbf6d41427810b663ade97bd4e8bae86ec3fdab",
+      "commons-logging-1.4.0.jar" : "d175dbd751dd782a63bde28c7a039520e971f25e84b79c19b8435edc3603e0dc"
+    },
+    "build_log_sha256" : "f79b6f27e8faaf86648ac3aea0028e8257a7c35f3d7ada8d6d0b0bb3c72e9feb",
+    "run_log_sha256" : "10472978755980700e11bc54590d75a23c411ceb9ba8b4fc3c31c85e67435cad",
+    "outcome" : "SUCCESS"
+  }, {
+    "java" : 21,
+    "consumer" : "onnx",
+    "source_sha256" : "8f5b5910c3f16531a6c08b58f2440bf6e81c6def29d66d6fa6d9b8996351b47e",
+    "consumer_jar_sha256" : "0af67fc52ff3c44483382a94b387898e33032029b04aba831b64fd342324a6a8",
+    "class_major" : 65,
+    "runtime_dependencies" : {
+      "docweave-layout-onnx-0.1.0-SNAPSHOT.jar" : "9d18428209a002a7ff4d7634553a3ff0d4b67a7fbd8ed06f3b4128d286185ea2",
+      "docweave-pdf-0.1.0-SNAPSHOT.jar" : "d803c410e66e85ed43259bc4b0aaced6ee7f5707f28b6cf4da459b24faa60803",
+      "docweave-core-0.1.0-SNAPSHOT.jar" : "e420b9967036c75b1585fff46daf6b63a5ab17b0f61717fa0191f397b7af1a2b",
+      "pdfbox-3.0.8.jar" : "97647cfbde61ebcfc06b4cf8c9b0ffcaaee073396eceb4a7f6836a9b9128903c",
+      "pdfbox-io-3.0.8.jar" : "36a0e04001010b4c764857817412b96339930b19755e728959805cc0352061b2",
+      "fontbox-3.0.8.jar" : "a1915c24e3edbe0ecec93896dfbf6d41427810b663ade97bd4e8bae86ec3fdab",
+      "commons-logging-1.4.0.jar" : "d175dbd751dd782a63bde28c7a039520e971f25e84b79c19b8435edc3603e0dc",
+      "onnxruntime-1.23.2.jar" : "e0ab4a1af57d2da09097202f2dfd691e390c82e81183314788ccde4cf7c3cc38"
+    },
+    "build_log_sha256" : "f38fb049f5b437bed4389d51f41894678c3266b23a68d8421d724b9703154e59",
+    "run_log_sha256" : "686d56e8e01ab673c225ed8637233dd4ab21d3b71bb0e4b5b2068668cf616557",
+    "outcome" : "SUCCESS"
+  }, {
+    "java" : 25,
+    "consumer" : "pdf",
+    "source_sha256" : "d2b79d998224ec92c800217b7b42507b37b8c5bb784a5dfb335a9193aa02a939",
+    "consumer_jar_sha256" : "ec7613c1916c90ebb107f32f6403afc0f5dc9eeeb3d1e9e303452b932bb42407",
+    "class_major" : 65,
+    "runtime_dependencies" : {
+      "docweave-pdf-0.1.0-SNAPSHOT.jar" : "d803c410e66e85ed43259bc4b0aaced6ee7f5707f28b6cf4da459b24faa60803",
+      "docweave-core-0.1.0-SNAPSHOT.jar" : "e420b9967036c75b1585fff46daf6b63a5ab17b0f61717fa0191f397b7af1a2b",
+      "pdfbox-3.0.8.jar" : "97647cfbde61ebcfc06b4cf8c9b0ffcaaee073396eceb4a7f6836a9b9128903c",
+      "pdfbox-io-3.0.8.jar" : "36a0e04001010b4c764857817412b96339930b19755e728959805cc0352061b2",
+      "fontbox-3.0.8.jar" : "a1915c24e3edbe0ecec93896dfbf6d41427810b663ade97bd4e8bae86ec3fdab",
+      "commons-logging-1.4.0.jar" : "d175dbd751dd782a63bde28c7a039520e971f25e84b79c19b8435edc3603e0dc"
+    },
+    "build_log_sha256" : "9f0488c561da3d3681de1160ed5610e90b133e0d37a7b4b06bf23e72a9b4281a",
+    "run_log_sha256" : "16828caa52e33713d0c4ee8b0a5887c075885f9db714bd5ef436dddd854155bf",
+    "outcome" : "SUCCESS"
+  }, {
+    "java" : 25,
+    "consumer" : "tesseract",
+    "source_sha256" : "5654c9c722b02dfbcec5621c4b82309fa0476a763cce207cfa26a1c6f5afb237",
+    "consumer_jar_sha256" : "95917655281707000c97756b2245ee2713aee33ecf4b738dabec2b637bb0291a",
+    "class_major" : 65,
+    "runtime_dependencies" : {
+      "docweave-ocr-tesseract-0.1.0-SNAPSHOT.jar" : "ba7623cc233b8125baf453c4b9a4678430ad9306f3c6167011d9b09f2d49d257",
+      "docweave-pdf-0.1.0-SNAPSHOT.jar" : "d803c410e66e85ed43259bc4b0aaced6ee7f5707f28b6cf4da459b24faa60803",
+      "docweave-core-0.1.0-SNAPSHOT.jar" : "e420b9967036c75b1585fff46daf6b63a5ab17b0f61717fa0191f397b7af1a2b",
+      "pdfbox-3.0.8.jar" : "97647cfbde61ebcfc06b4cf8c9b0ffcaaee073396eceb4a7f6836a9b9128903c",
+      "pdfbox-io-3.0.8.jar" : "36a0e04001010b4c764857817412b96339930b19755e728959805cc0352061b2",
+      "fontbox-3.0.8.jar" : "a1915c24e3edbe0ecec93896dfbf6d41427810b663ade97bd4e8bae86ec3fdab",
+      "commons-logging-1.4.0.jar" : "d175dbd751dd782a63bde28c7a039520e971f25e84b79c19b8435edc3603e0dc"
+    },
+    "build_log_sha256" : "84d699380ba63bd1e71c044e93ccfb23b5918a49afaa892459c063578cf2f7bc",
+    "run_log_sha256" : "7fbc029ce4dc3b28d6501d03b36bac7682739413fe0882af27f1c7baf0a2f22a",
+    "outcome" : "SUCCESS"
+  }, {
+    "java" : 25,
+    "consumer" : "onnx",
+    "source_sha256" : "8f5b5910c3f16531a6c08b58f2440bf6e81c6def29d66d6fa6d9b8996351b47e",
+    "consumer_jar_sha256" : "460cac997dcda6d945269ac4d51c87eeda757485ed5292dde2b8e9fc24bf5af9",
+    "class_major" : 65,
+    "runtime_dependencies" : {
+      "docweave-layout-onnx-0.1.0-SNAPSHOT.jar" : "9d18428209a002a7ff4d7634553a3ff0d4b67a7fbd8ed06f3b4128d286185ea2",
+      "docweave-pdf-0.1.0-SNAPSHOT.jar" : "d803c410e66e85ed43259bc4b0aaced6ee7f5707f28b6cf4da459b24faa60803",
+      "docweave-core-0.1.0-SNAPSHOT.jar" : "e420b9967036c75b1585fff46daf6b63a5ab17b0f61717fa0191f397b7af1a2b",
+      "pdfbox-3.0.8.jar" : "97647cfbde61ebcfc06b4cf8c9b0ffcaaee073396eceb4a7f6836a9b9128903c",
+      "pdfbox-io-3.0.8.jar" : "36a0e04001010b4c764857817412b96339930b19755e728959805cc0352061b2",
+      "fontbox-3.0.8.jar" : "a1915c24e3edbe0ecec93896dfbf6d41427810b663ade97bd4e8bae86ec3fdab",
+      "commons-logging-1.4.0.jar" : "d175dbd751dd782a63bde28c7a039520e971f25e84b79c19b8435edc3603e0dc",
+      "onnxruntime-1.23.2.jar" : "e0ab4a1af57d2da09097202f2dfd691e390c82e81183314788ccde4cf7c3cc38"
+    },
+    "build_log_sha256" : "726afe89d4444f930f2b5490d622793f8902271247f548312e5d92645d4b09d4",
+    "run_log_sha256" : "7572be39719c0b9478871c3fc98ad3935685f1ea8cfa36599601754e848ef0c5",
+    "outcome" : "SUCCESS"
+  } ]
+}

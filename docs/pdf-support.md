@@ -98,6 +98,71 @@ branch rather than the published beta. Existing text, IDs, table output, image b
 resource budgets and reference/payload selection remain unchanged. See the
 [owned and independent affine evidence](../benchmarks/review/pdf-source-image-corners/README.md).
 
+## Explicit rendered page-region crops (unreleased)
+
+`PdfPageCropRenderer` is a separate service for the final rendered appearance of explicit page
+rectangles. It does not run during partitioning and never changes elements, source-image counts,
+order, PNG payloads, coordinates or clip/group metadata:
+
+```java
+var crops = PdfPageCropRenderer.create(PdfPageCropOptions.defaults())
+        .render(DocumentSource.of(path), List.of(new PdfPageCropRequest(1, 40, 40, 80, 80)));
+byte[] png = crops.getFirst().png();
+```
+
+PDFBox renders the whole page, including its transparency groups, soft masks, clipping, blend
+modes and paint order. Each crop then copies the requested rectangle from that page raster, so
+group alpha 0 yields background, alpha 0.5 blends and a clip admits only its region. A crop can
+also include text, vector paint, neighboring images and later overpainting. It is not a source
+image, an isolated asset, a figure detector or proof that a source image is visible: a fully
+hidden image can have a valid background-only crop.
+
+Requests use the displayed partition frame: crop-box-relative, top-left origin, page quarter
+turns applied. They take unscaled `USER_SPACE` (the `PDFUserSpace` element system) or physical
+`POINTS`; pixel input is not accepted. The raster scale is `dpi * UserUnit / 72` pixels per user
+unit, and the page raster size follows PDFRenderer's float products and floors. Requested edges
+round exactly outward to whole pixels. Each edge is the exact product of the requested value and
+the float render scale (divided exactly by UserUnit for points), with no decimal tolerance. A
+positive-width overlap with any pixel column or row therefore includes it, and an edge exactly on
+a pixel boundary adds nothing. The result is intersected with the page raster. Each crop reports its
+actual pixel origin and size, its actual extent in request units, whether the request was
+clipped, and its rotation, UserUnit, resolution, background and renderer identity.
+
+Lossless PNG is the only format. `WHITE` uses an opaque RGB page; `TRANSPARENT` keeps alpha over
+an unpainted backdrop. File sources are read once into a bounded snapshot. Byte sources are
+copied, and decoded text sources are rejected. Each distinct page is rendered exactly once per
+call, by its own PDFRenderer. PDFRenderer keeps its last page image, so a renderer is never reused:
+once a page's crops are copied, neither the renderer nor its raster is referenced, and the next
+page's raster is allocated without the previous one being reachable. This is not a heap bound.
+
+Request count, distinct pages, per-page and total rendered pixels, and crop pixels are all checked
+from page geometry before rendering (`IMAGE_LIMIT`). That includes PDFRenderer's hard ceiling
+of 2,147,483,647 pixels per page raster, even when a caller's long budget is larger. PNG bytes are
+charged during encoding.
+Missing pages and regions without rendered pixels fail with `UNSUPPORTED_OPTION`. Invalid
+coordinates fail at request construction. Interruption is checked before and after each page
+render and during copying and encoding. PDFBox does not interrupt a render already in progress,
+and these limits do not bound parser, font or decoder intermediates.
+
+The result is PDFBox's compositing, not a renderer-independent guarantee. Java2D applies
+non-rectangular clip paths, including glyph clips, without antialiasing, so those edges are hard
+at one sample per pixel. The explicit `PdfPageCropOptions.Sampling.BOX_4X` renders at four times
+the output scale and averages each 4x4 block, with alpha-weighted color, into one output pixel.
+The output grid, rectangles and metadata are unchanged. The rendered raster has about sixteen
+times the pixels and is charged against page-pixel limits. At 150 DPI an A4 page exceeds the
+default 16M page budget, so `BOX_4X` there needs explicitly larger budgets. On pages smaller
+than one output pixel in either axis, samples outside the actual supersampled page raster use
+the selected white or transparent background. Source edge pixels are not repeated, the output
+grid remains unchanged, and no larger page raster is allocated for this padding. The default
+remains `RENDERER`. See the
+[rendered region evidence](../benchmarks/review/pdf-rendered-region-crops/README.md) and the
+[review follow-up](../benchmarks/review/pdf-rendered-region-crops-followup/README.md).
+A [fractional-placement control](../benchmarks/review/pdf-remaining-diagnoses/README.md)
+attributes the remaining PDFium differences to renderer policy. PDFium and Poppler use a
+rounded-up page grid, snap axis-aligned image and rectangle edges to whole pixels, and antialias
+glyph-clip edges. `BOX_4X` approximates the antialiasing but keeps fractional placement. No
+renderer-specific snapping option is provided.
+
 ## Explicit empty-clip native text selection
 
 To exclude positive-alpha source text inside an empty inherited form/page clipping area:
@@ -879,6 +944,10 @@ and retained differences against saved PDFBox order. It is not human or Unstruct
 
 ## Remaining PDF quality gates
 
+The [current evaluation scope](pdf-evaluation-scope.md) follows observable Unstructured OSS
+behavior and relevant public examples. Broader corpus/producer/ICC qualification below is
+deferred, not a current completion blocker or an implied passing result.
+
 The native, OCR, word-OCR and local layout-provider implementations are available.
 The items below describe unresolved quality gates, rather than missing providers or
 a percentage of PDF support. Passing owned controls does not close original-document
@@ -890,7 +959,7 @@ or independent human-review gates.
 | Scientific reading order | Native/oriented lines, paragraph and compound-column layouts, source-tagged paragraphs, figure-caption association | Complete-body paragraph fidelity and asymmetric sidebar order remain unresolved. Physical wrap hyphens and reference whitespace differences are separate from lost/interleaved text. The sidebar investigation is parked; do not replace missing references or relax scoring to close it. |
 | Historical scans | Explicit language/model selection, managed OCR, quarter-turn correction, deskew and source-frame word geometry | Recognition and physical reading order vary across originals. Earlier language/model and segmentation comparisons are retained; no universal winning profile or automatic engine selection is established. |
 | Degraded scans | Explicit raster correction, white-point preprocessing and OCR magnification | Improvements are source-dependent; the tested white-point/sparse composition regressed several originals and is not promoted. Broader held-out transcription and calibration remain open. |
-| Source images | Actual occurrence accounting, normalized PNGs, mask/stencil handling, invocation graphics state, ordered affine placement corners, opt-in conservative clip bounds and enclosing group context | Source payloads and placements do not reproduce final compositing, clipping, occlusion or generated descriptions. Ordered-corner checks do not establish rendered-pixel equality. |
+| Source images | Actual occurrence accounting, normalized PNGs, mask/stencil handling, invocation graphics state, ordered affine placement corners, opt-in conservative clip bounds and enclosing group context; a separate explicit rendered page-region crop service | Source payloads and placements do not reproduce final compositing, clipping, occlusion or generated descriptions. Ordered-corner checks do not establish rendered-pixel equality. Rendered crops show PDFBox's final page appearance for requested rectangles. They do not isolate or classify source-image visibility, and they establish no general renderer parity. |
 | Independent acceptance and operations | Owned regressions, pinned original-source comparisons, bounded parser callbacks, packaged consumer checks | Independent human review, broader authoring-tool diversity, calibrated confidence and production heap/latency evidence remain open. PDFBox/codecs may allocate or delay cancellation before callbacks; limits are not a total decompression/heap bound. |
 
 The [quality backlog](pdf-quality-backlog.md) records parked approaches and return conditions.
@@ -1683,7 +1752,21 @@ This is the explicitly documented cross-domain export profile in
 [model feasibility evidence](../benchmarks/review/pdf-table-model-feasibility/README.md),
 not a claim of full parity with Microsoft's original inference pipeline.
 
-A bounded local read verifies graph identity before session creation from bytes. Inputs,
+A bounded local read verifies graph identity before session creation from bytes. The graph
+is read once into an exact-size, read-only off-heap snapshot. That snapshot is hashed and is
+the buffer handed to ONNX Runtime, so loading does not commit Java heap for the whole graph,
+and ONNX Runtime makes no further JNI copy. It counts against the JVM's direct-memory limit,
+which defaults to the maximum heap size.
+
+Managed sessions disable ONNX Runtime's per-session CPU arena and memory-pattern
+preallocation. The arena would otherwise keep activation regions resident after each run and
+hold one region per simultaneous run; outputs are unchanged. On the frozen packaged provider
+study (two admitted calls, YOLOX detection and financial TATR structure, Apple original,
+`-Xmx512m`), child VmHWM fell from 1.76–1.84 GiB to 1.28–1.39 GiB with identical outputs. See
+[ONNX memory evidence](../benchmarks/review/pdf-onnx-memory/README.md). These measurements are
+single-host observations, not a total process-memory bound.
+
+Inputs,
 raw query count, aggregate prospective atomic slots, row/column dimensions, geometry work,
 admission concurrency and total call duration have explicit limits. Deadlines include
 queueing/preprocessing/native inference/postprocessing. A daemon timer cooperatively
@@ -2901,6 +2984,120 @@ has five components. Original three/four-argument constructor descriptors remain
 `InlineScripts.PRESERVE`; record patterns, reflection and serialized/equality/string shapes
 need review. See the [uniform original-source experiment](../benchmarks/review/pdf-inline-scripts/README.md).
 
+### Explicit native inline-script runs (unreleased)
+
+Untagged native text groups glyphs into lines by baseline, so a raised affiliation or citation
+marker more than two units off its body baseline becomes its own line, usually placed before the
+names it belongs to. Enable the existing whole-run cell rule for ordinary native text explicitly:
+
+```java
+var options = PdfOptions.defaults()
+        .withTextLayout(PdfOptions.TextLayout.COLUMN_PARAGRAPHS)
+        .withInlineScripts(PdfOptions.InlineScripts.NEARBY_SMALL_GLYPHS);
+var partitioner = PdfPartitioner.create(options);
+```
+
+A run of at most eight nonblank upright glyphs, each at most three quarters of the page's median
+ordinary-text height and joined by small advances, joins the one body line that supports the whole
+run. This is the rule of `PdfNativeLayoutOptions.CellTextJoin.INLINE_SCRIPT_RUNS`. Competing
+baselines, overlapping positions, longer runs and distant small text keep historical grouping.
+Source characters and glyph bounds are retained. Regrouped elements enclose their member glyphs,
+so their bounds may change; no script markup is generated. The policy applies after native table staging, so native,
+tagged and provider table cells keep their own policies. Pages whose upright frame is displayed
+rotated are unchanged. Each run is compared only with body glyphs in its own baseline band, in
+original order, which equals the whole-input rule. Work shares the native page counter and its
+`TABLE_LIMIT` failure. Elements record `pdf_native_inline_script_policy=nearby_small_glyph_runs_v1`.
+`PRESERVE` remains the default; the options record gains an `inlineScripts` component and every
+earlier constructor is kept.
+
+Against pinned Unstructured 0.27.28 `fast` page-1 elements, compared in upstream's whitespace
+presentation, the policy locates one more upstream element on each of the three development
+papers and on a fourth original, with no added reversed pairs. Strict complete-body paragraph
+presence rises from 58, 58 and 59/143 to 60, 60 and 61/143 for the three native layouts. The
+first, strict-text page-1 prediction failed because the source keeps narrow no-break spaces that
+upstream presents as ASCII spaces; see the
+[Unstructured alignment evidence](../benchmarks/review/pdf-unstructured-alignment/README.md).
+
+### Explicit side-stream blocks (unreleased)
+
+On article first pages, a metadata sidebar set in smaller type often sits beside the abstract
+on a different baseline grid. The fixed-gutter column detector needs paired baselines, so it
+rejects the page and the sidebar lines alternate with abstract lines. Select explicit blocks:
+
+```java
+var options = PdfOptions.defaults()
+        .withTextLayout(PdfOptions.TextLayout.COLUMN_PARAGRAPHS)
+        .withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS);
+```
+
+On pages without an accepted gutter, ordinary upright lines are clustered by left edge (4-unit
+tolerance) and the largest cluster is the main stream. Another cluster's lines lying wholly at
+least 4 units outside the main stream's horizontal extent form a side stream when there are at
+least three, their median height is below 0.9 of the main stream's, and their vertical extent
+spans at least three main-stream lines. A cluster is rejected as row-bound when at least half
+of those lines share a baseline (within 2 units) with a main-stream line, as statement labels
+share baselines with their values; a prose sidebar runs on its own baseline grid. Side lines
+are grouped with the existing paragraph rule among themselves only, never across an intervening
+image, table or text item that horizontally overlaps them, and each block is emitted at its
+first line. A side line still ends
+any adjacent main-stream group, so main-stream grouping and order are unchanged. Blocks record
+`pdf_reading_order=side_stream_blocks_v1`. Characters and glyph bounds are kept; enclosing
+element bounds change where side lines join. `LINES` layouts, accepted column bands, tables,
+images and rotated text are unaffected. Work shares the layout page budget and its
+`LAYOUT_LIMIT` failure. `PRESERVE` is the default.
+
+The rule is geometric, not semantic. Against pinned Unstructured 0.27.28 page-1 order, the
+policy fixes every reversed pair on the frozen target sidebar block and adds no reversed or
+unmatched pair on four papers. Strict paragraph totals are unchanged. Across 13 additional local
+control PDFs, including statements and scientific articles, measured row association equals the default. Value-less
+section headings at their own indent can still carry the side-stream tag as single lines,
+without any change of text, order or membership. See the
+[side-stream evidence](../benchmarks/review/pdf-sidebar-blocks/README.md) and its
+[review follow-up](../benchmarks/review/pdf-sidebar-blocks/followup/README.md).
+
+#### Same-row sidebar ties (unreleased)
+
+A side block is emitted at its first line, so when that line starts a fraction of a unit below
+the top of a main-stream line on the same visual row, the main line comes first. Select the
+whole-element tie rule explicitly:
+
+```java
+var options = PdfOptions.defaults()
+        .withTextLayout(PdfOptions.TextLayout.COLUMN_PARAGRAPHS)
+        .withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_ROW_TIES);
+```
+
+The policy first produces exactly the `SMALLER_TYPE_BLOCKS` elements. In column-paragraph
+layouts (including oriented column paragraphs), one in-order pass then
+moves a side-stream element back one position, past its immediate predecessor, only when the
+predecessor:
+
+- is ordinary upright native text (not a side element, source paragraph, rotated text, table or
+  image);
+- holds one original line (`pdf_line_count` absent or 1), so a joined paragraph never moves even
+  when its last line shares the row;
+- lies wholly to the right of the side element (side right ≤ predecessor left);
+- contains the side element's top in its vertical extent (predecessor top ≤ side top <
+  predecessor bottom).
+
+Each side element moves at most once. Elements are moved intact: text, bounds, metadata,
+membership and the relative order of all other elements are unchanged, and nothing is split,
+joined, dropped or added. Accepted column bands and `LINES` layouts are unaffected, and the pass
+shares the layout page budget, cancellation and `LAYOUT_LIMIT` failure.
+
+On the four development papers, against pinned Unstructured 0.27.28 page-1 order with both
+column layouts and both inline-script choices, reversed pairs go from 3 to 1 on next, 19 to 17
+on holdout (20 to 18 with inline scripts), and stay at 6 on recent and 43 on eLife, with no
+correct pair lost and no pair newly unmatched. Recent has one move with no measured benefit.
+The remaining next reversal is the earlier frozen row-tie target, which needs a paragraph split
+and is out of scope. Strict paragraph results equal `SMALLER_TYPE_BLOCKS`. Across 17 pinned
+control PDFs (181 pages), the column layouts move elements only on page 1 of recent, next and
+holdout, with every row-association pair unchanged. Plain `PARAGRAPHS` uses the existing
+`SMALLER_TYPE_BLOCKS` placement without the extra tie pass; review found that applying the pass
+there separated a row pair, so the pass is scoped to column-paragraph layouts. The rule came
+from post-hoc development evidence and is not held-out accuracy. See the
+[row-tie policy evidence](../benchmarks/review/pdf-sidebar-row-tie-policy/README.md).
+
 ### Explicit logical paragraph assembly (unreleased)
 
 To make complete linked page fragments contiguous, apply the separate `PdfParagraphAssembler`
@@ -3124,6 +3321,52 @@ The complete NVIDIA source/capture replay improves YOLOX exact complete-row pres
 scores remain 0/110 under both profiles. A separate four-column owned PDF transfers the
 behavior at a different rendering resolution; it is not a second independent publisher
 benchmark. See [section-row evidence](../benchmarks/review/pdf-native-section-row/README.md).
+
+
+### Explicit native trailing rows from whitespace cells (unreleased)
+
+`PdfNativeLayoutOptions.TrailingRows.SOURCE_CELL_SPACER_ROWS` appends source lines below a
+provider table while they repeat the table's own whitespace cell lattice. Some producers, such
+as HTML-to-PDF converters, paint an explicit space glyph for every empty or padding cell. They
+do so at fixed column positions, including in visually blank rows.
+
+The lattice is the set of whitespace glyph positions repeated by every nonempty provider row,
+within 0.1 displayed units. At least two positions are required. Lines below the table are read
+in baseline order, and the first line that breaks any of these conditions ends the scan:
+
+- the line repeats every lattice position;
+- every glyph is upright;
+- every glyph lies within the table's horizontal extent.
+
+Blank lattice lines are crossed but never become rows. Each visible line becomes one row, and
+each of its native runs must fit inside one of the last provider row's unmerged columns.
+Footnotes, separate notes and aligned numbers that lack the lattice stay ordinary text. A
+conflicting, rotated or column-crossing extension keeps the provider table.
+
+```java
+final var layoutOptions = PdfNativeLayoutOptions.defaults()
+        .withLeadingRow(PdfNativeLayoutOptions.LeadingRow.SOURCE_NUMERIC_OR_SECTION_ROW)
+        .withTrailingRows(PdfNativeLayoutOptions.TrailingRows.SOURCE_CELL_SPACER_ROWS);
+```
+
+Leading-row inference, if also selected, runs first. Original anchors, row indices and
+provenance are unchanged, and added anchors count against `maxTableAnchors`. Accepted tables
+carry `pdf_table_trailing_boundary_policy` (`source_trailing_cell_spacer_rows_v1`) and
+`pdf_table_added_trailing_rows`. `PROVIDER_ONLY` remains the default.
+
+`PdfNativeLayoutOptions` gains a sixth record component, `trailingRows`. All earlier
+constructors are kept and select `PROVIDER_ONLY`. Code that calls the canonical constructor
+or deconstructs the record must account for the new component.
+
+On the complete NVIDIA replay, together with the section-row policy, YOLOX exact complete-row
+presence rises 68 → 71/110. The three recovered rows are exactly the classified structural
+misses: the page-5 balance-sheet heading and the two page-7 rows below a blank gap. No row is
+lost and no extra row appears. TATR stays at 36/110, and strict ordinal stays 0/110 for both
+profiles.
+
+This is source-structure inference, not semantic proof of membership. It does nothing for
+producers that paint no whitespace cells. See
+[trailing-row evidence](../benchmarks/review/pdf-trailing-cell-spacer-rows/README.md).
 
 
 ### Conservative image clip bounds (unreleased)

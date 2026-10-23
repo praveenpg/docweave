@@ -1,0 +1,5 @@
+"""Render the control page with Unstructured's own convert_pdf_to_image at 150 DPI; PNG only, no scoring."""
+import sys
+from unstructured.partition.pdf_image.pdf_image_utils import convert_pdf_to_image
+paths = convert_pdf_to_image(filename=sys.argv[1], dpi=150, output_folder=sys.argv[2], path_only=True)
+print("\n".join(str(p) for p in paths))

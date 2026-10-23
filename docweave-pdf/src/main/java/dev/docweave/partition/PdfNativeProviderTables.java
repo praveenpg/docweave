@@ -83,7 +83,7 @@ final class PdfNativeProviderTables {
                     PdfTableLayouts.locate(provider, image, options.tableLimits(), policy.validation(), work);
             final double xScale = geometry.width() / (double) image.getWidth();
             final double yScale = geometry.height() / (double) image.getHeight();
-            final var layouts =
+            final var leadingLayouts =
                     policy.leadingRow() != PdfNativeLayoutOptions.LeadingRow.PROVIDER_ONLY
                             ? PdfTableLayouts.validate(PdfNativeLeadingRow.extend(rawLayouts, glyphs, geometry, xScale,
                                                                yScale, preferred.tables(),
@@ -93,6 +93,13 @@ final class PdfNativeProviderTables {
                                                                work),
                                       image, options.tableLimits(), policy.validation(), work)
                             : rawLayouts;
+            // Trailing inference sees any accepted leading row, so both extensions share one ownership check.
+            final var layouts =
+                    policy.trailingRows() != PdfNativeLayoutOptions.TrailingRows.PROVIDER_ONLY
+                            ? PdfTableLayouts.validate(PdfNativeTrailingRows.extend(leadingLayouts, glyphs, geometry,
+                                                               xScale, yScale, preferred.tables(), work),
+                                      image, options.tableLimits(), policy.validation(), work)
+                            : leadingLayouts;
             long combinedAnchors = preferred.anchors();
             for (final var layout : layouts) {
                 work.step();
@@ -233,12 +240,18 @@ final class PdfNativeProviderTables {
                 metadata.put("pdf_table_method", "provider_layout_native_glyphs_v1");
                 metadata.put("pdf_text_method", "native");
                 metadata.put("pdf_table_layout_provenance", layout.provenance());
-                if (layout != rawLayouts.get(layoutIndex)) {
+                if (leadingLayouts.get(layoutIndex) != rawLayouts.get(layoutIndex)) {
                     metadata.put("pdf_table_boundary_policy",
                             policy.leadingRow() == PdfNativeLayoutOptions.LeadingRow.SOURCE_NUMERIC_OR_SECTION_ROW
                                     ? "source_leading_numeric_or_section_row_v1"
                                     : "source_leading_numeric_row_v1");
                     metadata.put("pdf_table_added_leading_rows", 1);
+                }
+                if (layout != leadingLayouts.get(layoutIndex)) {
+                    // A separate key keeps the established leading-row metadata unchanged when both are selected.
+                    metadata.put("pdf_table_trailing_boundary_policy", "source_trailing_cell_spacer_rows_v1");
+                    metadata.put(
+                            "pdf_table_added_trailing_rows", layout.rows() - leadingLayouts.get(layoutIndex).rows());
                 }
                 if (layout.headerRows() > 0) {
                     metadata.put("pdf_table_header_rows", layout.headerRows());

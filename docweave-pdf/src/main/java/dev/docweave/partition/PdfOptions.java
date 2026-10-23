@@ -29,12 +29,83 @@ package dev.docweave.partition;
  *         states under {@code pdf_image_group_context}; defaults preserve historical image metadata
  * @param curvedClipEnvelopes whether curved clip paths are interpreted by the rectangle enclosing their points
  *         and Bezier control points; defaults keep ignoring curved clips for every clip consumer
+ * @param inlineScripts explicit grouping of small raised/lowered native glyph runs into their body line;
+ *         defaults preserve historical baseline grouping
+ * @param sideStreams explicit block grouping of a smaller-type side stream, such as an article sidebar, on pages
+ *         without an accepted two-column gutter; defaults preserve historical interleaved grouping
  */
 public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPerPage, long maxImagePixels,
         int maxImageBytes, boolean includeImageBytes, TableLimits tableLimits, TableDetection tableDetection,
         TextLayout textLayout, boolean includeTableCellCoordinates, TableContinuation tableContinuation,
         UnicodeNormalization unicodeNormalization, TextRendering textRendering, FigureCaptions figureCaptions,
-        boolean includeImageClipBounds, boolean includeImageGroupContext, boolean curvedClipEnvelopes) {
+        boolean includeImageClipBounds, boolean includeImageGroupContext, boolean curvedClipEnvelopes,
+        InlineScripts inlineScripts, SideStreams sideStreams) {
+    /**
+     * Explicit grouping of a horizontally separate side stream set in smaller type, such as the metadata sidebar
+     * beside an article's first-page abstract. Applies only to paragraph-producing native layouts on pages where no
+     * two-column gutter is accepted; line layouts and accepted column bands are unchanged.
+     */
+    public enum SideStreams {
+        /** Keeps historical grouping: interleaved lines of two streams are grouped and ordered by position only. */
+        PRESERVE,
+        /**
+         * Clusters ordinary upright lines by left edge (four-unit tolerance) and takes the cluster with the most lines
+         * as the main stream. Another cluster's lines lying wholly outside the main stream's horizontal extent, at
+         * least four units beyond it, form a side stream when there are at least three of them, their median line
+         * height is below 0.9 of the main stream's, and their vertical extent spans at least three main-stream lines.
+         * A cluster is rejected as row-bound when at least half of those lines share a baseline (within two units)
+         * with a main-stream line, as statement labels do with their values; a prose sidebar runs on its own baseline
+         * grid. Side-stream lines are grouped by the existing paragraph rule among themselves only, and two
+         * consecutive side lines never join across an intervening item, such as an image, table or spanning text,
+         * that horizontally overlaps them. Each group is emitted at its first line's position. Every other item keeps
+         * its historical grouping and order, and a side line still ends any adjacent main-stream group. No text is
+         * changed; enclosing element bounds change where lines join. This is a geometric heuristic for sidebars, not
+         * semantic article order.
+         */
+        SMALLER_TYPE_BLOCKS,
+        /**
+         * Produces exactly the {@link #SMALLER_TYPE_BLOCKS} elements, then resolves same-row ties by moving whole
+         * elements only in column-paragraph layouts, including the oriented column variant. Plain
+         * {@link TextLayout#PARAGRAPHS} retains {@link #SMALLER_TYPE_BLOCKS} placement. One pass scans the page's
+         * grouped output once, in order. A side-stream element moves back one position, past its immediate predecessor,
+         * only when all of these hold: <ul> <li>the predecessor is ordinary upright native text: UncategorizedText that
+         * is not a side-stream element, source paragraph, rotated text, table or image;</li> <li>the predecessor holds
+         * one original line ({@code pdf_line_count} absent or 1), so a joined paragraph never moves even when its last
+         * line shares the side element's row;</li> <li>the side element lies wholly left of it (side right &le;
+         * predecessor left);</li> <li>the side element's top lies within the predecessor's vertical extent (predecessor
+         * top &le; side top &lt; predecessor bottom).</li>
+         * </ul>
+         * Each side-stream element moves at most once and never past more than that one item. Elements are moved
+         * intact: text, bounds, metadata, membership and the relative order of all other elements are those of
+         * {@link #SMALLER_TYPE_BLOCKS}, and no element is split, joined, dropped or added. Accepted two-column bands
+         * and line layouts are unchanged. The rule uses geometry only. It came from post-hoc development evidence
+         * against a pinned upstream reading order and is not a semantic or accuracy guarantee.
+         */
+        SMALLER_TYPE_BLOCKS_ROW_TIES
+    }
+
+    /**
+     * Explicit grouping of short small-glyph runs, such as affiliation or citation superscripts, in ordinary
+     * native upright text. Source characters and glyph bounds are retained; regrouped elements enclose their
+     * member glyphs, so their bounds may change. No semantic superscript/subscript markup is generated.
+     */
+    public enum InlineScripts {
+        /** Keeps historical grouping: a raised or lowered run more than two units off a baseline is its own line. */
+        PRESERVE,
+        /**
+         * Groups a complete run of at most eight nonblank upright glyphs, each at most three quarters of the page's
+         * median ordinary-text height and joined by small advances, with the one nearby body line that supports it:
+         * median-height body glyphs within a small horizontal gap, shifted more than two units but at most eighty
+         * percent of their height. Competing baselines, overlapping positions or longer runs keep the historical
+         * grouping. This is the bounded whole-run rule of the explicit native cell policy
+         * {@link PdfNativeLayoutOptions.CellTextJoin#INLINE_SCRIPT_RUNS}, applied to ordinary upright text after
+         * native table staging and only on pages whose upright source frame is displayed unrotated. It changes line
+         * membership and therefore paragraph and order grouping derived from lines; it does not repair text or
+         * establish semantic article order.
+         */
+        NEARBY_SMALL_GLYPHS
+    }
+
     /** Optional source-geometry heuristics; no policy generates text or guarantees semantic caption correctness. */
     public enum FigureCaptions {
         /** Preserves native text categories without caption inference. */ NONE,
@@ -287,6 +358,8 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
      * @param includeImageClipBounds whether to describe the invocation clip-bounds classification
      * @param includeImageGroupContext whether to list enclosing painted transparency-group invocation states
      * @param curvedClipEnvelopes whether curved clip paths contribute their enclosing control-point rectangle
+     * @param inlineScripts nonnull explicit native small-glyph run grouping policy
+     * @param sideStreams nonnull explicit side-stream grouping policy
      * @throws IllegalArgumentException if a budget is not positive
      * @throws NullPointerException if a required policy is null
      */
@@ -302,6 +375,76 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
         java.util.Objects.requireNonNull(unicodeNormalization, "unicodeNormalization");
         java.util.Objects.requireNonNull(textRendering, "textRendering");
         java.util.Objects.requireNonNull(figureCaptions, "figureCaptions");
+        java.util.Objects.requireNonNull(inlineScripts, "inlineScripts");
+        java.util.Objects.requireNonNull(sideStreams, "sideStreams");
+    }
+
+    /**
+     * Preserves the pre-side-stream full constructor; interleaved streams keep historical grouping.
+     * @param maxPages maximum page count
+     * @param maxGlyphsPerPage visited source-position ceiling, including filtered positions
+     * @param maxOperatorsPerPage content-operator ceiling
+     * @param maxImagePixels decoded image pixel ceiling
+     * @param maxImageBytes cumulative PNG byte ceiling
+     * @param includeImageBytes whether to retain PNG payloads
+     * @param tableLimits nonnull table budgets
+     * @param tableDetection nonnull table policy
+     * @param textLayout nonnull native grouping policy
+     * @param includeTableCellCoordinates whether to describe table cells
+     * @param tableContinuation nonnull linking policy
+     * @param unicodeNormalization nonnull native Unicode policy
+     * @param textRendering nonnull rendering-mode policy
+     * @param figureCaptions nonnull explicit native caption policy
+     * @param includeImageClipBounds whether to describe the invocation clip-bounds classification
+     * @param includeImageGroupContext whether to list enclosing painted transparency-group invocation states
+     * @param curvedClipEnvelopes whether curved clip paths contribute their enclosing control-point rectangle
+     * @param inlineScripts nonnull explicit native small-glyph run grouping policy
+     */
+    public PdfOptions(final int maxPages, final int maxGlyphsPerPage, final int maxOperatorsPerPage,
+            final long maxImagePixels, final int maxImageBytes, final boolean includeImageBytes,
+            final TableLimits tableLimits, final TableDetection tableDetection, final TextLayout textLayout,
+            final boolean includeTableCellCoordinates, final TableContinuation tableContinuation,
+            final UnicodeNormalization unicodeNormalization, final TextRendering textRendering,
+            final FigureCaptions figureCaptions, final boolean includeImageClipBounds,
+            final boolean includeImageGroupContext, final boolean curvedClipEnvelopes,
+            final InlineScripts inlineScripts) {
+        this(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes, includeImageBytes,
+                tableLimits, tableDetection, textLayout, includeTableCellCoordinates, tableContinuation,
+                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, includeImageGroupContext,
+                curvedClipEnvelopes, inlineScripts, SideStreams.PRESERVE);
+    }
+
+    /**
+     * Preserves the pre-inline-script full constructor; small-glyph runs keep historical baseline grouping.
+     * @param maxPages maximum page count
+     * @param maxGlyphsPerPage visited source-position ceiling, including filtered positions
+     * @param maxOperatorsPerPage content-operator ceiling
+     * @param maxImagePixels decoded image pixel ceiling
+     * @param maxImageBytes cumulative PNG byte ceiling
+     * @param includeImageBytes whether to retain PNG payloads
+     * @param tableLimits nonnull table budgets
+     * @param tableDetection nonnull table policy
+     * @param textLayout nonnull native grouping policy
+     * @param includeTableCellCoordinates whether to describe table cells
+     * @param tableContinuation nonnull linking policy
+     * @param unicodeNormalization nonnull native Unicode policy
+     * @param textRendering nonnull rendering-mode policy
+     * @param figureCaptions nonnull explicit native caption policy
+     * @param includeImageClipBounds whether to describe the invocation clip-bounds classification
+     * @param includeImageGroupContext whether to list enclosing painted transparency-group invocation states
+     * @param curvedClipEnvelopes whether curved clip paths contribute their enclosing control-point rectangle
+     */
+    public PdfOptions(final int maxPages, final int maxGlyphsPerPage, final int maxOperatorsPerPage,
+            final long maxImagePixels, final int maxImageBytes, final boolean includeImageBytes,
+            final TableLimits tableLimits, final TableDetection tableDetection, final TextLayout textLayout,
+            final boolean includeTableCellCoordinates, final TableContinuation tableContinuation,
+            final UnicodeNormalization unicodeNormalization, final TextRendering textRendering,
+            final FigureCaptions figureCaptions, final boolean includeImageClipBounds,
+            final boolean includeImageGroupContext, final boolean curvedClipEnvelopes) {
+        this(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes, includeImageBytes,
+                tableLimits, tableDetection, textLayout, includeTableCellCoordinates, tableContinuation,
+                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, includeImageGroupContext,
+                curvedClipEnvelopes, InlineScripts.PRESERVE);
     }
 
     /**
@@ -556,7 +699,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
                 includeImageBytes, tableLimits, detection, textLayout, includeTableCellCoordinates, tableContinuation,
                 unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, includeImageGroupContext,
-                curvedClipEnvelopes);
+                curvedClipEnvelopes, inlineScripts, sideStreams);
     }
 
     /**
@@ -569,7 +712,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
                 includeImageBytes, tableLimits, tableDetection, layout, includeTableCellCoordinates, tableContinuation,
                 unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, includeImageGroupContext,
-                curvedClipEnvelopes);
+                curvedClipEnvelopes, inlineScripts, sideStreams);
     }
 
     /**
@@ -583,7 +726,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
                 includeImageBytes, tableLimits, tableDetection, textLayout, include, tableContinuation,
                 unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, includeImageGroupContext,
-                curvedClipEnvelopes);
+                curvedClipEnvelopes, inlineScripts, sideStreams);
     }
 
     /**
@@ -597,7 +740,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates, continuation,
                 unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, includeImageGroupContext,
-                curvedClipEnvelopes);
+                curvedClipEnvelopes, inlineScripts, sideStreams);
     }
 
     /**
@@ -612,7 +755,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
                 tableContinuation, normalization, textRendering, figureCaptions, includeImageClipBounds,
-                includeImageGroupContext, curvedClipEnvelopes);
+                includeImageGroupContext, curvedClipEnvelopes, inlineScripts, sideStreams);
     }
 
     /**
@@ -634,7 +777,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
                 tableContinuation, unicodeNormalization, rendering, figureCaptions, includeImageClipBounds,
-                includeImageGroupContext, curvedClipEnvelopes);
+                includeImageGroupContext, curvedClipEnvelopes, inlineScripts, sideStreams);
     }
 
     /**
@@ -650,7 +793,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
                 tableContinuation, unicodeNormalization, textRendering, policy, includeImageClipBounds,
-                includeImageGroupContext, curvedClipEnvelopes);
+                includeImageGroupContext, curvedClipEnvelopes, inlineScripts, sideStreams);
     }
 
     /**
@@ -666,7 +809,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
                 tableContinuation, unicodeNormalization, textRendering, figureCaptions, include,
-                includeImageGroupContext, curvedClipEnvelopes);
+                includeImageGroupContext, curvedClipEnvelopes, inlineScripts, sideStreams);
     }
 
     /**
@@ -683,7 +826,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
                 tableContinuation, unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, include,
-                curvedClipEnvelopes);
+                curvedClipEnvelopes, inlineScripts, sideStreams);
     }
 
     /**
@@ -699,7 +842,40 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
         return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
                 includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
                 tableContinuation, unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds,
-                includeImageGroupContext, include);
+                includeImageGroupContext, include, inlineScripts, sideStreams);
+    }
+
+    /**
+     * Copies this policy with explicit grouping of small native glyph runs into their nearby body line.
+     * Applies to ordinary upright native text after table staging, before line, paragraph and column grouping;
+     * native, tagged and provider table cells keep their own policies. Work is bounded by the shared native page
+     * counter and cancellation checks, and each run is compared only with glyphs in its own baseline band;
+     * exhausting that counter fails the page with the existing {@code TABLE_LIMIT} code rather than returning
+     * partial grouping.
+     * @param policy nonnull explicit grouping policy
+     * @return immutable copy retaining every other extraction, layout and resource setting
+     * @throws NullPointerException if policy is null
+     */
+    public PdfOptions withInlineScripts(final InlineScripts policy) {
+        return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
+                tableContinuation, unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds,
+                includeImageGroupContext, curvedClipEnvelopes, policy, sideStreams);
+    }
+
+    /**
+     * Copies this policy with explicit block grouping of a smaller-type side stream.
+     * Applies to paragraph-producing native layouts on pages without an accepted two-column gutter. Detection and
+     * grouping share the native layout page budget and its {@code LAYOUT_LIMIT} failure and check cancellation.
+     * @param policy nonnull explicit side-stream policy
+     * @return immutable copy retaining every other extraction, layout and resource setting
+     * @throws NullPointerException if policy is null
+     */
+    public PdfOptions withSideStreams(final SideStreams policy) {
+        return new PdfOptions(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes,
+                includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates,
+                tableContinuation, unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds,
+                includeImageGroupContext, curvedClipEnvelopes, inlineScripts, policy);
     }
 
     /**

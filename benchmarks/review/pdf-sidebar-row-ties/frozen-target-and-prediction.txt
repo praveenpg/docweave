@@ -1,0 +1,32 @@
+SIDEBAR_ROW_TIES_V1 — frozen before any candidate code or candidate measurement; receipt hashes are written to the
+private freeze log at creation. No execution time is asserted in this file.
+
+Remaining reversals after SIDE_STREAMS (COLUMN_PARAGRAPHS) were diagnosed from existing captures and DocWeave lines:
+  recent 6, next 3, holdout transfer 19. All recent and next reversals, and holdout pairs (Received, Accepted) versus
+  abstract lines, are same-row near ties: a side block's first line vertically overlaps an abstract line whose top is
+  0.4-2.6 units higher, so strict top/left sorting emits the abstract line first; upstream reads the left block first.
+  The other 17 holdout reversals have different causes (upstream block ordering of OPEN ACCESS before an earlier
+  affiliation block; upstream joining citation continuation and editor lines into one block) and are not targets.
+
+Frozen target: next.pdf SHA-256 0c96e723..., page 1, capture next.json f81a49fd...; upstream page-1 element 16 (Title,
+box 36.0,529.3-111.2,537.3, collapsed-text SHA-256 2e8b1fea3012a89bed0b85a5f99c85d6b067a9e4cd3ab10cefe05de1d1cf2584)
+precedes element 17 (abstract line, box 198.0,528.2-566.0,538.2) in upstream order; DocWeave CP+SIDE_STREAMS emits the
+abstract line first. Expected corrected relation: element 16's line before element 17's line.
+
+Hypothesis (one candidate): within SideStreams.SMALLER_TYPE_BLOCKS only, when the first line of a side block
+immediately follows an ordinary main-stream line in top/left order, the two boxes overlap vertically, and the side
+line lies wholly to the left of the main line, the side block is emitted before that main line. The main-stream group
+is ended there, exactly as a side line already ends adjacent main groups. No other ordering, grouping or barrier rule
+changes; defaults and the PRESERVE policy are untouched. Geometry only.
+
+Metric: unchanged CompareUpstreamLineOrder (fixed mapped pairs, unmatched penalty), all four papers and the same eight
+COLUMN_PARAGRAPHS/COMPOUND_WRAPS profiles with and without inline scripts; target = pairs touching element 16 on next.
+Frozen predictions, comparing the candidate with the integrated SIDE_STREAMS profile:
+  D1 next target pairs: at least one REVERSED->CORRECT, none CORRECT->REVERSED or into UNMATCHED.
+  D2 all other pairs on all four papers/profiles: zero CORRECT->REVERSED and zero transitions into UNMATCHED.
+  D3 strict paragraphs (scientific-side-streams manifest): at least 58/58/59 and 60/60/61 with inline scripts;
+     any loss is an unmet criterion.
+  D4 17-source row association: every non-scientific source equal to its default profile (no change from the
+     integrated policy).
+  D5 existing image/Table/spanning-text barrier and statement-label controls pass unchanged.
+If D1-D3 are not all met, the candidate is archived and not promoted.

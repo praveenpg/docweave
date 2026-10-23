@@ -148,6 +148,10 @@ class PdfHistoricalTextCorpusTest {
         assertTrue(!managedBackground || (background && sourceResolution),
                 "Managed background trial requires explicit background/source resolution");
         assertFalse(median && background, "Independent preprocessing hypotheses must not be composed implicitly");
+        // Diagnostic source decoding: stored RGB samples instead of the embedded-profile sRGB conversion.
+        final boolean storedSamples = Boolean.getBoolean("docweave.pdf.historical.stored.samples");
+        assertTrue(!storedSamples || System.getProperty("docweave.pdf.historical.container.cache") == null,
+                "Stored-sample decoding cannot reuse color-managed container captures");
         final var profiles = new ArrayList<LanguageProfile>();
         for (final var profile : manifest.get("profiles")) {
             profiles.add(languageProfile(Path.of(data), profile));
@@ -185,8 +189,13 @@ class PdfHistoricalTextCorpusTest {
                 reviewed = reviewedOrder(reference, referenceXml, imagePins.getFirst().get("sha256").asString(),
                         selected.get("reviewed_order"));
             }
-            final var image =
+            final var decoded =
                     image(Path.of(cache, selected.get("image").asString()), reference.width(), reference.height());
+            final var stored = storedSamples ? storedSamples(decoded) : null;
+            final var image = stored == null ? decoded : stored;
+            if (stored != null) {
+                decoded.flush();
+            }
             final int dpi = sourceResolution ? selected.get("source_dpi").asInt() : 72;
             if (sourceResolution) {
                 assertEquals(dpi, sourceResolution(Path.of(cache, selected.get("image").asString())));
@@ -310,6 +319,10 @@ class PdfHistoricalTextCorpusTest {
                 if (managedBackground) {
                     result.put("managed_page_preprocessing", "LOCAL_WHITEPOINT");
                 }
+                if (storedSamples) {
+                    result.put("source_sample_decoding", stored == null ? "DECODED_RGB_NO_EMBEDDED_PROFILE"
+                                                                        : "STORED_SAMPLES_EMBEDDED_PROFILE_IGNORED");
+                }
                 result.put("container_dpi", dpi);
                 result.put("engine_source_dpi", sourceResolution ? dpi : "ENGINE_DEFAULT");
                 if (resolved.models().size() == 1) {
@@ -383,6 +396,26 @@ class PdfHistoricalTextCorpusTest {
     }
 
     /**
+     * Lists every reference line's position in reference order, its source-pixel box and whether its normalized
+     * text holds only ASCII digits, such as a printed page number. Line text is not returned.
+     * @param xml original verified PAGE reference
+     * @return immutable line positions, boxes and numeric flags, in reference order
+     * @throws Exception if the independent reference is invalid or exceeds its bounds
+     */
+    static List<Map<String, Object>> referenceLineBoxes(final byte[] xml) throws Exception {
+        final var lines = reference(xml).lines();
+        final var result = new ArrayList<Map<String, Object>>();
+        for (int index = 0; index < lines.size(); index++) {
+            final var line = lines.get(index);
+            final var box = line.box();
+            result.add(
+                    Map.of("reference_index", index, "box", List.of(box.left(), box.top(), box.right(), box.bottom()),
+                            "numeric", line.text().matches("[0-9]+")));
+        }
+        return List.copyOf(result);
+    }
+
+    /**
      * Scores unchanged public text against separately reviewed source order without inventing upstream line boxes.
      * Original XML order is still undeclared; every returned key is explicitly scoped to reviewed-order evidence.
      * @param xml exact original PAGE reference
@@ -446,6 +479,31 @@ class PdfHistoricalTextCorpusTest {
         result.put("reference_text_sha256", hash(expected.getBytes(StandardCharsets.UTF_8)));
         result.put("prediction_text_sha256", hash(actual.getBytes(StandardCharsets.UTF_8)));
         return result;
+    }
+
+    /**
+     * The diagnostic stored-sample decode copies a non-sRGB profile-tagged raster's samples exactly and leaves
+     * untagged sRGB and gray rasters to the default color-managed decode.
+     */
+    @Test
+    void storedSampleDecodingIgnoresOnlyANonSrgbEmbeddedProfile() {
+        final var linear = new java.awt.color.ICC_ColorSpace(
+                java.awt.color.ICC_Profile.getInstance(java.awt.color.ColorSpace.CS_LINEAR_RGB));
+        final var model = new java.awt.image.ComponentColorModel(
+                linear, false, false, java.awt.Transparency.OPAQUE, java.awt.image.DataBuffer.TYPE_BYTE);
+        final var tagged = new BufferedImage(model, model.createCompatibleWritableRaster(2, 1), false, null);
+        tagged.getRaster().setPixel(0, 0, new int[] {64, 128, 32});
+        tagged.getRaster().setPixel(1, 0, new int[] {255, 0, 200});
+        final var stored = storedSamples(tagged);
+        assertNotNull(stored);
+        assertEquals(0x408020, stored.getRGB(0, 0) & 0xffffff);
+        assertEquals(0xff00c8, stored.getRGB(1, 0) & 0xffffff);
+        // The default decode converts linear samples to sRGB, so the two interpretations genuinely differ.
+        assertNotEquals(stored.getRGB(0, 0), tagged.getRGB(0, 0));
+        final var srgb = new BufferedImage(2, 1, BufferedImage.TYPE_INT_RGB);
+        final var gray = new BufferedImage(2, 1, BufferedImage.TYPE_BYTE_GRAY);
+        assertNull(storedSamples(srgb));
+        assertNull(storedSamples(gray));
     }
 
     /**
@@ -1071,6 +1129,33 @@ class PdfHistoricalTextCorpusTest {
                 reader.dispose();
             }
         }
+    }
+
+    /**
+     * Diagnostic alternative decode: copies a profile-tagged three-band 8-bit raster's stored samples into sRGB
+     * without applying the embedded ICC conversion. The default protocol keeps ImageIO's color-managed values.
+     * Images without a non-sRGB embedded profile are left to the default decode, so their pixels stay identical.
+     * Geometry and sample values are copied exactly; this selects an interpretation, not a filter.
+     * @param decoded borrowed decoded source raster
+     * @return owned stored-sample raster, or null when the source carries no applicable embedded profile
+     */
+    static BufferedImage storedSamples(final BufferedImage decoded) {
+        final var space = decoded.getColorModel().getColorSpace();
+        final var raster = decoded.getRaster();
+        if (!(space instanceof java.awt.color.ICC_ColorSpace) || space.isCS_sRGB() || raster.getNumBands() != 3
+                || decoded.getColorModel().hasAlpha()
+                || java.util.Arrays.stream(decoded.getColorModel().getComponentSize()).anyMatch(bits -> bits != 8)) {
+            return null;
+        }
+        final var stored = new BufferedImage(decoded.getWidth(), decoded.getHeight(), BufferedImage.TYPE_INT_RGB);
+        final var pixel = new int[3];
+        for (int y = 0; y < raster.getHeight(); y++) {
+            for (int x = 0; x < raster.getWidth(); x++) {
+                raster.getPixel(x, y, pixel);
+                stored.setRGB(x, y, pixel[0] << 16 | pixel[1] << 8 | pixel[2]);
+            }
+        }
+        return stored;
     }
 
     /**

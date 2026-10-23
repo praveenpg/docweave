@@ -1,0 +1,87 @@
+import dev.docweave.DocWeave;
+import dev.docweave.core.ElementType;
+import dev.docweave.layout.OnnxTableLayout;
+import dev.docweave.layout.OnnxTableOptions;
+import dev.docweave.partition.DocumentSource;
+import dev.docweave.partition.PartitionerRegistry;
+import dev.docweave.partition.PdfNativeLayoutOptions;
+import dev.docweave.partition.PdfOptions;
+import dev.docweave.partition.PdfPartitioner;
+
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.security.MessageDigest;
+import java.util.ArrayList;
+import java.util.HexFormat;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Executors;
+
+/**
+ * Transfer observation: the frozen provider worker's workload (shared two-admission YOLOX/TATR provider, cold,
+ * sequential, two concurrent) on another source. Prints table counts, distinct logical-output hashes over
+ * type/text/key-sorted metadata, and final VmHWM. Args: source detector detectorSha structure structureSha.
+ */
+public final class TransferDiagnostic {
+    /** Recursively key-sorts maps so per-JVM immutable-map iteration order cannot affect the fingerprint. */
+    private static String canonical(final Object value) {
+        if (value instanceof final Map<?, ?> map) {
+            final var sorted = new TreeMap<String, String>();
+            map.forEach((key, item) -> sorted.put(String.valueOf(key), canonical(item)));
+            return "{" + sorted + "}";
+        }
+        if (value instanceof final List<?> list) {
+            return list.stream().map(TransferDiagnostic::canonical).toList().toString();
+        }
+        return value == null ? "null" : value.getClass().getSimpleName() + ":" + value;
+    }
+
+    public static void main(final String[] args) throws Exception {
+        final byte[] source = Files.readAllBytes(Path.of(args[0]));
+        final var provider = OnnxTableLayout.createWithYoloX(
+                OnnxTableOptions.yoloXDefaults(Path.of(args[1]), args[2]).withConcurrency(2),
+                OnnxTableOptions.defaults(Path.of(args[3]), args[4])
+                        .withConcurrency(2)
+                        .withMergeConflicts(OnnxTableOptions.MergeConflicts.KEEP_HIGHER_SCORE));
+        final Callable<String[]> attempt = () -> {
+            final var service = PdfPartitioner.createWithNativeLayout(
+                    PdfOptions.defaults(), new PdfNativeLayoutOptions(150, 16_000_000, 1024), provider::locate);
+            final var elements = DocWeave.create(PartitionerRegistry.of(List.of(service)))
+                                         .partition(DocumentSource.bytes(source, "source.pdf"))
+                                         .elements();
+            final var digest = MessageDigest.getInstance("SHA-256");
+            for (final var element : elements) {
+                digest.update((element.type().name() + "\u0000" + element.text() + "\u0000"
+                                      + canonical(element.metadata()) + "\u0001")
+                                      .getBytes(StandardCharsets.UTF_8));
+            }
+            return new String[] {HexFormat.of().formatHex(digest.digest()),
+                    Long.toString(elements.stream().filter(e -> e.type() == ElementType.Table).count())};
+        };
+        final var results = new ArrayList<String[]>();
+        try (provider) {
+            results.add(attempt.call());
+            results.add(attempt.call());
+            try (final var executor = Executors.newVirtualThreadPerTaskExecutor()) {
+                final var one = executor.submit(attempt);
+                final var two = executor.submit(attempt);
+                results.add(one.get());
+                results.add(two.get());
+            }
+        }
+        final var hashes = new TreeSet<String>();
+        results.forEach(result -> hashes.add(result[0]));
+        long hwm = 0;
+        for (final String line : Files.readAllLines(Path.of("/proc/self/status"))) {
+            if (line.startsWith("VmHWM:")) {
+                hwm = Long.parseLong(line.replaceAll("[^0-9]", ""));
+            }
+        }
+        System.out.println("tables=" + results.stream().map(r -> r[1]).toList() + " output_hashes=" + hashes
+                           + " vm_hwm_kib=" + hwm);
+    }
+}

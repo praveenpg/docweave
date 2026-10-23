@@ -1,0 +1,35 @@
+Frozen before any candidate code or candidate extraction: 2026-10-22, pinned upstream reference
+Unstructured 0.27.28 fast (existing captures; full-body manifest c5468f63...; runtime 7b913aaa...).
+
+Observation (CompareUpstreamPageOrder, page 1, development originals recent/next/elife):
+  In every native profile, the upstream element holding author names with affiliation markers is
+  unlocated in DocWeave text. The private first-divergence probe shows DocWeave emits the raised
+  affiliation markers of that author line as a separate physical line placed before the names;
+  upstream keeps each marker inline after its name. Affiliation lists show the same class.
+
+Root-cause hypothesis:
+  Native upright line grouping (PdfGlyphLines) starts a new row whenever a glyph baseline differs by
+  more than 2 units. Short raised/lowered small-glyph runs therefore become standalone rows.
+
+Single candidate (one explicit, opt-in native policy; defaults unchanged):
+  Before native upright line grouping of ordinary (non-table) text, reuse the existing bounded
+  small-glyph run rule already used for cells and tagged paragraphs: runs of at most 8 nonblank
+  upright glyphs at most 0.75 x page median height, connected by small advances; assigned only when
+  exactly one nearby body baseline (median-height glyphs, horizontal gap at most max(2, 1.5 spaces),
+  vertical shift > 2 and <= 0.8 body height) supports the complete run; competing baselines,
+  overlaps or longer runs keep original grouping. Only the grouping baseline changes; every source
+  character, glyph bound and element coordinate is retained. Body lookup must be bounded by a
+  baseline-band index so work stays linear in glyphs, with the existing page work/cancellation.
+
+Frozen predictions for the one focused validation:
+  P1 Page-1 comparison, profiles LINES, COLUMN_PARAGRAPHS, COLUMN_PARAGRAPHS_COMPOUND_WRAPS with the
+     policy: located upstream elements do not decrease on any of recent/next/elife, and increase on at
+     least two of the three; reversed pairs do not increase.
+  P2 Complete-body strict paragraph metric (143 references, 4942 pairs) for the same three native
+     profiles with the policy: unique matches do not decrease for any source; reversed pairs stay 0.
+  P3 Transfer, newly checked original holdout.pdf (dcd83b90..., existing upstream fast capture
+     5e3f34b2...): page-1 located elements do not decrease and reversed pairs do not increase under
+     COLUMN_PARAGRAPHS with the policy.
+  P4 Defaults: every existing default, explicit-profile and source regression result is unchanged.
+If P1 or P2 fails, the policy is not promoted; evidence is retained and the approach parked.
+Text differences (spacing between a name and its marker, NBSP, hyphens) are reported, not repaired.

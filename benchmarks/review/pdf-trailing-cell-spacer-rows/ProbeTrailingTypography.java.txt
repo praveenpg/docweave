@@ -1,0 +1,56 @@
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.pdfbox.Loader;
+import org.apache.pdfbox.text.PDFTextStripper;
+import org.apache.pdfbox.text.TextPosition;
+
+/** Private diagnostic: per-line font, size, x-extent and baseline for one page (args: pdf page fromY toY). */
+public final class ProbeTrailingTypography {
+    public static void main(final String[] args) throws Exception {
+        final int page = Integer.parseInt(args[1]);
+        final float from = Float.parseFloat(args[2]);
+        final float to = Float.parseFloat(args[3]);
+        try (final var document = Loader.loadPDF(new File(args[0]))) {
+            final var stripper = new PDFTextStripper() {
+                @Override
+                protected void writeString(final String text, final List<TextPosition> positions) {
+                    if (positions.isEmpty()) {
+                        return;
+                    }
+                    final float y = positions.get(0).getYDirAdj();
+                    if (y < from || y > to) {
+                        return;
+                    }
+                    // Split the line into runs at font changes or horizontal gaps wider than two spaces.
+                    final var runs = new ArrayList<String>();
+                    var run = new StringBuilder();
+                    TextPosition start = positions.get(0);
+                    TextPosition previous = null;
+                    for (final var glyph : positions) {
+                        if (previous != null && (!glyph.getFont().equals(previous.getFont())
+                                || glyph.getXDirAdj() - (previous.getXDirAdj() + previous.getWidthDirAdj())
+                                        > 2 * Math.max(glyph.getWidthOfSpace(), 1))) {
+                            runs.add(describe(run, start, previous));
+                            run = new StringBuilder();
+                            start = glyph;
+                        }
+                        run.append(glyph.getUnicode());
+                        previous = glyph;
+                    }
+                    runs.add(describe(run, start, previous));
+                    System.out.printf("y=%.1f %s%n", y, String.join(" | ", runs));
+                }
+            };
+            stripper.setSortByPosition(true);
+            stripper.setStartPage(page);
+            stripper.setEndPage(page);
+            stripper.getText(document);
+        }
+    }
+
+    private static String describe(final StringBuilder text, final TextPosition first, final TextPosition last) {
+        return String.format("[%.1f-%.1f %s %.1f] %s", first.getXDirAdj(), last.getXDirAdj() + last.getWidthDirAdj(),
+                first.getFont().getName(), first.getFontSizeInPt(), text);
+    }
+}

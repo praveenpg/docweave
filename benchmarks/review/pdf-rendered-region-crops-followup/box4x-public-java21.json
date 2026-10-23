@@ -1,0 +1,109 @@
+{
+  "sampling" : "BOX_4X",
+  "dpi" : 150,
+  "tolerance" : 12,
+  "same_pixel_rectangles_as_default" : true,
+  "matches_frozen_diagnostic" : true,
+  "within_tolerance" : {
+    "unstructured_jpeg" : 12,
+    "poppler" : 16,
+    "pdfium_lossless" : 14
+  },
+  "regions" : [ {
+    "occurrence_index" : 13,
+    "page" : 8,
+    "poppler" : 3.579,
+    "pdfium_lossless" : 4.967,
+    "unstructured_jpeg" : 7.183
+  }, {
+    "occurrence_index" : 14,
+    "page" : 8,
+    "poppler" : 6.868,
+    "pdfium_lossless" : 7.266,
+    "unstructured_jpeg" : 9.938
+  }, {
+    "occurrence_index" : 15,
+    "page" : 8,
+    "poppler" : 4.372,
+    "pdfium_lossless" : 5.962,
+    "unstructured_jpeg" : 8.511
+  }, {
+    "occurrence_index" : 17,
+    "page" : 8,
+    "poppler" : 4.72,
+    "pdfium_lossless" : 9.86,
+    "unstructured_jpeg" : 15.867
+  }, {
+    "occurrence_index" : 18,
+    "page" : 8,
+    "poppler" : 7.248,
+    "pdfium_lossless" : 9.61,
+    "unstructured_jpeg" : 11.441
+  }, {
+    "occurrence_index" : 20,
+    "page" : 8,
+    "poppler" : 2.346,
+    "pdfium_lossless" : 4.725,
+    "unstructured_jpeg" : 6.535
+  }, {
+    "occurrence_index" : 21,
+    "page" : 8,
+    "poppler" : 3.117,
+    "pdfium_lossless" : 4.33,
+    "unstructured_jpeg" : 6.999
+  }, {
+    "occurrence_index" : 23,
+    "page" : 8,
+    "poppler" : 6.242,
+    "pdfium_lossless" : 8.448,
+    "unstructured_jpeg" : 10.122
+  }, {
+    "occurrence_index" : 24,
+    "page" : 8,
+    "poppler" : 3.17,
+    "pdfium_lossless" : 10.587,
+    "unstructured_jpeg" : 14.9
+  }, {
+    "occurrence_index" : 26,
+    "page" : 8,
+    "poppler" : 5.957,
+    "pdfium_lossless" : 15.087,
+    "unstructured_jpeg" : 29.576
+  }, {
+    "occurrence_index" : 27,
+    "page" : 8,
+    "poppler" : 5.486,
+    "pdfium_lossless" : 6.197,
+    "unstructured_jpeg" : 8.679
+  }, {
+    "occurrence_index" : 31,
+    "page" : 8,
+    "poppler" : 2.74,
+    "pdfium_lossless" : 4.696,
+    "unstructured_jpeg" : 6.778
+  }, {
+    "occurrence_index" : 40,
+    "page" : 11,
+    "poppler" : 7.818,
+    "pdfium_lossless" : 7.759,
+    "unstructured_jpeg" : 9.657
+  }, {
+    "occurrence_index" : 41,
+    "page" : 11,
+    "poppler" : 10.903,
+    "pdfium_lossless" : 16.062,
+    "unstructured_jpeg" : 20.195
+  }, {
+    "occurrence_index" : 42,
+    "page" : 11,
+    "poppler" : 7.402,
+    "pdfium_lossless" : 6.857,
+    "unstructured_jpeg" : 8.809
+  }, {
+    "occurrence_index" : 67,
+    "page" : 20,
+    "poppler" : 2.824,
+    "pdfium_lossless" : 2.875,
+    "unstructured_jpeg" : 4.904
+  } ]
+}

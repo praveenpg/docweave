@@ -1,0 +1,401 @@
+import dev.docweave.DocWeave;
+import dev.docweave.core.Element;
+import dev.docweave.core.ElementType;
+import dev.docweave.partition.DocumentSource;
+import dev.docweave.partition.PartitionerRegistry;
+import dev.docweave.partition.PdfOptions;
+import dev.docweave.partition.PdfPageCrop;
+import dev.docweave.partition.PdfPageCropOptions;
+import dev.docweave.partition.PdfPageCropRenderer;
+import dev.docweave.partition.PdfPageCropRequest;
+import dev.docweave.partition.PdfPartitioner;
+import dev.docweave.partition.TableLimits;
+import tools.jackson.databind.json.JsonMapper;
+
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.security.MessageDigest;
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.HexFormat;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeSet;
+import javax.imageio.ImageIO;
+
+/**
+ * Executes the frozen rendered page-crop transfer schedule (transfer-schedule.json) through public Java APIs.
+ * Arguments: image-contract.pdf, magazine PDF, fresh scratch directory for binary crops, fresh JSON report.
+ * Poppler pdftoppm is invoked only as an independent renderer for the same pixel rectangles.
+ */
+public final class MeasureRenderedPageCrops {
+    /** Frozen contract source identity. */
+    private static final String CONTRACT = "caf9ffba13dab1ec1f274246366d1a483912652cf9ca5f8a6df046d8d002c437";
+    /** Frozen magazine source identity. */
+    private static final String MAGAZINE = "fcbbb6b34a2d9c2b0b3acb546d0dc1ba100e7ed486d2dc7d3b0516fbdec03497";
+    /** Frozen original source PNG identity in the contract control. */
+    private static final String SOURCE_PNG = "fc413db821e509581923499bea1ad6eaf402a408990859ea51c25765a6736b27";
+    /** Frozen independent-agreement tolerance, mean absolute per-channel difference. */
+    private static final double AGREEMENT = 12;
+    /** Frozen magazine resolution. */
+    private static final int DPI = 150;
+
+    /** Prevents construction. */
+    private MeasureRenderedPageCrops() {
+    }
+
+    /**
+     * Runs the schedule; every selected outcome is written, including failures and disagreements.
+     * @param args contract PDF, magazine PDF, fresh scratch directory, fresh report
+     * @throws Exception if a source identity differs or a frozen contract gate fails
+     */
+    public static void main(final String[] args) throws Exception {
+        final Path contract = Path.of(args[0]);
+        final Path magazine = Path.of(args[1]);
+        final Path scratch = Path.of(args[2]);
+        Files.createDirectory(scratch);
+        require(sha256(Files.readAllBytes(contract)).equals(CONTRACT), "contract source identity");
+        require(sha256(Files.readAllBytes(magazine)).equals(MAGAZINE), "magazine source identity");
+        final var report = new LinkedHashMap<String, Object>();
+        report.put("schedule", "transfer-schedule.json");
+        report.put("java", System.getProperty("java.version"));
+        report.put("contract", contract(contract));
+        report.put("magazine", magazine(magazine, scratch));
+        Files.writeString(Path.of(args[3]),
+                JsonMapper.builder().build().writerWithDefaultPrettyPrinter().writeValueAsString(report) + "\n",
+                StandardOpenOption.CREATE_NEW);
+    }
+
+    /**
+     * Checks the three frozen contract gates with the same sample points as the upstream crop checker.
+     * @param source contract PDF
+     * @return per-page samples and gate outcomes
+     * @throws Exception if extraction/rendering fails or a gate fails
+     */
+    private static Map<String, Object> contract(final Path source) throws Exception {
+        final var before = images(source, true, false);
+        require(before.size() == 3, "contract source image count");
+        for (final var image : before) {
+            require(sha256(png(image)).equals(SOURCE_PNG), "contract source PNG identity");
+        }
+        final var crops = PdfPageCropRenderer.create(PdfPageCropOptions.defaults().withDpi(72))
+                                  .render(DocumentSource.of(source),
+                                          List.of(new PdfPageCropRequest(1, 40, 40, 80, 80),
+                                                  new PdfPageCropRequest(2, 40, 40, 80, 80),
+                                                  new PdfPageCropRequest(3, 40, 40, 80, 80)));
+        final var rows = new ArrayList<Map<String, Object>>();
+        for (int index = 0; index < 3; index++) {
+            final var pixels = decode(crops.get(index));
+            require(pixels.getWidth() == 40 && pixels.getHeight() == 40, "contract crop size");
+            final var left = rgb(pixels.getRGB(5, 20));
+            final var right = rgb(pixels.getRGB(35, 20));
+            final boolean pass = switch (index) {
+                case 0 -> left.stream().allMatch(v -> v >= 250) && right.stream().allMatch(v -> v >= 250);
+                case 1 -> left.get(0) >= 250 && left.get(1) >= 120 && left.get(1) <= 135 && left.get(2) >= 120
+                          && left.get(2) <= 135;
+                default -> left.get(0) >= 245 && left.get(1) <= 10 && left.get(2) <= 10
+                           && right.stream().allMatch(v -> v >= 250);
+            };
+            require(pass, "contract gate page " + (index + 1));
+            rows.add(Map.of("page", index + 1, "source_rgb", List.of(255, 0, 0), "crop_left_rgb", left,
+                    "crop_right_rgb", right, "crop_width", pixels.getWidth(), "crop_height", pixels.getHeight(),
+                    "gate", "pass"));
+        }
+        require(before.equals(images(source, true, false)), "contract source elements changed after crops");
+        return Map.of("source_sha256", CONTRACT, "source_png_sha256", SOURCE_PNG, "source_images", before.size(),
+                "results", rows);
+    }
+
+    /**
+     * Selects the frozen magazine population, renders it once and compares each crop with Poppler.
+     * @param source magazine PDF
+     * @param scratch fresh binary output directory outside the repository
+     * @return complete per-region outcomes and source regressions
+     * @throws Exception if source extraction fails
+     */
+    private static Map<String, Object> magazine(final Path source, final Path scratch) throws Exception {
+        final var plain = images(source, false, false);
+        final var curved = images(source, false, true);
+        require(plain.size() == curved.size(), "curved-envelope selection changed population");
+        final var selected = new TreeSet<Integer>();
+        int grouped = 0;
+        int tighter = 0;
+        for (int index = 0; index < plain.size(); index++) {
+            final var context = plain.get(index).metadata().get("pdf_image_group_context");
+            if (context instanceof final List<?> list && !list.isEmpty()) {
+                selected.add(index);
+                grouped++;
+            }
+            if (!plain.get(index).metadata().get("pdf_image_clip_bounds")
+                         .equals(curved.get(index).metadata().get("pdf_image_clip_bounds"))) {
+                selected.add(index);
+                tighter++;
+            }
+        }
+        final var payloadsBefore = payloads(source);
+        final var requests = new ArrayList<PdfPageCropRequest>();
+        for (final int index : selected) {
+            final var box = box(plain.get(index));
+            requests.add(new PdfPageCropRequest(
+                    ((Number) plain.get(index).metadata().get("page_number")).intValue(), box[0], box[1], box[2],
+                    box[3]));
+        }
+        final var rows = new ArrayList<Map<String, Object>>();
+        List<PdfPageCrop> crops = null;
+        String failure = null;
+        try {
+            crops = PdfPageCropRenderer.create(PdfPageCropOptions.defaults().withDpi(DPI))
+                            .render(DocumentSource.of(source), requests);
+        } catch (final Exception exception) {
+            failure = exception.getClass().getSimpleName() + ": " + exception.getMessage();
+        }
+        int agreeing = 0;
+        int position = 0;
+        for (final int index : selected) {
+            final var request = requests.get(position);
+            final var row = new LinkedHashMap<String, Object>();
+            row.put("occurrence_index", index);
+            row.put("page", request.pageNumber());
+            row.put("group_context", plain.get(index).metadata().containsKey("pdf_image_group_context")
+                                             && !((List<?>) plain.get(index).metadata().get("pdf_image_group_context"))
+                                                         .isEmpty());
+            row.put("curved_clip_tighter", !plain.get(index).metadata().get("pdf_image_clip_bounds")
+                                                    .equals(curved.get(index).metadata().get("pdf_image_clip_bounds")));
+            row.put("request", List.of(request.left(), request.top(), request.right(), request.bottom()));
+            if (crops != null) {
+                final var crop = crops.get(position);
+                final var pixels = decode(crop);
+                final Path own = scratch.resolve("docweave-" + index + ".png");
+                Files.write(own, crop.png());
+                final var poppler = poppler(source, scratch, index, crop);
+                final double difference = difference(pixels, poppler);
+                final boolean agrees = difference <= AGREEMENT;
+                if (agrees) {
+                    agreeing++;
+                }
+                row.put("pixel_rect", List.of(crop.pixelLeft(), crop.pixelTop(), crop.width(), crop.height()));
+                row.put("page_raster", List.of(crop.pageWidthPixels(), crop.pageHeightPixels()));
+                row.put("clipped", crop.clipped());
+                row.put("crop_pixel_sha256", sha256(argb(pixels)));
+                row.put("mean_rgb", mean(pixels));
+                row.put("poppler_mean_rgb", mean(poppler));
+                row.put("mean_abs_channel_difference_vs_poppler", Math.round(difference * 1000) / 1000.0);
+                row.put("independent_agreement", agrees);
+            }
+            rows.add(row);
+            position++;
+        }
+        final var payloadsAfter = payloads(source);
+        final var result = new LinkedHashMap<String, Object>();
+        result.put("source_sha256", MAGAZINE);
+        result.put("occurrences", plain.size());
+        result.put("group_context_occurrences", grouped);
+        result.put("curved_clip_tighter_occurrences", tighter);
+        result.put("selected_regions", selected.size());
+        result.put("render_failure", failure);
+        result.put("independent_agreement_tolerance", AGREEMENT);
+        result.put("regions_within_tolerance", agreeing);
+        result.put("source_png_payloads", payloadsBefore.size());
+        result.put("source_png_payloads_unchanged_after_crops", payloadsBefore.equals(payloadsAfter));
+        result.put("poppler", version());
+        result.put("regions", rows);
+        return result;
+    }
+
+    /**
+     * Extracts image occurrences with the frozen partition options.
+     * @param source PDF
+     * @param bytes whether to include source PNG payloads
+     * @param curved whether to select curved clip envelopes
+     * @return image elements in emitted order
+     * @throws Exception if extraction fails
+     */
+    private static List<Element> images(final Path source, final boolean bytes, final boolean curved)
+            throws Exception {
+        final var options = new PdfOptions(1000, 250_000, 100_000, 16_000_000, 64 * 1024 * 1024, bytes,
+                TableLimits.defaults())
+                                    .withTextLayout(PdfOptions.TextLayout.ORIENTED_LINES)
+                                    .withImageClipBounds(true)
+                                    .withImageGroupContext(true)
+                                    .withCurvedClipEnvelopes(curved);
+        return DocWeave.create(PartitionerRegistry.of(List.of(PdfPartitioner.create(options))))
+                .partition(DocumentSource.bytes(Files.readAllBytes(source), source.getFileName().toString()))
+                .elements()
+                .stream()
+                .filter(element -> element.type() == ElementType.Image)
+                .toList();
+    }
+
+    /**
+     * Hashes every source PNG payload in order.
+     * @param source PDF
+     * @return payload hashes
+     * @throws Exception if extraction fails
+     */
+    private static List<String> payloads(final Path source) throws Exception {
+        final var hashes = new ArrayList<String>();
+        for (final var image : images(source, true, false)) {
+            hashes.add(sha256(png(image)));
+        }
+        return hashes;
+    }
+
+    /**
+     * Renders the same page and pixel rectangle with Poppler.
+     * @param source PDF
+     * @param scratch output directory
+     * @param index occurrence index used in the file name
+     * @param crop DocWeave crop whose pixel rectangle is reproduced
+     * @return decoded independent crop
+     * @throws Exception if Poppler fails
+     */
+    private static BufferedImage poppler(final Path source, final Path scratch, final int index, final PdfPageCrop crop)
+            throws Exception {
+        final String page = Integer.toString(crop.request().pageNumber());
+        final var stem = scratch.resolve("poppler-" + index);
+        final var process = new ProcessBuilder("pdftoppm", "-r", Integer.toString(DPI), "-f", page, "-l", page, "-x",
+                Integer.toString(crop.pixelLeft()), "-y", Integer.toString(crop.pixelTop()), "-W",
+                Integer.toString(crop.width()), "-H", Integer.toString(crop.height()), "-png", "-singlefile",
+                source.toString(), stem.toString())
+                                    .redirectErrorStream(true)
+                                    .redirectOutput(scratch.resolve("poppler-" + index + ".log").toFile())
+                                    .start();
+        require(process.waitFor() == 0, "pdftoppm exit");
+        final var image = ImageIO.read(scratch.resolve("poppler-" + index + ".png").toFile());
+        require(image.getWidth() == crop.width() && image.getHeight() == crop.height(), "Poppler crop size");
+        return image;
+    }
+
+    /**
+     * Reads the Poppler version banner.
+     * @return first version line
+     * @throws Exception if unavailable
+     */
+    private static String version() throws Exception {
+        final var process = new ProcessBuilder("pdftoppm", "-v").redirectErrorStream(true).start();
+        final var text = new String(process.getInputStream().readAllBytes()).lines().findFirst().orElse("");
+        process.waitFor();
+        return text;
+    }
+
+    /**
+     * Computes mean absolute per-channel RGB difference.
+     * @param first raster
+     * @param second raster of the same size
+     * @return mean difference on a 0-255 scale
+     */
+    private static double difference(final BufferedImage first, final BufferedImage second) {
+        double total = 0;
+        for (int y = 0; y < first.getHeight(); y++) {
+            for (int x = 0; x < first.getWidth(); x++) {
+                final var a = rgb(first.getRGB(x, y));
+                final var b = rgb(second.getRGB(x, y));
+                for (int channel = 0; channel < 3; channel++) {
+                    total += Math.abs(a.get(channel) - b.get(channel));
+                }
+            }
+        }
+        return total / (3.0 * first.getWidth() * first.getHeight());
+    }
+
+    /**
+     * Computes mean RGB.
+     * @param image raster
+     * @return rounded channel means
+     */
+    private static List<Double> mean(final BufferedImage image) {
+        final double[] sums = new double[3];
+        for (int y = 0; y < image.getHeight(); y++) {
+            for (int x = 0; x < image.getWidth(); x++) {
+                final var value = rgb(image.getRGB(x, y));
+                for (int channel = 0; channel < 3; channel++) {
+                    sums[channel] += value.get(channel);
+                }
+            }
+        }
+        final double count = (double) image.getWidth() * image.getHeight();
+        return List.of(Math.round(sums[0] / count * 10) / 10.0, Math.round(sums[1] / count * 10) / 10.0,
+                Math.round(sums[2] / count * 10) / 10.0);
+    }
+
+    /**
+     * Serializes decoded pixels for a codec-independent hash.
+     * @param image raster
+     * @return big-endian ARGB words
+     */
+    private static byte[] argb(final BufferedImage image) {
+        final var buffer = java.nio.ByteBuffer.allocate(4 * image.getWidth() * image.getHeight());
+        for (int y = 0; y < image.getHeight(); y++) {
+            for (int x = 0; x < image.getWidth(); x++) {
+                buffer.putInt(image.getRGB(x, y));
+            }
+        }
+        return buffer.array();
+    }
+
+    /**
+     * Reads an element's displayed axis-aligned box.
+     * @param image element
+     * @return left, top, right, bottom
+     */
+    private static double[] box(final Element image) {
+        final var points = (List<?>) ((Map<?, ?>) image.metadata().get("coordinates")).get("points");
+        final var first = (List<?>) points.get(0);
+        final var third = (List<?>) points.get(2);
+        return new double[] {((Number) first.get(0)).doubleValue(), ((Number) first.get(1)).doubleValue(),
+                ((Number) third.get(0)).doubleValue(), ((Number) third.get(1)).doubleValue()};
+    }
+
+    /**
+     * Decodes a crop.
+     * @param crop crop
+     * @return raster
+     * @throws Exception if decoding fails
+     */
+    private static BufferedImage decode(final PdfPageCrop crop) throws Exception {
+        return ImageIO.read(new ByteArrayInputStream(crop.png()));
+    }
+
+    /**
+     * Decodes a source PNG payload.
+     * @param image element
+     * @return PNG bytes
+     */
+    private static byte[] png(final Element image) {
+        return Base64.getDecoder().decode(image.metadata().get("image_base64").toString());
+    }
+
+    /**
+     * Splits a pixel into RGB.
+     * @param pixel ARGB
+     * @return channels
+     */
+    private static List<Integer> rgb(final int pixel) {
+        return List.of((pixel >> 16) & 255, (pixel >> 8) & 255, pixel & 255);
+    }
+
+    /**
+     * Hashes bytes.
+     * @param bytes content
+     * @return lowercase SHA-256
+     * @throws Exception if unavailable
+     */
+    private static String sha256(final byte[] bytes) throws Exception {
+        return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(bytes));
+    }
+
+    /**
+     * Fails a frozen gate.
+     * @param pass condition
+     * @param gate name
+     */
+    private static void require(final boolean pass, final String gate) {
+        if (!pass) {
+            throw new AssertionError("Frozen gate failed: " + gate);
+        }
+    }
+}

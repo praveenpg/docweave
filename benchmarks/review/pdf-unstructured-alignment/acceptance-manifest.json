@@ -1,0 +1,131 @@
+{
+  "unstructured_version": "0.27.28",
+  "capture_runner": "benchmarks/tools/capture_unstructured_reading.py",
+  "capture_runner_sha256": "6778dc846e4851414fbaaff25ad3421c2dc5a8f0f351b00ca50ba9b6cc40e496",
+  "upstream_profile": "fast, infer_table_structure=false, languages=[eng], include_page_breaks=false (fixed by the runner); whole capture process capped at 600 s",
+  "docweave_profile": "PdfOptions.defaults() through the public partitioner",
+  "selection": "Every distinct non-synthetic original PDF available locally outside this pass's focused questions, at most 4 MiB, excluding owned controls, PDF/UA conformance fixtures and renderer probes. All are development data from earlier passes; none is held-out. Pinned upstream example-docs fixtures are not available locally (download not authorized).",
+  "metric": "JVM only. Text of non-Image elements joined in output order and split on ASCII whitespace. Bag agreement: matched = sum of per-token minimum counts; missing = upstream tokens unmatched; extra = DocWeave tokens unmatched. Order: tokens occurring exactly once in both outputs are anchors; ordered anchors = longest increasing subsequence of DocWeave positions taken in upstream order. A failed upstream or DocWeave document keeps the full denominator: every upstream token is missing for a DocWeave failure, and an upstream failure is reported as a missing reference, never as an empty success. No normalization beyond ASCII whitespace splitting.",
+  "cases": [
+    {
+      "id": "alphabet_q2_2025",
+      "pdf": "alphabet-q2-2025.pdf",
+      "inputs": [
+        {
+          "filename": "alphabet-q2-2025.pdf",
+          "bytes": 130578,
+          "sha256": "3581be042fcbda6ea71185d5aef47458ce3a56cf6b16022d61a997d1807a4de5"
+        }
+      ],
+      "previous_development_use": "business native/presentation development (alpha diagnostics)"
+    },
+    {
+      "id": "amd_fy25q4",
+      "pdf": "amd-fy25q4.pdf",
+      "inputs": [
+        {
+          "filename": "amd-fy25q4.pdf",
+          "bytes": 315796,
+          "sha256": "2e929f92e513ac2395928d29f3cf2db9fbefb4fbef3f68a56efe7d6fffd258df"
+        }
+      ],
+      "previous_development_use": "business tagged/presentation development (AMD diagnostics)"
+    },
+    {
+      "id": "apple_q2_2026",
+      "pdf": "apple-q2-2026.pdf",
+      "inputs": [
+        {
+          "filename": "apple-q2-2026.pdf",
+          "bytes": 110402,
+          "sha256": "28fa56187d6fd8fe8b0a67185f62b51fd0bb3932d8413a93f29c7455fc06b4dd"
+        }
+      ],
+      "previous_development_use": "business shaded-row development (Apple Q2 diagnostics)"
+    },
+    {
+      "id": "frx_2012_disclosure",
+      "pdf": "frx_2012_disclosure.pdf",
+      "inputs": [
+        {
+          "filename": "frx_2012_disclosure.pdf",
+          "bytes": 21404,
+          "sha256": "aa80de941ee2999798e2d36b63b475861468bcb958cb7106e9afcc12242ad54a"
+        }
+      ],
+      "previous_development_use": "header replay development set"
+    },
+    {
+      "id": "peerj_article",
+      "pdf": "peerj-article.pdf",
+      "inputs": [
+        {
+          "filename": "peerj-article.pdf",
+          "bytes": 3673103,
+          "sha256": "c6c9e6134bcb38ce3855ff48146cdfbf4473ecba76f0fe04d46c2d094c00a522"
+        }
+      ],
+      "previous_development_use": "caption transfer development (PeerJ)"
+    },
+    {
+      "id": "scirep_article",
+      "pdf": "scirep-article.pdf",
+      "inputs": [
+        {
+          "filename": "scirep-article.pdf",
+          "bytes": 1814416,
+          "sha256": "2f92f07c33b2290b8f3ad0e8933eb57ce27d545d61829e59cc9c00dfb9357360"
+        }
+      ],
+      "previous_development_use": "caption transfer development (Scientific Reports)"
+    },
+    {
+      "id": "transport_bids_2016",
+      "pdf": "transport-bids-2016.pdf",
+      "inputs": [
+        {
+          "filename": "transport-bids-2016.pdf",
+          "bytes": 121559,
+          "sha256": "038126d57e3d9aadfee6c3ac44acc66d4fbdc13598dad8deadd7ec76a2a7d2ab"
+        }
+      ],
+      "previous_development_use": "header replay development set"
+    },
+    {
+      "id": "us_001",
+      "pdf": "us-001.pdf",
+      "inputs": [
+        {
+          "filename": "us-001.pdf",
+          "bytes": 435487,
+          "sha256": "294a46dab2f06a99f03979c8084b71945f23ce6c12ecb1f565efcda040e7a84f"
+        }
+      ],
+      "previous_development_use": "header replay development set"
+    },
+    {
+      "id": "us_002",
+      "pdf": "us-002.pdf",
+      "inputs": [
+        {
+          "filename": "us-002.pdf",
+          "bytes": 39305,
+          "sha256": "a1a3d580afc6313f9ffa2cfa3b9f3d0bb1406046174912cd6eb23d4f6cda8d57"
+        }
+      ],
+      "previous_development_use": "header replay development set"
+    },
+    {
+      "id": "us_030",
+      "pdf": "us-030.pdf",
+      "inputs": [
+        {
+          "filename": "us-030.pdf",
+          "bytes": 130115,
+          "sha256": "5445100424603942b94d42db86e5cac43ed11a227253483643a51dc7c6b74d53"
+        }
+      ],
+      "previous_development_use": "header replay development set"
+    }
+  ]
+}

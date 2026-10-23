@@ -1,6 +1,8 @@
 # Implementation backlog
 
-Current priorities are recorded in the [dated deferred-functionality audit](deferred-functionality-audit.md).
+Current work dispositions are consolidated in [pending work](pending-work.md), including parked
+PDF improvements and completed items. The [dated deferred-functionality audit](deferred-functionality-audit.md)
+is retained as historical evidence; its earlier pending states do not override that index.
 Durable validation is migrating to a test-only Java module: DOCX ownership is now
 Java/JUnit, including real extraction and historical-summary checks. Saved Word
 evidence replay/comparison is also Java/JUnit with raw evidence pins and historical

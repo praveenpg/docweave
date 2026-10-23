@@ -1,0 +1,50 @@
+package dev.docweave.ocr;
+
+import java.awt.image.BufferedImage;
+import java.nio.file.Path;
+import java.time.Duration;
+import java.util.List;
+import javax.imageio.ImageIO;
+
+/**
+ * Private diagnostic: wrapper OCR on the TIFF's stored RGB samples (no ICC conversion) versus the color-managed
+ * decode. Args: tif tesseract tessdata lang dpi.
+ */
+public final class ProbeRawSamples {
+    public static void main(final String[] args) throws Exception {
+        final BufferedImage managed;
+        final BufferedImage stored;
+        try (final var input = ImageIO.createImageInputStream(Path.of(args[0]).toFile())) {
+            final var reader = ImageIO.getImageReaders(input).next();
+            reader.setInput(input);
+            final var decoded = reader.read(0);
+            managed = new BufferedImage(decoded.getWidth(), decoded.getHeight(), BufferedImage.TYPE_INT_RGB);
+            managed.getGraphics().drawImage(decoded, 0, 0, null);
+            // The raster holds the stored samples; reading it bypasses the embedded profile's color conversion.
+            final var raster = decoded.getRaster();
+            stored = new BufferedImage(decoded.getWidth(), decoded.getHeight(), BufferedImage.TYPE_INT_RGB);
+            final var pixel = new int[raster.getNumBands()];
+            for (int y = 0; y < raster.getHeight(); y++) {
+                for (int x = 0; x < raster.getWidth(); x++) {
+                    raster.getPixel(x, y, pixel);
+                    stored.setRGB(x, y, pixel[0] << 16 | pixel[1] << 8 | pixel[2]);
+                }
+            }
+            reader.dispose();
+            System.out.println("color_model=" + decoded.getColorModel().getColorSpace().getClass().getSimpleName()
+                               + " bands=" + raster.getNumBands());
+        }
+        final var options = new TesseractOptions(Path.of(args[1]), Path.of(args[2]), List.of(args[3]),
+                Duration.ofSeconds(60), 1, 16_000_000, 32L * 1024 * 1024, 4 * 1024 * 1024, 10_000, 1_000_000)
+                                    .withPageSegmentation(TesseractOptions.PageSegmentation.AUTO);
+        final var engine = TesseractOcr.create(options, TesseractThresholding.ENGINE_DEFAULT, Integer.parseInt(args[4]));
+        for (final var entry : List.of(managed, stored)) {
+            final var lines = engine.recognize(entry);
+            final long pageNumber = lines.stream().filter(line -> line.top() < 400).count();
+            System.out.printf("%s lines=%d top_lines=%d%n", entry == managed ? "managed" : "stored", lines.size(),
+                    pageNumber);
+            lines.stream().filter(line -> line.top() < 400).forEach(line -> System.out.printf(
+                    "  [%.0f,%.0f,%.0f,%.0f] %s%n", line.left(), line.top(), line.right(), line.bottom(), line.text()));
+        }
+    }
+}

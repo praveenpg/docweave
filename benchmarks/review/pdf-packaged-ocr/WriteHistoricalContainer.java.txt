@@ -1,0 +1,37 @@
+package dev.docweave.validation;
+
+import java.awt.image.BufferedImage;
+import java.lang.reflect.Method;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.security.MessageDigest;
+import java.util.HexFormat;
+import org.apache.pdfbox.Loader;
+import org.apache.pdfbox.rendering.ImageType;
+import org.apache.pdfbox.rendering.PDFRenderer;
+
+/**
+ * Private tool: writes the frozen harness's own historical container (color-managed decode, declared DPI) and
+ * verifies that its 1:1 render reproduces the recorded source RGB hash. Args: tif width height dpi out.pdf.
+ */
+public final class WriteHistoricalContainer {
+    public static void main(final String[] args) throws Exception {
+        final Method image = PdfHistoricalTextCorpusTest.class.getDeclaredMethod("image", Path.class, int.class, int.class);
+        final Method container = PdfHistoricalTextCorpusTest.class.getDeclaredMethod("container", BufferedImage.class, int.class);
+        final Method pixels = PdfHistoricalTextCorpusTest.class.getDeclaredMethod("pixels", BufferedImage.class);
+        image.setAccessible(true);
+        container.setAccessible(true);
+        pixels.setAccessible(true);
+        final var decoded = (BufferedImage) image.invoke(null, Path.of(args[0]), Integer.parseInt(args[1]),
+                Integer.parseInt(args[2]));
+        final int dpi = Integer.parseInt(args[3]);
+        final byte[] pdf = (byte[]) container.invoke(null, decoded, dpi);
+        Files.write(Path.of(args[4]), pdf);
+        try (final var document = Loader.loadPDF(pdf)) {
+            final var render = new PDFRenderer(document).renderImageWithDPI(0, dpi, ImageType.RGB);
+            System.out.println("source_rgb_sha256=" + pixels.invoke(null, decoded));
+            System.out.println("render_rgb_sha256=" + pixels.invoke(null, render));
+        }
+        System.out.println("container_sha256=" + HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(pdf)));
+    }
+}

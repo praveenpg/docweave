@@ -1,0 +1,10 @@
+== deu
+color_model=ICC_ColorSpace bands=3
+managed lines=21 top_lines=0
+stored lines=22 top_lines=1
+  [645,320,689,356] 19
+== deu_latf
+color_model=ICC_ColorSpace bands=3
+managed lines=21 top_lines=0
+stored lines=22 top_lines=1
+  [645,320,689,356] 19

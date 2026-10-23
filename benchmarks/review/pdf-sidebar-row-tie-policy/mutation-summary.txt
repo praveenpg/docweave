@@ -1,0 +1,6 @@
+# Each mutant edits GeometricPdfReadingOrder.rowTies/tie in a scratch copy and runs PdfSideStreamRowTiesTest (Java 21, offline).
+bubbling rc=1 [ERROR] Tests run: 7, Failures: 1, Errors: 0, Skipped: 0 killed_by=PdfSideStreamRowTiesTest.movementIsOneAdjacentSwapPerSidebarWithoutBubbling --
+no_left_of rc=1 [ERROR] Tests run: 7, Failures: 2, Errors: 0, Skipped: 0 killed_by=PdfSideStreamRowTiesTest.ineligibleGeometryKeepsExistingOutput --  PdfSideStreamRowTiesTest.structuralSpanningSourceParagraphAndRotatedPredecessorsBlockMovement --
+no_line_count rc=1 [ERROR] Tests run: 7, Failures: 1, Errors: 0, Skipped: 0 killed_by=PdfSideStreamRowTiesTest.ineligibleGeometryKeepsExistingOutput --
+no_ordinary rc=1 [ERROR] Tests run: 7, Failures: 1, Errors: 0, Skipped: 0 killed_by=PdfSideStreamRowTiesTest.structuralSpanningSourceParagraphAndRotatedPredecessorsBlockMovement --
+touching_bottom rc=1 [ERROR] Tests run: 7, Failures: 1, Errors: 0, Skipped: 0 killed_by=PdfSideStreamRowTiesTest.ineligibleGeometryKeepsExistingOutput --

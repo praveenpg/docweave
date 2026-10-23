@@ -1,0 +1,1 @@
+PASS: default transfer and BOX_4X output equal complete recorded reports; all32 upstream lossless/JPEG reference hashes verified.

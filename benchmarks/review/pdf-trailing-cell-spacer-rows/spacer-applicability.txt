@@ -1,0 +1,7 @@
+nvidia-fy26q4.pdf pages=11 lines=965 isolated_space_glyphs=1503 lines_with_isolated_spaces=554
+amd-fy25q4.pdf pages=7 lines=292 isolated_space_glyphs=0 lines_with_isolated_spaces=0
+apple-q3-2026.pdf pages=3 lines=162 isolated_space_glyphs=147 lines_with_isolated_spaces=128
+apple-q2-2026.pdf pages=3 lines=160 isolated_space_glyphs=147 lines_with_isolated_spaces=130
+amazon-q4-2025.pdf pages=14 lines=1036 isolated_space_glyphs=316 lines_with_isolated_spaces=96
+frx_2012_disclosure.pdf pages=1 lines=465 isolated_space_glyphs=0 lines_with_isolated_spaces=0
+walmart-fy26q4-complete-filing.pdf pages=59 lines=2094 isolated_space_glyphs=0 lines_with_isolated_spaces=0

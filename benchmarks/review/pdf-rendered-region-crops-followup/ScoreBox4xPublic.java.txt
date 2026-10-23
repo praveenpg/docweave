@@ -1,0 +1,24 @@
+import dev.docweave.partition.*;import tools.jackson.databind.json.JsonMapper;
+import java.awt.image.BufferedImage;import java.io.*;import java.nio.file.*;import java.util.*;import javax.imageio.ImageIO;
+/** Applies public PdfPageCropOptions.Sampling.BOX_4X to the frozen 16 requests and scores three tracks with MAE<=12. */
+public class PublicBox{
+ static double mae(BufferedImage a,BufferedImage b){double t=0;for(int y=0;y<a.getHeight();y++)for(int x=0;x<a.getWidth();x++){int p=a.getRGB(x,y),q=b.getRGB(x,y);for(int s=0;s<24;s+=8)t+=Math.abs(((p>>s)&255)-((q>>s)&255));}return t/(3.0*a.getWidth()*a.getHeight());}
+ public static void main(String[] a)throws Exception{var m=JsonMapper.builder().build();
+  var regions=m.readTree(Files.readAllBytes(Path.of("/tmp/docweave-rendered-crops-followup21/transfer-java21.json"))).get("magazine").get("regions");
+  var capture=m.readTree(Files.readAllBytes(Path.of("/tmp/docweave-crop-review-20261022/upstream-capture.json")));var jpeg=new HashMap<Integer,String>();for(var c:capture.get("crops"))jpeg.put(c.get("occurrence_index").asInt(),c.get("filename").asString());
+  var diag=m.readTree(Files.readAllBytes(Path.of("/tmp/docweave-rendered-crops-followup21/supersample-diagnostic.json"))).get("regions");var diagMap=new HashMap<Integer,tools.jackson.databind.JsonNode>();for(var d:diag)diagMap.put(d.get("occurrence_index").asInt(),d);
+  var requests=new ArrayList<PdfPageCropRequest>();for(var r:regions){var q=r.get("request");requests.add(new PdfPageCropRequest(r.get("page").asInt(),q.get(0).asDouble(),q.get(1).asDouble(),q.get(2).asDouble(),q.get(3).asDouble()));}
+  var crops=PdfPageCropRenderer.create(new PdfPageCropOptions(150,PdfPageCropOptions.Background.WHITE,10*1024*1024,64,16,40_000_000L,120_000_000L,16_000_000L,32*1024*1024,PdfPageCropOptions.Sampling.BOX_4X)).render(DocumentSource.of(Path.of("/tmp/docweave-caption-negatives21/immunology-news-march-2025.pdf")),requests);
+  int[] within=new int[3];var rows=new ArrayList<Object>();boolean sameRects=true,sameAsDiag=true;String[] names={"poppler","pdfium_lossless","unstructured_jpeg"};
+  Files.createDirectories(Path.of(a[1]));
+  for(int n=0;n<crops.size();n++){var r=regions.get(n);int i=r.get("occurrence_index").asInt();var c=crops.get(n);var img=ImageIO.read(new ByteArrayInputStream(c.png()));
+   Files.write(Path.of(a[1],"box4x-"+i+".png"),c.png());
+   var rect=r.get("pixel_rect");sameRects&=rect.get(0).asInt()==c.pixelLeft()&&rect.get(1).asInt()==c.pixelTop()&&rect.get(2).asInt()==c.width()&&rect.get(3).asInt()==c.height();
+   var refs=new BufferedImage[]{ImageIO.read(new File("/tmp/docweave-rendered-crops-followup21/crops/poppler-"+i+".png")),ImageIO.read(new File("/tmp/docweave-crop-review-20261022/upstream-lossless/crop-"+i+".png")),ImageIO.read(new File("/tmp/docweave-crop-review-20261022/upstream-crops/"+jpeg.get(i)))};
+   var row=new LinkedHashMap<String,Object>();row.put("occurrence_index",i);row.put("page",r.get("page").asInt());
+   for(int t=0;t<3;t++){double v=mae(img,refs[t]);if(v<=12)within[t]++;row.put(names[t],Math.round(v*1000)/1000.0);sameAsDiag&=Math.abs(v-diagMap.get(i).get(names[t]).get(1).asDouble())<0.001;}
+   rows.add(row);}
+  var out=new LinkedHashMap<String,Object>();out.put("sampling","BOX_4X");out.put("dpi",150);out.put("tolerance",12);out.put("same_pixel_rectangles_as_default",sameRects);out.put("matches_frozen_diagnostic",sameAsDiag);
+  out.put("within_tolerance",Map.of("poppler",within[0],"pdfium_lossless",within[1],"unstructured_jpeg",within[2]));out.put("regions",rows);
+  Files.writeString(Path.of(a[0]),m.writerWithDefaultPrettyPrinter().writeValueAsString(out)+"\n",StandardOpenOption.CREATE_NEW);
+  System.out.println(sameRects+" "+sameAsDiag+" "+out.get("within_tolerance"));}}

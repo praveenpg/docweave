@@ -1,0 +1,43 @@
+SIDEBAR_BLOCKS_V1 — frozen before any candidate code or candidate measurement.
+Receipt: the SHA-256 of this file is recorded in the private session log and RETURN.md at the time it was written;
+no execution timestamp is asserted here.
+
+Reference: pinned Unstructured 0.27.28 fast, existing full-body captures (runtime 7b913aaa...).
+Frozen target case:
+  source recent.pdf SHA-256 acb3af41357a960a9584f9ba0b0bf3319195af2ec4f3bc6074c2083d97d10bb8, page 1
+  capture recent.json SHA-256 97d2bca9b65d017c23b11973a58846edf603879bd6c87f9a1f3f8983c4be7cc3
+  upstream page-1 non-image element index 11, NarrativeText, PixelSpace box 36.0,407.3-183.4,470.3,
+  ASCII-whitespace-collapsed text SHA-256 32ef0aa96a1bdcd18563d19f570f7d1ff8b90430cd2d05258da37a5feea8be51
+  (the left-sidebar citation block, five native lines).
+Observed misplacement (DocWeave COLUMN_PARAGRAPHS, source geometry): the five sidebar lines (x 36-184, height about 4.7)
+alternate with right-column abstract lines (x 198-578, height about 5.7): upstream elements 12 (section heading),
+13 and 14 (abstract lines) are emitted between the block's first and last lines.
+Expected corrected order (from upstream order, not from DocWeave output): the five citation lines are contiguous and
+in source order, placed before upstream element 12; the abstract lines keep their relative order.
+
+Measurement (benchmarks/tools/CompareUpstreamLineOrder.java, written before the candidate):
+  atoms = page-1 lines of DocWeave LINES with the measured profile's inline-script policy; an atom maps to the single
+  upstream page-1 element containing its ASCII-collapsed text exactly once; expected pair order = upstream element
+  index, then offset. Measured position = unique occurrence in the page's output text joined with single spaces;
+  otherwise the pair is UNMATCHED. Pairs touching element 11 on recent are TARGET; all other pairs on all papers are
+  CONTROL. Populations: recent, next, elife (full-body manifest) and the transfer holdout (holdout manifest).
+
+Candidate (one distinct algorithm, opt-in, default unchanged): on pages where no existing two-column gutter is accepted,
+cluster ordinary upright lines by left edge (4-unit tolerance). The main stream is the cluster with the most lines.
+A side stream is another cluster, restricted to its lines lying wholly outside the main stream's horizontal extent
+(at least 4 units left of its left edge or right of its right edge), with at least three such lines, whose median
+line height is below 0.9 of the main stream's, and whose vertical extent overlaps at least three main-stream lines.
+Side-stream lines are grouped with the existing paragraph-join predicate among themselves only; each group is emitted
+at its first line's position. All other items keep the historical grouping and order. No text, wording, publisher
+label, source name or upstream output is used at runtime. LINES layout and accepted two-column bands are unaffected.
+
+Frozen predictions:
+  T1 recent target pairs under COLUMN_PARAGRAPHS and COLUMN_PARAGRAPHS_COMPOUND_WRAPS, each with and without inline
+     scripts: at least one REVERSED->CORRECT transition, no CORRECT->REVERSED and no newly UNMATCHED pair.
+  T2 control pairs on all four papers and the same four profiles: zero CORRECT->REVERSED and zero transitions into
+     UNMATCHED.
+  T3 strict complete-body paragraph totals with inline scripts stay at least 60/60/61 of 143 (LINES unaffected), and
+     the policy without inline scripts stays at least 58/58/59.
+  T4 ten-document token comparison: per-document matched/missing/extra reported for baseline and policy; any loss is
+     reported as such.
+If T1 or T2 fails, the candidate is not promoted and is archived.

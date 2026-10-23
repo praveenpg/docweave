@@ -1,0 +1,13 @@
+ONNX_ARENA_RETENTION_HYPOTHESIS_V1 (frozen 2026-10-22 after the baseline phase diagnostic, before any candidate run)
+Evidence: VmHWM is set by the concurrent round in all three children (+300-400 MB over the sequential phase);
+native RSS grows on the first inference (+180 MB) and stays resident between calls with constant heap
+commitment; closing the provider returns ~600 MB, so memory is owned by the sessions, not leaked.
+Hypothesis: ONNX Runtime's default per-session CPU BFC arena keeps activation regions resident after each
+run, extends in power-of-two steps, and holds one region per simultaneous run; memory-pattern
+preallocation adds shape-planned blocks. Neither changes numerical results.
+Candidate C1 (one change, internal, no API): ManagedTableSession sets SessionOptions.setCPUArenaAllocator(false)
+and setMemoryPatternOptimization(false) for every managed session. Graph loading, admission (two), threads,
+models, DPI and outputs are unchanged.
+Focused validation: the frozen ONNX_PHASE_MEMORY_DIAGNOSTIC_V1, three children, with only the layout-onnx JAR
+replaced. Proceed to the unchanged original nine-JVM study only if every child's final VmHWM is below
+1,572,864 KiB and every attempt still emits five tables. Otherwise record a partial result and park.

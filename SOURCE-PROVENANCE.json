@@ -1,6 +1,6 @@
 {
-  "source_commit": "214c62aef4fea3de8045aee379c7f4898f7a1600",
-  "unchanged_files": 4257,
+  "source_commit": "890629cc97e99563a23011bfe9b3fc886dd95997",
+  "unchanged_files": 4525,
   "derived_files": [
     {
       "path": "benchmarks/corpus/docx-forms/ownership-body-scope-review.json",
@@ -147,6 +147,12 @@
       "action": "derived"
     },
     {
+      "path": "benchmarks/review/pdf-ocr-column-alignment-evaluation/README.md",
+      "original_sha256": "54ec86fdbc16128fe6291bcf41b93b14fbf23261c1166acb46282bb4a1221399",
+      "public_sha256": "ce739d5029921633cde97ce681ddc0dd572ef469da3f43f727675a1b7247e330",
+      "action": "derived"
+    },
+    {
       "path": "benchmarks/review/pdf-ocr-wide-gap-lines/full-verify-java21.log",
       "original_sha256": "8d854c64ee3ce02826efb653b9009d659b1a41f864f3d294a3dfbba68ad9ae0d",
       "public_sha256": "acc2a095d9b78da6c25415e5f49b15ad4c7ce1c0903a358c29dde006f601c7b4",
@@ -180,6 +186,12 @@
       "path": "benchmarks/review/pdf-separate-cell-ocr/README.md",
       "original_sha256": "d66dab4099a245a28a9ada85329d5d04feca75d8dbaa0a8b793f50a7634fa3a8",
       "public_sha256": "b6f12e824295266840d52354dea14cc08ea0546cf53dcc33105ea9de49c1873a",
+      "action": "derived"
+    },
+    {
+      "path": "benchmarks/review/pdf-validation-2026-10-22/provider-protocol.properties",
+      "original_sha256": "dc2398b4ceeccb9a976e629060e8802e349ab4d6af2542c3abae8781125d1687",
+      "public_sha256": "cc014792241101360c936d9ebf19d7ef487a927617e3c27863478765e8f3f1e7",
       "action": "derived"
     },
     {
@@ -225,6 +237,12 @@
       "action": "derived"
     },
     {
+      "path": "docs/pending-work.md",
+      "original_sha256": "6c32f7730e5f7a2d39d581c8781bfc31a3dc9acc619d298e4b0408e44c7f1567",
+      "public_sha256": "1a0c615ff4f8e5d0533e1e9bfcf236908c5c11bf70513ad971a6cfbe18d0c62c",
+      "action": "derived"
+    },
+    {
       "path": "docs/publishing.md",
       "original_sha256": "e7649762c12190bad78dc144224ce273b4fea50ab8f20c2fa45c9495d0cb9060",
       "public_sha256": "c1042da5ba87084137dd14f4d332570027e6193edf5a7a2b355ee8e5c5f398f4",
@@ -232,8 +250,8 @@
     },
     {
       "path": "docs/roadmap.md",
-      "original_sha256": "c73c05109cb654cdad4f721afd6618b2507af680676518bb94b45903f25107a1",
-      "public_sha256": "9ab459d1cb590949691243207bea469d1a282eb5f4e69488b810231a344be64a",
+      "original_sha256": "c165a489e7986b462bca9523c7c527da5ae371a0cf759fae03eafc58cc443f92",
+      "public_sha256": "a833db825c700ede4237a6f9b28831122620078db366225f7c709d3c7a4c5593",
       "action": "derived"
     }
   ],

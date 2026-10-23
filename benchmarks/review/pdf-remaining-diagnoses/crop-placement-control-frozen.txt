@@ -1,0 +1,21 @@
+FRACTIONAL_PLACEMENT_CONTROL_V1 (frozen 2026-10-22 before rendering)
+Page 200x200 pt, white, rotation 0, UserUnit 1. Rendered at 150 DPI (scale 150/72 = 2.083333) by:
+PDFBox RENDERER, PDFBox BOX_4X (DocWeave PdfPageCropRenderer, whole-page request), Poppler pdftoppm 26.10.0,
+and PDFium through Unstructured 0.27.28 convert_pdf_to_image (pypdfium2 5.14.0). PNG only; no JPEG.
+Components (PDF user space, bottom-left origin), each opaque pure red (255,0,0):
+ A  8x8 image XObject, cm = [33.3 0 0 21.7 40.3 60.7]
+ B  vector filled rectangle, x=120.3 y=60.7 w=33.3 h=21.7
+ C  8x8 red image drawn under a text clip: Helvetica 60pt "O", render mode 7, baseline (40.3,120.7),
+    then the image cm = [60 0 0 60 40.3 115]
+Analytical edge positions in device pixels (top-left origin, x*2.083333, (200-y)*2.083333):
+ A/B left edges 83.958 (A) and 250.625 (B); right edges 153.333 (A) and 320.000 (B);
+ top edge 245.000, bottom edge 290.208 for both.
+Predicted coverage of the partially covered edge pixel (fraction of red area):
+ A/B left: column 83 -> 0.042, column 250 -> 0.375; right: column 153 -> 0.333, B right edge 320 is exact;
+ bottom row 290 -> 0.208; top edge 245 is exact.
+Classification per renderer and component: "fractional" if the edge pixel coverage is within 0.10 of the
+prediction; "snapped" if it is 0 or 1 (within 0.05) while the prediction is between 0.15 and 0.85;
+otherwise "other". Coverage is measured from the green channel: (255 - G) / 255 on the middle row/column.
+Purpose: separate image placement (A), vector edge antialiasing (B) and glyph-clip edges (C) between
+renderers. It does not change any runtime option or the frozen 16-region schedule.
+Amendment before rendering: glyph-clip scan window corrected to device y70-170, x80-190 (the O glyph); predictions unchanged.

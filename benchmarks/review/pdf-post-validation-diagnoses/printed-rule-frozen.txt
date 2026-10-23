@@ -1,0 +1,16 @@
+PRINTED_RULE_DIAGNOSTIC_V1 (frozen 2026-10-22 before any pixel or OCR output for this hypothesis was inspected)
+Inputs per source/model: the color-managed source raster exactly as the frozen harness decodes it, and the pinned
+wrapper's word output (AUTO, ENGINE_DEFAULT, declared source DPI, default TESSERACT_LINES grouping).
+Ink: luminance (0.299R+0.587G+0.114B) below the page's Otsu threshold (parameter-free).
+h: median OCR word height on the page.
+Vertical rule: for each pixel column x, the longest vertical run of rows in which any pixel of columns x-2..x+2 is
+ink; a candidate rule is a maximal set of adjacent columns whose run length is at least 8h; it is reported by its
+center x and the vertical extent [y0, y1] of its longest run.
+Support: a candidate is accepted only if at least 3 OCR lines with vertical centers inside [y0, y1] have at least
+one word entirely left of x-2 and at least one word entirely right of x+2. Words whose box contains x and have one
+character are counted as rule-like tokens; any other word containing x rejects the candidate.
+Report every candidate with x, extent, run length, supporting lines, rule-like tokens and the reason for rejection.
+Expected independently of OCR output (from the earlier source inspection): 1778 has a printed vertical rule between
+the two subscriber-list columns near x 964 and limited to the list region; single-column prose pages (1835, 1879)
+should yield no accepted rule. 1780 contains a ruler/stamp; any accepted rule there is a reported false positive.
+This diagnostic changes no runtime code; a production option is written only if the expectations hold.

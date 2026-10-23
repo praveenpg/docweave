@@ -5,13 +5,51 @@ package dev.docweave.partition;
  * No OCR engine is invoked. These limits do not bound PDFBox intermediate allocations or provider deadlines.
  * @param cellTextJoin explicit provider-owned native cell text policy; defaults preserve space-separated lines
  * @param leadingRow optional source-based leading row inference; defaults preserve provider bounds
+ * @param trailingRows optional source-based trailing row inference; defaults preserve provider bounds
  * @param dpi render resolution,36 through600
  * @param maxRenderPixels maximum rendered pixels per native-text page
  * @param maxTableAnchors maximum aggregate raw provider anchors per page; native-first composition also
- *                        charges accepted native anchors to this ceiling; inferred leading-row anchors also count
+ *                        charges accepted native anchors to this ceiling; inferred leading- and trailing-row
+ *                        anchors also count
  */
-public record PdfNativeLayoutOptions(
-        int dpi, long maxRenderPixels, int maxTableAnchors, CellTextJoin cellTextJoin, LeadingRow leadingRow) {
+public record PdfNativeLayoutOptions(int dpi, long maxRenderPixels, int maxTableAnchors, CellTextJoin cellTextJoin,
+        LeadingRow leadingRow, TrailingRows trailingRows) {
+    /** Explicit source inference below an otherwise validated provider table. */
+    public enum TrailingRows {
+        /** Preserves the provider's original row count, bounds and anchors. */
+        PROVIDER_ONLY,
+        /**
+         * Appends complete source lines below an upright provider table while they repeat the table's own
+         * whitespace cell lattice. Some producers, for example HTML-to-PDF converters, paint an explicit
+         * space glyph for each empty or padding cell at fixed column positions, including in visually blank
+         * rows. The lattice is the set of whitespace glyph positions that every nonempty provider row
+         * repeats within one tenth of a displayed unit; at least two positions are required. Lines below
+         * the table are read in baseline order and accepted only while each one repeats every lattice
+         * position, keeps all of its glyphs upright and within the table's horizontal extent, and fits each
+         * visible glyph inside one of the last provider row's unmerged columns. Repeating blank lattice lines
+         * are crossed but never become rows; each visible line becomes one inferred row. A footnote, separate
+         * note or aligned number without the lattice stops the scan, and a conflicting, rotated, misfitting
+         * or merged-column extension retains the provider table. Text is never classified by vocabulary,
+         * punctuation or number grammar. This is source-structure inference, not semantic proof of
+         * membership, and it adds nothing when a producer paints no whitespace cells. Default bounds are
+         * unchanged.
+         */
+        SOURCE_CELL_SPACER_ROWS
+    }
+
+    /**
+     * Preserves the former five-argument constructor without inferring trailing geometry.
+     * @param dpi render resolution,36 through600
+     * @param maxRenderPixels rendered pixel ceiling
+     * @param maxTableAnchors aggregate native/provider anchor ceiling
+     * @param cellTextJoin native cell text choice
+     * @param leadingRow leading-row inference choice
+     */
+    public PdfNativeLayoutOptions(final int dpi, final long maxRenderPixels, final int maxTableAnchors,
+            final CellTextJoin cellTextJoin, final LeadingRow leadingRow) {
+        this(dpi, maxRenderPixels, maxTableAnchors, cellTextJoin, leadingRow, TrailingRows.PROVIDER_ONLY);
+    }
+
     /** Explicit source inference outside an otherwise validated provider table. */
     public enum LeadingRow {
         /** Preserves the provider's original row count, bounds and anchors. */
@@ -104,7 +142,21 @@ public record PdfNativeLayoutOptions(
      * @throws NullPointerException if policy is null
      */
     public PdfNativeLayoutOptions withLeadingRow(final LeadingRow policy) {
-        return new PdfNativeLayoutOptions(dpi, maxRenderPixels, maxTableAnchors, cellTextJoin, policy);
+        return new PdfNativeLayoutOptions(dpi, maxRenderPixels, maxTableAnchors, cellTextJoin, policy, trailingRows);
+    }
+
+    /**
+     * Copies this policy with explicit trailing-row inference for provider-owned native tables only.
+     * Existing anchors, row indices and their text remain unchanged; accepted inference appends rows and
+     * expands the table envelope downward. Metadata records the trailing boundary policy and added row count.
+     * Leading-row inference, when also selected, runs first. Source-tagged tables, native heuristic tables and
+     * OCR output are unaffected.
+     * @param policy nonnull trailing-row choice
+     * @return new immutable policy retaining render limits, cell text and leading-row selection
+     * @throws NullPointerException if policy is null
+     */
+    public PdfNativeLayoutOptions withTrailingRows(final TrailingRows policy) {
+        return new PdfNativeLayoutOptions(dpi, maxRenderPixels, maxTableAnchors, cellTextJoin, leadingRow, policy);
     }
 
     /**
@@ -121,17 +173,18 @@ public record PdfNativeLayoutOptions(
      * @throws NullPointerException if policy is null
      */
     public PdfNativeLayoutOptions withCellTextJoin(final CellTextJoin policy) {
-        return new PdfNativeLayoutOptions(dpi, maxRenderPixels, maxTableAnchors, policy, leadingRow);
+        return new PdfNativeLayoutOptions(dpi, maxRenderPixels, maxTableAnchors, policy, leadingRow, trailingRows);
     }
 
     /**
      * Validates immutable positive limits without rendering or executing providers.
      * @throws IllegalArgumentException if resolution or either budget is invalid
-     * @throws NullPointerException if either policy is null
+     * @throws NullPointerException if any policy is null
      */
     public PdfNativeLayoutOptions {
         java.util.Objects.requireNonNull(cellTextJoin, "cellTextJoin");
         java.util.Objects.requireNonNull(leadingRow, "leadingRow");
+        java.util.Objects.requireNonNull(trailingRows, "trailingRows");
         if (dpi < 36 || dpi > 600 || maxRenderPixels < 1 || maxTableAnchors < 1) {
             throw new IllegalArgumentException("Invalid native PDF layout policy");
         }

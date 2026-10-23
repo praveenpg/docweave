@@ -1,0 +1,95 @@
+import dev.docweave.DocWeave;
+import dev.docweave.core.ElementType;
+import dev.docweave.layout.OnnxTableLayout;
+import dev.docweave.layout.OnnxTableOptions;
+import dev.docweave.partition.DocumentSource;
+import dev.docweave.partition.PartitionerRegistry;
+import dev.docweave.partition.PdfNativeLayoutOptions;
+import dev.docweave.partition.PdfOptions;
+import dev.docweave.partition.PdfPartitioner;
+
+import java.lang.management.ManagementFactory;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicLong;
+
+/**
+ * Phase-aware memory diagnostic for ONNX_PHASE_MEMORY_DIAGNOSTIC_V1. Args: source detector detectorSha structure
+ * structureSha. Prints one line per phase: VmHWM, VmRSS, sampled phase-peak RSS, heap used and committed (KiB).
+ */
+public final class PhaseMemoryDiagnostic {
+    private static final AtomicLong PHASE_PEAK = new AtomicLong();
+
+    public static void main(final String[] args) throws Exception {
+        final var sampler = new Thread(() -> {
+            while (true) {
+                PHASE_PEAK.accumulateAndGet(status("VmRSS"), Math::max);
+                try {
+                    Thread.sleep(5);
+                } catch (final InterruptedException stop) {
+                    return;
+                }
+            }
+        });
+        sampler.setDaemon(true);
+        sampler.start();
+        phase("start");
+        final byte[] source = Files.readAllBytes(Path.of(args[0]));
+        final var provider = OnnxTableLayout.createWithYoloX(
+                OnnxTableOptions.yoloXDefaults(Path.of(args[1]), args[2]).withConcurrency(2),
+                OnnxTableOptions.defaults(Path.of(args[3]), args[4])
+                        .withConcurrency(2)
+                        .withMergeConflicts(OnnxTableOptions.MergeConflicts.KEEP_HIGHER_SCORE));
+        phase("after-provider-construction");
+        final Callable<Integer> attempt = () -> {
+            final var service = PdfPartitioner.createWithNativeLayout(
+                    PdfOptions.defaults(), new PdfNativeLayoutOptions(150, 16_000_000, 1024), provider::locate);
+            return (int) DocWeave.create(PartitionerRegistry.of(List.of(service)))
+                    .partition(DocumentSource.bytes(source, "source.pdf"))
+                    .elements()
+                    .stream()
+                    .filter(e -> e.type() == ElementType.Table)
+                    .count();
+        };
+        final var tables = new ArrayList<Integer>();
+        try (provider) {
+            tables.add(attempt.call());
+            phase("after-cold");
+            tables.add(attempt.call());
+            phase("after-sequential");
+            try (final var executor = Executors.newVirtualThreadPerTaskExecutor()) {
+                final var one = executor.submit(attempt);
+                final var two = executor.submit(attempt);
+                tables.add(one.get());
+                tables.add(two.get());
+            }
+            phase("after-concurrent");
+        }
+        phase("after-close");
+        System.out.println("tables=" + tables + " sampler_interval_ms=5");
+    }
+
+    private static void phase(final String name) {
+        final var heap = ManagementFactory.getMemoryMXBean().getHeapMemoryUsage();
+        final long peak = PHASE_PEAK.getAndSet(status("VmRSS"));
+        System.out.printf("%-28s VmHWM=%d VmRSS=%d phase_peak_rss=%d heap_used=%d heap_committed=%d%n", name,
+                status("VmHWM"), status("VmRSS"), peak, heap.getUsed() / 1024, heap.getCommitted() / 1024);
+    }
+
+    private static long status(final String key) {
+        try {
+            for (final String line : Files.readAllLines(Path.of("/proc/self/status"))) {
+                if (line.startsWith(key + ":")) {
+                    return Long.parseLong(line.replaceAll("[^0-9]", ""));
+                }
+            }
+        } catch (final java.io.IOException ignored) {
+            // A missing procfs value is reported as zero.
+        }
+        return 0;
+    }
+}

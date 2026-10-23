@@ -143,7 +143,7 @@ final class PdfPageLayout {
         final var nativeStage = stageTables(glyphs, segments, images, angled, work);
         items.addAll(nativeStage.tables());
         final var textGlyphs = nativeStage.remaining();
-        final var ordinary = lines(textGlyphs);
+        final var ordinary = ordinaryLines(textGlyphs, work);
         if (angled.isEmpty() && (options.tableDetection().alignedText())) {
             addAlignedTables(items, ordinary, segments, images, work);
         } else {
@@ -165,8 +165,8 @@ final class PdfPageLayout {
         } else {
             context.warn(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION,
                     "PDF paragraph and column layout use native geometric heuristics, without semantic order guarantees");
-            final PdfReadingOrder readingOrder = new GeometricPdfReadingOrder(
-                    options.textLayout(), PdfParagraphWraps.select(options.textLayout(), glyphs, geometry, work));
+            final PdfReadingOrder readingOrder = new GeometricPdfReadingOrder(options.textLayout(),
+                    PdfParagraphWraps.select(options.textLayout(), glyphs, geometry, work), options.sideStreams());
             ordered = readingOrder.apply(items);
         }
         final var captioned = PdfFigureCaptionDetection.select(options.figureCaptions()).apply(ordered, work);
@@ -179,6 +179,10 @@ final class PdfPageLayout {
             }
             if (options.textRendering() != PdfOptions.TextRendering.ALL && item.type() != ElementType.Image) {
                 metadata.put("pdf_native_text_rendering_policy", options.textRendering().provenance());
+            }
+            if (options.inlineScripts() == PdfOptions.InlineScripts.NEARBY_SMALL_GLYPHS
+                    && item.type() != ElementType.Image) {
+                metadata.put("pdf_native_inline_script_policy", "nearby_small_glyph_runs_v1");
             }
             geometry.describe(metadata);
             final var box = item.box();
@@ -713,6 +717,23 @@ final class PdfPageLayout {
      */
     private List<PdfLayoutItem> lines(final List<PdfPageText.Glyph> input) throws IOException {
         return PdfGlyphLines.displayed(input, geometry);
+    }
+
+    /**
+     * Groups ordinary unclaimed text under the explicit small-glyph policy; the default keeps historical lines.
+     * Assignment requires an unrotated upright display frame, matching the native cell policy's frame check.
+     * @param input exact original positions not claimed by native or provided tables
+     * @param work shared page work and cancellation counter
+     * @return nonblank lines retaining every original character and bound
+     * @throws IOException if work, cancellation or grouping limits fail
+     */
+    private List<PdfLayoutItem> ordinaryLines(final List<PdfPageText.Glyph> input, final PdfTableWork work)
+            throws IOException {
+        if (options.inlineScripts() == PdfOptions.InlineScripts.PRESERVE || geometry.textRotation(0) != 0) {
+            return lines(input);
+        }
+        final var baselines = PdfSmallGlyphRuns.pageBaselines(input, work);
+        return PdfGlyphLines.displayed(input, geometry, glyph -> baselines.getOrDefault(glyph, (double) glyph.y()));
     }
 
     /**

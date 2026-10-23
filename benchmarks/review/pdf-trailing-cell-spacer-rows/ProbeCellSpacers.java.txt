@@ -1,0 +1,47 @@
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.pdfbox.Loader;
+import org.apache.pdfbox.text.PDFTextStripper;
+import org.apache.pdfbox.text.TextPosition;
+
+/**
+ * Private applicability scan: counts isolated whitespace glyphs (a space painted with no visible neighbor within
+ * two space widths on either side), the producer artifact the trailing-row lattice relies on. Args: pdf files.
+ */
+public final class ProbeCellSpacers {
+    public static void main(final String[] args) throws Exception {
+        for (final String path : args) {
+            try (final var document = Loader.loadPDF(new File(path))) {
+                final long[] counts = new long[3];
+                final var stripper = new PDFTextStripper() {
+                    @Override
+                    protected void writeString(final String text, final List<TextPosition> positions) {
+                        counts[0]++;
+                        boolean lineHasSpacer = false;
+                        for (int index = 0; index < positions.size(); index++) {
+                            final var glyph = positions.get(index);
+                            if (!glyph.getUnicode().isBlank()) {
+                                continue;
+                            }
+                            final double gap = 2 * Math.max(glyph.getWidthOfSpace(), 1);
+                            final boolean leftAlone = index == 0 || glyph.getXDirAdj()
+                                    - (positions.get(index - 1).getXDirAdj() + positions.get(index - 1).getWidthDirAdj()) > gap;
+                            final boolean rightAlone = index == positions.size() - 1
+                                    || positions.get(index + 1).getXDirAdj() - (glyph.getXDirAdj() + glyph.getWidthDirAdj()) > gap;
+                            if (leftAlone && rightAlone) {
+                                counts[1]++;
+                                lineHasSpacer = true;
+                            }
+                        }
+                        counts[2] += lineHasSpacer ? 1 : 0;
+                    }
+                };
+                stripper.setSortByPosition(true);
+                stripper.getText(document);
+                System.out.printf("%s pages=%d lines=%d isolated_space_glyphs=%d lines_with_isolated_spaces=%d%n",
+                        new File(path).getName(), document.getNumberOfPages(), counts[0], counts[1], counts[2]);
+            }
+        }
+    }
+}

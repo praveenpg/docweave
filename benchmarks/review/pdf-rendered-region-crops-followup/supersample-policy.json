@@ -1,0 +1,10 @@
+{
+  "frozen_before_full_pass": true,
+  "hypothesis": "Java2D applies non-rectangular clip paths (including glyph/text clips) without antialiasing, so PDFBox crops have hard clip edges where PDFium and Poppler antialias; this is renderer clip-coverage, not group/alpha compositing.",
+  "evidence_before_freeze": "region 26 only: magnified strip shows aliased glyph-clip edges in PDFBox and antialiased edges in both other renderers; 4x box supersampling diagnostic MAE vs PDFium 21.14->15.09, vs Poppler 9.65->5.96",
+  "policy": "Render the page with PDFBox PDFRenderer at exactly 4x the float renderer scale (dpi*UserUnit/72), RGB/white, EXPORT destination, default hints; each output pixel (x,y) of the unchanged 1x crop rectangle is the rounded mean of the 4x4 supersampled block [4x,4x+4)x[4y,4y+4).",
+  "applied_to": "all 16 frozen magazine regions with their unchanged 1x pixel rectangles, plus the three image-contract analytical gates (72 DPI)",
+  "comparisons": "same MAE<=12 tolerance against the review's PDFium pre-JPEG PNGs, the review's delivered JPEGs, and this follow-up's Poppler PNGs",
+  "no_selection": "no per-region choice of factor, filter or offset; all outcomes retained",
+  "promotion_rule": "a product option is considered only if the analytical gates still pass and agreement does not decrease on any of the three tracks; otherwise park with evidence"
+}

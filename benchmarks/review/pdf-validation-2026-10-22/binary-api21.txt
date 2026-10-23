@@ -1,0 +1,1 @@
+PASS former five-argument binary API on 21.0.12.1+12-LTS

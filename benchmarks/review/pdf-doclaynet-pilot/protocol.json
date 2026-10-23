@@ -1,0 +1,16 @@
+{
+  "frozen_at": "2026-10-22T22:07:59.852507+00:00",
+  "policy": "24 selected pages; each detector once per page; raw ordinary thresholded proposals before crop padding/structure; 300 DPI PDFBox; COCO xywh converted LTRB; maximum-cardinality IoU>=0.5; defaults TATR0.5 YOLOX>0.25; 4 threads, single call; 600 seconds per detector process; failures FN all references, FP unknown; no threshold retries",
+  "limits": "48 inferences total; no OCR/structure/new weights; <=512MiB network",
+  "limitations": [
+    "no financial reports",
+    "producer metadata stripped",
+    "training overlap unknown",
+    "document-disjoint reporting groups are not held-out tuning acceptance"
+  ],
+  "sha256": {
+    "selection.json": "4e1b1d9e88791c477cce94797b3c88ed53b7384cfe65dfbd0b9dd30aa3f1e0f0",
+    "EvaluateDocLayNetProposals.java": "0dc607b6d85e08e0b7561c9e9943ea01b7d45d1db8eddd4cbc294b8a98633b35",
+    "PrepareDocLayNetPilot.java": "5e34820b645596c6514ca344ba6084cc04936e8b26e418e27cc67e7de5ac84de"
+  }
+}

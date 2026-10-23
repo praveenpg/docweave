@@ -1,0 +1,10 @@
+ONNX_COMBINED_LIFETIME_FIX_C3 (frozen 2026-10-22 after C1 and C2 were each measured alone)
+C1 alone (arena and memory patterns disabled): final VmHWM 1,686,356 / 1,684,260 / 1,750,640 KiB.
+C2 alone (off-heap direct graph snapshot): final VmHWM 1,600,116 / 1,607,340 / 1,591,436 KiB.
+The two measured causes are independent: C2 removes heap commitment from graph loading (construction peak
+1.29-1.31M -> 0.91-0.94M KiB); C1 removes arena regions retained across and during runs.
+C3 applies exactly C2 plus the two C1 session settings. Nothing else changes: same admission (two), threads,
+models, DPI, options and outputs. This is the last ONNX candidate in this pass; no further variants.
+Validation: the frozen phase diagnostic (three children), then, only if every final VmHWM is below
+1,572,864 KiB with five tables per attempt, the complete unchanged original study with only the
+layout-onnx JAR identity changed. Latency is reported from the study's wall times.

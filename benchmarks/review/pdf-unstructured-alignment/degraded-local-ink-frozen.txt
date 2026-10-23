@@ -1,0 +1,18 @@
+PRINTED_RULE_DIAGNOSTIC_V2_LOCAL_INK (frozen 2026-10-22 before any V2 output was produced)
+Identical to PRINTED_RULE_DIAGNOSTIC_V1 (benchmarks/review/pdf-post-validation-diagnoses/printed-rule-frozen.txt,
+SHA-256 d2b52732...) in decode, OCR invocation, median word height h, rule definition, support, rule-like tokens,
+crossing-word rejection and reporting, with exactly one change:
+  Text area A: the axis-aligned rectangle enclosing every recognized OCR word box of the page/model, expanded by h
+  on each side and clipped to the image. A uses only the engine's own word boxes; no PAGE reference, region label or
+  upstream output is consulted.
+  Ink: luminance below the Otsu threshold computed over pixels inside A only; pixels outside A are never ink, so
+  rule runs are searched only inside A.
+Reference context from Task A (pinned Unstructured 0.27.28 ocr_only): the original-image path emits the 1778 list and
+surrounding prose as one element and separates no columns; the expectation below therefore concerns PAGE-reference
+association quality, not upstream compatibility.
+Expected, unchanged from V1: 1778 has a printed vertical rule between the two subscriber-list columns near x 964,
+limited to the list region; single-column prose pages (1835, 1879) yield no accepted rule; any accepted rule on 1780
+is a reported false positive.
+Decision rule: if the 1778 rule is not accepted under both models, or any single-column page accepts a rule, the
+local-ink approach is parked and no production option is written. If the expectations hold, a separate runtime
+design with owned controls and full eight-observation regression is still required before any claim.

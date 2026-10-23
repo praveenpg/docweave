@@ -1,0 +1,24 @@
+ERROR media=[0.0, 0.0, 300.0, 300.0] crop=- rot=0 uu=2.0 BOX_4X dpi=150 dev.docweave.partition.PartitionException: PDF page crop rendering exceeds maxPagePixels
+ERROR media=[0.0, 0.0, 300.0, 300.0] crop=- rot=90 uu=2.0 BOX_4X dpi=150 dev.docweave.partition.PartitionException: PDF page crop rendering exceeds maxPagePixels
+ERROR media=[0.0, 0.0, 300.0, 300.0] crop=- rot=180 uu=2.0 BOX_4X dpi=150 dev.docweave.partition.PartitionException: PDF page crop rendering exceeds maxPagePixels
+ERROR media=[0.0, 0.0, 300.0, 300.0] crop=- rot=270 uu=2.0 BOX_4X dpi=150 dev.docweave.partition.PartitionException: PDF page crop rendering exceeds maxPagePixels
+ERROR media=[100.0, 200.0, 300.0, 300.0] crop=- rot=0 uu=2.0 BOX_4X dpi=150 dev.docweave.partition.PartitionException: PDF page crop rendering exceeds maxPagePixels
+ERROR media=[100.0, 200.0, 300.0, 300.0] crop=- rot=90 uu=2.0 BOX_4X dpi=150 dev.docweave.partition.PartitionException: PDF page crop rendering exceeds maxPagePixels
+ERROR media=[100.0, 200.0, 300.0, 300.0] crop=- rot=180 uu=2.0 BOX_4X dpi=150 dev.docweave.partition.PartitionException: PDF page crop rendering exceeds maxPagePixels
+ERROR media=[100.0, 200.0, 300.0, 300.0] crop=- rot=270 uu=2.0 BOX_4X dpi=150 dev.docweave.partition.PartitionException: PDF page crop rendering exceeds maxPagePixels
+cases=160 failures=8
+== non-normalized rotations
+      1 cases=120 failures=20
+      1 ERROR 20.0, 300.0, 300.0] rot=45 uu=1.0 BOX_4X dpi=150 dev.docweave.partition.PartitionException: PDF page rotation must be an integer multiple of 90 degrees
+      1 ERROR 20.0, 300.0, 300.0] rot=45 uu=1.0 BOX_4X dpi=72 dev.docweave.partition.PartitionException: PDF page rotation must be an integer multiple of 90 degrees
+      1 ERROR 20.0, 300.0, 300.0] rot=45 uu=1.0 RENDERER dpi=150 dev.docweave.partition.PartitionException: PDF page rotation must be an integer multiple of 90 degrees
+      1 ERROR 20.0, 300.0, 300.0] rot=45 uu=1.0 RENDERER dpi=72 dev.docweave.partition.PartitionException: PDF page rotation must be an integer multiple of 90 degrees
+      1 ERROR -40.0, 220.0, 230.0] rot=45 uu=1.0 BOX_4X dpi=150 dev.docweave.partition.PartitionException: PDF page rotation must be an integer multiple of 90 degrees
+      1 ERROR -40.0, 220.0, 230.0] rot=45 uu=1.0 BOX_4X dpi=72 dev.docweave.partition.PartitionException: PDF page rotation must be an integer multiple of 90 degrees
+      1 ERROR -40.0, 220.0, 230.0] rot=45 uu=1.0 RENDERER dpi=150 dev.docweave.partition.PartitionException: PDF page rotation must be an integer multiple of 90 degrees
+      1 ERROR -40.0, 220.0, 230.0] rot=45 uu=1.0 RENDERER dpi=72 dev.docweave.partition.PartitionException: PDF page rotation must be an integer multiple of 90 degrees
+      1 ERROR 50.0, 200.0, 120.0] rot=45 uu=1.0 BOX_4X dpi=150 dev.docweave.partition.PartitionException: PDF page rotation must be an integer multiple of 90 degrees
+      1 ERROR 50.0, 200.0, 120.0] rot=45 uu=1.0 BOX_4X dpi=72 dev.docweave.partition.PartitionException: PDF page rotation must be an integer multiple of 90 degrees
+      1 ERROR 50.0, 200.0, 120.0] rot=45 uu=1.0 RENDERER dpi=150 dev.docweave.partition.PartitionException: PDF page rotation must be an integer multiple of 90 degrees
+      1 ERROR 50.0, 200.0, 120.0] rot=45 uu=1.0 RENDERER dpi=72 dev.docweave.partition.PartitionException: PDF page rotation must be an integer multiple of 90 degrees
+      8 ERROR rot=45 PDF page rotation must be an integer multiple of 90 degrees

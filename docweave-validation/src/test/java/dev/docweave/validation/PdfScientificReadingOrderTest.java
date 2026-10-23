@@ -257,9 +257,7 @@ class PdfScientificReadingOrderTest {
                     case "SOURCE_PARAGRAPHS_SOFT_HYPHENS" ->
                         base.withTaggedParagraphs(PdfTaggedParagraphOptions.defaults().withWordWrap(
                                 PdfTaggedParagraphOptions.WordWrap.SOURCE_SOFT_HYPHENS));
-                    default ->
-                        PdfPartitioner.create(
-                                PdfOptions.defaults().withTextLayout(PdfOptions.TextLayout.valueOf(name)));
+                    default -> PdfPartitioner.create(nativeProfile(name));
                 };
                 final var processor = DocWeave.create(PartitionerRegistry.of(List.of(strategy)));
                 String output = "";
@@ -310,5 +308,27 @@ class PdfScientificReadingOrderTest {
         assertEquals(input.get("bytes").asLong(), Files.size(path));
         assertEquals(input.get("sha256").asString(),
                 HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(Files.readAllBytes(path))));
+    }
+
+    /**
+     * Builds a native layout profile: a text layout name followed by optional {@code +INLINE_SCRIPTS} and
+     * {@code +SIDE_STREAMS} or {@code +SIDE_STREAMS_ROW_TIES} modifiers, each selecting its explicit non-default
+     * policy.
+     * @param name profile name
+     * @return extraction options
+     */
+    private static PdfOptions nativeProfile(final String name) {
+        final var parts = name.split("\\+");
+        var options = PdfOptions.defaults().withTextLayout(PdfOptions.TextLayout.valueOf(parts[0]));
+        for (int index = 1; index < parts.length; index++) {
+            options = switch (parts[index]) {
+                case "INLINE_SCRIPTS" -> options.withInlineScripts(PdfOptions.InlineScripts.NEARBY_SMALL_GLYPHS);
+                case "SIDE_STREAMS" -> options.withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS);
+                case "SIDE_STREAMS_ROW_TIES" ->
+                    options.withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_ROW_TIES);
+                default -> throw new IllegalArgumentException("Unknown profile modifier");
+            };
+        }
+        return options;
     }
 }

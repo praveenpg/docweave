@@ -1,0 +1,456 @@
+{
+  "manifest_sha256" : "c5468f639d8166d0f41d97c32608c345779471e1bac385a7fac058627dce8b7c",
+  "runtime_sha256" : "7b913aaac6cfe1d925a8e955c41acc91c4751eabdcea94fec5e070d858068996",
+  "java_version" : "21.0.12.1",
+  "cases" : [ {
+    "id" : "recent",
+    "page" : 1,
+    "upstream_elements" : 40,
+    "capture_sha256" : "97d2bca9b65d017c23b11973a58846edf603879bd6c87f9a1f3f8983c4be7cc3",
+    "target_element" : 11,
+    "profiles" : [ {
+      "profile" : "LINES",
+      "atom_policy" : "PRESERVE",
+      "atoms" : 65,
+      "mapped_atoms" : 45,
+      "pairs" : 990,
+      "correct" : 967,
+      "reversed" : 23,
+      "unmatched" : 0,
+      "target" : {
+        "correct" : 164,
+        "reversed" : 6,
+        "unmatched" : 0
+      },
+      "control" : {
+        "correct" : 803,
+        "reversed" : 17,
+        "unmatched" : 0
+      }
+    }, {
+      "profile" : "LINES+INLINE_SCRIPTS",
+      "atom_policy" : "INLINE_SCRIPTS",
+      "atoms" : 60,
+      "mapped_atoms" : 45,
+      "pairs" : 990,
+      "correct" : 967,
+      "reversed" : 23,
+      "unmatched" : 0,
+      "target" : {
+        "correct" : 164,
+        "reversed" : 6,
+        "unmatched" : 0
+      },
+      "control" : {
+        "correct" : 803,
+        "reversed" : 17,
+        "unmatched" : 0
+      }
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS",
+      "atom_policy" : "PRESERVE",
+      "atoms" : 65,
+      "mapped_atoms" : 45,
+      "pairs" : 990,
+      "correct" : 967,
+      "reversed" : 23,
+      "unmatched" : 0,
+      "target" : {
+        "correct" : 164,
+        "reversed" : 6,
+        "unmatched" : 0
+      },
+      "control" : {
+        "correct" : 803,
+        "reversed" : 17,
+        "unmatched" : 0
+      }
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS+SIDE_STREAMS",
+      "atom_policy" : "PRESERVE",
+      "atoms" : 65,
+      "mapped_atoms" : 45,
+      "pairs" : 990,
+      "correct" : 984,
+      "reversed" : 6,
+      "unmatched" : 0,
+      "target" : {
+        "correct" : 170,
+        "reversed" : 0,
+        "unmatched" : 0
+      },
+      "control" : {
+        "correct" : 814,
+        "reversed" : 6,
+        "unmatched" : 0
+      }
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+      "atom_policy" : "PRESERVE",
+      "atoms" : 65,
+      "mapped_atoms" : 45,
+      "pairs" : 990,
+      "correct" : 925,
+      "reversed" : 21,
+      "unmatched" : 44,
+      "target" : {
+        "correct" : 122,
+        "reversed" : 4,
+        "unmatched" : 44
+      },
+      "control" : {
+        "correct" : 803,
+        "reversed" : 17,
+        "unmatched" : 0
+      }
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS+SIDE_STREAMS",
+      "atom_policy" : "PRESERVE",
+      "atoms" : 65,
+      "mapped_atoms" : 45,
+      "pairs" : 990,
+      "correct" : 940,
+      "reversed" : 6,
+      "unmatched" : 44,
+      "target" : {
+        "correct" : 126,
+        "reversed" : 0,
+        "unmatched" : 44
+      },
+      "control" : {
+        "correct" : 814,
+        "reversed" : 6,
+        "unmatched" : 0
+      }
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS+INLINE_SCRIPTS",
+      "atom_policy" : "INLINE_SCRIPTS",
+      "atoms" : 60,
+      "mapped_atoms" : 45,
+      "pairs" : 990,
+      "correct" : 967,
+      "reversed" : 23,
+      "unmatched" : 0,
+      "target" : {
+        "correct" : 164,
+        "reversed" : 6,
+        "unmatched" : 0
+      },
+      "control" : {
+        "correct" : 803,
+        "reversed" : 17,
+        "unmatched" : 0
+      }
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS+INLINE_SCRIPTS+SIDE_STREAMS",
+      "atom_policy" : "INLINE_SCRIPTS",
+      "atoms" : 60,
+      "mapped_atoms" : 45,
+      "pairs" : 990,
+      "correct" : 984,
+      "reversed" : 6,
+      "unmatched" : 0,
+      "target" : {
+        "correct" : 170,
+        "reversed" : 0,
+        "unmatched" : 0
+      },
+      "control" : {
+        "correct" : 814,
+        "reversed" : 6,
+        "unmatched" : 0
+      }
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS+INLINE_SCRIPTS",
+      "atom_policy" : "INLINE_SCRIPTS",
+      "atoms" : 60,
+      "mapped_atoms" : 45,
+      "pairs" : 990,
+      "correct" : 925,
+      "reversed" : 21,
+      "unmatched" : 44,
+      "target" : {
+        "correct" : 122,
+        "reversed" : 4,
+        "unmatched" : 44
+      },
+      "control" : {
+        "correct" : 803,
+        "reversed" : 17,
+        "unmatched" : 0
+      }
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS+INLINE_SCRIPTS+SIDE_STREAMS",
+      "atom_policy" : "INLINE_SCRIPTS",
+      "atoms" : 60,
+      "mapped_atoms" : 45,
+      "pairs" : 990,
+      "correct" : 940,
+      "reversed" : 6,
+      "unmatched" : 44,
+      "target" : {
+        "correct" : 126,
+        "reversed" : 0,
+        "unmatched" : 44
+      },
+      "control" : {
+        "correct" : 814,
+        "reversed" : 6,
+        "unmatched" : 0
+      }
+    } ],
+    "comparisons" : [ {
+      "comparison" : "COLUMN_PARAGRAPHS>COLUMN_PARAGRAPHS+SIDE_STREAMS",
+      "changed_pairs" : {
+        "target_reversed_to_correct" : 6,
+        "control_reversed_to_correct" : 11
+      }
+    }, {
+      "comparison" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS>COLUMN_PARAGRAPHS_COMPOUND_WRAPS+SIDE_STREAMS",
+      "changed_pairs" : {
+        "target_reversed_to_correct" : 4,
+        "control_reversed_to_correct" : 11
+      }
+    }, {
+      "comparison" : "COLUMN_PARAGRAPHS+INLINE_SCRIPTS>COLUMN_PARAGRAPHS+INLINE_SCRIPTS+SIDE_STREAMS",
+      "changed_pairs" : {
+        "target_reversed_to_correct" : 6,
+        "control_reversed_to_correct" : 11
+      }
+    }, {
+      "comparison" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS+INLINE_SCRIPTS>COLUMN_PARAGRAPHS_COMPOUND_WRAPS+INLINE_SCRIPTS+SIDE_STREAMS",
+      "changed_pairs" : {
+        "target_reversed_to_correct" : 4,
+        "control_reversed_to_correct" : 11
+      }
+    } ]
+  }, {
+    "id" : "next",
+    "page" : 1,
+    "upstream_elements" : 33,
+    "capture_sha256" : "f81a49fd4335c2f8a05522abe8480495be0cd10a19d2983942693d891de3080c",
+    "target_element" : -1,
+    "profiles" : [ {
+      "profile" : "LINES",
+      "atom_policy" : "PRESERVE",
+      "atoms" : 64,
+      "mapped_atoms" : 38,
+      "pairs" : 703,
+      "correct" : 681,
+      "reversed" : 22,
+      "unmatched" : 0
+    }, {
+      "profile" : "LINES+INLINE_SCRIPTS",
+      "atom_policy" : "INLINE_SCRIPTS",
+      "atoms" : 58,
+      "mapped_atoms" : 38,
+      "pairs" : 703,
+      "correct" : 681,
+      "reversed" : 22,
+      "unmatched" : 0
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS",
+      "atom_policy" : "PRESERVE",
+      "atoms" : 64,
+      "mapped_atoms" : 38,
+      "pairs" : 703,
+      "correct" : 681,
+      "reversed" : 22,
+      "unmatched" : 0
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS+SIDE_STREAMS",
+      "atom_policy" : "PRESERVE",
+      "atoms" : 64,
+      "mapped_atoms" : 38,
+      "pairs" : 703,
+      "correct" : 700,
+      "reversed" : 3,
+      "unmatched" : 0
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+      "atom_policy" : "PRESERVE",
+      "atoms" : 64,
+      "mapped_atoms" : 38,
+      "pairs" : 703,
+      "correct" : 647,
+      "reversed" : 19,
+      "unmatched" : 37
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS+SIDE_STREAMS",
+      "atom_policy" : "PRESERVE",
+      "atoms" : 64,
+      "mapped_atoms" : 38,
+      "pairs" : 703,
+      "correct" : 663,
+      "reversed" : 3,
+      "unmatched" : 37
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS+INLINE_SCRIPTS",
+      "atom_policy" : "INLINE_SCRIPTS",
+      "atoms" : 58,
+      "mapped_atoms" : 38,
+      "pairs" : 703,
+      "correct" : 681,
+      "reversed" : 22,
+      "unmatched" : 0
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS+INLINE_SCRIPTS+SIDE_STREAMS",
+      "atom_policy" : "INLINE_SCRIPTS",
+      "atoms" : 58,
+      "mapped_atoms" : 38,
+      "pairs" : 703,
+      "correct" : 700,
+      "reversed" : 3,
+      "unmatched" : 0
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS+INLINE_SCRIPTS",
+      "atom_policy" : "INLINE_SCRIPTS",
+      "atoms" : 58,
+      "mapped_atoms" : 38,
+      "pairs" : 703,
+      "correct" : 647,
+      "reversed" : 19,
+      "unmatched" : 37
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS+INLINE_SCRIPTS+SIDE_STREAMS",
+      "atom_policy" : "INLINE_SCRIPTS",
+      "atoms" : 58,
+      "mapped_atoms" : 38,
+      "pairs" : 703,
+      "correct" : 663,
+      "reversed" : 3,
+      "unmatched" : 37
+    } ],
+    "comparisons" : [ {
+      "comparison" : "COLUMN_PARAGRAPHS>COLUMN_PARAGRAPHS+SIDE_STREAMS",
+      "changed_pairs" : {
+        "control_reversed_to_correct" : 19
+      }
+    }, {
+      "comparison" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS>COLUMN_PARAGRAPHS_COMPOUND_WRAPS+SIDE_STREAMS",
+      "changed_pairs" : {
+        "control_reversed_to_correct" : 16
+      }
+    }, {
+      "comparison" : "COLUMN_PARAGRAPHS+INLINE_SCRIPTS>COLUMN_PARAGRAPHS+INLINE_SCRIPTS+SIDE_STREAMS",
+      "changed_pairs" : {
+        "control_reversed_to_correct" : 19
+      }
+    }, {
+      "comparison" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS+INLINE_SCRIPTS>COLUMN_PARAGRAPHS_COMPOUND_WRAPS+INLINE_SCRIPTS+SIDE_STREAMS",
+      "changed_pairs" : {
+        "control_reversed_to_correct" : 16
+      }
+    } ]
+  }, {
+    "id" : "elife",
+    "page" : 1,
+    "upstream_elements" : 14,
+    "capture_sha256" : "91421603fd4b0788bdc842423200b5751f103d30e3575fe1fdac1c36b6ed9e16",
+    "target_element" : -1,
+    "profiles" : [ {
+      "profile" : "LINES",
+      "atom_policy" : "PRESERVE",
+      "atoms" : 83,
+      "mapped_atoms" : 55,
+      "pairs" : 1485,
+      "correct" : 1335,
+      "reversed" : 96,
+      "unmatched" : 54
+    }, {
+      "profile" : "LINES+INLINE_SCRIPTS",
+      "atom_policy" : "INLINE_SCRIPTS",
+      "atoms" : 69,
+      "mapped_atoms" : 58,
+      "pairs" : 1653,
+      "correct" : 1557,
+      "reversed" : 96,
+      "unmatched" : 0
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS",
+      "atom_policy" : "PRESERVE",
+      "atoms" : 83,
+      "mapped_atoms" : 55,
+      "pairs" : 1485,
+      "correct" : 1388,
+      "reversed" : 43,
+      "unmatched" : 54
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS+SIDE_STREAMS",
+      "atom_policy" : "PRESERVE",
+      "atoms" : 83,
+      "mapped_atoms" : 55,
+      "pairs" : 1485,
+      "correct" : 1388,
+      "reversed" : 43,
+      "unmatched" : 54
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+      "atom_policy" : "PRESERVE",
+      "atoms" : 83,
+      "mapped_atoms" : 55,
+      "pairs" : 1485,
+      "correct" : 1388,
+      "reversed" : 43,
+      "unmatched" : 54
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS+SIDE_STREAMS",
+      "atom_policy" : "PRESERVE",
+      "atoms" : 83,
+      "mapped_atoms" : 55,
+      "pairs" : 1485,
+      "correct" : 1388,
+      "reversed" : 43,
+      "unmatched" : 54
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS+INLINE_SCRIPTS",
+      "atom_policy" : "INLINE_SCRIPTS",
+      "atoms" : 69,
+      "mapped_atoms" : 58,
+      "pairs" : 1653,
+      "correct" : 1610,
+      "reversed" : 43,
+      "unmatched" : 0
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS+INLINE_SCRIPTS+SIDE_STREAMS",
+      "atom_policy" : "INLINE_SCRIPTS",
+      "atoms" : 69,
+      "mapped_atoms" : 58,
+      "pairs" : 1653,
+      "correct" : 1610,
+      "reversed" : 43,
+      "unmatched" : 0
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS+INLINE_SCRIPTS",
+      "atom_policy" : "INLINE_SCRIPTS",
+      "atoms" : 69,
+      "mapped_atoms" : 58,
+      "pairs" : 1653,
+      "correct" : 1610,
+      "reversed" : 43,
+      "unmatched" : 0
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS+INLINE_SCRIPTS+SIDE_STREAMS",
+      "atom_policy" : "INLINE_SCRIPTS",
+      "atoms" : 69,
+      "mapped_atoms" : 58,
+      "pairs" : 1653,
+      "correct" : 1610,
+      "reversed" : 43,
+      "unmatched" : 0
+    } ],
+    "comparisons" : [ {
+      "comparison" : "COLUMN_PARAGRAPHS>COLUMN_PARAGRAPHS+SIDE_STREAMS",
+      "changed_pairs" : { }
+    }, {
+      "comparison" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS>COLUMN_PARAGRAPHS_COMPOUND_WRAPS+SIDE_STREAMS",
+      "changed_pairs" : { }
+    }, {
+      "comparison" : "COLUMN_PARAGRAPHS+INLINE_SCRIPTS>COLUMN_PARAGRAPHS+INLINE_SCRIPTS+SIDE_STREAMS",
+      "changed_pairs" : { }
+    }, {
+      "comparison" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS+INLINE_SCRIPTS>COLUMN_PARAGRAPHS_COMPOUND_WRAPS+INLINE_SCRIPTS+SIDE_STREAMS",
+      "changed_pairs" : { }
+    } ]
+  } ]
+}

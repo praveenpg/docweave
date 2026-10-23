@@ -1,0 +1,69 @@
+{
+  "source_sha256" : "89de999d7155649197672bf490c519607f1abbcdc96e2e4c6718bf6ecbb13564",
+  "java_version" : "21.0.12.1",
+  "upstream_fast" : {
+    "capture_sha256" : "adc4a513c487fe7cf2abdb413478c39a7b5808c12153b94c61817660d3594cf6",
+    "outcome" : "SUCCESS",
+    "texts" : 1008,
+    "presentation" : {
+      "TIGHT" : 110,
+      "SPACE_BEFORE_CLOSE" : 0,
+      "SPACE_AFTER_OPEN" : 0,
+      "OPEN_AT_END" : 0,
+      "CLOSE_ALONE" : 0
+    }
+  },
+  "upstream_hi_res_default" : {
+    "table_cells" : {
+      "capture_sha256" : "a3662e0ad74c470df985f3d5a0457da616fc8231c392c27fa4d9b4032e908043",
+      "outcome" : "SUCCESS",
+      "texts" : 936,
+      "presentation" : {
+        "TIGHT" : 100,
+        "SPACE_BEFORE_CLOSE" : 0,
+        "SPACE_AFTER_OPEN" : 0,
+        "OPEN_AT_END" : 0,
+        "CLOSE_ALONE" : 0
+      }
+    },
+    "non_table_text" : {
+      "TIGHT" : 7,
+      "SPACE_BEFORE_CLOSE" : 0,
+      "SPACE_AFTER_OPEN" : 0,
+      "OPEN_AT_END" : 0,
+      "CLOSE_ALONE" : 0
+    }
+  },
+  "upstream_hi_res_shared" : {
+    "table_cells" : {
+      "capture_sha256" : "1ca552a996023651e7db816fb579623de7a6502d8de07087fddae916bc8ad9e6",
+      "outcome" : "SUCCESS",
+      "texts" : 708,
+      "presentation" : {
+        "TIGHT" : 95,
+        "SPACE_BEFORE_CLOSE" : 0,
+        "SPACE_AFTER_OPEN" : 0,
+        "OPEN_AT_END" : 0,
+        "CLOSE_ALONE" : 0
+      }
+    },
+    "non_table_text" : {
+      "TIGHT" : 7,
+      "SPACE_BEFORE_CLOSE" : 0,
+      "SPACE_AFTER_OPEN" : 0,
+      "OPEN_AT_END" : 0,
+      "CLOSE_ALONE" : 0
+    }
+  },
+  "docweave_default" : {
+    "profile" : "PdfOptions.defaults()",
+    "elements" : 1052,
+    "presentation" : {
+      "TIGHT" : 110,
+      "SPACE_BEFORE_CLOSE" : 0,
+      "SPACE_AFTER_OPEN" : 0,
+      "OPEN_AT_END" : 0,
+      "CLOSE_ALONE" : 0
+    }
+  }
+}

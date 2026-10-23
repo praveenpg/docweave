@@ -1,0 +1,8 @@
+arnimb_goethe03_1835/deu: source/text unchanged; all candidate metrics reproduced
+arnimb_goethe03_1835/deu_latf: source/text unchanged; all candidate metrics reproduced
+bebel_frau_1879/deu: source/text unchanged; all candidate metrics reproduced
+bebel_frau_1879/deu_latf: source/text unchanged; all candidate metrics reproduced
+buerger_gedichte_1778_0039/deu: source/text unchanged; all candidate metrics reproduced
+buerger_gedichte_1778_0039/deu_latf: source/text unchanged; all candidate metrics reproduced
+nn_besuch_1780_00001/deu: source/text unchanged; all candidate metrics reproduced
+nn_besuch_1780_00001/deu_latf: source/text unchanged; all candidate metrics reproduced

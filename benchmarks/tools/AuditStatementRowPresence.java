@@ -35,8 +35,8 @@ public final class AuditStatementRowPresence {
      * Reuses the frozen reference parser, region association and full-source extraction for both profiles.
      * Presence consumes exact complete-row occurrences once; unmatched references and extra observations stay.
      * This diagnoses title/header offsets without replacing strict ordinal scores or measuring logical order.
-     * @param args replay manifest, source cache, capture root and fresh report, optional --leading-row or
-     *         --section-row or --section-row-parenthesis-diagnostic; or --self-test
+     * @param args replay manifest, source cache, capture root and fresh report, optional --leading-row,
+     *         --section-row, --section-row-trailing-spacers or --section-row-parenthesis-diagnostic; or --self-test
      * @throws Exception if pins, protocol completeness, controls or extraction infrastructure fail
      */
     public static void main(final String[] args) throws Exception {
@@ -48,13 +48,17 @@ public final class AuditStatementRowPresence {
         require(args.length == 4
                         || args.length == 5
                                    && (args[4].equals("--leading-row") || args[4].equals("--section-row")
+                                           || args[4].equals("--section-row-trailing-spacers")
                                            || args[4].equals("--section-row-parenthesis-diagnostic")),
                 "Expected replay, source cache, captures, fresh report and an optional supported row-policy flag");
         final boolean spacingDiagnostic = args.length == 5 && args[4].equals("--section-row-parenthesis-diagnostic");
+        final boolean trailingSpacers = args.length == 5 && args[4].equals("--section-row-trailing-spacers");
         final var leadingRow = args.length == 4 ? PdfNativeLayoutOptions.LeadingRow.PROVIDER_ONLY
-                               : (args[4].equals("--section-row") || spacingDiagnostic)
+                               : (args[4].equals("--section-row") || spacingDiagnostic || trailingSpacers)
                                        ? PdfNativeLayoutOptions.LeadingRow.SOURCE_NUMERIC_OR_SECTION_ROW
                                        : PdfNativeLayoutOptions.LeadingRow.SOURCE_NUMERIC_ROW;
+        final var trailingRows = trailingSpacers ? PdfNativeLayoutOptions.TrailingRows.SOURCE_CELL_SPACER_ROWS
+                                                 : PdfNativeLayoutOptions.TrailingRows.PROVIDER_ONLY;
         final var mapper = JsonMapper.builder().build();
         final var replay = mapper.readTree(Files.readAllBytes(Path.of(args[0])));
         final var referencePath = Path.of(replay.get("reference_manifest").asString());
@@ -84,9 +88,9 @@ public final class AuditStatementRowPresence {
         observedReader.setAccessible(true);
         final var regionReader = fragmentClass.getDeclaredMethod("regions");
         regionReader.setAccessible(true);
-        final var extract =
-                CompareNvidiaCellLines.class.getDeclaredMethod("extract", JsonNode.class, Path.class, String.class,
-                        Path.class, PdfNativeLayoutOptions.CellTextJoin.class, PdfNativeLayoutOptions.LeadingRow.class);
+        final var extract = CompareNvidiaCellLines.class.getDeclaredMethod("extract", JsonNode.class, Path.class,
+                String.class, Path.class, PdfNativeLayoutOptions.CellTextJoin.class,
+                PdfNativeLayoutOptions.LeadingRow.class, PdfNativeLayoutOptions.TrailingRows.class);
         extract.setAccessible(true);
         final var html = Jsoup.parse(Files.readString(Path.of(args[1], reference.get("source_html").asString())));
         final var results = new ArrayList<Map<String, Object>>();
@@ -98,7 +102,7 @@ public final class AuditStatementRowPresence {
                 @SuppressWarnings("unchecked")
                 final var decoded = (List<Element>) extract.invoke(null, replay, Path.of(args[2]), family,
                         Path.of(args[1], reference.get("source_pdf").asString()),
-                        PdfNativeLayoutOptions.CellTextJoin.SPACE_SEPARATED, leadingRow);
+                        PdfNativeLayoutOptions.CellTextJoin.SPACE_SEPARATED, leadingRow, trailingRows);
                 elements = decoded;
             } catch (final InvocationTargetException failure) {
                 if (failure.getCause() instanceof PartitionException typed) {
@@ -135,13 +139,16 @@ public final class AuditStatementRowPresence {
             }
         }
         require(results.size() == 6, "Complete three-statement/two-profile population required");
-        Files.writeString(Path.of(args[3]),
-                mapper.writerWithDefaultPrettyPrinter().writeValueAsString(Map.of("scope",
-                        "Exact complete-row presence diagnostic only; original ordinal score unchanged; no fuzzy alignment, output repair or logical-order claim",
-                        "leading_row", leadingRow.name(), "runtime", Runtime.version().toString(),
-                        "replay_manifest_sha256", hash(Files.readAllBytes(Path.of(args[0]))),
-                        "reference_manifest_sha256", hash(Files.readAllBytes(referencePath)), "results", results))
-                        + "\n",
+        final var report = new LinkedHashMap<String, Object>(Map.of("scope",
+                "Exact complete-row presence diagnostic only; original ordinal score unchanged; no fuzzy alignment, output repair or logical-order claim",
+                "leading_row", leadingRow.name(), "runtime", Runtime.version().toString(), "replay_manifest_sha256",
+                hash(Files.readAllBytes(Path.of(args[0]))), "reference_manifest_sha256",
+                hash(Files.readAllBytes(referencePath)), "results", results));
+        // Only the explicit trailing profile adds this key, so earlier profiles keep their historical report shape.
+        if (trailingSpacers) {
+            report.put("trailing_rows", trailingRows.name());
+        }
+        Files.writeString(Path.of(args[3]), mapper.writerWithDefaultPrettyPrinter().writeValueAsString(report) + "\n",
                 StandardOpenOption.CREATE_NEW);
     }
 

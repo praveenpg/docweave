@@ -1,0 +1,14 @@
+UNCROSSED_GUTTER_V1 (frozen 2026-10-22 before any evaluation output was inspected)
+Inputs: recognized words per Tesseract line, in recognition order, pixel boxes (pinned engine/models,
+source-resolution AUTO/ENGINE_DEFAULT, default TESSERACT_LINES grouping, color-managed decode).
+h = median word height over all words on the page.
+Gap: consecutive words in one line with next.left - prev.right >= h; interval [prev.right, next.left].
+Candidate x: the center of each gap interval.
+Supporting lines S(x): lines having a gap interval that contains x.
+Vertical span V(x): from the minimum word top to the maximum word bottom over S(x).
+Crossing words C(x): any word on the page with left < x < right and vertical center inside V(x).
+Accept x iff |S(x)| >= 3 and |C(x)| = 0.
+Select the accepted x with the most supporting lines; ties take the smallest x. One gutter per page.
+Effect: split each supporting line at its gap containing x; no other line, word, character or order changes.
+Evidence against crossing is the C(x)=0 requirement over the whole vertical extent of the supporting
+lines; single-column prose lines inside that extent cross any mid-line x and reject it.

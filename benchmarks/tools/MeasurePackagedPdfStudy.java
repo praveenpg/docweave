@@ -3,6 +3,8 @@ import dev.docweave.core.Element;
 import dev.docweave.partition.DocumentSource;
 import dev.docweave.partition.PartitionException;
 import dev.docweave.partition.PartitionerRegistry;
+import dev.docweave.partition.PdfOcrOptions;
+import dev.docweave.partition.PdfOcrProvider;
 import dev.docweave.partition.PdfOptions;
 import dev.docweave.partition.PdfPartitioner;
 
@@ -145,13 +147,9 @@ public final class MeasurePackagedPdfStudy {
         if (!hash(bytes).equals(args[2])) {
             throw new IllegalArgumentException("Source identity mismatch");
         }
-        final var options = switch (args[3]) {
-            case "DEFAULT" -> PdfOptions.defaults();
-            case "ORIENTED_LINES" -> PdfOptions.defaults().withTextLayout(PdfOptions.TextLayout.ORIENTED_LINES);
-            case "RULED_AND_PARTIAL_TEXT" ->
-                PdfOptions.defaults().withTableDetection(PdfOptions.TableDetection.RULED_AND_PARTIAL_TEXT);
-            default -> throw new IllegalArgumentException("Undeclared policy");
-        };
+        final Partitioners options = args[3].startsWith("TESSERACT:") || args[3].startsWith("TESSERACT_LIMIT:")
+                                             ? tesseract(args[3])
+                                             : nativeText(args[3]);
         final int warmups = Integer.parseInt(args[4]);
         final int timed = Integer.parseInt(args[5]);
         final int concurrency = Integer.parseInt(args[6]);
@@ -220,19 +218,92 @@ public final class MeasurePackagedPdfStudy {
             Observation(double millis, String outputSha256, String failure, int elements, int tables, int images) {}
 
     /**
+     * Creates a fresh public PDF partitioner for one extraction attempt.
+     */
+    @FunctionalInterface
+    private interface Partitioners {
+        /**
+         * Builds an independent service; no source is read or engine run here.
+         * @return fresh partitioner
+         * @throws Exception if an explicitly selected optional module cannot be loaded
+         */
+        PdfPartitioner create() throws Exception;
+    }
+
+    /**
+     * Maps a declared native-text policy to fresh default-provider partitioners.
+     * @param policy declared native policy name
+     * @return partitioner factory
+     */
+    private static Partitioners nativeText(final String policy) {
+        final var options = switch (policy) {
+            case "DEFAULT" -> PdfOptions.defaults();
+            case "ORIENTED_LINES" -> PdfOptions.defaults().withTextLayout(PdfOptions.TextLayout.ORIENTED_LINES);
+            case "RULED_AND_PARTIAL_TEXT" ->
+                PdfOptions.defaults().withTableDetection(PdfOptions.TableDetection.RULED_AND_PARTIAL_TEXT);
+            default -> throw new IllegalArgumentException("Undeclared policy");
+        };
+        return () -> PdfPartitioner.create(options);
+    }
+
+    /**
+     * Maps {@code TESSERACT:LANGUAGE:DPI} or {@code TESSERACT_LIMIT:LANGUAGE:DPI} to explicit packaged OCR.
+     * The optional OCR module is loaded reflectively so native-only protocols still compile against the core and PDF
+     * JARs alone. The trusted executable and model directory come from the declared JVM options
+     * {@code docweave.study.tesseract} and {@code docweave.study.tessdata}. Settings mirror the frozen historical
+     * replay: one engine thread per process, automatic page segmentation, engine-default thresholding, the declared
+     * source DPI and a 16M-pixel OCR raster budget. The LIMIT form declares a one-pixel-short raster budget so the
+     * PDF layer must reject the page with a typed failure before any engine process starts.
+     * @param policy declared OCR policy
+     * @return partitioner factory creating a fresh engine wrapper per attempt
+     */
+    private static Partitioners tesseract(final String policy) {
+        final var parts = policy.split(":");
+        if (parts.length != 3) {
+            throw new IllegalArgumentException("Undeclared policy");
+        }
+        final String language = parts[1];
+        final int dpi = Integer.parseInt(parts[2]);
+        final boolean limit = parts[0].equals("TESSERACT_LIMIT");
+        final String executable = System.getProperty("docweave.study.tesseract");
+        final String data = System.getProperty("docweave.study.tessdata");
+        if (executable == null || data == null) {
+            throw new IllegalArgumentException("Declared OCR executable and model directory are required");
+        }
+        return () -> {
+            final var optionsType = Class.forName("dev.docweave.ocr.TesseractOptions");
+            final var options = optionsType
+                                        .getConstructor(Path.class, Path.class, List.class, java.time.Duration.class,
+                                                int.class, long.class, long.class, int.class, int.class, int.class)
+                                        .newInstance(Path.of(executable), Path.of(data), List.of(language),
+                                                java.time.Duration.ofSeconds(60), 1, 16_000_000L, 32L * 1024 * 1024,
+                                                4 * 1024 * 1024, 10_000, 1_000_000);
+            final var thresholding = Class.forName("dev.docweave.ocr.TesseractThresholding");
+            @SuppressWarnings({"unchecked", "rawtypes"})
+            final Object engineDefault = Enum.valueOf((Class) thresholding, "ENGINE_DEFAULT");
+            final var engine = (PdfOcrProvider) Class.forName("dev.docweave.ocr.TesseractOcr")
+                                       .getMethod("create", optionsType, thresholding, int.class)
+                                       .invoke(null, options, engineDefault, dpi);
+            // The historical source page is 1,675 x 2,286 pixels at 300 DPI; LIMIT allows one pixel fewer.
+            final long pixels = limit ? 1_675L * 2_286 - 1 : 16_000_000L;
+            return PdfPartitioner.create(
+                    PdfOptions.defaults(), new PdfOcrOptions(dpi, pixels, 10_000, 1_000_000), engine);
+        };
+    }
+
+    /**
      * Runs one public extraction with a fresh service and hashes its logical output.
      * @param bytes source bytes
-     * @param options declared policy
+     * @param options declared partitioner factory
      * @return timed observation; typed failures are observations, not exceptions
      * @throws Exception if hashing fails
      */
-    private static Observation extract(final byte[] bytes, final PdfOptions options) throws Exception {
+    private static Observation extract(final byte[] bytes, final Partitioners options) throws Exception {
         final long started = System.nanoTime();
         try {
-            final List<Element> elements =
-                    DocWeave.create(PartitionerRegistry.of(List.of(PdfPartitioner.create(options))))
-                            .partition(DocumentSource.bytes(bytes, "study.pdf"))
-                            .elements();
+            final List<Element> elements = DocWeave.create(PartitionerRegistry.of(List.of(options.create())))
+                                                   .partition(DocumentSource.bytes(bytes, "study.pdf"))
+                                                   .elements();
             final double millis = (System.nanoTime() - started) / 1e6;
             final var digest = MessageDigest.getInstance("SHA-256");
             for (final var element : elements) {

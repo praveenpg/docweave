@@ -1,0 +1,8 @@
+buerger_gedichte_1778_0039.tif deu lines=28 words=152 median_h=25 gaps=28 candidates>=3=24 rejected_crossing=23 accepted_x=1023 support=4
+buerger_gedichte_1778_0039.tif deu_latf lines=28 words=151 median_h=25 gaps=27 candidates>=3=24 rejected_crossing=23 accepted_x=1023 support=4
+nn_besuch_1780_00001.tif deu lines=18 words=69 median_h=37 gaps=0 candidates>=3=0 rejected_crossing=0 accepted_x=none support=0
+nn_besuch_1780_00001.tif deu_latf lines=18 words=71 median_h=38 gaps=0 candidates>=3=0 rejected_crossing=0 accepted_x=none support=0
+arnimb_goethe03_1835.tif deu lines=21 words=191 median_h=31 gaps=12 candidates>=3=0 rejected_crossing=0 accepted_x=none support=0
+arnimb_goethe03_1835.tif deu_latf lines=21 words=191 median_h=31 gaps=12 candidates>=3=0 rejected_crossing=0 accepted_x=none support=0
+bebel_frau_1879.tif deu lines=50 words=408 median_h=56 gaps=90 candidates>=3=77 rejected_crossing=77 accepted_x=none support=0
+bebel_frau_1879.tif deu_latf lines=50 words=408 median_h=56 gaps=89 candidates>=3=76 rejected_crossing=76 accepted_x=none support=0

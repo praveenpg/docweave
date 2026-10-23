@@ -1,0 +1,48 @@
+{
+  "completed_at": "2026-10-22T22:09:37.648209+00:00",
+  "baseline": "e87588ddb4447de5d87cc6b9cdf1190d40dc2804",
+  "dataset_revision": "0daf93102e2efce76c3e11a274a5e0d0969391d3",
+  "artifact": "data/test-00004-of-00006.parquet",
+  "shard_bytes": 266503202,
+  "shard_sha256": "509e91dd74cb3d04fb7600834ac64fd1c52f450770dbd5dc26e1a44e828e5ba9",
+  "reader": "org.duckdb:duckdb_jdbc:2.0.0.0 (isolated, not a Maven dependency)",
+  "reader_bytes": 79362050,
+  "reader_sha256": "5170daa90a43296705127ef3c80834ba1cd275ec9d765a9f7eee346ab0087186",
+  "pages": 24,
+  "documents": 20,
+  "annotated_tables": 19,
+  "negative_pages": 12,
+  "detector_observations": 48,
+  "errors": 0,
+  "download_payload_bytes_shard_plus_reader": 345865252,
+  "scope": "nonfinancial, producer-unknown development pilot; training overlap unknown",
+  "source_freeze_verified_after_run": true,
+  "strict_java21_compile": "-Xlint:all -Werror -Xdoclint:all/private passed",
+  "scoring_controls": "duplicates, negatives, missing predictions, inclusive 0.5 boundary, augmenting path all pass",
+  "replay": "JVM recount identical; no detector re-execution",
+  "classes_sha256": {
+    "dev/docweave/layout/SummarizeDocLayNetPilot.class": "64d601fddd7db557207789c7a6b7346a6f6cc697c7209051ef4c1fe019d6e92f",
+    "dev/docweave/layout/SummarizePilot.class": "09e7ed2649fd31f9780f1c8406cd0884fa846664df4a9a6693b6ff186d67f06d",
+    "dev/docweave/layout/EvaluateDocLayNetProposals.class": "582a49b06cfec141076b119e51e3c3d5931be95fc4860217503aa4892e35492e",
+    "dev/docweave/validation/PrepareDocLayNetPilot.class": "532578c975533b621015a51e3d31a57c7af1d17939e2ec7e9d0f66b6255e0264"
+  },
+  "resources": {
+    "tatr": {
+      "exit_code": 0,
+      "elapsed_seconds": 6.116935336962342,
+      "sampled_peak_rss_kib": 1269992,
+      "note": "sampled /proc child JVM VmHWM; not a universal bound"
+    },
+    "yolox": {
+      "exit_code": 0,
+      "elapsed_seconds": 17.753269509004895,
+      "sampled_peak_rss_kib": 1576780,
+      "note": "sampled /proc child JVM VmHWM; not a universal bound"
+    }
+  },
+  "failed_pre_inference_attempts": [
+    "128MB DuckDB reader allocation exhausted; 384MB export passed",
+    "/usr/bin/time unavailable; no graph loaded; used proc VmHWM sampling wrapper"
+  ],
+  "network_note": "Shard+reader 345865252 bytes; metadata/license/checksum/header files small, total below 512 MiB. No model downloads."
+}

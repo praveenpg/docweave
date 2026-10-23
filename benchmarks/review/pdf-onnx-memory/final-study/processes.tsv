@@ -1,0 +1,10 @@
+profile	process	exited	exit_code	wall_ms	worker_pass
+fixed-structure	1	true	0	469	true
+fixed-structure	2	true	0	440	true
+fixed-structure	3	true	0	455	true
+fixed-anchor-limit	1	true	0	468	true
+fixed-anchor-limit	2	true	0	493	true
+fixed-anchor-limit	3	true	0	439	true
+real-yolox-fin	1	true	0	10553	true
+real-yolox-fin	2	true	0	10757	true
+real-yolox-fin	3	true	0	10894	true

@@ -74,16 +74,30 @@ final class PdfGlyphLines {
      */
     static List<PdfLayoutItem> displayed(final List<PdfPageText.Glyph> input, final PdfPageGeometry geometry)
             throws IOException {
+        return displayed(input, geometry, PdfPageText.Glyph::y);
+    }
+
+    /**
+     * Groups like {@link #displayed(List, PdfPageGeometry)} with explicit comparison baselines per direction.
+     * Baselines only decide row membership; original glyph bounds, text and identities are retained.
+     * @param input immutable source positions sharing the page, possibly different quarter-turn baselines
+     * @param geometry original displayed crop/rotation frame
+     * @param groupingBaseline document-confined baseline assignment, used only for grouping
+     * @return nonblank lines in stable top/left order; not semantic article order
+     * @throws IOException if cancelled during source grouping
+     */
+    static List<PdfLayoutItem> displayed(final List<PdfPageText.Glyph> input, final PdfPageGeometry geometry,
+            final ToDoubleFunction<PdfPageText.Glyph> groupingBaseline) throws IOException {
         if (input.isEmpty()) {
             return List.of();
         }
         if (input.stream().allMatch(glyph -> geometry.textRotation(glyph.direction()) == 0)) {
-            return lines(input);
+            return lines(input, groupingBaseline);
         }
         final var result = new ArrayList<PdfLayoutItem>();
         for (final int direction : new int[] {0, 90, 180, 270}) {
             final var oriented = input.stream().filter(glyph -> glyph.direction() == direction).toList();
-            for (final var item : lines(oriented)) {
+            for (final var item : lines(oriented, groupingBaseline)) {
                 final int rotation = geometry.textRotation(direction);
                 result.add(new PdfLayoutItem(item.type(), item.text(), geometry.textBounds(item.box(), direction),
                         rotation == 0 ? item.metadata() : Map.of("pdf_text_rotation", rotation)));

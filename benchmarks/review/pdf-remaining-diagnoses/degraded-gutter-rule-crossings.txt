@@ -1,0 +1,22 @@
+  crosses 964: [962,351,973,391] len=1
+  crosses 964: [767,941,1171,1013] len=16
+  crosses 964: [869,1055,1079,1086] len=13
+  crosses 964: [935,1103,998,1130] len=5
+  crosses 964: [898,1150,977,1181] len=7
+  crosses 964: [909,1202,969,1229] len=5
+  crosses 964: [819,1250,971,1284] len=11
+  crosses 964: [887,1299,1014,1331] len=9
+  crosses 964: [900,1349,998,1380] len=6
+  crosses 964: [841,1401,990,1434] len=10
+buerger_gedichte_1778_0039.tif deu lines=28 words=152 median_h=25 gaps=28 candidates>=3=24 rejected_crossing=23 accepted_x=1023 support=4
+  crosses 964: [933,611,1011,637] len=2
+  crosses 964: [767,941,1171,1013] len=15
+  crosses 964: [869,1055,1079,1086] len=14
+  crosses 964: [935,1103,998,1130] len=5
+  crosses 964: [898,1150,977,1181] len=5
+  crosses 964: [909,1202,969,1229] len=5
+  crosses 964: [819,1243,971,1289] len=11
+  crosses 964: [887,1299,1014,1331] len=9
+  crosses 964: [900,1349,998,1380] len=6
+  crosses 964: [841,1401,990,1434] len=10
+buerger_gedichte_1778_0039.tif deu_latf lines=28 words=151 median_h=25 gaps=27 candidates>=3=24 rejected_crossing=23 accepted_x=1023 support=4

@@ -1,0 +1,81 @@
+package dev.docweave.partition;
+
+import dev.docweave.DocWeave;
+import dev.docweave.core.ElementType;
+import org.apache.pdfbox.cos.COSName;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory;
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.util.*;
+import javax.imageio.ImageIO;
+
+/** Private probe: crop of the partitioner's displayed image box must be the image, correctly rotated. */
+class ProbeCropRotations {
+    static final int[] Q = {Color.BLUE.getRGB(), Color.RED.getRGB(), Color.YELLOW.getRGB(), Color.GREEN.getRGB()}; // unrotated TL,TR,BL,BR
+
+    public static void main(String[] a) throws Exception {
+        int failures = 0, cases = 0;
+        float[][] boxes = { // media x,y,w,h ; crop x,y,w,h (NaN = none)
+                {0, 0, 300, 300, Float.NaN, 0, 0, 0},
+                {0, 0, 300, 300, 30, 50, 200, 120},
+                {100, 200, 300, 300, Float.NaN, 0, 0, 0},
+                {-50, -80, 300, 300, -20, -40, 220, 230},
+                {0, 0, 200, 200, 20, 20, 300, 300}}; // crop beyond media
+        for (var b : boxes) for (int rot : new int[] {-90, -270, 450, 540, 720, 45}) for (float uu : new float[] {1f})
+            for (var sampling : PdfPageCropOptions.Sampling.values()) for (int dpi : new int[] {72, 150}) {
+                cases++;
+                String label = String.format("media=%s crop=%s rot=%d uu=%s %s dpi=%d", Arrays.toString(Arrays.copyOf(b, 4)), Float.isNaN(b[4]) ? "-" : Arrays.toString(Arrays.copyOfRange(b, 4, 8)), rot, uu, sampling, dpi);
+                try {
+                    byte[] pdf = author(b, rot, uu);
+                    var image = DocWeave.create(PartitionerRegistry.of(List.of(PdfPartitioner.create(PdfOptions.defaults())))).partition(DocumentSource.bytes(pdf, "p.pdf")).elements().stream().filter(e -> e.type() == ElementType.Image).findFirst().orElseThrow();
+                    var pts = (List<?>) ((Map<?, ?>) image.metadata().get("coordinates")).get("points");
+                    double l = num(((List<?>) pts.get(0)).get(0)), t = num(((List<?>) pts.get(0)).get(1)), r = num(((List<?>) pts.get(2)).get(0)), bo = num(((List<?>) pts.get(2)).get(1));
+                    var crop = PdfPageCropRenderer.create(PdfPageCropOptions.defaults().withDpi(dpi).withSampling(sampling)).render(DocumentSource.bytes(pdf, null), List.of(new PdfPageCropRequest(1, l, t, r, bo))).getFirst();
+                    var px = ImageIO.read(new ByteArrayInputStream(crop.png()));
+                    String problem = check(px, rot);
+                    if (problem != null) { failures++; System.out.println("FAIL " + label + " box=" + List.of(l, t, r, bo) + " crop=" + px.getWidth() + "x" + px.getHeight() + " " + problem); }
+                } catch (Exception e) { failures++; System.out.println("ERROR " + label + " " + e); }
+            }
+        System.out.println("cases=" + cases + " failures=" + failures);
+    }
+
+    static double num(Object o) { return ((Number) o).doubleValue(); }
+
+    /** Expected displayed quadrant colours after clockwise rotation; samples quadrant centres and the four corners' 2px-inset pixels. */
+    static String check(BufferedImage px, int rot) {
+        int[] q = Q.clone();
+        for (int k = 0; k < Math.floorMod(rot, 360) / 90; k++) q = new int[] {q[2], q[0], q[3], q[1]}; // rotate clockwise
+        int w = px.getWidth(), h = px.getHeight();
+        int[][] centres = {{w / 4, h / 4}, {3 * w / 4, h / 4}, {w / 4, 3 * h / 4}, {3 * w / 4, 3 * h / 4}};
+        int[][] corners = {{2, 2}, {w - 3, 2}, {2, h - 3}, {w - 3, h - 3}};
+        for (int i = 0; i < 4; i++) {
+            if ((px.getRGB(centres[i][0], centres[i][1]) | 0xff000000) != q[i]) return "quadrant " + i + " centre=" + Integer.toHexString(px.getRGB(centres[i][0], centres[i][1])) + " expected " + Integer.toHexString(q[i]);
+            if ((px.getRGB(corners[i][0], corners[i][1]) | 0xff000000) != q[i]) return "corner " + i + " =" + Integer.toHexString(px.getRGB(corners[i][0], corners[i][1])) + " expected " + Integer.toHexString(q[i]) + " (image not filling crop)";
+        }
+        return null;
+    }
+
+    static byte[] author(float[] b, int rot, float uu) throws Exception {
+        try (var d = new PDDocument(); var out = new ByteArrayOutputStream()) {
+            var page = new PDPage(new PDRectangle(b[0], b[1], b[2], b[3]));
+            if (!Float.isNaN(b[4])) page.setCropBox(new PDRectangle(b[4], b[5], b[6], b[7]));
+            page.setRotation(rot);
+            if (uu != 1f) page.getCOSObject().setFloat(COSName.USER_UNIT, uu);
+            d.addPage(page);
+            var img = new BufferedImage(40, 40, BufferedImage.TYPE_INT_RGB);
+            for (int y = 0; y < 40; y++) for (int x = 0; x < 40; x++) img.setRGB(x, y, Q[(y < 20 ? 0 : 2) + (x < 20 ? 0 : 1)]);
+            var pd = LosslessFactory.createFromImage(d, img);
+            // Place the image inside the visible area of every box: crop/media intersection starts at least at max(x0) and spans 100+.
+            float x0 = Math.max(b[0], Float.isNaN(b[4]) ? b[0] : b[4]) + 60, y0 = Math.max(b[1], Float.isNaN(b[4]) ? b[1] : b[5]) + 50;
+            try (var c = new PDPageContentStream(d, page)) { c.drawImage(pd, x0, y0, 40, 40); }
+            d.save(out);
+            return out.toByteArray();
+        }
+    }
+}

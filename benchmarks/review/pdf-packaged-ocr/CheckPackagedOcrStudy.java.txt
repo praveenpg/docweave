@@ -1,0 +1,54 @@
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import tools.jackson.databind.json.JsonMapper;
+
+/** Checks every declared gate of the packaged OCR protocol against one complete report (args: protocol report). */
+public final class CheckPackagedOcrStudy {
+    public static void main(final String[] args) throws Exception {
+        final var protocol = new java.util.Properties();
+        try (final var input = Files.newInputStream(Path.of(args[0]))) {
+            protocol.load(input);
+        }
+        final var report = JsonMapper.builder().build().readTree(Files.readAllBytes(Path.of(args[1])));
+        final int processes = Integer.parseInt(protocol.getProperty("processes"));
+        final int attempts = 1 + Integer.parseInt(protocol.getProperty("warmups"))
+                             + Integer.parseInt(protocol.getProperty("timed"))
+                             + Integer.parseInt(protocol.getProperty("concurrency"))
+                                       * Integer.parseInt(protocol.getProperty("rounds"));
+        final Map<String, Set<String>> hashes = new HashMap<>();
+        final Map<String, Integer> slots = new HashMap<>();
+        for (final var run : report.get("runs")) {
+            final String profile = run.get("profile").asString();
+            slots.merge(profile, 1, Integer::sum);
+            require(run.get("exited_before_deadline").asBoolean() && run.get("exit_code").asInt() == 0, "deadline/exit");
+            require(Integer.parseInt(run.get("attempts").asString()) == attempts, "attempt count");
+            require(Long.parseLong(run.get("vm_hwm_kib").asString()) < 512 * 1024, "VmHWM ceiling");
+            final String failures = run.get("failures").asString();
+            final String distinct = run.get("output_sha256_distinct").asString();
+            if (profile.equals("historical-ocr-limit")) {
+                require(failures.equals("{OCR_LIMIT=" + attempts + "}") && distinct.equals("[]"), "typed limit");
+            } else {
+                require(failures.equals("{}") && !distinct.contains(","), "success and per-process determinism");
+                hashes.computeIfAbsent(profile, key -> new HashSet<>()).add(distinct);
+            }
+        }
+        for (final String profile : protocol.getProperty("profiles").split(",")) {
+            require(slots.getOrDefault(profile, 0) == processes, "complete process slots for " + profile);
+        }
+        require(hashes.get("historical-ocr-deu").size() == 1 && hashes.get("historical-ocr-fraktur").size() == 1,
+                "cross-process determinism");
+        require(!hashes.get("historical-ocr-deu").equals(hashes.get("historical-ocr-fraktur")), "models differ");
+        System.out.println("PASS: all declared packaged OCR gates hold for " + slots.values().stream().mapToInt(i -> i).sum()
+                           + " child JVMs and " + attempts + " attempts each");
+    }
+
+    private static void require(final boolean condition, final String gate) {
+        if (!condition) {
+            throw new AssertionError("Gate failed: " + gate);
+        }
+    }
+}

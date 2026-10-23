@@ -1,0 +1,31 @@
+{
+  "source_commit": "60109f7b6f742dfc25d30d5fabe001b9d1709243",
+  "production_changes": false,
+  "java25_full_run": {
+    "tests": 1377,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "java21_full_run": "Reused prior independent 1377-test run; production source unchanged",
+  "packaged_ocr_attempts": 54,
+  "packaged_provider_attempts": 36,
+  "packaged_provider_child_jvms": 9,
+  "packaged_real_provider_memory_gate": "FAIL",
+  "frozen_memory_ceiling_kib": 1572864,
+  "real_provider_vm_hwm_kib": [
+    1855972,
+    1843752,
+    1930616
+  ],
+  "cross_producer_positive_transfer": "NOT_DEMONSTRATED",
+  "cross_producer_logical_output_unchanged": true,
+  "independent_human_acceptance": "OPEN",
+  "new_production_defect_identified": false,
+  "tooling_fix": "Consumer receipts now record actual checkout commit instead of a hard-coded historical identity",
+  "upstream_reviewed_main": "5618dcaa7d146cddf1a0cf23117d5740d5e579ef",
+  "upstream_new_commits_reviewed": 4,
+  "upstream_pdf_source_changes": false,
+  "published": false,
+  "committed": false
+}

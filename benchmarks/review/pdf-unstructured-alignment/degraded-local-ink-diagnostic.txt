@@ -1,0 +1,28 @@
+text_area=564,326-1382,1633
+otsu_threshold=154
+buerger_gedichte_1778_0039.tif deu median_h=25 min_run=200
+text_area=564,326-1382,1633
+otsu_threshold=154
+buerger_gedichte_1778_0039.tif deu_latf median_h=25 min_run=200
+text_area=422,784-1921,2157
+otsu_threshold=134
+nn_besuch_1780_00001.tif deu median_h=37 min_run=296
+  candidate x=1690-1777 center=1733.5 extent=784-2157 run=1374 support=0 rule_tokens=0 crossing_words=0 rejected_support
+  candidate x=1905-1923 center=1914.0 extent=784-2157 run=1374 support=0 rule_tokens=0 crossing_words=0 rejected_support
+text_area=421,783-1922,2158
+otsu_threshold=134
+nn_besuch_1780_00001.tif deu_latf median_h=38 min_run=304
+  candidate x=1690-1777 center=1733.5 extent=783-2158 run=1376 support=0 rule_tokens=0 crossing_words=0 rejected_support
+  candidate x=1905-1924 center=1914.5 extent=783-2158 run=1376 support=0 rule_tokens=0 crossing_words=0 rejected_support
+text_area=195,383-1150,1906
+otsu_threshold=165
+arnimb_goethe03_1835.tif deu median_h=31 min_run=248
+text_area=195,383-1150,1906
+otsu_threshold=165
+arnimb_goethe03_1835.tif deu_latf median_h=31 min_run=248
+text_area=192,59-2869,4584
+otsu_threshold=0
+bebel_frau_1879.tif deu median_h=56 min_run=448
+text_area=192,59-2869,4584
+otsu_threshold=0
+bebel_frau_1879.tif deu_latf median_h=56 min_run=448

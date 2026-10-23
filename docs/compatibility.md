@@ -732,6 +732,16 @@ colon punctuation cannot establish semantic membership in every document; use th
 when retaining exact provider bounds is required. See the [PDF policy and limitations](pdf-support.md#explicit-native-leading-section-rows-unreleased).
 
 
+Native provider layouts optionally infer trailing rows with
+`PdfNativeLayoutOptions.TrailingRows.SOURCE_CELL_SPACER_ROWS`. The default remains
+`PROVIDER_ONLY`. Unlike the section-row addition, this adds a sixth record component,
+`trailingRows`. The three-, four- and five-argument constructors are retained and select
+`PROVIDER_ONLY`. Calls to the canonical constructor and record deconstruction patterns must
+include the new component. Added geometry is identified by separate trailing-row metadata and
+is subject to existing ownership, topology and resource limits. See the
+[PDF policy and limitations](pdf-support.md#explicit-native-trailing-rows-from-whitespace-cells-unreleased).
+
+
 `PdfOptions.withImageClipBounds(true)` opts into conservative image clipping metadata.
 Existing constructors remain available and default to false. Adding the boolean record
 component changes reflective schemas, canonical constructor shape and record-derived

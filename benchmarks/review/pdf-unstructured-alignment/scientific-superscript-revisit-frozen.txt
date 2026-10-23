@@ -1,0 +1,25 @@
+Revisit of the parked scientific superscript policy, frozen 2026-10-22 before any revisit output was produced.
+Original frozen hypothesis: scientific-superscript-hypothesis-frozen.txt (SHA-256 9c03eafe...). Its P1 failed and the
+policy was parked; P2 (+2/143 per native profile) and P3 held. That outcome is unchanged and remains reported.
+
+Distinct hypothesis (from upstream source, not from scores): pinned Unstructured 0.27.28 presents every non-table
+text element with all Python str whitespace runs replaced by one ASCII space (unstructured/partition/pdf.py lines
+1269-1273, RE_MULTISPACE_INCLUDING_NEWLINES = \s+; plus NBSP translation in cleaners/core.py line 453). The P1
+comparison located upstream elements by exact text, so source narrow no-break spaces (U+202F), which DocWeave keeps,
+blocked every author-line match. Comparing in upstream's own presentation removes that unrelated class.
+
+Revisit protocol (post-failure, therefore weaker evidence than the original P1; disclosed as such):
+  Same tool logic, sources, captures, page and profiles as P1, adding one symmetric presentation applied to BOTH
+  upstream and DocWeave text before location: replace each maximal run of characters whose Python str.isspace() is
+  true ([\t\n\x0b\x0c\r\x1c-\x1f \x85\xa0  -     　]) with one ASCII space,
+  then trim. No other change; hyphens, superscripts, ZWJ and all other characters stay exact. DocWeave output and
+  defaults are not changed by this comparison.
+Frozen predictions:
+  R1 For LINES, COLUMN_PARAGRAPHS and COLUMN_PARAGRAPHS_COMPOUND_WRAPS, located upstream page-1 elements with the
+     policy exceed those without it on at least two of recent/next/elife, never decrease, and reversed pairs never
+     increase (all under the same presentation).
+  R2 Transfer holdout.pdf under COLUMN_PARAGRAPHS: located elements with the policy do not decrease and reversed pairs
+     do not increase; an increase is reported, not required.
+If R1 fails, the policy stays parked permanently for this pass. If R1 and R2 hold, the opt-in policy may be restored
+from the parked candidate patch (67fa4e3f...) unchanged in behavior, with owned JVM tests, documentation and full
+verification; defaults remain unchanged and the original P1 failure stays disclosed.

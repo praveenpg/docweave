@@ -91,7 +91,7 @@ public final class VerifyConsumers {
             }
         }
         final var receipt = new LinkedHashMap<String, Object>();
-        receipt.put("source_library_commit", "9fd30c7e14fce5e80c612752b415179be7f00bee");
+        receipt.put("source_library_commit", sourceCommit(root));
         receipt.put("scope",
                 "Snapshot packaged public API/isolated classpath checks; no release, signing, upload or corpus-quality claim");
         receipt.put("all_six_consumers_use_identical_current_installed_libraries", true);
@@ -117,6 +117,35 @@ public final class VerifyConsumers {
             require(matches.size() == 1);
             return matches.getFirst();
         }
+    }
+
+    /**
+     * Records the actual checkout identity rather than a historical hard-coded commit.
+     * Artifact byte identities remain the authoritative binding to the installed runtime; a checkout
+     * commit alone does not prove how a JAR was built.
+     * @param root current project checkout
+     * @return complete current commit identifier
+     * @throws Exception if Git fails, times out or returns an invalid identity
+     */
+    private static String sourceCommit(final Path root) throws Exception {
+        final var process =
+                new ProcessBuilder("git", "-C", root.toString(), "rev-parse", "HEAD").redirectErrorStream(true).start();
+        final boolean exited;
+        try {
+            exited = process.waitFor(10, java.util.concurrent.TimeUnit.SECONDS);
+        } catch (final InterruptedException failure) {
+            process.destroyForcibly();
+            Thread.currentThread().interrupt();
+            throw failure;
+        }
+        if (!exited) {
+            process.destroyForcibly();
+            throw new java.io.IOException("Timed out reading consumer source identity");
+        }
+        final String commit =
+                new String(process.getInputStream().readAllBytes(), java.nio.charset.StandardCharsets.UTF_8).strip();
+        require(process.exitValue() == 0 && commit.matches("[a-f0-9]{40}"));
+        return commit;
     }
 
     /**

@@ -4,7 +4,9 @@ import dev.docweave.core.ElementType;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
+import java.util.IdentityHashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -18,6 +20,8 @@ final class GeometricPdfReadingOrder implements PdfReadingOrder {
     private final PdfOptions.TextLayout layout;
     /** Explicit native separator interpretation; historical construction preserves all generated spaces. */
     private final PdfParagraphWraps wraps;
+    /** Explicit side-stream grouping on pages without an accepted gutter. */
+    private final PdfOptions.SideStreams sideStreams;
 
     /**
      * A source-supported whitespace interval between two paired native baselines.
@@ -40,8 +44,20 @@ final class GeometricPdfReadingOrder implements PdfReadingOrder {
      * @param wraps original native endpoint interpretation
      */
     GeometricPdfReadingOrder(final PdfOptions.TextLayout layout, final PdfParagraphWraps wraps) {
+        this(layout, wraps, PdfOptions.SideStreams.PRESERVE);
+    }
+
+    /**
+     * Captures immutable grouping, separator and side-stream strategies.
+     * @param layout explicit paragraph/column policy
+     * @param wraps original native endpoint interpretation
+     * @param sideStreams explicit side-stream grouping policy
+     */
+    GeometricPdfReadingOrder(final PdfOptions.TextLayout layout, final PdfParagraphWraps wraps,
+            final PdfOptions.SideStreams sideStreams) {
         this.layout = layout;
         this.wraps = wraps;
+        this.sideStreams = sideStreams;
     }
 
     /**
@@ -59,7 +75,13 @@ final class GeometricPdfReadingOrder implements PdfReadingOrder {
                         .thenComparingDouble(item -> item.box().left()));
         final Float gutter = layout.columns() ? gutter(sorted, work) : null;
         if (gutter == null) {
-            return paragraphs(sorted, work);
+            return switch (sideStreams) {
+                case PRESERVE -> paragraphs(sorted, work);
+                case SMALLER_TYPE_BLOCKS -> sideStreamParagraphs(sorted, work);
+                case SMALLER_TYPE_BLOCKS_ROW_TIES ->
+                    layout.columns() ? rowTies(sideStreamParagraphs(sorted, work), work)
+                                     : sideStreamParagraphs(sorted, work);
+            };
         }
         final var result = new ArrayList<PdfLayoutItem>();
         final var band = new ArrayList<PdfLayoutItem>();
@@ -242,6 +264,275 @@ final class GeometricPdfReadingOrder implements PdfReadingOrder {
         }
         flush(result, group, work);
         return List.copyOf(result);
+    }
+
+    /**
+     * Groups a smaller-type side stream into blocks among its own lines, keeping all other grouping historical.
+     * A side line still ends any adjacent main-stream group, exactly as in historical grouping, so main-stream
+     * membership and order are unchanged; each side block is emitted where its first line occurs. A block never
+     * crosses an intervening item that overlaps the side column, so it cannot move text past such a barrier.
+     * @param sorted page items in top/left order
+     * @param work page counter
+     * @return grouped items
+     * @throws IOException if cancelled or over budget
+     */
+    private List<PdfLayoutItem> sideStreamParagraphs(final List<PdfLayoutItem> sorted, final Work work)
+            throws IOException {
+        final var side = sideLines(sorted, work);
+        if (side.isEmpty()) {
+            return paragraphs(sorted, work);
+        }
+        // Group side lines among themselves with the historical join rule, remembering each block's first line.
+        final var blocks = new IdentityHashMap<PdfLayoutItem, PdfLayoutItem>();
+        final var lines = new ArrayList<PdfLayoutItem>();
+        // Non-side items met since the previous side line; any that crosses the side column divides the block.
+        final var between = new ArrayList<PdfLayoutItem.Bounds>();
+        PdfLayoutItem first = null;
+        for (final var item : sorted) {
+            work.step();
+            if (!side.containsKey(item)) {
+                between.add(item.box());
+                continue;
+            }
+            final var metadata = new LinkedHashMap<>(item.metadata());
+            metadata.put("pdf_reading_order", "side_stream_blocks_v1");
+            final var marked = new PdfLayoutItem(item.type(), item.text(), item.box(), metadata, item.signature());
+            final boolean divided = !lines.isEmpty() && crossed(between, lines.getLast().box(), item.box(), work);
+            between.clear();
+            if (!lines.isEmpty() && (divided || !joins(lines.getLast(), marked))) {
+                blocks.put(first, block(lines, work));
+                lines.clear();
+            }
+            if (lines.isEmpty()) {
+                first = item;
+            }
+            lines.add(marked);
+        }
+        blocks.put(first, block(lines, work));
+        final var result = new ArrayList<PdfLayoutItem>();
+        final var group = new ArrayList<PdfLayoutItem>();
+        for (final var item : sorted) {
+            work.step();
+            if (side.containsKey(item)) {
+                flush(result, group, work);
+                group.clear();
+                final var block = blocks.get(item);
+                if (block != null) {
+                    result.add(block);
+                }
+                continue;
+            }
+            if (!group.isEmpty() && !joins(group.getLast(), item)) {
+                flush(result, group, work);
+                group.clear();
+            }
+            if (ordinary(item)) {
+                group.add(item);
+            } else {
+                result.add(item);
+            }
+        }
+        flush(result, group, work);
+        return List.copyOf(result);
+    }
+
+    /**
+     * Moves intact side-stream elements back past an adjacent one-line main element whose visual row they start on.
+     * One in-order pass makes at most one adjacent swap per side element; a moved element is never visited again.
+     * Element objects are reused unchanged, so grouping, text, bounds and metadata are those of the input, and the
+     * relative order of every non-side element is kept.
+     * @param grouped side-stream policy output for one page
+     * @param work page counter
+     * @return the same elements with same-row ties resolved
+     * @throws IOException if cancelled or over budget
+     */
+    private static List<PdfLayoutItem> rowTies(final List<PdfLayoutItem> grouped, final Work work) throws IOException {
+        final var result = new ArrayList<>(grouped);
+        for (int index = 1; index < result.size(); index++) {
+            work.step();
+            final var item = result.get(index);
+            final var previous = result.get(index - 1);
+            if (sideStream(item) && tie(item.box(), previous)) {
+                result.set(index - 1, item);
+                result.set(index, previous);
+            }
+        }
+        return List.copyOf(result);
+    }
+
+    /**
+     * Tests whether a side element starts on the row of an eligible predecessor and lies wholly to its left.
+     * @param side side element bounds
+     * @param previous immediately preceding element
+     * @return whether the side element may move before it
+     */
+    private static boolean tie(final PdfLayoutItem.Bounds side, final PdfLayoutItem previous) {
+        final var box = previous.box();
+        return ordinary(previous) && !sideStream(previous)
+                && (!(previous.metadata().get("pdf_line_count") instanceof Number count) || count.intValue() == 1)
+                && side.right() <= box.left() && box.top() <= side.top() && side.top() < box.bottom();
+    }
+
+    /**
+     * Tests for side-stream provenance.
+     * @param item grouped element
+     * @return whether the side-stream policy emitted it as a side element
+     */
+    private static boolean sideStream(final PdfLayoutItem item) {
+        return "side_stream_blocks_v1".equals(item.metadata().get("pdf_reading_order"));
+    }
+
+    /**
+     * Tests whether any intervening item horizontally overlaps the union extent of two consecutive side lines.
+     * Main-stream lines lie at least four units outside the side extent and never qualify; images, tables and
+     * spanning or other text crossing the side column do.
+     * @param between boxes of non-side items between the two side lines in top/left order
+     * @param previous previous side line
+     * @param next next side line
+     * @param work page counter
+     * @return whether a structural barrier divides the two lines
+     * @throws IOException if cancelled or over budget
+     */
+    private static boolean crossed(final List<PdfLayoutItem.Bounds> between, final PdfLayoutItem.Bounds previous,
+            final PdfLayoutItem.Bounds next, final Work work) throws IOException {
+        final float left = Math.min(previous.left(), next.left());
+        final float right = Math.max(previous.right(), next.right());
+        for (final var box : between) {
+            work.step();
+            if (box.left() < right && box.right() > left) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Combines one side-stream group with the historical paragraph rule.
+     * @param lines adjacent marked side lines
+     * @param work page counter
+     * @return the single line or combined paragraph
+     * @throws IOException if cancelled or over budget
+     */
+    private PdfLayoutItem block(final List<PdfLayoutItem> lines, final Work work) throws IOException {
+        final var output = new ArrayList<PdfLayoutItem>(1);
+        flush(output, lines, work);
+        return output.getFirst();
+    }
+
+    /**
+     * Finds the smaller-type side-stream lines of one page, keyed by identity; empty when the evidence is absent.
+     * Clusters whose lines mostly share main-stream baselines form table-like rows and are rejected.
+     * @param sorted page items in top/left order
+     * @param work page counter
+     * @return side lines, keyed by identity
+     * @throws IOException if cancelled or over budget
+     */
+    private static IdentityHashMap<PdfLayoutItem, Boolean> sideLines(final List<PdfLayoutItem> sorted, final Work work)
+            throws IOException {
+        final var lines = new ArrayList<PdfLayoutItem>();
+        for (final var item : sorted) {
+            work.step();
+            if (ordinary(item) && item.box().bottom() > item.box().top()) {
+                lines.add(item);
+            }
+        }
+        final var result = new IdentityHashMap<PdfLayoutItem, Boolean>();
+        if (lines.size() < 6) {
+            return result;
+        }
+        final var byLeft = new ArrayList<>(lines);
+        byLeft.sort(Comparator.comparingDouble(item -> item.box().left()));
+        final var clusters = new ArrayList<List<PdfLayoutItem>>();
+        float previous = Float.NaN;
+        for (final var item : byLeft) {
+            work.step();
+            if (clusters.isEmpty() || item.box().left() - previous > 4) {
+                clusters.add(new ArrayList<>());
+            }
+            clusters.getLast().add(item);
+            previous = item.box().left();
+        }
+        List<PdfLayoutItem> main = clusters.getFirst();
+        for (final var cluster : clusters) {
+            if (cluster.size() > main.size()) {
+                main = cluster;
+            }
+        }
+        float mainLeft = Float.POSITIVE_INFINITY;
+        float mainRight = Float.NEGATIVE_INFINITY;
+        for (final var item : main) {
+            work.step();
+            mainLeft = Math.min(mainLeft, item.box().left());
+            mainRight = Math.max(mainRight, item.box().right());
+        }
+        final double mainHeight = medianHeight(main);
+        final double[] mainBaselines = main.stream().mapToDouble(item -> item.box().bottom()).sorted().toArray();
+        for (final var cluster : clusters) {
+            if (cluster == main) {
+                continue;
+            }
+            final var outside = new ArrayList<PdfLayoutItem>();
+            for (final var item : cluster) {
+                work.step();
+                if (item.box().right() <= mainLeft - 4 || item.box().left() >= mainRight + 4) {
+                    outside.add(item);
+                }
+            }
+            if (outside.size() < 3 || medianHeight(outside) >= mainHeight * 0.9) {
+                continue;
+            }
+            float top = Float.POSITIVE_INFINITY;
+            float bottom = Float.NEGATIVE_INFINITY;
+            for (final var item : outside) {
+                top = Math.min(top, item.box().top());
+                bottom = Math.max(bottom, item.box().bottom());
+            }
+            int spanned = 0;
+            for (final var item : main) {
+                work.step();
+                if (item.box().top() >= top && item.box().bottom() <= bottom) {
+                    spanned++;
+                }
+            }
+            int rowBound = 0;
+            for (final var item : outside) {
+                work.step();
+                if (sharesBaseline(mainBaselines, item.box().bottom())) {
+                    rowBound++;
+                }
+            }
+            // Lines sharing baselines with the main stream form rows, such as statement labels and values; a prose
+            // sidebar runs on its own baseline grid. Row-bound clusters keep historical grouping.
+            if (spanned >= 3 && rowBound * 2 < outside.size()) {
+                outside.forEach(item -> result.put(item, Boolean.TRUE));
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Tests whether a main-stream line's bottom lies within the two-unit native baseline tolerance of a bottom.
+     * @param baselines ascending main-stream bottoms
+     * @param bottom tested bottom
+     * @return whether a baseline is shared
+     */
+    private static boolean sharesBaseline(final double[] baselines, final double bottom) {
+        int index = Arrays.binarySearch(baselines, bottom - 2);
+        if (index < 0) {
+            index = -index - 1;
+        }
+        return index < baselines.length && baselines[index] <= bottom + 2;
+    }
+
+    /**
+     * Returns the median box height of nonempty lines.
+     * @param lines ordinary lines
+     * @return median height
+     */
+    private static double medianHeight(final List<PdfLayoutItem> lines) {
+        final double[] heights =
+                lines.stream().mapToDouble(item -> item.box().bottom() - item.box().top()).sorted().toArray();
+        return heights[heights.length / 2];
     }
 
     /**

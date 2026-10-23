@@ -1,0 +1,38 @@
+ALIGNMENT_COLUMN_V1 — evaluation only, frozen before new OCR word positions.
+One candidate; no model/segmentation/threshold sweeps; no production changes.
+Inputs: all four pinned scans, both deu/deu_latf best models, existing pinned executable.
+Decode: Java ImageIO then TYPE_INT_RGB via getRGB/setRGB (colour-managed samples); no resizing,
+source-DPI override, filtering, binarization or stored-samples switch. Engine AUTO/OEM1 default
+thresholding, one native thread, one process at a time, per call60s, pixels20M, PNG32MiB,
+TSV4MiB, lines10000, characters1000000. Exactly8 calls; capture detailed words once per call.
+
+Frozen geometry-only candidate:
+Let H be median positive recognized word height over the page. Let L/R be min word left/max
+word right. From each original OCR line consider each noninitial word start X only if:
+  L+0.25*(R-L) <= X <= L+0.80*(R-L),
+  X >= previous word right (no overlapping/backward boundary),
+  X - first word left >= 3*H, and line max word right - X >= 3*H.
+Sort all candidates by X, then original line index, then word index. Greedily cluster them
+with fixed anchor equal to the first X: include following X while X-anchor <= H (no chain
+extension). A cluster needs at least6 distinct original OCR line IDs. Rank eligible clusters
+by decreasing distinct-line support, then increasing median X. Select exactly one winner.
+If no eligible cluster, do nothing. For each original line select the earliest candidate
+word in the winning cluster; that boundary is added to the pre-existing WIDE_GAPS boundaries.
+A word appears once, original token order/text stay unchanged. No column-order rearrangement,
+reference text/coordinates, source names, page-specific constants or reference-derived routing.
+Compute original raw lines, existing WIDE_GAPS, and WIDE_GAPS+candidate from the same8 captures.
+The existing splitter uses gaps >3*maximum word height of each original line, unchanged.
+
+Primary acceptance, against WIDE_GAPS on the same capture:
+- 1778: strictly more IoU>=0.5 associated reference lines under BOTH models, with no increase
+  in missing/extra lines or joint reference-line character errors; at least one added split.
+-1835/1879/1780: EXACT line text/box output identity to WIDE_GAPS (no false new split).
+- Word sequences unchanged on every observation; full joined prediction text SHA unchanged.
+- Full reference populations retained. Report raw and wide/candidate association/missing/extra,
+  joint character errors and sequence edits plus reference-order concordance, unmatched counts.
+  XML sequence is diagnostic where line order is undeclared, not logical reading-order truth.
+- Report every eligible peak and winner/support (including competing interior alignments).
+- Failure/timeout on any call leaves full denominator and fails evaluation, no silent dropping.
+Failure of any primary criterion => DO NOT IMPLEMENT; archive, no retuning after measurement.
+Success => implementation handoff only, with owned-control/API/resource/transfer requirements;
+these four development pages do not establish held-out or general applicability.

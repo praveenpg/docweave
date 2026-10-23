@@ -1,0 +1,114 @@
+{
+  "tatr" : {
+    "all" : {
+      "pages" : 24,
+      "errors" : 0,
+      "known_fp" : 18,
+      "negative_fp" : 11,
+      "fn" : 11,
+      "tp" : 8,
+      "negative_pages" : 12
+    },
+    "development" : {
+      "pages" : 12,
+      "errors" : 0,
+      "known_fp" : 9,
+      "negative_fp" : 5,
+      "fn" : 6,
+      "tp" : 4,
+      "negative_pages" : 6
+    },
+    "document_transfer" : {
+      "pages" : 12,
+      "errors" : 0,
+      "known_fp" : 9,
+      "negative_fp" : 6,
+      "fn" : 5,
+      "tp" : 4,
+      "negative_pages" : 6
+    },
+    "laws_and_regulations" : {
+      "pages" : 8,
+      "errors" : 0,
+      "known_fp" : 5,
+      "negative_fp" : 4,
+      "fn" : 1,
+      "tp" : 3,
+      "negative_pages" : 4
+    },
+    "manuals" : {
+      "pages" : 8,
+      "errors" : 0,
+      "known_fp" : 6,
+      "negative_fp" : 5,
+      "fn" : 2,
+      "tp" : 3,
+      "negative_pages" : 4
+    },
+    "patents" : {
+      "pages" : 8,
+      "errors" : 0,
+      "known_fp" : 7,
+      "negative_fp" : 2,
+      "fn" : 8,
+      "tp" : 2,
+      "negative_pages" : 4
+    }
+  },
+  "yolox" : {
+    "all" : {
+      "pages" : 24,
+      "errors" : 0,
+      "known_fp" : 1,
+      "negative_fp" : 0,
+      "fn" : 3,
+      "tp" : 16,
+      "negative_pages" : 12
+    },
+    "development" : {
+      "pages" : 12,
+      "errors" : 0,
+      "known_fp" : 0,
+      "negative_fp" : 0,
+      "fn" : 0,
+      "tp" : 10,
+      "negative_pages" : 6
+    },
+    "document_transfer" : {
+      "pages" : 12,
+      "errors" : 0,
+      "known_fp" : 1,
+      "negative_fp" : 0,
+      "fn" : 3,
+      "tp" : 6,
+      "negative_pages" : 6
+    },
+    "laws_and_regulations" : {
+      "pages" : 8,
+      "errors" : 0,
+      "known_fp" : 0,
+      "negative_fp" : 0,
+      "fn" : 0,
+      "tp" : 4,
+      "negative_pages" : 4
+    },
+    "manuals" : {
+      "pages" : 8,
+      "errors" : 0,
+      "known_fp" : 0,
+      "negative_fp" : 0,
+      "fn" : 2,
+      "tp" : 3,
+      "negative_pages" : 4
+    },
+    "patents" : {
+      "pages" : 8,
+      "errors" : 0,
+      "known_fp" : 1,
+      "negative_fp" : 0,
+      "fn" : 1,
+      "tp" : 9,
+      "negative_pages" : 4
+    }
+  }
+}

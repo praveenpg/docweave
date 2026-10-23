@@ -1,0 +1,16 @@
+{
+  "unstructured_version": "0.27.28",
+  "capture_runner": "benchmarks/tools/capture_unstructured_reading.py",
+  "capture_runner_sha256": "6778dc846e4851414fbaaff25ad3421c2dc5a8f0f351b00ca50ba9b6cc40e496",
+  "upstream_profile": "fast, infer_table_structure=false, languages=[eng], include_page_breaks=false (fixed by the runner)",
+  "protocol": "Raw native text of the complete original 11-page NVIDIA source for the parenthesis-presentation question. Complements, and never replaces, the frozen hi_res default/shared table captures. No page selection or text repair; JVM code performs the census.",
+  "cases": [
+    {
+      "id": "nvidia",
+      "pdf": "nvidia-fy26q4.pdf",
+      "inputs": [
+        {"filename": "nvidia-fy26q4.pdf", "bytes": 97444, "sha256": "89de999d7155649197672bf490c519607f1abbcdc96e2e4c6718bf6ecbb13564"}
+      ]
+    }
+  ]
+}

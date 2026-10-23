@@ -1,0 +1,104 @@
+package dev.docweave.validation;
+
+import dev.docweave.partition.PdfWordOcrProvider;
+import tools.jackson.databind.json.JsonMapper;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.TreeMap;
+
+/**
+ * Reference-free diagnostic of every eligible ALIGNMENT_COLUMN_V1 peak in the retained word captures.
+ *
+ * <p>It reads word geometry only: no transcript, reference box or source-specific coordinate. For each peak it reports
+ * support, the longest run of consecutive supporting lines, how the boundary gap compares with the line's other word
+ * gaps, how many supporting boundaries the production WIDE_GAPS rule already splits, and the vertical span of the
+ * supporting lines.
+ */
+public final class DiagnoseAlignmentPeaks {
+    /** Prevents construction of this command-line tool. */
+    private DiagnoseAlignmentPeaks() {
+    }
+
+    /**
+     * Prints the diagnostic.
+     *
+     * @param args manifest and private captures directory
+     * @throws Exception if a capture cannot be read
+     */
+    public static void main(final String[] args) throws Exception {
+        final var json = JsonMapper.builder().build();
+        final var manifest = json.readTree(Files.readAllBytes(Path.of(args[0])));
+        for (final var source : manifest.get("cases")) {
+            for (final var profile : manifest.get("profiles")) {
+                final String name = source.get("id").asString() + "-" + profile.get("language").asString();
+                final var capture = json.readTree(Files.readAllBytes(Path.of(args[1], name + ".json")));
+                final var lines =
+                        List.of(json.treeToValue(capture.get("word_lines"), PdfWordOcrProvider.WordLine[].class));
+                System.out.println("## " + name + " lines=" + lines.size());
+                for (final var peak : ReviewOcrColumnAlignment.detect(lines)) {
+                    System.out.println(describe(lines, peak));
+                }
+            }
+        }
+    }
+
+    /**
+     * Describes one peak.
+     *
+     * @param lines original lines
+     * @param peak eligible peak
+     * @return one report line
+     */
+    private static String describe(
+            final List<PdfWordOcrProvider.WordLine> lines, final ReviewOcrColumnAlignment.Peak peak) {
+        final var firstPerLine = new TreeMap<Integer, Integer>();
+        peak.members().forEach(start -> firstPerLine.merge(start.line(), start.word(), Math::min));
+        int run = 0;
+        int longest = 0;
+        int previous = -2;
+        double ratioSum = 0;
+        int ratioCount = 0;
+        int wider = 0;
+        int alreadySplit = 0;
+        double top = Double.MAX_VALUE;
+        double bottom = -Double.MAX_VALUE;
+        for (final var entry : firstPerLine.entrySet()) {
+            run = entry.getKey() == previous + 1 ? run + 1 : 1;
+            longest = Math.max(longest, run);
+            previous = entry.getKey();
+            final var line = lines.get(entry.getKey());
+            final var words = line.words();
+            final int boundary = entry.getValue();
+            final double gap = words.get(boundary).left() - words.get(boundary - 1).right();
+            final double height = words.stream().mapToDouble(word -> word.bottom() - word.top()).max().orElse(0);
+            if (gap > 3 * height) {
+                alreadySplit++;
+            }
+            final var others = new ArrayList<Double>();
+            for (int index = 1; index < words.size(); index++) {
+                if (index != boundary) {
+                    others.add(words.get(index).left() - words.get(index - 1).right());
+                }
+            }
+            Collections.sort(others);
+            if (!others.isEmpty() && others.get(others.size() / 2) > 0) {
+                final double median = others.get(others.size() / 2);
+                ratioSum += gap / median;
+                ratioCount++;
+                if (gap > 2 * median) {
+                    wider++;
+                }
+            }
+            top = Math.min(top, line.line().top());
+            bottom = Math.max(bottom, line.line().bottom());
+        }
+        return String.format("  x=%6.1f support=%2d longestConsecutiveRun=%2d meanGapToLineMedian=%5.2f "
+                                     + "boundaryGap>2xMedian=%d/%d alreadySplitByWideGaps=%d verticalSpan=%4.0f-%4.0f",
+                peak.upperMedianX(), peak.support(), longest, ratioCount == 0 ? Double.NaN : ratioSum / ratioCount,
+                wider, ratioCount, alreadySplit, top, bottom);
+    }
+}

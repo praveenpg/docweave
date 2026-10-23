@@ -1,0 +1,27 @@
+{
+  "java" : "21.0.12.1+12-LTS",
+  "protocol_sha256" : "2d23993d966fef050dacb13d5b7ce887bab6e42b1ace2a9ca4f8ca62b7898da8",
+  "results" : [ {
+    "source" : "apple",
+    "source_sha256" : "dc0cf747ad18bb340f48a3a79038aaf6f005f3aacab3aa0ba3960ab5370e5aa5",
+    "baseline_outcome" : "SUCCESS",
+    "candidate_outcome" : "SUCCESS",
+    "provider_calls" : 3,
+    "provider_tables" : 5,
+    "baseline_tables" : 5,
+    "candidate_tables" : 5,
+    "added_rows" : 0,
+    "logical_payload_identical" : true
+  }, {
+    "source" : "amazon",
+    "source_sha256" : "ad8d84cbcc0a4ce35b803b93e8186c29ea0b06b4455d04fb584ab5ad29c42915",
+    "baseline_outcome" : "SUCCESS",
+    "candidate_outcome" : "SUCCESS",
+    "provider_calls" : 14,
+    "provider_tables" : 7,
+    "baseline_tables" : 7,
+    "candidate_tables" : 7,
+    "added_rows" : 0,
+    "logical_payload_identical" : true
+  } ]
+}

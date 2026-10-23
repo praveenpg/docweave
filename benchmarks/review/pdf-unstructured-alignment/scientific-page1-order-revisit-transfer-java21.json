@@ -1,0 +1,133 @@
+{
+  "manifest_sha256" : "7356756b1b9620e4322c172f29db575c95dd3b12147ea5e6b65df039a761ae58",
+  "runtime_sha256" : "7b913aaac6cfe1d925a8e955c41acc91c4751eabdcea94fec5e070d858068996",
+  "java_version" : "21.0.12.1",
+  "presentation" : "UPSTREAM_WHITESPACE",
+  "results" : [ {
+    "upstream_elements" : 20,
+    "docweave_elements" : 84,
+    "located" : 12,
+    "unlocated" : [ 1, 5, 6, 8, 13, 14, 15, 16 ],
+    "ambiguous" : [ ],
+    "preserved_pairs" : 64,
+    "reversed_pairs" : 2,
+    "reversed_pair_indices" : [ [ 3, 4 ], [ 9, 10 ] ],
+    "located_split_across_docweave_elements" : 4,
+    "docweave_elements_holding_several_upstream" : 0,
+    "id" : "holdout",
+    "profile" : "LINES",
+    "page" : 1,
+    "upstream_categories" : {
+      "NarrativeText" : 10,
+      "UncategorizedText" : 2,
+      "Title" : 6,
+      "Footer" : 2
+    },
+    "capture_sha256" : "5e3f34b2418b4d30256c00bab821ba861d02407729ffa2de78eff5638bac1df0"
+  }, {
+    "upstream_elements" : 20,
+    "docweave_elements" : 67,
+    "located" : 12,
+    "unlocated" : [ 1, 5, 6, 8, 13, 14, 15, 16 ],
+    "ambiguous" : [ ],
+    "preserved_pairs" : 64,
+    "reversed_pairs" : 2,
+    "reversed_pair_indices" : [ [ 3, 4 ], [ 9, 10 ] ],
+    "located_split_across_docweave_elements" : 3,
+    "docweave_elements_holding_several_upstream" : 0,
+    "id" : "holdout",
+    "profile" : "COLUMN_PARAGRAPHS",
+    "page" : 1,
+    "upstream_categories" : {
+      "NarrativeText" : 10,
+      "UncategorizedText" : 2,
+      "Title" : 6,
+      "Footer" : 2
+    },
+    "capture_sha256" : "5e3f34b2418b4d30256c00bab821ba861d02407729ffa2de78eff5638bac1df0"
+  }, {
+    "upstream_elements" : 20,
+    "docweave_elements" : 67,
+    "located" : 12,
+    "unlocated" : [ 1, 5, 6, 8, 13, 14, 15, 16 ],
+    "ambiguous" : [ ],
+    "preserved_pairs" : 64,
+    "reversed_pairs" : 2,
+    "reversed_pair_indices" : [ [ 3, 4 ], [ 9, 10 ] ],
+    "located_split_across_docweave_elements" : 3,
+    "docweave_elements_holding_several_upstream" : 0,
+    "id" : "holdout",
+    "profile" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "page" : 1,
+    "upstream_categories" : {
+      "NarrativeText" : 10,
+      "UncategorizedText" : 2,
+      "Title" : 6,
+      "Footer" : 2
+    },
+    "capture_sha256" : "5e3f34b2418b4d30256c00bab821ba861d02407729ffa2de78eff5638bac1df0"
+  }, {
+    "upstream_elements" : 20,
+    "docweave_elements" : 65,
+    "located" : 13,
+    "unlocated" : [ 5, 6, 8, 13, 14, 15, 16 ],
+    "ambiguous" : [ ],
+    "preserved_pairs" : 76,
+    "reversed_pairs" : 2,
+    "reversed_pair_indices" : [ [ 3, 4 ], [ 9, 10 ] ],
+    "located_split_across_docweave_elements" : 5,
+    "docweave_elements_holding_several_upstream" : 0,
+    "id" : "holdout",
+    "profile" : "LINES+INLINE_SCRIPTS",
+    "page" : 1,
+    "upstream_categories" : {
+      "NarrativeText" : 10,
+      "UncategorizedText" : 2,
+      "Title" : 6,
+      "Footer" : 2
+    },
+    "capture_sha256" : "5e3f34b2418b4d30256c00bab821ba861d02407729ffa2de78eff5638bac1df0"
+  }, {
+    "upstream_elements" : 20,
+    "docweave_elements" : 45,
+    "located" : 13,
+    "unlocated" : [ 5, 6, 8, 13, 14, 15, 16 ],
+    "ambiguous" : [ ],
+    "preserved_pairs" : 76,
+    "reversed_pairs" : 2,
+    "reversed_pair_indices" : [ [ 3, 4 ], [ 9, 10 ] ],
+    "located_split_across_docweave_elements" : 3,
+    "docweave_elements_holding_several_upstream" : 0,
+    "id" : "holdout",
+    "profile" : "COLUMN_PARAGRAPHS+INLINE_SCRIPTS",
+    "page" : 1,
+    "upstream_categories" : {
+      "NarrativeText" : 10,
+      "UncategorizedText" : 2,
+      "Title" : 6,
+      "Footer" : 2
+    },
+    "capture_sha256" : "5e3f34b2418b4d30256c00bab821ba861d02407729ffa2de78eff5638bac1df0"
+  }, {
+    "upstream_elements" : 20,
+    "docweave_elements" : 45,
+    "located" : 13,
+    "unlocated" : [ 5, 6, 8, 13, 14, 15, 16 ],
+    "ambiguous" : [ ],
+    "preserved_pairs" : 76,
+    "reversed_pairs" : 2,
+    "reversed_pair_indices" : [ [ 3, 4 ], [ 9, 10 ] ],
+    "located_split_across_docweave_elements" : 3,
+    "docweave_elements_holding_several_upstream" : 0,
+    "id" : "holdout",
+    "profile" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS+INLINE_SCRIPTS",
+    "page" : 1,
+    "upstream_categories" : {
+      "NarrativeText" : 10,
+      "UncategorizedText" : 2,
+      "Title" : 6,
+      "Footer" : 2
+    },
+    "capture_sha256" : "5e3f34b2418b4d30256c00bab821ba861d02407729ffa2de78eff5638bac1df0"
+  } ]
+}

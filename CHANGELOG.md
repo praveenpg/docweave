@@ -2,6 +2,59 @@
 
 ## Unreleased
 
+- Add explicit `PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_ROW_TIES`. It produces the
+  `SMALLER_TYPE_BLOCKS` elements, then moves an intact side element back past one adjacent
+  single-line main element when the side element lies wholly to its left and starts within its
+  vertical extent. The additional move applies only in column-paragraph layouts; plain
+  `PARAGRAPHS` retains the existing sidebar placement. Nothing is split, joined, rewritten or reordered otherwise, and each side
+  element moves at most once. `PRESERVE` stays the default, and default and `SMALLER_TYPE_BLOCKS`
+  output are byte-identical to before on 17 pinned PDFs under every text layout. Against pinned
+  Unstructured page-1 order on the column layouts:
+  - next goes from 3 to 1 reversed pair, and holdout from 19 to 17 (20 to 18 with inline scripts);
+  - recent (6) and eLife (43) are unchanged;
+  - no correct pair is lost and none becomes unmatched;
+  - strict paragraph results and all column-layout row-association pairs on 17 PDFs are unchanged.
+
+  Limitations: these are post-hoc results on development papers. The new tie pass is scoped to
+  column-paragraph layouts after review found a row-association regression under plain `PARAGRAPHS`.
+
+- Add explicit `PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS` for paragraph layouts on pages
+  without an accepted two-column gutter. A horizontally separate stream set in smaller type,
+  such as a first-page article sidebar, is grouped into blocks among its own lines; each block
+  is emitted at its first line, and all other grouping and order stay historical. Clusters
+  that share baselines with the main stream, such as statement labels beside values, are
+  rejected, and blocks never cross intervening images, tables or spanning text. `PRESERVE`
+  remains the default; the options record gains a `sideStreams` component and earlier
+  constructors are kept. Against pinned Unstructured page-1 order it removes every reversed
+  pair on the frozen target block and adds none elsewhere.
+
+- Add explicit `PdfOptions.InlineScripts.NEARBY_SMALL_GLYPHS` for ordinary native text. Short
+  raised or lowered marker runs join the one body line that supports them, using the existing
+  whole-run cell rule with a baseline-band index that preserves its exact result. `PRESERVE`
+  remains the default; the options record gains an `inlineScripts` component and every earlier
+  constructor is kept. Strict complete-body scientific paragraph presence rises from 58–59/143
+  to 60–61/143 across the three native layouts, with no reversed pairs.
+
+- Lower ONNX table-provider process memory without changing output. Graphs are read once into
+  an exact-size off-heap snapshot that is hashed and passed directly to ONNX Runtime, and
+  managed sessions disable the per-session CPU arena and memory-pattern preallocation. On the
+  frozen packaged two-admission provider study, peak child memory fell from 1.76–1.84 GiB to
+  1.28–1.39 GiB, below its 1.5 GiB gate, with identical logical outputs.
+
+- Add explicit `PdfNativeLayoutOptions.TrailingRows.SOURCE_CELL_SPACER_ROWS`. It appends rows
+  below a provider table while source lines repeat the table's whitespace cell lattice, crossing
+  blank lattice rows and stopping at the first line that does not repeat it. `PROVIDER_ONLY`
+  remains the default. The options record gains a `trailingRows` component, and every earlier
+  constructor is kept.
+
+- Add the separate `PdfPageCropRenderer` service for lossless PNG crops of explicit rendered
+  page regions. Requests use the displayed partition frame. The service renders each distinct
+  page once per call, checks pixel budgets from page geometry before rendering, and leaves
+  partition output and source-image payloads unchanged. Edges round exactly outward, and
+  rasters above PDFRenderer's integer ceiling fail as `IMAGE_LIMIT`. Opt-in
+  `Sampling.BOX_4X` antialiases hard clip edges by 4x box supersampling. Sub-pixel page
+  extents use the selected background for missing samples without increasing the page raster.
+
 - Add explicit curved-clip control-point envelopes for graphics traversal. Tighten opt-in
   image clipping bounds and native rule eligibility while preserving default behavior.
   The envelope remains a rectangle; native-text path filtering and final rendering are unchanged.

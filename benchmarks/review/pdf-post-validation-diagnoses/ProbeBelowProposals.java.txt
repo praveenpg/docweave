@@ -1,0 +1,65 @@
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.pdfbox.Loader;
+import org.apache.pdfbox.text.PDFTextStripper;
+import org.apache.pdfbox.text.TextPosition;
+import tools.jackson.databind.json.JsonMapper;
+
+/**
+ * Private review aid: for every captured provider table, prints the source lines in the band from 40 units above
+ * its bottom to 90 units below, with whitespace-glyph x positions and the first visible run's font/size.
+ * Args: capture.json source.pdf dpi.
+ */
+public final class ProbeBelowProposals {
+    public static void main(final String[] args) throws Exception {
+        final var capture = JsonMapper.builder().build().readTree(Files.readAllBytes(Path.of(args[0])));
+        final double scale = 72.0 / Double.parseDouble(args[2]);
+        try (final var document = Loader.loadPDF(new File(args[1]))) {
+            for (int page = 0; page < capture.size(); page++) {
+                for (final var table : capture.get(page).get("tables")) {
+                    final var bounds = table.get("bounds");
+                    final double left = bounds.get("left").asDouble() * scale;
+                    final double right = bounds.get("right").asDouble() * scale;
+                    final double bottom = bounds.get("bottom").asDouble() * scale;
+                    System.out.printf("%n=== page %d table rows=%d cols=%d x=%.1f-%.1f top=%.1f bottom=%.1f%n", page + 1,
+                            table.get("rows").asInt(), table.get("columns").asInt(), left, right,
+                            bounds.get("top").asDouble() * scale, bottom);
+                    final int number = page + 1;
+                    final var stripper = new PDFTextStripper() {
+                        @Override
+                        protected void writeString(final String text, final List<TextPosition> positions) {
+                            if (positions.isEmpty()) {
+                                return;
+                            }
+                            final float y = positions.get(0).getYDirAdj();
+                            if (y < bottom - 40 || y > bottom + 90) {
+                                return;
+                            }
+                            final var spaces = new ArrayList<String>();
+                            TextPosition first = null;
+                            for (final var glyph : positions) {
+                                if (glyph.getUnicode().isBlank()) {
+                                    spaces.add(String.format("%.1f", glyph.getXDirAdj()));
+                                } else if (first == null) {
+                                    first = glyph;
+                                }
+                            }
+                            System.out.printf("  %s y=%.1f x=%.1f-%.1f font=%s %.1f spaces=%s | %s%n",
+                                    y > bottom ? "BELOW" : "inside", y, positions.get(0).getXDirAdj(),
+                                    positions.getLast().getXDirAdj() + positions.getLast().getWidthDirAdj(),
+                                    first == null ? "-" : first.getFont().getName(),
+                                    first == null ? 0 : first.getFontSizeInPt(), spaces, text);
+                        }
+                    };
+                    stripper.setSortByPosition(true);
+                    stripper.setStartPage(number);
+                    stripper.setEndPage(number);
+                    stripper.getText(document);
+                }
+            }
+        }
+    }
+}

@@ -297,6 +297,7 @@ final class PdfNativeLeadingRow {
 
     /**
      * Rejects added geometry intersecting any other accepted or proposed table.
+     * Shared by the trailing-row inference so both directions apply the same ownership rule.
      * @param candidate expanded table
      * @param original unchanged raw table identity
      * @param tables complete raw provider population
@@ -307,10 +308,9 @@ final class PdfNativeLeadingRow {
      * @return whether the added envelope would conflict
      * @throws IOException if cancelled or the work ceiling is exceeded
      */
-    private static boolean conflicts(final PdfTableLayoutProvider.Table candidate,
-            final PdfTableLayoutProvider.Table original, final List<PdfTableLayoutProvider.Table> tables,
-            final List<PdfLayoutItem> preferred, final double xs, final double ys, final PdfTableWork work)
-            throws IOException {
+    static boolean conflicts(final PdfTableLayoutProvider.Table candidate, final PdfTableLayoutProvider.Table original,
+            final List<PdfTableLayoutProvider.Table> tables, final List<PdfLayoutItem> preferred, final double xs,
+            final double ys, final PdfTableWork work) throws IOException {
         for (final var other : tables) {
             work.step();
             if (other != original && PdfTableLayouts.overlaps(candidate.bounds(), other.bounds())) {

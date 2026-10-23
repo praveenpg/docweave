@@ -1,0 +1,124 @@
+{
+  "manifest_sha256" : "7356756b1b9620e4322c172f29db575c95dd3b12147ea5e6b65df039a761ae58",
+  "runtime_sha256" : "7b913aaac6cfe1d925a8e955c41acc91c4751eabdcea94fec5e070d858068996",
+  "java_version" : "21.0.12.1",
+  "cases" : [ {
+    "id" : "holdout",
+    "page" : 1,
+    "upstream_elements" : 20,
+    "capture_sha256" : "5e3f34b2418b4d30256c00bab821ba861d02407729ffa2de78eff5638bac1df0",
+    "target_element" : -1,
+    "profiles" : [ {
+      "profile" : "LINES",
+      "atom_policy" : "PRESERVE",
+      "atoms" : 84,
+      "mapped_atoms" : 47,
+      "pairs" : 1081,
+      "correct" : 1046,
+      "reversed" : 35,
+      "unmatched" : 0
+    }, {
+      "profile" : "LINES+INLINE_SCRIPTS",
+      "atom_policy" : "INLINE_SCRIPTS",
+      "atoms" : 65,
+      "mapped_atoms" : 45,
+      "pairs" : 990,
+      "correct" : 947,
+      "reversed" : 43,
+      "unmatched" : 0
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS",
+      "atom_policy" : "PRESERVE",
+      "atoms" : 84,
+      "mapped_atoms" : 47,
+      "pairs" : 1081,
+      "correct" : 1046,
+      "reversed" : 35,
+      "unmatched" : 0
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS+SIDE_STREAMS",
+      "atom_policy" : "PRESERVE",
+      "atoms" : 84,
+      "mapped_atoms" : 47,
+      "pairs" : 1081,
+      "correct" : 1064,
+      "reversed" : 17,
+      "unmatched" : 0
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+      "atom_policy" : "PRESERVE",
+      "atoms" : 84,
+      "mapped_atoms" : 47,
+      "pairs" : 1081,
+      "correct" : 1046,
+      "reversed" : 35,
+      "unmatched" : 0
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS+SIDE_STREAMS",
+      "atom_policy" : "PRESERVE",
+      "atoms" : 84,
+      "mapped_atoms" : 47,
+      "pairs" : 1081,
+      "correct" : 1064,
+      "reversed" : 17,
+      "unmatched" : 0
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS+INLINE_SCRIPTS",
+      "atom_policy" : "INLINE_SCRIPTS",
+      "atoms" : 65,
+      "mapped_atoms" : 45,
+      "pairs" : 990,
+      "correct" : 947,
+      "reversed" : 43,
+      "unmatched" : 0
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS+INLINE_SCRIPTS+SIDE_STREAMS",
+      "atom_policy" : "INLINE_SCRIPTS",
+      "atoms" : 65,
+      "mapped_atoms" : 45,
+      "pairs" : 990,
+      "correct" : 972,
+      "reversed" : 18,
+      "unmatched" : 0
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS+INLINE_SCRIPTS",
+      "atom_policy" : "INLINE_SCRIPTS",
+      "atoms" : 65,
+      "mapped_atoms" : 45,
+      "pairs" : 990,
+      "correct" : 947,
+      "reversed" : 43,
+      "unmatched" : 0
+    }, {
+      "profile" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS+INLINE_SCRIPTS+SIDE_STREAMS",
+      "atom_policy" : "INLINE_SCRIPTS",
+      "atoms" : 65,
+      "mapped_atoms" : 45,
+      "pairs" : 990,
+      "correct" : 972,
+      "reversed" : 18,
+      "unmatched" : 0
+    } ],
+    "comparisons" : [ {
+      "comparison" : "COLUMN_PARAGRAPHS>COLUMN_PARAGRAPHS+SIDE_STREAMS",
+      "changed_pairs" : {
+        "control_reversed_to_correct" : 18
+      }
+    }, {
+      "comparison" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS>COLUMN_PARAGRAPHS_COMPOUND_WRAPS+SIDE_STREAMS",
+      "changed_pairs" : {
+        "control_reversed_to_correct" : 18
+      }
+    }, {
+      "comparison" : "COLUMN_PARAGRAPHS+INLINE_SCRIPTS>COLUMN_PARAGRAPHS+INLINE_SCRIPTS+SIDE_STREAMS",
+      "changed_pairs" : {
+        "control_reversed_to_correct" : 25
+      }
+    }, {
+      "comparison" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS+INLINE_SCRIPTS>COLUMN_PARAGRAPHS_COMPOUND_WRAPS+INLINE_SCRIPTS+SIDE_STREAMS",
+      "changed_pairs" : {
+        "control_reversed_to_correct" : 25
+      }
+    } ]
+  } ]
+}

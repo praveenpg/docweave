@@ -1,0 +1,39 @@
+{
+  "frozen_before_measurement": true,
+  "scope": "Bounded transfer of explicit rendered page-region crops; known development sources, not held-out acceptance",
+  "contract_control": {
+    "source": "image-contract.pdf",
+    "source_sha256": "caf9ffba13dab1ec1f274246366d1a483912652cf9ca5f8a6df046d8d002c437",
+    "dpi": 72,
+    "background": "WHITE",
+    "requests": "pages 1-3, displayed PDFUserSpace left40 top40 right80 bottom80",
+    "expected_crop_pixels": "40x40",
+    "samples": "pixel (5,20) left and (35,20) right, identical to the existing JVM upstream-crop checker",
+    "gates": {
+      "page1_alpha0": "left and right every channel >= 250",
+      "page2_alpha0_5": "left red >= 250, green and blue in [120,135]",
+      "page3_half_clip": "left red >= 245, green and blue <= 10; right every channel >= 250",
+      "source_payloads": "3 images, all source PNG SHA-256 fc413db821e509581923499bea1ad6eaf402a408990859ea51c25765a6736b27"
+    }
+  },
+  "magazine": {
+    "source": "immunology-news-march-2025.pdf",
+    "source_sha256": "fcbbb6b34a2d9c2b0b3acb546d0dc1ba100e7ed486d2dc7d3b0516fbdec03497",
+    "partition_options": "PdfOptions.defaults() ORIENTED_LINES, imageClipBounds, imageGroupContext; curved-clip classification compares curvedClipEnvelopes on/off",
+    "selection": "union of (a) every image occurrence with a nonempty pdf_image_group_context and (b) every occurrence whose clip bounds change when curvedClipEnvelopes is selected; deduplicated by occurrence index; no other region",
+    "expected_population": "5 group-context occurrences (pages 8/11/20) and 11 curved-clip occurrences (page 8), as documented; any difference is recorded, not tuned away",
+    "request": "displayed axis-aligned box of each occurrence's PDFUserSpace coordinates points",
+    "dpi": 150,
+    "background": "WHITE",
+    "single_call": "all selected requests in one render call with default limits except maxRequests raised only if the population exceeds 64",
+    "measurements": [
+      "success or typed failure per request",
+      "crop and page raster dimensions, pixel origin, clipped flag",
+      "crop pixel SHA-256 and mean RGB",
+      "independent Poppler pdftoppm render of the same page at the same DPI and the same pixel rectangle (-x -y -W -H)",
+      "mean absolute per-channel difference between DocWeave/PDFBox and Poppler crops"
+    ],
+    "independent_agreement_tolerance": "mean absolute per-channel difference <= 12 (0-255 scale) per crop, declared before measurement; disagreements are retained and reported, not used to tune anything",
+    "source_regressions": "94 occurrences; unchanged source PNG hashes for every occurrence before and after crop rendering; existing 4 affine references via VerifySourceImageCornerMaps default and --group-context; 18-/24-slot qualified figures default and --group-context"
+  }
+}

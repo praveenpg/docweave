@@ -1,0 +1,32 @@
+SIDEBAR_BLOCKS_V2 corrective hypothesis — frozen after the review and before any corrective code or corrective
+measurement. The reviewed candidate (23 files matching the reviewed final-state hashes) is the comparison baseline.
+Receipt hashes are written to the private freeze log at creation; no execution time is asserted in this file.
+
+P2-1 cause: a side stream is chosen from horizontal separation, smaller height and vertical overlap only. A column
+of statement row labels beside smaller-type values satisfies all three, although each label shares its baseline with
+values on its row. A prose sidebar instead runs on its own baseline grid (that is why the gutter detector rejects it).
+Corrective rule R1 (source geometry only): a candidate side cluster is rejected as row-bound when at least half of its
+outside lines have a main-stream line whose bottom lies within 2 units (the existing native baseline tolerance) of
+their own bottom. Rejected clusters keep historical grouping. No text, numerals, wording or document identity is used.
+
+P2-2 cause: side lines are collected across every non-side item. Corrective rule R2: two consecutive side lines may
+join only if no non-side item lying between them in top/left order has a box that horizontally overlaps the union
+extent of the two side lines. Main-stream lines lie at least 4 units outside the side extent and so do not divide a
+block; images, tables, spanning or other text crossing the side column do.
+
+Frozen acceptance:
+  A1 Scientific line order (CompareUpstreamLineOrder, same four papers, profiles and comparisons as the original
+     run): target reversed pairs 6->0 (CP) and 4->0 (CW) retained; zero CORRECT->REVERSED and zero transitions into
+     UNMATCHED versus PRESERVE on every paper/profile; results equal or better than the reviewed candidate.
+  A2 Strict paragraphs (scientific-side-streams manifest): with inline scripts 60/60/61 of 143, without 58/58/59.
+  A3 Row association (CompareRowAssociation, frozen row-sources list of 17 originals): on every non-scientific
+     source and profile, merged_row_lines and every row-pair outcome equal PRESERVE (zero kept->separated changes);
+     Apple Q2 in particular returns to PRESERVE. Scientific sources are reported.
+  A4 Barrier probe (review SidebarBarrierProbe geometry): no output element contains side lines from both sides of
+     the image; the image stays between them in order.
+  A5 Owned JVM controls: smaller-type label column beside numeric value columns with independently spaced and
+     indented labels keeps every label/value row adjacent and no labels merged; image, Table and spanning-text
+     barriers between joinable side lines split the block with membership, order and bounds checked; the positive
+     sidebar still forms blocks; existing tests, defaults, constructors, copies, characters, work limit and
+     cancellation unchanged.
+If A1 or A3 cannot both be met, the candidate is reported unaccepted.

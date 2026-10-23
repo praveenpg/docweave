@@ -1,0 +1,577 @@
+{
+  "manifest_sha256" : "4551b34a5e3a0ac79c929cc2568fe87d7e4e392051681bccd76f397b4cb87ee1",
+  "runtime_sha256" : "bcbe95c8c935e5a1450b7941812dd3abb661db655231c32f4b1e279b6a4f8443",
+  "java_version" : "21.0.12.1",
+  "results" : [ {
+    "id" : "arnimb_goethe03_1835-deu",
+    "source_id" : "arnimb_goethe03_1835",
+    "language" : "deu",
+    "effective_upstream_language" : "deu",
+    "image_capture_sha256" : "160c838dd82cab10f67a179d26325d4e2860e9dd404ef0e19e36cc37d23db4de",
+    "container_capture_sha256" : "06721d3f294727b9eea559ac78316ac6a5020e27d0e568440b4debcaba1f0105",
+    "decode" : {
+      "width" : 1675,
+      "height" : 2286,
+      "embedded_icc_profile" : true,
+      "upstream_array_sha256" : "e76e8802c9e6ea3485e3d9655fa4e4b0e71d28cb7f597b2c00c4fe865d4dad25",
+      "jvm_stored_samples_sha256" : "e76e8802c9e6ea3485e3d9655fa4e4b0e71d28cb7f597b2c00c4fe865d4dad25",
+      "jvm_colour_managed_rgb_sha256" : "945b6c6776c4bd4ece0768b866505f3991818b50b27362a481d115b6f5749daf",
+      "upstream_equals_stored_samples" : true,
+      "upstream_equals_colour_managed" : false
+    },
+    "upstream_original_image" : {
+      "reference_line_order_explicit" : true,
+      "reference_code_points" : 1059,
+      "reference_lines" : 22,
+      "prediction_code_points" : 1059,
+      "global_character_edits" : 107,
+      "global_character_error_rate" : 0.10103871576959396,
+      "reference_words" : 192,
+      "global_word_edits" : 77,
+      "global_word_error_rate" : 0.4010416666666667,
+      "reference_text_sha256" : "5e76b0630d86aa651978057208e87159031c788fc347d11f6c9648b2cd86cb20",
+      "prediction_text_sha256" : "5ba24e019efda5cf45ff9ea976002625eecae0485189ce8cc6073bcb45b47a3d",
+      "outcome" : "SUCCESS",
+      "elements" : 7,
+      "categories" : {
+        "UncategorizedText" : 1,
+        "NarrativeText" : 5,
+        "Title" : 1
+      },
+      "numeric_reference_lines" : [ {
+        "reference_index" : 0,
+        "box" : [ 645.0, 320.0, 689.0, 356.0 ],
+        "covered" : true,
+        "element_index" : 0,
+        "element_type" : "UncategorizedText"
+      } ],
+      "unreferenced_elements" : [ ]
+    },
+    "upstream_shared_container" : {
+      "reference_line_order_explicit" : true,
+      "reference_code_points" : 1059,
+      "reference_lines" : 22,
+      "prediction_code_points" : 1047,
+      "global_character_edits" : 107,
+      "global_character_error_rate" : 0.10103871576959396,
+      "reference_words" : 192,
+      "global_word_edits" : 78,
+      "global_word_error_rate" : 0.40625,
+      "reference_text_sha256" : "5e76b0630d86aa651978057208e87159031c788fc347d11f6c9648b2cd86cb20",
+      "prediction_text_sha256" : "7bf3883d5d33362358b0fa6d21f2471e73956545759aabe574b081b6f40cc7e3",
+      "outcome" : "SUCCESS",
+      "elements" : 6,
+      "categories" : {
+        "NarrativeText" : 5,
+        "Title" : 1
+      },
+      "numeric_reference_lines" : [ {
+        "reference_index" : 0,
+        "box" : [ 645.0, 320.0, 689.0, 356.0 ],
+        "covered" : false
+      } ],
+      "unreferenced_elements" : [ ]
+    }
+  }, {
+    "id" : "arnimb_goethe03_1835-deu_latf",
+    "source_id" : "arnimb_goethe03_1835",
+    "language" : "deu_latf",
+    "effective_upstream_language" : "frk",
+    "image_capture_sha256" : "f9d1d087c30438f30bd2a07e6d34790368428cdc72f9ad0c76ac44e90d37e758",
+    "container_capture_sha256" : "cbd6fe8ae92386aca8dec3e9d560914449bc208a854da82b8e3e88c5a248c6ff",
+    "decode" : {
+      "width" : 1675,
+      "height" : 2286,
+      "embedded_icc_profile" : true,
+      "upstream_array_sha256" : "e76e8802c9e6ea3485e3d9655fa4e4b0e71d28cb7f597b2c00c4fe865d4dad25",
+      "jvm_stored_samples_sha256" : "e76e8802c9e6ea3485e3d9655fa4e4b0e71d28cb7f597b2c00c4fe865d4dad25",
+      "jvm_colour_managed_rgb_sha256" : "945b6c6776c4bd4ece0768b866505f3991818b50b27362a481d115b6f5749daf",
+      "upstream_equals_stored_samples" : true,
+      "upstream_equals_colour_managed" : false
+    },
+    "upstream_original_image" : {
+      "reference_line_order_explicit" : true,
+      "reference_code_points" : 1059,
+      "reference_lines" : 22,
+      "prediction_code_points" : 1077,
+      "global_character_edits" : 63,
+      "global_character_error_rate" : 0.059490084985835696,
+      "reference_words" : 192,
+      "global_word_edits" : 43,
+      "global_word_error_rate" : 0.22395833333333334,
+      "reference_text_sha256" : "5e76b0630d86aa651978057208e87159031c788fc347d11f6c9648b2cd86cb20",
+      "prediction_text_sha256" : "b21aaabd19d07de30d877d800d389f261db5b2b51dd597c586f142eb2028f00f",
+      "outcome" : "SUCCESS",
+      "elements" : 7,
+      "categories" : {
+        "UncategorizedText" : 1,
+        "NarrativeText" : 5,
+        "Title" : 1
+      },
+      "numeric_reference_lines" : [ {
+        "reference_index" : 0,
+        "box" : [ 645.0, 320.0, 689.0, 356.0 ],
+        "covered" : true,
+        "element_index" : 0,
+        "element_type" : "UncategorizedText"
+      } ],
+      "unreferenced_elements" : [ ]
+    },
+    "upstream_shared_container" : {
+      "reference_line_order_explicit" : true,
+      "reference_code_points" : 1059,
+      "reference_lines" : 22,
+      "prediction_code_points" : 1059,
+      "global_character_edits" : 50,
+      "global_character_error_rate" : 0.047214353163361665,
+      "reference_words" : 192,
+      "global_word_edits" : 34,
+      "global_word_error_rate" : 0.17708333333333334,
+      "reference_text_sha256" : "5e76b0630d86aa651978057208e87159031c788fc347d11f6c9648b2cd86cb20",
+      "prediction_text_sha256" : "700fd0321365cceb4281383a98e8ce282be0fce5efb4e215d21737722c28cf2c",
+      "outcome" : "SUCCESS",
+      "elements" : 6,
+      "categories" : {
+        "NarrativeText" : 5,
+        "Title" : 1
+      },
+      "numeric_reference_lines" : [ {
+        "reference_index" : 0,
+        "box" : [ 645.0, 320.0, 689.0, 356.0 ],
+        "covered" : false
+      } ],
+      "unreferenced_elements" : [ ]
+    }
+  }, {
+    "id" : "bebel_frau_1879-deu",
+    "source_id" : "bebel_frau_1879",
+    "language" : "deu",
+    "effective_upstream_language" : "deu",
+    "image_capture_sha256" : "bd1d7ab66d56cfab02762c7262b18aa8452496e78f2697e4ee2b71e384b276b2",
+    "container_capture_sha256" : "837fbb70cb3b8f568a6c4715e37c3d87783f8c67fd2927dd5dc510c2762d454f",
+    "decode" : {
+      "width" : 3068,
+      "height" : 4660,
+      "embedded_icc_profile" : false,
+      "upstream_array_sha256" : "9915a259d3a8bcb370b01b193e48b801b8add70bbb3f676792de6ce5d112ffe9",
+      "jvm_stored_samples_sha256" : "1a7fd57ab6b46ba871339946b25ac54f2b7c3583c58f27a5acc537d7abfb22f1",
+      "jvm_colour_managed_rgb_sha256" : null,
+      "upstream_equals_stored_samples" : false,
+      "upstream_equals_colour_managed" : false
+    },
+    "upstream_original_image" : {
+      "reference_line_order_explicit" : false,
+      "reference_code_points" : 3049,
+      "reference_lines" : 50,
+      "prediction_code_points" : 3053,
+      "xml_sequence_character_edits" : 290,
+      "xml_sequence_character_error_rate" : 0.09511315185306658,
+      "reference_words" : 408,
+      "xml_sequence_word_edits" : 45,
+      "xml_sequence_word_error_rate" : 0.11029411764705882,
+      "reference_text_sha256" : "8cedf62f0111a95d1c5a63d62303086acb25c5a4be572d9dbfd0fbfae80def7d",
+      "prediction_text_sha256" : "2ca16c8bec2014145839cc234a02ebb9b7b0cdf37ee69dde72551e6cae991e73",
+      "outcome" : "SUCCESS",
+      "elements" : 8,
+      "categories" : {
+        "UncategorizedText" : 1,
+        "NarrativeText" : 2,
+        "Title" : 1,
+        "ListItem" : 4
+      },
+      "numeric_reference_lines" : [ ],
+      "unreferenced_elements" : [ ]
+    },
+    "upstream_shared_container" : {
+      "reference_line_order_explicit" : false,
+      "reference_code_points" : 3049,
+      "reference_lines" : 50,
+      "prediction_code_points" : 3041,
+      "xml_sequence_character_edits" : 300,
+      "xml_sequence_character_error_rate" : 0.09839291571006888,
+      "reference_words" : 408,
+      "xml_sequence_word_edits" : 45,
+      "xml_sequence_word_error_rate" : 0.11029411764705882,
+      "reference_text_sha256" : "8cedf62f0111a95d1c5a63d62303086acb25c5a4be572d9dbfd0fbfae80def7d",
+      "prediction_text_sha256" : "97e7e92d2ce952bb5c2fc7bf5c4a6ad22a5fbc4d44e60e5bb6648e4f73b0f0fb",
+      "outcome" : "SUCCESS",
+      "elements" : 8,
+      "categories" : {
+        "UncategorizedText" : 1,
+        "NarrativeText" : 2,
+        "Title" : 1,
+        "ListItem" : 4
+      },
+      "numeric_reference_lines" : [ ],
+      "unreferenced_elements" : [ ]
+    }
+  }, {
+    "id" : "bebel_frau_1879-deu_latf",
+    "source_id" : "bebel_frau_1879",
+    "language" : "deu_latf",
+    "effective_upstream_language" : "frk",
+    "image_capture_sha256" : "84c3e587fcf510d043764fd31ad6c6d2de914367fa05f7f9b9cfe248be480b1c",
+    "container_capture_sha256" : "33a8c1a127a4ea1d96e7078f15a7496316ce70768292bf877fa429a5b7d75dca",
+    "decode" : {
+      "width" : 3068,
+      "height" : 4660,
+      "embedded_icc_profile" : false,
+      "upstream_array_sha256" : "9915a259d3a8bcb370b01b193e48b801b8add70bbb3f676792de6ce5d112ffe9",
+      "jvm_stored_samples_sha256" : "1a7fd57ab6b46ba871339946b25ac54f2b7c3583c58f27a5acc537d7abfb22f1",
+      "jvm_colour_managed_rgb_sha256" : null,
+      "upstream_equals_stored_samples" : false,
+      "upstream_equals_colour_managed" : false
+    },
+    "upstream_original_image" : {
+      "reference_line_order_explicit" : false,
+      "reference_code_points" : 3049,
+      "reference_lines" : 50,
+      "prediction_code_points" : 3059,
+      "xml_sequence_character_edits" : 333,
+      "xml_sequence_character_error_rate" : 0.10921613643817644,
+      "reference_words" : 408,
+      "xml_sequence_word_edits" : 84,
+      "xml_sequence_word_error_rate" : 0.20588235294117646,
+      "reference_text_sha256" : "8cedf62f0111a95d1c5a63d62303086acb25c5a4be572d9dbfd0fbfae80def7d",
+      "prediction_text_sha256" : "44fbddb4a958d7853521245f6b73edf87b3d64eb3536dd5f2097b0880eddd4e2",
+      "outcome" : "SUCCESS",
+      "elements" : 8,
+      "categories" : {
+        "UncategorizedText" : 1,
+        "Title" : 2,
+        "NarrativeText" : 1,
+        "ListItem" : 4
+      },
+      "numeric_reference_lines" : [ ],
+      "unreferenced_elements" : [ ]
+    },
+    "upstream_shared_container" : {
+      "reference_line_order_explicit" : false,
+      "reference_code_points" : 3049,
+      "reference_lines" : 50,
+      "prediction_code_points" : 3060,
+      "xml_sequence_character_edits" : 334,
+      "xml_sequence_character_error_rate" : 0.10954411282387667,
+      "reference_words" : 408,
+      "xml_sequence_word_edits" : 86,
+      "xml_sequence_word_error_rate" : 0.2107843137254902,
+      "reference_text_sha256" : "8cedf62f0111a95d1c5a63d62303086acb25c5a4be572d9dbfd0fbfae80def7d",
+      "prediction_text_sha256" : "cfb3bb8aa7f32b99031a2c818caf37d84f9d5a2856b3ea7b3ea2cedc12a56369",
+      "outcome" : "SUCCESS",
+      "elements" : 8,
+      "categories" : {
+        "UncategorizedText" : 1,
+        "NarrativeText" : 2,
+        "Title" : 1,
+        "ListItem" : 4
+      },
+      "numeric_reference_lines" : [ ],
+      "unreferenced_elements" : [ ]
+    }
+  }, {
+    "id" : "buerger_gedichte_1778_0039-deu",
+    "source_id" : "buerger_gedichte_1778_0039",
+    "language" : "deu",
+    "effective_upstream_language" : "deu",
+    "image_capture_sha256" : "ab5a6d681f2526c3dfbdae6d8a4d42479b9a8fc4ec2476551c161a7400b34534",
+    "container_capture_sha256" : "88854cb9392e8871e3063b0068339e99a4c7de7a9101270934f81f8a126027e5",
+    "decode" : {
+      "width" : 1440,
+      "height" : 1929,
+      "embedded_icc_profile" : true,
+      "upstream_array_sha256" : "3d3c0eac834b66d842b53d3f2d74178682e596d04f152d38331cbe948a0404c0",
+      "jvm_stored_samples_sha256" : "3d3c0eac834b66d842b53d3f2d74178682e596d04f152d38331cbe948a0404c0",
+      "jvm_colour_managed_rgb_sha256" : "1f644c7758dd0f93546be8b8283740bf2992d521b9ed1d6bb8382798e51da1b4",
+      "upstream_equals_stored_samples" : true,
+      "upstream_equals_colour_managed" : false
+    },
+    "upstream_original_image" : {
+      "reference_line_order_explicit" : false,
+      "reference_code_points" : 948,
+      "reference_lines" : 38,
+      "prediction_code_points" : 955,
+      "xml_sequence_character_edits" : 435,
+      "xml_sequence_character_error_rate" : 0.4588607594936709,
+      "reference_words" : 162,
+      "xml_sequence_word_edits" : 123,
+      "xml_sequence_word_error_rate" : 0.7592592592592593,
+      "reference_text_sha256" : "4a77b9fff1a8858b2381601798ba9a0a4192af5a5b5f6fbf0a46664c8394bf7e",
+      "prediction_text_sha256" : "be65c5fe8d19f64bd44add6547ae0b46f8fe2fcc543cce73facd0def4aa4c3a6",
+      "outcome" : "SUCCESS",
+      "elements" : 4,
+      "categories" : {
+        "NarrativeText" : 2,
+        "Title" : 2
+      },
+      "numeric_reference_lines" : [ ],
+      "unreferenced_elements" : [ ]
+    },
+    "upstream_shared_container" : {
+      "reference_line_order_explicit" : false,
+      "reference_code_points" : 948,
+      "reference_lines" : 38,
+      "prediction_code_points" : 867,
+      "xml_sequence_character_edits" : 413,
+      "xml_sequence_character_error_rate" : 0.4356540084388186,
+      "reference_words" : 162,
+      "xml_sequence_word_edits" : 124,
+      "xml_sequence_word_error_rate" : 0.7654320987654321,
+      "reference_text_sha256" : "4a77b9fff1a8858b2381601798ba9a0a4192af5a5b5f6fbf0a46664c8394bf7e",
+      "prediction_text_sha256" : "f3ce70145245576b61bfcabed8ab398b7a1263cf5eff40e2f473ec0e6868aee9",
+      "outcome" : "SUCCESS",
+      "elements" : 8,
+      "categories" : {
+        "Title" : 5,
+        "ListItem" : 1,
+        "NarrativeText" : 2
+      },
+      "numeric_reference_lines" : [ ],
+      "unreferenced_elements" : [ ]
+    }
+  }, {
+    "id" : "buerger_gedichte_1778_0039-deu_latf",
+    "source_id" : "buerger_gedichte_1778_0039",
+    "language" : "deu_latf",
+    "effective_upstream_language" : "frk",
+    "image_capture_sha256" : "86c5a344fc3a8b13188a6f48842322f9d51ca64caed6bcc837fe8827a1ed3a9c",
+    "container_capture_sha256" : "0917bd53a01719c9157d0e67d67a53556c6cad13b082db04db9216722eed4c66",
+    "decode" : {
+      "width" : 1440,
+      "height" : 1929,
+      "embedded_icc_profile" : true,
+      "upstream_array_sha256" : "3d3c0eac834b66d842b53d3f2d74178682e596d04f152d38331cbe948a0404c0",
+      "jvm_stored_samples_sha256" : "3d3c0eac834b66d842b53d3f2d74178682e596d04f152d38331cbe948a0404c0",
+      "jvm_colour_managed_rgb_sha256" : "1f644c7758dd0f93546be8b8283740bf2992d521b9ed1d6bb8382798e51da1b4",
+      "upstream_equals_stored_samples" : true,
+      "upstream_equals_colour_managed" : false
+    },
+    "upstream_original_image" : {
+      "reference_line_order_explicit" : false,
+      "reference_code_points" : 948,
+      "reference_lines" : 38,
+      "prediction_code_points" : 1000,
+      "xml_sequence_character_edits" : 407,
+      "xml_sequence_character_error_rate" : 0.4293248945147679,
+      "reference_words" : 162,
+      "xml_sequence_word_edits" : 119,
+      "xml_sequence_word_error_rate" : 0.7345679012345679,
+      "reference_text_sha256" : "4a77b9fff1a8858b2381601798ba9a0a4192af5a5b5f6fbf0a46664c8394bf7e",
+      "prediction_text_sha256" : "d478b3fbe35a2d780432b323e7762e997b814d9da98d2fe6ee5141f495b336a2",
+      "outcome" : "SUCCESS",
+      "elements" : 4,
+      "categories" : {
+        "NarrativeText" : 2,
+        "Title" : 2
+      },
+      "numeric_reference_lines" : [ ],
+      "unreferenced_elements" : [ ]
+    },
+    "upstream_shared_container" : {
+      "reference_line_order_explicit" : false,
+      "reference_code_points" : 948,
+      "reference_lines" : 38,
+      "prediction_code_points" : 890,
+      "xml_sequence_character_edits" : 374,
+      "xml_sequence_character_error_rate" : 0.39451476793248946,
+      "reference_words" : 162,
+      "xml_sequence_word_edits" : 111,
+      "xml_sequence_word_error_rate" : 0.6851851851851852,
+      "reference_text_sha256" : "4a77b9fff1a8858b2381601798ba9a0a4192af5a5b5f6fbf0a46664c8394bf7e",
+      "prediction_text_sha256" : "d635da3e2172fa3522d5ba315214396cc415f8569e57e5bf673ea2b72d708cfe",
+      "outcome" : "SUCCESS",
+      "elements" : 8,
+      "categories" : {
+        "Title" : 4,
+        "NarrativeText" : 3,
+        "UncategorizedText" : 1
+      },
+      "numeric_reference_lines" : [ ],
+      "unreferenced_elements" : [ ]
+    }
+  }, {
+    "id" : "nn_besuch_1780_00001-deu",
+    "source_id" : "nn_besuch_1780_00001",
+    "language" : "deu",
+    "effective_upstream_language" : "deu",
+    "image_capture_sha256" : "0f1e9092a0dd84f0a6bb9ba960e96ccc659b967ae0819038f94865fa693942d3",
+    "container_capture_sha256" : "f1047328676166d0ef220dd90e435a0489158f5028a155bd727e0cc1f403558e",
+    "decode" : {
+      "width" : 2000,
+      "height" : 2271,
+      "embedded_icc_profile" : true,
+      "upstream_array_sha256" : "07745d6c2b007bb5bbdabe76bc7441a358d5ba925bcadff1c61fe7d1ce870232",
+      "jvm_stored_samples_sha256" : "07745d6c2b007bb5bbdabe76bc7441a358d5ba925bcadff1c61fe7d1ce870232",
+      "jvm_colour_managed_rgb_sha256" : "14c451743591463d95344b2a70d1630c7025cd8fff6ffedfbf74a455474b1c6c",
+      "upstream_equals_stored_samples" : true,
+      "upstream_equals_colour_managed" : false
+    },
+    "upstream_original_image" : {
+      "reference_line_order_explicit" : false,
+      "reference_code_points" : 322,
+      "reference_lines" : 10,
+      "prediction_code_points" : 368,
+      "xml_sequence_character_edits" : 106,
+      "xml_sequence_character_error_rate" : 0.32919254658385094,
+      "reference_words" : 59,
+      "xml_sequence_word_edits" : 38,
+      "xml_sequence_word_error_rate" : 0.6440677966101694,
+      "reference_text_sha256" : "c71649df20ebaac27a621710a0994fab3e14c6bdc135dc52145c6f0be89438e7",
+      "prediction_text_sha256" : "e46951b282d80b0b5338a0af29930490f089b17bfbf3f8657ec7df071a3c6eb0",
+      "outcome" : "SUCCESS",
+      "elements" : 6,
+      "categories" : {
+        "UncategorizedText" : 3,
+        "NarrativeText" : 1,
+        "Title" : 2
+      },
+      "numeric_reference_lines" : [ ],
+      "unreferenced_elements" : [ {
+        "box" : [ 1798, 1028, 1832, 1079 ],
+        "element_type" : "Title",
+        "element_index" : 2
+      }, {
+        "box" : [ 1799, 1081, 1839, 1145 ],
+        "element_type" : "UncategorizedText",
+        "element_index" : 3
+      }, {
+        "box" : [ 1798, 1149, 1831, 1167 ],
+        "element_type" : "UncategorizedText",
+        "element_index" : 4
+      }, {
+        "box" : [ 1793, 1620, 1884, 2120 ],
+        "element_type" : "Title",
+        "element_index" : 5
+      } ]
+    },
+    "upstream_shared_container" : {
+      "reference_line_order_explicit" : false,
+      "reference_code_points" : 322,
+      "reference_lines" : 10,
+      "prediction_code_points" : 371,
+      "xml_sequence_character_edits" : 108,
+      "xml_sequence_character_error_rate" : 0.33540372670807456,
+      "reference_words" : 59,
+      "xml_sequence_word_edits" : 37,
+      "xml_sequence_word_error_rate" : 0.6271186440677966,
+      "reference_text_sha256" : "c71649df20ebaac27a621710a0994fab3e14c6bdc135dc52145c6f0be89438e7",
+      "prediction_text_sha256" : "d522c9711a92235c5c5c4330cd1283bec49eb83b5d9cba4e2f3e88c72c6bc463",
+      "outcome" : "SUCCESS",
+      "elements" : 6,
+      "categories" : {
+        "UncategorizedText" : 4,
+        "NarrativeText" : 1,
+        "Title" : 1
+      },
+      "numeric_reference_lines" : [ ],
+      "unreferenced_elements" : [ {
+        "box" : [ 1798, 1028, 1832, 1080 ],
+        "element_type" : "UncategorizedText",
+        "element_index" : 2
+      }, {
+        "box" : [ 1799, 1082, 1839, 1145 ],
+        "element_type" : "UncategorizedText",
+        "element_index" : 3
+      }, {
+        "box" : [ 1798, 1148, 1831, 1166 ],
+        "element_type" : "UncategorizedText",
+        "element_index" : 4
+      }, {
+        "box" : [ 1793, 1620, 1884, 2120 ],
+        "element_type" : "Title",
+        "element_index" : 5
+      } ]
+    }
+  }, {
+    "id" : "nn_besuch_1780_00001-deu_latf",
+    "source_id" : "nn_besuch_1780_00001",
+    "language" : "deu_latf",
+    "effective_upstream_language" : "frk",
+    "image_capture_sha256" : "8e5bbb8b080df2f8b11b90f67c489a6d319e6500cee31410b4d62e1898e417e3",
+    "container_capture_sha256" : "e3dbcdd344d69c5a841dfa91a27beab910f084fd87401564c5fca384ec9ca282",
+    "decode" : {
+      "width" : 2000,
+      "height" : 2271,
+      "embedded_icc_profile" : true,
+      "upstream_array_sha256" : "07745d6c2b007bb5bbdabe76bc7441a358d5ba925bcadff1c61fe7d1ce870232",
+      "jvm_stored_samples_sha256" : "07745d6c2b007bb5bbdabe76bc7441a358d5ba925bcadff1c61fe7d1ce870232",
+      "jvm_colour_managed_rgb_sha256" : "14c451743591463d95344b2a70d1630c7025cd8fff6ffedfbf74a455474b1c6c",
+      "upstream_equals_stored_samples" : true,
+      "upstream_equals_colour_managed" : false
+    },
+    "upstream_original_image" : {
+      "reference_line_order_explicit" : false,
+      "reference_code_points" : 322,
+      "reference_lines" : 10,
+      "prediction_code_points" : 373,
+      "xml_sequence_character_edits" : 76,
+      "xml_sequence_character_error_rate" : 0.2360248447204969,
+      "reference_words" : 59,
+      "xml_sequence_word_edits" : 26,
+      "xml_sequence_word_error_rate" : 0.4406779661016949,
+      "reference_text_sha256" : "c71649df20ebaac27a621710a0994fab3e14c6bdc135dc52145c6f0be89438e7",
+      "prediction_text_sha256" : "4d5f1f6c385340e61f36242239fbef5b76b02ce4a7625e23cf7764ed6883ae21",
+      "outcome" : "SUCCESS",
+      "elements" : 6,
+      "categories" : {
+        "Title" : 4,
+        "NarrativeText" : 1,
+        "UncategorizedText" : 1
+      },
+      "numeric_reference_lines" : [ ],
+      "unreferenced_elements" : [ {
+        "box" : [ 1798, 1028, 1832, 1079 ],
+        "element_type" : "Title",
+        "element_index" : 2
+      }, {
+        "box" : [ 1799, 1081, 1839, 1145 ],
+        "element_type" : "UncategorizedText",
+        "element_index" : 3
+      }, {
+        "box" : [ 1798, 1149, 1831, 1167 ],
+        "element_type" : "Title",
+        "element_index" : 4
+      }, {
+        "box" : [ 1793, 1620, 1884, 2120 ],
+        "element_type" : "Title",
+        "element_index" : 5
+      } ]
+    },
+    "upstream_shared_container" : {
+      "reference_line_order_explicit" : false,
+      "reference_code_points" : 322,
+      "reference_lines" : 10,
+      "prediction_code_points" : 374,
+      "xml_sequence_character_edits" : 85,
+      "xml_sequence_character_error_rate" : 0.2639751552795031,
+      "reference_words" : 59,
+      "xml_sequence_word_edits" : 29,
+      "xml_sequence_word_error_rate" : 0.4915254237288136,
+      "reference_text_sha256" : "c71649df20ebaac27a621710a0994fab3e14c6bdc135dc52145c6f0be89438e7",
+      "prediction_text_sha256" : "d3b84cf0fe6d8fd587be02078dc2ab5c418a0ab178137fa37c340f89fcb54480",
+      "outcome" : "SUCCESS",
+      "elements" : 6,
+      "categories" : {
+        "Title" : 5,
+        "NarrativeText" : 1
+      },
+      "numeric_reference_lines" : [ ],
+      "unreferenced_elements" : [ {
+        "box" : [ 1798, 1028, 1832, 1080 ],
+        "element_type" : "Title",
+        "element_index" : 2
+      }, {
+        "box" : [ 1799, 1082, 1839, 1145 ],
+        "element_type" : "Title",
+        "element_index" : 3
+      }, {
+        "box" : [ 1798, 1148, 1831, 1166 ],
+        "element_type" : "Title",
+        "element_index" : 4
+      }, {
+        "box" : [ 1793, 1620, 1884, 2120 ],
+        "element_type" : "Title",
+        "element_index" : 5
+      } ]
+    }
+  } ]
+}

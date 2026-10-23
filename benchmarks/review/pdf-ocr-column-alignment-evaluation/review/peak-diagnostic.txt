@@ -1,0 +1,84 @@
+# Reference-free diagnostic of every eligible ALIGNMENT_COLUMN_V1 peak in all 8 retained captures (word geometry only; no text, no reference).
+# Fields: upper-median x; distinct supporting lines; longest run of consecutive supporting lines; mean boundary gap / median of the line's other word gaps; supporting lines whose boundary gap exceeds 2x that median; supporting boundaries the production WIDE_GAPS rule (gap > 3 x max word height) already splits; vertical span.
+## arnimb_goethe03_1835-deu lines=21
+  x= 724.0 support=11 longestConsecutiveRun= 5 meanGapToLineMedian= 0.96 boundaryGap>2xMedian=0/11 alreadySplitByWideGaps=0 verticalSpan= 540-1811
+  x= 514.0 support=10 longestConsecutiveRun= 4 meanGapToLineMedian= 1.08 boundaryGap>2xMedian=0/10 alreadySplitByWideGaps=0 verticalSpan= 479-1811
+  x= 623.0 support=10 longestConsecutiveRun= 3 meanGapToLineMedian= 0.99 boundaryGap>2xMedian=0/10 alreadySplitByWideGaps=0 verticalSpan= 414-1748
+  x= 786.0 support=10 longestConsecutiveRun= 3 meanGapToLineMedian= 0.99 boundaryGap>2xMedian=0/10 alreadySplitByWideGaps=0 verticalSpan= 479-1811
+  x= 891.0 support=10 longestConsecutiveRun= 3 meanGapToLineMedian= 0.96 boundaryGap>2xMedian=0/10 alreadySplitByWideGaps=0 verticalSpan= 540-1875
+  x= 853.0 support= 8 longestConsecutiveRun= 3 meanGapToLineMedian= 1.08 boundaryGap>2xMedian=0/8 alreadySplitByWideGaps=0 verticalSpan= 414-1686
+  x= 466.0 support= 7 longestConsecutiveRun= 3 meanGapToLineMedian= 0.94 boundaryGap>2xMedian=0/7 alreadySplitByWideGaps=0 verticalSpan= 603-1193
+  x= 542.0 support= 7 longestConsecutiveRun= 4 meanGapToLineMedian= 1.07 boundaryGap>2xMedian=0/7 alreadySplitByWideGaps=0 verticalSpan= 414-1317
+  x= 582.0 support= 7 longestConsecutiveRun= 2 meanGapToLineMedian= 0.94 boundaryGap>2xMedian=0/7 alreadySplitByWideGaps=0 verticalSpan= 603-1875
+  x= 660.0 support= 7 longestConsecutiveRun= 3 meanGapToLineMedian= 0.94 boundaryGap>2xMedian=0/7 alreadySplitByWideGaps=0 verticalSpan= 479-1875
+  x= 764.0 support= 6 longestConsecutiveRun= 3 meanGapToLineMedian= 1.06 boundaryGap>2xMedian=0/6 alreadySplitByWideGaps=0 verticalSpan= 479-1686
+  x= 929.0 support= 6 longestConsecutiveRun= 2 meanGapToLineMedian= 1.04 boundaryGap>2xMedian=0/6 alreadySplitByWideGaps=0 verticalSpan= 414-1686
+## arnimb_goethe03_1835-deu_latf lines=21
+  x= 724.0 support=11 longestConsecutiveRun= 5 meanGapToLineMedian= 0.96 boundaryGap>2xMedian=0/11 alreadySplitByWideGaps=0 verticalSpan= 540-1811
+  x= 514.0 support=10 longestConsecutiveRun= 4 meanGapToLineMedian= 1.08 boundaryGap>2xMedian=0/10 alreadySplitByWideGaps=0 verticalSpan= 479-1811
+  x= 623.0 support=10 longestConsecutiveRun= 3 meanGapToLineMedian= 0.99 boundaryGap>2xMedian=0/10 alreadySplitByWideGaps=0 verticalSpan= 414-1748
+  x= 786.0 support=10 longestConsecutiveRun= 3 meanGapToLineMedian= 0.99 boundaryGap>2xMedian=0/10 alreadySplitByWideGaps=0 verticalSpan= 479-1811
+  x= 891.0 support=10 longestConsecutiveRun= 3 meanGapToLineMedian= 0.96 boundaryGap>2xMedian=0/10 alreadySplitByWideGaps=0 verticalSpan= 540-1875
+  x= 853.0 support= 8 longestConsecutiveRun= 3 meanGapToLineMedian= 1.08 boundaryGap>2xMedian=0/8 alreadySplitByWideGaps=0 verticalSpan= 414-1686
+  x= 466.0 support= 7 longestConsecutiveRun= 3 meanGapToLineMedian= 0.94 boundaryGap>2xMedian=0/7 alreadySplitByWideGaps=0 verticalSpan= 603-1193
+  x= 542.0 support= 7 longestConsecutiveRun= 4 meanGapToLineMedian= 1.07 boundaryGap>2xMedian=0/7 alreadySplitByWideGaps=0 verticalSpan= 414-1317
+  x= 582.0 support= 7 longestConsecutiveRun= 2 meanGapToLineMedian= 0.94 boundaryGap>2xMedian=0/7 alreadySplitByWideGaps=0 verticalSpan= 603-1875
+  x= 660.0 support= 7 longestConsecutiveRun= 3 meanGapToLineMedian= 0.94 boundaryGap>2xMedian=0/7 alreadySplitByWideGaps=0 verticalSpan= 479-1875
+  x= 764.0 support= 6 longestConsecutiveRun= 3 meanGapToLineMedian= 1.06 boundaryGap>2xMedian=0/6 alreadySplitByWideGaps=0 verticalSpan= 479-1686
+  x= 929.0 support= 6 longestConsecutiveRun= 2 meanGapToLineMedian= 1.04 boundaryGap>2xMedian=0/6 alreadySplitByWideGaps=0 verticalSpan= 414-1686
+## bebel_frau_1879-deu lines=50
+  x=1536.0 support=18 longestConsecutiveRun= 4 meanGapToLineMedian= 1.06 boundaryGap>2xMedian=0/18 alreadySplitByWideGaps=0 verticalSpan= 291-4458
+  x=1136.0 support=15 longestConsecutiveRun= 2 meanGapToLineMedian= 1.10 boundaryGap>2xMedian=0/15 alreadySplitByWideGaps=0 verticalSpan= 645-4246
+  x=1930.0 support=14 longestConsecutiveRun= 3 meanGapToLineMedian= 1.06 boundaryGap>2xMedian=0/14 alreadySplitByWideGaps=0 verticalSpan= 468-4388
+  x=1763.0 support=12 longestConsecutiveRun= 3 meanGapToLineMedian= 0.93 boundaryGap>2xMedian=0/12 alreadySplitByWideGaps=0 verticalSpan= 291-3964
+  x= 943.0 support=11 longestConsecutiveRun= 2 meanGapToLineMedian= 1.03 boundaryGap>2xMedian=0/11 alreadySplitByWideGaps=0 verticalSpan= 468-4246
+  x=1703.0 support=11 longestConsecutiveRun= 3 meanGapToLineMedian= 0.98 boundaryGap>2xMedian=0/11 alreadySplitByWideGaps=0 verticalSpan= 468-4528
+  x=2161.0 support=10 longestConsecutiveRun= 2 meanGapToLineMedian= 0.97 boundaryGap>2xMedian=0/10 alreadySplitByWideGaps=0 verticalSpan= 468-4528
+  x=1053.0 support= 9 longestConsecutiveRun= 1 meanGapToLineMedian= 0.98 boundaryGap>2xMedian=0/9 alreadySplitByWideGaps=0 verticalSpan= 468-4458
+  x=1181.0 support= 9 longestConsecutiveRun= 4 meanGapToLineMedian= 0.94 boundaryGap>2xMedian=0/9 alreadySplitByWideGaps=0 verticalSpan= 556-4528
+  x=1281.0 support= 9 longestConsecutiveRun= 2 meanGapToLineMedian= 0.96 boundaryGap>2xMedian=0/9 alreadySplitByWideGaps=0 verticalSpan= 821-4316
+  x=1320.0 support= 9 longestConsecutiveRun= 1 meanGapToLineMedian= 1.00 boundaryGap>2xMedian=0/9 alreadySplitByWideGaps=0 verticalSpan= 468-4528
+  x=1401.0 support= 9 longestConsecutiveRun= 2 meanGapToLineMedian= 1.01 boundaryGap>2xMedian=0/9 alreadySplitByWideGaps=0 verticalSpan= 645-3570
+  x=1465.0 support= 9 longestConsecutiveRun= 2 meanGapToLineMedian= 1.03 boundaryGap>2xMedian=0/8 alreadySplitByWideGaps=0 verticalSpan= 115-4458
+  x=1005.0 support= 8 longestConsecutiveRun= 1 meanGapToLineMedian= 0.99 boundaryGap>2xMedian=0/8 alreadySplitByWideGaps=0 verticalSpan= 645-4104
+  x=1674.0 support= 8 longestConsecutiveRun= 1 meanGapToLineMedian= 1.09 boundaryGap>2xMedian=0/8 alreadySplitByWideGaps=0 verticalSpan= 734-4316
+  x=1858.0 support= 8 longestConsecutiveRun= 3 meanGapToLineMedian= 1.12 boundaryGap>2xMedian=0/8 alreadySplitByWideGaps=0 verticalSpan= 556-4458
+  x=2039.0 support= 8 longestConsecutiveRun= 1 meanGapToLineMedian= 1.13 boundaryGap>2xMedian=0/8 alreadySplitByWideGaps=0 verticalSpan= 556-4458
+  x=2091.0 support= 8 longestConsecutiveRun= 2 meanGapToLineMedian= 1.04 boundaryGap>2xMedian=0/8 alreadySplitByWideGaps=0 verticalSpan=1442-4388
+  x=2241.0 support= 8 longestConsecutiveRun= 2 meanGapToLineMedian= 1.11 boundaryGap>2xMedian=0/8 alreadySplitByWideGaps=0 verticalSpan=1087-4458
+  x=1598.0 support= 7 longestConsecutiveRun= 2 meanGapToLineMedian= 0.99 boundaryGap>2xMedian=0/7 alreadySplitByWideGaps=0 verticalSpan=1087-4388
+  x=2273.0 support= 7 longestConsecutiveRun= 3 meanGapToLineMedian= 1.01 boundaryGap>2xMedian=0/7 alreadySplitByWideGaps=0 verticalSpan= 734-4458
+## bebel_frau_1879-deu_latf lines=50
+  x=1536.0 support=18 longestConsecutiveRun= 4 meanGapToLineMedian= 1.06 boundaryGap>2xMedian=0/18 alreadySplitByWideGaps=0 verticalSpan= 291-4458
+  x=1136.0 support=15 longestConsecutiveRun= 2 meanGapToLineMedian= 1.10 boundaryGap>2xMedian=0/15 alreadySplitByWideGaps=0 verticalSpan= 645-4246
+  x=1930.0 support=14 longestConsecutiveRun= 3 meanGapToLineMedian= 1.07 boundaryGap>2xMedian=0/14 alreadySplitByWideGaps=0 verticalSpan= 468-4388
+  x=1763.0 support=12 longestConsecutiveRun= 3 meanGapToLineMedian= 0.93 boundaryGap>2xMedian=0/12 alreadySplitByWideGaps=0 verticalSpan= 291-3964
+  x= 943.0 support=11 longestConsecutiveRun= 2 meanGapToLineMedian= 1.03 boundaryGap>2xMedian=0/11 alreadySplitByWideGaps=0 verticalSpan= 468-4246
+  x=1703.0 support=11 longestConsecutiveRun= 3 meanGapToLineMedian= 0.98 boundaryGap>2xMedian=0/11 alreadySplitByWideGaps=0 verticalSpan= 468-4528
+  x=2161.0 support=10 longestConsecutiveRun= 2 meanGapToLineMedian= 0.97 boundaryGap>2xMedian=0/10 alreadySplitByWideGaps=0 verticalSpan= 468-4528
+  x=1053.0 support= 9 longestConsecutiveRun= 1 meanGapToLineMedian= 0.98 boundaryGap>2xMedian=0/9 alreadySplitByWideGaps=0 verticalSpan= 468-4458
+  x=1181.0 support= 9 longestConsecutiveRun= 4 meanGapToLineMedian= 0.94 boundaryGap>2xMedian=0/9 alreadySplitByWideGaps=0 verticalSpan= 556-4528
+  x=1281.0 support= 9 longestConsecutiveRun= 2 meanGapToLineMedian= 0.96 boundaryGap>2xMedian=0/9 alreadySplitByWideGaps=0 verticalSpan= 821-4316
+  x=1320.0 support= 9 longestConsecutiveRun= 1 meanGapToLineMedian= 1.00 boundaryGap>2xMedian=0/9 alreadySplitByWideGaps=0 verticalSpan= 468-4528
+  x=1401.0 support= 9 longestConsecutiveRun= 2 meanGapToLineMedian= 1.01 boundaryGap>2xMedian=0/9 alreadySplitByWideGaps=0 verticalSpan= 645-3570
+  x=1465.0 support= 9 longestConsecutiveRun= 2 meanGapToLineMedian= 1.03 boundaryGap>2xMedian=0/8 alreadySplitByWideGaps=0 verticalSpan= 115-4458
+  x=1005.0 support= 8 longestConsecutiveRun= 1 meanGapToLineMedian= 0.99 boundaryGap>2xMedian=0/8 alreadySplitByWideGaps=0 verticalSpan= 645-4104
+  x=1674.0 support= 8 longestConsecutiveRun= 1 meanGapToLineMedian= 1.09 boundaryGap>2xMedian=0/8 alreadySplitByWideGaps=0 verticalSpan= 734-4316
+  x=1858.0 support= 8 longestConsecutiveRun= 3 meanGapToLineMedian= 1.12 boundaryGap>2xMedian=0/8 alreadySplitByWideGaps=0 verticalSpan= 556-4458
+  x=2039.0 support= 8 longestConsecutiveRun= 1 meanGapToLineMedian= 1.13 boundaryGap>2xMedian=0/8 alreadySplitByWideGaps=0 verticalSpan= 556-4458
+  x=2091.0 support= 8 longestConsecutiveRun= 2 meanGapToLineMedian= 1.04 boundaryGap>2xMedian=0/8 alreadySplitByWideGaps=0 verticalSpan=1442-4388
+  x=2241.0 support= 8 longestConsecutiveRun= 2 meanGapToLineMedian= 1.11 boundaryGap>2xMedian=0/8 alreadySplitByWideGaps=0 verticalSpan=1087-4458
+  x=1598.0 support= 7 longestConsecutiveRun= 2 meanGapToLineMedian= 0.99 boundaryGap>2xMedian=0/7 alreadySplitByWideGaps=0 verticalSpan=1087-4388
+  x=2273.0 support= 7 longestConsecutiveRun= 3 meanGapToLineMedian= 1.01 boundaryGap>2xMedian=0/7 alreadySplitByWideGaps=0 verticalSpan= 734-4458
+## buerger_gedichte_1778_0039-deu lines=27
+  x=1024.0 support=14 longestConsecutiveRun= 7 meanGapToLineMedian= 1.18 boundaryGap>2xMedian=2/14 alreadySplitByWideGaps=1 verticalSpan= 355-1335
+  x= 996.0 support= 9 longestConsecutiveRun= 4 meanGapToLineMedian= 4.46 boundaryGap>2xMedian=5/9 alreadySplitByWideGaps=4 verticalSpan= 413-1438
+  x= 828.0 support= 6 longestConsecutiveRun= 2 meanGapToLineMedian= 0.78 boundaryGap>2xMedian=0/6 alreadySplitByWideGaps=0 verticalSpan= 442-1335
+## buerger_gedichte_1778_0039-deu_latf lines=27
+  x=1024.0 support=13 longestConsecutiveRun= 7 meanGapToLineMedian= 1.11 boundaryGap>2xMedian=1/13 alreadySplitByWideGaps=1 verticalSpan= 355-1335
+  x= 996.0 support= 9 longestConsecutiveRun= 4 meanGapToLineMedian= 4.40 boundaryGap>2xMedian=5/9 alreadySplitByWideGaps=4 verticalSpan= 409-1438
+  x= 840.0 support= 7 longestConsecutiveRun= 3 meanGapToLineMedian= 0.61 boundaryGap>2xMedian=0/7 alreadySplitByWideGaps=0 verticalSpan= 439-1438
+## nn_besuch_1780_00001-deu lines=18
+  x= 848.0 support= 6 longestConsecutiveRun= 4 meanGapToLineMedian= 1.01 boundaryGap>2xMedian=0/6 alreadySplitByWideGaps=0 verticalSpan=1300-1688
+## nn_besuch_1780_00001-deu_latf lines=18
+  x= 848.0 support= 6 longestConsecutiveRun= 4 meanGapToLineMedian= 1.02 boundaryGap>2xMedian=0/6 alreadySplitByWideGaps=0 verticalSpan=1300-1692

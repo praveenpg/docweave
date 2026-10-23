@@ -1,0 +1,9 @@
+id	language	historical_engine_source_dpi	evaluation_engine_dpi	wide_text_sha_equal	historical_assoc/extra	evaluation_wide_assoc/extra
+arnimb_goethe03_1835	deu	300	ENGINE_DEFAULT (no override)	True	21/0	21/0
+arnimb_goethe03_1835	deu_latf	300	ENGINE_DEFAULT (no override)	True	21/0	21/0
+bebel_frau_1879	deu	600	ENGINE_DEFAULT (no override)	True	50/1	50/1
+bebel_frau_1879	deu_latf	600	ENGINE_DEFAULT (no override)	True	50/1	50/1
+buerger_gedichte_1778_0039	deu	300	ENGINE_DEFAULT (no override)	False	26/17	27/13
+buerger_gedichte_1778_0039	deu_latf	300	ENGINE_DEFAULT (no override)	False	27/12	27/11
+nn_besuch_1780_00001	deu	300	ENGINE_DEFAULT (no override)	True	9/9	9/9
+nn_besuch_1780_00001	deu_latf	300	ENGINE_DEFAULT (no override)	True	9/9	9/9

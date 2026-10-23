@@ -1,0 +1,2 @@
+PASS complete result array: /tmp/docweave-validation-20261022/scientific-reading.json
+PASS complete result array: /tmp/docweave-validation-20261022/scientific-spans.json

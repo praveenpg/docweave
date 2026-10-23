@@ -1,0 +1,683 @@
+{
+  "reports" : [ {
+    "source" : "alphabet-q2-2025",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "3581be042fcbda6ea71185d5aef47458ce3a56cf6b16022d61a997d1807a4de5",
+    "pages" : 10,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "alphabet-q2-2025",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "3581be042fcbda6ea71185d5aef47458ce3a56cf6b16022d61a997d1807a4de5",
+    "pages" : 10,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "alphabet-q2-2025",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "3581be042fcbda6ea71185d5aef47458ce3a56cf6b16022d61a997d1807a4de5",
+    "pages" : 10,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "alphabet-q2-2025",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "3581be042fcbda6ea71185d5aef47458ce3a56cf6b16022d61a997d1807a4de5",
+    "pages" : 10,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "amd-fy25q4",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "2e929f92e513ac2395928d29f3cf2db9fbefb4fbef3f68a56efe7d6fffd258df",
+    "pages" : 7,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "amd-fy25q4",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "2e929f92e513ac2395928d29f3cf2db9fbefb4fbef3f68a56efe7d6fffd258df",
+    "pages" : 7,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "amd-fy25q4",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "2e929f92e513ac2395928d29f3cf2db9fbefb4fbef3f68a56efe7d6fffd258df",
+    "pages" : 7,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "amd-fy25q4",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "2e929f92e513ac2395928d29f3cf2db9fbefb4fbef3f68a56efe7d6fffd258df",
+    "pages" : 7,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "apple-q2-2026",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "28fa56187d6fd8fe8b0a67185f62b51fd0bb3932d8413a93f29c7455fc06b4dd",
+    "pages" : 3,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "apple-q2-2026",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "28fa56187d6fd8fe8b0a67185f62b51fd0bb3932d8413a93f29c7455fc06b4dd",
+    "pages" : 3,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "apple-q2-2026",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "28fa56187d6fd8fe8b0a67185f62b51fd0bb3932d8413a93f29c7455fc06b4dd",
+    "pages" : 3,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "apple-q2-2026",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "28fa56187d6fd8fe8b0a67185f62b51fd0bb3932d8413a93f29c7455fc06b4dd",
+    "pages" : 3,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "frx_2012_disclosure",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "aa80de941ee2999798e2d36b63b475861468bcb958cb7106e9afcc12242ad54a",
+    "pages" : 1,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "frx_2012_disclosure",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "aa80de941ee2999798e2d36b63b475861468bcb958cb7106e9afcc12242ad54a",
+    "pages" : 1,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "frx_2012_disclosure",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "aa80de941ee2999798e2d36b63b475861468bcb958cb7106e9afcc12242ad54a",
+    "pages" : 1,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "frx_2012_disclosure",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "aa80de941ee2999798e2d36b63b475861468bcb958cb7106e9afcc12242ad54a",
+    "pages" : 1,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "peerj-article",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "c6c9e6134bcb38ce3855ff48146cdfbf4473ecba76f0fe04d46c2d094c00a522",
+    "pages" : 27,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "peerj-article",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "c6c9e6134bcb38ce3855ff48146cdfbf4473ecba76f0fe04d46c2d094c00a522",
+    "pages" : 27,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "peerj-article",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "c6c9e6134bcb38ce3855ff48146cdfbf4473ecba76f0fe04d46c2d094c00a522",
+    "pages" : 27,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "peerj-article",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "c6c9e6134bcb38ce3855ff48146cdfbf4473ecba76f0fe04d46c2d094c00a522",
+    "pages" : 27,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "scirep-article",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "2f92f07c33b2290b8f3ad0e8933eb57ce27d545d61829e59cc9c00dfb9357360",
+    "pages" : 9,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "scirep-article",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "2f92f07c33b2290b8f3ad0e8933eb57ce27d545d61829e59cc9c00dfb9357360",
+    "pages" : 9,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "scirep-article",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "2f92f07c33b2290b8f3ad0e8933eb57ce27d545d61829e59cc9c00dfb9357360",
+    "pages" : 9,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "scirep-article",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "2f92f07c33b2290b8f3ad0e8933eb57ce27d545d61829e59cc9c00dfb9357360",
+    "pages" : 9,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "transport-bids-2016",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "038126d57e3d9aadfee6c3ac44acc66d4fbdc13598dad8deadd7ec76a2a7d2ab",
+    "pages" : 5,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "transport-bids-2016",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "038126d57e3d9aadfee6c3ac44acc66d4fbdc13598dad8deadd7ec76a2a7d2ab",
+    "pages" : 5,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "transport-bids-2016",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "038126d57e3d9aadfee6c3ac44acc66d4fbdc13598dad8deadd7ec76a2a7d2ab",
+    "pages" : 5,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "transport-bids-2016",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "038126d57e3d9aadfee6c3ac44acc66d4fbdc13598dad8deadd7ec76a2a7d2ab",
+    "pages" : 5,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "us-001",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "294a46dab2f06a99f03979c8084b71945f23ce6c12ecb1f565efcda040e7a84f",
+    "pages" : 3,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "us-001",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "294a46dab2f06a99f03979c8084b71945f23ce6c12ecb1f565efcda040e7a84f",
+    "pages" : 3,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "us-001",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "294a46dab2f06a99f03979c8084b71945f23ce6c12ecb1f565efcda040e7a84f",
+    "pages" : 3,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "us-001",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "294a46dab2f06a99f03979c8084b71945f23ce6c12ecb1f565efcda040e7a84f",
+    "pages" : 3,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "us-002",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "a1a3d580afc6313f9ffa2cfa3b9f3d0bb1406046174912cd6eb23d4f6cda8d57",
+    "pages" : 4,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "us-002",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "a1a3d580afc6313f9ffa2cfa3b9f3d0bb1406046174912cd6eb23d4f6cda8d57",
+    "pages" : 4,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "us-002",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "a1a3d580afc6313f9ffa2cfa3b9f3d0bb1406046174912cd6eb23d4f6cda8d57",
+    "pages" : 4,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "us-002",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "a1a3d580afc6313f9ffa2cfa3b9f3d0bb1406046174912cd6eb23d4f6cda8d57",
+    "pages" : 4,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "us-030",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "5445100424603942b94d42db86e5cac43ed11a227253483643a51dc7c6b74d53",
+    "pages" : 3,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "us-030",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "5445100424603942b94d42db86e5cac43ed11a227253483643a51dc7c6b74d53",
+    "pages" : 3,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "us-030",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "5445100424603942b94d42db86e5cac43ed11a227253483643a51dc7c6b74d53",
+    "pages" : 3,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "us-030",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "5445100424603942b94d42db86e5cac43ed11a227253483643a51dc7c6b74d53",
+    "pages" : 3,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "apple-q3-2026",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "dc0cf747ad18bb340f48a3a79038aaf6f005f3aacab3aa0ba3960ab5370e5aa5",
+    "pages" : 3,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "apple-q3-2026",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "dc0cf747ad18bb340f48a3a79038aaf6f005f3aacab3aa0ba3960ab5370e5aa5",
+    "pages" : 3,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "apple-q3-2026",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "dc0cf747ad18bb340f48a3a79038aaf6f005f3aacab3aa0ba3960ab5370e5aa5",
+    "pages" : 3,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "apple-q3-2026",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "dc0cf747ad18bb340f48a3a79038aaf6f005f3aacab3aa0ba3960ab5370e5aa5",
+    "pages" : 3,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "amazon-q4-2025",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "ad8d84cbcc0a4ce35b803b93e8186c29ea0b06b4455d04fb584ab5ad29c42915",
+    "pages" : 14,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "amazon-q4-2025",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "ad8d84cbcc0a4ce35b803b93e8186c29ea0b06b4455d04fb584ab5ad29c42915",
+    "pages" : 14,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "amazon-q4-2025",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "ad8d84cbcc0a4ce35b803b93e8186c29ea0b06b4455d04fb584ab5ad29c42915",
+    "pages" : 14,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "amazon-q4-2025",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "ad8d84cbcc0a4ce35b803b93e8186c29ea0b06b4455d04fb584ab5ad29c42915",
+    "pages" : 14,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "nvidia-fy26q4",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "89de999d7155649197672bf490c519607f1abbcdc96e2e4c6718bf6ecbb13564",
+    "pages" : 11,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "nvidia-fy26q4",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "89de999d7155649197672bf490c519607f1abbcdc96e2e4c6718bf6ecbb13564",
+    "pages" : 11,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "nvidia-fy26q4",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "89de999d7155649197672bf490c519607f1abbcdc96e2e4c6718bf6ecbb13564",
+    "pages" : 11,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "nvidia-fy26q4",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "89de999d7155649197672bf490c519607f1abbcdc96e2e4c6718bf6ecbb13564",
+    "pages" : 11,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "recent",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "acb3af41357a960a9584f9ba0b0bf3319195af2ec4f3bc6074c2083d97d10bb8",
+    "pages" : 15,
+    "changed_pages" : 1,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "recent",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "acb3af41357a960a9584f9ba0b0bf3319195af2ec4f3bc6074c2083d97d10bb8",
+    "pages" : 15,
+    "changed_pages" : 1,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "recent",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "acb3af41357a960a9584f9ba0b0bf3319195af2ec4f3bc6074c2083d97d10bb8",
+    "pages" : 15,
+    "changed_pages" : 1,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "recent",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "acb3af41357a960a9584f9ba0b0bf3319195af2ec4f3bc6074c2083d97d10bb8",
+    "pages" : 15,
+    "changed_pages" : 1,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "next",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "0c96e723535ee671eb0d263702adc9e986fb2817a5e16ab7b7235e593a39eff2",
+    "pages" : 14,
+    "changed_pages" : 1,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "next",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "0c96e723535ee671eb0d263702adc9e986fb2817a5e16ab7b7235e593a39eff2",
+    "pages" : 14,
+    "changed_pages" : 1,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "next",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "0c96e723535ee671eb0d263702adc9e986fb2817a5e16ab7b7235e593a39eff2",
+    "pages" : 14,
+    "changed_pages" : 1,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "next",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "0c96e723535ee671eb0d263702adc9e986fb2817a5e16ab7b7235e593a39eff2",
+    "pages" : 14,
+    "changed_pages" : 1,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "elife",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "ae3d00995f44bdd26fd0f60e760dc0fce44e84a0482fc64d2277ef4792413a4b",
+    "pages" : 29,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "elife",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "ae3d00995f44bdd26fd0f60e760dc0fce44e84a0482fc64d2277ef4792413a4b",
+    "pages" : 29,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "elife",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "ae3d00995f44bdd26fd0f60e760dc0fce44e84a0482fc64d2277ef4792413a4b",
+    "pages" : 29,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "elife",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "ae3d00995f44bdd26fd0f60e760dc0fce44e84a0482fc64d2277ef4792413a4b",
+    "pages" : 29,
+    "changed_pages" : 0,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "holdout",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "dcd83b90a257628b5a1f8beac96dd14cafcbefa50d7077d15cc4f48d86c2e3dc",
+    "pages" : 23,
+    "changed_pages" : 1,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "holdout",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "dcd83b90a257628b5a1f8beac96dd14cafcbefa50d7077d15cc4f48d86c2e3dc",
+    "pages" : 23,
+    "changed_pages" : 1,
+    "whole_elements_preserved" : true,
+    "inline" : false,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "holdout",
+    "layout" : "COLUMN_PARAGRAPHS",
+    "sha256" : "dcd83b90a257628b5a1f8beac96dd14cafcbefa50d7077d15cc4f48d86c2e3dc",
+    "pages" : 23,
+    "changed_pages" : 1,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  }, {
+    "source" : "holdout",
+    "layout" : "COLUMN_PARAGRAPHS_COMPOUND_WRAPS",
+    "sha256" : "dcd83b90a257628b5a1f8beac96dd14cafcbefa50d7077d15cc4f48d86c2e3dc",
+    "pages" : 23,
+    "changed_pages" : 1,
+    "whole_elements_preserved" : true,
+    "inline" : true,
+    "changed_row_pairs" : 0,
+    "main_elements_equal" : true
+  } ]
+}

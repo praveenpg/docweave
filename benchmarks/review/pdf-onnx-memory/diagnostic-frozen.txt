@@ -1,0 +1,12 @@
+ONNX_PHASE_MEMORY_DIAGNOSTIC_V1 (frozen 2026-10-22 before execution)
+Question: which phase of the real-yolox-fin worker sets the child VmHWM (1.84-1.93 GiB in the original study)?
+Runtime: exactly the eight JARs of /tmp/docweave-validation-20261022/provider-classpath.txt (hashes equal
+provider-runtime-jars.sha256). JVM options identical: -Xms32m -Xmx512m -Djava.awt.headless=true.
+Workload identical to the frozen worker: same Apple source, detector, structure, yoloXDefaults/defaults with
+withConcurrency(2) and KEEP_HIGHER_SCORE, PdfNativeLayoutOptions(150, 16_000_000, 1024), cold attempt,
+sequential attempt, then two simultaneous virtual-thread attempts, then close and post-close rejection.
+Instrumentation: phase boundaries read /proc/self/status VmHWM and VmRSS plus MemoryMXBean heap used/committed;
+a daemon sampler reads VmRSS every 5 ms and records the per-phase maximum. No forced GC, no option changes.
+Phases: start, after-provider-construction, after-cold, after-sequential, after-concurrent, after-close.
+Three independent child JVMs, run sequentially. The diagnostic gates nothing and does not replace the study.
+Decision rule: the phase whose boundary first raises VmHWM to within 5% of its final value sets the peak.

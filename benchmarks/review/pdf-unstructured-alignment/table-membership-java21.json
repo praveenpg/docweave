@@ -1,0 +1,68 @@
+{
+  "manifest_sha256" : "e630fe0fe12a5b9fd0b62b179d1fb803d09241b53f2c88acd0bc0f7a79b5c210",
+  "targets_sha256" : "fd6132b67e40ef3f4a909962e4bb8bc246dc1e7840d3a907e21b505866f5dc1c",
+  "runtime_sha256" : "158827afed541bc4c35add782481512faf8a3b54273ff0daa3c46bed3601e683",
+  "java_version" : "21.0.12.1",
+  "cases" : [ {
+    "id" : "apple",
+    "outcome" : "SUCCESS",
+    "capture_sha256" : "eb59b1e84134dc35315baae0aee03df6cbc37b7705f813f7c03d79c25ae4e0f0",
+    "page" : 3,
+    "page_tables" : [ {
+      "top_pt" : 103.7,
+      "html_rows" : 1,
+      "bottom_pt" : 148.0
+    }, {
+      "top_pt" : 129.7,
+      "html_rows" : 32,
+      "bottom_pt" : 678.6
+    } ],
+    "rows" : [ {
+      "id" : "control-ending-balance",
+      "role" : "control",
+      "text_membership" : "ABSENT",
+      "evidence_items" : 3,
+      "evidence_items_in_separate_non_table_elements" : 2,
+      "geometric_table_cover" : true
+    }, {
+      "id" : "target-disclosure-heading",
+      "role" : "target",
+      "text_membership" : "OUTSIDE_TABLE",
+      "evidence_items" : 1,
+      "evidence_items_in_separate_non_table_elements" : 1,
+      "geometric_table_cover" : false
+    }, {
+      "id" : "target-income-taxes",
+      "role" : "target",
+      "text_membership" : "ABSENT",
+      "evidence_items" : 3,
+      "evidence_items_in_separate_non_table_elements" : 3,
+      "geometric_table_cover" : false
+    } ]
+  }, {
+    "id" : "amazon",
+    "outcome" : "SUCCESS",
+    "capture_sha256" : "4f7696923ce80335c16c8b3c985ec26e24a62b28966b96ace4d3d4f8d2f38c00",
+    "page" : 7,
+    "page_tables" : [ {
+      "top_pt" : 78.2,
+      "html_rows" : 25,
+      "bottom_pt" : 514.3
+    } ],
+    "rows" : [ {
+      "id" : "control-basic",
+      "role" : "control",
+      "text_membership" : "TABLE_TEXT",
+      "evidence_items" : 5,
+      "evidence_items_in_separate_non_table_elements" : 0,
+      "geometric_table_cover" : true
+    }, {
+      "id" : "target-diluted",
+      "role" : "target",
+      "text_membership" : "ABSENT",
+      "evidence_items" : 5,
+      "evidence_items_in_separate_non_table_elements" : 5,
+      "geometric_table_cover" : false
+    } ]
+  } ]
+}

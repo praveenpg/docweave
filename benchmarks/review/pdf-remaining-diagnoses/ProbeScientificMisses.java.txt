@@ -1,0 +1,67 @@
+package dev.docweave.validation;
+
+import dev.docweave.DocWeave;
+import dev.docweave.partition.DocumentSource;
+import dev.docweave.core.ElementType;
+import dev.docweave.partition.PartitionerRegistry;
+import dev.docweave.partition.PdfOptions;
+import dev.docweave.partition.PdfParagraphAssembler;
+import dev.docweave.partition.PdfPartitioner;
+import dev.docweave.partition.PdfTaggedParagraphOptions;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+import java.util.stream.Collectors;
+
+/** Private diagnostic: first divergence of each missing reference paragraph (args: cache case profile). */
+public final class ProbeScientificMisses {
+    public static void main(final String[] args) throws Exception {
+        final Path cache = Path.of(args[0]);
+        final String id = args[1];
+        final String profile = args[2];
+        final var references = ScientificReadingEvaluation.references(Files.readAllBytes(cache.resolve(id + ".xml")), true);
+        final var base = PdfPartitioner.create(PdfOptions.defaults());
+        final var strategy = profile.equals("ASSEMBLED")
+                ? base.withTaggedParagraphs(PdfTaggedParagraphOptions.defaults()
+                                .withWordWrap(PdfTaggedParagraphOptions.WordWrap.SOURCE_LINE_WRAPS)
+                                .withPageBoundary(PdfTaggedParagraphOptions.PageBoundary.PAGE_FRAGMENTS))
+                : PdfPartitioner.create(PdfOptions.defaults().withTextLayout(PdfOptions.TextLayout.valueOf(profile)));
+        final var extracted = DocWeave.create(PartitionerRegistry.of(List.of(strategy)))
+                                      .partition(DocumentSource.bytes(Files.readAllBytes(cache.resolve(id + ".pdf")), id + ".pdf"))
+                                      .elements();
+        final var elements = profile.equals("ASSEMBLED") ? PdfParagraphAssembler.create().assemble(extracted) : extracted;
+        final String candidate = ScientificReadingEvaluation.normalize(elements.stream()
+                                                                               .filter(e -> e.type() != ElementType.Image)
+                                                                               .map(e -> e.text())
+                                                                               .collect(Collectors.joining("\n")));
+        if (args.length > 3) {
+            Files.writeString(Path.of(args[3]), elements.stream()
+                    .filter(e -> e.type() != ElementType.Image)
+                    .map(e -> e.type() + " p" + e.metadata().get("page_number") + " | " + e.text().replace('\n', ' '))
+                    .collect(Collectors.joining("\n")));
+        }
+        for (int index = 0; index < references.size(); index++) {
+            final String text = references.get(index).text();
+            if (candidate.indexOf(text) >= 0) {
+                continue;
+            }
+            int low = 0;
+            int high = text.length();
+            while (low < high) {
+                final int mid = (low + high + 1) / 2;
+                if (candidate.contains(text.substring(0, mid))) {
+                    low = mid;
+                } else {
+                    high = mid - 1;
+                }
+            }
+            final int at = low == 0 ? -1 : candidate.indexOf(text.substring(0, low));
+            System.out.printf("#%d %s prefix=%d/%d%n  ref: ...%s[[%s]]%n  out: ...%s[[%s]]%n", index,
+                    references.get(index).section(), low, text.length(),
+                    text.substring(Math.max(0, low - 40), low),
+                    text.substring(low, Math.min(text.length(), low + 60)).replace(' ', '~'),
+                    at < 0 ? "" : candidate.substring(Math.max(0, at + low - 40), at + low),
+                    at < 0 ? "" : candidate.substring(at + low, Math.min(candidate.length(), at + low + 80)).replace(' ', '~'));
+        }
+    }
+}

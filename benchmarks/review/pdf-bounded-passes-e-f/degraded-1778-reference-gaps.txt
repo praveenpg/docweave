@@ -1,0 +1,13 @@
+source buerger_gedichte_1778_0039.xml sha256 1c6c94ff6dd2823d3ce0197ace5973cae356540c9768de5d05aeb99bd560179d (PAGE reference geometry only; no text)
+reference lines 38, median line height 31 px, rows 27
+row top  356  left edges [588, 972]  inter-column gap px [16]  gap/line-height [0.52]
+row top  416  left edges [590, 990]  inter-column gap px [208]  gap/line-height [6.71]
+row top  441  left edges [590, 1042]  inter-column gap px [101]  gap/line-height [3.26]
+row top  553  left edges [610, 1088]  inter-column gap px [131]  gap/line-height [4.23]
+row top  613  left edges [591, 976]  inter-column gap px [16]  gap/line-height [0.52]
+row top  645  left edges [661, 993]  inter-column gap px [216]  gap/line-height [6.97]
+row top  668  left edges [608, 994]  inter-column gap px [33]  gap/line-height [1.06]
+row top  692  left edges [611, 994]  inter-column gap px [90]  gap/line-height [2.9]
+row top  723  left edges [611, 994]  inter-column gap px [35]  gap/line-height [1.13]
+row top  752  left edges [612, 995]  inter-column gap px [172]  gap/line-height [5.55]
+row top  780  left edges [611, 996]  inter-column gap px [117]  gap/line-height [3.77]

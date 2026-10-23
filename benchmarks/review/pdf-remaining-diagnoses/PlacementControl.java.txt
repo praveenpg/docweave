@@ -1,0 +1,111 @@
+package dev.docweave.partition;
+
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+import javax.imageio.ImageIO;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
+import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory;
+import org.apache.pdfbox.pdmodel.graphics.state.RenderingMode;
+import org.apache.pdfbox.util.Matrix;
+
+/**
+ * Private diagnostic for FRACTIONAL_PLACEMENT_CONTROL_V1. "author OUT.pdf" writes the control; "render PDF DIR"
+ * writes DocWeave RENDERER/BOX_4X whole-page PNGs; "analyze PNG..." prints edge coverage profiles.
+ */
+public final class PlacementControl {
+    public static void main(final String[] args) throws Exception {
+        switch (args[0]) {
+            case "author" -> author(Path.of(args[1]));
+            case "render" -> render(Path.of(args[1]), Path.of(args[2]));
+            default -> {
+                for (int index = 1; index < args.length; index++) {
+                    analyze(Path.of(args[index]));
+                }
+            }
+        }
+    }
+
+    private static void author(final Path output) throws Exception {
+        try (final var document = new PDDocument()) {
+            final var page = new PDPage(new PDRectangle(200, 200));
+            document.addPage(page);
+            final var red = new BufferedImage(8, 8, BufferedImage.TYPE_INT_RGB);
+            for (int y = 0; y < 8; y++) {
+                for (int x = 0; x < 8; x++) {
+                    red.setRGB(x, y, 0xff0000);
+                }
+            }
+            final var image = LosslessFactory.createFromImage(document, red);
+            try (final var content = new PDPageContentStream(document, page)) {
+                content.drawImage(image, new Matrix(33.3f, 0, 0, 21.7f, 40.3f, 60.7f));
+                content.setNonStrokingColor(Color.RED);
+                content.addRect(120.3f, 60.7f, 33.3f, 21.7f);
+                content.fill();
+                content.saveGraphicsState();
+                content.beginText();
+                content.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA), 60);
+                content.setRenderingMode(RenderingMode.NEITHER_CLIP);
+                content.newLineAtOffset(40.3f, 120.7f);
+                content.showText("O");
+                content.endText();
+                content.drawImage(image, new Matrix(60, 0, 0, 60, 40.3f, 115));
+                content.restoreGraphicsState();
+            }
+            document.save(output.toFile());
+        }
+    }
+
+    private static void render(final Path pdf, final Path directory) throws Exception {
+        final var request = List.of(new PdfPageCropRequest(1, 0, 0, 200, 200));
+        for (final var sampling : PdfPageCropOptions.Sampling.values()) {
+            final var crop = PdfPageCropRenderer.create(PdfPageCropOptions.defaults().withSampling(sampling))
+                                     .render(DocumentSource.of(pdf), request)
+                                     .getFirst();
+            Files.write(directory.resolve("docweave-" + sampling.name().toLowerCase() + ".png"), crop.png());
+        }
+    }
+
+    private static void analyze(final Path png) throws Exception {
+        final var image = ImageIO.read(png.toFile());
+        final int middleRow = 267;
+        final StringBuilder out = new StringBuilder(png.getFileName() + " " + image.getWidth() + "x" + image.getHeight());
+        // Horizontal profiles on the middle row of A/B; vertical profile in A's middle column; C ring samples.
+        for (final int[] span : new int[][] {{82, 86}, {151, 155}, {249, 252}, {318, 322}}) {
+            out.append("\n  row").append(middleRow).append(" x").append(span[0]).append('-').append(span[1]).append(':');
+            for (int x = span[0]; x <= span[1]; x++) {
+                out.append(String.format(" %.3f", coverage(image.getRGB(x, middleRow))));
+            }
+        }
+        out.append("\n  col118 y243-247:");
+        for (int y = 243; y <= 247; y++) {
+            out.append(String.format(" %.3f", coverage(image.getRGB(118, y))));
+        }
+        out.append("\n  col118 y288-292:");
+        for (int y = 288; y <= 292; y++) {
+            out.append(String.format(" %.3f", coverage(image.getRGB(118, y))));
+        }
+        int partial = 0;
+        int full = 0;
+        for (int y = 70; y < 170; y++) {
+            for (int x = 80; x < 190; x++) {
+                final double value = coverage(image.getRGB(x, y));
+                partial += value > 0.05 && value < 0.95 ? 1 : 0;
+                full += value >= 0.95 ? 1 : 0;
+            }
+        }
+        out.append("\n  glyph-clip region partial_pixels=").append(partial).append(" full_pixels=").append(full);
+        System.out.println(out);
+    }
+
+    private static double coverage(final int rgb) {
+        return (255 - ((rgb >> 8) & 255)) / 255.0;
+    }
+}

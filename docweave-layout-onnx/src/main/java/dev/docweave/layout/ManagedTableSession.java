@@ -8,7 +8,9 @@ import dev.docweave.partition.PartitionException;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InterruptedIOException;
-import java.nio.file.Files;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.file.StandardOpenOption;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HexFormat;
@@ -51,15 +53,11 @@ final class ManagedTableSession<P> implements AutoCloseable {
     ManagedTableSession(final OnnxTableOptions options, final TableModel<P> model) throws IOException {
         this.options = options;
         this.model = Objects.requireNonNull(model, "model");
-        final byte[] graph;
-        try (final var input = Files.newInputStream(options.model())) {
-            graph = input.readNBytes(options.maxModelBytes() + 1);
-        }
-        if (graph.length > options.maxModelBytes()) {
-            throw failure("ONNX graph exceeds maxModelBytes", null);
-        }
+        final ByteBuffer graph = snapshot(options);
         try {
-            final var hash = HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(graph));
+            final var digest = MessageDigest.getInstance("SHA-256");
+            digest.update(graph.duplicate());
+            final var hash = HexFormat.of().formatHex(digest.digest());
             if (!hash.equals(options.sha256())) {
                 throw failure("ONNX graph SHA256 mismatch", null);
             }
@@ -70,6 +68,11 @@ final class ManagedTableSession<P> implements AutoCloseable {
         try (final var configuration = new OrtSession.SessionOptions()) {
             configuration.setIntraOpNumThreads(options.nativeThreads());
             configuration.setInterOpNumThreads(1);
+            // The default CPU arena keeps each run's activation regions resident after the call and holds one
+            // region per simultaneous run; without it, per-operator buffers return to the system allocator.
+            // Neither setting changes numerical results.
+            configuration.setCPUArenaAllocator(false);
+            configuration.setMemoryPatternOptimization(false);
             environment = OrtEnvironment.getEnvironment();
             created = environment.createSession(graph, configuration);
             model.validate(created);
@@ -100,6 +103,38 @@ final class ManagedTableSession<P> implements AutoCloseable {
             return thread;
         });
         watchdog.setRemoveOnCancelPolicy(true);
+    }
+
+    /**
+     * Reads the complete graph into an owned, exact-size off-heap snapshot.
+     * The snapshot is the only copy that is hashed and handed to ONNX Runtime, so a file changed during loading
+     * cannot pass verification with different bytes. Keeping it off the Java heap avoids committing heap regions
+     * for the whole graph for the rest of the process; ONNX Runtime reads the direct buffer without a further JNI
+     * copy. The buffer becomes unreachable when construction returns and is released by its cleaner. It counts
+     * against the JVM's direct-memory limit, which defaults to the maximum heap size, just as the former heap array
+     * counted against the heap.
+     * @param options graph path and encoded-byte ceiling
+     * @return read-only direct buffer positioned at zero, containing exactly the file's bytes
+     * @throws IOException if the file cannot be read, exceeds maxModelBytes or changes length while being read
+     */
+    static ByteBuffer snapshot(final OnnxTableOptions options) throws IOException {
+        try (final var channel = FileChannel.open(options.model(), StandardOpenOption.READ)) {
+            final long size = channel.size();
+            if (size > options.maxModelBytes()) {
+                throw failure("ONNX graph exceeds maxModelBytes", null);
+            }
+            final var buffer = ByteBuffer.allocateDirect((int) size);
+            while (buffer.hasRemaining()) {
+                if (channel.read(buffer) < 0) {
+                    throw failure("ONNX graph changed length while loading", null);
+                }
+            }
+            // A longer file is rejected rather than silently truncated to the size observed first.
+            if (channel.read(ByteBuffer.allocate(1)) > 0) {
+                throw failure("ONNX graph changed length while loading", null);
+            }
+            return buffer.flip().asReadOnlyBuffer();
+        }
     }
 
     /**

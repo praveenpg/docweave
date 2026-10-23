@@ -95,6 +95,67 @@ class PdfSmallGlyphRunsTest {
     }
 
     /**
+     * The page path compares each run only with its baseline band, yet must equal the whole-input rule exactly,
+     * including competing baselines, overlaps, long runs and distant small text, on seeded synthetic pages.
+     * @throws Exception if grouping fails
+     */
+    @Test
+    void pageBaselinesEqualTheWholeInputRule() throws Exception {
+        final var random = new java.util.Random(20261022L);
+        int assigned = 0;
+        for (int sample = 0; sample < 300; sample++) {
+            final var input = new ArrayList<PdfPageText.Glyph>();
+            final int lines = 1 + random.nextInt(6);
+            for (int line = 0; line < lines; line++) {
+                final float baseline = 100 + line * (6 + random.nextInt(14));
+                for (int index = 0; index < 4 + random.nextInt(8); index++) {
+                    input.add(glyph("b", 10 + index * 5, baseline, 5, 8 + random.nextInt(2)));
+                }
+                for (int run = 0; run < random.nextInt(3); run++) {
+                    final float x = 10 + random.nextInt(60);
+                    final float shift = (random.nextBoolean() ? -1 : 1) * (1 + random.nextInt(9));
+                    final int length = 1 + random.nextInt(10);
+                    for (int index = 0; index < length; index++) {
+                        input.add(glyph(
+                                "s", x + index * (2 + random.nextInt(2)), baseline + shift, 2, 3 + random.nextInt(3)));
+                    }
+                }
+            }
+            java.util.Collections.shuffle(input, random);
+            final var whole = PdfSmallGlyphRuns.lines(input, new PdfTableWork());
+            final var banded = PdfSmallGlyphRuns.pageBaselines(input, new PdfTableWork());
+            assertEquals(whole.assignedGlyphs(), banded.size());
+            assertEquals(
+                    whole.lines(), PdfGlyphLines.lines(input, glyph -> banded.getOrDefault(glyph, (double) glyph.y())));
+            assigned += banded.size();
+        }
+        assertTrue(assigned > 0, "Seeded pages must exercise accepted assignments");
+    }
+
+    /**
+     * The page path charges the same shared work counter and honours caller interruption.
+     * @throws Exception if cancellation checks fail
+     */
+    @Test
+    void pageBaselinesEnforceSharedWorkAndInterruption() throws Exception {
+        final var work = new PdfTableWork();
+        for (int index = 0; index < 2_000_000; index++) {
+            work.step();
+        }
+        assertEquals(PartitionException.Code.TABLE_LIMIT,
+                assertThrows(PartitionException.class, () -> PdfSmallGlyphRuns.pageBaselines(body(0), work)).code());
+        Thread.currentThread().interrupt();
+        try {
+            assertThrows(
+                    InterruptedIOException.class, () -> PdfSmallGlyphRuns.pageBaselines(body(0), new PdfTableWork()));
+        } finally {
+            // The test owns this interrupt and clears it before the runner reuses the thread.
+            Thread.interrupted();
+        }
+        assertTrue(PdfSmallGlyphRuns.pageBaselines(List.of(), new PdfTableWork()).isEmpty());
+    }
+
+    /**
      * Builds four body positions with a stable nonblank median height.
      * @param start original left edge
      * @return mutable owned source positions

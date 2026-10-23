@@ -1,0 +1,24 @@
+== child 1
+start                        VmHWM=46208 VmRSS=46216 phase_peak_rss=45720 heap_used=2097 heap_committed=34816
+after-provider-construction  VmHWM=1172124 VmRSS=945092 phase_peak_rss=1171684 heap_used=121875 heap_committed=243712
+after-cold                   VmHWM=1212080 VmRSS=1152648 phase_peak_rss=1209356 heap_used=98203 heap_committed=243712
+after-sequential             VmHWM=1335124 VmRSS=1239660 phase_peak_rss=1337896 heap_used=177353 heap_committed=243712
+after-concurrent             VmHWM=1686356 VmRSS=1518996 phase_peak_rss=1688908 heap_used=171336 heap_committed=333824
+after-close                  VmHWM=1686356 VmRSS=1457168 phase_peak_rss=1518996 heap_used=172360 heap_committed=333824
+tables=[5, 5, 5, 5] sampler_interval_ms=5
+== child 2
+start                        VmHWM=46092 VmRSS=46100 phase_peak_rss=45704 heap_used=2097 heap_committed=34816
+after-provider-construction  VmHWM=1167804 VmRSS=943024 phase_peak_rss=1165740 heap_used=121892 heap_committed=243712
+after-cold                   VmHWM=1214980 VmRSS=1179884 phase_peak_rss=1217676 heap_used=100736 heap_committed=243712
+after-sequential             VmHWM=1339156 VmRSS=1278636 phase_peak_rss=1342152 heap_used=146602 heap_committed=266240
+after-concurrent             VmHWM=1684260 VmRSS=1589356 phase_peak_rss=1686668 heap_used=170771 heap_committed=403456
+after-close                  VmHWM=1684260 VmRSS=1527548 phase_peak_rss=1589356 heap_used=170771 heap_committed=403456
+tables=[5, 5, 5, 5] sampler_interval_ms=5
+== child 3
+start                        VmHWM=46016 VmRSS=46028 phase_peak_rss=0 heap_used=2097 heap_committed=34816
+after-provider-construction  VmHWM=1172376 VmRSS=949996 phase_peak_rss=1174276 heap_used=120819 heap_committed=243712
+after-cold                   VmHWM=1211596 VmRSS=1178496 phase_peak_rss=1212052 heap_used=99478 heap_committed=243712
+after-sequential             VmHWM=1280316 VmRSS=1219648 phase_peak_rss=1282952 heap_used=132179 heap_committed=274432
+after-concurrent             VmHWM=1750640 VmRSS=1640676 phase_peak_rss=1754028 heap_used=175153 heap_committed=357376
+after-close                  VmHWM=1750640 VmRSS=1640360 phase_peak_rss=1640676 heap_used=175153 heap_committed=357376
+tables=[5, 5, 5, 5] sampler_interval_ms=5

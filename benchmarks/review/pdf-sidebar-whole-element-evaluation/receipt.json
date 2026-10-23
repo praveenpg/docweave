@@ -1,0 +1,24 @@
+{
+  "baseline": "72d77dc",
+  "completed_at": "2026-10-22T22:28:00.239560+00:00",
+  "runtime_changes": false,
+  "external_model_executions": 0,
+  "sources": 17,
+  "pages_in_control_sources": 181,
+  "source_profiles": 68,
+  "scientific_first_page_profiles": 16,
+  "unchanged_row_outcomes": true,
+  "unmatched_or_correct_pair_regressions": 0,
+  "source_sha256": {
+    "benchmarks/tools/EvaluateSidebarBlockMoves.java": "d15f3d93599e287cee5465ef48d7b1a3d29df9929898aa74e75f5a6e529d8b9d",
+    "benchmarks/tools/CompareUpstreamLineOrder.java": "a215cb67a4147ff8713f538a263c385f0d284b75f7754eb9724ad9ae984724d0",
+    "benchmarks/tools/CompareRowAssociation.java": "933e1aeec2d99389dd6ec58db68be35d5d76348e9c3a218d60edc912804aa472"
+  },
+  "evidence_scope": "post-hoc development simulation; production implementation and owned tests still pending",
+  "checks": [
+    "Java21 strict compile/private doclint",
+    "final source reproduces simulation JSON exactly",
+    "pinned clang-format23.1.1",
+    "git diff --check"
+  ]
+}

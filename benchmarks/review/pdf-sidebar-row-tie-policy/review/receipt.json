@@ -1,0 +1,30 @@
+{
+  "reviewed_at": "2026-10-22T23:18:54.101689+00:00",
+  "decision": "ACCEPTED_AFTER_SCOPE_CORRECTION",
+  "base": "f42b0e0",
+  "fix": "Tie pass only when TextLayout.columns(); plain PARAGRAPHS falls back to SMALLER_TYPE_BLOCKS",
+  "tests": 1402,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "sidebar_tests": 15,
+  "source_profiles": 204,
+  "page_profiles": 2172,
+  "changed_row_pairs": 0,
+  "older_output_hashes_unchanged": 408,
+  "line_order_and_strict_reports": "JSON-identical to original candidate reports",
+  "sandbox_failure": "Initial full run could not bind mock HTTP sockets; offline rerun outside sandbox passed. No external models ran.",
+  "source_sha256": {
+    "docweave-pdf/src/main/java/dev/docweave/partition/GeometricPdfReadingOrder.java": "5c968879fa399999e0a88d8f08c9faa1804b44a2ce78448e39482ccaef638fd6",
+    "docweave-pdf/src/main/java/dev/docweave/partition/PdfOptions.java": "c5d1f7549a88a4b20c28fadd39d7dbd13995eb54eeacdc3f94530d54314aae5d",
+    "docweave-pdf/src/test/java/dev/docweave/partition/PdfSideStreamRowTiesTest.java": "fa230f0d443ab35e2d120d47a0ff343b07d4324de99166d8812edc2fddff985d",
+    "benchmarks/tools/CompareSidebarRowTiePolicy.java": "fd2e4a6d49822b13cd13bb9136fe45246585a6801ef186be04cd869362976196"
+  },
+  "classes_sha256": {
+    "docweave-pdf/target/classes/dev/docweave/partition/GeometricPdfReadingOrder$Gap.class": "51d743a2b49bf12ed25f7e9a13068b459dd398894c86e1322f6e35519946a2bf",
+    "docweave-pdf/target/classes/dev/docweave/partition/GeometricPdfReadingOrder$Work.class": "ba63a7cd48329017b8cc579ee081b7226927458bc76147960b277f8e9c71e5aa",
+    "docweave-pdf/target/classes/dev/docweave/partition/GeometricPdfReadingOrder$1.class": "1bd5af8672b65a6c5dcb864d123845aa226f42e703542e8de9e4dac5f0448012",
+    "docweave-pdf/target/classes/dev/docweave/partition/GeometricPdfReadingOrder.class": "51df12bf2ec71d4557944b7e4b7f6464a44b1c9089ab4fda82180ee196408cfa",
+    "docweave-pdf/target/classes/dev/docweave/partition/PdfReadingOrder.class": "6abef70a5c5b6bb8599a0c5b4a65c9d7452fafff3c655f611deafb603a7b7178"
+  }
+}

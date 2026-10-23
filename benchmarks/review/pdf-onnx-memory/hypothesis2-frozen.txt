@@ -1,0 +1,14 @@
+ONNX_HEAP_GRAPH_COPY_HYPOTHESIS_V2 (frozen 2026-10-22 after C1 was measured and reverted)
+Evidence: provider construction raises Java heap commitment 35 -> 244 MB in all three baseline children while
+heap use settles at ~120 MB; G1 keeps that commitment for the whole run, and it adds to process RSS on top of
+the native session and inference memory. The cause is reading each whole graph (216.6 MB, 115.8 MB) into a
+heap byte[] and passing it to createSession(byte[]), whose JNI path makes a further native copy.
+Hypothesis: loading each graph into an exact-size off-heap direct ByteBuffer snapshot, hashing that snapshot,
+and passing it to createSession(ByteBuffer) removes the humongous heap allocations and the JNI copy, lowering
+persistent heap commitment and the process peak, without changing identity checks, limits or outputs.
+Candidate C2 (one change, internal, no API): ManagedTableSession reads the model through a FileChannel into
+ByteBuffer.allocateDirect(size) after checking size against maxModelBytes, verifies SHA-256 over exactly those
+bytes, and creates the session from that buffer. Arena settings are unchanged (C1 is not applied).
+Focused validation: the same frozen ONNX_PHASE_MEMORY_DIAGNOSTIC_V1, three children, only the layout-onnx JAR
+replaced. Proceed to the unchanged original study only if every final VmHWM is below 1,572,864 KiB and every
+attempt emits five tables. Otherwise record a partial result.
