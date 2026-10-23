@@ -1,10 +1,30 @@
 # Consolidated pending work
 
-Snapshot: 2026-10-22, runtime baseline `6a02d01` plus the unreviewed local follow-up. This is the index of recorded pending
-work, including parked improvements. It consolidates the PDF quality backlog, roadmap,
-deferred-functionality audit and latest accepted review. Historical experiments keep their
-original scores. An item being recorded here does not make it a PDF completion blocker,
-an implementation bug, or authorization to publish/run models/acquire another corpus.
+Snapshot: 2026-10-22. Accepted implementation: JVM scorer migration and guarded OCR
+column ordering, development `8156086`, synchronized publicly at `c2d6d4a`. Java 21 review
+verification: 1,461 tests, zero failures/errors/skips. The remaining Python checks are 18
+methods in six files for upstream execution and reference-generation guards.
+
+## Backlog status: deferred for later
+
+All unresolved items in this index are deferred. There is no active PDF improvement or
+qualification task. Resume a specific item when it is selected again; do not automatically
+repeat experiments, model runs, resource searches, corpus acquisition or release preparation.
+Existing regressions remain required for future changes. This deferral does not mean the
+unresolved cases have been fixed or independently qualified.
+
+- **Parked PDF work:** P1–P7 retain concrete next actions below. P8 has no demonstrated defect;
+  reopen only for a reproducible contract failure. P9's reference review is closed; optional
+  Tabula provenance work remains deferred pending the external tool and a defined question.
+- **Future qualification:** Q1–Q4 remain deferred with their stated inputs and acceptance needs.
+- **Deferred capabilities:** N1–N7 and N9–N15 remain in the backlog. N8 migration is complete.
+- **Maintenance:** O1 source synchronization is complete for the accepted baseline. O2 release
+  preparation and O3 further upstream review are deferred. A future source change still needs
+  the normal reviewed public synchronization; this is not an instruction to accumulate drift.
+
+When an item resumes, read its retained failures, freeze one distinct hypothesis and controls,
+and preserve defaults, source fidelity and full scoring denominators. The previous four-attempt
+exercise is complete; it is not a standing instruction to run another four rounds.
 
 ## Parked PDF improvements
 
@@ -36,7 +56,7 @@ opt-in runtime additions have resulted (P1, P2 and two for P5); defaults are unc
 
 ## Other deferred work and new capabilities
 
-These remain recorded, but PDF priority is unchanged. Contextual chunking itself is already implemented.
+These remain deferred alongside the PDF improvement backlog. Contextual chunking itself is already implemented.
 
 | ID | Concrete deliverable |
 |---|---|
@@ -60,11 +80,18 @@ These remain recorded, but PDF priority is unchanged. Contextual chunking itself
 
 | ID | Concrete deliverable |
 |---|---|
-| O1 | Prepare a fresh sanitized public-source projection of accepted development work; integrate incoming public changes first, validate the projection and record development/public mappings. The public repo and exporter already exist. Actual public push remains a separate action. |
+| O1 | **Complete for the current baseline:** development `8156086` maps to public `c2d6d4a`, with 1,461 Java 21 tests passing on the public tree. Repeat reviewed synchronization for future accepted source changes; preserve incoming contributions and private-artifact exclusions. |
 | O2 | At an explicit release milestone: finalize beta notes, source projection, Java21/25 validation, consumer/signing/archive checks, annotated tag and matching prerelease; resolve Central file-count quota before upload if needed. Beta.6 is already published; namespace and signing setup are not missing tasks. |
 | O3 | Maintain upstream drift tracking: review changed upstream sources against the saved reference and separately executed PDF runtime, then run only relevant comparisons. Reviewed release pins are not automatically execution pins. |
 
 ## Completed; do not reassign
+
+- Latest accepted follow-up: guarded OCR columns, JVM migration of 29 Python test methods,
+  retained historical-report parity, packaged API review and 1,461 passing Java 21 tests.
+- Latest public source synchronization: development `8156086` / public `c2d6d4a`.
+- P9 additive reference review and source-whitespace serialization guard are complete.
+
+The earlier counts below describe their historical validation snapshots.
 
 - Whole-element sidebar row ties: accepted in `cf83cb2`; next 3->1, holdout 19->17
   (20->18 inline), recent/eLife unchanged. Plain-PARAGRAPHS regression is fixed.

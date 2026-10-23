@@ -47,13 +47,18 @@ rendering review and upstream comparisons remain separate gaps. Unsupported form
 - Five native XML runs with ordered-text/namespace/attribute checks and explicit XPath/raw-tag/entity-policy boundaries. Initial native evidence now covers all seven implemented formats.
 - DOCX notes/comments, text boxes, image references/optional bounded bytes, structured controls/cells/grid gaps, nonempty/legacy merges, nested links, stored revisions, cached fields and common numbering metadata.
 
-## Current priority: PDF including tables and images
+## PDF implementation and deferred improvements
 
-Further DOCX enhancements are deferred while PDF quality work is in progress. The initial PDFBox module
-extracts native lines/opt-in paragraphs and fixed two-column layout, multiple ruled tables with rectangular merges, opt-in aligned numeric tables and image occurrences/optional PNG payloads.
-It is not full PDF completion. Continue broader borderless-table coverage, broader reading order/arbitrary angles,
-OCR and independent corpus validation as specified in [PDF milestones](pdf-support.md), then return
-to the existing DOCX backlog. Existing regression suites remain required.
+The current PDF implementation includes native text, table extraction, source images, optional
+OCR/layout providers, rendered page crops and explicit reading-order policies. The latest
+reviewed implementation passes 1,461 Java 21 tests. This establishes the recorded regressions,
+not universal extraction accuracy or full upstream parity.
+
+Remaining PDF improvements, independent qualification and other deferred capabilities are
+recorded in the [complete backlog](pending-work.md). All unresolved items are deferred for
+later selection; no further PDF experiments or feature expansion are active. Preserve the
+existing regression suites and failed evidence when work resumes. Further DOCX and other
+format enhancements also remain deferred until a new task is selected.
 
 ## High-priority TODO: cross-format contextual chunk enrichment
 

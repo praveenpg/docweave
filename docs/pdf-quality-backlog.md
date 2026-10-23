@@ -5,6 +5,13 @@ The [consolidated pending-work index](pending-work.md) includes every parked PDF
 qualification, deferred project capability and completed-item disposition. Historical entries
 below retain their original evidence and are not instructions to repeat closed work.
 
+**Deferred checkpoint — 2026-10-22:** all remaining PDF improvements and qualification
+are retained for later work in the [consolidated index](pending-work.md). No investigation
+is active. P1–P7 retain their next actions; P8 has no demonstrated defect and P9's reference
+review is closed. Do not automatically rerun the completed attempt rounds. Latest accepted
+runtime and scorer changes pass 1,461 Java 21 tests; defaults remain unchanged. Statements
+below are historical evidence, not a newer active queue or permission to resume experiments.
+
 **Current scope:** follow the [Unstructured public evaluation scope](pdf-evaluation-scope.md).
 The explicitly requested bounded DocLayNet pilot is now recorded below. Broader
 independent-corpus qualification remains deferred and is not a current completion blocker. Historical requirements below remain recorded as future
