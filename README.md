@@ -4,6 +4,13 @@ A JVM library for turning documents into ordered semantic elements and retrieval
 
 Status: Java 21+ library with native TXT/HTML/Markdown/CSV/TSV/XML/DOCX partitioning and an initial native PDF module, compatibility JSON, basic/title-aware chunking, and bounded virtual-thread document batches.
 
+## Why DocWeave?
+
+**DocWeave** combines **document** and **weave**. Documents contain more than plain text:
+headings, paragraphs, tables, images and metadata all contribute to their meaning. The name
+reflects the library's purpose: bringing document content, structure and context together
+as structured elements and useful chunks that applications can work with.
+
 ## Getting started
 
 Use **Java 21 or later**. For a Maven application, add the PDF-only beta dependency
