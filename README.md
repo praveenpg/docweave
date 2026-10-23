@@ -1,5 +1,9 @@
 # DocWeave
 
+<p align="center">
+  <img src="docs/assets/brand/docweave-logo.png" alt="DocWeave logo" width="520">
+</p>
+
 A JVM library for turning documents into ordered semantic elements and retrieval-ready chunks.
 
 Status: Java 21+ library with native TXT/HTML/Markdown/CSV/TSV/XML/DOCX partitioning and an initial native PDF module, compatibility JSON, basic/title-aware chunking, and bounded virtual-thread document batches.
