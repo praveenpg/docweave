@@ -1,4 +1,4 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
 import org.apache.pdfbox.cos.COSName;
 import org.apache.pdfbox.pdmodel.PDDocument;

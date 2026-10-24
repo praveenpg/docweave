@@ -16,11 +16,11 @@ chunk boundaries, title-aware grouping, overlap or late embedding pooling.
 Keep the existing chunking settings and supply document text deliberately:
 
 ```java
-import dev.docweave.chunking.Chunker;
-import dev.docweave.chunking.ChunkOptions;
-import dev.docweave.chunking.ChunkContextProvider;
-import dev.docweave.chunking.ContextualChunker;
-import dev.docweave.chunking.ContextualChunkOptions;
+import io.docweave.chunking.Chunker;
+import io.docweave.chunking.ChunkOptions;
+import io.docweave.chunking.ChunkContextProvider;
+import io.docweave.chunking.ContextualChunker;
+import io.docweave.chunking.ContextualChunkOptions;
 
 var chunks = Chunker.create().byTitle(elements,
         ChunkOptions.builder().maxCharacters(1500)
@@ -171,7 +171,7 @@ The offline scorer can replay existing captures without model access:
 
 ```sh
 java -cp "/tmp/docweave-context-tools:docweave-validation/target/test-classes:$task_cp" \
-  dev.docweave.validation.EvaluateContextualRetrieval \
+  io.docweave.validation.EvaluateContextualRetrieval \
   fresh-retrieval-run/manifest.json fresh-retrieval-run \
   fresh-retrieval-run/baseline.json fresh-retrieval-run/contextual.json replay-report.json
 ```

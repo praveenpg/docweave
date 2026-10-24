@@ -1,4 +1,4 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
 import org.w3c.dom.Element;
 import tools.jackson.databind.json.JsonMapper;

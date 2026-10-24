@@ -1,7 +1,7 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
-import dev.docweave.core.Element;
-import dev.docweave.core.ElementType;
+import io.docweave.core.Element;
+import io.docweave.core.ElementType;
 import org.jsoup.Jsoup;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -84,7 +84,7 @@ public final class ScoreNvidiaUpstreamRows {
         require(manifest.get("cases").size() == 1 && selectedSource.get("source_pages").asInt() == 11
                         && selectedSource.get("reference_rows").asInt() == 110,
                 "Whole NVIDIA source protocol differs");
-        require(hash(Path.of("docweave-validation/src/test/java/dev/docweave/validation/PdfCurrentBusinessRowsTest.java"))
+        require(hash(Path.of("docweave-validation/src/test/java/io/docweave/validation/PdfCurrentBusinessRowsTest.java"))
                         .equals(manifest.get("scorer_sha256").asString()),
                 "Historical scorer source differs");
         final var runtimePath = captureRoot.resolve("runtime.json");
@@ -121,13 +121,13 @@ public final class ScoreNvidiaUpstreamRows {
             }
         }
         final var html = Jsoup.parse(Files.readString(sourceRoot.resolve(reference.get("source_html").asString())));
-        final var captureClass = Class.forName("dev.docweave.validation.PdfCurrentBusinessRowsTest$Capture");
+        final var captureClass = Class.forName("io.docweave.validation.PdfCurrentBusinessRowsTest$Capture");
         final var constructor = captureClass.getDeclaredConstructor(String.class, List.class, List.class);
         constructor.setAccessible(true);
         final var capture = constructor.newInstance(raw.get("outcome").asString(), List.copyOf(elements), List.of());
         final var score = method("multiplePages", tools.jackson.databind.JsonNode.class, List.class, captureClass,
                 String.class, int.class);
-        final var regionClass = Class.forName("dev.docweave.validation.PdfCurrentBusinessRowsTest$Region");
+        final var regionClass = Class.forName("io.docweave.validation.PdfCurrentBusinessRowsTest$Region");
         final var regionConstructor = regionClass.getDeclaredConstructor(int.class, List.class);
         regionConstructor.setAccessible(true);
         final var results = new ArrayList<Map<String, Object>>();

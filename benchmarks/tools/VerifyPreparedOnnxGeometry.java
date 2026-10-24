@@ -1,4 +1,4 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
 import ai.onnxruntime.OnnxTensor;
 import ai.onnxruntime.OrtEnvironment;

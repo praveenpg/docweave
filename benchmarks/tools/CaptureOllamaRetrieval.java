@@ -1,4 +1,4 @@
-import dev.docweave.json.ElementJson;
+import io.docweave.json.ElementJson;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -211,7 +211,7 @@ public final class CaptureOllamaRetrieval {
      * @throws Exception if protocol identities or numeric scoring fail
      */
     private static void replay(final Path root) throws Exception {
-        dev.docweave.validation.EvaluateContextualRetrieval.main(new String[] {root.resolve("manifest.json").toString(),
+        io.docweave.validation.EvaluateContextualRetrieval.main(new String[] {root.resolve("manifest.json").toString(),
                 root.toString(), root.resolve("baseline.json").toString(), root.resolve("contextual.json").toString(),
                 root.resolve("report.json").toString()});
     }

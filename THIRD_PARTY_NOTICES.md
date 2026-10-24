@@ -5,7 +5,7 @@ third-party material. This guide is included in binary/source/documentation arch
 Dependencies remain separate Maven artifacts; they are not shaded into DocWeave JARs.
 Preserve their original licenses/notices when distributing an application with dependencies.
 The list is the resolved runtime union of all formats plus optional OCR/layout adapters at
-snapshot0.1.0-SNAPSHOT; selecting PDF alone does not include every dependency below.
+snapshot0.1.0-beta.8; selecting PDF alone does not include every dependency below.
 
 ## Compatibility reference and adapted geometry
 

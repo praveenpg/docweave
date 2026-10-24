@@ -1,7 +1,7 @@
-import dev.docweave.DocWeave;
-import dev.docweave.chunking.ChunkOptions;
-import dev.docweave.chunking.Chunker;
-import dev.docweave.json.ElementJson;
+import io.docweave.DocWeave;
+import io.docweave.chunking.ChunkOptions;
+import io.docweave.chunking.Chunker;
+import io.docweave.json.ElementJson;
 
 import java.nio.file.Path;
 

@@ -1,4 +1,4 @@
-package dev.docweave.partition;
+package io.docweave.partition;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;

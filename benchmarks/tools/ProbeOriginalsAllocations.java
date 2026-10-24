@@ -1,8 +1,8 @@
-package dev.docweave.json;
+package io.docweave.json;
 
 import com.sun.management.ThreadMXBean;
-import dev.docweave.core.Element;
-import dev.docweave.core.ElementType;
+import io.docweave.core.Element;
+import io.docweave.core.ElementType;
 import tools.jackson.databind.json.JsonMapper;
 
 import java.io.ByteArrayInputStream;
@@ -44,7 +44,7 @@ public final class ProbeOriginalsAllocations {
      */
     public static void main(final String[] args) throws Exception {
         require(args.length == 2 && !Files.exists(Path.of(args[1])), "Expected legacy source and fresh report");
-        final var constructor = Class.forName("dev.docweave.json.LegacyElementJson").getDeclaredConstructor();
+        final var constructor = Class.forName("io.docweave.json.LegacyElementJson").getDeclaredConstructor();
         constructor.setAccessible(true);
         final var legacy = (ElementJson) constructor.newInstance();
         final var current = ElementJson.create();

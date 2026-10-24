@@ -1,7 +1,7 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
-import dev.docweave.partition.PdfOcrProvider;
-import dev.docweave.partition.PdfWordOcrProvider;
+import io.docweave.partition.PdfOcrProvider;
+import io.docweave.partition.PdfWordOcrProvider;
 import tools.jackson.databind.json.JsonMapper;
 
 import java.awt.image.BufferedImage;

@@ -1,11 +1,11 @@
-import dev.docweave.DocWeave;
-import dev.docweave.core.ElementType;
-import dev.docweave.partition.DocumentSource;
-import dev.docweave.partition.PartitionException;
-import dev.docweave.partition.PartitionResult;
-import dev.docweave.partition.PartitionerRegistry;
-import dev.docweave.partition.PdfOptions;
-import dev.docweave.partition.PdfPartitioner;
+import io.docweave.DocWeave;
+import io.docweave.core.ElementType;
+import io.docweave.partition.DocumentSource;
+import io.docweave.partition.PartitionException;
+import io.docweave.partition.PartitionResult;
+import io.docweave.partition.PartitionerRegistry;
+import io.docweave.partition.PdfOptions;
+import io.docweave.partition.PdfPartitioner;
 
 import java.io.OutputStream;
 import java.lang.management.ManagementFactory;

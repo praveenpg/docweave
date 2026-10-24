@@ -1,7 +1,7 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
-import dev.docweave.partition.PdfOcrProvider;
-import dev.docweave.partition.PdfWordOcrProvider;
+import io.docweave.partition.PdfOcrProvider;
+import io.docweave.partition.PdfWordOcrProvider;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -302,8 +302,8 @@ public final class ReviewOcrColumnAlignment {
          * @throws Exception if the production classes changed shape
          */
         static Production load() throws Exception {
-            final var tsv = Class.forName("dev.docweave.ocr.TesseractTsv");
-            final var deadlineClass = Class.forName("dev.docweave.ocr.OcrDeadline");
+            final var tsv = Class.forName("io.docweave.ocr.TesseractTsv");
+            final var deadlineClass = Class.forName("io.docweave.ocr.OcrDeadline");
             final var segments = tsv.getDeclaredMethod("segments", List.class, int.class, deadlineClass);
             final var line = tsv.getDeclaredMethod("line", List.class, deadlineClass);
             final var deadline = deadlineClass.getDeclaredConstructor(Duration.class);

@@ -1,4 +1,4 @@
-import dev.docweave.partition.*;
+import io.docweave.partition.*;
 import jdk.jfr.Configuration;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordingFile;
@@ -71,14 +71,14 @@ class ProfilePartitionAllocation {
                                                  .getFrames()
                                                  .stream()
                                                  .map(value -> value.getMethod())
-                                                 .filter(value -> value.getType().getName().startsWith("dev.docweave."))
+                                                 .filter(value -> value.getType().getName().startsWith("io.docweave."))
                                                  .map(value -> value.getType().getName() + "." + value.getName())
                                                  .findFirst()
                                                  .orElse("<no DocWeave frame in recorded stack>");
                     weights.merge(frame, event.getLong("weight"), Long::sum);
-                    if (frame.equals("dev.docweave.partition.ElementCollector.add")
-                            || frame.startsWith("dev.docweave.partition.ElementIdGenerator.")
-                            || frame.startsWith("dev.docweave.partition.Utf8Digest.")) {
+                    if (frame.equals("io.docweave.partition.ElementCollector.add")
+                            || frame.startsWith("io.docweave.partition.ElementIdGenerator.")
+                            || frame.startsWith("io.docweave.partition.Utf8Digest.")) {
                         final String stack = event.getStackTrace()
                                                      .getFrames()
                                                      .stream()

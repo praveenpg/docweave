@@ -1,10 +1,10 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
-import dev.docweave.partition.DocumentSource;
-import dev.docweave.partition.PdfPageCrop;
-import dev.docweave.partition.PdfPageCropOptions;
-import dev.docweave.partition.PdfPageCropRenderer;
-import dev.docweave.partition.PdfPageCropRequest;
+import io.docweave.partition.DocumentSource;
+import io.docweave.partition.PdfPageCrop;
+import io.docweave.partition.PdfPageCropOptions;
+import io.docweave.partition.PdfPageCropRenderer;
+import io.docweave.partition.PdfPageCropRequest;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -414,7 +414,7 @@ public final class CheckCropGeometry {
                 final var crops = PdfPageCropRenderer.create(test.options())
                                           .render(DocumentSource.bytes(test.pdf(), "budget.pdf"), test.requests());
                 outcome = crops.size() == test.requests().size() ? "OK" : "PARTIAL";
-            } catch (final dev.docweave.partition.PartitionException failure) {
+            } catch (final io.docweave.partition.PartitionException failure) {
                 outcome = failure.code().name();
             } catch (final java.io.IOException failure) {
                 outcome = "UNTYPED_IO";

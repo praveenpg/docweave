@@ -7,8 +7,10 @@ Keep the matching changelog entry, version, source revision and candidate scope 
 Update status only after the corresponding service confirms it; distinguish prepared, validated,
 publishing and published. Published artifact bytes and coordinates remain immutable.
 
-- [0.1.0-beta.7](0.1.0-beta.7.md): proposed notes only; cumulative PDF changes,
-  candidate/version/tag/upload not prepared.
+- [0.1.0-beta.8](0.1.0-beta.8.md): local package-migration candidate; breaking `io.docweave`
+  Java namespace, unpublished.
+- [0.1.0-beta.7](0.1.0-beta.7.md): local candidate preparation; cumulative PDF and JVM-scoring changes,
+  unpublished. Signing, tag, prerelease and upload remain separate steps.
 - [0.1.0-beta.6](0.1.0-beta.6.md): published; native/provider and tagged tables,
   tagged paragraphs, password support and explicit OCR configuration.
 - [0.1.0-beta.5](0.1.0-beta.5.md): partially ruled native PDF tables with multilevel headers.

@@ -1,9 +1,9 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
-import dev.docweave.core.Element;
-import dev.docweave.partition.PartitionException;
-import dev.docweave.partition.PdfNativeLayoutOptions;
-import dev.docweave.partition.PdfOptions;
+import io.docweave.core.Element;
+import io.docweave.partition.PartitionException;
+import io.docweave.partition.PdfNativeLayoutOptions;
+import io.docweave.partition.PdfOptions;
 import org.jsoup.Jsoup;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.json.JsonMapper;
@@ -73,7 +73,7 @@ public final class AuditStatementRowPresence {
         require(hash(Files.readAllBytes(referencePath)).equals(replay.get("reference_manifest_sha256").asString()),
                 "Reference protocol changed");
         final var scorerPath =
-                Path.of("docweave-validation/src/test/java/dev/docweave/validation/PdfCurrentBusinessRowsTest.java");
+                Path.of("docweave-validation/src/test/java/io/docweave/validation/PdfCurrentBusinessRowsTest.java");
         require(hash(Files.readAllBytes(scorerPath)).equals(replay.get("validation_source_sha256").asString()),
                 "Frozen scorer changed");
         final var reference = mapper.readTree(Files.readAllBytes(referencePath));
@@ -83,7 +83,7 @@ public final class AuditStatementRowPresence {
                             && hash(Files.readAllBytes(path)).equals(input.get("sha256").asString()),
                     "Original input changed");
         }
-        final var scorer = Class.forName("dev.docweave.validation.PdfCurrentBusinessRowsTest");
+        final var scorer = Class.forName("io.docweave.validation.PdfCurrentBusinessRowsTest");
         final var regionClass = Class.forName(scorer.getName() + "$Region");
         final var constructor = regionClass.getDeclaredConstructor(int.class, List.class);
         constructor.setAccessible(true);

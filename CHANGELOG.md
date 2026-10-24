@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Prepare local `0.1.0-beta.8` with Java packages migrated from `dev.docweave` to `io.docweave`,
+  including parser ServiceLoader descriptors, examples and active validation tools. Maven groupId
+  remains `io.docweave`. This breaks source/binary compatibility; update imports, custom provider
+  descriptors and reflection names, then rebuild. See [migration guidance](docs/package-migration.md).
+  No Central publication, Git tag or public release is performed by the local build.
+
 - Add explicit `TesseractOptions.LineSplitting.WIDE_GAPS_AND_GUARDED_RULE_COLUMNS`, which keeps
   `WIDE_GAPS_AND_PRINTED_RULE` unchanged. The new policy uses the found rule only when at least three
   overlapping lines have words on each side of it, and emits lines inside the rule's run left column

@@ -1,7 +1,7 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
-import dev.docweave.partition.PdfOcrProvider;
-import dev.docweave.partition.PdfWordOcrProvider;
+import io.docweave.partition.PdfOcrProvider;
+import io.docweave.partition.PdfWordOcrProvider;
 import tools.jackson.databind.json.JsonMapper;
 
 import java.nio.file.Files;
@@ -401,18 +401,18 @@ public final class EvaluateCachedScanVariants {
             }
         }
         final var options =
-                new dev.docweave.ocr
+                new io.docweave.ocr
                         .TesseractOptions(Path.of("tesseract"), null, List.of(language),
                                 java.time.Duration.ofSeconds(60), 1, 20_000_000, 32L * 1024 * 1024, 4 * 1024 * 1024,
                                 10_000, 1_000_000)
                         .withLineSplitting(
-                                dev.docweave.ocr.TesseractOptions.LineSplitting.WIDE_GAPS_AND_GUARDED_RULE_COLUMNS);
-        final Class<?> parser = Class.forName("dev.docweave.ocr.TesseractTsv");
-        final Class<?> deadline = Class.forName("dev.docweave.ocr.OcrDeadline");
+                                io.docweave.ocr.TesseractOptions.LineSplitting.WIDE_GAPS_AND_GUARDED_RULE_COLUMNS);
+        final Class<?> parser = Class.forName("io.docweave.ocr.TesseractTsv");
+        final Class<?> deadline = Class.forName("io.docweave.ocr.OcrDeadline");
         final var constructor = deadline.getDeclaredConstructor(java.time.Duration.class);
         constructor.setAccessible(true);
         final var parse = parser.getDeclaredMethod("parse", byte[].class, int.class, int.class,
-                dev.docweave.ocr.TesseractOptions.class, deadline, java.awt.image.BufferedImage.class);
+                io.docweave.ocr.TesseractOptions.class, deadline, java.awt.image.BufferedImage.class);
         parse.setAccessible(true);
         @SuppressWarnings("unchecked")
         final var result = (List<PdfOcrProvider.Line>) parse.invoke(null,

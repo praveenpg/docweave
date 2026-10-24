@@ -1,12 +1,12 @@
-import dev.docweave.DocWeave;
-import dev.docweave.core.Element;
-import dev.docweave.partition.DocumentSource;
-import dev.docweave.partition.PartitionException;
-import dev.docweave.partition.PartitionerRegistry;
-import dev.docweave.partition.PdfOcrOptions;
-import dev.docweave.partition.PdfOcrProvider;
-import dev.docweave.partition.PdfOptions;
-import dev.docweave.partition.PdfPartitioner;
+import io.docweave.DocWeave;
+import io.docweave.core.Element;
+import io.docweave.partition.DocumentSource;
+import io.docweave.partition.PartitionException;
+import io.docweave.partition.PartitionerRegistry;
+import io.docweave.partition.PdfOcrOptions;
+import io.docweave.partition.PdfOcrProvider;
+import io.docweave.partition.PdfOptions;
+import io.docweave.partition.PdfPartitioner;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -271,17 +271,17 @@ public final class MeasurePackagedPdfStudy {
             throw new IllegalArgumentException("Declared OCR executable and model directory are required");
         }
         return () -> {
-            final var optionsType = Class.forName("dev.docweave.ocr.TesseractOptions");
+            final var optionsType = Class.forName("io.docweave.ocr.TesseractOptions");
             final var options = optionsType
                                         .getConstructor(Path.class, Path.class, List.class, java.time.Duration.class,
                                                 int.class, long.class, long.class, int.class, int.class, int.class)
                                         .newInstance(Path.of(executable), Path.of(data), List.of(language),
                                                 java.time.Duration.ofSeconds(60), 1, 16_000_000L, 32L * 1024 * 1024,
                                                 4 * 1024 * 1024, 10_000, 1_000_000);
-            final var thresholding = Class.forName("dev.docweave.ocr.TesseractThresholding");
+            final var thresholding = Class.forName("io.docweave.ocr.TesseractThresholding");
             @SuppressWarnings({"unchecked", "rawtypes"})
             final Object engineDefault = Enum.valueOf((Class) thresholding, "ENGINE_DEFAULT");
-            final var engine = (PdfOcrProvider) Class.forName("dev.docweave.ocr.TesseractOcr")
+            final var engine = (PdfOcrProvider) Class.forName("io.docweave.ocr.TesseractOcr")
                                        .getMethod("create", optionsType, thresholding, int.class)
                                        .invoke(null, options, engineDefault, dpi);
             // The historical source page is 1,675 x 2,286 pixels at 300 DPI; LIMIT allows one pixel fewer.

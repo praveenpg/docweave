@@ -1,4 +1,4 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
 import org.jsoup.Jsoup;
 import tools.jackson.databind.JsonNode;

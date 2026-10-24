@@ -1,4 +1,4 @@
-import dev.docweave.partition.*;
+import io.docweave.partition.*;
 
 import java.lang.management.ManagementFactory;
 import java.nio.charset.StandardCharsets;

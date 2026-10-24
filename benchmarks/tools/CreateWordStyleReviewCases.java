@@ -1,6 +1,6 @@
-import dev.docweave.DocWeave;
-import dev.docweave.json.ElementJson;
-import dev.docweave.partition.DocumentSource;
+import io.docweave.DocWeave;
+import io.docweave.json.ElementJson;
+import io.docweave.partition.DocumentSource;
 import org.apache.poi.xwpf.usermodel.*;
 import org.apache.xmlbeans.XmlObject;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.*;

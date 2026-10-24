@@ -1,8 +1,8 @@
-import dev.docweave.DocWeave;
-import dev.docweave.chunking.ChunkOptions;
-import dev.docweave.chunking.Chunker;
-import dev.docweave.core.Element;
-import dev.docweave.json.ElementJson;
+import io.docweave.DocWeave;
+import io.docweave.chunking.ChunkOptions;
+import io.docweave.chunking.Chunker;
+import io.docweave.core.Element;
+import io.docweave.json.ElementJson;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;

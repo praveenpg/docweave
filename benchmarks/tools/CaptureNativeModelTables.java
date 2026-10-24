@@ -1,9 +1,9 @@
-package dev.docweave.partition;
+package io.docweave.partition;
 
-import dev.docweave.DocWeave;
-import dev.docweave.core.ElementType;
-import dev.docweave.layout.OnnxTableLayout;
-import dev.docweave.layout.OnnxTableOptions;
+import io.docweave.DocWeave;
+import io.docweave.core.ElementType;
+import io.docweave.layout.OnnxTableLayout;
+import io.docweave.layout.OnnxTableOptions;
 import org.apache.pdfbox.Loader;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -98,7 +98,7 @@ public final class CaptureNativeModelTables {
                                       : PdfPartitioner.createWithNativeLayout(pdfOptions, policy, provider);
                 final var processor = DocWeave.create(PartitionerRegistry.of(List.of(partitioner)));
                 String outcome = "SUCCESS";
-                List<dev.docweave.core.Element> elements = List.of();
+                List<io.docweave.core.Element> elements = List.of();
                 try {
                     elements = processor.partition(DocumentSource.bytes(bytes, filename)).elements();
                 } catch (final PartitionException failure) {

@@ -20,7 +20,7 @@ using the [runtime classpath instructions](../docs/modules.md#build-tests-and-la
 
 ```sh
 java --class-path "docweave-validation/target/test-classes:$DOCWEAVE_CP" \
-  dev.docweave.validation.SavedOutputComparisonCli reference.json candidate.json
+  io.docweave.validation.SavedOutputComparisonCli reference.json candidate.json
 ```
 
 The CLI prints JSON to stdout and uses exit codes 0 for identical schema-valid outputs, 1 for

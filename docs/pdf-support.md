@@ -378,12 +378,12 @@ only text. The first native milestone below does not complete the full PDF requi
 
 ## Native milestone
 
-Install `io.docweave:docweave-pdf:0.1.0-SNAPSHOT` for PDF only. It depends on core and Apache PDFBox
+Install `io.docweave:docweave-pdf:0.1.0-beta.8` for PDF only. It depends on core and Apache PDFBox
 3.0.8, without POI, jsoup, CommonMark or Jackson. The all-formats convenience artifact includes it.
 Core stays JDK-only. Parser discovery uses the existing ServiceLoader strategy registry.
 
 ```java
-var result = dev.docweave.DocWeave.create().partition(java.nio.file.Path.of("report.pdf"));
+var result = io.docweave.DocWeave.create().partition(java.nio.file.Path.of("report.pdf"));
 ```
 
 The initial implementation provides:
@@ -431,8 +431,8 @@ The initial implementation provides:
 For custom image/limit policies, configure the public service interface through the registry:
 
 ```java
-import dev.docweave.DocWeave;
-import dev.docweave.partition.*;
+import io.docweave.DocWeave;
+import io.docweave.partition.*;
 
 var pdf = PdfPartitioner.create(new PdfOptions(
         1000, 250_000, 100_000, 16_000_000, 16 * 1024 * 1024, true, TableLimits.defaults()));
@@ -1725,8 +1725,8 @@ ruled/aligned strategies, OCR defaults and dependency isolation remain unchanged
 
 ## Optional local ONNX table structure
 
-Add `io.docweave:docweave-layout-onnx:0.1.0-SNAPSHOT` explicitly to use
-`dev.docweave.layout.OnnxTableLayout`. Neither PDF nor the convenience artifact brings
+Add `io.docweave:docweave-layout-onnx:0.1.0-beta.8` explicitly to use
+`io.docweave.layout.OnnxTableLayout`. Neither PDF nor the convenience artifact brings
 ONNX Runtime transitively. There is no ServiceLoader registration, graph discovery,
 model download or implicit native execution. The application supplies a trusted standalone
 ONNX graph and its expected SHA256, owns the provider and closes it after partitioning.
@@ -2296,7 +2296,7 @@ var processor = DocWeave.create(PartitionerRegistry.of(List.of(PdfPartitioner.cr
 var result = processor.partition(Path.of("report.pdf"));
 ```
 
-Import `dev.docweave.DocWeave`, `dev.docweave.partition.PdfOptions`, `PdfPartitioner`,
+Import `io.docweave.DocWeave`, `io.docweave.partition.PdfOptions`, `PdfPartitioner`,
 `PartitionerRegistry`, `java.util.List` and `java.nio.file.Path`.
 This API is a development addition after0.1.0-beta.1, not part of that published artifact.
 
@@ -2404,12 +2404,12 @@ Available starting with published0.1.0-beta.5; this option is absent from0.1.0-b
 opts into a separate native strategy through the existing partitioner interface:
 
 ```java
-var options = dev.docweave.partition.PdfOptions.defaults()
-        .withTableDetection(dev.docweave.partition.PdfOptions.TableDetection.RULED_AND_PARTIAL_TEXT)
+var options = io.docweave.partition.PdfOptions.defaults()
+        .withTableDetection(io.docweave.partition.PdfOptions.TableDetection.RULED_AND_PARTIAL_TEXT)
         .withTableCellCoordinates(true);
-var registry = dev.docweave.partition.PartitionerRegistry.of(java.util.List.of(
-        dev.docweave.partition.PdfPartitioner.create(options)));
-var result = dev.docweave.DocWeave.create(registry).partition(java.nio.file.Path.of("report.pdf"));
+var registry = io.docweave.partition.PartitionerRegistry.of(java.util.List.of(
+        io.docweave.partition.PdfPartitioner.create(options)));
+var result = io.docweave.DocWeave.create(registry).partition(java.nio.file.Path.of("report.pdf"));
 ```
 
 This narrow strategy requires three consecutive horizontal rule groups: one full-width top
@@ -2465,12 +2465,12 @@ managed provider after all extraction calls finish.
 
 ```java
 // layout is an explicitly configured, thread-safe PdfTableLayoutProvider.
-var nativePolicy = new dev.docweave.partition.PdfNativeLayoutOptions(150, 16_000_000, 1024);
-var pdf = dev.docweave.partition.PdfPartitioner.createWithNativeLayout(
-        dev.docweave.partition.PdfOptions.defaults().withTableCellCoordinates(true),
+var nativePolicy = new io.docweave.partition.PdfNativeLayoutOptions(150, 16_000_000, 1024);
+var pdf = io.docweave.partition.PdfPartitioner.createWithNativeLayout(
+        io.docweave.partition.PdfOptions.defaults().withTableCellCoordinates(true),
         nativePolicy, layout);
-var processor = dev.docweave.DocWeave.create(
-        dev.docweave.partition.PartitionerRegistry.of(java.util.List.of(pdf)));
+var processor = io.docweave.DocWeave.create(
+        io.docweave.partition.PartitionerRegistry.of(java.util.List.of(pdf)));
 var result = processor.partition(java.nio.file.Path.of("report.pdf"));
 ```
 
@@ -2520,11 +2520,11 @@ is never guessed from a table envelope. Provider text uses only those original u
 Source images and remaining ordinary native text are emitted once.
 
 ```java
-var nativeOptions = dev.docweave.partition.PdfOptions.defaults()
-        .withTableDetection(dev.docweave.partition.PdfOptions.TableDetection.RULED_AND_PARTIAL_TEXT)
+var nativeOptions = io.docweave.partition.PdfOptions.defaults()
+        .withTableDetection(io.docweave.partition.PdfOptions.TableDetection.RULED_AND_PARTIAL_TEXT)
         .withTableCellCoordinates(true);
-var pdf = dev.docweave.partition.PdfPartitioner.createWithNativeTablesFirst(
-        nativeOptions, new dev.docweave.partition.PdfNativeLayoutOptions(150, 16_000_000, 1024), layout);
+var pdf = io.docweave.partition.PdfPartitioner.createWithNativeTablesFirst(
+        nativeOptions, new io.docweave.partition.PdfNativeLayoutOptions(150, 16_000_000, 1024), layout);
 ```
 
 `layout` is an explicitly configured caller-owned, thread-safe provider, such as the optional

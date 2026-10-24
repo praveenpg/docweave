@@ -1,4 +1,4 @@
-package dev.docweave.layout;
+package io.docweave.layout;
 
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;

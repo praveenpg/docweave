@@ -1,11 +1,11 @@
-package dev.docweave.partition;
+package io.docweave.partition;
 
-import dev.docweave.DocWeave;
-import dev.docweave.core.ElementType;
-import dev.docweave.layout.OnnxTableLayout;
-import dev.docweave.layout.OnnxTableOptions;
-import dev.docweave.ocr.TesseractOcr;
-import dev.docweave.ocr.TesseractOptions;
+import io.docweave.DocWeave;
+import io.docweave.core.ElementType;
+import io.docweave.layout.OnnxTableLayout;
+import io.docweave.layout.OnnxTableOptions;
+import io.docweave.ocr.TesseractOcr;
+import io.docweave.ocr.TesseractOptions;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;

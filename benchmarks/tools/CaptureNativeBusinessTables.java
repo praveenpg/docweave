@@ -1,7 +1,7 @@
-package dev.docweave.partition;
+package io.docweave.partition;
 
-import dev.docweave.DocWeave;
-import dev.docweave.core.ElementType;
+import io.docweave.DocWeave;
+import io.docweave.core.ElementType;
 import org.apache.pdfbox.Loader;
 import tools.jackson.databind.json.JsonMapper;
 

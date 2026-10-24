@@ -1,4 +1,4 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
 /** JVM-only entry point for frozen baseline/contextual retrieval capture scoring. */
 public final class EvaluateContextualRetrieval {

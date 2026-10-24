@@ -1,4 +1,4 @@
-package dev.docweave.layout;
+package io.docweave.layout;
 
 import ai.onnxruntime.OnnxJavaType;
 import ai.onnxruntime.OnnxTensor;

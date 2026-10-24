@@ -1,4 +1,4 @@
-package dev.docweave.partition;
+package io.docweave.partition;
 
 import tools.jackson.databind.json.JsonMapper;
 
@@ -32,7 +32,7 @@ public final class VerifyRectangleClipPixels {
         require(Files.isExecutable(executable), "Explicit renderer is not executable");
         final Path root = Files.createDirectory(Path.of(args[1]));
         run(List.of(executable.toString(), "-v"), root.resolve("version.txt"));
-        final var source = Class.forName("dev.docweave.partition.PdfEmptyFormClipTest")
+        final var source = Class.forName("io.docweave.partition.PdfEmptyFormClipTest")
                                    .getDeclaredMethod("source", String.class, String.class, int.class, boolean.class);
         source.setAccessible(true);
         final var results = new ArrayList<Map<String, Object>>();
@@ -74,7 +74,7 @@ public final class VerifyRectangleClipPixels {
                         System.getProperty("java.runtime.version"), "renderer_version",
                         Files.readString(root.resolve("version.txt")), "renderer_sha256", hash(executable),
                         "source_author_sha256",
-                        hash(Path.of("docweave-pdf/src/test/java/dev/docweave/partition/PdfEmptyFormClipTest.java")),
+                        hash(Path.of("docweave-pdf/src/test/java/io/docweave/partition/PdfEmptyFormClipTest.java")),
                         "probe_sha256", hash(Path.of("benchmarks/tools/VerifyRectangleClipPixels.java")), "scope",
                         "Twenty-two owned complete-source pairs, explicit Poppler72DPI/cropbox, exact RGB; no corpus accuracy claim",
                         "results", results))

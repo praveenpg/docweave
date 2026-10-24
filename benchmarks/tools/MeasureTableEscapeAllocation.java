@@ -1,4 +1,4 @@
-package dev.docweave.partition;
+package io.docweave.partition;
 
 import java.lang.management.ManagementFactory;
 import java.util.List;

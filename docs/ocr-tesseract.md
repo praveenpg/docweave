@@ -1,16 +1,16 @@
 # Optional Tesseract OCR
 
-Add `io.docweave:docweave-ocr-tesseract:0.1.0-SNAPSHOT` explicitly alongside your PDF application.
+Add `io.docweave:docweave-ocr-tesseract:0.1.0-beta.8` explicitly alongside your PDF application.
 It depends on `docweave-pdf` and its native dependencies; it adds no Java library dependencies of its
 own. It is deliberately excluded from the `docweave` convenience artifact and automatic discovery.
 Install a trusted Tesseract 5 executable and the selected language models separately, following the
 [official installation guide](https://tesseract-ocr.github.io/tessdoc/Installation.html).
 
 ```java
-import dev.docweave.DocWeave;
-import dev.docweave.ocr.TesseractOcr;
-import dev.docweave.ocr.TesseractOptions;
-import dev.docweave.partition.*;
+import io.docweave.DocWeave;
+import io.docweave.ocr.TesseractOcr;
+import io.docweave.ocr.TesseractOptions;
+import io.docweave.partition.*;
 
 var ocr = TesseractOcr.create(TesseractOptions.defaults());
 var ocrPolicy = PdfOcrOptions.defaults(); // textless pages; opt into IMAGE_REGIONS for mixed pages
@@ -232,8 +232,8 @@ separately; compare fixed labels before drawing domain-specific conclusions.
 `PdfPartitioner.createOriented` factory:
 
 ```java
-var estimator = dev.docweave.ocr.TesseractOrientation.create(
-        dev.docweave.ocr.TesseractOrientationOptions.defaults());
+var estimator = io.docweave.ocr.TesseractOrientation.create(
+        io.docweave.ocr.TesseractOrientationOptions.defaults());
 var pdf = PdfPartitioner.createOriented(PdfOptions.defaults(),
         PdfOcrOptions.defaults().withTableDetection(PdfOcrOptions.TableDetection.RULED),
         ocr, estimator);
@@ -385,9 +385,9 @@ For pages with uneven illumination, an unreleased opt-in page policy is availabl
 final int rasterDpi = 300; // Actual resolution of every image supplied to this provider.
 final var ocr = TesseractOcr.create(
         TesseractOptions.defaults(),
-        dev.docweave.ocr.TesseractThresholding.ENGINE_DEFAULT,
+        io.docweave.ocr.TesseractThresholding.ENGINE_DEFAULT,
         rasterDpi,
-        dev.docweave.ocr.TesseractPreprocessing.LOCAL_WHITEPOINT);
+        io.docweave.ocr.TesseractPreprocessing.LOCAL_WHITEPOINT);
 final var pdf = PdfPartitioner.create(PdfOptions.defaults(),
         new PdfOcrOptions(rasterDpi, 16_000_000, 10_000, 1_000_000), ocr);
 ```

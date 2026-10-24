@@ -1,4 +1,4 @@
-package dev.docweave.partition;
+package io.docweave.partition;
 
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.json.JsonMapper;

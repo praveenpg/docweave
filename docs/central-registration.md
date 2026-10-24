@@ -50,7 +50,7 @@ These steps document initial setup; the existing namespace does not need to be r
 
 The optional automatically verified `io.github.praveenpg` namespace does not verify
 `io.docweave`. Maven coordinates and Java packages can differ; registration does not
-require changing the existing `dev.docweave` packages.
+require changing the existing `io.docweave` packages.
 See [Sonatype namespace registration](https://central.sonatype.org/register/namespace/).
 
 ## Publishing credentials and release preparation
@@ -62,3 +62,6 @@ Review release scope, source attribution and the exact signed artifact set befor
 A Central-layout ZIP, a validated deployment and a published release are distinct stages;
 namespace verification does not publish artifacts. See [publishing](publishing.md) and the
 [release checklist](pdf-beta-checklist.md).
+
+Local beta.8 separately migrates Java packages to `io.docweave`; this is an API change, not a
+namespace-verification requirement. See [package migration](package-migration.md).

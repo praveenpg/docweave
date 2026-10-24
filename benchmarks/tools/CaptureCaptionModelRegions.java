@@ -1,6 +1,6 @@
-package dev.docweave.layout;
+package io.docweave.layout;
 
-import dev.docweave.partition.PartitionException;
+import io.docweave.partition.PartitionException;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.rendering.ImageType;
 import org.apache.pdfbox.rendering.PDFRenderer;

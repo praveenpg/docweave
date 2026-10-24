@@ -1,4 +1,4 @@
-package dev.docweave.partition;
+package io.docweave.partition;
 
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -33,7 +33,7 @@ public final class ProbeNativeRowAmbiguity {
      */
     public static void main(final String[] args) throws Exception {
         require(args.length == 1, "Expected fresh report");
-        final var classifier = Class.forName("dev.docweave.validation.AuditSynchronizedModelRows");
+        final var classifier = Class.forName("io.docweave.validation.AuditSynchronizedModelRows");
         final var cellClass = Class.forName(classifier.getName() + "$Cell");
         final var constructor = cellClass.getDeclaredConstructor(int.class, int.class, int.class, List.class);
         constructor.setAccessible(true);

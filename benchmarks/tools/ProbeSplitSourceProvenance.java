@@ -1,10 +1,10 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
-import dev.docweave.chunking.ChunkOptions;
-import dev.docweave.chunking.Chunker;
-import dev.docweave.core.Element;
-import dev.docweave.core.ElementType;
-import dev.docweave.json.ElementJson;
+import io.docweave.chunking.ChunkOptions;
+import io.docweave.chunking.Chunker;
+import io.docweave.core.Element;
+import io.docweave.core.ElementType;
+import io.docweave.json.ElementJson;
 import tools.jackson.databind.json.JsonMapper;
 
 import java.awt.image.BufferedImage;

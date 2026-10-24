@@ -1,4 +1,4 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
 import tools.jackson.databind.json.JsonMapper;
 
@@ -82,7 +82,7 @@ public final class FreezeScientificReading {
         final var helpers = new LinkedHashMap<String, String>();
         for (final String filename : List.of("ScientificPublisherXml.java", "ScientificReadingEvaluation.java",
                      "PdfScientificReadingOrderTest.java")) {
-            final String relative = "docweave-validation/src/test/java/dev/docweave/validation/" + filename;
+            final String relative = "docweave-validation/src/test/java/io/docweave/validation/" + filename;
             helpers.put(relative, hash(project.resolve(relative)));
         }
         helpers.put("benchmarks/tools/FreezeScientificReading.java",

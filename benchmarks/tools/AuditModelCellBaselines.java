@@ -1,4 +1,4 @@
-package dev.docweave.partition;
+package io.docweave.partition;
 
 import org.apache.pdfbox.Loader;
 import tools.jackson.databind.json.JsonMapper;

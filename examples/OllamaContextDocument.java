@@ -1,12 +1,12 @@
-import dev.docweave.DocWeave;
-import dev.docweave.chunking.ChunkContextProvider;
-import dev.docweave.chunking.ChunkOptions;
-import dev.docweave.chunking.Chunker;
-import dev.docweave.chunking.ContextualChunkOptions;
-import dev.docweave.chunking.ContextualChunker;
-import dev.docweave.core.Element;
-import dev.docweave.core.ElementType;
-import dev.docweave.json.ElementJson;
+import io.docweave.DocWeave;
+import io.docweave.chunking.ChunkContextProvider;
+import io.docweave.chunking.ChunkOptions;
+import io.docweave.chunking.Chunker;
+import io.docweave.chunking.ContextualChunkOptions;
+import io.docweave.chunking.ContextualChunker;
+import io.docweave.core.Element;
+import io.docweave.core.ElementType;
+import io.docweave.json.ElementJson;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.json.JsonMapper;
 

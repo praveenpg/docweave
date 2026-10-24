@@ -7,12 +7,12 @@ starter is required. Add these dependencies alongside your existing Spring depen
 <dependency>
     <groupId>io.docweave</groupId>
     <artifactId>docweave-pdf</artifactId>
-    <version>0.1.0-beta.6</version>
+    <version>0.1.0-beta.8</version>
 </dependency>
 <dependency>
     <groupId>io.docweave</groupId>
     <artifactId>docweave-chunking</artifactId>
-    <version>0.1.0-beta.6</version>
+    <version>0.1.0-beta.8</version>
 </dependency>
 ```
 
@@ -22,8 +22,8 @@ add your application's package declaration to each source file.
 ## Register reusable services
 
 ```java
-import dev.docweave.DocWeave;
-import dev.docweave.chunking.Chunker;
+import io.docweave.DocWeave;
+import io.docweave.chunking.Chunker;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -53,7 +53,7 @@ Add the optional adapter at the same version as your PDF dependency:
 <dependency>
     <groupId>io.docweave</groupId>
     <artifactId>docweave-ocr-tesseract</artifactId>
-    <version>0.1.0-beta.6</version>
+    <version>0.1.0-beta.8</version>
 </dependency>
 ```
 
@@ -66,12 +66,12 @@ to `DocWeaveConfiguration`. Keep its existing `chunker()` bean and the service b
 Register only one `DocWeave` bean.
 
 ```java
-import dev.docweave.ocr.TesseractOcr;
-import dev.docweave.ocr.TesseractOptions;
-import dev.docweave.partition.PartitionerRegistry;
-import dev.docweave.partition.PdfOcrOptions;
-import dev.docweave.partition.PdfOptions;
-import dev.docweave.partition.PdfPartitioner;
+import io.docweave.ocr.TesseractOcr;
+import io.docweave.ocr.TesseractOptions;
+import io.docweave.partition.PartitionerRegistry;
+import io.docweave.partition.PdfOcrOptions;
+import io.docweave.partition.PdfOptions;
+import io.docweave.partition.PdfPartitioner;
 
 /** @return a PDF processor that also recognizes pages without native text */
 @Bean
@@ -178,8 +178,8 @@ PDF request deadline. See [OCR limits and failures](ocr-tesseract.md#resources-a
 Save as `DocumentService.java`:
 
 ```java
-import dev.docweave.core.Element;
-import dev.docweave.partition.PartitionResult;
+import io.docweave.core.Element;
+import io.docweave.partition.PartitionResult;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -214,10 +214,10 @@ public interface DocumentService {
 Save the hidden implementation as `DefaultDocumentService.java` in the same package:
 
 ```java
-import dev.docweave.DocWeave;
-import dev.docweave.chunking.ChunkOptions;
-import dev.docweave.chunking.Chunker;
-import dev.docweave.partition.DocumentSource;
+import io.docweave.DocWeave;
+import io.docweave.chunking.ChunkOptions;
+import io.docweave.chunking.Chunker;
+import io.docweave.partition.DocumentSource;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

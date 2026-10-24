@@ -1,6 +1,6 @@
-package dev.docweave.layout;
+package io.docweave.layout;
 
-import dev.docweave.partition.PdfTableLayoutProvider;
+import io.docweave.partition.PdfTableLayoutProvider;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.rendering.ImageType;
 import org.apache.pdfbox.rendering.PDFRenderer;
@@ -114,7 +114,7 @@ public final class CaptureNativeDetectorStages {
                 if (remaining < 1) {
                     throw new IllegalArgumentException("Stage audit aggregate slots exceeded");
                 }
-                final var bounded = structureOptions.withTableLimits(new dev.docweave.partition.TableLimits(
+                final var bounded = structureOptions.withTableLimits(new io.docweave.partition.TableLimits(
                         limits.maxRows(), limits.maxColumns(), (int) remaining, limits.maxCellCharacters()));
                 final var topology = new TableTopology(bounded, work);
                 final var image = copy(raster, crop);

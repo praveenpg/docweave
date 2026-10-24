@@ -72,7 +72,7 @@ These remain deferred alongside the PDF improvement backlog. Contextual chunking
 | N10 | Add a separately scoped PPTX partitioner module with slide metadata and explicit unsupported content. |
 | N11 | Add a separately scoped XLSX partitioner module with sheet/cell metadata, bounded workbook traversal and cached-formula policy. |
 | N12 | Design an optional CLI over public services, with stable JSON/errors and documented provider selection. |
-| N13 | Plan deferred Java-package migration and JPMS separately; current io.docweave Maven coordinates and dev.docweave imports remain valid. No bulk rename is required for current parsing. |
+| N13 | Plan deferred Java-package migration and JPMS separately; current io.docweave Maven coordinates and io.docweave imports remain valid. No bulk rename is required for current parsing. |
 | N14 | Long-term format/adapter expansion recorded in the roadmap: legacy Office, email, EPUB, RTF, URL adapters and connectors. Each needs its own contract before implementation; none is an unfinished current partitioner. |
 | N15 | Optional PDF scope expansion: interactive annotations/forms, vector-only figure representation and semantic image descriptions. Define output taxonomy, provenance, budgets and provider boundaries first; these are outside the current initial element contract, not missing fixes. |
 

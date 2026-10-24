@@ -98,7 +98,7 @@ Rank1 acceptance criteria:
 | JSON | Supported element taxonomy/top-level schema is strict; unknown metadata round-trips. Broader top-level schema needs a deliberate contract change |
 | Chunking | Character budgets, literal separators and documented table/overlap differences; no tokenizer selected |
 | Cancellation | Cooperative checkpoints and optional batch deadlines exist; direct synchronous APIs are untimed and indivisible parser/I/O calls may delay interruption |
-| Packaging | Maven modules implemented; JPMS and Java package migration deferred. Retain `dev.docweave` packages for compatibility |
+| Packaging | Maven modules implemented; local beta.8 migrates packages to `io.docweave` with a breaking import change. JPMS remains deferred |
 | Release | License choice, Sonatype namespace verification and release configuration pending. These affect publication, not local parsing; this audit is not a release decision |
 | Expansion | PPTX/XLSX, advanced PDF tables/layout/OCR, legacy Office/email/EPUB/RTF, URL adapters and connectors are separate future capabilities |
 

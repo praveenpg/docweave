@@ -1,9 +1,9 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
-import dev.docweave.DocWeave;
-import dev.docweave.core.Element;
-import dev.docweave.core.ElementType;
-import dev.docweave.partition.*;
+import io.docweave.DocWeave;
+import io.docweave.core.Element;
+import io.docweave.core.ElementType;
+import io.docweave.partition.*;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -158,7 +158,7 @@ public final class CompareNvidiaCellLines {
                 "snapshots", JsonNode.class, Path.class, String.class);
         reader.setAccessible(true);
         final var snapshots = (List<?>) reader.invoke(null, manifest, root, profile);
-        final var snapshotType = Class.forName("dev.docweave.validation.ReplayNativeLayoutCaptures$Snapshot");
+        final var snapshotType = Class.forName("io.docweave.validation.ReplayNativeLayoutCaptures$Snapshot");
         final var tables = snapshotType.getDeclaredMethod("tables");
         tables.setAccessible(true);
         final var raster = snapshotType.getDeclaredMethod("rasterHash");

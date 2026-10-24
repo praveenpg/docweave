@@ -1,8 +1,8 @@
-package dev.docweave.partition;
+package io.docweave.partition;
 
-import dev.docweave.DocWeave;
-import dev.docweave.core.Element;
-import dev.docweave.core.ElementType;
+import io.docweave.DocWeave;
+import io.docweave.core.Element;
+import io.docweave.core.ElementType;
 import tools.jackson.databind.json.JsonMapper;
 
 import java.nio.file.Files;

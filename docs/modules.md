@@ -3,8 +3,9 @@
 Java 21 is the minimum build/runtime version; CI verifies Java 21 and 25.
 
 The root is the `io.docweave:docweave-parent` aggregator/parent POM. All modules currently
-use version `0.1.0-SNAPSHOT`. Java packages remain `dev.docweave`; no import migration is required.
-Artifacts have not been published. The repository remains private.
+use version `0.1.0-beta.8` for the local candidate. Java packages now use `io.docweave`;
+applications upgrading from earlier betas must [migrate imports and rebuild](package-migration.md).
+This candidate has not been published; earlier published versions retain their original packages.
 
 | Artifact | Responsibility | Runtime dependencies |
 | --- | --- | --- |
@@ -40,12 +41,12 @@ After local installation or a future publication, select just this dependency:
 <dependency>
     <groupId>io.docweave</groupId>
     <artifactId>docweave-docx</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.0-beta.8</version>
 </dependency>
 ```
 
 ```java
-import dev.docweave.DocWeave;
+import io.docweave.DocWeave;
 import java.nio.file.Path;
 
 var processor = DocWeave.create();
@@ -57,7 +58,7 @@ CommonMark, Commons CSV, Jackson, other format strategies, chunking or batch ser
 `docweave-json` for JSON, `docweave-chunking` for chunking, or `docweave-batch` for batch pipelines.
 Those optional services have their own dependencies; structural chunking intentionally uses jsoup
 and JSON provenance. To retain the former all-formats convenience dependency, use
-`io.docweave:docweave:0.1.0-SNAPSHOT` (the child under `docweave-all/`).
+`io.docweave:docweave:0.1.0-beta.8` (the child under `docweave-all/`).
 
 ## Runtime strategy discovery
 
@@ -107,11 +108,11 @@ java --class-path "$DOCWEAVE_CP" examples/PartitionDocument.java benchmarks/fixt
 
 The generated classpath includes the reactor's actual module JARs and runtime libraries. The old
 root `target/classes` and root JAR are obsolete; regenerate temporary classpath files after this
-migration. Use `mvn install` to make snapshots available to separate local Maven projects.
+migration. Use `mvn install` to make the local candidate available to separate local Maven projects.
 Benchmark source fingerprints now include module-relative source paths; historical evidence and
 its old fingerprints remain historical rather than being relabeled as new measurements.
 
-Publishing still requires a license decision, namespace verification and release configuration;
+Publication remains a separate explicit release operation;
 see [publication identity](publishing.md). This refactor performs no publication or visibility change.
 
 Markdown nested-table metadata preservation requires EXTRACT_DOM and a capable optional HtmlExtraction

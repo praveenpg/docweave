@@ -1,4 +1,4 @@
-package dev.docweave.layout;
+package io.docweave.layout;
 import java.nio.file.*;
 import java.util.*;
 import tools.jackson.databind.json.JsonMapper;

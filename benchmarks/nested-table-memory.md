@@ -187,7 +187,7 @@ mkdir -p /tmp/docweave-inline-probe-new
 javac --release 25 -cp "$DOCWEAVE_CP" -d /tmp/docweave-inline-probe-new \
   benchmarks/tools/MeasureHtmlInlineAllocation.java
 java -Xms512m -Xmx512m -XX:+UseG1GC \
-  -cp "/tmp/docweave-inline-probe-new:$DOCWEAVE_CP" dev.docweave.partition.MeasureHtmlInlineAllocation
+  -cp "/tmp/docweave-inline-probe-new:$DOCWEAVE_CP" io.docweave.partition.MeasureHtmlInlineAllocation
 ```
 
 Compile the probe onto the application classpath as shown: source-launching a separate runtime
@@ -202,7 +202,7 @@ covers adjacent supplementary pairs and lone code units; the all-BMP/1,000seeded
 and full table/default/corpus/provenance checks remain green.
 
 MeasureTableEscapeAllocation.java isolates shared escaping (compile/run like MeasureHtmlInlineAllocation,
-using the class name dev.docweave.partition.MeasureTableEscapeAllocation). Source construction is
+using the class name io.docweave.partition.MeasureTableEscapeAllocation). Source construction is
 excluded. With100warmups/100calls and three fresh JVMs, all trials agree:
 
 | Case | Before bytes/escape | After bytes/escape |

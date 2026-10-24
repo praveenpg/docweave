@@ -1,7 +1,7 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
-import dev.docweave.DocWeave;
-import dev.docweave.partition.DocumentSource;
+import io.docweave.DocWeave;
+import io.docweave.partition.DocumentSource;
 import tools.jackson.databind.SerializationFeature;
 import tools.jackson.databind.json.JsonMapper;
 

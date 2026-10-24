@@ -1,5 +1,5 @@
-import dev.docweave.core.Element;
-import dev.docweave.partition.*;
+import io.docweave.core.Element;
+import io.docweave.partition.*;
 import jdk.jfr.Configuration;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordingFile;
@@ -254,7 +254,7 @@ class ProfileNestedTableMemory {
                                             .map(method -> method.getType().getName() + "." + method.getName())
                                             .toList();
                 final String nearest = methods.stream()
-                                               .filter(method -> method.startsWith("dev.docweave."))
+                                               .filter(method -> method.startsWith("io.docweave."))
                                                .findFirst()
                                                .orElse("<no DocWeave frame>");
                 weights.merge(nearest, event.getLong("weight"), Long::sum);

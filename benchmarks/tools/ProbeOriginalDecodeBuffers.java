@@ -1,8 +1,8 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
-import dev.docweave.core.Element;
-import dev.docweave.core.ElementType;
-import dev.docweave.json.ElementJson;
+import io.docweave.core.Element;
+import io.docweave.core.ElementType;
+import io.docweave.json.ElementJson;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordingFile;
 import tools.jackson.databind.json.JsonMapper;
@@ -79,7 +79,7 @@ public final class ProbeOriginalDecodeBuffers {
                     for (final var frame : event.getStackTrace().getFrames()) {
                         decoder |= frame.getMethod().getType().getName().equals("java.util.Base64$Decoder");
                         originals |=
-                                frame.getMethod().getType().getName().equals("dev.docweave.json.DefaultElementJson")
+                                frame.getMethod().getType().getName().equals("io.docweave.json.DefaultElementJson")
                                 && frame.getMethod().getName().equals("decodeOriginals");
                     }
                     if (decoder && originals) {

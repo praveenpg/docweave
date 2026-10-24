@@ -1,13 +1,13 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
-import dev.docweave.DocWeave;
-import dev.docweave.partition.DocumentSource;
-import dev.docweave.partition.PartitionException;
-import dev.docweave.partition.PartitionerRegistry;
-import dev.docweave.partition.PdfNativeLayoutOptions;
-import dev.docweave.partition.PdfOptions;
-import dev.docweave.partition.PdfPartitioner;
-import dev.docweave.partition.PdfTableLayoutProvider;
+import io.docweave.DocWeave;
+import io.docweave.partition.DocumentSource;
+import io.docweave.partition.PartitionException;
+import io.docweave.partition.PartitionerRegistry;
+import io.docweave.partition.PdfNativeLayoutOptions;
+import io.docweave.partition.PdfOptions;
+import io.docweave.partition.PdfPartitioner;
+import io.docweave.partition.PdfTableLayoutProvider;
 import org.jsoup.Jsoup;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.json.JsonMapper;
@@ -56,7 +56,7 @@ public final class ReplayNativeLayoutCaptures {
         require(hash(referencePath).equals(manifest.get("reference_manifest_sha256").asString()),
                 "Reference protocol changed");
         final var scorerSource =
-                Path.of("docweave-validation/src/test/java/dev/docweave/validation/PdfCurrentBusinessRowsTest.java");
+                Path.of("docweave-validation/src/test/java/io/docweave/validation/PdfCurrentBusinessRowsTest.java");
         require(hash(scorerSource).equals(manifest.get("validation_source_sha256").asString()),
                 "Scorer source changed");
         final var reference = mapper.readTree(Files.readAllBytes(referencePath));
@@ -70,7 +70,7 @@ public final class ReplayNativeLayoutCaptures {
         final var source =
                 DocumentSource.bytes(Files.readAllBytes(cache.resolve(reference.get("source_pdf").asString())),
                         reference.get("source_pdf").asString());
-        final var scorer = Class.forName("dev.docweave.validation.PdfCurrentBusinessRowsTest");
+        final var scorer = Class.forName("io.docweave.validation.PdfCurrentBusinessRowsTest");
         final var captureType = Class.forName(scorer.getName() + "$Capture");
         final var captureConstructor = captureType.getDeclaredConstructor(String.class, List.class, List.class);
         captureConstructor.setAccessible(true);
@@ -106,7 +106,7 @@ public final class ReplayNativeLayoutCaptures {
                     nativeOptions, new PdfNativeLayoutOptions(150, 16_000_000, 1024), provider);
             final var processor = DocWeave.create(PartitionerRegistry.of(List.of(service)));
             String outcome = "SUCCESS";
-            List<dev.docweave.core.Element> elements = List.of();
+            List<io.docweave.core.Element> elements = List.of();
             List<String> warnings = List.of();
             try {
                 final var extracted = processor.partition(source);

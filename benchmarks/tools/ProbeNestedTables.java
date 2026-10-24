@@ -1,6 +1,6 @@
-import dev.docweave.DocWeave;
-import dev.docweave.json.ElementJson;
-import dev.docweave.partition.DocumentSource;
+import io.docweave.DocWeave;
+import io.docweave.json.ElementJson;
+import io.docweave.partition.DocumentSource;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.xmlbeans.XmlObject;
 import tools.jackson.databind.json.JsonMapper;

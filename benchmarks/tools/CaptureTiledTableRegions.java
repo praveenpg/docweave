@@ -1,7 +1,7 @@
-package dev.docweave.layout;
+package io.docweave.layout;
 
-import dev.docweave.partition.PartitionException;
-import dev.docweave.partition.PdfTableLayoutProvider;
+import io.docweave.partition.PartitionException;
+import io.docweave.partition.PdfTableLayoutProvider;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;

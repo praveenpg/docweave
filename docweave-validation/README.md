@@ -151,7 +151,7 @@ implementations of the internal `BenchmarkScorer` interface, launched by `ScoreB
 
 ```sh
 java -cp "docweave-validation/target/test-classes:$DOCWEAVE_CLASSPATH" \
-  dev.docweave.validation.ScoreBenchmarkCaptures <command> [options]
+  io.docweave.validation.ScoreBenchmarkCaptures <command> [options]
 ```
 
 Commands:

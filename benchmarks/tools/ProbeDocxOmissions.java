@@ -1,5 +1,5 @@
-import dev.docweave.DocWeave;
-import dev.docweave.partition.DocumentSource;
+import io.docweave.DocWeave;
+import io.docweave.partition.DocumentSource;
 import org.apache.poi.openxml4j.opc.PackagingURIHelper;
 import org.apache.poi.openxml4j.opc.TargetMode;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;

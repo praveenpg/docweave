@@ -52,7 +52,7 @@ Four tests compare the optimized rules with the historical regex/string implemen
 all supported markers across ASCII/Unicode whitespace and bodies,10,000 seeded mixed-Unicode
 strings, title word/point boundaries and long marker/space inputs, plus interruption/reuse.
 The clean Maven verification passes405 Java tests and strict Javadocs. Java imports remain
-dev.docweave; Maven coordinates are io.docweave:docweave:0.1.0-SNAPSHOT.
+io.docweave; Maven coordinates are io.docweave:docweave:0.1.0-SNAPSHOT.
 
 With compiled classes and runtime dependencies in DOCWEAVE_CP:
 

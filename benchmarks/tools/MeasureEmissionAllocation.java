@@ -1,6 +1,6 @@
-import dev.docweave.DocWeave;
-import dev.docweave.core.ElementType;
-import dev.docweave.partition.*;
+import io.docweave.DocWeave;
+import io.docweave.core.ElementType;
+import io.docweave.partition.*;
 
 import java.lang.management.ManagementFactory;
 import java.util.List;

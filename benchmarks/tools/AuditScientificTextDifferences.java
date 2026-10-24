@@ -1,14 +1,14 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
-import dev.docweave.DocWeave;
-import dev.docweave.core.ElementType;
-import dev.docweave.partition.DocumentSource;
-import dev.docweave.partition.PartitionException;
-import dev.docweave.partition.PartitionerRegistry;
-import dev.docweave.partition.PdfOptions;
-import dev.docweave.partition.PdfParagraphAssembler;
-import dev.docweave.partition.PdfPartitioner;
-import dev.docweave.partition.PdfTaggedParagraphOptions;
+import io.docweave.DocWeave;
+import io.docweave.core.ElementType;
+import io.docweave.partition.DocumentSource;
+import io.docweave.partition.PartitionException;
+import io.docweave.partition.PartitionerRegistry;
+import io.docweave.partition.PdfOptions;
+import io.docweave.partition.PdfParagraphAssembler;
+import io.docweave.partition.PdfPartitioner;
+import io.docweave.partition.PdfTaggedParagraphOptions;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.json.JsonMapper;
 

@@ -1,4 +1,4 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
 import tools.jackson.databind.json.JsonMapper;
 
@@ -36,7 +36,7 @@ public final class PrepareScanTransferManifest {
                         .equals(selection.get("profiles_manifest_sha256").asString()),
                 "Profile protocol changed");
         final var profiles = mapper.readTree(Files.readAllBytes(profilesPath)).get("profiles");
-        final var harness = Class.forName("dev.docweave.validation.PdfHistoricalTextCorpusTest");
+        final var harness = Class.forName("io.docweave.validation.PdfHistoricalTextCorpusTest");
         final var referenceReader = harness.getDeclaredMethod("reference", byte[].class);
         final var joined = harness.getDeclaredMethod("joined", List.class);
         final var resolution = harness.getDeclaredMethod("sourceResolution", Path.class);
@@ -85,7 +85,7 @@ public final class PrepareScanTransferManifest {
                         hash("SHA-256", Files.readAllBytes(Path.of(args[0]))), "reference_parser_sha256",
                         hash("SHA-256",
                                 Files.readAllBytes(Path.of(
-                                        "docweave-validation/src/test/java/dev/docweave/validation/PdfHistoricalTextCorpusTest.java"))),
+                                        "docweave-validation/src/test/java/io/docweave/validation/PdfHistoricalTextCorpusTest.java"))),
                         "scope",
                         "All preselected new pages, original labels and fixed model profiles; generated before OCR; no repaired line order",
                         "profiles", profiles, "cases", cases))

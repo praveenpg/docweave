@@ -1,17 +1,17 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
-import dev.docweave.DocWeave;
-import dev.docweave.core.Element;
-import dev.docweave.core.ElementType;
-import dev.docweave.layout.OnnxTableLayout;
-import dev.docweave.layout.OnnxTableOptions;
-import dev.docweave.partition.DocumentSource;
-import dev.docweave.partition.PartitionException;
-import dev.docweave.partition.PartitionerRegistry;
-import dev.docweave.partition.PdfNativeLayoutOptions;
-import dev.docweave.partition.PdfOptions;
-import dev.docweave.partition.PdfPartitioner;
-import dev.docweave.partition.PdfTableLayoutProvider;
+import io.docweave.DocWeave;
+import io.docweave.core.Element;
+import io.docweave.core.ElementType;
+import io.docweave.layout.OnnxTableLayout;
+import io.docweave.layout.OnnxTableOptions;
+import io.docweave.partition.DocumentSource;
+import io.docweave.partition.PartitionException;
+import io.docweave.partition.PartitionerRegistry;
+import io.docweave.partition.PdfNativeLayoutOptions;
+import io.docweave.partition.PdfOptions;
+import io.docweave.partition.PdfPartitioner;
+import io.docweave.partition.PdfTableLayoutProvider;
 import tools.jackson.databind.json.JsonMapper;
 
 import java.awt.image.BufferedImage;

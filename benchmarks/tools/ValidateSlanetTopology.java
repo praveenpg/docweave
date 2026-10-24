@@ -1,4 +1,4 @@
-package dev.docweave.partition;
+package io.docweave.partition;
 
 import org.w3c.dom.Element;
 import tools.jackson.databind.JsonNode;

@@ -17,14 +17,14 @@ as structured elements and useful chunks that applications can work with.
 
 ## Getting started
 
-Use **Java 21 or later**. For a Maven application, add the PDF-only beta dependency
-(no additional repository configuration is needed):
+Use **Java 21 or later**. For a Maven application, add the PDF-only beta dependency below. Version `0.1.0-beta.8` is a
+local candidate: first build it with `mvn install`; it has not been published to Maven Central.
 
 ```xml
 <dependency>
     <groupId>io.docweave</groupId>
     <artifactId>docweave-pdf</artifactId>
-    <version>0.1.0-beta.6</version>
+    <version>0.1.0-beta.8</version>
 </dependency>
 ```
 
@@ -33,7 +33,7 @@ its `main` method with a PDF path as the first argument. The dependency supplies
 and PDFBox transitively; the example uses only the public `DocWeave` interface.
 
 ```java
-import dev.docweave.DocWeave;
+import io.docweave.DocWeave;
 
 import java.nio.file.Path;
 
@@ -75,9 +75,9 @@ policies, constructor injection and upload limits.
 For other formats, select the corresponding [Maven module](docs/modules.md). Use artifact
 `docweave` at the same version for all formats; optional OCR and ONNX adapters remain separate.
 JSON serialization, chunking and batches also have their own modules. Java imports remain
-`dev.docweave` even though the Maven group is `io.docweave`.
+`io.docweave` even though the Maven group is `io.docweave`.
 
-The source checkout currently uses `0.1.0-SNAPSHOT` for development. To build it locally,
+The source checkout currently uses `0.1.0-beta.8` for development. To build it locally,
 use Maven 3.9+ and run `mvn verify`; the beta dependency above is for consuming the release.
 
 ## Initial milestone
@@ -88,7 +88,7 @@ use Maven 3.9+ and run `mvn verify`; the beta dependency above is for consuming 
 - [Product roadmap](docs/product-roadmap.md)
 - [Detailed implementation backlog](docs/roadmap.md)
 - [Benchmark workflow](benchmarks/README.md)
-- Deeply immutable Java element model in `docweave-core/src/main/java/dev/docweave/core`.
+- Deeply immutable Java element model in `docweave-core/src/main/java/io/docweave/core`.
 - Jackson 3 JSON codec, including zlib/base64 original-element provenance.
 - Native DOCX comparisons on two owned fixtures plus two published reports, with explicit differences and review limits in [the comparison report](docs/docx-comparison.md).
 - Native HTML/Markdown references covering structured content and raw-HTML policies; see [measured comparisons](docs/markup-comparison.md).
@@ -109,7 +109,7 @@ use Maven 3.9+ and run `mvn verify`; the beta dependency above is for consuming 
 - Runtime partitioner strategies selected through an injectable registry.
 - Extensive public Javadocs checked with doclint and warnings treated as errors during `mvn verify`.
 
-Requires Java 21 or later and Maven 3.9+. This is a plain Java library; Spring Boot is not a dependency. The development reactor uses `io.docweave:docweave:0.1.0-SNAPSHOT`; application consumers can use the `0.1.0-beta.6` dependency above. Java packages remain `dev.docweave`; package migration is deferred. Development validation is moving into the Java/JUnit [validation module](docweave-validation/README.md); remaining Python benchmark/reference helpers are documented there. Neither the production library nor Maven Java tests require Python. The released upstream reference pin and reviewed main drift are tracked in [upstream status](benchmarks/upstream-status.json).
+Requires Java 21 or later and Maven 3.9+. This is a plain Java library; Spring Boot is not a dependency. The development reactor uses `io.docweave:docweave:0.1.0-beta.8`; the examples on this branch target the locally installed `0.1.0-beta.8` candidate. Starting with local beta.8, Java packages use `io.docweave`; older releases use `dev.docweave`. This is a source and binary breaking change; see the [migration guide](docs/package-migration.md). Development validation is moving into the Java/JUnit [validation module](docweave-validation/README.md); remaining Python benchmark/reference helpers are documented there. Neither the production library nor Maven Java tests require Python. The released upstream reference pin and reviewed main drift are tracked in [upstream status](benchmarks/upstream-status.json).
 
 Build and test:
 
@@ -133,15 +133,15 @@ Use `io.docweave:docweave-docx` for DOCX only, or select `docweave-txt`, `docwea
 JDK-only `docweave-core`; parser dependencies remain with the corresponding modules.
 JSON, chunking and batch services are separate opt-in modules. The `io.docweave:docweave`
 artifact remains the all-formats convenience dependency. See the [module map and usage](docs/modules.md).
-Java packages stay `dev.docweave`.
+Java packages use `io.docweave` from beta.8 onward.
 
 ## Java API
 
 ```java
-import dev.docweave.DocWeave;
-import dev.docweave.chunking.Chunker;
-import dev.docweave.chunking.ChunkOptions;
-import dev.docweave.json.ElementJson;
+import io.docweave.DocWeave;
+import io.docweave.chunking.Chunker;
+import io.docweave.chunking.ChunkOptions;
+import io.docweave.json.ElementJson;
 import java.nio.file.Path;
 
 DocWeave processor = DocWeave.create();
@@ -160,7 +160,7 @@ Optional snapshot [contextual chunk enrichment](docs/contextual-chunking.md) add
 document context after either chunk strategy, keeping original text and provenance separate.
 It requires an explicitly supplied provider; default chunking makes no model calls.
 
-Service contracts live in `dev.docweave`, `dev.docweave.json`, `dev.docweave.chunking`, and `dev.docweave.batch`. Service factory implementations and parser strategies are package-private; records and enums are public immutable value types. Small public JDK discovery bridges implement the module SPI. For raw-document batches:
+Service contracts live in `io.docweave`, `io.docweave.json`, `io.docweave.chunking`, and `io.docweave.batch`. Service factory implementations and parser strategies are package-private; records and enums are public immutable value types. Small public JDK discovery bridges implement the module SPI. For raw-document batches:
 
 ```java
 var results = DocumentBatch.create().partitionAndChunk(
@@ -179,7 +179,7 @@ limit of 16 Mi UTF-16 code units. These limits are independent of `PartitionOpti
 Configure another immutable policy when needed:
 
 ```java
-var readOptions = new dev.docweave.json.JsonReadOptions(
+var readOptions = new io.docweave.json.JsonReadOptions(
     32 * 1024 * 1024, 200_000, 128, 16 * 1024 * 1024);
 var codec = ElementJson.create(readOptions);
 var batch = ElementFileBatch.create(readOptions);
@@ -258,7 +258,7 @@ var results = DocumentBatch.create().partitionAndChunk(
     inputPaths, PartitionOptions.defaults(), Chunker.Strategy.BY_TITLE, options, batchPolicy);
 ```
 
-Import `dev.docweave.batch.BatchOptions` and `java.time.Duration`. The task budget starts when
+Import `io.docweave.batch.BatchOptions` and `java.time.Duration`. The task budget starts when
 its virtual-thread worker begins and covers file loading, decoding, partitioning and chunking
 together. The overall budget starts after argument validation/input snapshotting and includes
 submission and input-order result collection. `Duration.ZERO` disables either budget;

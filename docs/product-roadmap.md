@@ -20,7 +20,7 @@ check the [release notes](releases/README.md) for availability in a particular M
 | Chunking | Basic and title-aware strategies, character budgets, overlap, structural table splitting and original-element provenance |
 | Contextual enrichment | A shared post-chunk service with caller-provided models, separate original/generated content and bounded execution |
 | Batch processing | Ordered document batches using bounded virtual-thread concurrency, deadlines and cancellation |
-| Packaging | Java 21+, separate Maven artifacts for core, formats and optional services, interface-based APIs and extensive Javadocs |
+| Packaging | Java 21+, separate Maven artifacts for core, formats and optional services, interface-based APIs and extensive Javadocs; local beta.8 uses io.docweave Java packages |
 
 Availability does not imply complete format fidelity or universal Unstructured parity. The
 [PDF comparison](pdf-comparison.md), [DOCX comparison](docx-comparison.md) and other support
@@ -113,8 +113,10 @@ bounded parsing, secure external-resource handling, meaningful fixtures and docu
 - Profile representative large documents and improve allocation, retained memory or cancellation
   only where measurements justify the change.
 - Broaden packaged workload qualification for latency, memory, concurrency and interruption.
-- Plan Java-package migration and JPMS separately. Current `io.docweave` Maven coordinates and
-  `dev.docweave` imports remain valid; no rename is required to use the library.
+- Local beta.8 package migration from `dev.docweave` to `io.docweave` is completed and installed
+  locally: Java 21 verification passes 1,461 tests, strict Javadocs and standalone packaged-consumer
+  checks. This breaking change is not published; [migration guidance](package-migration.md) covers
+  imports and custom SPI providers. JPMS remains future work; no module descriptors are introduced.
 - Consider optional URL/source adapters without enabling implicit resource fetching in parsers.
 
 **Completion criteria:** standalone consumer checks, documented resource accounting and limits,

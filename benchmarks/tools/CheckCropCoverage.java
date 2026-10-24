@@ -1,9 +1,9 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
-import dev.docweave.partition.DocumentSource;
-import dev.docweave.partition.PdfPageCropOptions;
-import dev.docweave.partition.PdfPageCropRenderer;
-import dev.docweave.partition.PdfPageCropRequest;
+import io.docweave.partition.DocumentSource;
+import io.docweave.partition.PdfPageCropOptions;
+import io.docweave.partition.PdfPageCropRenderer;
+import io.docweave.partition.PdfPageCropRequest;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;

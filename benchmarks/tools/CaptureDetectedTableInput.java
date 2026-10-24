@@ -1,4 +1,4 @@
-package dev.docweave.layout;
+package io.docweave.layout;
 
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -163,8 +163,8 @@ public final class CaptureDetectedTableInput {
         try {
             final var suppression = TableTopology.class.getDeclaredMethod("suppress", List.class, double.class);
             final var fraction = TableTopology.class.getDeclaredMethod("fraction",
-                    dev.docweave.partition.PdfTableLayoutProvider.Box.class,
-                    dev.docweave.partition.PdfTableLayoutProvider.Box.class);
+                    io.docweave.partition.PdfTableLayoutProvider.Box.class,
+                    io.docweave.partition.PdfTableLayoutProvider.Box.class);
             suppression.setAccessible(true);
             fraction.setAccessible(true);
             final var topology = new TableTopology(options, work);

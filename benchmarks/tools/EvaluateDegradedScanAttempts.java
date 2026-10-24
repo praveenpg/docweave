@@ -1,10 +1,10 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
-import dev.docweave.ocr.TesseractOcr;
-import dev.docweave.ocr.TesseractOptions;
-import dev.docweave.partition.PdfOcrOptions;
-import dev.docweave.partition.PdfOcrProvider;
-import dev.docweave.partition.PdfWordOcrProvider;
+import io.docweave.ocr.TesseractOcr;
+import io.docweave.ocr.TesseractOptions;
+import io.docweave.partition.PdfOcrOptions;
+import io.docweave.partition.PdfOcrProvider;
+import io.docweave.partition.PdfWordOcrProvider;
 import tools.jackson.databind.json.JsonMapper;
 
 import java.awt.image.BufferedImage;

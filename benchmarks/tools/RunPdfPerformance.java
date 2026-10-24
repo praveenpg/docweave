@@ -1,4 +1,4 @@
-package dev.docweave.validation;
+package io.docweave.validation;
 
 import tools.jackson.databind.json.JsonMapper;
 
@@ -54,7 +54,7 @@ public final class RunPdfPerformance {
                     command.addAll(
                             List.of(executable, "-XX:ActiveProcessorCount=" + manifest.get("active_processors").asInt(),
                                     "-Xmx" + manifest.get("native_max_heap_mib").asInt() + "m", "-cp",
-                                    System.getProperty("java.class.path"), "dev.docweave.validation.BenchmarkPdfNative",
+                                    System.getProperty("java.class.path"), "io.docweave.validation.BenchmarkPdfNative",
                                     args[0], args[1], worker.toString()));
                 } else {
                     executable = args[5];
