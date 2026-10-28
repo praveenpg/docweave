@@ -462,6 +462,14 @@
   global logical-order repair. The original three-argument options constructor remains;
   record patterns/reflection/serialization must account for the fourth component.
 
+## 0.1.0-beta.8 — parent/core only, published 2026-10-28
+
+- Publish the Java 21 JDK-only `docweave-core` and required `docweave-parent` POM with `io.docweave` Java packages.
+  This is a source/binary breaking namespace migration; core alone installs no format parsers.
+- Core-only verification: 32 tests, strict Javadocs, source/Javadoc archives and a standalone public API consumer.
+- Other beta.8 modules and the remaining Unreleased changes above are not published by this release.
+  The known full-library PDF PNG-hash test failure remains open. See [release notes](docs/releases/0.1.0-beta.8.md).
+
 ## 0.1.0-beta.6 — published 2026-10-19
 
 - Add opt-in source-tagged native paragraphs with unique glyph ownership, bounded original

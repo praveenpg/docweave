@@ -5,7 +5,7 @@ Java 21 is the minimum build/runtime version; CI verifies Java 21 and 25.
 The root is the `io.docweave:docweave-parent` aggregator/parent POM. All modules currently
 use version `0.1.0-beta.8` for the local candidate. Java packages now use `io.docweave`;
 applications upgrading from earlier betas must [migrate imports and rebuild](package-migration.md).
-This candidate has not been published; earlier published versions retain their original packages.
+The beta.8 parent/core artifacts are published; all other beta.8 modules remain local. Earlier published versions retain their original packages.
 
 | Artifact | Responsibility | Runtime dependencies |
 | --- | --- | --- |

@@ -8,7 +8,7 @@ aliases. Previous releases and their artifacts are unchanged.
 ## Upgrade
 
 1. Install the local candidate from the repository root with `mvn clean install` on Java 21.
-   This version is local only and is not available from Maven Central.
+   Only parent/core beta.8 is available from Maven Central. The other beta.8 modules still require a local build.
 2. Set every DocWeave dependency to `0.1.0-beta.8`; avoid mixing module versions.
 3. Replace imports and fully qualified names beginning `dev.docweave` with `io.docweave`.
    Update reflection/configuration references, mock rules and custom adapters, then rebuild.
