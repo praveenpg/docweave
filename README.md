@@ -716,3 +716,11 @@ comparisons, Unicode compatibility checks, and limits on interpreting these synt
 Table HTML escaping also copies valid source UTF-16 slices while retaining entity/control/surrogate
 rules and budget checks. The memory report records the modest full-pipeline allocation effect and
 isolated measurements; broader independent DOCX fidelity coverage remains the next priority.
+
+## Development and releases
+
+`dev` is the default development branch. Create feature/fix branches from `dev` and merge them through pull requests back into `dev`. Periodically open a release pull request from `dev` to `main`.
+
+Before a new release, update the reactor version, `.ci/release.json` and the matching notes under `docs/releases/`. Jenkins watches public `main`, verifies the selected scope on Java 21, creates an annotated tag and prerelease, signs the captured artifacts, and publishes them to Maven Central. A version already published in the selected scope is skipped; documentation-only merges do not create another release. Published versions cannot be replaced.
+
+The current beta.8 plan is intentionally **core-only**, matching its published parent/core coordinates. Switch to `full` only with a fresh version and a passing full-reactor verification. The existing PDF PNG regression remains a full-library release blocker. No development-branch build publishes artifacts. See [release policy](docs/releases/README.md).

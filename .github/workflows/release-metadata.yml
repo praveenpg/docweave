@@ -1,0 +1,44 @@
+name: Release metadata
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+concurrency:
+  group: release-metadata-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Validate source, version and release plan
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          python3 - <<'PY'
+          import json, os, pathlib, subprocess, xml.etree.ElementTree as ET
+          plan = json.loads(pathlib.Path('.ci/release.json').read_text())
+          version = ET.parse('pom.xml').getroot().findtext('{http://maven.apache.org/POM/4.0.0}version')
+          assert os.environ['RELEASE_TAG'] == 'v' + version == 'v' + plan['version']
+          assert plan['scope'] in ('core', 'full')
+          notes = pathlib.Path(plan['notes'])
+          assert not notes.is_absolute() and '..' not in notes.parts and notes.is_file()
+          subprocess.run(['git', 'merge-base', '--is-ancestor', 'HEAD', 'origin/main'], check=True)
+          assert subprocess.check_output(['git', 'cat-file', '-t', os.environ['RELEASE_TAG']], text=True).strip() == 'tag'
+          pathlib.Path('release-body.md').write_text(notes.read_text())
+          pathlib.Path('release-title.txt').write_text('DocWeave ' + version + ' (' + plan['scope'] + ')')
+          PY
+      - name: Create immutable prerelease metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            echo "Existing release retained"
+          else
+            gh release create "$RELEASE_TAG" --verify-tag --prerelease --title "$(cat release-title.txt)" --notes-file release-body.md
+          fi
