@@ -115,7 +115,7 @@ bounded parsing, secure external-resource handling, meaningful fixtures and docu
 - Broaden packaged workload qualification for latency, memory, concurrency and interruption.
 - Local beta.8 package migration from `dev.docweave` to `io.docweave` is completed and installed
   locally: Java 21 verification passes 1,461 tests, strict Javadocs and standalone packaged-consumer
-  checks. This breaking change is not published; [migration guidance](package-migration.md) covers
+  checks. The parent/core artifacts are published; remaining beta.8 modules are local. [Migration guidance](package-migration.md) covers
   imports and custom SPI providers. JPMS remains future work; no module descriptors are introduced.
 - Consider optional URL/source adapters without enabling implicit resource fetching in parsers.
 

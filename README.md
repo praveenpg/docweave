@@ -18,7 +18,9 @@ as structured elements and useful chunks that applications can work with.
 ## Getting started
 
 Use **Java 21 or later**. For a Maven application, add the PDF-only beta dependency below. Version `0.1.0-beta.8` is a
-local candidate: first build it with `mvn install`; it has not been published to Maven Central.
+local PDF candidate: first build it with `mvn install`; the PDF artifact is not published to Maven Central.
+The JDK-only `io.docweave:docweave-core:0.1.0-beta.8` and parent POM are published; core alone installs no parsers.
+See the [scoped beta.8 release notes](docs/releases/0.1.0-beta.8.md).
 
 ```xml
 <dependency>
