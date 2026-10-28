@@ -26,3 +26,14 @@ reviewed Markdown notes after candidate verification. Check the exact source com
 refuse to move an existing tag or replace an existing release. Repository visibility is managed
 separately from versioned releases.
 Publish only after the release candidate and its notes have been reviewed.
+
+## Branch and automation policy
+
+- Development branches and PRs start from and target `dev`. `main` is the release branch.
+- A release PR moves `dev` into `main`; every reactor POM, `.ci/release.json`, and versioned release notes must agree.
+- `scope: core` publishes only the parent and JDK-only core after their scoped verification. `scope: full` requires the entire reactor and archive checks to pass and includes all deployable library modules. Test/validation harnesses remain excluded.
+- Jenkins releases only a new, non-SNAPSHOT main version. Existing or partially published coordinates are never overwritten. Same-version complete scopes skip; partial publication fails for investigation.
+- Jenkins owns release signing and Central credentials. GitHub Actions creates only public release metadata after an annotated tag; it has no Central/signing secrets.
+- After an ambiguous upload/publish response, inspect the durable Jenkins receipt and Central deployment. Do not rerun a POST blindly. Validation/status recovery uses the original candidate bytes.
+
+Beta.8 remains core-only. Publishing its other modules under the same already-used parent version is deliberately refused by automation; prepare a fresh full-library version after its open test gate is corrected.
