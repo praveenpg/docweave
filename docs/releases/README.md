@@ -36,4 +36,4 @@ Publish only after the release candidate and its notes have been reviewed.
 - Jenkins owns release signing and Central credentials. GitHub Actions creates only public release metadata after an annotated tag; it has no Central/signing secrets.
 - After an ambiguous upload/publish response, inspect the durable Jenkins receipt and Central deployment. Do not rerun a POST blindly. Validation/status recovery uses the original candidate bytes.
 
-Beta.8 remains core-only. Publishing its other modules under the same already-used parent version is deliberately refused by automation; prepare a fresh full-library version after its open test gate is corrected.
+Beta.8 remains core-only. Publishing its other modules under the same already-used parent version is deliberately refused by automation; prepare a fresh full-library version and run the release gates at that source. The environment-dependent PNG assertion is corrected on dev, with its original fixture/hash preserved and a passing full Java 21 Jenkins build.

@@ -63,7 +63,8 @@ class PdfPageCropRendererTest {
     /**
      * Reproduces the three frozen image-contract controls through the new public service at 72 DPI.
      * Group alpha 0 yields background, alpha 0.5 blends red over white, and the half-width clip admits
-     * only the left half; the original source PNG payloads remain the frozen opaque red raster.
+     * only the left half; the original source pixels remain the exact frozen opaque red raster, independent of PNG
+     * compression.
      * @throws Exception if authoring, extraction or rendering fails
      */
     @Test
@@ -96,9 +97,49 @@ class PdfPageCropRendererTest {
         assertUniform(clipped, 21, 1, 39, 39, Color.WHITE);
         assertEquals(before, images(source));
         assertEquals(3, before.size());
+        final byte[] frozen = frozenSourcePng();
+        assertEquals(FROZEN_SOURCE_PNG, sha256(frozen));
+        final var expected = ImageIO.read(new ByteArrayInputStream(frozen));
+        assertEquals(8, expected.getWidth());
+        assertEquals(8, expected.getHeight());
         for (final var image : before) {
-            assertEquals(FROZEN_SOURCE_PNG, sha256(sourcePng(image)));
+            assertSamePixels(expected, ImageIO.read(new ByteArrayInputStream(sourcePng(image))));
         }
+    }
+
+    /**
+     * Keeps the historical PNG bytes fixed while accepting an independently encoded identical raster.
+     * @throws Exception if fixture reading or decoding fails
+     */
+    @Test
+    void sourcePixelContractAcceptsEquivalentCompressionAndRejectsChangedPixels() throws Exception {
+        final byte[] frozen = frozenSourcePng();
+        assertEquals(FROZEN_SOURCE_PNG, sha256(frozen));
+        final byte[] alternative;
+        try (final var stream =
+                        PdfPageCropRendererTest.class.getResourceAsStream("png-contract/red-alternate-deflate.png")) {
+            assertNotNull(stream);
+            alternative = stream.readAllBytes();
+        }
+        assertNotEquals(sha256(frozen), sha256(alternative));
+        final var expected = ImageIO.read(new ByteArrayInputStream(frozen));
+        final var actual = ImageIO.read(new ByteArrayInputStream(alternative));
+        assertSamePixels(expected, actual);
+        for (int y = 0; y < expected.getHeight(); y++) {
+            for (int x = 0; x < expected.getWidth(); x++) {
+                assertEquals(Color.RED.getRGB(), expected.getRGB(x, y));
+            }
+        }
+        actual.setRGB(7, 7, 0xffff0100);
+        assertThrows(AssertionError.class, () -> assertSamePixels(expected, actual));
+        final var alpha = new BufferedImage(8, 8, BufferedImage.TYPE_INT_ARGB);
+        alpha.setRGB(0, 0, 8, 8, expected.getRGB(0, 0, 8, 8, null, 0, 8), 0, 8);
+        alpha.setRGB(7, 7, 0x7fff0000);
+        assertThrows(AssertionError.class, () -> assertSamePixels(expected, alpha));
+        assertThrows(AssertionError.class,
+                () -> assertSamePixels(expected, new BufferedImage(7, 8, BufferedImage.TYPE_INT_RGB)));
+        assertThrows(AssertionError.class,
+                () -> assertSamePixels(expected, new BufferedImage(8, 7, BufferedImage.TYPE_INT_RGB)));
     }
 
     /**
@@ -1128,6 +1169,32 @@ class PdfPageCropRendererTest {
     private static void assertCode(
             final PartitionException.Code code, final org.junit.jupiter.api.function.Executable call) {
         assertEquals(code, assertThrows(PartitionException.class, call).code());
+    }
+
+    /**
+     * Reads the historical PNG without regenerating its compressed representation.
+     * @return frozen encoded source pixels
+     * @throws IOException if the owned fixture cannot be read
+     */
+    private static byte[] frozenSourcePng() throws IOException {
+        try (final var stream = PdfPageCropRendererTest.class.getResourceAsStream("png-contract/red-frozen.png")) {
+            assertNotNull(stream);
+            return stream.readAllBytes();
+        }
+    }
+
+    /**
+     * Checks the complete raster contract, including every pixel's alpha and both dimensions.
+     * @param expected frozen decoded raster
+     * @param actual emitted decoded raster
+     */
+    private static void assertSamePixels(final BufferedImage expected, final BufferedImage actual) {
+        assertNotNull(actual);
+        assertEquals(expected.getWidth(), actual.getWidth());
+        assertEquals(expected.getHeight(), actual.getHeight());
+        assertArrayEquals(
+                expected.getRGB(0, 0, expected.getWidth(), expected.getHeight(), null, 0, expected.getWidth()),
+                actual.getRGB(0, 0, actual.getWidth(), actual.getHeight(), null, 0, actual.getWidth()));
     }
 
     /**
