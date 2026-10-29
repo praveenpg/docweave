@@ -1,7 +1,7 @@
-import dev.docweave.layout.OnnxTableLayout;
-import dev.docweave.layout.OnnxTableOptions;
-import dev.docweave.partition.PartitionException;
-import dev.docweave.partition.PdfTableLayoutProvider;
+import io.docweave.layout.OnnxTableLayout;
+import io.docweave.layout.OnnxTableOptions;
+import io.docweave.partition.PartitionException;
+import io.docweave.partition.PdfTableLayoutProvider;
 
 import java.awt.image.BufferedImage;
 import java.nio.file.Path;
