@@ -1,7 +1,7 @@
-import dev.docweave.ocr.TesseractOcr;
-import dev.docweave.ocr.TesseractOptions;
-import dev.docweave.partition.PartitionException;
-import dev.docweave.partition.PdfOcrProvider;
+import io.docweave.ocr.TesseractOcr;
+import io.docweave.ocr.TesseractOptions;
+import io.docweave.partition.PartitionException;
+import io.docweave.partition.PdfOcrProvider;
 
 import java.awt.Color;
 import java.awt.Font;
