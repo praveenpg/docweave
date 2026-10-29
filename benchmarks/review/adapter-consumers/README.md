@@ -69,7 +69,7 @@ These cases are refused with a clear message, before any build:
 - an existing output directory.
 
 The output directory must not exist. Use a fresh path for every run. Tools required by the
-runner: Bash, Maven, JDK21+, unzip, awk, find and GNU realpath. Outputs include build/run
+runner: Bash, Maven, JDK21+, Python 3, find and GNU coreutils (realpath, cmp, sha256sum). Outputs include build/run
 logs, resolved dependency names and javap bytecode inspection. Both JDK consumer runs in
 this checkpoint use the same Java25-built, Java21-target installed library artifacts.
 The runner is not part of the Maven reactor or production library dependencies.
