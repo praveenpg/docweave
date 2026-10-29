@@ -147,12 +147,22 @@ XML
         exit 1
     fi
     jar="$workspace/target/$kind-consumer-1.0.jar"
-    # Unfold the manifest before splitting its space-separated runtime artifact filenames.
-    mapfile -t dependencies < <(unzip -p "$jar" META-INF/MANIFEST.MF | tr -d '\r' | awk '
-        /^Class-Path: / {value=substr($0,13); reading=1; next}
-        reading && /^ / {value=value substr($0,2); next}
-        reading {reading=0}
-        END {n=split(value,a," ");for(i=1;i<=n;i++)if(a[i]!="")print a[i]}')
+    # Unfold the manifest (continuation lines start with one space) before splitting its space-separated
+    # runtime artifact filenames. Python's zipfile avoids depending on an unzip tool.
+    mapfile -t dependencies < <(python3 -I - "$jar" <<'PY'
+import sys, zipfile
+text = zipfile.ZipFile(sys.argv[1]).read("META-INF/MANIFEST.MF").decode("utf-8").replace("\r", "")
+value, reading = "", False
+for line in text.split("\n"):
+    if line.startswith("Class-Path: "):
+        value, reading = line[len("Class-Path: "):], True
+    elif reading and line.startswith(" "):
+        value += line[1:]
+    else:
+        reading = False
+print("\n".join(part for part in value.split(" ") if part))
+PY
+)
     [[ ${#dependencies[@]} == "$expected" ]]
     classpath="$jar"
     for dependency in "${dependencies[@]}"; do
