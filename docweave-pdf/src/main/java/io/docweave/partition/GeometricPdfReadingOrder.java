@@ -78,6 +78,7 @@ final class GeometricPdfReadingOrder implements PdfReadingOrder {
             return switch (sideStreams) {
                 case PRESERVE -> paragraphs(sorted, work);
                 case SMALLER_TYPE_BLOCKS -> sideStreamParagraphs(sorted, work, false);
+                case SMALLER_TYPE_BLOCKS_CONTIGUOUS -> contiguousSideStreams(sorted, work);
                 case SMALLER_TYPE_BLOCKS_ROW_TIES ->
                     layout.columns() ? rowTies(sideStreamParagraphs(sorted, work, false), work)
                                      : sideStreamParagraphs(sorted, work, false);
@@ -346,6 +347,82 @@ final class GeometricPdfReadingOrder implements PdfReadingOrder {
             }
         }
         flush(result, group, work);
+        return List.copyOf(result);
+    }
+
+    /**
+     * Groups exactly as {@link #sideStreamParagraphs} without fragments, then emits each side stream as one unit at
+     * its first block's position (contract rules R4 and R5). A stream is divided where an intervening item crosses the
+     * side column between two of its lines, the same barrier that divides blocks, so no block moves past a barrier.
+     * Main-stream items and their relative order are unchanged; only later side blocks of a unit move earlier.
+     * @param sorted page items in top/left order
+     * @param work page counter
+     * @return grouped items
+     * @throws IOException if cancelled or over budget
+     */
+    private List<PdfLayoutItem> contiguousSideStreams(final List<PdfLayoutItem> sorted, final Work work)
+            throws IOException {
+        final var side = sideLines(sorted, work);
+        final var grouped = sideStreamParagraphs(sorted, work, false);
+        if (side.isEmpty()) {
+            return grouped;
+        }
+        // Units: maximal runs of side lines in page order not separated by an item crossing the side column.
+        final var unitOfLine = new IdentityHashMap<PdfLayoutItem, Integer>();
+        final var between = new ArrayList<PdfLayoutItem.Bounds>();
+        PdfLayoutItem previous = null;
+        int unit = 0;
+        for (final var item : sorted) {
+            work.step();
+            if (!side.containsKey(item)) {
+                between.add(item.box());
+                continue;
+            }
+            if (previous != null && crossed(between, previous.box(), item.box(), work)) {
+                unit++;
+            }
+            between.clear();
+            unitOfLine.put(item, unit);
+            previous = item;
+        }
+        // A grouped side block belongs to the unit of its first source line, found by its top-left line.
+        final var blocksByUnit = new java.util.TreeMap<Integer, List<PdfLayoutItem>>();
+        final var unitOfBlock = new IdentityHashMap<PdfLayoutItem, Integer>();
+        for (final var item : grouped) {
+            work.step();
+            if (!sideStream(item)) {
+                continue;
+            }
+            Integer owner = null;
+            for (final var line : unitOfLine.keySet()) {
+                work.step();
+                if (line.box().top() == item.box().top() && line.box().left() >= item.box().left()
+                        && line.box().right() <= item.box().right()
+                        && (owner == null || unitOfLine.get(line) < owner)) {
+                    owner = unitOfLine.get(line);
+                }
+            }
+            final int key = owner == null ? -1 - unitOfBlock.size() : owner;
+            unitOfBlock.put(item, key);
+            blocksByUnit.computeIfAbsent(key, ignored -> new ArrayList<>()).add(item);
+        }
+        final var emitted = new java.util.HashSet<Integer>();
+        final var result = new ArrayList<PdfLayoutItem>(grouped.size());
+        for (final var item : grouped) {
+            work.step();
+            if (!sideStream(item)) {
+                result.add(item);
+                continue;
+            }
+            final int key = unitOfBlock.get(item);
+            if (emitted.add(key)) {
+                for (final var block : blocksByUnit.get(key)) {
+                    final var metadata = new LinkedHashMap<>(block.metadata());
+                    metadata.put("pdf_reading_order", "side_stream_contiguous_v1");
+                    result.add(new PdfLayoutItem(block.type(), block.text(), block.box(), metadata, block.signature()));
+                }
+            }
+        }
         return List.copyOf(result);
     }
 

@@ -1,0 +1,184 @@
+{
+  "protocol" : "benchmarks/review/pdf-scan-preprocessing-p6/PROTOCOL.md",
+  "manifest_sha256" : "949d20f7e717be11c6d324448144fb33aec974e0dc73a9bb3a60f1b0aaf5776d",
+  "java_version" : "21.0.8",
+  "candidate" : "P6_2",
+  "acceptance" : false,
+  "results" : [ {
+    "id" : "arnimb_goethe03_1835",
+    "language" : "deu",
+    "candidate" : "P6_2",
+    "lines_filtered" : 15,
+    "preprocessed_rgb_sha256" : "928b4edcdf5e393bed63ebce17e474d93d800ac56b250aa7f5512cdc9dd585b5",
+    "outcome" : "SUCCESS",
+    "ocr_millis" : 1381,
+    "baseline" : {
+      "associated_reference_lines" : 21,
+      "missing_reference_lines" : 1,
+      "predicted_lines_without_reference" : 0,
+      "joint_reference_line_character_errors" : 103
+    },
+    "candidate_metrics" : {
+      "associated_reference_lines" : 21,
+      "missing_reference_lines" : 1,
+      "predicted_lines_without_reference" : 0,
+      "joint_reference_line_character_errors" : 103
+    },
+    "role" : "control",
+    "acceptance" : true
+  }, {
+    "id" : "arnimb_goethe03_1835",
+    "language" : "deu_latf",
+    "candidate" : "P6_2",
+    "lines_filtered" : 15,
+    "preprocessed_rgb_sha256" : "928b4edcdf5e393bed63ebce17e474d93d800ac56b250aa7f5512cdc9dd585b5",
+    "outcome" : "SUCCESS",
+    "ocr_millis" : 1329,
+    "baseline" : {
+      "associated_reference_lines" : 21,
+      "missing_reference_lines" : 1,
+      "predicted_lines_without_reference" : 0,
+      "joint_reference_line_character_errors" : 50
+    },
+    "candidate_metrics" : {
+      "associated_reference_lines" : 21,
+      "missing_reference_lines" : 1,
+      "predicted_lines_without_reference" : 0,
+      "joint_reference_line_character_errors" : 44
+    },
+    "role" : "control",
+    "acceptance" : true
+  }, {
+    "id" : "bebel_frau_1879",
+    "language" : "deu",
+    "candidate" : "P6_2",
+    "lines_filtered" : 50,
+    "preprocessed_rgb_sha256" : "7491acc3b19b0faa79f6f4ab714005558d073470d595286b3484dcb1da83893d",
+    "outcome" : "SUCCESS",
+    "ocr_millis" : 4151,
+    "baseline" : {
+      "associated_reference_lines" : 50,
+      "missing_reference_lines" : 0,
+      "predicted_lines_without_reference" : 1,
+      "joint_reference_line_character_errors" : 7
+    },
+    "candidate_metrics" : {
+      "associated_reference_lines" : 50,
+      "missing_reference_lines" : 0,
+      "predicted_lines_without_reference" : 1,
+      "joint_reference_line_character_errors" : 8
+    },
+    "role" : "control",
+    "acceptance" : false
+  }, {
+    "id" : "bebel_frau_1879",
+    "language" : "deu_latf",
+    "candidate" : "P6_2",
+    "lines_filtered" : 50,
+    "preprocessed_rgb_sha256" : "7438b8abb32a29870ca69235147ff734b873ab0189ceffe354ca79d223cd7e64",
+    "outcome" : "SUCCESS",
+    "ocr_millis" : 4110,
+    "baseline" : {
+      "associated_reference_lines" : 50,
+      "missing_reference_lines" : 0,
+      "predicted_lines_without_reference" : 1,
+      "joint_reference_line_character_errors" : 53
+    },
+    "candidate_metrics" : {
+      "associated_reference_lines" : 50,
+      "missing_reference_lines" : 0,
+      "predicted_lines_without_reference" : 1,
+      "joint_reference_line_character_errors" : 54
+    },
+    "role" : "control",
+    "acceptance" : false
+  }, {
+    "id" : "buerger_gedichte_1778_0039",
+    "language" : "deu",
+    "candidate" : "P6_2",
+    "lines_filtered" : 18,
+    "preprocessed_rgb_sha256" : "cf8ce85412d654bbf3967873e77f5996218f67088afb22bc77b0dc3113ee5dae",
+    "outcome" : "SUCCESS",
+    "ocr_millis" : 1119,
+    "baseline" : {
+      "associated_reference_lines" : 27,
+      "missing_reference_lines" : 11,
+      "predicted_lines_without_reference" : 13,
+      "joint_reference_line_character_errors" : 364
+    },
+    "candidate_metrics" : {
+      "associated_reference_lines" : 23,
+      "missing_reference_lines" : 15,
+      "predicted_lines_without_reference" : 16,
+      "joint_reference_line_character_errors" : 452
+    },
+    "role" : "target",
+    "acceptance" : false
+  }, {
+    "id" : "buerger_gedichte_1778_0039",
+    "language" : "deu_latf",
+    "candidate" : "P6_2",
+    "lines_filtered" : 18,
+    "preprocessed_rgb_sha256" : "337e7285fae492d2f4e85726661ed9d699ae53bf04246474276f076e18c3fedb",
+    "outcome" : "SUCCESS",
+    "ocr_millis" : 1118,
+    "baseline" : {
+      "associated_reference_lines" : 27,
+      "missing_reference_lines" : 11,
+      "predicted_lines_without_reference" : 11,
+      "joint_reference_line_character_errors" : 319
+    },
+    "candidate_metrics" : {
+      "associated_reference_lines" : 21,
+      "missing_reference_lines" : 17,
+      "predicted_lines_without_reference" : 15,
+      "joint_reference_line_character_errors" : 426
+    },
+    "role" : "target",
+    "acceptance" : false
+  }, {
+    "id" : "nn_besuch_1780_00001",
+    "language" : "deu",
+    "candidate" : "P6_2",
+    "lines_filtered" : 12,
+    "preprocessed_rgb_sha256" : "e9f2576188f540bc1a18243bb3d159806d69873a2a3821a0d6b4cad32b832ad3",
+    "outcome" : "SUCCESS",
+    "ocr_millis" : 741,
+    "baseline" : {
+      "associated_reference_lines" : 9,
+      "missing_reference_lines" : 1,
+      "predicted_lines_without_reference" : 9,
+      "joint_reference_line_character_errors" : 51
+    },
+    "candidate_metrics" : {
+      "associated_reference_lines" : 9,
+      "missing_reference_lines" : 1,
+      "predicted_lines_without_reference" : 8,
+      "joint_reference_line_character_errors" : 56
+    },
+    "role" : "control",
+    "acceptance" : false
+  }, {
+    "id" : "nn_besuch_1780_00001",
+    "language" : "deu_latf",
+    "candidate" : "P6_2",
+    "lines_filtered" : 12,
+    "preprocessed_rgb_sha256" : "27de3164ce3eebb634ac933b2d094ce335bbd739d22daabf91b84e3e189e6889",
+    "outcome" : "SUCCESS",
+    "ocr_millis" : 738,
+    "baseline" : {
+      "associated_reference_lines" : 9,
+      "missing_reference_lines" : 1,
+      "predicted_lines_without_reference" : 9,
+      "joint_reference_line_character_errors" : 27
+    },
+    "candidate_metrics" : {
+      "associated_reference_lines" : 9,
+      "missing_reference_lines" : 1,
+      "predicted_lines_without_reference" : 8,
+      "joint_reference_line_character_errors" : 32
+    },
+    "role" : "control",
+    "acceptance" : false
+  } ]
+}

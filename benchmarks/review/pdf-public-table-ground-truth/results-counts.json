@@ -1,0 +1,766 @@
+{
+ "protocol": "PROTOCOL.md",
+ "note": "Counts only; full reports with page text stay local (sha256 recorded).",
+ "reports": {
+  "baseline-report.json": {
+   "sha256": "87be371da98e522aa5cbee4082ce796fcff5c988142785b8658d771484515d51",
+   "java": "21.0.8+9-LTS",
+   "manifest_sha256": "b0eab8c2f78a6388357263658fc804ff8b38ac81d077dc4d16a371fb65260145",
+   "upstream_capture_sha256": null
+  },
+  "upstream-report.json": {
+   "sha256": "e031c150411952d4d9b9d5696c014f0e3f3c60404965fcbd588888b9c043c2ea",
+   "java": null,
+   "manifest_sha256": null,
+   "upstream_capture_sha256": "ecedda59745a128126e8c46dfa50d37dfb3a5c42d3112d152b7b89dbd740aa2b"
+  }
+ },
+ "results": [
+  {
+   "profile": "native-RULED_ONLY",
+   "case": "nvidia-p006",
+   "outcome": "SUCCESS",
+   "millis": 219,
+   "predicted_tables": 0,
+   "unassociated_predicted_tables": 0,
+   "labelled_tables": 3,
+   "labelled_cells": 100,
+   "recalled_cells": 0,
+   "labelled_rows": 20,
+   "exact_rows": 0,
+   "missed_counts": {
+    "DETECTOR_MISS": 100,
+    "OUTSIDE_TABLE": 0,
+    "CELL_SEGMENTATION": 0,
+    "STRUCTURE_OTHER": 0
+   },
+   "added_counts": {
+    "PROSE_ADDED": 0,
+    "OTHER_ADDED": 0
+   },
+   "tables": [
+    {
+     "labelled_rows": 10,
+     "labelled_cells": 50,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    }
+   ]
+  },
+  {
+   "profile": "native-RULED_ONLY",
+   "case": "cisa-p002",
+   "outcome": "SUCCESS",
+   "millis": 155,
+   "predicted_tables": 0,
+   "unassociated_predicted_tables": 0,
+   "labelled_tables": 0,
+   "labelled_cells": 0,
+   "recalled_cells": 0,
+   "labelled_rows": 0,
+   "exact_rows": 0,
+   "missed_counts": {
+    "DETECTOR_MISS": 0,
+    "OUTSIDE_TABLE": 0,
+    "CELL_SEGMENTATION": 0,
+    "STRUCTURE_OTHER": 0
+   },
+   "added_counts": {
+    "PROSE_ADDED": 0,
+    "OTHER_ADDED": 0
+   },
+   "tables": []
+  },
+  {
+   "profile": "native-RULED_AND_ALIGNED_TEXT",
+   "case": "nvidia-p006",
+   "outcome": "SUCCESS",
+   "millis": 16,
+   "predicted_tables": 0,
+   "unassociated_predicted_tables": 0,
+   "labelled_tables": 3,
+   "labelled_cells": 100,
+   "recalled_cells": 0,
+   "labelled_rows": 20,
+   "exact_rows": 0,
+   "missed_counts": {
+    "DETECTOR_MISS": 100,
+    "OUTSIDE_TABLE": 0,
+    "CELL_SEGMENTATION": 0,
+    "STRUCTURE_OTHER": 0
+   },
+   "added_counts": {
+    "PROSE_ADDED": 0,
+    "OTHER_ADDED": 0
+   },
+   "tables": [
+    {
+     "labelled_rows": 10,
+     "labelled_cells": 50,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    }
+   ]
+  },
+  {
+   "profile": "native-RULED_AND_ALIGNED_TEXT",
+   "case": "cisa-p002",
+   "outcome": "SUCCESS",
+   "millis": 85,
+   "predicted_tables": 0,
+   "unassociated_predicted_tables": 0,
+   "labelled_tables": 0,
+   "labelled_cells": 0,
+   "recalled_cells": 0,
+   "labelled_rows": 0,
+   "exact_rows": 0,
+   "missed_counts": {
+    "DETECTOR_MISS": 0,
+    "OUTSIDE_TABLE": 0,
+    "CELL_SEGMENTATION": 0,
+    "STRUCTURE_OTHER": 0
+   },
+   "added_counts": {
+    "PROSE_ADDED": 0,
+    "OTHER_ADDED": 0
+   },
+   "tables": []
+  },
+  {
+   "profile": "native-RULED_AND_MULTILINE_ALIGNED_TEXT",
+   "case": "nvidia-p006",
+   "outcome": "SUCCESS",
+   "millis": 10,
+   "predicted_tables": 0,
+   "unassociated_predicted_tables": 0,
+   "labelled_tables": 3,
+   "labelled_cells": 100,
+   "recalled_cells": 0,
+   "labelled_rows": 20,
+   "exact_rows": 0,
+   "missed_counts": {
+    "DETECTOR_MISS": 100,
+    "OUTSIDE_TABLE": 0,
+    "CELL_SEGMENTATION": 0,
+    "STRUCTURE_OTHER": 0
+   },
+   "added_counts": {
+    "PROSE_ADDED": 0,
+    "OTHER_ADDED": 0
+   },
+   "tables": [
+    {
+     "labelled_rows": 10,
+     "labelled_cells": 50,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    }
+   ]
+  },
+  {
+   "profile": "native-RULED_AND_MULTILINE_ALIGNED_TEXT",
+   "case": "cisa-p002",
+   "outcome": "SUCCESS",
+   "millis": 69,
+   "predicted_tables": 0,
+   "unassociated_predicted_tables": 0,
+   "labelled_tables": 0,
+   "labelled_cells": 0,
+   "recalled_cells": 0,
+   "labelled_rows": 0,
+   "exact_rows": 0,
+   "missed_counts": {
+    "DETECTOR_MISS": 0,
+    "OUTSIDE_TABLE": 0,
+    "CELL_SEGMENTATION": 0,
+    "STRUCTURE_OTHER": 0
+   },
+   "added_counts": {
+    "PROSE_ADDED": 0,
+    "OTHER_ADDED": 0
+   },
+   "tables": []
+  },
+  {
+   "profile": "native-RULED_AND_PARTIAL_TEXT",
+   "case": "nvidia-p006",
+   "outcome": "SUCCESS",
+   "millis": 8,
+   "predicted_tables": 0,
+   "unassociated_predicted_tables": 0,
+   "labelled_tables": 3,
+   "labelled_cells": 100,
+   "recalled_cells": 0,
+   "labelled_rows": 20,
+   "exact_rows": 0,
+   "missed_counts": {
+    "DETECTOR_MISS": 100,
+    "OUTSIDE_TABLE": 0,
+    "CELL_SEGMENTATION": 0,
+    "STRUCTURE_OTHER": 0
+   },
+   "added_counts": {
+    "PROSE_ADDED": 0,
+    "OTHER_ADDED": 0
+   },
+   "tables": [
+    {
+     "labelled_rows": 10,
+     "labelled_cells": 50,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    }
+   ]
+  },
+  {
+   "profile": "native-RULED_AND_PARTIAL_TEXT",
+   "case": "cisa-p002",
+   "outcome": "SUCCESS",
+   "millis": 68,
+   "predicted_tables": 0,
+   "unassociated_predicted_tables": 0,
+   "labelled_tables": 0,
+   "labelled_cells": 0,
+   "recalled_cells": 0,
+   "labelled_rows": 0,
+   "exact_rows": 0,
+   "missed_counts": {
+    "DETECTOR_MISS": 0,
+    "OUTSIDE_TABLE": 0,
+    "CELL_SEGMENTATION": 0,
+    "STRUCTURE_OTHER": 0
+   },
+   "added_counts": {
+    "PROSE_ADDED": 0,
+    "OTHER_ADDED": 0
+   },
+   "tables": []
+  },
+  {
+   "profile": "native-RULED_AND_FINANCIAL_ALIGNED_TEXT",
+   "case": "nvidia-p006",
+   "outcome": "SUCCESS",
+   "millis": 7,
+   "predicted_tables": 0,
+   "unassociated_predicted_tables": 0,
+   "labelled_tables": 3,
+   "labelled_cells": 100,
+   "recalled_cells": 0,
+   "labelled_rows": 20,
+   "exact_rows": 0,
+   "missed_counts": {
+    "DETECTOR_MISS": 100,
+    "OUTSIDE_TABLE": 0,
+    "CELL_SEGMENTATION": 0,
+    "STRUCTURE_OTHER": 0
+   },
+   "added_counts": {
+    "PROSE_ADDED": 0,
+    "OTHER_ADDED": 0
+   },
+   "tables": [
+    {
+     "labelled_rows": 10,
+     "labelled_cells": 50,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    }
+   ]
+  },
+  {
+   "profile": "native-RULED_AND_FINANCIAL_ALIGNED_TEXT",
+   "case": "cisa-p002",
+   "outcome": "SUCCESS",
+   "millis": 56,
+   "predicted_tables": 0,
+   "unassociated_predicted_tables": 0,
+   "labelled_tables": 0,
+   "labelled_cells": 0,
+   "recalled_cells": 0,
+   "labelled_rows": 0,
+   "exact_rows": 0,
+   "missed_counts": {
+    "DETECTOR_MISS": 0,
+    "OUTSIDE_TABLE": 0,
+    "CELL_SEGMENTATION": 0,
+    "STRUCTURE_OTHER": 0
+   },
+   "added_counts": {
+    "PROSE_ADDED": 0,
+    "OTHER_ADDED": 0
+   },
+   "tables": []
+  },
+  {
+   "profile": "native-RULED_AND_HORIZONTAL_TEXT",
+   "case": "nvidia-p006",
+   "outcome": "SUCCESS",
+   "millis": 7,
+   "predicted_tables": 0,
+   "unassociated_predicted_tables": 0,
+   "labelled_tables": 3,
+   "labelled_cells": 100,
+   "recalled_cells": 0,
+   "labelled_rows": 20,
+   "exact_rows": 0,
+   "missed_counts": {
+    "DETECTOR_MISS": 100,
+    "OUTSIDE_TABLE": 0,
+    "CELL_SEGMENTATION": 0,
+    "STRUCTURE_OTHER": 0
+   },
+   "added_counts": {
+    "PROSE_ADDED": 0,
+    "OTHER_ADDED": 0
+   },
+   "tables": [
+    {
+     "labelled_rows": 10,
+     "labelled_cells": 50,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    }
+   ]
+  },
+  {
+   "profile": "native-RULED_AND_HORIZONTAL_TEXT",
+   "case": "cisa-p002",
+   "outcome": "SUCCESS",
+   "millis": 56,
+   "predicted_tables": 0,
+   "unassociated_predicted_tables": 0,
+   "labelled_tables": 0,
+   "labelled_cells": 0,
+   "recalled_cells": 0,
+   "labelled_rows": 0,
+   "exact_rows": 0,
+   "missed_counts": {
+    "DETECTOR_MISS": 0,
+    "OUTSIDE_TABLE": 0,
+    "CELL_SEGMENTATION": 0,
+    "STRUCTURE_OTHER": 0
+   },
+   "added_counts": {
+    "PROSE_ADDED": 0,
+    "OTHER_ADDED": 0
+   },
+   "tables": []
+  },
+  {
+   "profile": "yolox-provider",
+   "case": "nvidia-p006",
+   "outcome": "SUCCESS",
+   "millis": 1668,
+   "predicted_tables": 3,
+   "unassociated_predicted_tables": 0,
+   "labelled_tables": 3,
+   "labelled_cells": 100,
+   "recalled_cells": 94,
+   "labelled_rows": 20,
+   "exact_rows": 19,
+   "missed_counts": {
+    "DETECTOR_MISS": 0,
+    "OUTSIDE_TABLE": 0,
+    "CELL_SEGMENTATION": 6,
+    "STRUCTURE_OTHER": 0
+   },
+   "added_counts": {
+    "PROSE_ADDED": 1,
+    "OTHER_ADDED": 0
+   },
+   "tables": [
+    {
+     "labelled_rows": 10,
+     "labelled_cells": 50,
+     "associated": true,
+     "recalled_cells": 44,
+     "exact_rows": 9
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": true,
+     "recalled_cells": 25,
+     "exact_rows": 5
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": true,
+     "recalled_cells": 25,
+     "exact_rows": 5
+    }
+   ]
+  },
+  {
+   "profile": "yolox-provider",
+   "case": "cisa-p002",
+   "outcome": "SUCCESS",
+   "millis": 1554,
+   "predicted_tables": 0,
+   "unassociated_predicted_tables": 0,
+   "labelled_tables": 0,
+   "labelled_cells": 0,
+   "recalled_cells": 0,
+   "labelled_rows": 0,
+   "exact_rows": 0,
+   "missed_counts": {
+    "DETECTOR_MISS": 0,
+    "OUTSIDE_TABLE": 0,
+    "CELL_SEGMENTATION": 0,
+    "STRUCTURE_OTHER": 0
+   },
+   "added_counts": {
+    "PROSE_ADDED": 0,
+    "OTHER_ADDED": 0
+   },
+   "tables": []
+  },
+  {
+   "profile": "tatr-provider",
+   "case": "nvidia-p006",
+   "outcome": "SUCCESS",
+   "millis": 795,
+   "predicted_tables": 1,
+   "unassociated_predicted_tables": 0,
+   "labelled_tables": 3,
+   "labelled_cells": 100,
+   "recalled_cells": 37,
+   "labelled_rows": 20,
+   "exact_rows": 2,
+   "missed_counts": {
+    "DETECTOR_MISS": 50,
+    "OUTSIDE_TABLE": 3,
+    "CELL_SEGMENTATION": 3,
+    "STRUCTURE_OTHER": 7
+   },
+   "added_counts": {
+    "PROSE_ADDED": 0,
+    "OTHER_ADDED": 5
+   },
+   "tables": [
+    {
+     "labelled_rows": 10,
+     "labelled_cells": 50,
+     "associated": true,
+     "recalled_cells": 37,
+     "exact_rows": 2
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    }
+   ]
+  },
+  {
+   "profile": "tatr-provider",
+   "case": "cisa-p002",
+   "outcome": "SUCCESS",
+   "millis": 881,
+   "predicted_tables": 1,
+   "unassociated_predicted_tables": 1,
+   "labelled_tables": 0,
+   "labelled_cells": 0,
+   "recalled_cells": 0,
+   "labelled_rows": 0,
+   "exact_rows": 0,
+   "missed_counts": {
+    "DETECTOR_MISS": 0,
+    "OUTSIDE_TABLE": 0,
+    "CELL_SEGMENTATION": 0,
+    "STRUCTURE_OTHER": 0
+   },
+   "added_counts": {
+    "PROSE_ADDED": 4,
+    "OTHER_ADDED": 13
+   },
+   "tables": []
+  },
+  {
+   "profile": "yolox-established",
+   "case": "nvidia-p006",
+   "outcome": "SUCCESS",
+   "millis": 1405,
+   "predicted_tables": 3,
+   "unassociated_predicted_tables": 0,
+   "labelled_tables": 3,
+   "labelled_cells": 100,
+   "recalled_cells": 84,
+   "labelled_rows": 20,
+   "exact_rows": 17,
+   "missed_counts": {
+    "DETECTOR_MISS": 0,
+    "OUTSIDE_TABLE": 0,
+    "CELL_SEGMENTATION": 16,
+    "STRUCTURE_OTHER": 0
+   },
+   "added_counts": {
+    "PROSE_ADDED": 1,
+    "OTHER_ADDED": 20
+   },
+   "tables": [
+    {
+     "labelled_rows": 10,
+     "labelled_cells": 50,
+     "associated": true,
+     "recalled_cells": 39,
+     "exact_rows": 8
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": true,
+     "recalled_cells": 25,
+     "exact_rows": 5
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": true,
+     "recalled_cells": 20,
+     "exact_rows": 4
+    }
+   ]
+  },
+  {
+   "profile": "yolox-established",
+   "case": "cisa-p002",
+   "outcome": "SUCCESS",
+   "millis": 1364,
+   "predicted_tables": 0,
+   "unassociated_predicted_tables": 0,
+   "labelled_tables": 0,
+   "labelled_cells": 0,
+   "recalled_cells": 0,
+   "labelled_rows": 0,
+   "exact_rows": 0,
+   "missed_counts": {
+    "DETECTOR_MISS": 0,
+    "OUTSIDE_TABLE": 0,
+    "CELL_SEGMENTATION": 0,
+    "STRUCTURE_OTHER": 0
+   },
+   "added_counts": {
+    "PROSE_ADDED": 0,
+    "OTHER_ADDED": 0
+   },
+   "tables": []
+  },
+  {
+   "profile": "tatr-established",
+   "case": "nvidia-p006",
+   "outcome": "SUCCESS",
+   "millis": 761,
+   "predicted_tables": 1,
+   "unassociated_predicted_tables": 0,
+   "labelled_tables": 3,
+   "labelled_cells": 100,
+   "recalled_cells": 32,
+   "labelled_rows": 20,
+   "exact_rows": 1,
+   "missed_counts": {
+    "DETECTOR_MISS": 50,
+    "OUTSIDE_TABLE": 3,
+    "CELL_SEGMENTATION": 8,
+    "STRUCTURE_OTHER": 7
+   },
+   "added_counts": {
+    "PROSE_ADDED": 0,
+    "OTHER_ADDED": 15
+   },
+   "tables": [
+    {
+     "labelled_rows": 10,
+     "labelled_cells": 50,
+     "associated": true,
+     "recalled_cells": 32,
+     "exact_rows": 1
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": false,
+     "recalled_cells": 0,
+     "exact_rows": 0
+    }
+   ]
+  },
+  {
+   "profile": "tatr-established",
+   "case": "cisa-p002",
+   "outcome": "SUCCESS",
+   "millis": 859,
+   "predicted_tables": 1,
+   "unassociated_predicted_tables": 1,
+   "labelled_tables": 0,
+   "labelled_cells": 0,
+   "recalled_cells": 0,
+   "labelled_rows": 0,
+   "exact_rows": 0,
+   "missed_counts": {
+    "DETECTOR_MISS": 0,
+    "OUTSIDE_TABLE": 0,
+    "CELL_SEGMENTATION": 0,
+    "STRUCTURE_OTHER": 0
+   },
+   "added_counts": {
+    "PROSE_ADDED": 4,
+    "OTHER_ADDED": 13
+   },
+   "tables": []
+  },
+  {
+   "profile": "upstream-unstructured-0.27.28-hi_res",
+   "case": "nvidia-p006",
+   "outcome": "SUCCESS",
+   "millis": 0,
+   "predicted_tables": 3,
+   "unassociated_predicted_tables": 0,
+   "labelled_tables": 3,
+   "labelled_cells": 100,
+   "recalled_cells": 37,
+   "labelled_rows": 20,
+   "exact_rows": 0,
+   "missed_counts": {
+    "DETECTOR_MISS": 0,
+    "OUTSIDE_TABLE": 9,
+    "CELL_SEGMENTATION": 53,
+    "STRUCTURE_OTHER": 1
+   },
+   "added_counts": {
+    "PROSE_ADDED": 0,
+    "OTHER_ADDED": 87
+   },
+   "tables": [
+    {
+     "labelled_rows": 10,
+     "labelled_cells": 50,
+     "associated": true,
+     "recalled_cells": 19,
+     "exact_rows": 0
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": true,
+     "recalled_cells": 10,
+     "exact_rows": 0
+    },
+    {
+     "labelled_rows": 5,
+     "labelled_cells": 25,
+     "associated": true,
+     "recalled_cells": 8,
+     "exact_rows": 0
+    }
+   ]
+  }
+ ]
+}

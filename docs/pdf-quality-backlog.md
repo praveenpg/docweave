@@ -18,6 +18,23 @@ independent-corpus qualification remains deferred and is not a current completio
 qualification, not passed checks. No further corpus download or detector run follows from the
 superseded acquisition plan. Prioritize demonstrated OSS compatibility/correctness issues.
 
+**Image output contracts (2026-10-29):** [contracts](pdf-image-contracts.md) separate intrinsic samples (A), the isolated contribution (B, not provided) and final appearance (C), with an executable feature matrix (`PdfImageOutputContractsTest`). No API change.
+
+**P6 preprocessing (2026-10-29, qualification only):** the stroke-weight restoration and speckle/thin-artifact removal candidates ran with the pinned Tesseract 5.5.3 under a frozen protocol. Both were rejected on their targets; see [results](../benchmarks/review/pdf-scan-preprocessing-p6/README.md). P4 and P5 remain blocked on Q2 and a labelled two-column scan respectively.
+
+**Reading-order contract (2026-10-29):** [contract v1](pdf-reading-order-contract.md) and [evaluation](../benchmarks/review/pdf-reading-order-contract/README.md).
+- New opt-in `SMALLER_TYPE_BLOCKS_CONTIGUOUS` emits each side stream as one unit: margin runs 8→1, 8→2, 7→1, with 0 contract violations.
+- Unstructured `fast` agreement drops (a documented trade-off).
+- eLife's margin column is undetected and remains the next P1 action.
+
+**Public labelled business-table transfer (2026-10-29, qualification only):** see [results](../benchmarks/review/pdf-public-table-ground-truth/README.md). Unstructured's own cell labels on an unseen NVIDIA statement page:
+- `yolox-provider` 94/100 cells, 19/20 rows.
+- `SPLIT_ALIGNED_TWO_LINE_ROWS` conflicts with the labelled two-line date cells (−10 cells).
+- Native profiles 0/3; TATR adds a false table on the labelled negative page.
+- Pinned upstream `hi_res` scores 37/100 on the same scorer.
+
+No runtime change. The projected-row-header guard waits for a second labelled instance.
+
 **Completed sidebar implementation:** the explicit `SMALLER_TYPE_BLOCKS_ROW_TIES` policy now performs the evaluated whole-element adjacent moves in column-paragraph layouts. [Final review](../benchmarks/review/pdf-sidebar-row-tie-policy/review/README.md): next reversals 3->1, holdout 19->17 (20->18 inline), defaults/old policy unchanged, 1,402 Java21 tests pass. The plain-PARAGRAPHS row regression found in review is fixed by retaining old placement there. This does not fix recent's remaining paragraph-internal ties.
 
 A parked issue remains open. Review its existing evidence before another attempt; use

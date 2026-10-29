@@ -1,0 +1,184 @@
+{
+  "protocol" : "benchmarks/review/pdf-scan-preprocessing-p6/PROTOCOL.md",
+  "manifest_sha256" : "949d20f7e717be11c6d324448144fb33aec974e0dc73a9bb3a60f1b0aaf5776d",
+  "java_version" : "21.0.8",
+  "candidate" : "P6_4",
+  "acceptance" : false,
+  "results" : [ {
+    "id" : "arnimb_goethe03_1835",
+    "language" : "deu",
+    "candidate" : "P6_4",
+    "components_removed" : 50,
+    "preprocessed_rgb_sha256" : "e7352f6b331fe2a1c17c91d06d139973df682e99feb96f2298aa8f6f9c48d7e9",
+    "outcome" : "SUCCESS",
+    "ocr_millis" : 1364,
+    "baseline" : {
+      "associated_reference_lines" : 21,
+      "missing_reference_lines" : 1,
+      "predicted_lines_without_reference" : 0,
+      "joint_reference_line_character_errors" : 103
+    },
+    "candidate_metrics" : {
+      "associated_reference_lines" : 22,
+      "missing_reference_lines" : 0,
+      "predicted_lines_without_reference" : 0,
+      "joint_reference_line_character_errors" : 101
+    },
+    "role" : "control",
+    "acceptance" : true
+  }, {
+    "id" : "arnimb_goethe03_1835",
+    "language" : "deu_latf",
+    "candidate" : "P6_4",
+    "components_removed" : 50,
+    "preprocessed_rgb_sha256" : "e7352f6b331fe2a1c17c91d06d139973df682e99feb96f2298aa8f6f9c48d7e9",
+    "outcome" : "SUCCESS",
+    "ocr_millis" : 1378,
+    "baseline" : {
+      "associated_reference_lines" : 21,
+      "missing_reference_lines" : 1,
+      "predicted_lines_without_reference" : 0,
+      "joint_reference_line_character_errors" : 50
+    },
+    "candidate_metrics" : {
+      "associated_reference_lines" : 22,
+      "missing_reference_lines" : 0,
+      "predicted_lines_without_reference" : 0,
+      "joint_reference_line_character_errors" : 49
+    },
+    "role" : "control",
+    "acceptance" : true
+  }, {
+    "id" : "bebel_frau_1879",
+    "language" : "deu",
+    "candidate" : "P6_4",
+    "components_removed" : 7,
+    "preprocessed_rgb_sha256" : "bda79f6c19dc83de7ccb3d4cef503175612d1125e6576cf8f3a3a943801818a8",
+    "outcome" : "SUCCESS",
+    "ocr_millis" : 4101,
+    "baseline" : {
+      "associated_reference_lines" : 50,
+      "missing_reference_lines" : 0,
+      "predicted_lines_without_reference" : 1,
+      "joint_reference_line_character_errors" : 7
+    },
+    "candidate_metrics" : {
+      "associated_reference_lines" : 50,
+      "missing_reference_lines" : 0,
+      "predicted_lines_without_reference" : 1,
+      "joint_reference_line_character_errors" : 7
+    },
+    "role" : "control",
+    "acceptance" : true
+  }, {
+    "id" : "bebel_frau_1879",
+    "language" : "deu_latf",
+    "candidate" : "P6_4",
+    "components_removed" : 7,
+    "preprocessed_rgb_sha256" : "bda79f6c19dc83de7ccb3d4cef503175612d1125e6576cf8f3a3a943801818a8",
+    "outcome" : "SUCCESS",
+    "ocr_millis" : 4098,
+    "baseline" : {
+      "associated_reference_lines" : 50,
+      "missing_reference_lines" : 0,
+      "predicted_lines_without_reference" : 1,
+      "joint_reference_line_character_errors" : 53
+    },
+    "candidate_metrics" : {
+      "associated_reference_lines" : 50,
+      "missing_reference_lines" : 0,
+      "predicted_lines_without_reference" : 1,
+      "joint_reference_line_character_errors" : 53
+    },
+    "role" : "control",
+    "acceptance" : true
+  }, {
+    "id" : "buerger_gedichte_1778_0039",
+    "language" : "deu",
+    "candidate" : "P6_4",
+    "components_removed" : 285,
+    "preprocessed_rgb_sha256" : "f4987c285fd16baf15a1297e0bfa68c4dfff29b8cb40e3d8fdd66b4f1723979a",
+    "outcome" : "SUCCESS",
+    "ocr_millis" : 1156,
+    "baseline" : {
+      "associated_reference_lines" : 27,
+      "missing_reference_lines" : 11,
+      "predicted_lines_without_reference" : 13,
+      "joint_reference_line_character_errors" : 364
+    },
+    "candidate_metrics" : {
+      "associated_reference_lines" : 27,
+      "missing_reference_lines" : 11,
+      "predicted_lines_without_reference" : 17,
+      "joint_reference_line_character_errors" : 371
+    },
+    "role" : "control",
+    "acceptance" : false
+  }, {
+    "id" : "buerger_gedichte_1778_0039",
+    "language" : "deu_latf",
+    "candidate" : "P6_4",
+    "components_removed" : 284,
+    "preprocessed_rgb_sha256" : "bf2b62aeed5c609949500610267dd8572682c98538a3461af8d17a40a143b3b9",
+    "outcome" : "SUCCESS",
+    "ocr_millis" : 1119,
+    "baseline" : {
+      "associated_reference_lines" : 27,
+      "missing_reference_lines" : 11,
+      "predicted_lines_without_reference" : 11,
+      "joint_reference_line_character_errors" : 319
+    },
+    "candidate_metrics" : {
+      "associated_reference_lines" : 27,
+      "missing_reference_lines" : 11,
+      "predicted_lines_without_reference" : 17,
+      "joint_reference_line_character_errors" : 319
+    },
+    "role" : "control",
+    "acceptance" : false
+  }, {
+    "id" : "nn_besuch_1780_00001",
+    "language" : "deu",
+    "candidate" : "P6_4",
+    "components_removed" : 2874,
+    "preprocessed_rgb_sha256" : "46bca4e5e2db32835d04f78080373813f421214fda4ee02010f7c0bd74d5b36b",
+    "outcome" : "SUCCESS",
+    "ocr_millis" : 783,
+    "baseline" : {
+      "associated_reference_lines" : 9,
+      "missing_reference_lines" : 1,
+      "predicted_lines_without_reference" : 9,
+      "joint_reference_line_character_errors" : 51
+    },
+    "candidate_metrics" : {
+      "associated_reference_lines" : 9,
+      "missing_reference_lines" : 1,
+      "predicted_lines_without_reference" : 10,
+      "joint_reference_line_character_errors" : 52
+    },
+    "role" : "target",
+    "acceptance" : false
+  }, {
+    "id" : "nn_besuch_1780_00001",
+    "language" : "deu_latf",
+    "candidate" : "P6_4",
+    "components_removed" : 2878,
+    "preprocessed_rgb_sha256" : "24aa7de573187d5f8577074993b37459f3bcd12adb9e2b30cf8e9045f8e378e4",
+    "outcome" : "SUCCESS",
+    "ocr_millis" : 755,
+    "baseline" : {
+      "associated_reference_lines" : 9,
+      "missing_reference_lines" : 1,
+      "predicted_lines_without_reference" : 9,
+      "joint_reference_line_character_errors" : 27
+    },
+    "candidate_metrics" : {
+      "associated_reference_lines" : 9,
+      "missing_reference_lines" : 1,
+      "predicted_lines_without_reference" : 10,
+      "joint_reference_line_character_errors" : 27
+    },
+    "role" : "target",
+    "acceptance" : false
+  } ]
+}
