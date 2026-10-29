@@ -1,0 +1,57 @@
+{
+  "contract" : "docs/pdf-reading-order-contract.md v1",
+  "cases" : [ {
+    "case" : "recent",
+    "main_left" : 190.0,
+    "band_top" : 380.0,
+    "r4_margin_runs" : {
+      "COLUMN_PARAGRAPHS+SIDE_STREAMS" : 8,
+      "COLUMN_PARAGRAPHS+SIDE_STREAMS_ROW_FRAGMENTS" : 8,
+      "COLUMN_PARAGRAPHS+SIDE_STREAMS_CONTIGUOUS" : 1
+    },
+    "adjudicated_profile" : "COLUMN_PARAGRAPHS+SIDE_STREAMS_CONTIGUOUS",
+    "reversed_line_pairs_by_verdict" : {
+      "REFERENCE_DIFFERS" : 139
+    }
+  }, {
+    "case" : "next",
+    "main_left" : 190.0,
+    "band_top" : 380.0,
+    "r4_margin_runs" : {
+      "COLUMN_PARAGRAPHS+SIDE_STREAMS" : 7,
+      "COLUMN_PARAGRAPHS+SIDE_STREAMS_ROW_FRAGMENTS" : 8,
+      "COLUMN_PARAGRAPHS+SIDE_STREAMS_CONTIGUOUS" : 2
+    },
+    "adjudicated_profile" : "COLUMN_PARAGRAPHS+SIDE_STREAMS_CONTIGUOUS",
+    "reversed_line_pairs_by_verdict" : {
+      "REFERENCE_DIFFERS" : 103
+    }
+  }, {
+    "case" : "elife",
+    "main_left" : 160.0,
+    "band_top" : 380.0,
+    "r4_margin_runs" : {
+      "COLUMN_PARAGRAPHS+SIDE_STREAMS" : 8,
+      "COLUMN_PARAGRAPHS+SIDE_STREAMS_ROW_FRAGMENTS" : 8,
+      "COLUMN_PARAGRAPHS+SIDE_STREAMS_CONTIGUOUS" : 8
+    },
+    "adjudicated_profile" : "COLUMN_PARAGRAPHS+SIDE_STREAMS_CONTIGUOUS",
+    "reversed_line_pairs_by_verdict" : {
+      "OUTPUT_VIOLATES_CONTRACT" : 27,
+      "REFERENCE_DIFFERS" : 16
+    }
+  }, {
+    "case" : "holdout",
+    "main_left" : 190.0,
+    "band_top" : 380.0,
+    "r4_margin_runs" : {
+      "COLUMN_PARAGRAPHS+SIDE_STREAMS" : 7,
+      "COLUMN_PARAGRAPHS+SIDE_STREAMS_ROW_FRAGMENTS" : 7,
+      "COLUMN_PARAGRAPHS+SIDE_STREAMS_CONTIGUOUS" : 1
+    },
+    "adjudicated_profile" : "COLUMN_PARAGRAPHS+SIDE_STREAMS_CONTIGUOUS",
+    "reversed_line_pairs_by_verdict" : {
+      "REFERENCE_DIFFERS" : 117
+    }
+  } ]
+}

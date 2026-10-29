@@ -1,0 +1,409 @@
+{
+ "note": "Counts only. Upstream line-order outcomes (CompareUpstreamLineOrder, page 1, unchanged pair population) and residual classes (ClassifyResidualLineOrder).",
+ "line_order": [
+  {
+   "report": "order-fullbody.json",
+   "case": "recent",
+   "profile": "COLUMN_PARAGRAPHS",
+   "correct": 967,
+   "reversed": 23,
+   "unmatched": 0,
+   "pairs": 990
+  },
+  {
+   "report": "order-fullbody.json",
+   "case": "recent",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS",
+   "correct": 984,
+   "reversed": 6,
+   "unmatched": 0,
+   "pairs": 990
+  },
+  {
+   "report": "order-fullbody.json",
+   "case": "recent",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_ROW_TIES",
+   "correct": 984,
+   "reversed": 6,
+   "unmatched": 0,
+   "pairs": 990
+  },
+  {
+   "report": "order-fullbody.json",
+   "case": "recent",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_ROW_FRAGMENTS",
+   "correct": 990,
+   "reversed": 0,
+   "unmatched": 0,
+   "pairs": 990
+  },
+  {
+   "report": "order-fullbody.json",
+   "case": "recent",
+   "profile": "COLUMN_PARAGRAPHS+INLINE_SCRIPTS+SIDE_STREAMS_ROW_FRAGMENTS",
+   "correct": 990,
+   "reversed": 0,
+   "unmatched": 0,
+   "pairs": 990
+  },
+  {
+   "report": "order-fullbody.json",
+   "case": "next",
+   "profile": "COLUMN_PARAGRAPHS",
+   "correct": 681,
+   "reversed": 22,
+   "unmatched": 0,
+   "pairs": 703
+  },
+  {
+   "report": "order-fullbody.json",
+   "case": "next",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS",
+   "correct": 700,
+   "reversed": 3,
+   "unmatched": 0,
+   "pairs": 703
+  },
+  {
+   "report": "order-fullbody.json",
+   "case": "next",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_ROW_TIES",
+   "correct": 702,
+   "reversed": 1,
+   "unmatched": 0,
+   "pairs": 703
+  },
+  {
+   "report": "order-fullbody.json",
+   "case": "next",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_ROW_FRAGMENTS",
+   "correct": 703,
+   "reversed": 0,
+   "unmatched": 0,
+   "pairs": 703
+  },
+  {
+   "report": "order-fullbody.json",
+   "case": "next",
+   "profile": "COLUMN_PARAGRAPHS+INLINE_SCRIPTS+SIDE_STREAMS_ROW_FRAGMENTS",
+   "correct": 703,
+   "reversed": 0,
+   "unmatched": 0,
+   "pairs": 703
+  },
+  {
+   "report": "order-fullbody.json",
+   "case": "elife",
+   "profile": "COLUMN_PARAGRAPHS",
+   "correct": 1388,
+   "reversed": 43,
+   "unmatched": 54,
+   "pairs": 1485
+  },
+  {
+   "report": "order-fullbody.json",
+   "case": "elife",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS",
+   "correct": 1388,
+   "reversed": 43,
+   "unmatched": 54,
+   "pairs": 1485
+  },
+  {
+   "report": "order-fullbody.json",
+   "case": "elife",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_ROW_TIES",
+   "correct": 1388,
+   "reversed": 43,
+   "unmatched": 54,
+   "pairs": 1485
+  },
+  {
+   "report": "order-fullbody.json",
+   "case": "elife",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_ROW_FRAGMENTS",
+   "correct": 1388,
+   "reversed": 43,
+   "unmatched": 54,
+   "pairs": 1485
+  },
+  {
+   "report": "order-fullbody.json",
+   "case": "elife",
+   "profile": "COLUMN_PARAGRAPHS+INLINE_SCRIPTS+SIDE_STREAMS_ROW_FRAGMENTS",
+   "correct": 1610,
+   "reversed": 43,
+   "unmatched": 0,
+   "pairs": 1653
+  },
+  {
+   "report": "order-holdout.json",
+   "case": "holdout",
+   "profile": "COLUMN_PARAGRAPHS",
+   "correct": 1046,
+   "reversed": 35,
+   "unmatched": 0,
+   "pairs": 1081
+  },
+  {
+   "report": "order-holdout.json",
+   "case": "holdout",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS",
+   "correct": 1062,
+   "reversed": 19,
+   "unmatched": 0,
+   "pairs": 1081
+  },
+  {
+   "report": "order-holdout.json",
+   "case": "holdout",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_ROW_TIES",
+   "correct": 1064,
+   "reversed": 17,
+   "unmatched": 0,
+   "pairs": 1081
+  },
+  {
+   "report": "order-holdout.json",
+   "case": "holdout",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_ROW_FRAGMENTS",
+   "correct": 1064,
+   "reversed": 17,
+   "unmatched": 0,
+   "pairs": 1081
+  },
+  {
+   "report": "order-holdout.json",
+   "case": "holdout",
+   "profile": "COLUMN_PARAGRAPHS+INLINE_SCRIPTS+SIDE_STREAMS_ROW_FRAGMENTS",
+   "correct": 972,
+   "reversed": 18,
+   "unmatched": 0,
+   "pairs": 990
+  },
+  {
+   "report": "cand-fullbody.json",
+   "case": "recent",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS",
+   "correct": 984,
+   "reversed": 6,
+   "unmatched": 0,
+   "pairs": 990
+  },
+  {
+   "report": "cand-fullbody.json",
+   "case": "recent",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_ROW_FRAGMENTS",
+   "correct": 990,
+   "reversed": 0,
+   "unmatched": 0,
+   "pairs": 990
+  },
+  {
+   "report": "cand-fullbody.json",
+   "case": "recent",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_CONTIGUOUS",
+   "correct": 851,
+   "reversed": 139,
+   "unmatched": 0,
+   "pairs": 990
+  },
+  {
+   "report": "cand-fullbody.json",
+   "case": "recent",
+   "profile": "COLUMN_PARAGRAPHS+INLINE_SCRIPTS+SIDE_STREAMS_CONTIGUOUS",
+   "correct": 851,
+   "reversed": 139,
+   "unmatched": 0,
+   "pairs": 990
+  },
+  {
+   "report": "cand-fullbody.json",
+   "case": "next",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS",
+   "correct": 700,
+   "reversed": 3,
+   "unmatched": 0,
+   "pairs": 703
+  },
+  {
+   "report": "cand-fullbody.json",
+   "case": "next",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_ROW_FRAGMENTS",
+   "correct": 703,
+   "reversed": 0,
+   "unmatched": 0,
+   "pairs": 703
+  },
+  {
+   "report": "cand-fullbody.json",
+   "case": "next",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_CONTIGUOUS",
+   "correct": 600,
+   "reversed": 103,
+   "unmatched": 0,
+   "pairs": 703
+  },
+  {
+   "report": "cand-fullbody.json",
+   "case": "next",
+   "profile": "COLUMN_PARAGRAPHS+INLINE_SCRIPTS+SIDE_STREAMS_CONTIGUOUS",
+   "correct": 600,
+   "reversed": 103,
+   "unmatched": 0,
+   "pairs": 703
+  },
+  {
+   "report": "cand-fullbody.json",
+   "case": "elife",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS",
+   "correct": 1388,
+   "reversed": 43,
+   "unmatched": 54,
+   "pairs": 1485
+  },
+  {
+   "report": "cand-fullbody.json",
+   "case": "elife",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_ROW_FRAGMENTS",
+   "correct": 1388,
+   "reversed": 43,
+   "unmatched": 54,
+   "pairs": 1485
+  },
+  {
+   "report": "cand-fullbody.json",
+   "case": "elife",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_CONTIGUOUS",
+   "correct": 1388,
+   "reversed": 43,
+   "unmatched": 54,
+   "pairs": 1485
+  },
+  {
+   "report": "cand-fullbody.json",
+   "case": "elife",
+   "profile": "COLUMN_PARAGRAPHS+INLINE_SCRIPTS+SIDE_STREAMS_CONTIGUOUS",
+   "correct": 1610,
+   "reversed": 43,
+   "unmatched": 0,
+   "pairs": 1653
+  },
+  {
+   "report": "cand-holdout.json",
+   "case": "holdout",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS",
+   "correct": 1062,
+   "reversed": 19,
+   "unmatched": 0,
+   "pairs": 1081
+  },
+  {
+   "report": "cand-holdout.json",
+   "case": "holdout",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_ROW_FRAGMENTS",
+   "correct": 1064,
+   "reversed": 17,
+   "unmatched": 0,
+   "pairs": 1081
+  },
+  {
+   "report": "cand-holdout.json",
+   "case": "holdout",
+   "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_CONTIGUOUS",
+   "correct": 964,
+   "reversed": 117,
+   "unmatched": 0,
+   "pairs": 1081
+  },
+  {
+   "report": "cand-holdout.json",
+   "case": "holdout",
+   "profile": "COLUMN_PARAGRAPHS+INLINE_SCRIPTS+SIDE_STREAMS_CONTIGUOUS",
+   "correct": 850,
+   "reversed": 140,
+   "unmatched": 0,
+   "pairs": 990
+  }
+ ],
+ "residual_classes": {
+  "residual.json": [
+   {
+    "case": "recent",
+    "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_ROW_FRAGMENTS",
+    "reversed": 0,
+    "by_kind": {},
+    "element_pairs": 0
+   },
+   {
+    "case": "next",
+    "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_ROW_FRAGMENTS",
+    "reversed": 0,
+    "by_kind": {},
+    "element_pairs": 0
+   },
+   {
+    "case": "elife",
+    "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_ROW_FRAGMENTS",
+    "reversed": 43,
+    "by_kind": {
+     "ORDERABLE": 43
+    },
+    "element_pairs": 20
+   },
+   {
+    "case": "holdout",
+    "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_ROW_FRAGMENTS",
+    "reversed": 17,
+    "by_kind": {
+     "ORDERABLE": 17
+    },
+    "element_pairs": 8
+   }
+  ],
+  "residual-cand.json": [
+   {
+    "case": "recent",
+    "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_CONTIGUOUS",
+    "reversed": 139,
+    "by_kind": {
+     "INTERLEAVED": 6,
+     "ORDERABLE": 133
+    },
+    "element_pairs": 56
+   },
+   {
+    "case": "next",
+    "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_CONTIGUOUS",
+    "reversed": 103,
+    "by_kind": {
+     "INTERLEAVED": 1,
+     "ORDERABLE": 102
+    },
+    "element_pairs": 49
+   },
+   {
+    "case": "elife",
+    "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_CONTIGUOUS",
+    "reversed": 43,
+    "by_kind": {
+     "ORDERABLE": 43
+    },
+    "element_pairs": 20
+   },
+   {
+    "case": "holdout",
+    "profile": "COLUMN_PARAGRAPHS+SIDE_STREAMS_CONTIGUOUS",
+    "reversed": 117,
+    "by_kind": {
+     "ORDERABLE": 117
+    },
+    "element_pairs": 45
+   }
+  ]
+ },
+ "invariants": {
+  "scientific": "sources=7 pages=147 profile_runs=21 outputs_with_moved_side_blocks=12 invariant_failures=0",
+  "controls": "sources=7 pages=74 profile_runs=21 outputs_with_moved_side_blocks=0 invariant_failures=0"
+ }
+}

@@ -97,7 +97,21 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
          * layouts only; plain {@link TextLayout#PARAGRAPHS} retains {@link #SMALLER_TYPE_BLOCKS} placement. Post-hoc
          * development evidence against a pinned upstream reading order, not a semantic or accuracy guarantee.
          */
-        SMALLER_TYPE_BLOCKS_ROW_FRAGMENTS
+        SMALLER_TYPE_BLOCKS_ROW_FRAGMENTS,
+        /**
+         * Detects and groups side streams exactly as {@link #SMALLER_TYPE_BLOCKS}, but emits each side stream as one
+         * contiguous unit: all of its blocks, in their own top-to-bottom order, at the position of its first line,
+         * instead of each block at its own first line. This implements rules R4 and R5 of the reading-order contract
+         * ({@code docs/pdf-reading-order-contract.md}): a margin column, such as first-page article metadata, is never
+         * interleaved block by block with the main flow. A side stream divided by an intervening item that overlaps
+         * its column (an image, table or spanning text) becomes separate units, and no block moves past such a
+         * barrier. Main-stream grouping, membership and relative order are those of {@link #SMALLER_TYPE_BLOCKS};
+         * each block's text, bounds and members are unchanged, and only the position of side blocks after a stream's
+         * first block differs. Side-stream elements carry {@code pdf_reading_order=side_stream_contiguous_v1}.
+         * Applies where {@link #SMALLER_TYPE_BLOCKS} applies; accepted two-column bands are unchanged. A geometric
+         * policy derived from a stated contract, not semantic article structure.
+         */
+        SMALLER_TYPE_BLOCKS_CONTIGUOUS
     }
 
     /**

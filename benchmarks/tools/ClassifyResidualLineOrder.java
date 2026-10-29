@@ -259,7 +259,7 @@ public final class ClassifyResidualLineOrder {
      * Extracts page-one non-image elements with a native layout and optional {@code +} modifiers.
      *
      * @param profile layout followed by optional {@code +INLINE_SCRIPTS}, {@code +SIDE_STREAMS} or
-     *         {@code +SIDE_STREAMS_ROW_TIES} or {@code +SIDE_STREAMS_ROW_FRAGMENTS}
+     *         {@code +SIDE_STREAMS_ROW_TIES}, {@code +SIDE_STREAMS_ROW_FRAGMENTS} or {@code +SIDE_STREAMS_CONTIGUOUS}
      * @param bytes original bytes
      * @return page-one non-image elements in output order
      * @throws Exception if extraction fails
@@ -275,6 +275,8 @@ public final class ClassifyResidualLineOrder {
                     options.withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_ROW_TIES);
                 case "SIDE_STREAMS_ROW_FRAGMENTS" ->
                     options.withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_ROW_FRAGMENTS);
+                case "SIDE_STREAMS_CONTIGUOUS" ->
+                    options.withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_CONTIGUOUS);
                 default -> throw new IllegalArgumentException("Unknown profile modifier");
             };
         }

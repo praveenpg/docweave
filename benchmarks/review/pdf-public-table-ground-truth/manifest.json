@@ -1,0 +1,61 @@
+{
+ "frozen_at": "2026-10-29",
+ "source_repository": "https://github.com/Unstructured-IO/unstructured-eval-metrics",
+ "source_commit": "b148439dd428bb10d7f2bb80c7386ea08cbd7447",
+ "license": "Apache-2.0",
+ "license_sha256": "d99e717263df2ce3e94a34744f52dd38a0bf723918f5d589c426445e332b7998",
+ "cases": [
+  {
+   "id": "nvidia-p006",
+   "role": "positive",
+   "pdf": {
+    "path": "src/mini-holistic-1-v2-NVIDIA-p006.pdf",
+    "bytes": 21964,
+    "sha256": "2513f295ee0bc213e0a635f9ec4cd80f34127dd6ee35a0678a1d00ab3f2a9990"
+   },
+   "tables": {
+    "path": "table-gt/mini-holistic-1-v2-NVIDIA-p006.pdf__uns-table-json-v1.0.0__0x0002__0.json",
+    "bytes": 20553,
+    "sha256": "39bf4c55960a42dafae2bb094a11cc883038627e59e272c87b411ba1795ae60a"
+   },
+   "text": {
+    "path": "content-gt/mini-holistic-1-v2-NVIDIA-p006.pdf__uns-plaintext-v1.0.0__0x0001__0.txt",
+    "bytes": 2242,
+    "sha256": "87d93739d061390ab048d0ea9a034b0268d00dd18a1741be5d8ab7c2fb914544"
+   }
+  },
+  {
+   "id": "cisa-p002",
+   "role": "negative",
+   "pdf": {
+    "path": "src/mini-holistic-1-v2-005-CISA-AA22-076-Strengthening-Cybersecurity-p1-p4-p002.pdf",
+    "bytes": 155134,
+    "sha256": "354008bc095f0412ba11d25a2a93b7e66db6b02eef0fc873f92d3aa8355707fb"
+   },
+   "tables": {
+    "path": "table-gt/mini-holistic-1-v2-005-CISA-AA22-076-Strengthening-Cybersecurity-p1-p4-p002.pdf__uns-table-json-v1.0.0__0x0002__0.json",
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+   },
+   "text": {
+    "path": "content-gt/mini-holistic-1-v2-005-CISA-AA22-076-Strengthening-Cybersecurity-p1-p4-p002.pdf__uns-plaintext-v1.0.0__0x0001__0.txt",
+    "bytes": 3945,
+    "sha256": "3e93f16f616a171cfe91123f251f74878ab3fc24edcd156a6bac87ad91a9ad12"
+   }
+  }
+ ],
+ "models": {
+  "yolox": {
+   "file": "yolox_l0.05.onnx",
+   "sha256": "134301ca94fb0df8027be9a6dad1908fe6218af8ffa4d34f0819c7c2226195f3"
+  },
+  "tatr_detection": {
+   "file": "detection.onnx",
+   "sha256": "0f625baa8849eff26e265ce08a2f6b1479e73f52edd5adc09799c7e7fcc689b9"
+  },
+  "tatr_structure": {
+   "file": "structure.onnx",
+   "sha256": "ff1d19a18cb5f041c1692ff681f891a5180f9430d68a71d2cf7a0a2e8e55b990"
+  }
+ }
+}
