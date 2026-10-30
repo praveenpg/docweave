@@ -4,7 +4,7 @@
 
 ## 0.1.0-beta.9
 
-Full-library release candidate; publication pending. Includes the cumulative unpublished work below.
+Full library published on Maven Central on 30 October 2026. Includes the cumulative work below.
 
 - Add remote document sources (#13). `DocumentSource.remote(location)` names a document by an opaque location that
   core passes unchanged to one explicitly configured `RemoteSourceResolver` (`DocWeave.builder().remoteSources(...)`).
