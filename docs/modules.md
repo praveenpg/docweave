@@ -2,8 +2,8 @@
 
 Java 21 is the minimum build/runtime version; CI verifies Java 21 and 25.
 
-The root is the `io.docweave:docweave-parent` aggregator/parent POM. All modules currently
-use version `0.1.0-beta.8` for the local candidate. Java packages now use `io.docweave`;
+The root is the `io.docweave:docweave-parent` aggregator/parent POM. All modules of the development branch use
+version `0.1.0-beta.9`, prepared for full-library publication; see the [release notes](releases/0.1.0-beta.9.md). Java packages now use `io.docweave`;
 applications upgrading from earlier betas must [migrate imports and rebuild](package-migration.md).
 The beta.8 parent/core artifacts are published; all other beta.8 modules remain local. Earlier published versions retain their original packages.
 
@@ -19,6 +19,7 @@ The beta.8 parent/core artifacts are published; all other beta.8 modules remain 
 | docweave-pdf | Native quarter-turn PDF text/layout, ruled/merged and aligned numeric tables, image placements/payloads; optional provider-based OCR and scanned complete ruled tables | core, PDFBox |
 | docweave-layout-onnx | Explicit local pinned ONNX table-structure provider; no discovery/download | PDF module, ONNX Runtime; excluded from convenience artifact |
 | docweave-ocr-tesseract | Explicit optional managed external OCR for textless/mixed-image PDF pages; executable/models installed separately | PDF module; excluded from convenience artifact |
+| docweave-source-s3 | Explicit optional `RemoteSourceResolver` for AWS S3 and S3-compatible services ([README](../docweave-source-s3/README.md)) | core, AWS SDK for Java 2.x (s3, Apache HttpClient 5); excluded from convenience artifact |
 | docweave-docx | DOCX archive and WordprocessingML extraction | core, POI and its required libraries |
 | docweave-delimited | Internal quoted-record extraction shared by CSV/TSV | core, Commons CSV and its required libraries |
 | docweave-json | Element JSON and compressed provenance codec | core, Jackson |
@@ -41,7 +42,7 @@ After local installation or a future publication, select just this dependency:
 <dependency>
     <groupId>io.docweave</groupId>
     <artifactId>docweave-docx</artifactId>
-    <version>0.1.0-beta.8</version>
+    <version>0.1.0-beta.9</version>
 </dependency>
 ```
 
@@ -58,7 +59,7 @@ CommonMark, Commons CSV, Jackson, other format strategies, chunking or batch ser
 `docweave-json` for JSON, `docweave-chunking` for chunking, or `docweave-batch` for batch pipelines.
 Those optional services have their own dependencies; structural chunking intentionally uses jsoup
 and JSON provenance. To retain the former all-formats convenience dependency, use
-`io.docweave:docweave:0.1.0-beta.8` (the child under `docweave-all/`).
+`io.docweave:docweave:0.1.0-beta.9` (the child under `docweave-all/`).
 
 ## Runtime strategy discovery
 

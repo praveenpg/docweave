@@ -133,6 +133,9 @@ final class DefaultPdfPageCropRenderer implements PdfPageCropRenderer {
             case DocumentSource.Text ignored ->
                 throw new PartitionException(
                         PartitionException.Code.UNSUPPORTED_FORMAT, "PDF page crops require file or byte sources");
+            case DocumentSource.Remote ignored ->
+                throw new IllegalArgumentException(
+                        "PDF page crops require a local File or Bytes source; resolve Remote sources first");
         };
     }
 

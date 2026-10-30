@@ -358,7 +358,9 @@ public final class CompareUpstreamLineOrder {
             value
             -> value.withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_ROW_TIES),
             "SIDE_STREAMS_ROW_FRAGMENTS",
-            value -> value.withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_ROW_FRAGMENTS));
+            value -> value.withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_ROW_FRAGMENTS),
+            "SIDE_STREAMS_CONTIGUOUS",
+            value -> value.withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_CONTIGUOUS));
 
     /**
      * Returns whether an element lies on the page.

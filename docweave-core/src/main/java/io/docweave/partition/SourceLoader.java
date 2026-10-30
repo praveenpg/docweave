@@ -81,8 +81,58 @@ final class SourceLoader {
      * @throws IOException if I/O fails, limits are exceeded, encoding/format is invalid, or interrupted
      */
     Content load(final DocumentSource source, final PartitionOptions options) throws IOException {
+        return load(source, options, null, false);
+    }
+
+    /**
+     * Loads resolved remote content under its logical filename. Owned bytes are used without copying; other local
+     * sources load as usual, but the logical filename replaces a temporary file's own name.
+     *
+     * @param resolved processor-owned resolved document
+     * @param options partition options and resource limits
+     * @return loaded {@link Content}
+     * @throws IOException if I/O fails, limits are exceeded, encoding/format is invalid, or interrupted
+     */
+    Content load(final DefaultResolvedDocument resolved, final PartitionOptions options) throws IOException {
+        final byte[] owned = resolved.ownedBytes();
+        if (owned != null) {
+            ElementCollector.checkInterrupted();
+            if (owned.length > options.maxInputBytes()) {
+                throw tooLarge(options);
+            }
+            return detect(new Raw(owned, resolved.filename()), options);
+        }
+        return load(resolved.localSource(), options, resolved.filename(), true);
+    }
+
+    /**
+     * Loads a custom resolver's local source under its logical filename.
+     *
+     * @param local File, Bytes or Text source
+     * @param filename logical filename replacing the source's own name
+     * @param options partition options and resource limits
+     * @return loaded {@link Content}
+     * @throws IOException if I/O fails, limits are exceeded, encoding/format is invalid, or interrupted
+     */
+    Content loadResolved(final DocumentSource local, final String filename, final PartitionOptions options)
+            throws IOException {
+        return load(local, options, filename, true);
+    }
+
+    /**
+     * Loads a local source, optionally replacing its filename with a logical one.
+     *
+     * @param source local input document source
+     * @param options partition options and resource limits
+     * @param logicalName replacement filename (may be null) when {@code renamed} is true
+     * @param renamed whether {@code logicalName} replaces the source's own filename
+     * @return loaded {@link Content}
+     * @throws IOException if I/O fails, limits are exceeded, encoding/format is invalid, or interrupted
+     */
+    private Content load(final DocumentSource source, final PartitionOptions options, final String logicalName,
+            final boolean renamed) throws IOException {
         ElementCollector.checkInterrupted();
-        final Raw raw = switch (source) {
+        final Raw loaded = switch (source) {
             case final DocumentSource.File file -> {
                 try (final var channel = Files.newByteChannel(file.path())) {
                     yield new Raw(BoundedFileInput.read(channel, options.maxInputBytes()),
@@ -99,7 +149,22 @@ final class SourceLoader {
                 final int size = DecodedTextInput.measure(text.content(), options.maxInputBytes());
                 yield new Raw(DecodedTextInput.preview(text.content()), text.filename(), text.content(), size);
             }
+            case final DocumentSource.Remote ignored ->
+                throw new IllegalArgumentException("Remote sources must be resolved before loading");
         };
+        final Raw raw = renamed ? new Raw(loaded.bytes(), logicalName, loaded.decodedText(), loaded.size()) : loaded;
+        return detect(raw, options);
+    }
+
+    /**
+     * Applies size limits, format detection and decoding to raw content.
+     *
+     * @param raw loaded content
+     * @param options partition options and resource limits
+     * @return loaded {@link Content}
+     * @throws IOException if limits are exceeded, encoding/format is invalid, or interrupted
+     */
+    private Content detect(final Raw raw, final PartitionOptions options) throws IOException {
         if (raw.size() > options.maxInputBytes()) {
             throw tooLarge(options);
         }

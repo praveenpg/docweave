@@ -1,12 +1,5 @@
 # Releases
 
-## Current scoped release
-
-On 28 October 2026, `io.docweave:docweave-core:0.1.0-beta.8` and its required
-`io.docweave:docweave-parent:0.1.0-beta.8` POM were published to Maven Central.
-Other beta.8 modules remain local/unpublished. Core alone installs no format parsers.
-See the [beta.8 release notes](releases/0.1.0-beta.8.md) for exact scope and validation.
-
 Published Maven coordinates are immutable. See [release notes](releases/README.md),
 [PDF limitations](pdf-support.md) and the [changelog](../CHANGELOG.md).
 

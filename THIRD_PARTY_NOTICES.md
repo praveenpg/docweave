@@ -56,6 +56,23 @@ its bundled native components. Keep those upstream artifacts and notices intact.
 | `commons-codec:commons-codec:1.20.0` | Apache-2.0 |
 | `com.microsoft.onnxruntime:onnxruntime:1.23.2` | MIT |
 
+The optional `docweave-source-s3` module (not part of `docweave-all`) adds the AWS SDK for Java 2.x and its
+Apache HttpClient 5 transport. Its resolved runtime dependencies are:
+
+| Resolved coordinate | Declared main license |
+| --- | --- |
+| `software.amazon.awssdk:*:2.55.13` (s3, apache5-client and their SDK modules, including `third-party-jackson-core`) | Apache-2.0 |
+| `software.amazon.eventstream:eventstream:1.0.1` | Apache-2.0 |
+| `org.apache.httpcomponents.client5:httpclient5:5.6.4` | Apache-2.0 |
+| `org.apache.httpcomponents.core5:httpcore5:5.4.3` | Apache-2.0 |
+| `org.apache.httpcomponents.core5:httpcore5-h2:5.4.3` | Apache-2.0 |
+| `org.reactivestreams:reactive-streams:1.0.4` | MIT-0 |
+| `org.slf4j:slf4j-api:1.7.36` | MIT |
+
+The AWS SDK JARs carry their own NOTICE files, including notices for bundled third-party code; keep them intact.
+Its tests use Adobe S3Mock 5.2.3 (Apache-2.0) as a separate process and optionally SeaweedFS; neither is a runtime
+dependency.
+
 The exact POM/JAR hashes, inherited license names/URLs and embedded notice locations are
 recorded in benchmarks/review/third-party-audit/runtime-inventory.json. That repository
 report describes this snapshot; regenerate the inventory when dependencies change.

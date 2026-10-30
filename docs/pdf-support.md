@@ -468,6 +468,7 @@ metadata work.
 
 Pattern-painted stencils retain decoded monochrome mask samples and report
 `image_pixel_policy=stencil_mask_samples_v1`; they are not rendered pattern previews.
+See [PDF image output contracts](pdf-image-contracts.md) for the three contracts (intrinsic samples, isolated contribution and final appearance) and a per-feature matrix.
 PNG payloads are source-image pixels, not rendered page crops: page clipping, placement
 transforms, global graphics-state opacity/blending and pattern composition are not
 baked into them. Ordinary raster colors/alpha remain intrinsic to the image. Per-image
@@ -3145,6 +3146,38 @@ placement.
 These are post-hoc development results, not held-out accuracy. See the
 [parked-items evidence](../benchmarks/review/pdf-parked-items-2026-10-22/README.md).
 
+#### Contiguous side streams (unreleased)
+
+The side-stream policies above place each side block at its own first line. A margin column made of several blocks,
+such as first-page article metadata, is therefore interleaved block by block with the abstract or body. The
+[reading-order contract](pdf-reading-order-contract.md) (rules R4 and R5) requires instead that a side stream be one
+contiguous unit, placed as a column of the band where it begins. The explicit policy does that:
+
+```java
+var options = PdfOptions.defaults()
+        .withTextLayout(PdfOptions.TextLayout.COLUMN_PARAGRAPHS)
+        .withSideStreams(PdfOptions.SideStreams.SMALLER_TYPE_BLOCKS_CONTIGUOUS);
+```
+
+Detection and grouping are exactly those of `SMALLER_TYPE_BLOCKS`. Every side block of one stream is emitted, in its
+own order, at the position of the stream's first block. An item crossing the side column between two side lines (an
+image, table or spanning text) divides the stream, and nothing moves past it. Main-flow elements, their grouping and
+order, and every element's text and bounds are unchanged. Side elements carry
+`pdf_reading_order=side_stream_contiguous_v1`. Accepted two-column bands are untouched, and `PRESERVE` stays the
+default.
+
+Measured on page 1 of four development papers
+([contract evaluation](../benchmarks/review/pdf-reading-order-contract/README.md)):
+
+- **Contract:** the margin column's runs drop from 8 to 1 (recent), 8 to 2 (next) and 7 to 1 (holdout). Every reversed
+  pair against pinned Unstructured `fast` is a reference difference under the contract.
+- **Unstructured compatibility:** agreement with Unstructured `fast` falls sharply (reversed pairs 0→139, 0→103 and
+  17→117 against `ROW_FRAGMENTS`). Unstructured reads these sidebars row by row.
+
+Choose it when contiguous units matter more than Unstructured-compatible order, for example for chunking. The eLife
+margin column is not detected as a side stream, so this policy leaves it unchanged. Invariants were checked on 14
+originals (221 pages, 3 layouts): no element is added, dropped or changed.
+
 ### Explicit logical paragraph assembly (unreleased)
 
 To make complete linked page fragments contiguous, apply the separate `PdfParagraphAssembler`
@@ -3443,6 +3476,13 @@ final var layoutOptions = PdfNativeLayoutOptions.defaults()
 The split runs after leading- and trailing-row inference and is validated again by the existing
 topology checks. Added anchors count against `maxTableAnchors`. Accepted tables carry
 `pdf_table_row_line_policy` (`aligned_two_line_rows_v1`) and `pdf_table_split_rows`.
+**Choosing it depends on the reference convention.** The option matches references that print a two-line date
+header as two header rows; publisher HTML statement tables do this. Unstructured's own public cell labels instead keep
+"July 30, 2023" as one header cell. On its unseen NVIDIA statement page the option lowers YOLOX provider output from
+94/100 to 84/100 labelled cells and from 19/20 to 17/20 exact rows
+([public-label transfer](../benchmarks/review/pdf-public-table-ground-truth/README.md)). Leave it off when
+Unstructured-compatible header cells are wanted.
+
 `PROVIDER_ROWS` remains the default. `PdfNativeLayoutOptions` gains a seventh record component,
 `rowLines`; earlier constructor signatures are kept, so existing six-argument calls remain
 compatible. Record deconstruction patterns and consumers that inspect the canonical record

@@ -35,8 +35,41 @@ mvn -B -ntp -Dmaven.repo.local=/tmp/docweave-m2 \
 bash benchmarks/review/adapter-consumers/run.sh /tmp/docweave-m2 /tmp/new-consumer-check
 ```
 
+**Version and artifact identity:**
+- **Version:** the runner reads the DocWeave version from this checkout's root `pom.xml` (the reactor version). It
+  passes the same version to both consumer POMs as `-Ddocweave.version`; the POMs declare no default.
+- **Install path:** every staged POM and JAR must be byte-identical to this checkout's freshly built files
+  (`pom.xml` and `*/target/*.jar`). A stale or foreign installed artifact therefore fails before Maven runs.
+- **Resolution check:** after the build, only the staged DocWeave artifacts of that version may be present in the
+  consumer's repository.
+- **Checksums:** `candidate-artifacts.sha256` in the output directory records the SHA-256 of every staged
+  DocWeave file.
+
+Jenkins library CI uses `--from-reactor` after its full verification. The runner then stages this checkout's
+freshly built POMs and JARs into its own fresh repository, with no install into the agent's shared Maven cache:
+
+```sh
+bash benchmarks/review/adapter-consumers/run.sh --from-reactor ~/.m2/repository /tmp/new-reactor-check
+```
+
+To consume a release candidate's exact bytes instead of an install, pass its repository and checksum record (the
+Jenkins full-library release does this after capturing the candidate):
+
+```sh
+bash benchmarks/review/adapter-consumers/run.sh --version VERSION \
+  --docweave-repository CANDIDATE/bundle/repository --checksums CANDIDATE/canonical-artifacts.json \
+  /tmp/docweave-m2 /tmp/new-candidate-check
+```
+
+These cases are refused with a clear message, before any build:
+- a different `--version` without a candidate repository;
+- a missing artifact of the selected version;
+- a stale installed artifact;
+- an artifact whose checksum differs from, or is missing in, `canonical-artifacts.json`;
+- an existing output directory.
+
 The output directory must not exist. Use a fresh path for every run. Tools required by the
-runner: Bash, Maven, JDK21+, unzip, awk, find and GNU realpath. Outputs include build/run
+runner: Bash, Maven, JDK21+, Python 3, find and GNU coreutils (realpath, cmp, sha256sum). Outputs include build/run
 logs, resolved dependency names and javap bytecode inspection. Both JDK consumer runs in
 this checkpoint use the same Java25-built, Java21-target installed library artifacts.
 The runner is not part of the Maven reactor or production library dependencies.
