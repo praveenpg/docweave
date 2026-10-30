@@ -17,8 +17,8 @@ as structured elements and useful chunks that applications can work with.
 
 ## Getting started
 
-Use **Java 21 or later**. The `0.1.0-beta.9` full-library release candidate includes the format parsers,
-chunking/JSON services and optional OCR, layout and S3 adapters. Publication is pending the Jenkins release gates;
+Use **Java 21 or later**. The `0.1.0-beta.9` full-library release includes the format parsers,
+chunking/JSON services and optional OCR, layout and S3 adapters. It is published on Maven Central;
 see the [beta.9 release notes](docs/releases/0.1.0-beta.9.md). Core alone installs no parsers.
 
 ```xml
@@ -78,7 +78,7 @@ For other formats, select the corresponding [Maven module](docs/modules.md). Use
 JSON serialization, chunking and batches also have their own modules. Java imports remain
 `io.docweave` even though the Maven group is `io.docweave`.
 
-The source checkout targets the `0.1.0-beta.9` release candidate. To build it locally,
+The source checkout targets `0.1.0-beta.9`. To build it locally,
 use Maven 3.9+ and run `mvn verify`; the beta dependency above is for consuming the release.
 
 ## Initial milestone
