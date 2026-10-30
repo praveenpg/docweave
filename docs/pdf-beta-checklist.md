@@ -3,7 +3,7 @@
 The original scope assessment below is historical, based on production code through `227c4a0`.
 Use the versioned [release notes](releases/README.md) for current release additions/status.
 This checklist does not close the original PDF completion gates or establish acceptance of exclusions.
-The development POM remains `0.1.0-beta.8`; beta.4, beta.5 and beta.6 are published.
+The development POM is `0.1.0-beta.9-SNAPSHOT`; beta.4, beta.5, beta.6 and beta.8 (core and parent) are published.
 
 ## Proposed user-facing scope
 
@@ -42,7 +42,7 @@ A beta would need to state these limits explicitly rather than imply full PDF co
 | Local model layout | `io.docweave:docweave-layout-onnx` | Explicit supported ONNX graphs and expected hashes; includes ONNX Runtime dependency. |
 | All ordinary formats | `io.docweave:docweave` | Convenience dependency includes other format dependencies; optional OCR/model adapters remain separate. |
 
-Use an explicitly published version of these coordinates; source builds use `0.1.0-beta.8`.
+Use an explicitly published version of these coordinates; source builds use `0.1.0-beta.9-SNAPSHOT`.
 Consult the release notes for availability of newer opt-in features.
 The [module guide](modules.md) and [OCR guide](ocr-tesseract.md) describe setup. No automatic
 engine/model downloads, graph discovery or execution is introduced for the beta. Models and

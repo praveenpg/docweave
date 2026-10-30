@@ -2,6 +2,22 @@
 
 ## Unreleased
 
+## 0.1.0-beta.9
+
+Full-library release candidate; publication pending. Includes the cumulative unpublished work below.
+
+- Add remote document sources (#13). `DocumentSource.remote(location)` names a document by an opaque location that
+  core passes unchanged to one explicitly configured `RemoteSourceResolver` (`DocWeave.builder().remoteSources(...)`).
+  Acquisition enforces `maxInputBytes` on received bytes, a finite `remoteTimeout` and interruption, cleans up on every
+  path, and reports `PartitionResult.sourceProvenance()`. Elements and IDs equal local partitioning of the same bytes
+  and filename. The optional `docweave-source-s3` module (not in `docweave-all`) reads AWS S3 and S3-compatible
+  services with explicit credentials and client ownership, deadline-bounded retries pinned to one object generation, and
+  in-memory or temporary-file buffering. Compatibility: exhaustive `switch` statements over `DocumentSource` need a
+  `Remote` case, and `PartitionResult` gained a seventh component (the six-argument constructor remains). Qualified
+  against S3Mock and SeaweedFS, not against AWS S3. See [design](docs/remote-document-sources.md) and
+  [tutorial](docs/remote-sources-tutorial.md).
+- The development version is now `0.1.0-beta.9-SNAPSHOT`, so changed code is never built under the published
+  `0.1.0-beta.8` coordinates. Internal snapshot consumption is opt-in; see [publishing](docs/publishing.md).
 - Prepare local `0.1.0-beta.8` with Java packages migrated from `dev.docweave` to `io.docweave`,
   including parser ServiceLoader descriptors, examples and active validation tools. Maven groupId
   remains `io.docweave`. This breaks source/binary compatibility; update imports, custom provider

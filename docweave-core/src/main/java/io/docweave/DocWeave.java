@@ -6,9 +6,11 @@ import io.docweave.partition.PartitionEngine;
 import io.docweave.partition.PartitionOptions;
 import io.docweave.partition.PartitionResult;
 import io.docweave.partition.PartitionerRegistry;
+import io.docweave.partition.RemoteSourceResolver;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.time.Duration;
 import java.util.Set;
 
 /**
@@ -49,6 +51,65 @@ public interface DocWeave {
     }
 
     /**
+     * Starts explicit processor configuration, including optional remote sources. Without
+     * {@link Builder#remoteSources(RemoteSourceResolver)} the processor is local-only, exactly like
+     * {@link #create()}: no resolver, network client or credential is created implicitly.
+     *
+     * <pre>{@code
+     * var processor = DocWeave.builder()
+     *     .remoteSources(resolver)              // for example an S3 resolver from docweave-source-s3
+     *     .remoteTimeout(Duration.ofSeconds(30))
+     *     .build();
+     * var result = processor.partition(DocumentSource.remote("reports/annual-report.pdf"), options);
+     * }</pre>
+     *
+     * @return a new mutable builder
+     */
+    static Builder builder() {
+        return PartitionEngine.builder();
+    }
+
+    /**
+     * Mutable, single-use configuration for a thread-safe processor.
+     */
+    interface Builder {
+        /**
+         * Uses an explicit parser registry instead of the installed format modules.
+         * @param value thread-safe registry
+         * @return this builder
+         * @throws NullPointerException if value is null
+         */
+        Builder registry(PartitionerRegistry value);
+
+        /**
+         * Enables {@link DocumentSource.Remote} inputs through one explicitly configured resolver. The processor does
+         * not own the resolver: closing or reconfiguring it remains the application's responsibility.
+         * @param value thread-safe resolver
+         * @return this builder
+         * @throws NullPointerException if value is null
+         */
+        Builder remoteSources(RemoteSourceResolver value);
+
+        /**
+         * Sets the finite acquisition deadline for each remote source, measured from the start of the partition call
+         * (default two minutes). Loading and parsing after acquisition keep their existing limits.
+         * @param value positive duration of at most one day
+         * @return this builder
+         * @throws NullPointerException if value is null
+         * @throws IllegalArgumentException if value is not positive or exceeds one day
+         */
+        Builder remoteTimeout(Duration value);
+
+        /**
+         * Creates the processor.
+         * @return a thread-safe processor
+         * @throws java.util.ServiceConfigurationError if installed providers cannot be loaded (default registry)
+         * @throws IllegalStateException if installed providers have duplicate or inconsistent keys
+         */
+        DocWeave build();
+    }
+
+    /**
      * Returns the formats implemented by this release.
      * @return an immutable set of native document formats; registry-backed implementations report registered
      *         capabilities
@@ -71,7 +132,7 @@ public interface DocWeave {
 
     /**
      * Partitions an input with {@link PartitionOptions#defaults()}.
-     * @param source local file, bytes or decoded text; never fetched remotely
+     * @param source local file, bytes or decoded text, or a Remote source when a resolver is configured
      * @return an immutable partition result, possibly with an empty element list
      * @throws IOException if input cannot be read or processed within the default limits
      * @throws NullPointerException if source is null
@@ -90,7 +151,10 @@ public interface DocWeave {
      * @return ordered elements and observed diagnostics; callers should inspect warnings
      * @throws io.docweave.partition.PartitionException for unsupported content, invalid encoding or exceeded limits
      * @throws java.io.InterruptedIOException if the caller is interrupted at a processing checkpoint
+     * @throws io.docweave.partition.RemoteSourceException if a Remote source cannot be acquired
      * @throws IOException if opening or reading a file fails
+     * @throws IllegalArgumentException if the source is Remote and no resolver is configured, or the resolver rejects
+     *         its location
      * @throws NullPointerException if either argument is null
      */
     PartitionResult partition(final DocumentSource source, final PartitionOptions options) throws IOException;

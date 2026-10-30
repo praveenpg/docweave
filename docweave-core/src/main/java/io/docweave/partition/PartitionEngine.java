@@ -30,6 +30,14 @@ public interface PartitionEngine extends DocWeave {
     }
 
     /**
+     * Starts explicit configuration of a native engine; prefer {@link DocWeave#builder()} in application code.
+     * @return a new mutable builder
+     */
+    static DocWeave.Builder builder() {
+        return new DefaultEngineBuilder();
+    }
+
+    /**
      * Loads, detects and partitions an input synchronously.
      * @param source local input
      * @param options immutable processing policy

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent><groupId>io.docweave</groupId><artifactId>docweave-parent</artifactId><version>0.1.0-beta.9</version></parent>
+    <artifactId>docweave-source-s3</artifactId>
+    <name>DocWeave optional S3 document source</name>
+    <description>Optional RemoteSourceResolver for AWS S3 and explicitly configured S3-compatible endpoints. Not part of docweave-all.</description>
+    <properties>
+        <!-- S3-compatible test server (Apache License 2.0). Its 5.x executable needs Java 25 at test time only. -->
+        <s3mock.version>5.2.3</s3mock.version>
+        <docweave.test.s3mock.java>${java.home}/bin/java</docweave.test.s3mock.java>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>software.amazon.awssdk</groupId>
+                <artifactId>bom</artifactId>
+                <version>2.55.13</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency><groupId>io.docweave</groupId><artifactId>docweave-core</artifactId><version>${project.version}</version></dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>s3</artifactId>
+            <exclusions>
+                <!-- Synchronous client only; the Netty async transport is never used. -->
+                <exclusion><groupId>software.amazon.awssdk</groupId><artifactId>netty-nio-client</artifactId></exclusion>
+                <exclusion><groupId>software.amazon.awssdk</groupId><artifactId>apache-client</artifactId></exclusion>
+            </exclusions>
+        </dependency>
+        <dependency><groupId>software.amazon.awssdk</groupId><artifactId>apache5-client</artifactId></dependency>
+        <!-- Parity tests partition real documents with the installed format modules. -->
+        <dependency><groupId>io.docweave</groupId><artifactId>docweave</artifactId><version>${project.version}</version><scope>test</scope></dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.10.0</version>
+                <executions>
+                    <execution>
+                        <id>s3mock-test-server</id>
+                        <phase>process-test-resources</phase>
+                        <goals><goal>copy</goal></goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.adobe.testing</groupId>
+                                    <artifactId>s3mock</artifactId>
+                                    <version>${s3mock.version}</version>
+                                    <classifier>exec</classifier>
+                                    <destFileName>s3mock-exec.jar</destFileName>
+                                </artifactItem>
+                            </artifactItems>
+                            <outputDirectory>${project.build.directory}/s3mock</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <systemPropertyVariables>
+                        <docweave.test.s3mock.jar>${project.build.directory}/s3mock/s3mock-exec.jar</docweave.test.s3mock.jar>
+                        <docweave.test.s3mock.java>${docweave.test.s3mock.java}</docweave.test.s3mock.java>
+                        <docweave.test.fixtures>${project.basedir}/../benchmarks/fixtures</docweave.test.fixtures>
+                        <java.awt.headless>true</java.awt.headless>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

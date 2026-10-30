@@ -17,16 +17,15 @@ as structured elements and useful chunks that applications can work with.
 
 ## Getting started
 
-Use **Java 21 or later**. For a Maven application, add the PDF-only beta dependency below. Version `0.1.0-beta.8` is a
-local PDF candidate: first build it with `mvn install`; the PDF artifact is not published to Maven Central.
-The JDK-only `io.docweave:docweave-core:0.1.0-beta.8` and parent POM are published; core alone installs no parsers.
-See the [scoped beta.8 release notes](docs/releases/0.1.0-beta.8.md).
+Use **Java 21 or later**. The `0.1.0-beta.9` full-library release candidate includes the format parsers,
+chunking/JSON services and optional OCR, layout and S3 adapters. Publication is pending the Jenkins release gates;
+see the [beta.9 release notes](docs/releases/0.1.0-beta.9.md). Core alone installs no parsers.
 
 ```xml
 <dependency>
     <groupId>io.docweave</groupId>
     <artifactId>docweave-pdf</artifactId>
-    <version>0.1.0-beta.8</version>
+    <version>0.1.0-beta.9</version>
 </dependency>
 ```
 
@@ -79,7 +78,7 @@ For other formats, select the corresponding [Maven module](docs/modules.md). Use
 JSON serialization, chunking and batches also have their own modules. Java imports remain
 `io.docweave` even though the Maven group is `io.docweave`.
 
-The source checkout currently uses `0.1.0-beta.8` for development. To build it locally,
+The source checkout targets the `0.1.0-beta.9` release candidate. To build it locally,
 use Maven 3.9+ and run `mvn verify`; the beta dependency above is for consuming the release.
 
 ## Initial milestone
@@ -111,7 +110,7 @@ use Maven 3.9+ and run `mvn verify`; the beta dependency above is for consuming 
 - Runtime partitioner strategies selected through an injectable registry.
 - Extensive public Javadocs checked with doclint and warnings treated as errors during `mvn verify`.
 
-Requires Java 21 or later and Maven 3.9+. This is a plain Java library; Spring Boot is not a dependency. The development reactor uses `io.docweave:docweave:0.1.0-beta.8`; the examples on this branch target the locally installed `0.1.0-beta.8` candidate. Starting with local beta.8, Java packages use `io.docweave`; older releases use `dev.docweave`. This is a source and binary breaking change; see the [migration guide](docs/package-migration.md). Development validation is moving into the Java/JUnit [validation module](docweave-validation/README.md); remaining Python benchmark/reference helpers are documented there. Neither the production library nor Maven Java tests require Python. The released upstream reference pin and reviewed main drift are tracked in [upstream status](benchmarks/upstream-status.json).
+Requires Java 21 or later and Maven 3.9+. This is a plain Java library; Spring Boot is not a dependency. The reactor uses parent `io.docweave:docweave-parent:0.1.0-beta.9`; examples target the matching library modules. Starting with beta.8, Java packages use `io.docweave`; older releases use `dev.docweave`. This is a source and binary breaking change; see the [migration guide](docs/package-migration.md). Development validation is moving into the Java/JUnit [validation module](docweave-validation/README.md); remaining Python benchmark/reference helpers are documented there. Neither the production library nor Maven Java tests require Python. The released upstream reference pin and reviewed main drift are tracked in [upstream status](benchmarks/upstream-status.json).
 
 Build and test:
 
@@ -133,8 +132,9 @@ The Maven groupId is `io.docweave`. DocWeave code is licensed under [Apache Lice
 Use `io.docweave:docweave-docx` for DOCX only, or select `docweave-txt`, `docweave-html`,
 `docweave-markdown`, `docweave-csv`, `docweave-tsv`, `docweave-xml` or `docweave-pdf`. All depend on the
 JDK-only `docweave-core`; parser dependencies remain with the corresponding modules.
-JSON, chunking and batch services are separate opt-in modules. The `io.docweave:docweave`
-artifact remains the all-formats convenience dependency. See the [module map and usage](docs/modules.md).
+JSON, chunking and batch services are separate opt-in modules, as is the remote S3 source
+(`docweave-source-s3`). The `io.docweave:docweave` artifact remains the all-formats convenience dependency and does
+not include remote sources. See the [module map and usage](docs/modules.md).
 Java packages use `io.docweave` from beta.8 onward.
 
 ## Java API
@@ -172,6 +172,12 @@ var results = DocumentBatch.create().partitionAndChunk(
 Each active file task runs on a virtual thread. Chunking stays synchronous within it. The batch runner caps outstanding tasks, returns input-order results, and cancels outstanding tasks on failure/interruption. Operations must cooperate with interruption. Optional task/batch deadlines are configured through `BatchOptions`; existing integer-window calls retain their original behavior.
 
 Use `ElementFileBatch.create().chunk(...)` for saved JSON element arrays. Interfaces can be injected or implemented by alternative processors. See [API conventions](docs/api-design.md).
+
+Remote documents use `DocumentSource.remote(location)` with a resolver configured explicitly through
+`DocWeave.builder().remoteSources(...)`, for example the optional `docweave-source-s3` module for AWS S3 and
+S3-compatible services. Acquisition is bounded by `maxInputBytes`, a finite `remoteTimeout` and interruption, and the
+result reports safe `sourceProvenance()`. See the [tutorial](docs/remote-sources-tutorial.md) and
+[design](docs/remote-document-sources.md). Unreleased; S3 support is qualified against S3-compatible services, not AWS.
 
 ## Saved-element JSON read limits
 
@@ -723,4 +729,7 @@ isolated measurements; broader independent DOCX fidelity coverage remains the ne
 
 Before a new release, update the reactor version, `.ci/release.json` and the matching notes under `docs/releases/`. Jenkins watches public `main`, verifies the selected scope on Java 21, creates an annotated tag and prerelease, signs the captured artifacts, and publishes them to Maven Central. A version already published in the selected scope is skipped; documentation-only merges do not create another release. Published versions cannot be replaced.
 
-The current beta.8 plan is intentionally **core-only**, matching its published parent/core coordinates. Switch to `full` only with a fresh version and a passing full-reactor verification. The PDF PNG contract now compares exact decoded pixels against its preserved frozen reference; the full Java 21 reactor passes on Jenkins. This development fix does not publish the remaining beta.8 modules. No development-branch build publishes artifacts. See [release policy](docs/releases/README.md).
+The beta.9 release plan selects **full-library** scope. Jenkins must verify the full Java 21 reactor, strict
+Javadocs, release archives and standalone adapter consumers before signing or uploading. The S3-compatible tests
+are required (their helper process uses Java 25; library compilation and tests use Java 21). No development-branch
+build publishes to Central. See [release policy](docs/releases/README.md).
