@@ -59,7 +59,7 @@ public interface PdfPageCropRenderer {
      * @param requests nonnull, nonempty list of nonnull requests
      * @return immutable list of independent crops matching the request order
      * @throws NullPointerException if source, requests or a request is null
-     * @throws IllegalArgumentException if requests is empty
+     * @throws IllegalArgumentException if requests is empty, or the source is Remote (resolve it first)
      * @throws IOException if reading, parsing, limits, permissions, rendering or cancellation fail
      */
     List<PdfPageCrop> render(DocumentSource source, List<PdfPageCropRequest> requests) throws IOException;

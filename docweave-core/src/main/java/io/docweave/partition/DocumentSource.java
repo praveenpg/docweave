@@ -4,7 +4,10 @@ import java.nio.file.Path;
 import java.util.Objects;
 
 /**
- * A local document input, independent of its detected format.
+ * A document input, independent of its detected format.
+ * {@link File}, {@link Bytes} and {@link Text} are local inputs. {@link Remote} names a document held elsewhere by
+ * an opaque location; it is resolved into a local input by the {@link RemoteSourceResolver} explicitly configured
+ * on the processor ({@link io.docweave.DocWeave#builder()}). Constructing any source performs no I/O.
  * File sources retain a path and open it on each partition call; bytes are copied into an immutable
  * snapshot; text is already decoded Unicode. A Text source can contain any supported decoded text format.
  * Native loading reuses valid decoded Text content rather than encoding and decoding the whole
@@ -16,6 +19,9 @@ import java.util.Objects;
  * This does not make partitioning streaming: parsers and output collections may retain full content.
  * Filename hints affect routing and deterministic element IDs, but are not opened for byte/text sources.
  * All source variants can be shared across threads; concurrent changes to a file remain the caller's concern.
+ *
+ * <p>Compatibility: {@link Remote} was added in 0.1.0-beta.9. Exhaustive {@code switch} statements over this
+ * sealed interface in consumer code must add a {@code Remote} case (or a default branch) to compile.</p>
  */
 public sealed interface DocumentSource {
     /**
@@ -61,6 +67,18 @@ public sealed interface DocumentSource {
     }
 
     /**
+     * Names a remote document by an opaque location. Core never interprets the location: it passes it unchanged
+     * to the processor's configured {@link RemoteSourceResolver}, which defines and validates its own syntax
+     * (for example a bucket-relative key or a provider URI). No I/O, parsing or credential lookup happens here.
+     * @param location provider-defined location; validated only by the resolver
+     * @return an immutable remote source
+     * @throws NullPointerException if location is null
+     */
+    static DocumentSource remote(final String location) {
+        return new Remote(location);
+    }
+
+    /**
      * Local file reference; file contents are not snapshotted.
      * @param path path to open during partitioning
      */
@@ -90,6 +108,33 @@ public sealed interface DocumentSource {
          */
         public Text {
             Objects.requireNonNull(content, "content");
+        }
+    }
+
+    /**
+     * Opaque reference to a document held outside the process, resolved by a configured
+     * {@link RemoteSourceResolver} at partition time. Each partition call resolves again; no content is cached,
+     * so a mutable remote object may yield newer content on a later call. {@link #toString()} does not reveal the
+     * location, because object names can be sensitive.
+     * @param location provider-defined location string, passed to the resolver unchanged
+     */
+    record Remote(String location) implements DocumentSource {
+        /**
+         * Rejects null only; all other validation belongs to the resolver.
+         * @param location nonnull provider-defined location
+         * @throws NullPointerException if location is null
+         */
+        public Remote {
+            Objects.requireNonNull(location, "location");
+        }
+
+        /**
+         * Describes the source without its location.
+         * @return a redacted description containing only the location length
+         */
+        @Override
+        public String toString() {
+            return "Remote[location=<redacted, " + location.length() + " chars>]";
         }
     }
 

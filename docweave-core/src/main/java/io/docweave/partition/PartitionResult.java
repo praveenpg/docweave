@@ -17,9 +17,11 @@ import java.util.Objects;
  * @param inputBytes consumed bytes including any BOM
  * @param elapsed nonnegative processing duration
  * @param warnings nonfatal diagnostics
+ * @param sourceProvenance safe provenance of a resolved {@link DocumentSource.Remote} input, or null for local
+ *        inputs; it never affects elements or their IDs
  */
 public record PartitionResult(List<Element> elements, DocumentFormat format, String encoding, int inputBytes,
-        Duration elapsed, List<Warning> warnings) {
+        Duration elapsed, List<Warning> warnings, SourceProvenance sourceProvenance) {
     /** Nonfatal conditions callers may review. */
     public enum WarningCode {
         /** Selected/content format differs from a supported filename hint. */ FORMAT_MISMATCH,
@@ -59,6 +61,7 @@ public record PartitionResult(List<Element> elements, DocumentFormat format, Str
      * @param inputBytes nonnegative input footprint
      * @param elapsed nonnegative duration
      * @param warnings diagnostics to snapshot
+     * @param sourceProvenance remote provenance, or null for a local input
      * @throws NullPointerException if required values/list entries are null
      * @throws IllegalArgumentException if byte count or elapsed time is negative
      */
@@ -71,5 +74,21 @@ public record PartitionResult(List<Element> elements, DocumentFormat format, Str
         if (inputBytes < 0 || elapsed.isNegative()) {
             throw new IllegalArgumentException("Negative diagnostic value");
         }
+    }
+
+    /**
+     * Creates a result for a local input, preserving the constructor that existed before remote sources.
+     * @param elements ordered output to snapshot
+     * @param format actual selected format
+     * @param encoding canonical charset name or "binary" for DOCX
+     * @param inputBytes nonnegative input footprint
+     * @param elapsed nonnegative duration
+     * @param warnings diagnostics to snapshot
+     * @throws NullPointerException if required values/list entries are null
+     * @throws IllegalArgumentException if byte count or elapsed time is negative
+     */
+    public PartitionResult(final List<Element> elements, final DocumentFormat format, final String encoding,
+            final int inputBytes, final Duration elapsed, final List<Warning> warnings) {
+        this(elements, format, encoding, inputBytes, elapsed, warnings, null);
     }
 }
