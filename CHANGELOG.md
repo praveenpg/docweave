@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+## 0.1.0-beta.10
+
+Owner-requested full-library maintenance release. No runtime, API, dependency or default changes since beta.9.
+All deployable modules move together to the new version; existing beta.9 artifacts remain unchanged.
+Publication is pending the Jenkins release gates.
+
 ## 0.1.0-beta.9
 
 Full library published on Maven Central on 30 October 2026. Includes the cumulative work below.

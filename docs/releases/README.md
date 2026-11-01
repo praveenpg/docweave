@@ -7,6 +7,7 @@ Keep the matching changelog entry, version, source revision and candidate scope 
 Update status only after the corresponding service confirms it; distinguish prepared, validated,
 publishing and published. Published artifact bytes and coordinates remain immutable.
 
+- [0.1.0-beta.10](0.1.0-beta.10.md): proposed full-library maintenance release; no runtime changes since beta.9.
 - [0.1.0-beta.9](0.1.0-beta.9.md): full library published; includes optional S3 remote sources.
 - [0.1.0-beta.8](0.1.0-beta.8.md): **parent/core published**; breaking `io.docweave` Java namespace.
   Other beta.8 modules, including PDF and optional adapters, remain local/unpublished.
