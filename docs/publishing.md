@@ -11,3 +11,5 @@ Starting with beta.6, releases require an annotated version tag at the verified
 source commit and reviewed GitHub prerelease notes. Verify version, source, tag
 and notes agree before Maven Central upload. Publication is a separate maintainer
 action after validation. Never overwrite an existing version or tag.
+
+Before the next runtime change, advance dev to `0.1.0-beta.11-SNAPSHOT`. Published beta.10 coordinates remain immutable.
