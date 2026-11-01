@@ -733,3 +733,5 @@ The beta.10 release plan selects **full-library** scope. Jenkins must verify the
 Javadocs, release archives and standalone adapter consumers before signing or uploading. The S3-compatible tests
 are required (their helper process uses Java 25; library compilation and tests use Java 21). No development-branch
 build publishes to Central. See [release policy](docs/releases/README.md).
+
+Library build verification and optional checks are described in [Continuous integration](docs/ci.md).
