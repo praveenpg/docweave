@@ -18,7 +18,7 @@ as structured elements and useful chunks that applications can work with.
 ## Getting started
 
 Use **Java 21 or later**. The `0.1.0-beta.10` full-library release includes the format parsers,
-chunking/JSON services and optional OCR, layout and S3 adapters. Publication is pending; beta.9 remains available on Maven Central.
+chunking/JSON services and optional OCR, layout and S3 adapters. It is published on Maven Central;
 see the [beta.10 release notes](docs/releases/0.1.0-beta.10.md). Core alone installs no parsers.
 
 ```xml
