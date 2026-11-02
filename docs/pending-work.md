@@ -56,7 +56,7 @@ opt-in runtime additions have resulted (P1, P2 and two for P5); defaults are unc
 
 ## Other deferred work and new capabilities
 
-These remain deferred alongside the PDF improvement backlog. Contextual chunking itself is already implemented.
+These remain deferred alongside the PDF improvement backlog. Contextual chunking was removed from the library and is owned by DocWeave Studio.
 
 | ID | Concrete deliverable |
 |---|---|
@@ -65,7 +65,7 @@ These remain deferred alongside the PDF improvement backlog. Contextual chunking
 | N3 | Broaden DOCX revision/merge/supplemental-content and nested-table fidelity across independent authoring tools, preserving ownership and explicit unsupported diagnostics. |
 | N4 | Expand structural chunking comparisons for header repetition, spans and strict HTML-budget segmentation with independent source references. |
 | N5 | Design and implement opt-in token-budget chunking with a pinned tokenizer, explicit overlap/table semantics and a separate dependency boundary. |
-| N6 | Evaluate existing contextual chunk enrichment on independently labelled retrieval data; do not implement ContextualChunker again or generalize the tiny owned live checks. |
+| N6 | Withdrawn: contextual enrichment was removed from the library and is owned by DocWeave Studio ([decision](decisions/0001-contextual-enrichment-boundary.md)). |
 | N7 | Address supported HTML/Markdown/TXT fidelity requirements individually: nested HTML, Markdown DOM/extensions and TXT grouping/classification, using pinned mismatch cases. Preserve XML/browser/network boundaries. |
 | N8 | **Done 2026-10-22:** DocWeave scoring/tests migrated to JVM (`ScoreBenchmarkCaptures`, 29 Python methods → JUnit, byte-identical replay of retained reports). Python remains only for actual Unstructured/upstream execution and reference-generator guards (18 methods). Private release/export tooling is separate. |
 | N9 | Profile a representative large document and implement one measured per-document allocation/retention or cancellation improvement while preserving immutable ownership and current limits. |
