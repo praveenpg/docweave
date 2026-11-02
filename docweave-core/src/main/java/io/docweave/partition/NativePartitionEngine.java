@@ -67,14 +67,57 @@ final class NativePartitionEngine implements PartitionEngine {
      * @throws NullPointerException if either argument is null
      */
     public PartitionResult partition(final DocumentSource source, final PartitionOptions options) throws IOException {
+        return partitionTracked(source, options, PartitionProgressTracker.NONE);
+    }
+
+    /**
+     * Loads, detects and partitions an input synchronously while reporting content-free progress.
+     * Phases are PREPARING, EXTRACTING, ASSEMBLING and DONE; DONE is reported only after the result is assembled and
+     * any remote handle was closed successfully. Nothing is reported after this method returns or throws.
+     * @param source local or remote input
+     * @param options immutable processing policy
+     * @param listener caller listener; anything it throws except VirtualMachineError is ignored
+     * @return immutable elements and diagnostics, identical to the call without a listener
+     * @throws PartitionException for invalid encoding, unsupported content or exceeded limits
+     * @throws java.io.InterruptedIOException at an interrupted processing checkpoint
+     * @throws IOException if source I/O fails
+     * @throws NullPointerException if any argument is null
+     */
+    @Override
+    public PartitionResult partition(final DocumentSource source, final PartitionOptions options,
+            final PartitionProgressListener listener) throws IOException {
+        Objects.requireNonNull(listener, "listener");
+        final var progress = PartitionProgressTracker.of(listener);
+        try {
+            return partitionTracked(source, options, progress);
+        } finally {
+            progress.close();
+        }
+    }
+
+    /**
+     * Shared orchestration for calls with or without a listener.
+     * @param source input
+     * @param options processing policy
+     * @param progress call-confined tracker or the shared no-op instance
+     * @return immutable result
+     * @throws IOException on acquisition, loading, parsing or interruption failure
+     */
+    private PartitionResult partitionTracked(final DocumentSource source, final PartitionOptions options,
+            final PartitionProgressTracker progress) throws IOException {
         Objects.requireNonNull(source, "source");
         Objects.requireNonNull(options, "options");
         ElementCollector.checkInterrupted();
         final long start = System.nanoTime();
-        if (source instanceof final DocumentSource.Remote remote) {
-            return partitionRemote(remote, options, start);
-        }
-        return partition(new SourceLoader().load(source, options), options, start, null);
+        progress.enter(PartitionProgress.Phase.PREPARING);
+        final PartitionResult result =
+                source instanceof final DocumentSource.Remote remote
+                        ? partitionRemote(remote, options, start, progress)
+                        : partition(new SourceLoader().load(source, options), options, start, null, progress);
+        // The result is final and any remote handle is released; DONE is delivered even if an interrupt arrived after
+        // the last extraction checkpoint, because the call returns this result successfully.
+        progress.enter(PartitionProgress.Phase.DONE);
+        return result;
     }
 
     /**
@@ -83,11 +126,12 @@ final class NativePartitionEngine implements PartitionEngine {
      * @param remote remote source
      * @param options processing policy
      * @param start call start on the nano clock
+     * @param progress call-confined progress tracker
      * @return result with safe provenance
      * @throws IOException on acquisition, loading, parsing or cleanup failure
      */
-    private PartitionResult partitionRemote(
-            final DocumentSource.Remote remote, final PartitionOptions options, final long start) throws IOException {
+    private PartitionResult partitionRemote(final DocumentSource.Remote remote, final PartitionOptions options,
+            final long start, final PartitionProgressTracker progress) throws IOException {
         if (resolver == null) {
             throw new IllegalArgumentException(
                     "Remote sources need a RemoteSourceResolver configured with DocWeave.builder().remoteSources(...)");
@@ -109,7 +153,8 @@ final class NativePartitionEngine implements PartitionEngine {
                 }
                 content = loader.loadResolved(local, resolved.filename(), options);
             }
-            return partition(content, options, start, Objects.requireNonNull(resolved.provenance(), "provenance"));
+            return partition(
+                    content, options, start, Objects.requireNonNull(resolved.provenance(), "provenance"), progress);
         }
     }
 
@@ -120,11 +165,13 @@ final class NativePartitionEngine implements PartitionEngine {
      * @param options processing policy
      * @param start call start on the nano clock
      * @param provenance remote provenance or null
+     * @param progress call-confined progress tracker
      * @return immutable result
      * @throws IOException on parsing failure or interruption
      */
     private PartitionResult partition(final SourceLoader.Content content, final PartitionOptions options,
-            final long start, final SourceProvenance provenance) throws IOException {
+            final long start, final SourceProvenance provenance, final PartitionProgressTracker progress)
+            throws IOException {
         final var collector = new ElementCollector(content.filename(), content.format(), options.maxElements());
         final var warnings = new ArrayList<>(content.warnings());
         final var partitioner =
@@ -133,13 +180,15 @@ final class NativePartitionEngine implements PartitionEngine {
                                              -> new PartitionException(PartitionException.Code.UNSUPPORTED_FORMAT,
                                                      "No partitioner registered for " + content.format()));
         NestedTableSupport.check(partitioner, options);
-        final var context = new DefaultPartitionContext(content, options, collector, warnings);
+        final var context = new DefaultPartitionContext(content, options, collector, warnings, progress);
+        progress.enter(PartitionProgress.Phase.EXTRACTING);
         try {
             partitioner.partition(context);
         } finally {
             context.complete();
         }
         ElementCollector.checkInterrupted();
+        progress.enter(PartitionProgress.Phase.ASSEMBLING);
         return new PartitionResult(collector.elements(), content.format(), content.encoding(), content.bytes(),
                 Duration.ofNanos(System.nanoTime() - start), warnings, provenance);
     }

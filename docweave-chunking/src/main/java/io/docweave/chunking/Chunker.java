@@ -21,6 +21,14 @@ import java.util.List;
  * HTML uses text-only fallback. Explicit skip-table-chunking passes tables through unchanged and
  * exempts them from budgets. Structural splits do not apply narrative overlap.</p>
  *
+ * <p>A chunk that begins with overlap repeated from the immediately preceding emitted chunk records the number
+ * of repeated leading Unicode code points, including the joining separator, in the integer metadata field
+ * {@value #OVERLAP_PREFIX_CHARACTERS}. The field is recorded only when the repeated text, without the separator,
+ * exactly ends the preceding emitted chunk; it is omitted when that cannot be established, for example after
+ * splitting rejoined an overlap-all prefix differently, and for chunks without overlap. Consumers that show
+ * neighbouring chunks together can remove exactly that prefix instead of guessing repetition from text, which would
+ * also remove intentionally repeated rows or headings.</p>
+ *
  * <p>Leading headers repeat by default when they fit and align with the fragment's column origin;
  * otherwise repetition is omitted and reported by num_carried_over_header_rows. Oversized span
  * groups use clipped spans and blank covering cells without duplicating owned data. Source-cell
@@ -42,6 +50,9 @@ import java.util.List;
  * }</pre>
  */
 public interface Chunker {
+    /** Metadata field: leading code points of a chunk repeated from the preceding chunk as overlap. */
+    String OVERLAP_PREFIX_CHARACTERS = "overlap_prefix_characters";
+
     /**
      * Creates the built-in thread-safe implementation behind this contract.
      * @return a reusable Chunker service

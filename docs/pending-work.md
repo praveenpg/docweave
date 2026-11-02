@@ -106,5 +106,5 @@ The earlier counts below describe their historical validation snapshots.
   initial public-source export and private release/export tooling.
 
 See [PDF backlog evidence](pdf-quality-backlog.md), [PDF scope](pdf-evaluation-scope.md),
-[project roadmap](roadmap.md), [contextual enrichment](contextual-chunking.md) and
+[project roadmap](roadmap.md), [contextual enrichment removal](contextual-chunking.md) and
 [upstream tracking](upstream-tracking.md). Individual support documents retain detailed evidence, limitations and acceptance boundaries.

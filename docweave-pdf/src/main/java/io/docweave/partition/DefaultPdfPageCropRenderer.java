@@ -56,7 +56,7 @@ final class DefaultPdfPageCropRenderer implements PdfPageCropRenderer {
      * @param passwords optional caller-owned credential provider
      */
     DefaultPdfPageCropRenderer(final PdfPageCropOptions options, final PdfPasswordProvider passwords) {
-        this(options, passwords, PDFRenderer::new);
+        this(options, passwords, InterruptiblePdfRenderer::new);
     }
 
     /**

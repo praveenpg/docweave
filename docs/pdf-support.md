@@ -376,6 +376,12 @@ PDF is the current development priority. Further DOCX enhancements are paused; e
 behavior and regression tests remain maintained. PDF completion includes tables and images, not
 only text. The first native milestone below does not complete the full PDF requirement.
 
+## Page progress (unreleased)
+
+With a per-call `PartitionProgressListener`, PDF partitioning reports `EXTRACTING` progress in `pages` with a stable
+page total for native, `OCR_ONLY` and `HI_RES` routing. A page counts only after its native text, graphics, tables,
+any OCR/layout work and its buffered emission finished. See [partition progress](partition-progress.md).
+
 ## Native milestone
 
 Install `io.docweave:docweave-pdf:0.1.0-beta.8` for PDF only. It depends on core and Apache PDFBox
@@ -973,8 +979,8 @@ configuration. Report implementation gains separately from validation-only work.
 Interactive annotations/forms and vector-only drawings remain outside the initial
 element model. Semantic image description is a separate future capability. Further
 DOCX work and Python-test migration remain separate backlog items. Cross-format contextual
-enrichment is implemented; broader retrieval acceptance and ongoing public-source synchronization
-are separate from the PDF quality gates. Java21 is the development test
+enrichment was removed from the library and is owned by DocWeave Studio; ongoing public-source synchronization
+is separate from the PDF quality gates. Java21 is the development test
 baseline; final Java25 verification remains deferred to PDF completion/final candidate.
 
 ### Separately retained source table captions (unreleased)

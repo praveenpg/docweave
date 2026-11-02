@@ -18,7 +18,7 @@ check the [release notes](releases/README.md) for availability in a particular M
 | PDF processing | Native text and tables, source-image extraction, rendered page-region crops and opt-in reading-order policies |
 | Optional PDF providers | Managed Tesseract OCR and local ONNX layout/table adapters with explicit configuration and resource limits |
 | Chunking | Basic and title-aware strategies, character budgets, overlap, structural table splitting and original-element provenance |
-| Contextual enrichment | A shared post-chunk service with caller-provided models, separate original/generated content and bounded execution |
+| Contextual enrichment | Removed from the library after 0.1.0-beta.10; owned by DocWeave Studio ([decision](decisions/0001-contextual-enrichment-boundary.md)) |
 | Batch processing | Ordered document batches using bounded virtual-thread concurrency, deadlines and cancellation |
 | Packaging | Java 21+, separate Maven artifacts for core, formats and optional services, interface-based APIs and extensive Javadocs; local beta.8 uses io.docweave Java packages |
 
@@ -40,7 +40,7 @@ Keep installation, examples, public APIs and release behavior consistent as the 
 
 - Keep Maven modules independently usable, with optional OCR, layout and model dependencies
   outside the core and ordinary format modules.
-- Maintain clear getting-started, Spring Boot, OCR, chunking and contextual-enrichment examples.
+- Maintain clear getting-started, Spring Boot, OCR and chunking examples.
 - Document defaults, unsupported behavior, resource limits and opt-in policies alongside APIs.
 - Publish useful reviewed additions with versioned notes, matching source tags and reproducible
   artifacts; preserve existing published coordinates and compatibility information.
@@ -76,16 +76,12 @@ rendering differences alone do not establish an extraction defect.
 
 ### 3. Strengthen chunking and retrieval integration
 
-Character-based chunking and contextual enrichment already exist. The next work expands their
-contracts and evidence rather than rebuilding them.
+Character-based chunking already exists. The next work expands its contracts and evidence rather
+than rebuilding it. Contextual enrichment was removed from the library and is owned by DocWeave Studio.
 
 - Add optional token-budget chunking with a pinned tokenizer, an explicit dependency boundary,
   and documented overlap and table behavior.
 - Broaden structural-table comparisons for merged spans, header repetition and strict HTML budgets.
-- Evaluate contextual enrichment on independently labelled retrieval data beyond the small
-  integration checks already recorded.
-- Preserve original text, identifiers and provenance separately from generated context, with
-  explicit provider selection, deadlines, concurrency and failure policy.
 
 **Completion criteria:** deterministic tokenizer/version behavior, boundary and Unicode coverage,
 preserved table/text ownership, and reproducible retrieval comparisons with declared datasets and
@@ -152,7 +148,8 @@ add Spring Boot or React dependencies to the library.
 - [Pending work](pending-work.md): concrete remaining tasks, parked improvements and qualification prerequisites.
 - [Implementation backlog](roadmap.md): earlier detailed implementation notes and planning context.
 - [PDF support](pdf-support.md) and [PDF evaluation scope](pdf-evaluation-scope.md): current contracts and evidence boundaries.
-- [Contextual enrichment](contextual-chunking.md): the implemented cross-format service and its limitations.
+- [Contextual enrichment](contextual-chunking.md): removal notice and migration guide for the former beta service.
+- [Decision records](decisions/0001-contextual-enrichment-boundary.md): product-boundary decisions, starting with contextual enrichment.
 - [Modules](modules.md), [compatibility](compatibility.md) and [release notes](releases/README.md): integration and version-specific behavior.
 
 Start a proposed contribution with the affected contract, a representative input or owned fixture,

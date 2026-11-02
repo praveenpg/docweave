@@ -333,6 +333,10 @@ final class DefaultChunker implements Chunker {
         final String tableId = splitTable ? UUID.randomUUID().toString() : null;
         int index = 0;
         final var splitter = new TextChunkSplitter(options);
+        // Overlap repeated from the preceding emitted chunk: the staged prefix and its blank-line separator for the
+        // first fragment, the splitter's carried tail for continuations.
+        final String prefix = preChunk.prefix();
+        int carried = prefix.isEmpty() ? 0 : length(prefix) + (length(text) > length(prefix) ? 2 : 0);
         do {
             ChunkCancellation.check();
             final var split = splitter.split(text);
@@ -343,6 +347,11 @@ final class DefaultChunker implements Chunker {
             final var chunkMetadata = new LinkedHashMap<>(metadata);
             if (index > 0) {
                 chunkMetadata.put("is_continuation", true);
+            }
+            final int overlapPrefix =
+                    removablePrefix(split.fragment(), carried, result.isEmpty() ? null : result.getLast());
+            if (overlapPrefix > 0) {
+                chunkMetadata.put(OVERLAP_PREFIX_CHARACTERS, overlapPrefix);
             }
             if (splitTable) {
                 for (final String key : List.of("text_as_html", "links", "link_texts", "link_urls",
@@ -364,8 +373,31 @@ final class DefaultChunker implements Chunker {
                     table ? (splitTable ? ElementType.TableChunk : ElementType.Table) : ElementType.CompositeElement;
             result.add(new Element(UUID.randomUUID().toString(), type, split.fragment(), chunkMetadata));
             text = split.remainder();
+            carried = split.carried();
             index++;
         } while (!text.isEmpty());
+    }
+
+    /**
+     * Confirms a candidate overlap against the chunk actually emitted before. The first {@code candidate} code points
+     * count only when they are repeated text followed by nothing but whitespace, and that repeated text ends the
+     * preceding emitted chunk; staged prefixes come from pre-chunk text, which splitting can rejoin differently.
+     *
+     * @param text chunk text being emitted
+     * @param candidate leading code points the chunker carried over
+     * @param previous preceding emitted chunk, or null
+     * @return the exactly removable prefix length, or 0 when it cannot be established
+     */
+    private static int removablePrefix(final String text, final int candidate, final Element previous) {
+        if (candidate <= 0 || previous == null || candidate > length(text)) {
+            return 0;
+        }
+        final String leading = slice(text, 0, candidate);
+        final String repeated = rightStrip(leading);
+        if (repeated.isEmpty() || !leftStrip(repeated).equals(repeated) || !previous.text().endsWith(repeated)) {
+            return 0;
+        }
+        return candidate;
     }
 
     /**

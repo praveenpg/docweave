@@ -30,7 +30,8 @@ final class MetadataConsolidator {
             "table_id", "chunk_index", "num_carried_over_header_rows", "docx_references", "docx_revisions",
             "docx_list_items", "docx_table_style_paragraphs", "docx_field_instructions", "docx_field_policy",
             "nested_tables", "nested_tables_version", "segment_start_seconds", "segment_end_seconds", "key_value_pairs",
-            "pdf_table_continuation", "pdf_reading_index", "pdf_table_multiline_cells");
+            "pdf_table_continuation", "pdf_reading_index", "pdf_table_multiline_cells",
+            Chunker.OVERLAP_PREFIX_CHARACTERS);
 
     /**
      * Filters single-table metadata by removing keys listed in {@link #DROP}.

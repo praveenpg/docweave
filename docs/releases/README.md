@@ -7,6 +7,9 @@ Keep the matching changelog entry, version, source revision and candidate scope 
 Update status only after the corresponding service confirms it; distinguish prepared, validated,
 publishing and published. Published artifact bytes and coordinates remain immutable.
 
+- [0.1.0-beta.12](0.1.0-beta.12.md): proposed full-library release; breaking contextual-enrichment removal,
+  optional PDF operator ceiling, new PDF bounds and partition progress. Covers all changes since beta.10.
+- 0.1.0-beta.11: internal-only build, never published to Maven Central; no release notes or Central coordinates.
 - [0.1.0-beta.10](0.1.0-beta.10.md): full-library maintenance release published; no runtime changes since beta.9.
 - [0.1.0-beta.9](0.1.0-beta.9.md): full library published; includes optional S3 remote sources.
 - [0.1.0-beta.8](0.1.0-beta.8.md): **parent/core published**; breaking `io.docweave` Java namespace.

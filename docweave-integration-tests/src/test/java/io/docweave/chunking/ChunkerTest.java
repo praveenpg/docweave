@@ -60,6 +60,113 @@ class ChunkerTest {
     }
 
     @Test
+    void recordsSplitterOverlapInCodePoints() {
+        final var words = chunker.basic(
+                List.of(text("one two three four")), ChunkOptions.builder().maxCharacters(8).overlap(3).build());
+        assertEquals(List.of("one two", "wo three", "ee four"), texts(words));
+        assertFalse(words.getFirst().metadata().containsKey(Chunker.OVERLAP_PREFIX_CHARACTERS));
+        // "wo" and "ee" are repeated with the joining space.
+        assertEquals(3, words.get(1).metadata().get(Chunker.OVERLAP_PREFIX_CHARACTERS));
+        assertEquals(3, words.get(2).metadata().get(Chunker.OVERLAP_PREFIX_CHARACTERS));
+        final var hardCut =
+                chunker.basic(List.of(text("🧵𐐀abcd")), ChunkOptions.builder().maxCharacters(3).overlap(1).build());
+        assertEquals(List.of("🧵𐐀a", "abc", "cd"), texts(hardCut));
+        assertEquals(1, hardCut.get(1).metadata().get(Chunker.OVERLAP_PREFIX_CHARACTERS));
+        final var supplementary =
+                chunker.basic(List.of(text("𐐀𐐀𐐀𐐀𐐀𐐀")), ChunkOptions.builder().maxCharacters(4).overlap(2).build());
+        assertEquals(List.of("𐐀𐐀𐐀𐐀", "𐐀𐐀𐐀𐐀"), texts(supplementary));
+        assertEquals(2, supplementary.get(1).metadata().get(Chunker.OVERLAP_PREFIX_CHARACTERS));
+    }
+
+    @Test
+    void recordsOverlapAllPrefixWithItsSeparator() {
+        final var options = ChunkOptions.builder().maxCharacters(10).overlap(2).overlapAll(true).build();
+        final var chunks = chunker.basic(List.of(text("abcdef"), text("ghijkl")), options);
+        assertEquals(List.of("abcdef", "ef\n\nghijkl"), texts(chunks));
+        assertEquals(4, chunks.get(1).metadata().get(Chunker.OVERLAP_PREFIX_CHARACTERS));
+    }
+
+    @Test
+    void omitsOverlapAllPrefixThatSplittingRejoinedDifferently() {
+        final var options = ChunkOptions.builder()
+                                    .maxCharacters(17)
+                                    .overlap(14)
+                                    .overlapAll(true)
+                                    .combineTextUnderCharacters(0)
+                                    .build();
+        final var chunks = chunker.basic(List.of(text("a a a dcd d dd"), text("c c c"), text("d b")), options);
+        for (int i = 0; i < chunks.size(); i++) {
+            if (chunks.get(i).metadata().get(Chunker.OVERLAP_PREFIX_CHARACTERS) instanceof final Integer prefix) {
+                final String repeated =
+                        chunks.get(i).text().substring(0, chunks.get(i).text().offsetByCodePoints(0, prefix)).strip();
+                assertTrue(chunks.get(i - 1).text().endsWith(repeated), chunks.get(i - 1).text() + " / " + repeated);
+            }
+        }
+        final int rejoined = texts(chunks).indexOf("cd d dd\n\nc c c");
+        assertTrue(rejoined > 0, texts(chunks).toString());
+        assertEquals("dcd d dd c c c", chunks.get(rejoined - 1).text());
+        assertFalse(chunks.get(rejoined).metadata().containsKey(Chunker.OVERLAP_PREFIX_CHARACTERS));
+    }
+
+    @Test
+    void everyRecordedOverlapPrefixEndsThePrecedingChunk() {
+        final var random = new java.util.Random(181);
+        final String[] words = {"a", "b", "cd", "dd", "c", "e😀", "ff", "g\u00a0h", "ijk"};
+        int recorded = 0;
+        for (int round = 0; round < 2_000; round++) {
+            final var inputs = new java.util.ArrayList<Element>();
+            for (int element = 0, count = 1 + random.nextInt(4); element < count; element++) {
+                final var text = new StringBuilder();
+                for (int word = 0, n = 1 + random.nextInt(6); word < n; word++) {
+                    text.append(word == 0 ? "" : " ").append(words[random.nextInt(words.length)]);
+                }
+                inputs.add(random.nextInt(5) == 0 ? title(text.toString()) : text(text.toString()));
+            }
+            final int max = 3 + random.nextInt(18);
+            final var options = ChunkOptions.builder()
+                                        .maxCharacters(max)
+                                        .overlap(random.nextInt(max))
+                                        .overlapAll(random.nextBoolean())
+                                        .combineTextUnderCharacters(random.nextBoolean() ? 0 : max)
+                                        .build();
+            final var chunks = random.nextBoolean() ? chunker.basic(inputs, options) : chunker.byTitle(inputs, options);
+            for (int i = 0; i < chunks.size(); i++) {
+                if (chunks.get(i).metadata().get(Chunker.OVERLAP_PREFIX_CHARACTERS) instanceof final Integer prefix) {
+                    recorded++;
+                    final String text = chunks.get(i).text();
+                    assertTrue(i > 0 && prefix > 0 && prefix <= text.codePointCount(0, text.length()));
+                    final String repeated = text.substring(0, text.offsetByCodePoints(0, prefix)).stripTrailing();
+                    assertFalse(repeated.isEmpty());
+                    assertTrue(chunks.get(i - 1).text().endsWith(repeated),
+                            "round " + round + ": '" + repeated + "' does not end '" + chunks.get(i - 1).text() + "'");
+                }
+            }
+        }
+        assertTrue(recorded > 100, "too few overlaps exercised: " + recorded);
+    }
+
+    @Test
+    void omitsOverlapMetadataWithoutOverlapAndKeepsIntentionalRepetition() {
+        final var rows = List.of(text("Total 100"), text("Total 100"), title("Notes"), text("Total 100"));
+        final var chunks = chunker.basic(rows, ChunkOptions.builder().maxCharacters(12).build());
+        assertEquals(List.of("Total 100", "Total 100", "Notes", "Total 100"), texts(chunks));
+        assertTrue(chunks.stream().noneMatch(chunk -> chunk.metadata().containsKey(Chunker.OVERLAP_PREFIX_CHARACTERS)));
+        final var titled = chunker.byTitle(List.of(title("Revenue"), text("Up"), title("Revenue"), text("Up")),
+                ChunkOptions.builder().maxCharacters(50).combineTextUnderCharacters(0).build());
+        assertEquals(List.of("Revenue\n\nUp", "Revenue\n\nUp"), texts(titled));
+        assertTrue(titled.stream().noneMatch(chunk -> chunk.metadata().containsKey(Chunker.OVERLAP_PREFIX_CHARACTERS)));
+    }
+
+    @Test
+    void rechunkingDropsInheritedOverlapMetadata() {
+        final var first = chunker.basic(
+                List.of(text("one two three four")), ChunkOptions.builder().maxCharacters(8).overlap(3).build());
+        final var again = chunker.basic(first, ChunkOptions.builder().maxCharacters(100).build());
+        assertEquals(1, again.size());
+        assertFalse(again.getFirst().metadata().containsKey(Chunker.OVERLAP_PREFIX_CHARACTERS));
+    }
+
+    @Test
     void preservesCodeFormattingButNormalizesNarrativeWhitespace() {
         final var options = ChunkOptions.defaults();
         assertEquals(List.of("a b 🧵"), texts(chunker.basic(List.of(text(" a\n\tb\u00a0🧵 ")), options)));

@@ -39,6 +39,16 @@ exact-threshold sources, multi-source groups and explicit table pass-through kee
 See [the measured output reduction](../benchmarks/review/chunk-split-source-provenance/README.md).
 This source-informed safeguard tracks newer upstream main; it does not relabel saved goldens.
 
+Unreleased overlap metadata: when overlap is configured, a chunk that begins with text repeated
+from the immediately preceding chunk records `overlap_prefix_characters`
+(`Chunker.OVERLAP_PREFIX_CHARACTERS`), the number of repeated leading Unicode code points including
+the joining separator. It is recorded only when the repeated text, without the separator, exactly ends
+the preceding emitted chunk, and omitted when that cannot be established (for example when splitting
+rejoined an overlap-all prefix differently) or without overlap. Re-chunking drops it. Consumers that show
+neighbouring chunks together can remove exactly that prefix; repetition without the field, such as
+identical table rows or repeated headings, is intentional and must be kept. This DocWeave extension
+is absent upstream; the upstream goldens compare without it and check its values against the text.
+
 
 Coordinates must declare their system and dimensions. Internal coordinates should use a documented top-left origin with explicit units; exporters must convert to upstream systems. Missing pagination stays missing, particularly in DOCX.
 
