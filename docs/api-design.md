@@ -129,6 +129,15 @@ contract, not upstream streaming/timing parity. Existing custom implementations 
 overriding the new default methods, which explicitly reject unsupported streaming.
 
 
+### Partition progress
+
+`DocWeave.partition(source, options, PartitionProgressListener)` reports optional, content-free progress for one
+call. `PartitionProgress` is an immutable record with a `Phase` enum (PREPARING, EXTRACTING, ASSEMBLING, DONE);
+strategies report reliable work units through the `PartitionProgressReporter` returned by the default method
+`PartitionContext.progress()`. The hidden per-call tracker serializes delivery, counts each unit index once,
+isolates listener failures and discards reports after cancellation or the end of the call. Without a listener a shared no-op
+reporter is used and results are unchanged. See [partition progress](partition-progress.md).
+
 ### Cooperative processing checkpoints
 
 Chunking uses a hidden package-local cancellation helper, avoiding checked exceptions on the public

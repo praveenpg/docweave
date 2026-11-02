@@ -279,8 +279,8 @@ Evidence: [numbered titles](../benchmarks/review/pdf-numbered-title-captions/REA
 Required work remains broad model row/header fidelity (NVIDIA0/110 strict rows),
 historical/degraded OCR quality, broader fonts/logical order, independent figure
 association and held-out acceptance/calibration. These unequal gates do not yield
-a defensible global completion percentage. Contextual chunking remains an important
-cross-format follow-up; public artifact separation remains separately deferred.
+a defensible global completion percentage. Contextual chunking was removed from the library
+and is owned by DocWeave Studio; public artifact separation remains separately deferred.
 
 ## Managed alternative page detector — 2026-10-20
 

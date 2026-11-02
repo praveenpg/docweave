@@ -33,6 +33,32 @@ import java.util.Map;
 final class PdfPageGraphics extends PDFGraphicsStreamEngine {
     /** Matches the form nesting accepted by the underlying PDFBox graphics operator. */
     private static final int MAX_FORM_DEPTH = 50;
+
+    /**
+     * Most line segments one page retains for rule-based table detection, counted across the page: its retained
+     * rules, the current path and the paths set aside by enclosing forms and transparency groups. It bounds memory
+     * independently of the operator ceiling (which may be {@link PdfOptions#UNLIMITED_OPERATORS}): past it the page's
+     * geometry is dropped, the page is read without rule-based or shaded-row tables, image clip bounds after that
+     * point may be incomplete, and a warning reports it.
+     */
+    static final int MAX_RETAINED_SEGMENTS = 500_000;
+
+    /**
+     * Most image occurrences ({@code Do} of an image, inline images) one page records. Each keeps coordinates and
+     * metadata until the page is emitted, so the count is bounded independently of the operator ceiling; a page with
+     * more fails with {@code INPUT_TOO_LARGE}. The former default operator ceiling allowed no more than this.
+     */
+    static final int MAX_IMAGE_OCCURRENCES_PER_PAGE = 100_000;
+
+    /** This visitor's image-occurrence bound. */
+    private final int maxImageOccurrences;
+
+    /** This visitor's retained-segment bound. */
+    private final int maxRetainedSegments;
+
+    /** Segments held by paths set aside while a form or transparency group runs. */
+    private int suspendedSegments;
+
     /** Hard source-program stack bound, independent from the larger shared page-operator budget. */
     private static final int MAX_TYPE3_DEPTH = 64;
 
@@ -67,6 +93,9 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
     private final List<FilledPdfRowBand> rowBands;
     /** Pending path edges, also used to validate single rectangular fills. */
     private List<Segment> pending = new ArrayList<>();
+
+    /** Whether this page exceeded {@link #MAX_RETAINED_SEGMENTS} and its geometry was dropped. */
+    private boolean geometryDropped;
     /** Raster occurrences, including repeated and inline images. */
     private final List<Image> images = new ArrayList<>();
     /** Immutable caller-state snapshots of enclosing painted transparency groups, outermost first. */
@@ -124,6 +153,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
     private PathState suspendPath() {
         final var state = new PathState(pending, current, start, rectangleClip, deferredClip, lineClipVertices,
                 lineClipPoints, lineClipClosed, curved, subpaths, hull);
+        suspendedSegments += pending.size();
         pending = new ArrayList<>();
         current = new Point2D.Float();
         start = current;
@@ -144,6 +174,10 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
      */
     private void resumePath(final PathState state) {
         pending = state.pending();
+        suspendedSegments -= pending.size();
+        if (geometryDropped) {
+            pending.clear();
+        }
         current = state.current();
         start = state.start();
         rectangleClip = state.rectangleClip();
@@ -248,7 +282,23 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
      */
     PdfPageGraphics(
             final PDPage page, final PdfOptions options, final PdfImageBudget budget, final PdfPageGeometry geometry) {
+        this(page, options, budget, geometry, MAX_IMAGE_OCCURRENCES_PER_PAGE, MAX_RETAINED_SEGMENTS);
+    }
+
+    /**
+     * Initializes a visitor with explicit memory bounds (tests use small ones).
+     * @param page source page
+     * @param options immutable budgets
+     * @param budget document image counter
+     * @param geometry shared crop/rotation transform
+     * @param maxImageOccurrences most image occurrences on the page
+     * @param maxRetainedSegments most retained line segments on the page
+     */
+    PdfPageGraphics(final PDPage page, final PdfOptions options, final PdfImageBudget budget,
+            final PdfPageGeometry geometry, final int maxImageOccurrences, final int maxRetainedSegments) {
         super(page);
+        this.maxImageOccurrences = maxImageOccurrences;
+        this.maxRetainedSegments = maxRetainedSegments;
         this.geometry = geometry;
         rowBands = options.tableDetection().shadedRows() ? new ArrayList<>() : List.of();
         this.options = options;
@@ -264,9 +314,10 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
      */
     @Override
     protected void processOperator(final Operator operator, final List<COSBase> operands) throws IOException {
-        ElementCollector.checkInterrupted();
-        if (++operators > options.maxOperatorsPerPage()) {
-            throw new PartitionException(PartitionException.Code.INPUT_TOO_LARGE, "PDF exceeds maxOperatorsPerPage");
+        PdfContentGuard.check(operator, getGraphicsStackSize());
+        if (options.operatorsLimited() && ++operators > options.maxOperatorsPerPage()) {
+            throw new PartitionException(PartitionException.Code.INPUT_TOO_LARGE,
+                    "PDF page exceeds maxOperatorsPerPage " + options.maxOperatorsPerPage());
         }
         checkFormDepth(operator, operands);
         super.processOperator(operator, operands);
@@ -340,6 +391,10 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
      */
     @Override
     public void drawImage(final PDImage image) throws IOException {
+        if (images.size() >= maxImageOccurrences) {
+            throw new PartitionException(PartitionException.Code.INPUT_TOO_LARGE,
+                    "PDF page exceeds " + maxImageOccurrences + " image occurrences");
+        }
         final var matrix = getGraphicsState().getCurrentTransformationMatrix();
         final var points = List.of(matrix.transformPoint(0, 0), matrix.transformPoint(1, 0),
                                        matrix.transformPoint(0, 1), matrix.transformPoint(1, 1))
@@ -479,7 +534,30 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
     private void edge(final Point2D from, final Point2D to) {
         final var first = geometry.point((float) from.getX(), (float) from.getY());
         final var second = geometry.point((float) to.getX(), (float) to.getY());
-        pending.add(new Segment(first.x, first.y, second.x, second.y));
+        retain(pending, new Segment(first.x, first.y, second.x, second.y));
+    }
+
+    /**
+     * Retains a segment unless the page's geometry was dropped; reaching the page-wide bound drops it all. Moving the
+     * current path into the page's segments counts the path once, since it is cleared right after.
+     * @param list current path or the page's segments
+     * @param segment segment
+     */
+    private void retain(final List<Segment> list, final Segment segment) {
+        if (geometryDropped) {
+            return;
+        }
+        final int held = segments.size() + suspendedSegments + (list == segments ? 0 : list.size());
+        if (held >= maxRetainedSegments) {
+            geometryDropped = true;
+            segments.clear();
+            pending.clear();
+            if (!rowBands.isEmpty()) {
+                rowBands.clear();
+            }
+            return;
+        }
+        list.add(segment);
     }
 
     /**
@@ -601,7 +679,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
                 }
                 final var segment = pending.get(index);
                 if (clip.intersects(segment)) {
-                    segments.add(segment);
+                    retain(segments, segment);
                 }
             }
         }
@@ -634,7 +712,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
                 endPath();
                 return;
             }
-            if (options.tableDetection().shadedRows()) {
+            if (options.tableDetection().shadedRows() && !geometryDropped) {
                 final var band = FilledPdfRowBand.from(pending, color.toRGB());
                 if (band != null) {
                     if (rowBands.size() >= 4096) {
@@ -652,7 +730,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
             final int rgb = color.toRGB();
             // All channels must be dark; pale backgrounds and white erasers are not rules.
             if (((rgb >> 16) & 255) <= 127 && ((rgb >> 8) & 255) <= 127 && (rgb & 255) <= 127) {
-                segments.add(rule);
+                retain(segments, rule);
             }
         }
         endPath();
@@ -742,7 +820,15 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
      * @return document-confined segments
      */
     List<Segment> segments() {
-        return segments;
+        return geometryDropped ? List.of() : segments;
+    }
+
+    /**
+     * Tells whether the page exceeded {@link #MAX_RETAINED_SEGMENTS} and was read without rule geometry.
+     * @return true when geometry was dropped
+     */
+    boolean geometryDropped() {
+        return geometryDropped;
     }
 
     /**
@@ -750,7 +836,7 @@ final class PdfPageGraphics extends PDFGraphicsStreamEngine {
      * @return page-confined band evidence; empty under historical policies
      */
     List<FilledPdfRowBand> rowBands() {
-        return rowBands;
+        return geometryDropped ? List.of() : rowBands;
     }
 
     /**

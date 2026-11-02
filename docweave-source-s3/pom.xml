@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent><groupId>io.docweave</groupId><artifactId>docweave-parent</artifactId><version>0.1.0-beta.10</version></parent>
+    <parent><groupId>io.docweave</groupId><artifactId>docweave-parent</artifactId><version>0.1.0-beta.12</version></parent>
     <artifactId>docweave-source-s3</artifactId>
     <name>DocWeave optional S3 document source</name>
     <description>Optional RemoteSourceResolver for AWS S3 and explicitly configured S3-compatible endpoints. Not part of docweave-all.</description>

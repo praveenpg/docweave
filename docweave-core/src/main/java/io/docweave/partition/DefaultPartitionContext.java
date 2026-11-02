@@ -18,19 +18,24 @@ final class DefaultPartitionContext implements PartitionContext {
     private final ElementCollector collector;
     /** Mutable warning list accumulating non-fatal partition diagnostics. */
     private final List<PartitionResult.Warning> warnings;
+    /** Progress sink for this call; the shared no-op instance when no listener was supplied. */
+    private final PartitionProgressReporter progress;
     /** Whether this context is currently inside an active partition call. */
     private boolean active = true;
 
     /**
-     * Creates a partition context for a single document invocation.
+     * Creates a partition context for a single document invocation with a progress sink.
      *
      * @param content loaded document content and metadata
      * @param options immutable partition options
      * @param collector element collector enforcing output limits
      * @param warnings mutable warning list
+     * @param progress call-confined progress sink
      */
     DefaultPartitionContext(final SourceLoader.Content content, final PartitionOptions options,
-            final ElementCollector collector, final List<PartitionResult.Warning> warnings) {
+            final ElementCollector collector, final List<PartitionResult.Warning> warnings,
+            final PartitionProgressReporter progress) {
+        this.progress = progress;
         this.content = content;
         this.options = options;
         this.collector = collector;
@@ -72,6 +77,17 @@ final class DefaultPartitionContext implements PartitionContext {
             throw new IllegalStateException("No binary payload");
         }
         return ByteBuffer.wrap(content.binary()).asReadOnlyBuffer();
+    }
+
+    /**
+     * Returns this call's progress sink. Unlike emission this does not reject access after completion: the sink is
+     * thread-safe and itself discards reports once the call ended, so a strategy's late worker cannot fail.
+     *
+     * @return no-op sink without a listener, otherwise the call-confined tracker
+     */
+    @Override
+    public PartitionProgressReporter progress() {
+        return progress;
     }
 
     /**

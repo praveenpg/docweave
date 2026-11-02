@@ -44,6 +44,17 @@ public interface PartitionContext {
     }
 
     /**
+     * Returns this call's thread-safe progress sink for strategies with reliable work-unit counts.
+     * Strategies report a unit only after all of its required work and emissions finished. The default returns
+     * {@link PartitionProgressReporter#none()}, so existing custom contexts need no change. A context that decorates
+     * another context must forward this method, or the decorated call loses its unit progress.
+     * @return progress sink valid only during this synchronous call
+     */
+    default PartitionProgressReporter progress() {
+        return PartitionProgressReporter.none();
+    }
+
+    /**
      * Returns the metadata name.
      * @return filename, or null when absent
      */

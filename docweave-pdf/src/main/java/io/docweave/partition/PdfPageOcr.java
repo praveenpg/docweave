@@ -50,7 +50,7 @@ final class PdfPageOcr {
                 || width * height > options.maxRenderPixels()) {
             throw new PartitionException(PartitionException.Code.OCR_LIMIT, "PDF OCR exceeds maxRenderPixels");
         }
-        final var image = new PDFRenderer(document).renderImageWithDPI(index, options.dpi(), ImageType.RGB);
+        final var image = new InterruptiblePdfRenderer(document).renderImageWithDPI(index, options.dpi(), ImageType.RGB);
         java.awt.image.BufferedImage masked = null;
         try {
             if ((long) image.getWidth() * image.getHeight() > options.maxRenderPixels()) {

@@ -49,12 +49,15 @@ class UpstreamGoldenTest {
                     final var strategy =
                             test.get("strategy").equals("basic") ? Chunker.Strategy.BASIC : Chunker.Strategy.BY_TITLE;
                     final var actual = Chunker.create().chunk(input, strategy, options);
+                    overlapPrefixesRepeatThePredecessor(actual);
                     final var output = (List<?>) mapper.readValue(json.write(actual), List.class);
                     final var normalized = output.stream()
                                                    .map(value2 -> {
                         final var element = new LinkedHashMap<Object, Object>((Map<?, ?>) value2);
                         element.put("element_id", "<generated>");
                         final var metadata = new LinkedHashMap<Object, Object>((Map<?, ?>) element.get("metadata"));
+                        // DocWeave extension, absent upstream; its values are checked against the chunk text above.
+                        metadata.remove(Chunker.OVERLAP_PREFIX_CHARACTERS);
                         if (metadata.containsKey("table_id")) {
                             metadata.put("table_id", "<table>");
                         }
@@ -108,6 +111,21 @@ class UpstreamGoldenTest {
                     })
                     .toList()
                     .stream();
+        }
+    }
+
+    /**
+     * Checks the overlap extension: each recorded prefix, without its joining whitespace, ends the preceding chunk.
+     * @param chunks emitted chunks
+     */
+    private static void overlapPrefixesRepeatThePredecessor(final List<io.docweave.core.Element> chunks) {
+        for (int i = 0; i < chunks.size(); i++) {
+            if (chunks.get(i).metadata().get(Chunker.OVERLAP_PREFIX_CHARACTERS) instanceof final Integer prefix) {
+                assertTrue(i > 0 && prefix > 0 && prefix <= UnicodeText.length(chunks.get(i).text()));
+                final String repeated = UnicodeText.strip(UnicodeText.slice(chunks.get(i).text(), 0, prefix));
+                assertTrue(chunks.get(i - 1).text().endsWith(repeated),
+                        "Overlap prefix '" + repeated + "' repeats the end of the preceding chunk");
+            }
         }
     }
 

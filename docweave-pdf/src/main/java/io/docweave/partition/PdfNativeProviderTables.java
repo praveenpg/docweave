@@ -74,7 +74,8 @@ final class PdfNativeProviderTables {
             throw limit("Native PDF layout exceeds maxRenderPixels");
         }
         ElementCollector.checkInterrupted();
-        final var image = new PDFRenderer(document).renderImageWithDPI(index, policy.dpi(), ImageType.RGB);
+        final var image = new InterruptiblePdfRenderer(document).renderImageWithDPI(index, policy.dpi(), ImageType.RGB);
+        ElementCollector.checkInterrupted();
         try {
             if ((long) image.getWidth() * image.getHeight() > policy.maxRenderPixels()) {
                 throw limit("Native PDF layout exceeds maxRenderPixels");

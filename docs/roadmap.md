@@ -64,7 +64,12 @@ later selection; no further PDF experiments or feature expansion are active. Pre
 existing regression suites and failed evidence when work resumes. Further DOCX and other
 format enhancements also remain deferred until a new task is selected.
 
-## High-priority TODO: cross-format contextual chunk enrichment
+## Cross-format contextual chunk enrichment (removed; owned by DocWeave Studio)
+
+The library API was removed after 0.1.0-beta.10 following the
+[boundary decision](decisions/0001-contextual-enrichment-boundary.md); the open item below moved with it.
+The completed items record what the removed beta API provided.
+
 
 - [x] Add optional contextual chunking across supported file types through the shared
   chunking pipeline. This is a cross-format capability, including PDF, DOCX, HTML,
@@ -81,12 +86,11 @@ format enhancements also remain deferred until a new task is selected.
   explicit failure behavior. Document model cost, privacy and context-window limits.
 - [x] Add JVM-native cross-format tests for provider behavior, source preservation and cancellation.
 - [x] Add JVM replay/capture evaluation against unenriched chunks, with frozen identities and failure denominators.
-- [ ] Extend the tiny owned live-model integration check to an independently labeled corpus before general quality claims.
+- [ ] ~~Extend the tiny owned live-model integration check to an independently labeled corpus before general quality claims.~~ Moves to DocWeave Studio with the feature.
 
 Reference: [Unstructured Platform contextual chunking](https://unstructured.io/blog/contextual-chunking-in-unstructured-platform-boost-your-rag-retrieval-accuracy).
-The [explicit shared service](contextual-chunking.md)
-is implemented in the snapshot; a three-chunk/five-query live-provider check passes.
-Larger independent retrieval evaluation remains open.
+The explicit shared service shipped in 0.1.0-beta.9 and 0.1.0-beta.10 and has since been removed; see the
+[removal and migration page](contextual-chunking.md). Larger independent retrieval evaluation belongs to DocWeave Studio.
 
 ## Retained backlog: close gaps in implemented capabilities
 
