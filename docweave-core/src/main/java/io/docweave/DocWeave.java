@@ -4,6 +4,8 @@ import io.docweave.partition.DocumentFormat;
 import io.docweave.partition.DocumentSource;
 import io.docweave.partition.PartitionEngine;
 import io.docweave.partition.PartitionOptions;
+import io.docweave.partition.PartitionProgress;
+import io.docweave.partition.PartitionProgressListener;
 import io.docweave.partition.PartitionResult;
 import io.docweave.partition.PartitionerRegistry;
 import io.docweave.partition.RemoteSourceResolver;
@@ -11,6 +13,7 @@ import io.docweave.partition.RemoteSourceResolver;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.time.Duration;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -158,4 +161,57 @@ public interface DocWeave {
      * @throws NullPointerException if either argument is null
      */
     PartitionResult partition(final DocumentSource source, final PartitionOptions options) throws IOException;
+
+    /**
+     * Partitions an input like {@link #partition(DocumentSource, PartitionOptions)} while reporting optional,
+     * content-free progress to a per-call listener.
+     *
+     * <p>The built-in engine reports {@link PartitionProgress.Phase#PREPARING}, then
+     * {@link PartitionProgress.Phase#EXTRACTING} (with completed/total pages for PDF, indeterminate for formats
+     * without a reliable unit count), then {@link PartitionProgress.Phase#ASSEMBLING} and finally
+     * {@link PartitionProgress.Phase#DONE} once the result has been assembled and any remote source released. Failure
+     * or cancellation stops reporting without DONE, and nothing is reported after this method returns or throws.
+     * Exceptions and errors thrown by the listener are ignored, except {@link VirtualMachineError}. The result equals
+     * the result of the call without a listener.
+     *
+     * <p>This default supports custom implementations without progress support: it reports PREPARING, delegates to
+     * {@link #partition(DocumentSource, PartitionOptions)} and reports DONE after a successful return.
+     *
+     * @param source local input, or a remote source when a resolver is configured
+     * @param options immutable limits and format/encoding policy
+     * @param listener nonnull per-call progress listener
+     * @return an immutable partition result, possibly with an empty element list
+     * @throws io.docweave.partition.PartitionException for unsupported content, invalid encoding or exceeded limits
+     * @throws java.io.InterruptedIOException if cancelled at a processing checkpoint
+     * @throws IOException if input cannot be read or processed
+     * @throws NullPointerException if any argument is null
+     */
+    default PartitionResult partition(final DocumentSource source, final PartitionOptions options,
+            final PartitionProgressListener listener) throws IOException {
+        Objects.requireNonNull(source, "source");
+        Objects.requireNonNull(options, "options");
+        Objects.requireNonNull(listener, "listener");
+        notify(listener, PartitionProgress.Phase.PREPARING);
+        final PartitionResult result = partition(source, options);
+        notify(listener, PartitionProgress.Phase.DONE);
+        return result;
+    }
+
+    /**
+     * Offers one indeterminate phase snapshot, ignoring every listener failure except {@link VirtualMachineError}.
+     * @param listener caller listener
+     * @param phase reported phase
+     */
+    private static void notify(final PartitionProgressListener listener, final PartitionProgress.Phase phase) {
+        try {
+            listener.onProgress(PartitionProgress.indeterminate(phase));
+        } catch (final VirtualMachineError fatal) {
+            throw fatal;
+        } catch (final Throwable ignored) {
+            // Progress observers never alter partitioning, even with undeclared checked exceptions.
+            if (ignored instanceof InterruptedException) {
+                Thread.currentThread().interrupt();
+            }
+        }
+    }
 }

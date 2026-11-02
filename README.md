@@ -17,15 +17,15 @@ as structured elements and useful chunks that applications can work with.
 
 ## Getting started
 
-Use **Java 21 or later**. The `0.1.0-beta.10` full-library release includes the format parsers,
-chunking/JSON services and optional OCR, layout and S3 adapters. It is published on Maven Central;
-see the [beta.10 release notes](docs/releases/0.1.0-beta.10.md). Core alone installs no parsers.
+Use **Java 21 or later**. The `0.1.0-beta.12` full-library release includes the format parsers,
+chunking/JSON services and optional OCR, layout and S3 adapters. Publication is pending; beta.10 remains available on
+Maven Central. See the [beta.12 release notes](docs/releases/0.1.0-beta.12.md). Core alone installs no parsers.
 
 ```xml
 <dependency>
     <groupId>io.docweave</groupId>
     <artifactId>docweave-pdf</artifactId>
-    <version>0.1.0-beta.10</version>
+    <version>0.1.0-beta.12</version>
 </dependency>
 ```
 
@@ -78,7 +78,7 @@ For other formats, select the corresponding [Maven module](docs/modules.md). Use
 JSON serialization, chunking and batches also have their own modules. Java imports remain
 `io.docweave` even though the Maven group is `io.docweave`.
 
-The source checkout targets `0.1.0-beta.10`. To build it locally,
+The source checkout targets `0.1.0-beta.12`. To build it locally,
 use Maven 3.9+ and run `mvn verify`; the beta dependency above is for consuming the release.
 
 ## Initial milestone
@@ -110,7 +110,7 @@ use Maven 3.9+ and run `mvn verify`; the beta dependency above is for consuming 
 - Runtime partitioner strategies selected through an injectable registry.
 - Extensive public Javadocs checked with doclint and warnings treated as errors during `mvn verify`.
 
-Requires Java 21 or later and Maven 3.9+. This is a plain Java library; Spring Boot is not a dependency. The reactor uses parent `io.docweave:docweave-parent:0.1.0-beta.10`; examples target the matching library modules. Starting with beta.8, Java packages use `io.docweave`; older releases use `dev.docweave`. This is a source and binary breaking change; see the [migration guide](docs/package-migration.md). Development validation is moving into the Java/JUnit [validation module](docweave-validation/README.md); remaining Python benchmark/reference helpers are documented there. Neither the production library nor Maven Java tests require Python. The released upstream reference pin and reviewed main drift are tracked in [upstream status](benchmarks/upstream-status.json).
+Requires Java 21 or later and Maven 3.9+. This is a plain Java library; Spring Boot is not a dependency. The reactor uses parent `io.docweave:docweave-parent:0.1.0-beta.12`; examples target the matching library modules. Starting with beta.8, Java packages use `io.docweave`; older releases use `dev.docweave`. This is a source and binary breaking change; see the [migration guide](docs/package-migration.md). Development validation is moving into the Java/JUnit [validation module](docweave-validation/README.md); remaining Python benchmark/reference helpers are documented there. Neither the production library nor Maven Java tests require Python. The released upstream reference pin and reviewed main drift are tracked in [upstream status](benchmarks/upstream-status.json).
 
 Build and test:
 
@@ -158,9 +158,10 @@ var chunks = Chunker.create().byTitle(result.elements(), options);
 json.write(Path.of("chunks.json"), chunks);
 ```
 
-Optional snapshot [contextual chunk enrichment](docs/contextual-chunking.md) adds caller-generated
-document context after either chunk strategy, keeping original text and provenance separate.
-It requires an explicitly supplied provider; default chunking makes no model calls.
+Chunking makes no model calls. The beta contextual chunk enrichment API was **removed** after 0.1.0-beta.10:
+contextual enrichment is DocWeave Studio functionality. See [contextual chunk enrichment](docs/contextual-chunking.md)
+for migration guidance. Chunks that repeat text from their predecessor record it in the
+`overlap_prefix_characters` metadata field.
 
 Service contracts live in `io.docweave`, `io.docweave.json`, `io.docweave.chunking`, and `io.docweave.batch`. Service factory implementations and parser strategies are package-private; records and enums are public immutable value types. Small public JDK discovery bridges implement the module SPI. For raw-document batches:
 
@@ -729,7 +730,9 @@ isolated measurements; broader independent DOCX fidelity coverage remains the ne
 
 Before a new release, update the reactor version, `.ci/release.json` and the matching notes under `docs/releases/`. Jenkins watches public `main`, verifies the selected scope on Java 21, creates an annotated tag and prerelease, signs the captured artifacts, and publishes them to Maven Central. A version already published in the selected scope is skipped; documentation-only merges do not create another release. Published versions cannot be replaced.
 
-The beta.10 release plan selects **full-library** scope. Jenkins must verify the full Java 21 reactor, strict
+The beta.12 release plan selects **full-library** scope. Jenkins must verify the full Java 21 reactor, strict
 Javadocs, release archives and standalone adapter consumers before signing or uploading. The S3-compatible tests
 are required (their helper process uses Java 25; library compilation and tests use Java 21). No development-branch
 build publishes to Central. See [release policy](docs/releases/README.md).
+
+Library build verification and optional checks are described in [Continuous integration](docs/ci.md).

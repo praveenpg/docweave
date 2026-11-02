@@ -2,6 +2,66 @@
 
 ## Unreleased
 
+## 0.1.0-beta.12
+
+Owner-authorized full-library release with all changes since beta.10, listed below. It includes a **breaking**
+removal (contextual chunk enrichment) and new PDF bounds that can fail inputs accepted by beta.10. 0.1.0-beta.11 was
+an internal-only build that was never published to Maven Central; that version does not exist there.
+All deployable modules move together to the new version; existing beta.10 artifacts remain unchanged.
+Publication is pending the Jenkins release gates. See the [release notes](docs/releases/0.1.0-beta.12.md).
+
+- PDF: the per-page content-operator ceiling is optional. `PdfOptions.UNLIMITED_OPERATORS` (`0`) as
+  `maxOperatorsPerPage` disables it: operators are not counted, while the page, glyph and image budgets and the
+  form-depth limit still apply. Processing time is then bounded only by the caller's deadline or cancellation, so use
+  it with one, or with trusted input. `PdfOptions.withMaxOperatorsPerPage(int)` and `operatorsLimited()` are new.
+  Negative values are rejected with a message naming `UNLIMITED_OPERATORS`; positive ceilings are enforced as before,
+  and the `INPUT_TOO_LARGE` message now states the effective limit (`PDF page exceeds maxOperatorsPerPage 100000`,
+  `PDF font inspection exceeds maxOperatorsPerPage …`). The default ceiling in `PdfOptions.defaults()` is unchanged
+  (100,000). Requested by a downstream consumer.
+- PDF: memory that grows with a page's content is now bounded independently of the operator ceiling:
+  - A page retains at most 500,000 line segments for rule-based table detection, counted across the page including
+    paths set aside by enclosing forms. Past that it is read without rule or shaded-row tables, image clip bounds on
+    it may be incomplete, and a `PDF_EXTRACTION_LIMITATION` warning names the page. Under the default ceiling a page
+    cannot reach it, but a caller with an explicit ceiling above about 125,000 operators can now get the warning on a
+    page that previously kept all of its geometry.
+  - A page with more than 100,000 image occurrences, or a content stream with more than 4,096 nested graphics states
+    (`q` without `Q`), fails with `INPUT_TOO_LARGE`. The nesting bound applies in every pass, including rendering
+    for OCR, table-layout assistance and page crops, and at any operator ceiling.
+  - Tagged extraction stops claiming a page's tags past 100,000 distinct marked-content identifiers; the page is
+    then read as untagged.
+- PDF: cancellation (thread interruption) is checked on every operator of the text pass, font inspection and page
+  rendering (OCR, table-layout assistance, page crops), as it already was in the graphics pass, including inside
+  form XObjects, where PDFBox would otherwise log and skip the interrupted form.
+
+- **Breaking (beta API removal):** remove contextual chunk enrichment from `io.docweave:docweave-chunking` and the
+  `io.docweave:docweave` convenience artifact. The public types `ContextualChunker`, `ChunkContextProvider`,
+  `ContextualChunk` and `ContextualChunkOptions`, and their implementation, are gone; code that uses them no longer
+  compiles. This replaces the previously planned deprecation, which was never published: the API was beta, and its
+  removal was approved directly without a deprecation release or waiting period. Contextual enrichment is DocWeave
+  Studio functionality. To keep the pattern, copy it from the 0.1.0-beta.10 sources (Apache-2.0), the last
+  published version that contains it, or stay on 0.1.0-beta.10 until you migrate. See
+  [contextual chunk enrichment](docs/contextual-chunking.md) and the
+  [decision record](docs/decisions/0001-contextual-enrichment-boundary.md). The Ollama context example, its
+  retrieval capture/replay/evaluation tools and their tests are removed with it; historical evidence under
+  `benchmarks/review/contextual-*` is unchanged. Chunking and `overlap_prefix_characters` metadata are unaffected.
+
+- Development builds between beta.10 and beta.12 used `0.1.0-beta.11-SNAPSHOT`, so changed code was never built
+  under the published `0.1.0-beta.10` coordinates; `0.1.0-beta.11` was never published to Maven Central.
+- Record chunk overlap: a chunk that begins with text repeated from the preceding chunk carries the integer metadata
+  field `overlap_prefix_characters` (`Chunker.OVERLAP_PREFIX_CHARACTERS`; Unicode code points, including the joining
+  separator) for both split-continuation overlap and `overlapAll` prefixes, only when the repeated text exactly ends
+  the preceding emitted chunk. Chunks where that cannot be established, or without overlap, omit it;
+  re-chunking drops it. This is a DocWeave extension, absent from upstream output; the upstream goldens compare
+  without it and check that each recorded prefix ends the preceding chunk.
+
+- Add optional partition progress (#33). `DocWeave.partition(source, options, listener)` reports content-free
+  `PartitionProgress` snapshots in the phases PREPARING, EXTRACTING, ASSEMBLING and DONE. PDF reports completed/total
+  `pages` for native (FAST/AUTO), OCR_ONLY and HI_RES routing, counting a page only after all of its extraction, OCR,
+  layout and emission finished; other formats report indeterminate phases. DONE follows successful result assembly;
+  failure and cancellation stop reporting, nothing is reported after the call returns, and listener exceptions are
+  ignored. Strategies report units through the new default method `PartitionContext.progress()`. Calls without a
+  listener and all existing outputs are unchanged. See [partition progress](docs/partition-progress.md).
+
 ## 0.1.0-beta.10
 
 Owner-requested full-library maintenance release. No runtime, API, dependency or default changes since beta.9.

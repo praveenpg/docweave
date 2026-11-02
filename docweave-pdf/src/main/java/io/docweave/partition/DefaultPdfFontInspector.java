@@ -144,10 +144,10 @@ final class DefaultPdfFontInspector implements PdfFontInspector {
          */
         @Override
         protected void processOperator(final Operator operator, final List<COSBase> operands) throws IOException {
-            ElementCollector.checkInterrupted();
-            if (++operators > limits.maxOperatorsPerPage()) {
-                throw new PartitionException(
-                        PartitionException.Code.INPUT_TOO_LARGE, "PDF font inspection exceeds maxOperatorsPerPage");
+            PdfContentGuard.check(operator, getGraphicsStackSize());
+            if (limits.operatorsLimited() && ++operators > limits.maxOperatorsPerPage()) {
+                throw new PartitionException(PartitionException.Code.INPUT_TOO_LARGE,
+                        "PDF font inspection exceeds maxOperatorsPerPage " + limits.maxOperatorsPerPage());
             }
             super.processOperator(operator, operands);
         }

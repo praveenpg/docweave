@@ -55,6 +55,22 @@ final class PdfPageText extends PDFTextStripper {
     }
 
     /**
+     * Rethrows a cancellation that PDFBox would otherwise log and swallow inside a form XObject.
+     * @param operator failing operator
+     * @param operands its operands
+     * @param failure failure
+     * @throws IOException the cancellation, or as PDFBox decides for other failures
+     */
+    @Override
+    protected void operatorException(final org.apache.pdfbox.contentstream.operator.Operator operator,
+            final List<org.apache.pdfbox.cos.COSBase> operands, final IOException failure) throws IOException {
+        if (failure instanceof java.io.InterruptedIOException) {
+            throw failure;
+        }
+        super.operatorException(operator, operands, failure);
+    }
+
+    /**
      * Observes source marker scope before retaining native glyph identities.
      * @param operator original content operator
      * @param operands original source operands
@@ -63,6 +79,8 @@ final class PdfPageText extends PDFTextStripper {
     @Override
     protected void processOperator(final org.apache.pdfbox.contentstream.operator.Operator operator,
             final List<org.apache.pdfbox.cos.COSBase> operands) throws IOException {
+        // Every operator, as in the graphics pass: a page without an operator ceiling must stay cancellable here too.
+        PdfContentGuard.check(operator, getGraphicsStackSize());
         if (marked != null) {
             marked.operator(operator, operands, getResources());
         }

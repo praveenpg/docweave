@@ -11,7 +11,10 @@ package io.docweave.partition;
  * @param maxPages maximum pages per document
  * @param maxGlyphsPerPage maximum visited text positions on a page, including positions excluded by the rendering
  *         policy
- * @param maxOperatorsPerPage maximum content operators processed on a page, including forms
+ * @param maxOperatorsPerPage maximum content operators processed on a page, including forms, or
+ *         {@link #UNLIMITED_OPERATORS} for no per-page operator ceiling. The page, glyph and image budgets, form
+ *         depth, a fixed bound on retained rule geometry and per-operator cancellation (native passes and
+ *         rendering) still apply; CPU time is then bounded only by the caller's deadline or cancellation
  * @param maxImagePixels maximum decoded PNG extent, including larger source-declared active mask dimensions
  * @param maxImageBytes cumulative normalized PNG byte budget per document
  * @param includeImageBytes whether Image metadata includes base64 PNG data
@@ -40,6 +43,15 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
         UnicodeNormalization unicodeNormalization, TextRendering textRendering, FigureCaptions figureCaptions,
         boolean includeImageClipBounds, boolean includeImageGroupContext, boolean curvedClipEnvelopes,
         InlineScripts inlineScripts, SideStreams sideStreams) {
+    /**
+     * {@code maxOperatorsPerPage} value that disables the per-page content-operator ceiling: operators are then not
+     * counted at all. Every other budget, the form-depth limit, a fixed bound on retained rule geometry (past which a
+     * page is read without rule-based tables, with a warning) and cancellation still apply: thread interruption is
+     * checked on every operator of the graphics, text, font-inspection and rendering passes. Processing time is then
+     * bounded only by the caller's deadline or cancellation, so use it with one, or with trusted input.
+     */
+    public static final int UNLIMITED_OPERATORS = 0;
+
     /**
      * Explicit grouping of a horizontally separate side stream set in smaller type, such as the metadata sidebar
      * beside an article's first-page abstract. Applies only to paragraph-producing native layouts on pages where no
@@ -373,7 +385,7 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
      * Validates positive budgets.
      * @param maxPages maximum page count
      * @param maxGlyphsPerPage maximum retained glyph positions per page
-     * @param maxOperatorsPerPage maximum content operators per page
+     * @param maxOperatorsPerPage maximum content operators per page, or {@link #UNLIMITED_OPERATORS}
      * @param maxImagePixels maximum decoded image pixels
      * @param maxImageBytes cumulative PNG bytes
      * @param includeImageBytes whether to extract PNG payloads
@@ -394,9 +406,12 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
      * @throws NullPointerException if a required policy is null
      */
     public PdfOptions {
-        if (maxPages < 1 || maxGlyphsPerPage < 1 || maxOperatorsPerPage < 1 || maxImagePixels < 1
-                || maxImageBytes < 1) {
+        if (maxPages < 1 || maxGlyphsPerPage < 1 || maxImagePixels < 1 || maxImageBytes < 1) {
             throw new IllegalArgumentException("PDF budgets must be positive");
+        }
+        if (maxOperatorsPerPage < 0) {
+            throw new IllegalArgumentException("maxOperatorsPerPage must be positive, or UNLIMITED_OPERATORS (0) for no "
+                    + "per-page operator ceiling, but was " + maxOperatorsPerPage);
         }
         java.util.Objects.requireNonNull(tableLimits, "tableLimits");
         java.util.Objects.requireNonNull(tableDetection, "tableDetection");
@@ -717,6 +732,27 @@ public record PdfOptions(int maxPages, int maxGlyphsPerPage, int maxOperatorsPer
             final TableLimits tableLimits) {
         this(maxPages, maxGlyphsPerPage, maxOperatorsPerPage, maxImagePixels, maxImageBytes, includeImageBytes,
                 tableLimits, TableDetection.RULED_ONLY);
+    }
+
+    /**
+     * Copies this immutable policy with another per-page content-operator ceiling.
+     * @param operators positive ceiling, or {@link #UNLIMITED_OPERATORS} for none
+     * @return a fresh policy retaining every other setting
+     * @throws IllegalArgumentException if operators is negative
+     */
+    public PdfOptions withMaxOperatorsPerPage(final int operators) {
+        return new PdfOptions(maxPages, maxGlyphsPerPage, operators, maxImagePixels, maxImageBytes,
+                includeImageBytes, tableLimits, tableDetection, textLayout, includeTableCellCoordinates, tableContinuation,
+                unicodeNormalization, textRendering, figureCaptions, includeImageClipBounds, includeImageGroupContext,
+                curvedClipEnvelopes, inlineScripts, sideStreams);
+    }
+
+    /**
+     * Tells whether the per-page content-operator ceiling applies.
+     * @return false for {@link #UNLIMITED_OPERATORS}
+     */
+    public boolean operatorsLimited() {
+        return maxOperatorsPerPage != UNLIMITED_OPERATORS;
     }
 
     /**

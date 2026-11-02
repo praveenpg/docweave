@@ -282,6 +282,9 @@ final class DefaultPdfPartitioner implements PdfPartitioner {
             if (document.getNumberOfPages() > options.maxPages()) {
                 throw new PartitionException(PartitionException.Code.INPUT_TOO_LARGE, "PDF exceeds maxPages");
             }
+            // A page is the unit of PDF progress; the total is fixed once the document is open.
+            final var progress = context.progress();
+            progress.beginUnits("pages", document.getNumberOfPages());
             context.warn(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION, limitation());
             final var tagged =
                     taggedCellTextJoin == null && paragraphOptions == null
@@ -334,6 +337,12 @@ final class DefaultPdfPartitioner implements PdfPartitioner {
                 final var geometry = new PdfPageGeometry(page);
                 final var graphics = new PdfPageGraphics(page, options, images, geometry);
                 graphics.processPage(page);
+                if (graphics.geometryDropped()) {
+                    context.warn(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION, "Page " + (index + 1)
+                            + " has more than " + PdfPageGraphics.MAX_RETAINED_SEGMENTS
+                            + " line segments; it was read without rule-based table detection, and image clip bounds "
+                            + "on it may be incomplete");
+                }
                 if (ocrProvider != null && ocrOptions.selection() == PdfOcrOptions.Selection.ALL_PAGES) {
                     // OCR owns all text on this path, including searchable layers; emit only original images first.
                     new PdfPageLayout(output, index + 1, geometry, options)
@@ -341,6 +350,8 @@ final class DefaultPdfPartitioner implements PdfPartitioner {
                     PdfPageOcr.emit(document, index, geometry, output, ocrOptions, ocrProvider, options.tableLimits(),
                             options.includeTableCellCoordinates(), tableLayout, orientation, cellProvider, null);
                     output.finishPage(index + 1);
+                    // Rendering, recognition, layout and emission for this page have all finished.
+                    progress.unitCompleted(index);
                     continue;
                 }
                 final var text = new PdfPageText(options, taggedCellTextJoin != null || paragraphOptions != null);
@@ -431,6 +442,8 @@ final class DefaultPdfPartitioner implements PdfPartitioner {
                                   : null);
                 }
                 output.finishPage(index + 1);
+                // Native text, tables, optional OCR/layout and buffered emission for this page have all finished.
+                progress.unitCompleted(index);
             }
         } catch (final PdfTraversalFailure failure) {
             throw failure.checked();

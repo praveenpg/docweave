@@ -35,6 +35,11 @@ final class PdfMarkedGlyphs {
     private final Map<Integer, List<PdfPageText.Glyph>> glyphs = new HashMap<>();
     /** Identifiers declared more than once, referenced through forms, or changed by diacritic merging. */
     private final Set<Integer> invalid = new HashSet<>();
+    /**
+     * Most distinct identifiers one page may declare; past it the page's tag ownership is invalid (ordinary native
+     * extraction is unchanged). The former default operator ceiling allowed no more than this.
+     */
+    static final int MAX_DECLARED_IDENTIFIERS = 100_000;
     /** Declared page-stream identifiers; nested unnumbered wrappers do not redeclare them. */
     private final Set<Integer> declared = new HashSet<>();
     /** Innermost inherited identifier. */
@@ -101,6 +106,10 @@ final class PdfMarkedGlyphs {
                         return;
                     }
                     current = integer.intValue();
+                    if (declared.size() >= MAX_DECLARED_IDENTIFIERS && !declared.contains(current)) {
+                        valid = false;
+                        return;
+                    }
                     if (!declared.add(current)) {
                         invalid.add(current);
                     }
