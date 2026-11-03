@@ -13,6 +13,12 @@ import java.util.Map;
 final class PdfPageOutput {
     /** Fixed opt-in pending-element ceiling, additional to the document's maxElements. */
     private static final int MAX_PENDING = 4096;
+    /** Raw page events retained by an isolated parallel page, null on the ordered writer. */
+    private final List<Event> recorded;
+    /** Raw elements admitted on an isolated page; warnings do not consume element slots. */
+    private int recordedElements;
+    /** Per-page admission cannot exceed the document element ceiling. */
+    private final int maxElements;
     /** Central source metadata, ID and emission policy. */
     private final PartitionContext context;
     /** Null on the historical direct path; otherwise one page of pending output. */
@@ -48,12 +54,57 @@ final class PdfPageOutput {
     PdfPageOutput(final PartitionContext context, final PdfOptions.TableContinuation policy,
             final PdfOcrOptions.ReadingOrder order) {
         this.context = context;
+        this.recorded = null;
+        this.maxElements = context.options().maxElements();
         linkTables = policy != PdfOptions.TableContinuation.NONE;
         providerHeaderPrefixes = policy.providerPrefixes();
         providerHeaderLayouts = policy.providerLayouts();
         linkProviders = policy.providerHeaders();
         geometric = order == PdfOcrOptions.ReadingOrder.GEOMETRIC;
         pending = linkTables || geometric ? new ArrayList<>() : null;
+    }
+
+    /**
+     * Copies immutable policy only; parallel pages never touch the central context or previous-page state.
+     * @param source ordered document output
+     */
+    private PdfPageOutput(final PdfPageOutput source) {
+        context = source.context;
+        maxElements = source.maxElements;
+        linkTables = source.linkTables;
+        linkProviders = source.linkProviders;
+        providerHeaderPrefixes = source.providerHeaderPrefixes;
+        providerHeaderLayouts = source.providerHeaderLayouts;
+        geometric = source.geometric;
+        pending = null;
+        recorded = new ArrayList<>();
+    }
+
+    /**
+     * Creates a page-local raw event buffer with the same table and ordering policy.
+     * @return isolated page buffer
+     */
+    PdfPageOutput pageBuffer() {
+        return new PdfPageOutput(this);
+    }
+
+    /**
+     * Replays a completed page through the single ordered writer, retaining IDs and cross-page links.
+     * @param destination ordered document output
+     * @param page one-based page number
+     * @throws IOException if cancellation or an output budget prevents emission
+     */
+    void replay(final PdfPageOutput destination, final int page) throws IOException {
+        for (final var event : recorded) {
+            ElementCollector.checkInterrupted();
+            if (event instanceof final Pending item) {
+                destination.emit(item.type(), item.text(), item.metadata(), item.signature());
+            } else if (event instanceof final Warning warning) {
+                destination.warn(warning.code(), warning.message());
+            }
+        }
+        destination.finishPage(page);
+        recorded.clear();
     }
 
     /**
@@ -109,6 +160,16 @@ final class PdfPageOutput {
      */
     void emit(final ElementType type, final String text, final Map<String, Object> metadata,
             final PdfTableSignature signature) throws IOException {
+        if (recorded != null) {
+            ElementCollector.checkInterrupted();
+            if (recordedElements >= (linkTables || geometric ? Math.min(MAX_PENDING, maxElements) : maxElements)) {
+                throw new PartitionException(
+                        PartitionException.Code.ELEMENT_LIMIT, "PDF page exceeds document element budget");
+            }
+            recordedElements++;
+            recorded.add(new Pending(type, text, java.util.Collections.unmodifiableMap(new LinkedHashMap<>(metadata)), signature));
+            return;
+        }
         if (pending == null) {
             context.emit(type, text, metadata);
             return;
@@ -119,7 +180,7 @@ final class PdfPageOutput {
             throw new PartitionException(
                     PartitionException.Code.ELEMENT_LIMIT, "PDF buffered page exceeds pending-element budget");
         }
-        pending.add(new Pending(type, text, Map.copyOf(metadata), signature));
+        pending.add(new Pending(type, text, java.util.Collections.unmodifiableMap(new LinkedHashMap<>(metadata)), signature));
     }
 
     /**
@@ -128,7 +189,11 @@ final class PdfPageOutput {
      * @param message content-free diagnostic
      */
     void warn(final PartitionResult.WarningCode code, final String message) {
-        context.warn(code, message);
+        if (recorded != null) {
+            recorded.add(new Warning(code, message));
+        } else {
+            context.warn(code, message);
+        }
     }
 
     /**
@@ -139,7 +204,7 @@ final class PdfPageOutput {
      * @throws IOException if cancelled, limited or central emission fails
      */
     void finishPage(final int page) throws IOException {
-        if (pending == null) {
+        if (recorded != null || pending == null) {
             return;
         }
         if (geometric) {
@@ -236,7 +301,18 @@ final class PdfPageOutput {
      * @param metadata original page-local properties
      * @param signature private candidate evidence
      */
-    private record Pending(ElementType type, String text, Map<String, Object> metadata, PdfTableSignature signature) {}
+    private record Pending(ElementType type, String text, Map<String, Object> metadata, PdfTableSignature signature)
+            implements Event {}
+
+    /** One raw emission or warning, replayed in page encounter order. */
+    private sealed interface Event permits Pending, Warning {}
+
+    /**
+     * Page-local diagnostic retained until ordered output.
+     * @param code diagnostic category
+     * @param message content-free diagnostic
+     */
+    private record Warning(PartitionResult.WarningCode code, String message) implements Event {}
 
     /**
      * Constant-size previous-page state; repeated header evidence is capped before admission.
