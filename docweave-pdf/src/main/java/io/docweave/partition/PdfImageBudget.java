@@ -12,7 +12,7 @@ import java.util.Base64;
 import java.util.Map;
 import javax.imageio.ImageIO;
 
-/** Document-confined cumulative PNG budget, shared across page visitors. */
+/** Thread-safe cumulative PNG budget, shared across page visitors. */
 final class PdfImageBudget {
     /** Immutable strategy policy. */
     private final PdfOptions options;
@@ -63,11 +63,13 @@ final class PdfImageBudget {
              */
             private void reserve(final int count) throws IOException {
                 ElementCollector.checkInterrupted();
-                if (count > options.maxImageBytes() - used) {
-                    throw new PartitionException(
-                            PartitionException.Code.IMAGE_LIMIT, "PDF images exceed maxImageBytes");
+                synchronized (PdfImageBudget.this) {
+                    if (count > options.maxImageBytes() - used) {
+                        throw new PartitionException(
+                                PartitionException.Code.IMAGE_LIMIT, "PDF images exceed maxImageBytes");
+                    }
+                    used += count;
                 }
-                used += count;
             }
         };
         // A stencil has no intrinsic color: the current occurrence supplies its solid fill.

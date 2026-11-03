@@ -431,25 +431,26 @@ class PdfProviderContinuationTest {
     private static DocWeave processor(final Route route, final PdfOptions.TableContinuation continuation,
             final boolean cells, final String variant) {
         final var options = PdfOptions.defaults().withTableContinuation(continuation).withTableCellCoordinates(cells);
-        final var calls = new AtomicInteger();
-        final PdfTableLayoutProvider layout = image -> List.of(layout(calls.getAndIncrement(), variant));
+        final PdfTableLayoutProvider layout = image -> List.of(layout(PdfTestPageMarker.read(image), variant));
         final PdfPartitioner partitioner;
         if (route == Route.NATIVE) {
             partitioner =
                     PdfPartitioner.createWithNativeLayout(options, new PdfNativeLayoutOptions(72, 500_000, 16), layout);
         } else {
-            final var pageCalls = new AtomicInteger();
-            final PdfWordOcrProvider words = (image, kind) -> words(pageCalls.getAndIncrement(), variant);
+            final var cellCalls = ThreadLocal.withInitial(() -> new AtomicInteger());
+            final PdfWordOcrProvider words = (image, kind) -> {
+                cellCalls.get().set(0);
+                return words(PdfTestPageMarker.read(image), variant);
+            };
             final var ocr = new PdfOcrOptions(72, 500_000, 100, 10_000)
                                     .withTableDetection(route == Route.CELLS
                                                                 ? PdfOcrOptions.TableDetection.PROVIDER_LAYOUT_CELLS
                                                                 : PdfOcrOptions.TableDetection.PROVIDER_LAYOUT);
             if (route == Route.CELLS) {
-                final var cellCalls = new AtomicInteger();
                 final PdfOcrProvider cellProvider = image
                         -> List.of(new PdfOcrProvider.Line(
-                                values(variant).get(cellCalls.getAndIncrement() % values(variant).size()), 15, 15, 20,
-                                20));
+                                values(variant).get(cellCalls.get().getAndIncrement() % values(variant).size()), 15, 15,
+                                20, 20));
                 partitioner =
                         variant.equals("orientation")
                                 ? PdfPartitioner.createOrientedWithCellOcr(options, ocr, words, layout, cellProvider,
@@ -577,8 +578,12 @@ class PdfProviderContinuationTest {
             for (int page = 0; page < 3; page++) {
                 final var source = new PDPage(new PDRectangle(500, 800));
                 document.addPage(source);
-                if (nativeText) {
-                    try (final var content = new PDPageContentStream(document, source)) {
+                try (final var content = new PDPageContentStream(document, source)) {
+                    content.setNonStrokingColor(PdfTestPageMarker.color(page));
+                    content.addRect(0, 798, 2, 2);
+                    content.fill();
+                    content.setNonStrokingColor(java.awt.Color.BLACK);
+                    if (nativeText) {
                         for (final var line : words(page, variant)) {
                             content.beginText();
                             content.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA), 10);

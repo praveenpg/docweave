@@ -1,5 +1,6 @@
 package io.docweave.partition;
 
+import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
 
 import java.io.IOException;
@@ -273,45 +274,14 @@ final class DefaultPdfPartitioner implements PdfPartitioner {
     @Override
     public void partition(final PartitionContext context) throws IOException {
         NestedTableSupport.check(this, context.options());
-        try (final var document = PdfDocumentLoader.load(context.binaryBuffer(), context.filename(), passwords)) {
-            ElementCollector.checkInterrupted();
-            if (!document.getCurrentAccessPermission().canExtractContent()) {
-                throw new PartitionException(
-                        PartitionException.Code.UNSUPPORTED_OPTION, "PDF permissions prohibit content extraction");
-            }
-            if (document.getNumberOfPages() > options.maxPages()) {
-                throw new PartitionException(PartitionException.Code.INPUT_TOO_LARGE, "PDF exceeds maxPages");
-            }
-            // A page is the unit of PDF progress; the total is fixed once the document is open.
+        try (final var documents = new PdfPageDocuments(context.binaryBuffer(), context.filename(), passwords);
+                final var document = documents.open()) {
+            validateDocument(document);
+            // A page is the unit of PDF progress; completion follows all output for that page.
             final var progress = context.progress();
             progress.beginUnits("pages", document.getNumberOfPages());
             context.warn(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION, limitation());
-            final var tagged =
-                    taggedCellTextJoin == null && paragraphOptions == null
-                            ? new PdfTaggedStructure.Result(java.util.List.of(), 0)
-                            : PdfTaggedStructure.read(document, options.tableLimits(), taggedCellTextJoin != null,
-                                      paragraphOptions != null,
-                                      paragraphOptions != null
-                                              && paragraphOptions.pageBoundary()
-                                                         == PdfTaggedParagraphOptions.PageBoundary.PAGE_FRAGMENTS);
-            if (tagged.rejected() > 0) {
-                context.warn(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION,
-                        "Unsupported or inconsistent source-tagged tables retain native fallback");
-            }
-            if (tagged.rejectedParagraphs() > 0) {
-                context.warn(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION,
-                        "Unsupported source paragraphs retain ordinary native fallback");
-            }
-            if (paragraphOptions != null) {
-                final var counts = new java.util.HashMap<Integer, Integer>();
-                for (final var paragraph : tagged.paragraphs()) {
-                    ElementCollector.checkInterrupted();
-                    if (counts.merge(paragraph.page(), 1, Integer::sum) > paragraphOptions.maxParagraphsPerPage()) {
-                        throw new PartitionException(
-                                PartitionException.Code.LAYOUT_LIMIT, "Source paragraphs exceed maxParagraphsPerPage");
-                    }
-                }
-            }
+            final var tagged = readTaggedStructure(document, context);
             ElementCollector.checkInterrupted();
             final String paragraphDocumentIdentity =
                     paragraphOptions != null
@@ -320,130 +290,35 @@ final class DefaultPdfPartitioner implements PdfPartitioner {
                             ? PdfParagraphIdentity.document(context.binaryBuffer())
                             : null;
             ElementCollector.checkInterrupted();
+            // These budgets and buffers belong to the whole call, not to individual pages.
             final var images = new PdfImageBudget(options);
-            final var output = new PdfPageOutput(context, options.tableContinuation(),
-                    ocrOptions == null ? PdfOcrOptions.ReadingOrder.SOURCE_ORDER : ocrOptions.readingOrder());
-            if (output.continuations()) {
-                context.warn(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION,
-                        "Table continuation links use repeated-header geometry heuristics, not semantic identity");
-            }
-            if (ocrOptions != null && ocrOptions.readingOrder() == PdfOcrOptions.ReadingOrder.GEOMETRIC) {
-                context.warn(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION,
-                        "Page top-left native/OCR order is geometric, not logical article order");
-            }
-            for (int index = 0; index < document.getNumberOfPages(); index++) {
-                ElementCollector.checkInterrupted();
-                final var page = document.getPage(index);
-                final var geometry = new PdfPageGeometry(page);
-                final var graphics = new PdfPageGraphics(page, options, images, geometry);
-                graphics.processPage(page);
-                if (graphics.geometryDropped()) {
-                    context.warn(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION, "Page " + (index + 1)
-                            + " has more than " + PdfPageGraphics.MAX_RETAINED_SEGMENTS
-                            + " line segments; it was read without rule-based table detection, and image clip bounds "
-                            + "on it may be incomplete");
-                }
-                if (ocrProvider != null && ocrOptions.selection() == PdfOcrOptions.Selection.ALL_PAGES) {
-                    // OCR owns all text on this path, including searchable layers; emit only original images first.
-                    new PdfPageLayout(output, index + 1, geometry, options)
-                            .emit(java.util.List.of(), java.util.List.of(), graphics.images(), true);
-                    PdfPageOcr.emit(document, index, geometry, output, ocrOptions, ocrProvider, options.tableLimits(),
-                            options.includeTableCellCoordinates(), tableLayout, orientation, cellProvider, null);
-                    output.finishPage(index + 1);
-                    // Rendering, recognition, layout and emission for this page have all finished.
-                    progress.unitCompleted(index);
-                    continue;
-                }
-                final var text = new PdfPageText(options, taggedCellTextJoin != null || paragraphOptions != null);
-                text.setStartPage(index + 1);
-                text.setEndPage(index + 1);
-                text.getText(document);
-                final var angled = text.angledLines(geometry);
-                final boolean nativeText =
-                        !angled.isEmpty() || text.glyphs().stream().anyMatch(glyph -> !glyph.text().isBlank());
-                final boolean mixed = ocrProvider != null && nativeText
-                                      && ocrOptions.selection() == PdfOcrOptions.Selection.IMAGE_REGIONS
-                                      && !graphics.images().isEmpty();
-                final boolean recognize = ocrProvider != null && (!nativeText || mixed);
-                if (nativeLayout != null && nativeText) {
-                    if (!angled.isEmpty()) {
-                        throw new PartitionException(PartitionException.Code.UNSUPPORTED_OPTION,
-                                "Native provider layout does not support arbitrary-angle text");
+            final var output = createOutput(context);
+            final var indices = java.util.stream.IntStream.range(0, document.getNumberOfPages()).boxed().toList();
+            // Batches prevent the ordered writer from retaining an entire document of completed pages.
+            final int batchSize = Math.max(1, java.util.concurrent.ForkJoinPool.getCommonPoolParallelism() + 1);
+            try (final var execution = new PdfPageExecution()) {
+                for (int start = 0; start < indices.size(); start += batchSize) {
+                    ElementCollector.checkInterrupted();
+                    final var batch = indices.subList(start, Math.min(indices.size(), start + batchSize));
+                    final var task = java.util.concurrent.CompletableFuture.supplyAsync(
+                            ()
+                                    -> batch.parallelStream()
+                                            .map(index -> execution.run(() -> {
+                                                final var pageOutput = output.pageBuffer();
+                                                partitionPage(documents.page(), index, images, pageOutput, tagged,
+                                                        paragraphDocumentIdentity);
+                                                return pageOutput;
+                                            }))
+                                            .toList(),
+                            java.util.concurrent.ForkJoinPool.commonPool());
+                    final var completed = execution.await(task);
+                    execution.check();
+                    for (int offset = 0; offset < completed.size(); offset++) {
+                        ElementCollector.checkInterrupted();
+                        completed.get(offset).replay(output, start + offset + 1);
+                        progress.unitCompleted(start + offset);
                     }
-                    final PdfNativeProviderTables.Result tables;
-                    final var selected = new java.util.ArrayList<PdfLayoutItem>();
-                    if (nativeTablesFirst) {
-                        final var work = new PdfTableWork();
-                        final var taggedStage =
-                                taggedCellTextJoin == null
-                                        ? new PdfTaggedTables.Result(java.util.List.of(), text.glyphs())
-                                        : PdfTaggedTables.extract(tagged.tables(), index, text, geometry, options,
-                                                  taggedCellTextJoin, work, taggedGeometry);
-                        selected.addAll(taggedStage.tables());
-                        final var reserved = taggedStage.tables().stream().map(PdfLayoutItem::box).toList();
-                        final var nativeStage =
-                                new PdfPageLayout(output, index + 1, geometry, options, reserved, graphics.rowBands())
-                                        .stageTables(taggedStage.remaining(), graphics.segments(), graphics.images(),
-                                                angled, work);
-                        selected.addAll(nativeStage.tables());
-                        final var preferred = new PdfPageLayout.NativeStage(
-                                java.util.List.copyOf(selected), nativeStage.remaining(), work.nativeAnchors());
-                        tables = PdfNativeProviderTables.extract(document, index, geometry, nativeStage.remaining(),
-                                options, nativeLayoutOptions, nativeLayout, preferred, work);
-                    } else {
-                        tables = PdfNativeProviderTables.extract(
-                                document, index, geometry, text.glyphs(), options, nativeLayoutOptions, nativeLayout);
-                    }
-                    selected.addAll(tables.tables());
-                    final var staged = nativeTablesFirst
-                                               ? selected.stream()
-                                                         .map(item -> {
-                                                             final var metadata =
-                                                                     new java.util.LinkedHashMap<>(item.metadata());
-                                                             metadata.put("pdf_table_selection_policy",
-                                                                     taggedCellTextJoin == null
-                                                                             ? "native_first_disjoint_v1"
-                                                                             : "tagged_native_first_disjoint_v1");
-                                                             return new PdfLayoutItem(item.type(), item.text(),
-                                                                     item.box(), metadata, item.signature());
-                                                         })
-                                                         .toList()
-                                               : selected;
-                    // Prepared ownership must not be recognized again by native table heuristics.
-                    new PdfPageLayout(output, index + 1, geometry,
-                            options.withTableDetection(PdfOptions.TableDetection.RULED_ONLY))
-                            .emit(tables.remaining(), java.util.List.of(), graphics.images(), false, angled, staged);
-                } else if ((taggedCellTextJoin != null || paragraphOptions != null) && nativeText) {
-                    final var work = new PdfTableWork();
-                    final var tables = PdfTaggedTables.extract(tagged.tables(), index, text, geometry, options,
-                            taggedCellTextJoin == null ? PdfNativeLayoutOptions.CellTextJoin.SPACE_SEPARATED
-                                                       : taggedCellTextJoin,
-                            work, taggedGeometry);
-                    final var paragraphs =
-                            paragraphOptions == null
-                                    ? new PdfTaggedParagraphs.Result(java.util.List.of(), tables.remaining())
-                                    : PdfTaggedParagraphs.extract(tagged.paragraphs(), index, text, tables.remaining(),
-                                              geometry, paragraphOptions, work, paragraphDocumentIdentity);
-                    final var prepared = new java.util.ArrayList<PdfLayoutItem>(tables.tables());
-                    prepared.addAll(paragraphs.paragraphs());
-                    new PdfPageLayout(output, index + 1, geometry, options,
-                            prepared.stream().map(PdfLayoutItem::box).toList(), graphics.rowBands())
-                            .emit(paragraphs.remaining(), graphics.segments(), graphics.images(), false, angled,
-                                    prepared, work);
-                } else {
-                    new PdfPageLayout(output, index + 1, geometry, options, java.util.List.of(), graphics.rowBands())
-                            .emit(text.glyphs(), graphics.segments(), graphics.images(), recognize, angled);
                 }
-                if (recognize) {
-                    PdfPageOcr.emit(document, index, geometry, output, ocrOptions, ocrProvider, options.tableLimits(),
-                            options.includeTableCellCoordinates(), tableLayout, orientation, cellProvider,
-                            mixed ? new PdfOcrRegions(graphics.images(), text.glyphs(), geometry, ocrOptions,
-                                            angled.stream().map(PdfLayoutItem::box).toList())
-                                  : null);
-                }
-                output.finishPage(index + 1);
-                // Native text, tables, optional OCR/layout and buffered emission for this page have all finished.
-                progress.unitCompleted(index);
             }
         } catch (final PdfTraversalFailure failure) {
             throw failure.checked();
@@ -456,6 +331,249 @@ final class DefaultPdfPartitioner implements PdfPartitioner {
             throw new PartitionException(
                     PartitionException.Code.MALFORMED_DOCUMENT, "PDF could not be parsed or decoded", failure);
         }
+    }
+
+    /**
+     * Checks extraction permission and document size before any page is processed.
+     * @param document opened PDF
+     * @throws PartitionException if extraction is prohibited or the page limit is exceeded
+     * @throws InterruptedIOException if interrupted
+     */
+    private void validateDocument(final PDDocument document) throws IOException {
+        ElementCollector.checkInterrupted();
+        if (!document.getCurrentAccessPermission().canExtractContent()) {
+            throw new PartitionException(
+                    PartitionException.Code.UNSUPPORTED_OPTION, "PDF permissions prohibit content extraction");
+        }
+        if (document.getNumberOfPages() > options.maxPages()) {
+            throw new PartitionException(PartitionException.Code.INPUT_TOO_LARGE, "PDF exceeds maxPages");
+        }
+    }
+
+    /**
+     * Reads document-wide source tags and validates paragraph budgets before emitting any page.
+     * Unsupported tags retain their existing native fallback and warnings.
+     * @param document opened PDF
+     * @param context warning sink and extraction settings
+     * @return source tables and paragraphs, or an empty result when tags are not requested
+     * @throws IOException if tag traversal, cancellation or a paragraph budget fails
+     */
+    private PdfTaggedStructure.Result readTaggedStructure(final PDDocument document, final PartitionContext context)
+            throws IOException {
+        final var tagged =
+                taggedCellTextJoin == null && paragraphOptions == null
+                        ? new PdfTaggedStructure.Result(java.util.List.of(), 0)
+                        : PdfTaggedStructure.read(document, options.tableLimits(), taggedCellTextJoin != null,
+                                  paragraphOptions != null,
+                                  paragraphOptions != null
+                                          && paragraphOptions.pageBoundary()
+                                                     == PdfTaggedParagraphOptions.PageBoundary.PAGE_FRAGMENTS);
+        if (tagged.rejected() > 0) {
+            context.warn(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION,
+                    "Unsupported or inconsistent source-tagged tables retain native fallback");
+        }
+        if (tagged.rejectedParagraphs() > 0) {
+            context.warn(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION,
+                    "Unsupported source paragraphs retain ordinary native fallback");
+        }
+        if (paragraphOptions != null) {
+            final var counts = new java.util.HashMap<Integer, Integer>();
+            for (final var paragraph : tagged.paragraphs()) {
+                ElementCollector.checkInterrupted();
+                if (counts.merge(paragraph.page(), 1, Integer::sum) > paragraphOptions.maxParagraphsPerPage()) {
+                    throw new PartitionException(
+                            PartitionException.Code.LAYOUT_LIMIT, "Source paragraphs exceed maxParagraphsPerPage");
+                }
+            }
+        }
+        return tagged;
+    }
+
+    /**
+     * Creates the call-wide ordered output buffer and reports selected ordering limitations.
+     * @param context emission and warning sink
+     * @return output retaining cross-page table continuation state
+     */
+    private PdfPageOutput createOutput(final PartitionContext context) {
+        final var output = new PdfPageOutput(context, options.tableContinuation(),
+                ocrOptions == null ? PdfOcrOptions.ReadingOrder.SOURCE_ORDER : ocrOptions.readingOrder());
+        if (output.continuations()) {
+            context.warn(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION,
+                    "Table continuation links use repeated-header geometry heuristics, not semantic identity");
+        }
+        if (ocrOptions != null && ocrOptions.readingOrder() == PdfOcrOptions.ReadingOrder.GEOMETRIC) {
+            context.warn(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION,
+                    "Page top-left native/OCR order is geometric, not logical article order");
+        }
+        return output;
+    }
+
+    /**
+     * Processes one isolated page, choosing OCR ownership or native text before optional mixed-page OCR.
+     * The caller replays its buffered output in page order before recording progress.
+     * @param document opened PDF, confined to this partition call
+     * @param index zero-based page index
+     * @param images shared document image budget
+     * @param output shared ordered page output
+     * @param tagged document-wide source tags
+     * @param paragraphDocumentIdentity optional identity for cross-page paragraph fragments
+     * @throws IOException if page extraction, rendering, OCR, limits or cancellation fails
+     */
+    private void partitionPage(final PDDocument document, final int index, final PdfImageBudget images,
+            final PdfPageOutput output, final PdfTaggedStructure.Result tagged, final String paragraphDocumentIdentity)
+            throws IOException {
+        ElementCollector.checkInterrupted();
+        final var page = document.getPage(index);
+        final var geometry = new PdfPageGeometry(page);
+        final var graphics = new PdfPageGraphics(page, options, images, geometry);
+        graphics.processPage(page);
+        if (graphics.geometryDropped()) {
+            output.warn(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION,
+                    "Page " + (index + 1) + " has more than " + PdfPageGraphics.MAX_RETAINED_SEGMENTS
+                            + " line segments; it was read without rule-based table detection, and image clip bounds "
+                            + "on it may be incomplete");
+        }
+        if (ocrProvider != null && ocrOptions.selection() == PdfOcrOptions.Selection.ALL_PAGES) {
+            emitOcrPage(document, index, geometry, graphics, output);
+            return;
+        }
+        final var text = new PdfPageText(options, taggedCellTextJoin != null || paragraphOptions != null);
+        text.setStartPage(index + 1);
+        text.setEndPage(index + 1);
+        text.getText(document);
+        final var angled = text.angledLines(geometry);
+        final boolean nativeText =
+                !angled.isEmpty() || text.glyphs().stream().anyMatch(glyph -> !glyph.text().isBlank());
+        final boolean mixed = ocrProvider != null && nativeText
+                              && ocrOptions.selection() == PdfOcrOptions.Selection.IMAGE_REGIONS
+                              && !graphics.images().isEmpty();
+        final boolean recognize = ocrProvider != null && (!nativeText || mixed);
+        if (nativeLayout != null && nativeText) {
+            emitProviderPage(document, index, text, geometry, graphics, output, tagged, angled);
+        } else if ((taggedCellTextJoin != null || paragraphOptions != null) && nativeText) {
+            emitTaggedPage(index, text, geometry, graphics, output, tagged, paragraphDocumentIdentity, angled);
+        } else {
+            new PdfPageLayout(output, index + 1, geometry, options, java.util.List.of(), graphics.rowBands())
+                    .emit(text.glyphs(), graphics.segments(), graphics.images(), recognize, angled);
+        }
+        if (recognize) {
+            PdfPageOcr.emit(document, index, geometry, output, ocrOptions, ocrProvider, options.tableLimits(),
+                    options.includeTableCellCoordinates(), tableLayout, orientation, cellProvider,
+                    mixed ? new PdfOcrRegions(graphics.images(), text.glyphs(), geometry, ocrOptions,
+                                    angled.stream().map(PdfLayoutItem::box).toList())
+                          : null);
+        }
+        output.finishPage(index + 1);
+    }
+
+    /**
+     * Emits original images and OCR-owned text; searchable native text is deliberately not emitted again.
+     * @param document opened PDF
+     * @param index zero-based page index
+     * @param geometry displayed page geometry
+     * @param graphics extracted original images
+     * @param output ordered emission sink
+     * @throws IOException if recognition, layout or emission fails
+     */
+    private void emitOcrPage(final PDDocument document, final int index, final PdfPageGeometry geometry,
+            final PdfPageGraphics graphics, final PdfPageOutput output) throws IOException {
+        // OCR owns all text on this path, including searchable layers; emit only original images first.
+        new PdfPageLayout(output, index + 1, geometry, options)
+                .emit(java.util.List.of(), java.util.List.of(), graphics.images(), true);
+        PdfPageOcr.emit(document, index, geometry, output, ocrOptions, ocrProvider, options.tableLimits(),
+                options.includeTableCellCoordinates(), tableLayout, orientation, cellProvider, null);
+        output.finishPage(index + 1);
+    }
+
+    /**
+     * Selects native/provider table ownership and emits the remaining native text once.
+     * Native-first selection reserves accepted tables before asking the provider for disjoint geometry.
+     * @param document opened PDF
+     * @param index zero-based page index
+     * @param text extracted native glyphs
+     * @param geometry displayed page geometry
+     * @param graphics page images, rules and row bands
+     * @param output ordered emission sink
+     * @param tagged document-wide source tables
+     * @param angled arbitrary-angle text items
+     * @throws IOException if provider layout, table budgets or emission fails
+     */
+    private void emitProviderPage(final PDDocument document, final int index, final PdfPageText text,
+            final PdfPageGeometry geometry, final PdfPageGraphics graphics, final PdfPageOutput output,
+            final PdfTaggedStructure.Result tagged, final java.util.List<PdfLayoutItem> angled) throws IOException {
+        if (!angled.isEmpty()) {
+            throw new PartitionException(PartitionException.Code.UNSUPPORTED_OPTION,
+                    "Native provider layout does not support arbitrary-angle text");
+        }
+        final PdfNativeProviderTables.Result tables;
+        final var selected = new java.util.ArrayList<PdfLayoutItem>();
+        if (nativeTablesFirst) {
+            final var work = new PdfTableWork();
+            final var taggedStage = taggedCellTextJoin == null
+                                            ? new PdfTaggedTables.Result(java.util.List.of(), text.glyphs())
+                                            : PdfTaggedTables.extract(tagged.tables(), index, text, geometry, options,
+                                                      taggedCellTextJoin, work, taggedGeometry);
+            selected.addAll(taggedStage.tables());
+            final var reserved = taggedStage.tables().stream().map(PdfLayoutItem::box).toList();
+            final var nativeStage =
+                    new PdfPageLayout(output, index + 1, geometry, options, reserved, graphics.rowBands())
+                            .stageTables(taggedStage.remaining(), graphics.segments(), graphics.images(), angled, work);
+            selected.addAll(nativeStage.tables());
+            final var preferred = new PdfPageLayout.NativeStage(
+                    java.util.List.copyOf(selected), nativeStage.remaining(), work.nativeAnchors());
+            tables = PdfNativeProviderTables.extract(document, index, geometry, nativeStage.remaining(), options,
+                    nativeLayoutOptions, nativeLayout, preferred, work);
+        } else {
+            tables = PdfNativeProviderTables.extract(
+                    document, index, geometry, text.glyphs(), options, nativeLayoutOptions, nativeLayout);
+        }
+        selected.addAll(tables.tables());
+        final var staged =
+                nativeTablesFirst ? selected.stream()
+                                            .map(item -> {
+                                                final var metadata = new java.util.LinkedHashMap<>(item.metadata());
+                                                metadata.put("pdf_table_selection_policy",
+                                                        taggedCellTextJoin == null ? "native_first_disjoint_v1"
+                                                                                   : "tagged_native_first_disjoint_v1");
+                                                return new PdfLayoutItem(item.type(), item.text(), item.box(), metadata,
+                                                        item.signature());
+                                            })
+                                            .toList()
+                                  : selected;
+        // Prepared ownership must not be recognized again by native table heuristics.
+        new PdfPageLayout(output, index + 1, geometry, options.withTableDetection(PdfOptions.TableDetection.RULED_ONLY))
+                .emit(tables.remaining(), java.util.List.of(), graphics.images(), false, angled, staged);
+    }
+
+    /**
+     * Gives supported source-tagged tables and paragraphs ownership before geometric fallback.
+     * @param index zero-based page index
+     * @param text extracted native glyphs
+     * @param geometry displayed page geometry
+     * @param graphics page images, rules and row bands
+     * @param output ordered emission sink
+     * @param tagged document-wide source tables and paragraphs
+     * @param paragraphDocumentIdentity optional identity for cross-page paragraph fragments
+     * @param angled arbitrary-angle text items
+     * @throws IOException if tagged extraction, table budgets or emission fails
+     */
+    private void emitTaggedPage(final int index, final PdfPageText text, final PdfPageGeometry geometry,
+            final PdfPageGraphics graphics, final PdfPageOutput output, final PdfTaggedStructure.Result tagged,
+            final String paragraphDocumentIdentity, final java.util.List<PdfLayoutItem> angled) throws IOException {
+        final var work = new PdfTableWork();
+        final var tables = PdfTaggedTables.extract(tagged.tables(), index, text, geometry, options,
+                taggedCellTextJoin == null ? PdfNativeLayoutOptions.CellTextJoin.SPACE_SEPARATED : taggedCellTextJoin,
+                work, taggedGeometry);
+        final var paragraphs =
+                paragraphOptions == null
+                        ? new PdfTaggedParagraphs.Result(java.util.List.of(), tables.remaining())
+                        : PdfTaggedParagraphs.extract(tagged.paragraphs(), index, text, tables.remaining(), geometry,
+                                  paragraphOptions, work, paragraphDocumentIdentity);
+        final var prepared = new java.util.ArrayList<PdfLayoutItem>(tables.tables());
+        prepared.addAll(paragraphs.paragraphs());
+        new PdfPageLayout(output, index + 1, geometry, options, prepared.stream().map(PdfLayoutItem::box).toList(),
+                graphics.rowBands())
+                .emit(paragraphs.remaining(), graphics.segments(), graphics.images(), false, angled, prepared, work);
     }
 
     /**
