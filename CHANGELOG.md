@@ -2,6 +2,26 @@
 
 ## Unreleased
 
+- **0.1.0-beta.13 internal-only build (not a public release):** this build fixes the version at `0.1.0-beta.13`
+  to produce an internal artifact bundle for DocWeave Studio's private repository. It is not published to Maven
+  Central or any public repository, is not signed or tagged, and the changes since 0.1.0-beta.12 (parallel PDF page
+  processing, PR #43) remain unreleased publicly.
+- PDF: pages are processed concurrently. Each partition call runs its pages with `parallelStream()` on the
+  common fork/join pool, in batches of at most the pool parallelism plus one, and replays each batch in page order.
+  Element order, element IDs, warning order, reading-order metadata, element metadata key order and cross-page
+  table continuation are the same as with sequential processing. There is no new option and no sequential fallback.
+  - Each worker thread opens its own PDFBox reader over the same read-only input bytes, so peak memory grows with the
+    pool size. The shared image-byte budget stays global, and the per-page safeguards (operator ceiling, graphics-state
+    nesting, image occurrences, retained geometry) still apply to every page.
+  - Progress counts a page only after it is emitted in order; recognition may run ahead of the reported count. A
+    failed batch reports no progress for its buffered pages.
+  - Cancellation interrupts only the page callbacks of that call, and the first failure stops the other pages. The
+    call returns only after every page task has ended, and no interrupt is left on a pool thread. A caller that is
+    itself a common-pool thread waits through a managed blocker and never runs page work inline.
+  - Providers (OCR, table layout) may be called for several pages at once and out of page order, within their
+    existing thread-safety and cancellation contracts. Their own process and inference limits still apply.
+  - See [parallel PDF pages](docs/pdf-page-parallelism.md).
+
 ## 0.1.0-beta.12
 
 Owner-authorized full-library release with all changes since beta.10, listed below. It includes a **breaking**

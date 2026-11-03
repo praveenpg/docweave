@@ -213,6 +213,7 @@ class PdfTableContinuationTest {
 
     private static DocWeave ocrProcessor(
             final PdfOptions options, final AtomicInteger calls, final List<String> header) {
+        final var cellCalls = ThreadLocal.withInitial(() -> new AtomicInteger());
         final PdfOcrProvider provider = new PdfOcrProvider() {
             @Override
             public List<Line> recognize(final BufferedImage image) {
@@ -224,9 +225,9 @@ class PdfTableContinuationTest {
                 if (kind == InputKind.PAGE) {
                     return List.of();
                 }
-                final int index = calls.getAndIncrement();
-                final int cell = index % 4;
-                final int headerOffset = header.size() == 4 ? (index / 4) * 2 : 0;
+                calls.incrementAndGet();
+                final int cell = cellCalls.get().getAndIncrement() % 4;
+                final int headerOffset = header.size() == 4 ? PdfTestPageMarker.read(image) * 2 : 0;
                 return List.of(new Line(cell < 2    ? header.get(headerOffset + cell)
                                         : cell == 2 ? "Alpha"
                                                     : "10",
@@ -256,7 +257,9 @@ class PdfTableContinuationTest {
 
     private static DocumentSource document(final List<Spec> specs) throws Exception {
         try (final var document = new PDDocument(); final var output = new ByteArrayOutputStream()) {
+            int pageIndex = 0;
             for (final var spec : specs) {
+                final int marker = pageIndex++;
                 final var page = new PDPage(new PDRectangle(500, 800));
                 document.addPage(page);
                 if (spec.feature().equals("blank")) {
@@ -278,6 +281,13 @@ class PdfTableContinuationTest {
                             drawing.fillRect(0, 0, 500, 800);
                             drawing.setColor(Color.BLACK);
                             drawing.setStroke(new java.awt.BasicStroke(2));
+                            drawing.setColor(PdfTestPageMarker.color(marker));
+                            for (final int x : List.of(45, 225)) {
+                                for (final int y : List.of(spec.top() + 5, spec.top() + 85)) {
+                                    drawing.fillRect(x, y, 3, 3);
+                                }
+                            }
+                            drawing.setColor(Color.BLACK);
                             for (final int x : List.of(40, 220, 400)) {
                                 drawing.drawLine(x, spec.top(), x, spec.bottom());
                             }

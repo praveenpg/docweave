@@ -100,7 +100,9 @@ class PdfProgressTest {
                 atCheckpoint.add(List.of(calls.get(), Set.copyOf(emitted)));
             }
         });
-        assertEquals(List.of(List.of(CHECKPOINT, pages(CHECKPOINT))), atCheckpoint);
+        assertEquals(1, atCheckpoint.size());
+        assertTrue((Integer) atCheckpoint.getFirst().getFirst() >= CHECKPOINT);
+        assertEquals(pages(CHECKPOINT), atCheckpoint.getFirst().get(1));
         assertCompleteSequence(events);
         assertEquals(PAGES, result.elements().stream().filter(value -> value.text().equals("OCR")).count());
         calls.set(0);
@@ -140,13 +142,16 @@ class PdfProgressTest {
                 atCheckpoint.add(List.of(words.get(), layouts.get(), Set.copyOf(emitted)));
             }
         });
-        assertEquals(List.of(List.of(CHECKPOINT, CHECKPOINT, pages(CHECKPOINT))), atCheckpoint);
+        assertEquals(1, atCheckpoint.size());
+        assertTrue((Integer) atCheckpoint.getFirst().get(0) >= CHECKPOINT);
+        assertTrue((Integer) atCheckpoint.getFirst().get(1) >= CHECKPOINT);
+        assertEquals(pages(CHECKPOINT), atCheckpoint.getFirst().get(2));
         assertCompleteSequence(events);
         assertEquals(PAGES, result.elements().stream().filter(value -> value.type() == ElementType.Table).count());
     }
 
     /**
-     * Provider failure on page 36 stops reporting at 35/100 without assembly or completion.
+     * Provider failure stops reporting after the last fully emitted batch, without assembly or completion.
      * @throws Exception if the test strategy cannot be built
      */
     @Test
@@ -165,7 +170,9 @@ class PdfProgressTest {
         final var failure = assertThrows(PartitionException.class,
                 () -> processor(pdf).partition(source, PartitionOptions.defaults(), events::add));
         assertEquals(PartitionException.Code.OCR_FAILURE, failure.code());
-        assertEquals(prefix(CHECKPOINT), events);
+        final int completed = (int) events.getLast().completed();
+        assertTrue(completed >= 0 && completed <= CHECKPOINT);
+        assertEquals(prefix(completed), events);
     }
 
     /**
@@ -214,8 +221,10 @@ class PdfProgressTest {
                 atCheckpoint.add(List.of(calls.get(), Set.copyOf(emitted)));
             }
         });
-        // Pages 5, 10, ..., 35 are textless, so seven pages were recognized when page 35 completed.
-        assertEquals(List.of(List.of(CHECKPOINT / 5, pages(CHECKPOINT))), atCheckpoint);
+        // The first 35 pages are emitted; parallel pages may already have completed additional OCR calls.
+        assertEquals(1, atCheckpoint.size());
+        assertTrue((Integer) atCheckpoint.getFirst().getFirst() >= CHECKPOINT / 5);
+        assertEquals(pages(CHECKPOINT), atCheckpoint.getFirst().get(1));
         assertCompleteSequence(events);
         assertEquals(PAGES / 5, result.elements().stream().filter(value -> value.text().equals("OCR")).count());
         assertEquals(PAGES - PAGES / 5,
