@@ -2,10 +2,14 @@
 
 ## Unreleased
 
-- **0.1.0-beta.13 internal-only build (not a public release):** this build fixes the version at `0.1.0-beta.13`
-  to produce an internal artifact bundle for DocWeave Studio's private repository. It is not published to Maven
-  Central or any public repository, is not signed or tagged, and the changes since 0.1.0-beta.12 (parallel PDF page
-  processing, PR #43) remain unreleased publicly.
+## 0.1.0-beta.13
+
+Owner-authorized full-library release with all changes since 0.1.0-beta.12, listed below: concurrent PDF page
+processing. There are no public API, option, default or dependency changes. Output is the same as with sequential
+processing, but peak memory and provider call patterns change (see the entry). All deployable modules move together
+to the new version, and existing beta.12 artifacts remain unchanged.
+See the [release notes](docs/releases/0.1.0-beta.13.md); Central publication is pending.
+
 - PDF: pages are processed concurrently. Each partition call runs its pages with `parallelStream()` on the
   common fork/join pool, in batches of at most the pool parallelism plus one, and replays each batch in page order.
   Element order, element IDs, warning order, reading-order metadata, element metadata key order and cross-page
@@ -28,7 +32,7 @@ Owner-authorized full-library release with all changes since beta.10, listed bel
 removal (contextual chunk enrichment) and new PDF bounds that can fail inputs accepted by beta.10. 0.1.0-beta.11 was
 an internal-only build that was never published to Maven Central; that version does not exist there.
 All deployable modules move together to the new version; existing beta.10 artifacts remain unchanged.
-Publication is pending the Jenkins release gates. See the [release notes](docs/releases/0.1.0-beta.12.md).
+Published to Maven Central on 2026-11-02. See the [release notes](docs/releases/0.1.0-beta.12.md).
 
 - PDF: the per-page content-operator ceiling is optional. `PdfOptions.UNLIMITED_OPERATORS` (`0`) as
   `maxOperatorsPerPage` disables it: operators are not counted, while the page, glyph and image budgets and the

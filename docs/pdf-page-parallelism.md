@@ -1,6 +1,6 @@
-# Experimental parallel PDF pages
+# Parallel PDF pages
 
-This branch processes PDF pages with Java `parallelStream()` on the common fork/join pool. It adds no
+DocWeave 0.1.0-beta.13 processes PDF pages with Java `parallelStream()` on the common fork/join pool. It adds no
 workflow setting, custom page executor or sequential fallback. Other formats are unchanged.
 
 Each worker opens its own PDFBox document over the same read-only input bytes and reuses it for that call. Password lookup is performed
@@ -19,7 +19,7 @@ continues after the synchronous partition call returns, provided callbacks honor
 
 The CPU pool size is not a memory budget. Worker-local PDFBox readers add memory overhead, and the
 common pool is shared with other callers. Measure elapsed time and peak memory on representative native,
-OCR and HI_RES inputs before adopting the experiment in a shared deployment. OCR process and ONNX
+OCR and HI_RES inputs when sizing a shared deployment. OCR process and ONNX
 inference limits still apply independently.
 
 Parallel pages ship in 0.1.0-beta.13. Element metadata keeps the writer's key order, as on the sequential path.
