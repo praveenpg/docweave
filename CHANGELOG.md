@@ -8,7 +8,7 @@ Owner-authorized full-library release with all changes since 0.1.0-beta.12, list
 processing. There are no public API, option, default or dependency changes. Output is the same as with sequential
 processing, but peak memory and provider call patterns change (see the entry). All deployable modules move together
 to the new version, and existing beta.12 artifacts remain unchanged.
-See the [release notes](docs/releases/0.1.0-beta.13.md); Central publication is pending.
+See the [release notes](docs/releases/0.1.0-beta.13.md); Published to Maven Central on 2026-11-04 (UTC).
 
 - PDF: pages are processed concurrently. Each partition call runs its pages with `parallelStream()` on the
   common fork/join pool, in batches of at most the pool parallelism plus one, and replays each batch in page order.
