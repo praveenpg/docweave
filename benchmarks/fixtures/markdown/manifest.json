@@ -1,0 +1,116 @@
+{
+  "description": "Owned Markdown qualification corpus for issues #57-#60. Written for DocWeave; no third-party text.",
+  "license": "Apache-2.0 (DocWeave project file)",
+  "provenance": "Authored for this repository on 2026-11-07; representative of README, changelog, guide, edge-case, mixed-HTML and extension-syntax documents.",
+  "documents": [
+    {
+      "filename": "readme.md",
+      "kind": "project README",
+      "checks": [
+        "badges",
+        "ordered-list-code",
+        "indented-code",
+        "nested-list",
+        "pipe-table",
+        "reference-links",
+        "blockquote",
+        "thematic-break"
+      ],
+      "sha256": "be4e6a5756e5a70722696d656ad8090b9494d7d6e07cd64958be8f5e70f86294"
+    },
+    {
+      "filename": "changelog.md",
+      "kind": "changelog",
+      "checks": [
+        "heading-hierarchy",
+        "reference-link-headings",
+        "inline-code",
+        "emphasis"
+      ],
+      "sha256": "c3b158e74de400fbf34d6e9d8596a4dff27f22f7920cb4515b5c0f38721b9a7d"
+    },
+    {
+      "filename": "guide.md",
+      "kind": "technical guide",
+      "checks": [
+        "setext-headings",
+        "loose-list",
+        "nested-ordered-list",
+        "image",
+        "fenced-code",
+        "nested-blockquote",
+        "unicode-scripts",
+        "hard-break",
+        "autolinks",
+        "entities"
+      ],
+      "sha256": "44c77baffafc12bd19b6606f42210dcf8034ce3a5ac10a3e4f6b5421615299b4"
+    },
+    {
+      "filename": "edge-cases.md",
+      "kind": "focused edge cases",
+      "checks": [
+        "empty-heading",
+        "image-heading",
+        "nested-emphasis",
+        "code-markers",
+        "link-emphasis",
+        "reference-image",
+        "empty-list-item",
+        "list-code",
+        "lazy-continuation",
+        "ragged-table",
+        "unicode"
+      ],
+      "sha256": "f9156624dfdf5343bf930667ec2d75e19f9a3add59c9eececc7606a09c61ef5a"
+    },
+    {
+      "filename": "mixed-inline.md",
+      "kind": "inline HTML",
+      "checks": [
+        "inline-html",
+        "raw-anchor",
+        "hidden-inline",
+        "list-inline-html",
+        "heading-inline-html",
+        "table-inline-html"
+      ],
+      "sha256": "3b6357284b5eb7a15ff8d8e5c35d350d327181d1f6023fb3de0298c417f9436e"
+    },
+    {
+      "filename": "mixed-blocks.md",
+      "kind": "block HTML",
+      "checks": [
+        "html-block-order",
+        "html-heading",
+        "html-list",
+        "nested-html-table",
+        "details",
+        "script-style-comment",
+        "unclosed-wrapper",
+        "pre"
+      ],
+      "sha256": "0a6990575763b29b6caaec1d06a79a1ce8b3150813ea3433ea4e06ae9e1cff24"
+    },
+    {
+      "filename": "extensions.md",
+      "kind": "extension syntax",
+      "checks": [
+        "task-list",
+        "strikethrough",
+        "bare-urls",
+        "footnotes",
+        "definition-list"
+      ],
+      "sha256": "ffd509d685b4e300b5818ab318230d9be0b14b77bf4a38d62b125bef32d6b3f3"
+    },
+    {
+      "filename": "front-matter.md",
+      "kind": "front matter",
+      "checks": [
+        "yaml-front-matter"
+      ],
+      "sha256": "891d2cd5706d120506d1ac73793af51b9e702cd1214829d000f45a940a6c3134"
+    }
+  ]
+}

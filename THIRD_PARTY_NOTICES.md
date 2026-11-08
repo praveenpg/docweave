@@ -40,6 +40,11 @@ its bundled native components. Keep those upstream artifacts and notices intact.
 | `org.jsoup:jsoup:1.23.2` | MIT |
 | `org.commonmark:commonmark:0.30.1` | BSD-2-Clause |
 | `org.commonmark:commonmark-ext-gfm-tables:0.30.1` | BSD-2-Clause |
+| `org.commonmark:commonmark-ext-gfm-strikethrough:0.30.1` | BSD-2-Clause |
+| `org.commonmark:commonmark-ext-task-list-items:0.30.1` | BSD-2-Clause |
+| `org.commonmark:commonmark-ext-autolink:0.30.1` | BSD-2-Clause |
+| `org.commonmark:commonmark-ext-footnotes:0.30.1` | BSD-2-Clause |
+| `org.nibor.autolink:autolink:0.12.0` | MIT |
 | `org.apache.commons:commons-csv:1.14.1` | Apache-2.0 |
 | `org.apache.poi:poi-ooxml:5.5.1` | Apache-2.0 |
 | `org.apache.poi:poi:5.5.1` | Apache-2.0 |

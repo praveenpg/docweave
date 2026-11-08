@@ -12,7 +12,7 @@ The beta.8 parent/core artifacts are published; all other beta.8 modules remain 
 | docweave-core | Elements, facade, source loading, options, registry and parser SPI | JDK only |
 | docweave-txt | TXT grouping and size policies | core |
 | docweave-html | HTML parsing, charset declarations and DOM extraction | core, jsoup |
-| docweave-markdown | CommonMark AST and pipe tables | core, CommonMark and GFM tables |
+| docweave-markdown | CommonMark AST, pipe tables and opt-in task lists/strikethrough/autolinks/footnotes/definition lists/front matter | core, CommonMark, GFM tables/strikethrough, task-list items, autolink (with org.nibor.autolink), footnotes |
 | docweave-csv | Comma-delimited strategy | core, delimited support |
 | docweave-tsv | Tab-delimited strategy | core, delimited support |
 | docweave-xml | Secure streaming XML extraction | core, JDK XML |

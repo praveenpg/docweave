@@ -1,0 +1,2143 @@
+{
+  "reference": {
+    "upstream_release": "0.27.37",
+    "pypi_wheel_sha256": "97945cebd168957f96d4d42976cdd62f1d204d3bd2d13afcb16e5fd6c8921393",
+    "installed_record_sha256": "18d3ee366925bbe0cd363eb8308d375cbe8e2a7e2bfbd98786e9d652be3f2996",
+    "runtime": "python:3.13-slim container, pip install unstructured[md]",
+    "python": "3.13.18",
+    "scope": "Owned Markdown corpus; HTML v1; separate from the historical 347fbbfd markup references",
+    "configurations": {
+      "default": {
+        "extensions": [
+          "tables",
+          "fenced_code"
+        ]
+      },
+      "python-markdown-extensions": {
+        "extensions": [
+          "tables",
+          "fenced_code",
+          "footnotes",
+          "def_list",
+          "meta"
+        ]
+      }
+    },
+    "model": {
+      "name": "en_core_web_sm",
+      "version": "3.8.0",
+      "wheel_sha256": "1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85",
+      "installed_package_verified": true
+    },
+    "dependencies": {
+      "aiofiles": "25.1.0",
+      "annotated-doc": "0.0.5",
+      "annotated-types": "0.8.0",
+      "anyio": "4.16.0",
+      "beautifulsoup4": "4.15.0",
+      "blis": "1.3.4",
+      "catalogue": "2.0.10",
+      "certifi": "2026.10.23",
+      "charset-normalizer": "3.5.2",
+      "click": "8.5.1",
+      "cloudpathlib": "0.26.0",
+      "confection": "1.3.4",
+      "cymem": "2.0.16",
+      "emoji": "2.16.0",
+      "en_core_web_sm": "3.8.0",
+      "filelock": "4.2.9",
+      "filetype": "1.2.0",
+      "h11": "0.16.0",
+      "html5lib": "1.1",
+      "httpcore": "1.0.9",
+      "httpx": "0.28.1",
+      "idna": "3.20",
+      "installer": "0.7.0",
+      "Jinja2": "3.1.6",
+      "langdetect": "1.0.9",
+      "llvmlite": "0.50.0",
+      "lxml": "6.1.3",
+      "Markdown": "3.11.3",
+      "markdown-it-py": "4.2.0",
+      "MarkupSafe": "3.0.4",
+      "mdurl": "0.1.2",
+      "murmurhash": "1.0.16",
+      "nh3": "0.3.7",
+      "numba": "0.68.1",
+      "numpy": "2.5.4",
+      "olefile": "0.47",
+      "packaging": "26.3",
+      "pip": "26.2.2",
+      "preshed": "3.0.15",
+      "psutil": "7.2.2",
+      "pydantic": "2.14.3",
+      "pydantic_core": "2.50.4",
+      "Pygments": "2.21.0",
+      "pypdf": "7.0.0",
+      "pypdfium2": "5.15.1",
+      "python-iso639": "2026.11.7",
+      "python-magic": "0.4.27",
+      "python-oxmsg": "0.0.2",
+      "RapidFuzz": "3.14.6",
+      "regex": "2026.11.7",
+      "requests": "2.34.2",
+      "requests-toolbelt": "1.0.0",
+      "rich": "15.0.0",
+      "setuptools": "84.2.1",
+      "shellingham": "1.5.4",
+      "six": "1.17.0",
+      "smart_open": "9.0.2",
+      "soupsieve": "4.0.1",
+      "spacy": "3.8.18",
+      "spacy-legacy": "3.0.12",
+      "spacy-loggers": "1.0.5",
+      "srsly": "2.5.6",
+      "thinc": "8.3.14",
+      "tqdm": "4.70.1",
+      "typer": "0.28.0",
+      "typing-inspection": "0.4.5",
+      "typing_extensions": "4.16.0",
+      "unstructured": "0.27.37",
+      "unstructured-client": "0.47.0",
+      "urllib3": "2.8.0",
+      "wasabi": "1.1.3",
+      "weasel": "1.0.1",
+      "webencodings": "0.6.1",
+      "wrapt": "2.5.2"
+    }
+  },
+  "cases": [
+    {
+      "input": "readme.md",
+      "configuration": "default",
+      "input_sha256": "be4e6a5756e5a70722696d656ad8090b9494d7d6e07cd64958be8f5e70f86294",
+      "entrypoint": "public partition_md",
+      "upstream_options": {
+        "metadata_filename": "readme.md",
+        "languages": [
+          "eng"
+        ],
+        "html_parser_version": "v1",
+        "extensions": [
+          "tables",
+          "fenced_code"
+        ]
+      },
+      "upstream_output": [
+        {
+          "type": "Title",
+          "element_id": "c55c0d0b06ea919a4be08de65462351c",
+          "text": "Lantern Notes",
+          "metadata": {
+            "category_depth": 0,
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "Image",
+          "element_id": "65f0f1236fd9a43dddf9fb0a5108b704",
+          "text": "Build",
+          "metadata": {
+            "image_url": "https://ci.example.org/lantern/badge.svg",
+            "link_texts": [
+              "Build"
+            ],
+            "link_urls": [
+              "https://ci.example.org/lantern"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "Image",
+          "element_id": "29668c5133f7b891b5a54e6b2fb57b92",
+          "text": "Licence",
+          "metadata": {
+            "image_url": "https://img.example.org/licence-apache.svg",
+            "link_texts": [
+              "Licence"
+            ],
+            "link_urls": [
+              "https://www.apache.org/licenses/LICENSE-2.0"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "5567aad6f74c57aa75e0a1120987abe1",
+          "text": "Lantern Notes is a small, offline-first note store for field teams. It keeps notes on the device and synchronises them when a connection is available.",
+          "metadata": {
+            "emphasized_text_contents": [
+              "small",
+              "offline-first"
+            ],
+            "emphasized_text_tags": [
+              "i",
+              "b"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "ee29d81311b1da1d94c416e20bd7eff8",
+          "text": "Status: beta. The storage format may still change between minor versions.",
+          "metadata": {
+            "emphasized_text_contents": [
+              "Status:"
+            ],
+            "emphasized_text_tags": [
+              "b"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "f661878b7c2f63303e415259eda1b919",
+          "text": "Installation",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "c22f23a83d8f3568d6e931c2407363d8",
+          "text": "Download the archive for your platform from the releases page.",
+          "metadata": {
+            "category_depth": 1,
+            "link_texts": [
+              "releases page"
+            ],
+            "link_urls": [
+              "https://example.org/lantern/releases"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown",
+            "parent_id": "f661878b7c2f63303e415259eda1b919"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "2b49ecc49e02506ac6e181dc6b17d7c6",
+          "text": "Unpack it into a directory of your choice:",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown",
+            "parent_id": "f661878b7c2f63303e415259eda1b919"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "6a72537f61302e7b117ce45219e78548",
+          "text": "sh tar -xzf lantern-notes-1.4.0.tar.gz -C ~/apps",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown",
+            "parent_id": "f661878b7c2f63303e415259eda1b919"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "9fbd2f8ee41c3020dc13d13c3968fd28",
+          "text": "Add ~/apps/lantern/bin to your PATH.",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown",
+            "parent_id": "f661878b7c2f63303e415259eda1b919"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "31ef9a5cdac25f4a8dc72188dbc1bd56",
+          "text": "Usage",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "ee226671b50e700ac1a7c5a474cde0de",
+          "text": "Run lantern init once, then add notes:",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown",
+            "parent_id": "31ef9a5cdac25f4a8dc72188dbc1bd56"
+          }
+        },
+        {
+          "type": "CodeSnippet",
+          "element_id": "1d21cc8acd96a6631ea9710b54f7ab4c",
+          "text": "lantern add \"Check the north gate\"\nlantern list --since 7d",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "1131dbe6173adf3b8ce2dcfe329e727c",
+          "text": "Supported storage back ends:",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "78d98515d26307e68bccdd18c9249288",
+          "text": "Local files (default)",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "938c7d3003d41f1a8a837973b9cd8dc7",
+          "text": "SQLite",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "f2017ad142fb60666068b9fbd09edca4",
+          "text": "Write-ahead logging is enabled automatically.",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "6dac6e972ec93646665310474464cb3b",
+          "text": "Requires SQLite 3.35 or later.",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "162e86f4a2e3abe3e330406f1fef68e1",
+          "text": "A remote server you operate",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "Table",
+          "element_id": "5b2328590e17ec30876576730ed0a129",
+          "text": "Command Purpose Since init Create a notebook 1.0 add Append a note 1.0 sync Exchange changes with a peer 1.2",
+          "metadata": {
+            "text_as_html": "<table><thead><tr><th>Command</th><th>Purpose</th><th>Since</th></tr></thead><tbody><tr><td>init</td><td>Create a notebook</td><td>1.0</td></tr><tr><td>add</td><td>Append a note</td><td>1.0</td></tr><tr><td>sync</td><td>Exchange changes with a peer</td><td>1.2</td></tr></tbody></table>",
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "d97bd372943cd76cc4d9f0a69131bc2d",
+          "text": "Contributing",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "8749b0405877b3094cec831419a88c91",
+          "text": "Please read CONTRIBUTING before opening a pull request, and follow the code of conduct.",
+          "metadata": {
+            "link_texts": [
+              "CONTRIBUTING",
+              "code of conduct"
+            ],
+            "link_urls": [
+              "CONTRIBUTING.md",
+              "https://example.org/conduct"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown",
+            "parent_id": "d97bd372943cd76cc4d9f0a69131bc2d"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "fce8d5fdc2ecf76c34a95888605cda53",
+          "text": "Lantern Notes is released under the Apache License 2.0.",
+          "metadata": {
+            "link_texts": [
+              "Apache License 2.0"
+            ],
+            "link_urls": [
+              "https://www.apache.org/licenses/LICENSE-2.0"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "readme.md",
+            "filetype": "text/markdown",
+            "parent_id": "d97bd372943cd76cc4d9f0a69131bc2d"
+          }
+        }
+      ]
+    },
+    {
+      "input": "changelog.md",
+      "configuration": "default",
+      "input_sha256": "c3b158e74de400fbf34d6e9d8596a4dff27f22f7920cb4515b5c0f38721b9a7d",
+      "entrypoint": "public partition_md",
+      "upstream_options": {
+        "metadata_filename": "changelog.md",
+        "languages": [
+          "eng"
+        ],
+        "html_parser_version": "v1",
+        "extensions": [
+          "tables",
+          "fenced_code"
+        ]
+      },
+      "upstream_output": [
+        {
+          "type": "Title",
+          "element_id": "acd76152b9909ff899a976a59042d432",
+          "text": "Changelog",
+          "metadata": {
+            "category_depth": 0,
+            "languages": [
+              "eng"
+            ],
+            "filename": "changelog.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "097268a7db133d347a37c826dc6caf57",
+          "text": "All notable changes to this project are documented here. The format follows the Keep a Changelog convention and the project uses semantic versioning.",
+          "metadata": {
+            "emphasized_text_contents": [
+              "Keep a Changelog"
+            ],
+            "emphasized_text_tags": [
+              "i"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "changelog.md",
+            "filetype": "text/markdown",
+            "parent_id": "acd76152b9909ff899a976a59042d432"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "139e9a9f9ad900a55abcf408da518774",
+          "text": "Unreleased",
+          "metadata": {
+            "category_depth": 1,
+            "link_texts": [
+              "Unreleased"
+            ],
+            "link_urls": [
+              "https://example.org/lantern/compare/v1.4.0...HEAD"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "changelog.md",
+            "filetype": "text/markdown",
+            "parent_id": "acd76152b9909ff899a976a59042d432"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "8a03dbacf3f65475b1ca4f2cdfc437e1",
+          "text": "Added",
+          "metadata": {
+            "category_depth": 2,
+            "languages": [
+              "eng"
+            ],
+            "filename": "changelog.md",
+            "filetype": "text/markdown",
+            "parent_id": "139e9a9f9ad900a55abcf408da518774"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "5825df1cb1b063442b6457b5354c84d7",
+          "text": "Export notes as Markdown with lantern export --format md.",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "changelog.md",
+            "filetype": "text/markdown",
+            "parent_id": "8a03dbacf3f65475b1ca4f2cdfc437e1"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "dcbc75036125b15c22bad67d46746fad",
+          "text": "Optional end-to-end encryption for synchronised notebooks (see the encryption guide).",
+          "metadata": {
+            "category_depth": 1,
+            "link_texts": [
+              "the encryption guide"
+            ],
+            "link_urls": [
+              "docs/encryption.md"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "changelog.md",
+            "filetype": "text/markdown",
+            "parent_id": "8a03dbacf3f65475b1ca4f2cdfc437e1"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "780b35b4b58b60b1cb96db1a73c6598c",
+          "text": "Fixed",
+          "metadata": {
+            "category_depth": 2,
+            "languages": [
+              "eng"
+            ],
+            "filename": "changelog.md",
+            "filetype": "text/markdown",
+            "parent_id": "139e9a9f9ad900a55abcf408da518774"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "fd414f7f50f720c9d9d8cb9aa496bf71",
+          "text": "Sync no longer duplicates notes whose titles differ only in case.",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "changelog.md",
+            "filetype": "text/markdown",
+            "parent_id": "780b35b4b58b60b1cb96db1a73c6598c"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "1b8b57a3667744740cf06cfa0c2d9979",
+          "text": "Timestamps in the list output now use the device time zone.",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "changelog.md",
+            "filetype": "text/markdown",
+            "parent_id": "780b35b4b58b60b1cb96db1a73c6598c"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "0b4da5a88d29090315f0ffc09b2c87e0",
+          "text": "1.4.0 - 2026-09-30",
+          "metadata": {
+            "category_depth": 1,
+            "link_texts": [
+              "1.4.0"
+            ],
+            "link_urls": [
+              "https://example.org/lantern/compare/v1.3.2...v1.4.0"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "changelog.md",
+            "filetype": "text/markdown",
+            "parent_id": "acd76152b9909ff899a976a59042d432"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "66b36d7d651cf86dd140543d606c7b2e",
+          "text": "Changed",
+          "metadata": {
+            "category_depth": 2,
+            "languages": [
+              "eng"
+            ],
+            "filename": "changelog.md",
+            "filetype": "text/markdown",
+            "parent_id": "0b4da5a88d29090315f0ffc09b2c87e0"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "c67fc28a285319c8a65cb6dfb43acbe7",
+          "text": "Breaking: the configuration file moved from ~/.lantern to ~/.config/lantern/config.toml.",
+          "metadata": {
+            "category_depth": 1,
+            "emphasized_text_contents": [
+              "Breaking:"
+            ],
+            "emphasized_text_tags": [
+              "b"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "changelog.md",
+            "filetype": "text/markdown",
+            "parent_id": "66b36d7d651cf86dd140543d606c7b2e"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "d2a0f7ae35fc46123b153e6c35a7ad1b",
+          "text": "Raised the minimum SQLite version to 3.35.",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "changelog.md",
+            "filetype": "text/markdown",
+            "parent_id": "66b36d7d651cf86dd140543d606c7b2e"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "b5d53d5bc457f26e0d924c4b203026ba",
+          "text": "Removed",
+          "metadata": {
+            "category_depth": 2,
+            "languages": [
+              "eng"
+            ],
+            "filename": "changelog.md",
+            "filetype": "text/markdown",
+            "parent_id": "0b4da5a88d29090315f0ffc09b2c87e0"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "7f49be311059bd0e972bd94f995cc07a",
+          "text": "The deprecated lantern legacy-import command.",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "changelog.md",
+            "filetype": "text/markdown",
+            "parent_id": "b5d53d5bc457f26e0d924c4b203026ba"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "85a701ba8aebf4be508b6fa3ae996789",
+          "text": "1.3.2 - 2026-08-14",
+          "metadata": {
+            "category_depth": 1,
+            "link_texts": [
+              "1.3.2"
+            ],
+            "link_urls": [
+              "https://example.org/lantern/compare/v1.3.1...v1.3.2"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "changelog.md",
+            "filetype": "text/markdown",
+            "parent_id": "acd76152b9909ff899a976a59042d432"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "a1c7ae56f372f2cb3ba52e8b75f220da",
+          "text": "Security",
+          "metadata": {
+            "category_depth": 2,
+            "languages": [
+              "eng"
+            ],
+            "filename": "changelog.md",
+            "filetype": "text/markdown",
+            "parent_id": "85a701ba8aebf4be508b6fa3ae996789"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "30f4e274e72fd4d949c58444734c554f",
+          "text": "Reject notebook archives containing absolute paths (advisory).",
+          "metadata": {
+            "category_depth": 1,
+            "link_texts": [
+              "advisory"
+            ],
+            "link_urls": [
+              "https://example.org/lantern/security/advisories/7"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "changelog.md",
+            "filetype": "text/markdown",
+            "parent_id": "a1c7ae56f372f2cb3ba52e8b75f220da"
+          }
+        }
+      ]
+    },
+    {
+      "input": "guide.md",
+      "configuration": "default",
+      "input_sha256": "44c77baffafc12bd19b6606f42210dcf8034ce3a5ac10a3e4f6b5421615299b4",
+      "entrypoint": "public partition_md",
+      "upstream_options": {
+        "metadata_filename": "guide.md",
+        "languages": [
+          "eng"
+        ],
+        "html_parser_version": "v1",
+        "extensions": [
+          "tables",
+          "fenced_code"
+        ]
+      },
+      "upstream_output": [
+        {
+          "type": "Title",
+          "element_id": "bd9a949db2867a814be2303bec0b3ea4",
+          "text": "Field Survey Guide",
+          "metadata": {
+            "category_depth": 0,
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "3f057d55a84afcdce2763491afcfe7e0",
+          "text": "This guide explains how to record a survey site. Read it before your first visit; the checklist at the end is the minimum for a valid record.",
+          "metadata": {
+            "emphasized_text_contents": [
+              "before"
+            ],
+            "emphasized_text_tags": [
+              "i"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown",
+            "parent_id": "bd9a949db2867a814be2303bec0b3ea4"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "e803c062ac0442b0e70e164b575ff6fd",
+          "text": "Preparing equipment",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown",
+            "parent_id": "bd9a949db2867a814be2303bec0b3ea4"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "0e984ecf0e43a22f5fc891dbd48e7273",
+          "text": "Each kit contains:",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown",
+            "parent_id": "e803c062ac0442b0e70e164b575ff6fd"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "a5fb5b03d252c0cbbf0712d576c46ac2",
+          "text": "a GNSS receiver,",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown",
+            "parent_id": "e803c062ac0442b0e70e164b575ff6fd"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "9ee1805e7ee4cec794972fe50641e056",
+          "text": "spare batteries, and",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown",
+            "parent_id": "e803c062ac0442b0e70e164b575ff6fd"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "7162bf20cf101549d05e0a935f4035ce",
+          "text": "a printed copy of the site map.",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown",
+            "parent_id": "e803c062ac0442b0e70e164b575ff6fd"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "d0392a8348e4f388d98fdcee8929eecb",
+          "text": "Keep the map in the waterproof sleeve.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown",
+            "parent_id": "e803c062ac0442b0e70e164b575ff6fd"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "7ccf84896ebe478d48fd2da8b99489d3",
+          "text": "Recording a site",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown",
+            "parent_id": "bd9a949db2867a814be2303bec0b3ea4"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "b6eded2144f9091cdb938bdbabedb56c",
+          "text": "Stand at the marker and wait for a fix. The receiver shows FIX when it is ready.",
+          "metadata": {
+            "category_depth": 1,
+            "emphasized_text_contents": [
+              "FIX"
+            ],
+            "emphasized_text_tags": [
+              "b"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown",
+            "parent_id": "7ccf84896ebe478d48fd2da8b99489d3"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "3e05356a05e7618b5595e692044ce6c0",
+          "text": "Record the coordinates:",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown",
+            "parent_id": "7ccf84896ebe478d48fd2da8b99489d3"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "4e2bf779c3da3f041019217ffcfb16f0",
+          "text": "latitude and longitude in decimal degrees;",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown",
+            "parent_id": "7ccf84896ebe478d48fd2da8b99489d3"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "b9acda54f0583301883f47151937b384",
+          "text": "the estimated horizontal error.",
+          "metadata": {
+            "category_depth": 1,
+            "emphasized_text_contents": [
+              "estimated"
+            ],
+            "emphasized_text_tags": [
+              "i"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown",
+            "parent_id": "7ccf84896ebe478d48fd2da8b99489d3"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "809a17fb326cd4f1be02f33c258c3ce1",
+          "text": "Photograph the marker.",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown",
+            "parent_id": "7ccf84896ebe478d48fd2da8b99489d3"
+          }
+        },
+        {
+          "type": "Image",
+          "element_id": "ed91c94aee5464790cad23a51ed2b3d9",
+          "text": "Survey marker with scale bar",
+          "metadata": {
+            "image_url": "images/marker.jpg",
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "2f9ae788c76b6f6845f1a0023dcf2708",
+          "text": "The receiver writes a log line like this:",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "CodeSnippet",
+          "element_id": "266ab0283c931856bb18002cc44929df",
+          "text": "2026-10-02T09:14:07Z FIX lat=51.50135 lon=-0.14189 err=1.8m",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "6e424752cfc70ac3573cd756fbc2bfbc",
+          "text": "Tip: if the fix takes more than five minutes, move away from trees and try again.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "f7ba78a52300aaa7f48a690642954b68",
+          "text": "Nested note: tall buildings cause the same problem.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "a71ec7ba1ff9c2e9454ab0c7b7d13f18",
+          "text": "Units and symbols",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "e31d1ecc8ca41f3845c1db041f6faee8",
+          "text": "Temperatures use °C, distances use metres, and the elevation symbol is Δh. Survey teams in other regions record names in their own scripts: 東京 (Tokyo), القاهرة (Cairo) and Ελλάδα (Greece). Use the combining form é only when the source uses it. Team emoji such as 👩‍🔬 are allowed in comments. Line one ends with a hard break\\ line two continues the paragraph.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown",
+            "parent_id": "a71ec7ba1ff9c2e9454ab0c7b7d13f18"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "98aa813f41b85fa921b7b2790fe56921",
+          "text": "See the glossary and the https://example.org/survey/faq page for help, or write to survey-help@example.org. Use & rather than \"and\" in site codes, and © notices belong in the footer.",
+          "metadata": {
+            "link_texts": [
+              "glossary",
+              "https://example.org/survey/faq",
+              "survey-help@example.org"
+            ],
+            "link_urls": [
+              "https://example.org/survey/glossary",
+              "https://example.org/survey/faq",
+              "mailto:survey-help@example.org"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "guide.md",
+            "filetype": "text/markdown",
+            "parent_id": "a71ec7ba1ff9c2e9454ab0c7b7d13f18"
+          }
+        }
+      ]
+    },
+    {
+      "input": "edge-cases.md",
+      "configuration": "default",
+      "input_sha256": "f9156624dfdf5343bf930667ec2d75e19f9a3add59c9eececc7606a09c61ef5a",
+      "entrypoint": "public partition_md",
+      "upstream_options": {
+        "metadata_filename": "edge-cases.md",
+        "languages": [
+          "eng"
+        ],
+        "html_parser_version": "v1",
+        "extensions": [
+          "tables",
+          "fenced_code"
+        ]
+      },
+      "upstream_output": [
+        {
+          "type": "Title",
+          "element_id": "6edf8627a0da13db674b043a949544fa",
+          "text": "Edge cases",
+          "metadata": {
+            "category_depth": 0,
+            "languages": [
+              "eng"
+            ],
+            "filename": "edge-cases.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "Image",
+          "element_id": "28c04548049438971c592f4bf7d9a528",
+          "text": "Logo only",
+          "metadata": {
+            "image_url": "logo.png",
+            "languages": [
+              "eng"
+            ],
+            "filename": "edge-cases.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "fcc785dc63ee526e0ee0a1d5977ae841",
+          "text": "Nested bold italic and outer inner tail and under score.",
+          "metadata": {
+            "emphasized_text_contents": [
+              "bold italic",
+              "outer",
+              "inner",
+              "tail",
+              "under",
+              "score"
+            ],
+            "emphasized_text_tags": [
+              "bi",
+              "b",
+              "bi",
+              "b",
+              "i",
+              "b"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "edge-cases.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "a9558d0ef9ad11fc5dabe61bd9fca8c2",
+          "text": "Code keeps *literal* markers and *escaped* text; snake_case_name stays.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "edge-cases.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "1e0e05f368a561d7a205917535470750",
+          "text": "A bold link and see the docs.",
+          "metadata": {
+            "emphasized_text_contents": [
+              "bold link",
+              "see",
+              "the docs"
+            ],
+            "emphasized_text_tags": [
+              "b",
+              "i",
+              "i"
+            ],
+            "link_texts": [
+              "bold link",
+              "the docs"
+            ],
+            "link_urls": [
+              "https://example.org/a",
+              "https://example.org/b"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "edge-cases.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "ce569f7ebdc41c8f62fe82384c788584",
+          "text": "Reference image",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "edge-cases.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "Image",
+          "element_id": "46dec2a738c8591e507e624dda4c08ab",
+          "text": "chart",
+          "metadata": {
+            "image_url": "https://example.org/chart.png",
+            "languages": [
+              "eng"
+            ],
+            "filename": "edge-cases.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "e7ceea5cde6faa3dc49f1f5aa8fe42dd",
+          "text": "inline.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "edge-cases.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "34980623a1f041f9545a592d9e94e6e7",
+          "text": "Item after an empty item",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "edge-cases.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "75a1fcd90455e9f3a59c3bd8d95ca20e",
+          "text": "Item with code:",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "edge-cases.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "afbd40e5614f43da6d036d69c597b7bc",
+          "text": "python print(\"in list\") - Lazy continuation line joins the item.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "edge-cases.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "Table",
+          "element_id": "1eb8aeae722c376a9ea1a737a003e0cb",
+          "text": "Key a|b Note not a table",
+          "metadata": {
+            "text_as_html": "<table><thead><tr><th>Key</th><th>a|b</th><th>Note</th></tr></thead><tbody><tr><td>not</td><td>a</td><td>table</td></tr></tbody></table>",
+            "languages": [
+              "eng"
+            ],
+            "filename": "edge-cases.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "Table",
+          "element_id": "1545d11ac3e6b0189eb6c0993d9f2206",
+          "text": "Key a\\|b Note x c\\|d y z w",
+          "metadata": {
+            "text_as_html": "<table><thead><tr><th>Key</th><th>a\\|b</th><th>Note</th></tr></thead><tbody><tr><td>x</td><td>c\\|d</td><td/></tr><tr><td>y</td><td>z</td><td>w</td></tr></tbody></table>",
+            "languages": [
+              "eng"
+            ],
+            "filename": "edge-cases.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "2a3d03b86d9d6837042e5a6eaa217c49",
+          "text": "Unicode: café, naïve, 𝔘𝔫𝔦𝔠𝔬𝔡𝔢, 🧵 🧵 thread end.",
+          "metadata": {
+            "emphasized_text_contents": [
+              "🧵 thread"
+            ],
+            "emphasized_text_tags": [
+              "i"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "edge-cases.md",
+            "filetype": "text/markdown"
+          }
+        }
+      ]
+    },
+    {
+      "input": "mixed-inline.md",
+      "configuration": "default",
+      "input_sha256": "3b6357284b5eb7a15ff8d8e5c35d350d327181d1f6023fb3de0298c417f9436e",
+      "entrypoint": "public partition_md",
+      "upstream_options": {
+        "metadata_filename": "mixed-inline.md",
+        "languages": [
+          "eng"
+        ],
+        "html_parser_version": "v1",
+        "extensions": [
+          "tables",
+          "fenced_code"
+        ]
+      },
+      "upstream_output": [
+        {
+          "type": "Title",
+          "element_id": "19357afc2d2df83fc47e42718e3a4c55",
+          "text": "Inline HTML in prose",
+          "metadata": {
+            "category_depth": 0,
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-inline.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "3476d8b601001a80b8f784eb45330ee0",
+          "text": "Press Ctrl+C to copy, then read the FAQ.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-inline.md",
+            "filetype": "text/markdown",
+            "parent_id": "19357afc2d2df83fc47e42718e3a4c55"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "ad6ef7ef73fb7c09fe099cc57cf9e6bb",
+          "text": "Water is H2O and the area is 5 m2. This sentence follows a raw line break.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-inline.md",
+            "filetype": "text/markdown",
+            "parent_id": "19357afc2d2df83fc47e42718e3a4c55"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "95604eb33415db4f9bcee00d9100ae08",
+          "text": "Visit the raw anchor or the Markdown link.",
+          "metadata": {
+            "emphasized_text_contents": [
+              "raw"
+            ],
+            "emphasized_text_tags": [
+              "b"
+            ],
+            "link_texts": [
+              "the raw anchor",
+              "Markdown link"
+            ],
+            "link_urls": [
+              "https://example.org/raw",
+              "https://example.org/md"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-inline.md",
+            "filetype": "text/markdown",
+            "parent_id": "19357afc2d2df83fc47e42718e3a4c55"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "964dc21a82b29485c0f36c6c65a2b27a",
+          "text": "Secret hidden words stay out; styled hidden words too.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-inline.md",
+            "filetype": "text/markdown",
+            "parent_id": "19357afc2d2df83fc47e42718e3a4c55"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "167e7dc480365da22ec8d33bafd17759",
+          "text": "List item with raw emphasis",
+          "metadata": {
+            "category_depth": 1,
+            "emphasized_text_contents": [
+              "raw emphasis"
+            ],
+            "emphasized_text_tags": [
+              "i"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-inline.md",
+            "filetype": "text/markdown",
+            "parent_id": "19357afc2d2df83fc47e42718e3a4c55"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "d30189f8bf68ecefc8efa71b2e01e570",
+          "text": "List item with raw code",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-inline.md",
+            "filetype": "text/markdown",
+            "parent_id": "19357afc2d2df83fc47e42718e3a4c55"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "853b4d1a67bd642fc3874770ed624503",
+          "text": "Heading with inline span",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-inline.md",
+            "filetype": "text/markdown",
+            "parent_id": "19357afc2d2df83fc47e42718e3a4c55"
+          }
+        },
+        {
+          "type": "Table",
+          "element_id": "8510ee0896d576d75be3b61fd426406e",
+          "text": "Column Value raw bold italic",
+          "metadata": {
+            "text_as_html": "<table><thead><tr><th>Column</th><th>Value</th></tr></thead><tbody><tr><td>raw bold</td><td>italic</td></tr></tbody></table>",
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-inline.md",
+            "filetype": "text/markdown",
+            "parent_id": "853b4d1a67bd642fc3874770ed624503"
+          }
+        }
+      ]
+    },
+    {
+      "input": "mixed-blocks.md",
+      "configuration": "default",
+      "input_sha256": "0a6990575763b29b6caaec1d06a79a1ce8b3150813ea3433ea4e06ae9e1cff24",
+      "entrypoint": "public partition_md",
+      "upstream_options": {
+        "metadata_filename": "mixed-blocks.md",
+        "languages": [
+          "eng"
+        ],
+        "html_parser_version": "v1",
+        "extensions": [
+          "tables",
+          "fenced_code"
+        ]
+      },
+      "upstream_output": [
+        {
+          "type": "Title",
+          "element_id": "237e76fdfb1165f64ceb6933ae1537cb",
+          "text": "Block HTML between Markdown",
+          "metadata": {
+            "category_depth": 0,
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-blocks.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "5dc4cd71df2d88d0ffc13d4198653dbd",
+          "text": "Intro paragraph before the block.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-blocks.md",
+            "filetype": "text/markdown",
+            "parent_id": "237e76fdfb1165f64ceb6933ae1537cb"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "13dc8691fed1047ab03f984041f58cbd",
+          "text": "Block paragraph inside a div.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-blocks.md",
+            "filetype": "text/markdown",
+            "parent_id": "237e76fdfb1165f64ceb6933ae1537cb"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "a6a763d50a0d5fe84d2002219c8b7412",
+          "text": "HTML list one",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-blocks.md",
+            "filetype": "text/markdown",
+            "parent_id": "237e76fdfb1165f64ceb6933ae1537cb"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "cc9f014f7b9cd7751c9fba2780203f6c",
+          "text": "HTML list two",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-blocks.md",
+            "filetype": "text/markdown",
+            "parent_id": "237e76fdfb1165f64ceb6933ae1537cb"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "4b38d08b50a31ddff44b9c40cc03ae5f",
+          "text": "Section after block",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-blocks.md",
+            "filetype": "text/markdown",
+            "parent_id": "237e76fdfb1165f64ceb6933ae1537cb"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "16b62d3b77620a6484955bcaf19de480",
+          "text": "Markdown list item",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-blocks.md",
+            "filetype": "text/markdown",
+            "parent_id": "4b38d08b50a31ddff44b9c40cc03ae5f"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "768e3c1461230b0c7bb89f18b081538c",
+          "text": "Second item",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-blocks.md",
+            "filetype": "text/markdown",
+            "parent_id": "4b38d08b50a31ddff44b9c40cc03ae5f"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "43a8cbce139bc457434a4837db49e89f",
+          "text": "HTML heading",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-blocks.md",
+            "filetype": "text/markdown",
+            "parent_id": "237e76fdfb1165f64ceb6933ae1537cb"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "2d49819f5cce49d4953c2305368ed8bb",
+          "text": "HTML paragraph with a link.",
+          "metadata": {
+            "link_texts": [
+              "a link"
+            ],
+            "link_urls": [
+              "https://example.org/h"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-blocks.md",
+            "filetype": "text/markdown",
+            "parent_id": "43a8cbce139bc457434a4837db49e89f"
+          }
+        },
+        {
+          "type": "Table",
+          "element_id": "c002c04c1738bb2e6d5d21f2be78ad85",
+          "text": "Outer Data A inner 1 inner 2",
+          "metadata": {
+            "text_as_html": "<table><tr><th>Outer</th><th>Data</th></tr><tr><td>A</td><td>inner 1 inner 2</td></tr></table>",
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-blocks.md",
+            "filetype": "text/markdown",
+            "parent_id": "43a8cbce139bc457434a4837db49e89f"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "b2f74fe8bc97fc661a591606c4a8c2be",
+          "text": "Unclosed wrapper starts here. Paragraph after the unclosed wrapper.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-blocks.md",
+            "filetype": "text/markdown",
+            "parent_id": "43a8cbce139bc457434a4837db49e89f"
+          }
+        },
+        {
+          "type": "CodeSnippet",
+          "element_id": "01123c9c00a4f326546062fe3d96b448",
+          "text": "  preformatted   text",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-blocks.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "0437ee0c795c102eac68400770ff21eb",
+          "text": "Final paragraph.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "mixed-blocks.md",
+            "filetype": "text/markdown"
+          }
+        }
+      ]
+    },
+    {
+      "input": "extensions.md",
+      "configuration": "default",
+      "input_sha256": "ffd509d685b4e300b5818ab318230d9be0b14b77bf4a38d62b125bef32d6b3f3",
+      "entrypoint": "public partition_md",
+      "upstream_options": {
+        "metadata_filename": "extensions.md",
+        "languages": [
+          "eng"
+        ],
+        "html_parser_version": "v1",
+        "extensions": [
+          "tables",
+          "fenced_code"
+        ]
+      },
+      "upstream_output": [
+        {
+          "type": "Title",
+          "element_id": "393c0d65f67a5e77c33adf3964ce7b00",
+          "text": "Extension syntax",
+          "metadata": {
+            "category_depth": 0,
+            "languages": [
+              "eng"
+            ],
+            "filename": "extensions.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "ae57ece7041d6480bb1ef100694cee5b",
+          "text": "[ ] Open task",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "extensions.md",
+            "filetype": "text/markdown",
+            "parent_id": "393c0d65f67a5e77c33adf3964ce7b00"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "a1c135d29e6baf8b5bf8cde35e86bd1a",
+          "text": "[x] Completed task",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "extensions.md",
+            "filetype": "text/markdown",
+            "parent_id": "393c0d65f67a5e77c33adf3964ce7b00"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "3c3a7afd7664bbc1bbb23c38ee2ac643",
+          "text": "Plain item",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "extensions.md",
+            "filetype": "text/markdown",
+            "parent_id": "393c0d65f67a5e77c33adf3964ce7b00"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "9e5f16c7f79430a4a4e741177fb8b4b7",
+          "text": "Text with ~~struck words~~ and ~single~ tildes.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "extensions.md",
+            "filetype": "text/markdown",
+            "parent_id": "393c0d65f67a5e77c33adf3964ce7b00"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "8f3b83e5f3f20ad3ff85979e481856f7",
+          "text": "Bare links: https://example.org/bare, www.example.org/www and team@example.org.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "extensions.md",
+            "filetype": "text/markdown",
+            "parent_id": "393c0d65f67a5e77c33adf3964ce7b00"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "62ebbe05c0c5e81e6035205d7c510e53",
+          "text": "Footnote reference[^note] in prose.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "extensions.md",
+            "filetype": "text/markdown",
+            "parent_id": "393c0d65f67a5e77c33adf3964ce7b00"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "936dffab9b784ba4c427371835e9fba6",
+          "text": "[^note]: The footnote body.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "extensions.md",
+            "filetype": "text/markdown",
+            "parent_id": "393c0d65f67a5e77c33adf3964ce7b00"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "4a8c45771404426907e7b4b51750c6f6",
+          "text": "Term : Definition of the term.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "extensions.md",
+            "filetype": "text/markdown",
+            "parent_id": "393c0d65f67a5e77c33adf3964ce7b00"
+          }
+        }
+      ]
+    },
+    {
+      "input": "extensions.md",
+      "configuration": "python-markdown-extensions",
+      "input_sha256": "ffd509d685b4e300b5818ab318230d9be0b14b77bf4a38d62b125bef32d6b3f3",
+      "entrypoint": "public partition_md",
+      "upstream_options": {
+        "metadata_filename": "extensions.md",
+        "languages": [
+          "eng"
+        ],
+        "html_parser_version": "v1",
+        "extensions": [
+          "tables",
+          "fenced_code",
+          "footnotes",
+          "def_list",
+          "meta"
+        ]
+      },
+      "upstream_output": [
+        {
+          "type": "Title",
+          "element_id": "393c0d65f67a5e77c33adf3964ce7b00",
+          "text": "Extension syntax",
+          "metadata": {
+            "category_depth": 0,
+            "languages": [
+              "eng"
+            ],
+            "filename": "extensions.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "ae57ece7041d6480bb1ef100694cee5b",
+          "text": "[ ] Open task",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "extensions.md",
+            "filetype": "text/markdown",
+            "parent_id": "393c0d65f67a5e77c33adf3964ce7b00"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "a1c135d29e6baf8b5bf8cde35e86bd1a",
+          "text": "[x] Completed task",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "extensions.md",
+            "filetype": "text/markdown",
+            "parent_id": "393c0d65f67a5e77c33adf3964ce7b00"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "3c3a7afd7664bbc1bbb23c38ee2ac643",
+          "text": "Plain item",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "extensions.md",
+            "filetype": "text/markdown",
+            "parent_id": "393c0d65f67a5e77c33adf3964ce7b00"
+          }
+        },
+        {
+          "type": "NarrativeText",
+          "element_id": "9e5f16c7f79430a4a4e741177fb8b4b7",
+          "text": "Text with ~~struck words~~ and ~single~ tildes.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "extensions.md",
+            "filetype": "text/markdown",
+            "parent_id": "393c0d65f67a5e77c33adf3964ce7b00"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "8f3b83e5f3f20ad3ff85979e481856f7",
+          "text": "Bare links: https://example.org/bare, www.example.org/www and team@example.org.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "extensions.md",
+            "filetype": "text/markdown",
+            "parent_id": "393c0d65f67a5e77c33adf3964ce7b00"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "e9c7301ccbe1a527b1405aa2ebf228f0",
+          "text": "Footnote reference1 in prose.",
+          "metadata": {
+            "link_texts": [
+              "1"
+            ],
+            "link_urls": [
+              "#fn:note"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "extensions.md",
+            "filetype": "text/markdown",
+            "parent_id": "393c0d65f67a5e77c33adf3964ce7b00"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "42194909388bba1e6087f97ef57bf25a",
+          "text": "Term",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "extensions.md",
+            "filetype": "text/markdown",
+            "parent_id": "393c0d65f67a5e77c33adf3964ce7b00"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "1af2b4c58426870f99e48e4007ff507e",
+          "text": "Definition of the term.",
+          "metadata": {
+            "category_depth": 1,
+            "languages": [
+              "eng"
+            ],
+            "filename": "extensions.md",
+            "filetype": "text/markdown",
+            "parent_id": "393c0d65f67a5e77c33adf3964ce7b00"
+          }
+        },
+        {
+          "type": "ListItem",
+          "element_id": "c0169b4c7741e455e7e528a6451c64b0",
+          "text": "The footnote body. ↩",
+          "metadata": {
+            "category_depth": 1,
+            "link_texts": [
+              "↩"
+            ],
+            "link_urls": [
+              "#fnref:note"
+            ],
+            "languages": [
+              "eng"
+            ],
+            "filename": "extensions.md",
+            "filetype": "text/markdown",
+            "parent_id": "393c0d65f67a5e77c33adf3964ce7b00"
+          }
+        }
+      ]
+    },
+    {
+      "input": "front-matter.md",
+      "configuration": "default",
+      "input_sha256": "891d2cd5706d120506d1ac73793af51b9e702cd1214829d000f45a940a6c3134",
+      "entrypoint": "public partition_md",
+      "upstream_options": {
+        "metadata_filename": "front-matter.md",
+        "languages": [
+          "eng"
+        ],
+        "html_parser_version": "v1",
+        "extensions": [
+          "tables",
+          "fenced_code"
+        ]
+      },
+      "upstream_output": [
+        {
+          "type": "UncategorizedText",
+          "element_id": "1c1fa72f0103c6e31e1afc230255c4e6",
+          "text": "title: Site Report author: Field Team",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "front-matter.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "Title",
+          "element_id": "50d6292624104db23f88064b7be4c89e",
+          "text": "Site Report",
+          "metadata": {
+            "category_depth": 0,
+            "languages": [
+              "eng"
+            ],
+            "filename": "front-matter.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "9a6c7667e1c6b9309860e2e172ad93a7",
+          "text": "Body text.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "front-matter.md",
+            "filetype": "text/markdown",
+            "parent_id": "50d6292624104db23f88064b7be4c89e"
+          }
+        }
+      ]
+    },
+    {
+      "input": "front-matter.md",
+      "configuration": "python-markdown-extensions",
+      "input_sha256": "891d2cd5706d120506d1ac73793af51b9e702cd1214829d000f45a940a6c3134",
+      "entrypoint": "public partition_md",
+      "upstream_options": {
+        "metadata_filename": "front-matter.md",
+        "languages": [
+          "eng"
+        ],
+        "html_parser_version": "v1",
+        "extensions": [
+          "tables",
+          "fenced_code",
+          "footnotes",
+          "def_list",
+          "meta"
+        ]
+      },
+      "upstream_output": [
+        {
+          "type": "Title",
+          "element_id": "d3d9cc09ee6f8ede80c13657858dd571",
+          "text": "Site Report",
+          "metadata": {
+            "category_depth": 0,
+            "languages": [
+              "eng"
+            ],
+            "filename": "front-matter.md",
+            "filetype": "text/markdown"
+          }
+        },
+        {
+          "type": "UncategorizedText",
+          "element_id": "74f551fe03f72072e17405075d7f0370",
+          "text": "Body text.",
+          "metadata": {
+            "languages": [
+              "eng"
+            ],
+            "filename": "front-matter.md",
+            "filetype": "text/markdown",
+            "parent_id": "d3d9cc09ee6f8ede80c13657858dd571"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -17,21 +17,22 @@ final class MetadataConsolidator {
     /** Metadata keys whose first non-null value in document order is retained. */
     private static final Set<String> FIRST =
             Set.of("attached_to_filename", "cc_recipient", "bcc_recipient", "data_source", "file_directory", "filename",
-                    "filetype", "last_modified", "email_message_id", "page_name", "page_number", "sent_from", "sent_to",
+                    "filetype", "front_matter", "last_modified", "email_message_id", "page_name", "page_number", "sent_from", "sent_to",
                     "signature", "subject", "table_as_cells", "table_extraction_method", "url");
     /** List-valued metadata keys concatenated in document order across grouped elements. */
     private static final Set<String> CONCAT =
             Set.of("emphasized_text_contents", "emphasized_text_tags", "link_texts", "link_urls");
     /** Metadata keys dropped when consolidating or emitting chunked elements. */
-    private static final Set<String> DROP = Set.of("category_depth", "coordinates", "detection_class_prob",
-            "detection_origin", "header_footer_type", "image_url", "image_path", "image_base64", "image_mime_type",
-            "is_continuation", "is_extracted", "link_start_indexes", "links", "max_characters", "orig_elements",
-            "orig_elements_omitted", "orig_elements_source_characters", "parent_id", "routing", "routing_score",
-            "table_id", "chunk_index", "num_carried_over_header_rows", "docx_references", "docx_revisions",
-            "docx_list_items", "docx_table_style_paragraphs", "docx_field_instructions", "docx_field_policy",
-            "nested_tables", "nested_tables_version", "segment_start_seconds", "segment_end_seconds", "key_value_pairs",
-            "pdf_table_continuation", "pdf_reading_index", "pdf_table_multiline_cells",
-            Chunker.OVERLAP_PREFIX_CHARACTERS);
+    private static final Set<String> DROP =
+            Set.of("category_depth", "coordinates", "detection_class_prob", "detection_origin", "header_footer_type",
+                    "image_url", "image_path", "image_base64", "image_mime_type", "is_continuation", "is_extracted",
+                    "link_start_indexes", "links", "emphasized_text_start_indexes", "strikethrough_start_indexes",
+                    "max_characters", "orig_elements", "orig_elements_omitted", "orig_elements_source_characters",
+                    "parent_id", "routing", "routing_score", "table_id", "chunk_index", "num_carried_over_header_rows",
+                    "docx_references", "docx_revisions", "docx_list_items", "docx_table_style_paragraphs",
+                    "docx_field_instructions", "docx_field_policy", "nested_tables", "nested_tables_version",
+                    "segment_start_seconds", "segment_end_seconds", "key_value_pairs", "pdf_table_continuation",
+                    "pdf_reading_index", "pdf_table_multiline_cells", Chunker.OVERLAP_PREFIX_CHARACTERS);
 
     /**
      * Filters single-table metadata by removing keys listed in {@link #DROP}.

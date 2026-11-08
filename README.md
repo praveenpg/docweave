@@ -78,7 +78,7 @@ For other formats, select the corresponding [Maven module](docs/modules.md). Use
 JSON serialization, chunking and batches also have their own modules. Java imports remain
 `io.docweave` even though the Maven group is `io.docweave`.
 
-The source checkout targets `0.1.0-beta.13`. To build it locally,
+The source checkout targets `0.1.0-beta.18`. To build it locally,
 use Maven 3.9+ and run `mvn verify`; the beta dependency above is for consuming the release.
 
 ## Initial milestone
@@ -110,7 +110,7 @@ use Maven 3.9+ and run `mvn verify`; the beta dependency above is for consuming 
 - Runtime partitioner strategies selected through an injectable registry.
 - Extensive public Javadocs checked with doclint and warnings treated as errors during `mvn verify`.
 
-Requires Java 21 or later and Maven 3.9+. This is a plain Java library; Spring Boot is not a dependency. The reactor uses parent `io.docweave:docweave-parent:0.1.0-beta.13`; examples target the matching library modules. Starting with beta.8, Java packages use `io.docweave`; older releases use `dev.docweave`. This is a source and binary breaking change; see the [migration guide](docs/package-migration.md). Development validation is moving into the Java/JUnit [validation module](docweave-validation/README.md); remaining Python benchmark/reference helpers are documented there. Neither the production library nor Maven Java tests require Python. The released upstream reference pin and reviewed main drift are tracked in [upstream status](benchmarks/upstream-status.json).
+Requires Java 21 or later and Maven 3.9+. This is a plain Java library; Spring Boot is not a dependency. The reactor uses parent `io.docweave:docweave-parent:0.1.0-beta.18`; examples target the matching library modules. Starting with beta.8, Java packages use `io.docweave`; older releases use `dev.docweave`. This is a source and binary breaking change; see the [migration guide](docs/package-migration.md). Development validation is moving into the Java/JUnit [validation module](docweave-validation/README.md); remaining Python benchmark/reference helpers are documented there. Neither the production library nor Maven Java tests require Python. The released upstream reference pin and reviewed main drift are tracked in [upstream status](benchmarks/upstream-status.json).
 
 Build and test:
 
@@ -391,7 +391,7 @@ var options = PartitionOptions.builder()
 var result = processor.partition(DocumentSource.of(Path.of("data.csv")), options);
 ```
 
-Use `markdownOptions(new MarkdownOptions(true, 128, MarkdownOptions.RawHtml.SKIP, limits))` to configure pipe tables, AST depth and raw-HTML handling. Raw HTML defaults to literal text with a diagnostic. Select `MarkdownOptions.RawHtml.EXTRACT_DOM` to render the complete Markdown document and extract its combined HTML DOM. This mode shares heading/list hierarchy across Markdown and HTML, resolves links, filters hidden/script content and applies HTML depth/header/footer policies. Table budgets apply to pipe tables and embedded HTML tables (including nested tables); spans count source cells rather than expanded grid positions. Fenced/indented code retains its CommonMark literal whitespace. Images retain references and alt text without fetching assets.
+Use `markdownOptions(new MarkdownOptions(true, 128, MarkdownOptions.RawHtml.SKIP, limits))` to configure pipe tables, AST depth and raw-HTML handling. Raw HTML defaults to literal text with a diagnostic. Select `MarkdownOptions.RawHtml.EXTRACT_DOM` to render the complete Markdown document and extract its combined HTML DOM. This mode shares heading/list hierarchy across Markdown and HTML, resolves links, filters hidden/script content and applies HTML depth/header/footer policies. Table budgets apply to pipe tables and embedded HTML tables (including nested tables); spans count source cells rather than expanded grid positions. Fenced/indented code retains its CommonMark literal whitespace. Images retain references and alt text without fetching assets. AST modes also report bold/italic spans (`emphasized_text_contents`, `emphasized_text_tags`, code-point `emphasized_text_start_indexes`) without changing text. Task lists, double-tilde strikethrough and bare-URL autolinks are opt-in through `MarkdownOptions.defaults().withExtensions(...)`. See [Markdown support](docs/markdown-support.md) for modes, metadata, extensions and the Unstructured 0.27.37 qualification.
 
 Delimited files emit one `Table` with tab/newline display text and escaped cell HTML. The first record is a header by default; `Header.NONE` retains every record as data. Values stay strings, including whitespace and leading zeros. Quoted delimiters/newlines, doubled quotes and empty/trailing cells are preserved. Uneven rows fail unless `strictColumns` is false; permissive handling retains row widths and adds one diagnostic. Structured HTML is authoritative for cell boundaries when values contain tabs/newlines.
 
@@ -621,7 +621,7 @@ TXT classification uses simple list, length and punctuation heuristics; upstream
 
 Default input is capped at 10 MiB, output at 100,000 elements and HTML depth at 256. Markdown AST depth defaults to 128. Structured tables default to 100,000 rows, 1,000 columns, 1,000,000 total cells and 1,000,000 code points per cell. Limits include headers and apply during parsed-row consumption; they are not a heap limit or execution deadline. Byte decoding remains strict. XML defaults to depth 256 and 100,000 element nodes. DOCX is implemented; PPTX/XLSX and legacy Office remain pending.
 
-Markdown implements CommonMark plus optional pipe tables, not every Markdown extension. Missing/surplus GFM cells follow the pinned library's normalization. Raw HTML can be preserved, skipped, or extracted through the opt-in combined DOM pipeline. DOM mode follows HTML prose classification and image-alt-text behavior; AST-specific image-reference, code-info and pipe-table alignment metadata are not retained. Parser output has synthetic regression coverage; full upstream parser parity is not claimed.
+Markdown implements CommonMark plus optional pipe tables and three opt-in extensions (task lists, strikethrough, autolinks); footnotes, definition lists and front matter are not supported. Missing/surplus GFM cells follow the pinned library's normalization. Raw HTML can be preserved, skipped, or extracted through the opt-in combined DOM pipeline. DOM mode follows HTML prose classification and image-alt-text behavior; AST-specific image-reference, code-info, pipe-table alignment, emphasis, strikethrough and task-state metadata are not retained. Parser output has an owned-corpus qualification against Unstructured 0.27.37 plus synthetic regressions; full upstream parser parity is not claimed.
 
 Only the supported text-element enum values can be deserialized; additional top-level fields fail explicitly. Generated chunk IDs and split-table IDs are UUIDs. Compression bytes may differ from Python's JSON formatting; compare decoded provenance. Original coordinate/probability precision follows upstream rounding.
 

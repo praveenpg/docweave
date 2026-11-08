@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent><groupId>io.docweave</groupId><artifactId>docweave-parent</artifactId><version>0.1.0-beta.13</version></parent>
+    <parent><groupId>io.docweave</groupId><artifactId>docweave-parent</artifactId><version>0.1.0-beta.18</version></parent>
     <artifactId>docweave-pdf</artifactId>
     <name>DocWeave pdf</name>
     <dependencies>
@@ -12,5 +12,15 @@
     <build><plugins><plugin>
         <groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId>
         <configuration><systemPropertyVariables><java.awt.headless>true</java.awt.headless></systemPropertyVariables></configuration>
+    </plugin><plugin>
+        <!-- Records the library version that page-range results carry. -->
+        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-resources-plugin</artifactId>
+        <executions><execution>
+            <id>library-version</id><phase>process-resources</phase><goals><goal>copy-resources</goal></goals>
+            <configuration>
+                <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+                <resources><resource><directory>src/main/filtered-resources</directory><filtering>true</filtering></resource></resources>
+            </configuration>
+        </execution></executions>
     </plugin></plugins></build>
 </project>

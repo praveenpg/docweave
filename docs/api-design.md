@@ -2,7 +2,7 @@
 
 Expose processing services and mutable builders as interfaces. Static `create()` factories return the built-in package-private implementations. Application code should depend on contracts such as `DocWeave`, `Chunker`, `ElementJson` and `DocumentBatch`; concrete implementations are internal details.
 
-Keep immutable records and enums public for values: sources, elements, options, diagnostics and results. Checked exceptions remain classes because Java exceptions must extend Throwable. Nested source records are permitted implementations of the sealed `DocumentSource` value contract. Collection/byte-array inputs must be snapshotted defensively.
+Keep immutable records and enums public for values: sources, elements, options, diagnostics and results. Checked exceptions remain classes because Java exceptions must extend Throwable. Nested source records are permitted implementations of the sealed `DocumentSource` value contract. Collection/byte-array inputs must be snapshotted defensively. The one exception is an explicit, documented ownership transfer such as `DocumentSource.ownedBytes`: the caller hands over an array it will not use again, the library reads it without copying and never modifies or exposes it, and public accessors still return copies.
 
 Document every public type, factory and method with meaningful Javadocs. Include behavior, defaults, parameter/return meanings, validation, exceptions, thread safety, resource limits and compatibility differences. Use examples for entry points. Do not claim upstream parity where only heuristic behavior is implemented.
 

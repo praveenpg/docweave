@@ -9,7 +9,8 @@ import java.util.Objects;
  * an opaque location; it is resolved into a local input by the {@link RemoteSourceResolver} explicitly configured
  * on the processor ({@link io.docweave.DocWeave#builder()}). Constructing any source performs no I/O.
  * File sources retain a path and open it on each partition call; bytes are copied into an immutable
- * snapshot; text is already decoded Unicode. A Text source can contain any supported decoded text format.
+ * snapshot, unless the caller transfers ownership of the array with {@link #ownedBytes}; text is already decoded
+ * Unicode. A Text source can contain any supported decoded text format.
  * Native loading reuses valid decoded Text content rather than encoding and decoding the whole
  * String. Its byte budget and diagnostic footprint remain the UTF-8 size including a leading BOM;
  * Unicode validation and bounded routing previews still apply. Leading-BOM removal may copy text.
@@ -20,8 +21,9 @@ import java.util.Objects;
  * Filename hints affect routing and deterministic element IDs, but are not opened for byte/text sources.
  * All source variants can be shared across threads; concurrent changes to a file remain the caller's concern.
  *
- * <p>Compatibility: {@link Remote} was added in 0.1.0-beta.9. Exhaustive {@code switch} statements over this
- * sealed interface in consumer code must add a {@code Remote} case (or a default branch) to compile.</p>
+ * <p>Compatibility: {@link Remote} was added in 0.1.0-beta.9 and {@link OwnedBytes} in 0.1.0-beta.15. Exhaustive
+ * {@code switch} statements over this sealed interface in consumer code must add those cases (or a default branch)
+ * to compile.</p>
  */
 public sealed interface DocumentSource {
     /**
@@ -64,6 +66,22 @@ public sealed interface DocumentSource {
      */
     static DocumentSource bytes(byte[] content, final String filename) {
         return new Bytes(content, filename);
+    }
+
+    /**
+     * Transfers ownership of an encoded byte array without copying it, for callers that create the array solely to
+     * partition it (for example after reading a stored upload). The library reads the array in place for every
+     * partition call, and a PDF document prepared from the source keeps it for as long as it is used; the library
+     * never modifies or exposes it. The caller must not modify, reuse or hand out the array after this call: a later
+     * change is not detected and makes results undefined. Callers that cannot guarantee this use
+     * {@link #bytes(byte[], String)}, which copies.
+     * @param content encoded document bytes whose ownership passes to the returned source
+     * @param filename optional routing/metadata name
+     * @return a byte source over the transferred array
+     * @throws NullPointerException if content is null
+     */
+    static DocumentSource ownedBytes(final byte[] content, final String filename) {
+        return new OwnedBytes(content, filename);
     }
 
     /**
@@ -169,6 +187,67 @@ public sealed interface DocumentSource {
          */
         public int size() {
             return content.length;
+        }
+
+        /**
+         * Returns the private snapshot for in-library reading without a copy. Callers must not modify or expose it.
+         * @return the snapshot array itself
+         */
+        byte[] snapshot() {
+            return content;
+        }
+    }
+
+    /**
+     * Encoded bytes whose ownership the caller transferred with {@link #ownedBytes}; construction does not copy.
+     * The accessor still returns a copy, so code holding only this source cannot change the array. As for
+     * {@link Bytes}, equality compares the array by identity, not by content.
+     * @param content transferred encoded bytes, read in place by the library
+     * @param filename optional logical filename
+     */
+    record OwnedBytes(byte[] content, String filename) implements DocumentSource {
+        /**
+         * Accepts the transferred array without copying it; no file is opened.
+         * @param content nonnull encoded bytes, no longer used by the caller
+         * @param filename optional logical filename
+         * @throws NullPointerException if content is null
+         */
+        public OwnedBytes {
+            Objects.requireNonNull(content, "content");
+        }
+
+        /**
+         * Copies the transferred bytes for the caller.
+         * @return a defensive copy of the encoded document
+         */
+        @Override
+        public byte[] content() {
+            return content.clone();
+        }
+
+        /**
+         * Measures the bytes without copying them.
+         * @return byte count
+         */
+        public int size() {
+            return content.length;
+        }
+
+        /**
+         * Returns the transferred array for in-library reading without a copy. Callers must not modify or expose it.
+         * @return the transferred array itself
+         */
+        byte[] snapshot() {
+            return content;
+        }
+
+        /**
+         * Describes the source without its bytes.
+         * @return size and filename
+         */
+        @Override
+        public String toString() {
+            return "OwnedBytes[size=" + content.length + ", filename=" + filename + "]";
         }
     }
 }

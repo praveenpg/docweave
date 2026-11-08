@@ -36,7 +36,7 @@ public interface RemoteSourceResolver {
      * Validates the location, acquires the content within the context's limits and returns an owned local document.
      * @param source remote source whose location is passed unchanged
      * @param context byte ceiling, deadline and cancellation for this call
-     * @return an owned handle whose {@link ResolvedDocument#localSource()} is a File, Bytes or Text source
+     * @return an owned handle whose {@link ResolvedDocument#localSource()} is a File, Bytes, OwnedBytes or Text source
      * @throws IllegalArgumentException if the location is invalid or not supported by this resolver
      * @throws PartitionException with {@link PartitionException.Code#INPUT_TOO_LARGE} if the content exceeds the
      *         ceiling

@@ -1,6 +1,192 @@
 # Changelog
 
-## Unreleased
+## 0.1.0-beta.18
+
+Full-library public release candidate; all reactor modules use `0.1.0-beta.18`.
+This cumulatively includes the changes developed in internal beta.14 through beta.17 since the public beta.13
+release: PDF scan-memory improvements and owned byte inputs, streaming element JSON and PDF range APIs, Markdown
+qualification, emphasis metadata and six opt-in syntax extensions. See [release notes](docs/releases/0.1.0-beta.18.md)
+for compatibility changes, verification and publication status. Runtime behavior is unchanged from internal beta.17.
+The internal-version sections below describe their status when built; their changes are included in this candidate.
+
+## 0.1.0-beta.17 (internal)
+
+- **0.1.0-beta.17 internal-only build (not a public release):** this build fixes the version at `0.1.0-beta.17`
+  to produce an internal artifact bundle for DocWeave Studio's private repository. It is not published to Maven
+  Central or any public repository, is not signed or tagged, and the changes below remain unreleased publicly.
+
+Internal development of 0.1.0-beta.17 (not published). The internal build below sets all reactor modules to `0.1.0-beta.17`.
+Default output is unchanged from 0.1.0-beta.15.
+
+- **0.1.0-beta.16 is superseded.** An internal 0.1.0-beta.16 bundle was built from an earlier state of these Markdown
+  changes (release branch `release/0.1.0-beta.16-internal`, eecbce8) and published to the private delivery
+  repository. Review then found that a heading inside a footnote or definition became the parent of the text after
+  it. That bundle stays immutable but is not adopted; 0.1.0-beta.17 carries the fix below.
+- **Headings inside footnotes and definitions** outline only their container: later terms, outer headings and body
+  text keep the heading parent they had before it.
+
+- Markdown opt-in extensions (#59, completed): `MarkdownOptions.Extension` gains three values, all off by default.
+  - `FOOTNOTES`: `[^label]` references become `[n]`, numbered by first reference, with
+    `footnote_reference_labels`/`_numbers`/`_start_indexes` (code points). Definitions stay where they are written;
+    the first element carries `footnote_label` and, when referenced, `footnote_number`, and later blocks of the note
+    take it as `parent_id`. Undefined references stay literal; a duplicate definition gets no number. Without the
+    option, CommonMark still reads `[^x]: text` as a link reference definition and drops its text.
+  - `DEFINITION_LISTS` (a DocWeave CommonMark block extension; commonmark-java has none): PHP Markdown Extra
+    `Term` / `: definition` lists. Terms are `ListItem` elements with `definition_list_role="term"`; a definition's
+    first element has `definition_list_role="definition"`, `definition_term_ids` and the first term as `parent_id`.
+  - `FRONT_MATTER`: a leading `---` block read as a data-only YAML subset (strings, lists of strings, block
+    scalars; no tags, anchors, aliases, typing or nested mappings; at most 64 keys and sequence items). Values are
+    added to every element as `front_matter`, which chunking keeps. Malformed blocks become one `UncategorizedText`
+    element with the new `MARKDOWN_FRONT_MATTER_INVALID` warning. A block whose first line is not a key or comment,
+    that has only comments, or that does not close within 4,096 characters, is ordinary Markdown.
+  - Footnotes are numbered as commonmark-java's HTML renderer numbers them, so both modes agree. EXTRACT_DOM renders
+    all three; its text then matches Python-Markdown's `footnotes`/`def_list`/`meta` output on the qualification
+    corpus, without the AST-only metadata. Notes the renderer would omit (unreferenced, duplicate or nested
+    definitions, and notes cited only from those) keep their text in place in every mode, with literal references,
+    and malformed `[^…]:` lines stay text.
+  - New dependency: `commonmark-ext-footnotes` 0.30.1 (BSD-2-Clause). No YAML library is used.
+
+## 0.1.0-beta.15 (internal)
+
+- **0.1.0-beta.15 internal-only build (not a public release):** this build fixes the version at `0.1.0-beta.15`
+  to produce an internal artifact bundle for DocWeave Studio's private repository. It is not published to Maven
+  Central or any public repository, is not signed or tagged, and the changes below remain unreleased publicly.
+
+Internal development of 0.1.0-beta.15 (not published). The internal build below sets all reactor modules to `0.1.0-beta.15`.
+Default output is unchanged from 0.1.0-beta.14.
+
+- **PDF scan memory (#56, docweave-studio #258).** Every PDFBox document the PDF module opens now uses a resource
+  cache that keeps fonts, color spaces, forms and other resources but never image XObjects. Before, each worker's
+  document (kept for the whole partition call) retained every image it had resolved, with its decoded raster,
+  through soft references; on scanned PDFs the reachable heap grew by about one decoded raster per page until the
+  heap was full. Images are now decoded each time a page resolves them. The cache replaces only PDFBox's own default class: a
+  cache of another class configured through PDFBox's `ResourceCacheFactory` (or no cache) is left unchanged. Output is unchanged. Measurements: see
+  `docs/pdf-page-parallelism.md`.
+- **Owned byte sources (#56).** New `DocumentSource.ownedBytes(byte[], String)` and record `DocumentSource.OwnedBytes`
+  transfer an array without the constructor copy; the caller must not modify or reuse it afterwards. Its public
+  `content()` still copies; equality is by array identity, as for `Bytes`. `DocumentSource.bytes` keeps its defensive
+  copies. The loader and page-crop renderer now read `Bytes` and `OwnedBytes` in place instead of through the copying
+  accessor, so an input is no longer copied again when partitioning starts.
+- **Source compatibility.** `OwnedBytes` is a new permitted subtype of the sealed `DocumentSource`: exhaustive
+  `switch` statements over it in consumer code must add a case or a default branch (as for `Remote` in beta.9).
+
+## 0.1.0-beta.14 (internal)
+
+- **0.1.0-beta.14 internal-only build (not a public release):** this build fixes the version at `0.1.0-beta.14`
+  to produce an internal artifact bundle for DocWeave Studio's private repository. It is not published to Maven
+  Central or any public repository, is not signed or tagged, and the changes below remain unreleased publicly.
+
+Internal development of 0.1.0-beta.14 (not published). The internal build below sets all reactor modules to `0.1.0-beta.14`.
+Except for the Markdown changes listed below, whole-document output, warnings and limit outcomes are unchanged from
+0.1.0-beta.13; synthetic goldens captured from unchanged 0.1.0-beta.13 (multi-page text, table continuation chains,
+images, OCR and budget-limit documents) check this.
+
+- Markdown qualification (#57, #58): an owned eight-document corpus (`benchmarks/fixtures/markdown/`) is compared
+  offline with the released Unstructured 0.27.37 (`partition_md`, HTML v1, `extensions=["tables", "fenced_code"]`,
+  Python 3.13, Markdown 3.11.3; the installed RECORD hash and every installed package file listed in it are verified
+  before import). The reference
+  (`markdown-qualification-reference.json`) is separate from the unchanged historical `347fbbfd` markup references.
+  Agreements, dialect/policy differences, per-mode raw-HTML tradeoffs and limitations are documented in
+  `docs/markdown-support.md`; no parity is claimed. Defaults are unchanged.
+- Markdown fix: in AST modes, a list item's later blocks (a loose-list continuation paragraph, a code block, a
+  paragraph after a nested list) now take the item's first element as `parent_id`, as nested lists already did, instead
+  of the enclosing heading. Text, types and order are unchanged. `EXTRACT_DOM` and HTML output are unchanged.
+- Markdown emphasis metadata (#60): AST modes (`PRESERVE_TEXT`, `SKIP`) add `emphasized_text_contents`,
+  `emphasized_text_tags` (`b`, `i`, `bi`) and code-point `emphasized_text_start_indexes` to headings, prose, list
+  items and tables. Nested emphasis yields separate runs; literal markers in code are not emphasis. Extracted text,
+  ordering and hierarchy are unchanged. `EXTRACT_DOM` emits no emphasis metadata. Chunking concatenates contents/tags,
+  as it does for link labels, and drops the offsets. This metadata is new by default. Callers that compare
+  whole metadata maps will see these extra keys.
+- Markdown opt-in extensions (#59, partial): `MarkdownOptions` gains an `extensions` component
+  (`Set<MarkdownOptions.Extension>`, default empty) and `withExtensions(...)`. The four-argument constructor remains
+  and selects no extensions; record deconstruction patterns over `MarkdownOptions` must add the fifth component. `TASK_LIST_ITEMS` removes `[ ]`/`[x]` markers and records `task_list_item_checked`.
+  `STRIKETHROUGH` (double tildes only) removes markers and records `strikethrough_texts`/`strikethrough_start_indexes`.
+  `AUTOLINKS` turns bare URLs, `www.` hosts and e-mail addresses into ordinary link metadata without changing text.
+  `EXTRACT_DOM` renders the same syntax but keeps only the link metadata. New dependencies:
+  `commonmark-ext-gfm-strikethrough`, `commonmark-ext-task-list-items`, `commonmark-ext-autolink` 0.30.1
+  (BSD-2-Clause) and `org.nibor.autolink:autolink` 0.12.0 (MIT). Footnotes, definition lists and front matter remain
+  unsupported and deferred, with the reasons recorded.
+
+  ```java
+  var markdown = MarkdownOptions.defaults().withExtensions(EnumSet.of(MarkdownOptions.Extension.TASK_LIST_ITEMS));
+  var result = DocWeave.create().partition(DocumentSource.text("- [x] done", "t.md"),
+      PartitionOptions.builder().markdownOptions(markdown).build());
+  // ListItem "done", task_list_item_checked=true
+  ```
+
+- JSON: `ElementJson.write(Element, JsonGenerator)` and `ElementJson.write(Element, OutputStream)` encode one
+  element as a JSON object, so callers can stream an element sequence (for example inside their own envelope) without
+  building the whole list, a JSON tree or one large byte array. The object is byte-identical to that element's
+  object inside `write(List)`, including the omission of empty top-level collections and `detection_origin`, when the
+  generator uses Jackson's default write features and UTF-8. The generator form never flushes or closes the
+  generator; separators, enclosing structure, flushing and closing stay with the caller. The stream form flushes the
+  caller's stream once at the end and never closes it. Text with unpaired surrogates is outside the byte-identity
+  guarantee. Both are default interface methods that throw `UnsupportedOperationException` for custom codecs.
+- PDF: a public budget hook, `PdfBudget`, through which extraction reports document-wide consumption as
+  `charge(kind, amount, page)` with the one-based physical page:
+  - `IMAGE_BYTES` (encoded PNG bytes, per codec write) and `PAGE_ELEMENTS` (one element admitted to a page's own
+    buffer) are charged during parallel page extraction;
+  - `PAGE_PENDING` (one element admitted to the per-page pending buffer, only when output is buffered for table
+    continuation or geometric reading order) and `ELEMENTS` (one element admitted to the ordered output) are charged
+    on the calling thread in page order during replay;
+  - `pageCompleted(page)` (default no-op) is called after a page's replay, in page order, and never for a page of a
+    failed batch.
+
+  `PdfPartitioner.standardBudget(PartitionOptions)` returns the built-in implementation, which every whole-document
+  call uses. It admits exactly the beta.13 amounts and fails with the beta.13 codes and messages at the same
+  element: page-local `min(4096, maxElements)` or `maxElements` cap, "PDF page exceeds document element budget";
+  pending 4096 per page and cumulative "PDF buffered page exceeds pending-element budget" or
+  "Document exceeds maxElements=N"; "PDF images exceed maxImageBytes". Check phases and the first-thrown batch failure
+  are unchanged. Independently of the budget, a page never retains more than `maxElements` elements.
+  `PdfBudget.unlimited()` admits everything. Exceptions thrown by a caller budget reach the caller unchanged. Batches
+  start at the first page of the call, so a standard budget used for one page range alone can resolve near-simultaneous
+  limits differently from the whole document; reproducing the whole-document precedence across ranges is the caller's
+  responsibility, using the per-page charges and completions.
+- PDF: page-range partitioning. `PdfPartitioner.partitionRange(source, options, PdfPageRange, PdfBudget[, listener])`
+  extracts only the pages of a contiguous one-based inclusive `PdfPageRange` and returns an immutable, versioned
+  `PdfRangeResult`. Document-wide work still covers the whole document: loading and `maxInputBytes`, the extraction
+  permission, the `maxPages` check of the total page count, the source-tag pass, the paragraph identity (the source
+  SHA-256, computed once) and the document warnings. Pages keep their physical page numbers and run with the same
+  in-process parallelism and batching, starting at the range's first page. Progress reports the range's pages against
+  the range's page count. A range beyond the document fails with `UNSUPPORTED_OPTION`; remote sources are rejected
+  (resolve them first). The result carries:
+  - elements per page with provisional IDs (the whole-document formula over the range's own sequence, so a range
+    starting at page 1 already has final IDs) and the declared ID-reference fields
+    (`PdfRangeResult.ID_REFERENCE_FIELDS`, today the `pdf_table_continuation` previous and root IDs);
+  - per-page warnings and per-page budget usage;
+  - `PdfTableBoundary` continuation evidence (the repeated-header signature and edge clearances) of the single
+    candidate table on the first and last pages, so chains crossing a range boundary can be resolved. Evidence
+    numbers are normalized to doubles, so a store that changes number types does not drop links;
+  - coverage, document page count, document warnings, format version, library version, source SHA-256 and size, and
+    an options digest (provider configuration is not digested: providers contribute their class name, or only their
+    presence for lambdas).
+- PDF: `PdfPartitioner.prepare(source, options)` does the document-wide work once and returns an immutable,
+  process-local `PdfPreparedDocument`; `partitionRange(PdfPreparedDocument, PdfPageRange, PdfBudget, listener)` gives
+  results identical to partitioning the range from the source. `countRange(PdfPreparedDocument, ...)` extracts and
+  charges every element, then drops it, and returns per-page usage and warnings as a `PdfRangeCount`, so a dense page
+  can be counted without retaining it. Extraction charges are those of partitioning; `PAGE_PENDING` and `ELEMENTS` are
+  charged once per page with the page total, so the standard budget reports the same code, message and page, but not
+  the same element within the page.
+- PDF: `PdfRangeAssembler` combines range results into the document's final output. `assemble(List)` returns a
+  `PartitionResult`; `open(ElementSink)` returns a streaming session that accepts one range result at a time and
+  emits final elements to the sink. A session keeps only the first result's identity fields, the range being
+  assembled and the previous page's continuation state. It rejects results that leave gaps, overlap, do not start at
+  page 1 or end before the last page, or differ in source SHA-256 or size, options digest, filename, page count,
+  document warnings, ID-reference fields, result format or library version. Assembly emits the document warnings once
+  and then each page's elements and warnings in page order, assigns final IDs from the document-wide sequence with the
+  `ElementIdGenerator` formula, rewrites every continuation reference to final IDs, and links tables across range
+  boundaries with the same evidence and rules as within a range, including chains that span whole ranges. Budgets are
+  not re-checked during assembly. The margin classifier and paragraph assembler are not part of partitioning, so
+  assembly does not run them either; they apply to assembled elements as to a whole-document result.
+- PDF: whole-document partitioning is one page range covering every page, through the same extraction and the same
+  assembly. Because that range starts at page 1, its elements are emitted once, directly with final IDs, and assembly
+  only verifies that no reference needs rewriting; whole-document cost stays close to beta.13.
+- JSON: `PdfRangeResultJson` stores range results losslessly (metadata key order and number types preserved, NaN
+  and infinities in evidence tagged); decoded results are equal to the originals and assemble identically. Reads are
+  bounded to 256 MiB by default (`create(long)` sets another limit) and fail with `IllegalArgumentException` beyond
+  it. Integer fields (format version, sizes, pages, coverage, usage counters) must be integral JSON numbers within
+  their type; fractions and overflow are rejected rather than truncated. `docweave-json` declares `docweave-pdf` as an
+  optional dependency for it, so PDF-only applications still do not receive Jackson.
 
 ## 0.1.0-beta.13
 
