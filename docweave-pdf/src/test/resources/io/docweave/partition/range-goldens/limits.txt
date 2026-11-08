@@ -1,0 +1,28 @@
+geometric-cap-4095 OK 4095
+continuation-cap-4095 OK 4098
+geometric-cap-4096 OK 4096
+continuation-cap-4096 OK 4099
+geometric-cap-4097 FAIL ELEMENT_LIMIT PDF page exceeds document element budget
+continuation-cap-4097 FAIL ELEMENT_LIMIT PDF page exceeds document element budget
+direct-cap-49 OK 49
+geometric-small-cap-49 OK 49
+direct-cap-50 OK 50
+geometric-small-cap-50 OK 50
+direct-cap-51 FAIL ELEMENT_LIMIT PDF page exceeds document element budget
+geometric-small-cap-51 FAIL ELEMENT_LIMIT PDF page exceeds document element budget
+direct-cumulative-30-20 OK 50
+buffered-cumulative-30-20 OK 50
+continuation-cumulative-30-20 OK 50
+direct-cumulative-30-21 FAIL ELEMENT_LIMIT Document exceeds maxElements=50
+buffered-cumulative-30-21 FAIL ELEMENT_LIMIT PDF buffered page exceeds pending-element budget
+continuation-cumulative-30-21 FAIL ELEMENT_LIMIT PDF buffered page exceeds pending-element budget
+direct-cumulative-10-10-10-10-10-1 FAIL ELEMENT_LIMIT Document exceeds maxElements=50
+buffered-cumulative-10-10-10-10-10-1 FAIL ELEMENT_LIMIT PDF buffered page exceeds pending-element budget
+continuation-cumulative-10-10-10-10-10-1 FAIL ELEMENT_LIMIT PDF buffered page exceeds pending-element budget
+direct-cumulative-20-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-31 FAIL ELEMENT_LIMIT Document exceeds maxElements=50
+buffered-cumulative-20-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-31 FAIL ELEMENT_LIMIT PDF buffered page exceeds pending-element budget
+continuation-cumulative-20-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-31 FAIL ELEMENT_LIMIT PDF buffered page exceeds pending-element budget
+images-1 FAIL IMAGE_LIMIT PDF images exceed maxImageBytes
+images-400 FAIL IMAGE_LIMIT PDF images exceed maxImageBytes
+images-1000 FAIL IMAGE_LIMIT PDF images exceed maxImageBytes
+images-10000000 OK 15

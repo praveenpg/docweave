@@ -50,6 +50,47 @@ public interface ElementJson {
      * @throws tools.jackson.core.JacksonException if JSON serialization fails
      */
     String write(final List<Element> elements);
+
+    /**
+     * Encodes one element as a JSON object on a caller-owned generator, for streaming an element sequence without
+     * materializing it. The generator writes exactly the object that {@link #write(List)} produces for this element
+     * inside its array, including empty-collection and {@code detection_origin} omission; separators, enclosing
+     * structure, flushing and closing remain the caller's: the generator is never flushed or closed. Output is
+     * byte-identical to the array encoding when the generator uses Jackson's default write features (for example one
+     * created by a default
+     * {@code tools.jackson.databind.json.JsonMapper}) and UTF-8; the generator's own features, such as pretty
+     * printing, non-ASCII escaping or plain big-decimal output, apply as configured. Text containing unpaired
+     * surrogates is outside that guarantee, because the array encoding is a Java string.
+     * The default implementation exists for custom codecs and throws.
+     * @param element nonnull element
+     * @param generator open generator positioned where a value may be written
+     * @throws NullPointerException if an argument is null
+     * @throws tools.jackson.core.JacksonException if JSON generation fails
+     * @throws UnsupportedOperationException if a custom implementation does not support streaming
+     */
+    default void write(final Element element, final tools.jackson.core.JsonGenerator generator) {
+        java.util.Objects.requireNonNull(element, "element");
+        java.util.Objects.requireNonNull(generator, "generator");
+        throw new UnsupportedOperationException("Streaming element encoding is unsupported");
+    }
+
+    /**
+     * Encodes one element as a UTF-8 JSON object on a caller-owned stream, byte-identical to that element's
+     * object inside {@link #write(List)}. The stream is flushed but not closed, and no separator is written.
+     * The default implementation exists for custom codecs and throws.
+     * @param element nonnull element
+     * @param output open stream
+     * @throws IOException if writing fails
+     * @throws NullPointerException if an argument is null
+     * @throws tools.jackson.core.JacksonException if JSON generation fails
+     * @throws UnsupportedOperationException if a custom implementation does not support streaming
+     */
+    default void write(final Element element, final java.io.OutputStream output) throws IOException {
+        java.util.Objects.requireNonNull(element, "element");
+        java.util.Objects.requireNonNull(output, "output");
+        throw new UnsupportedOperationException("Streaming element encoding is unsupported");
+    }
+
     /**
      * Writes UTF-8 JSON, creating or replacing a file. The write is not atomic.
      * @param path output file; parent directories must already exist

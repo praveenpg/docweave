@@ -12,7 +12,7 @@ import java.util.Map;
 /** Document-confined emission adapter; optional linking buffers one page, never rewrites an emitted Element. */
 final class PdfPageOutput {
     /** Fixed opt-in pending-element ceiling, additional to the document's maxElements. */
-    private static final int MAX_PENDING = 4096;
+    private static final int MAX_PENDING = StandardPdfBudget.MAX_PENDING;
     /** Raw page events retained by an isolated parallel page, null on the ordered writer. */
     private final List<Event> recorded;
     /** Raw elements admitted on an isolated page; warnings do not consume element slots. */
@@ -20,7 +20,7 @@ final class PdfPageOutput {
     /** Per-page admission cannot exceed the document element ceiling. */
     private final int maxElements;
     /** Central source metadata, ID and emission policy. */
-    private final PartitionContext context;
+    private final PdfPageSink sink;
     /** Null on the historical direct path; otherwise one page of pending output. */
     private final List<Pending> pending;
     /** Previous-page evidence and real extraction IDs, at most one eligible Table. */
@@ -35,6 +35,12 @@ final class PdfPageOutput {
     private final boolean providerHeaderLayouts;
     /** Whether stable geometric order is explicitly selected. */
     private final boolean geometric;
+    /** Call budget charged with admitted elements; null keeps the historical context-based checks. */
+    private final PdfBudget budget;
+    /** One-based page of an isolated page buffer, or the page being replayed into the ordered writer. */
+    private int page;
+    /** Whether elements are only charged and counted, never retained, linked or emitted. */
+    private final boolean counting;
 
     /**
      * Selects direct or one-page buffered emission without changing recognition strategies.
@@ -53,9 +59,37 @@ final class PdfPageOutput {
      */
     PdfPageOutput(final PartitionContext context, final PdfOptions.TableContinuation policy,
             final PdfOcrOptions.ReadingOrder order) {
-        this.context = context;
+        this(PdfPageSink.of(context), policy, order, null);
+    }
+
+    /**
+     * Creates the ordered writer of a partition call whose element admissions are charged to a call budget.
+     * @param sink document or page-range sink, notified at the end of every page
+     * @param policy continuation policy
+     * @param order native/OCR ordering policy
+     * @param budget call budget, or null for the historical context-based element checks
+     */
+    PdfPageOutput(final PdfPageSink sink, final PdfOptions.TableContinuation policy,
+            final PdfOcrOptions.ReadingOrder order, final PdfBudget budget) {
+        this(sink, policy, order, budget, false);
+    }
+
+    /**
+     * Creates the ordered writer of a partition call, optionally in counting mode, where each element is charged
+     * exactly as on the retaining path and then dropped: pages keep only their warnings and usage.
+     * @param sink document or page-range sink, notified at the end of every page
+     * @param policy continuation policy
+     * @param order native/OCR ordering policy
+     * @param budget nonnull call budget in counting mode, otherwise null for the historical checks
+     * @param counting whether elements are counted instead of retained
+     */
+    PdfPageOutput(final PdfPageSink sink, final PdfOptions.TableContinuation policy,
+            final PdfOcrOptions.ReadingOrder order, final PdfBudget budget, final boolean counting) {
+        this.counting = counting;
+        this.budget = budget;
+        this.sink = sink;
         this.recorded = null;
-        this.maxElements = context.options().maxElements();
+        this.maxElements = sink.options().maxElements();
         linkTables = policy != PdfOptions.TableContinuation.NONE;
         providerHeaderPrefixes = policy.providerPrefixes();
         providerHeaderLayouts = policy.providerLayouts();
@@ -67,9 +101,13 @@ final class PdfPageOutput {
     /**
      * Copies immutable policy only; parallel pages never touch the central context or previous-page state.
      * @param source ordered document output
+     * @param page one-based physical page buffered by the copy
      */
-    private PdfPageOutput(final PdfPageOutput source) {
-        context = source.context;
+    private PdfPageOutput(final PdfPageOutput source, final int page) {
+        this.page = page;
+        counting = source.counting;
+        budget = source.budget;
+        sink = source.sink;
         maxElements = source.maxElements;
         linkTables = source.linkTables;
         linkProviders = source.linkProviders;
@@ -81,11 +119,12 @@ final class PdfPageOutput {
     }
 
     /**
-     * Creates a page-local raw event buffer with the same table and ordering policy.
+     * Creates a page-local raw event buffer with the same table, ordering and budget policy.
+     * @param page one-based physical page the buffer belongs to
      * @return isolated page buffer
      */
-    PdfPageOutput pageBuffer() {
-        return new PdfPageOutput(this);
+    PdfPageOutput pageBuffer(final int page) {
+        return new PdfPageOutput(this, page);
     }
 
     /**
@@ -95,6 +134,15 @@ final class PdfPageOutput {
      * @throws IOException if cancellation or an output budget prevents emission
      */
     void replay(final PdfPageOutput destination, final int page) throws IOException {
+        destination.page = page;
+        if (counting && recordedElements > 0) {
+            // Counting mode: one ordered charge per kind with the page total, not one per element.
+            ElementCollector.checkInterrupted();
+            if (linkTables || geometric) {
+                budget.charge(PdfBudget.Kind.PAGE_PENDING, recordedElements, page);
+            }
+            budget.charge(PdfBudget.Kind.ELEMENTS, recordedElements, page);
+        }
         for (final var event : recorded) {
             ElementCollector.checkInterrupted();
             if (event instanceof final Pending item) {
@@ -162,25 +210,47 @@ final class PdfPageOutput {
             final PdfTableSignature signature) throws IOException {
         if (recorded != null) {
             ElementCollector.checkInterrupted();
-            if (recordedElements >= (linkTables || geometric ? Math.min(MAX_PENDING, maxElements) : maxElements)) {
+            if (counting) {
+                budget.charge(PdfBudget.Kind.PAGE_ELEMENTS, 1, page);
+                recordedElements++;
+                return;
+            }
+            if (budget != null) {
+                // Budget-independent memory ceiling: one page never retains more than the document may hold.
+                if (recordedElements >= maxElements) {
+                    throw new PartitionException(
+                            PartitionException.Code.ELEMENT_LIMIT, "PDF page exceeds document element budget");
+                }
+                budget.charge(PdfBudget.Kind.PAGE_ELEMENTS, 1, page);
+            } else if (recordedElements
+                       >= (linkTables || geometric ? Math.min(MAX_PENDING, maxElements) : maxElements)) {
                 throw new PartitionException(
                         PartitionException.Code.ELEMENT_LIMIT, "PDF page exceeds document element budget");
             }
             recordedElements++;
-            recorded.add(new Pending(type, text, java.util.Collections.unmodifiableMap(new LinkedHashMap<>(metadata)), signature));
+            recorded.add(new Pending(
+                    type, text, java.util.Collections.unmodifiableMap(new LinkedHashMap<>(metadata)), signature));
             return;
         }
         if (pending == null) {
-            context.emit(type, text, metadata);
+            if (budget != null) {
+                ElementCollector.checkInterrupted();
+                budget.charge(PdfBudget.Kind.ELEMENTS, 1, page);
+            }
+            sink.emit(type, text, metadata);
             return;
         }
         ElementCollector.checkInterrupted();
-        if (pending.size() >= MAX_PENDING
-                || pending.size() >= context.options().maxElements() - context.elementCount()) {
+        if (budget != null) {
+            budget.charge(PdfBudget.Kind.PAGE_PENDING, 1, page);
+            budget.charge(PdfBudget.Kind.ELEMENTS, 1, page);
+        } else if (pending.size() >= MAX_PENDING
+                   || pending.size() >= sink.options().maxElements() - sink.elementCount()) {
             throw new PartitionException(
                     PartitionException.Code.ELEMENT_LIMIT, "PDF buffered page exceeds pending-element budget");
         }
-        pending.add(new Pending(type, text, java.util.Collections.unmodifiableMap(new LinkedHashMap<>(metadata)), signature));
+        pending.add(new Pending(
+                type, text, java.util.Collections.unmodifiableMap(new LinkedHashMap<>(metadata)), signature));
     }
 
     /**
@@ -192,7 +262,7 @@ final class PdfPageOutput {
         if (recorded != null) {
             recorded.add(new Warning(code, message));
         } else {
-            context.warn(code, message);
+            sink.warn(code, message);
         }
     }
 
@@ -204,7 +274,11 @@ final class PdfPageOutput {
      * @throws IOException if cancelled, limited or central emission fails
      */
     void finishPage(final int page) throws IOException {
-        if (recorded != null || pending == null) {
+        if (recorded != null) {
+            return;
+        }
+        if (pending == null) {
+            sink.pageFinished(page, null);
             return;
         }
         if (geometric) {
@@ -245,6 +319,7 @@ final class PdfPageOutput {
         final boolean linked = signature != null && previous != null && previous.page() + 1 == page
                                && previous.exitClear() && entryClear && signature.follows(previous.signature());
         Previous current = null;
+        PdfTableBoundary boundary = null;
         for (int index = 0; index < pending.size(); index++) {
             ElementCollector.checkInterrupted();
             final var item = pending.get(index);
@@ -254,20 +329,38 @@ final class PdfPageOutput {
                 metadata.put("pdf_reading_index", index + 1);
             }
             if (linked && index == candidate) {
-                metadata.put("pdf_table_continuation",
-                        Map.of("version", 1, "policy", "adjacent_repeated_header_v1", "root_element_id",
-                                previous.rootId(), "root_page_number", previous.rootPage(), "previous_element_id",
-                                previous.elementId(), "previous_page_number", previous.page(), "part_index",
-                                previous.part() + 1));
+                metadata.put(
+                        "pdf_table_continuation", continuation(previous.rootId(), previous.rootPage(),
+                                                          previous.elementId(), previous.page(), previous.part() + 1));
             }
-            final var emitted = context.emit(item.type(), item.text(), metadata);
+            final var emitted = sink.emit(item.type(), item.text(), metadata);
             if (signature != null && index == candidate) {
                 current = new Previous(signature, emitted.elementId(), linked ? previous.rootId() : emitted.elementId(),
                         linked ? previous.rootPage() : page, linked ? previous.part() + 1 : 0, page, exitClear);
+                boundary = new PdfTableBoundary(
+                        page, emitted.elementId(), PdfTableBoundary.Evidence.of(signature), entryClear, exitClear);
             }
         }
         previous = current;
         pending.clear();
+        sink.pageFinished(page, boundary);
+    }
+
+    /**
+     * Builds the continuation link of a table that continues the previous page's table. Shared by the ordered
+     * writer and range assembly so both produce identical metadata.
+     * @param rootId ID of the chain's first table
+     * @param rootPage page of the chain's first table
+     * @param previousId ID of the continued table
+     * @param previousPage page of the continued table
+     * @param part part index of the linking table
+     * @return immutable link metadata
+     */
+    static Map<String, Object> continuation(
+            final String rootId, final int rootPage, final String previousId, final int previousPage, final int part) {
+        return Map.of("version", 1, "policy", "adjacent_repeated_header_v1", "root_element_id", rootId,
+                "root_page_number", rootPage, "previous_element_id", previousId, "previous_page_number", previousPage,
+                "part_index", part);
     }
 
     /**

@@ -11,5 +11,3 @@ Starting with beta.6, releases require an annotated version tag at the verified
 source commit and reviewed GitHub prerelease notes. Verify version, source, tag
 and notes agree before Maven Central upload. Publication is a separate maintainer
 action after validation. Never overwrite an existing version or tag.
-
-Development and release versions are recorded in `pom.xml` and `.ci/release.json`. Published coordinates remain immutable.

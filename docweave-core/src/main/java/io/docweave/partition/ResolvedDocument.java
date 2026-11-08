@@ -13,7 +13,7 @@ import java.io.IOException;
 public interface ResolvedDocument extends AutoCloseable {
     /**
      * Wraps an already local source acquired by a custom resolver.
-     * @param local File, Bytes or Text source holding the content; never Remote
+     * @param local File, Bytes, OwnedBytes or Text source holding the content; never Remote
      * @param filename logical filename for routing, metadata and element IDs (a temporary file's own name is
      *        ignored), or null
      * @param provenance safe provenance
@@ -29,7 +29,7 @@ public interface ResolvedDocument extends AutoCloseable {
 
     /**
      * Returns the local content to parse.
-     * @return a File, Bytes or Text source; never Remote
+     * @return a File, Bytes, OwnedBytes or Text source; never Remote
      * @throws IllegalStateException after the handle has been closed
      */
     DocumentSource localSource();

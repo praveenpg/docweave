@@ -3,11 +3,14 @@ package io.docweave.json;
 import io.docweave.core.Element;
 import io.docweave.core.ElementType;
 import tools.jackson.core.JacksonException;
+import tools.jackson.core.JsonGenerator;
 import tools.jackson.databind.DeserializationFeature;
 import tools.jackson.databind.json.JsonMapper;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FilterOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -44,6 +47,9 @@ final class DefaultElementJson implements ElementJson {
     /** Shared immutable Jackson mapper used for writing element JSON. */
     private static final JsonMapper MAPPER =
             JsonMapper.builder().enable(DeserializationFeature.FAIL_ON_TRAILING_TOKENS).build();
+    /** Writer for caller-owned generators; flushing stays with the caller. */
+    private static final tools.jackson.databind.ObjectWriter ELEMENT_WRITER =
+            MAPPER.writer().without(tools.jackson.databind.SerializationFeature.FLUSH_AFTER_WRITE_VALUE);
     /** Maximum allowed decompressed byte count for compressed original-element payloads. */
     private static final int MAX_ORIGINAL_BYTES = 16 * 1024 * 1024;
 
@@ -85,6 +91,47 @@ final class DefaultElementJson implements ElementJson {
      */
     public String write(final List<Element> elements) {
         return MAPPER.writeValueAsString(elements.stream().map(this::asMap).toList());
+    }
+
+    /**
+     * Writes one element object with the same wire projection and serializers as the array encoding, without
+     * flushing the generator.
+     * @param element nonnull element
+     * @param generator open caller-owned generator
+     * @throws tools.jackson.core.JacksonException if JSON generation fails
+     */
+    @Override
+    public void write(final Element element, final JsonGenerator generator) {
+        java.util.Objects.requireNonNull(element, "element");
+        java.util.Objects.requireNonNull(generator, "generator");
+        ELEMENT_WRITER.writeValue(generator, asMap(element));
+    }
+
+    /**
+     * Writes one UTF-8 element object through a private generator that never closes the caller's stream.
+     * @param element nonnull element
+     * @param output open caller-owned stream
+     * @throws IOException if writing fails
+     * @throws tools.jackson.core.JacksonException if JSON generation fails
+     */
+    @Override
+    public void write(final Element element, final OutputStream output) throws IOException {
+        java.util.Objects.requireNonNull(element, "element");
+        java.util.Objects.requireNonNull(output, "output");
+        final var borrowed = new FilterOutputStream(output) {
+            @Override
+            public void write(final byte[] bytes, final int offset, final int length) throws IOException {
+                out.write(bytes, offset, length);
+            }
+
+            @Override
+            public void close() throws IOException {
+                flush();
+            }
+        };
+        try (final var generator = MAPPER.createGenerator(borrowed)) {
+            write(element, generator);
+        }
     }
 
     /**

@@ -62,3 +62,7 @@ Use supported Python 3.11–3.13 with recorded dependencies, then review changes
 checked-in references. Three synthetic inputs do not establish real-world quality, full option
 coverage, malformed-input parity or independent human review. Expand to permitted web documents,
 more dialects/visibility cases and upstream HTML v2 before broader claims.
+
+The later Markdown qualification against the released Unstructured 0.27.37 uses a separate owned corpus and
+reference file; see [Markdown support](markdown-support.md). It does not replace or relabel these historical
+`347fbbfd` references. Its emphasis evidence is answered there: Java AST modes now report emphasis spans.

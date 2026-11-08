@@ -12,19 +12,38 @@ import java.util.Base64;
 import java.util.Map;
 import javax.imageio.ImageIO;
 
-/** Thread-safe cumulative PNG budget, shared across page visitors. */
+/**
+ * Per-page image extraction with a cumulative PNG budget. Standalone instances keep their own thread-safe total;
+ * partition calls create one instance per page that charges a shared {@link PdfBudget}.
+ */
 final class PdfImageBudget {
     /** Immutable strategy policy. */
     private final PdfOptions options;
-    /** Bytes emitted across all image occurrences in this document. */
+    /** Shared call budget charged with encoded bytes, or null for this instance's own total. */
+    private final PdfBudget budget;
+    /** One-based page charged for this instance's images. */
+    private final int page;
+    /** Bytes emitted across all image occurrences when no shared budget is used. */
     private int used;
 
     /**
-     * Captures the per-image and cumulative limits.
+     * Captures the per-image and cumulative limits with this instance's own total.
      * @param options immutable image policy
      */
     PdfImageBudget(final PdfOptions options) {
+        this(options, null, 0);
+    }
+
+    /**
+     * Charges one page's encoded image bytes to a shared call budget.
+     * @param options immutable image policy; the per-image pixel ceiling stays local
+     * @param budget shared thread-safe call budget
+     * @param page one-based physical page
+     */
+    PdfImageBudget(final PdfOptions options, final PdfBudget budget, final int page) {
         this.options = options;
+        this.budget = budget;
+        this.page = page;
     }
 
     /**
@@ -63,6 +82,12 @@ final class PdfImageBudget {
              */
             private void reserve(final int count) throws IOException {
                 ElementCollector.checkInterrupted();
+                if (budget != null) {
+                    if (count > 0) {
+                        budget.charge(PdfBudget.Kind.IMAGE_BYTES, count, page);
+                    }
+                    return;
+                }
                 synchronized (PdfImageBudget.this) {
                     if (count > options.maxImageBytes() - used) {
                         throw new PartitionException(
