@@ -17,15 +17,15 @@ as structured elements and useful chunks that applications can work with.
 
 ## Getting started
 
-Use **Java 21 or later**. The `0.1.0-beta.13` full-library release includes the format parsers,
+Use **Java 21 or later**. The `0.1.0-beta.18` full-library release includes the format parsers,
 chunking/JSON services and optional OCR, layout and S3 adapters. Published to
-Maven Central. See the [beta.13 release notes](docs/releases/0.1.0-beta.13.md). Core alone installs no parsers.
+Maven Central. See the [beta.18 release notes](docs/releases/0.1.0-beta.18.md). Core alone installs no parsers.
 
 ```xml
 <dependency>
     <groupId>io.docweave</groupId>
     <artifactId>docweave-pdf</artifactId>
-    <version>0.1.0-beta.13</version>
+    <version>0.1.0-beta.18</version>
 </dependency>
 ```
 
@@ -730,7 +730,7 @@ isolated measurements; broader independent DOCX fidelity coverage remains the ne
 
 Before a new release, update the reactor version, `.ci/release.json` and the matching notes under `docs/releases/`. Jenkins watches public `main`, verifies the selected scope on Java 21, creates an annotated tag and prerelease, signs the captured artifacts, and publishes them to Maven Central. A version already published in the selected scope is skipped; documentation-only merges do not create another release. Published versions cannot be replaced.
 
-The beta.13 release plan selects **full-library** scope. Jenkins must verify the full Java 21 reactor, strict
+The beta.18 release plan selects **full-library** scope. Jenkins must verify the full Java 21 reactor, strict
 Javadocs, release archives and standalone adapter consumers before signing or uploading. The S3-compatible tests
 are required (their helper process uses Java 25; library compilation and tests use Java 21). No development-branch
 build publishes to Central. See [release policy](docs/releases/README.md).

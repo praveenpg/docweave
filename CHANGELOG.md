@@ -2,7 +2,7 @@
 
 ## 0.1.0-beta.18
 
-Full-library public release candidate; all reactor modules use `0.1.0-beta.18`.
+Published to Maven Central on 2026-11-08 (UTC); all reactor modules use `0.1.0-beta.18`.
 This cumulatively includes the changes developed in internal beta.14 through beta.17 since the public beta.13
 release: PDF scan-memory improvements and owned byte inputs, streaming element JSON and PDF range APIs, Markdown
 qualification, emphasis metadata and six opt-in syntax extensions. See [release notes](docs/releases/0.1.0-beta.18.md)
