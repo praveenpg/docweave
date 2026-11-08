@@ -305,12 +305,14 @@ final class DefaultChunker implements Chunker {
                         // Whole-table offsets/cell arrays no longer describe a fragment. Source metadata remains in
                         // provenance.
                         for (final String key : List.of("links", "link_texts", "link_urls", "link_start_indexes",
-                                     "image_urls", "table_as_cells", "table_column_alignments", "pdf_table_cells",
-                                     "pdf_table_joined_iso_dates", "pdf_table_joined_soft_hyphens",
-                                     "pdf_table_tagged_empty_cells", "pdf_table_caption_references",
-                                     "pdf_table_tagged_nontext_references", "pdf_table_inline_script_glyphs",
-                                     "pdf_table_header_rows", "pdf_table_header_policy",
-                                     "pdf_table_retained_hyphen_wraps")) {
+                                     "emphasized_text_contents", "emphasized_text_tags",
+                                     "emphasized_text_start_indexes", "strikethrough_texts",
+                                     "strikethrough_start_indexes", "image_urls", "table_as_cells",
+                                     "table_column_alignments", "pdf_table_cells", "pdf_table_joined_iso_dates",
+                                     "pdf_table_joined_soft_hyphens", "pdf_table_tagged_empty_cells",
+                                     "pdf_table_caption_references", "pdf_table_tagged_nontext_references",
+                                     "pdf_table_inline_script_glyphs", "pdf_table_header_rows",
+                                     "pdf_table_header_policy", "pdf_table_retained_hyphen_wraps")) {
                             chunkMetadata.remove(key);
                         }
                         chunkMetadata.putAll(fragment.metadata());
@@ -354,15 +356,17 @@ final class DefaultChunker implements Chunker {
                 chunkMetadata.put(OVERLAP_PREFIX_CHARACTERS, overlapPrefix);
             }
             if (splitTable) {
-                for (final String key : List.of("text_as_html", "links", "link_texts", "link_urls",
-                             "link_start_indexes", "image_urls", "table_as_cells", "table_column_alignments",
-                             "pdf_table_cells", "pdf_table_joined_iso_dates", "pdf_table_joined_soft_hyphens",
-                             "pdf_table_tagged_empty_cells", "pdf_table_caption_references",
-                             "pdf_table_tagged_nontext_references", "pdf_table_inline_script_glyphs",
-                             "pdf_table_header_rows", "pdf_table_header_policy", "pdf_table_retained_hyphen_wraps",
-                             "table_row_count", "table_column_count", "table_header_rows", "table_leading_header_rows",
-                             "table_row_start", "table_row_end", "table_column_start", "table_column_end",
-                             "table_cell_fragments")) {
+                for (final String key :
+                        List.of("text_as_html", "links", "link_texts", "link_urls", "link_start_indexes",
+                                "emphasized_text_contents", "emphasized_text_tags", "emphasized_text_start_indexes",
+                                "strikethrough_texts", "strikethrough_start_indexes", "image_urls", "table_as_cells",
+                                "table_column_alignments", "pdf_table_cells", "pdf_table_joined_iso_dates",
+                                "pdf_table_joined_soft_hyphens", "pdf_table_tagged_empty_cells",
+                                "pdf_table_caption_references", "pdf_table_tagged_nontext_references",
+                                "pdf_table_inline_script_glyphs", "pdf_table_header_rows", "pdf_table_header_policy",
+                                "pdf_table_retained_hyphen_wraps", "table_row_count", "table_column_count",
+                                "table_header_rows", "table_leading_header_rows", "table_row_start", "table_row_end",
+                                "table_column_start", "table_column_end", "table_cell_fragments")) {
                     chunkMetadata.remove(key);
                 }
                 chunkMetadata.put("table_id", tableId);

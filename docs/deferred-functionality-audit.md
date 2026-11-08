@@ -94,7 +94,7 @@ Rank1 acceptance criteria:
 | DOCX rendering | Stored-part extraction; no reliable pagination/coordinates, visual reading order, OCR, arbitrary drawings, font-glyph rendering or field evaluation |
 | HTML | Semantic DOM, no browser/CSS/JavaScript rendering or network asset fetch |
 | XML | Generic ordered text, namespaces and attributes; no XPath selection/raw-tag parity, DTD/entity fetching, schema or stylesheet execution |
-| Markdown | CommonMark plus optional GFM tables and documented raw-HTML policies; other extensions require explicit scope |
+| Markdown | CommonMark plus optional GFM tables, opt-in task lists/strikethrough/autolinks and documented raw-HTML policies; footnotes, definition lists and front matter are deferred pending extraction-semantics design (see markdown-support.md) |
 | JSON | Supported element taxonomy/top-level schema is strict; unknown metadata round-trips. Broader top-level schema needs a deliberate contract change |
 | Chunking | Character budgets, literal separators and documented table/overlap differences; no tokenizer selected |
 | Cancellation | Cooperative checkpoints and optional batch deadlines exist; direct synchronous APIs are untimed and indivisible parser/I/O calls may delay interruption |

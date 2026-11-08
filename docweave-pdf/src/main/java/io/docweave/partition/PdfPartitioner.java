@@ -117,6 +117,156 @@ public interface PdfPartitioner extends Partitioner {
     }
 
     /**
+     * Partitions one contiguous range of a PDF's pages, for callers that split a large document into ranges,
+     * process them independently (possibly on different machines) and combine the results with
+     * {@link PdfRangeAssembler}. Only the selected pages are extracted. Everything that concerns the whole document
+     * still covers the whole document, exactly as in {@link #partition(PartitionContext)}: loading and the
+     * {@code maxInputBytes} limit, the extraction permission, the {@code maxPages} check of the total page count,
+     * the source-tag pass and the paragraph identity over all bytes, and the document warnings.
+     *
+     * <p>Elements keep their physical page numbers and all page-local metadata. Their IDs are provisional (see
+     * {@link PdfRangeResult}); table continuation links stay inside the range. Image bytes and element admissions are
+     * charged to {@code budget} with their page, and the range result records each page's admitted usage. Pass
+     * {@link #standardBudget(PartitionOptions)} for the whole-document limits applied to this range alone, or a
+     * caller budget that accounts for the whole document. Pages run with the same in-process parallelism and
+     * batching as whole-document partitioning, starting at the range's first page.</p>
+     *
+     * <p>Progress, when a listener is given, reports PREPARING, EXTRACTING with the range's pages as units (unit
+     * {@code i} is page {@code first + i}), ASSEMBLING and DONE, under the rules of
+     * {@code DocWeave.partition(source, options, listener)}.</p>
+     *
+     * Custom implementations may override this optional method; its default rejects the request.
+     * @param source nonnull local PDF source; remote sources are resolved by the caller first
+     * @param options nonnull document options, the same for every range of a document
+     * @param pages nonnull pages to extract, within the document
+     * @param budget nonnull budget charged by this call
+     * @param listener progress listener, or null for none
+     * @return immutable range result
+     * @throws PartitionException for invalid or unsupported input, a range beyond the document
+     *         ({@code UNSUPPORTED_OPTION}) or an exceeded limit
+     * @throws java.io.InterruptedIOException at an interrupted processing checkpoint
+     * @throws java.io.IOException if source I/O fails
+     * @throws NullPointerException if a required argument is null
+     * @throws IllegalArgumentException if the source is remote
+     * @throws UnsupportedOperationException if a custom implementation does not support page ranges
+     */
+    default PdfRangeResult partitionRange(final DocumentSource source, final PartitionOptions options,
+            final PdfPageRange pages, final PdfBudget budget, final PartitionProgressListener listener)
+            throws java.io.IOException {
+        java.util.Objects.requireNonNull(source, "source");
+        java.util.Objects.requireNonNull(options, "options");
+        java.util.Objects.requireNonNull(pages, "pages");
+        java.util.Objects.requireNonNull(budget, "budget");
+        throw new UnsupportedOperationException("Custom PDF partitioner does not support page ranges");
+    }
+
+    /**
+     * Does a PDF's document-wide work once, so that several of its page ranges can be partitioned or counted with
+     * {@link #partitionRange(PdfPreparedDocument, PdfPageRange, PdfBudget, PartitionProgressListener)} and
+     * {@link #countRange(PdfPreparedDocument, PdfPageRange, PdfBudget, PartitionProgressListener)} without repeating
+     * it: loading, the permission and {@code maxPages} checks, the source digest, the source-tag pass and the
+     * document warnings. Fails exactly as those checks fail in a range call.
+     * Custom implementations may override this optional method; its default rejects the request.
+     * @param source nonnull local PDF source
+     * @param options nonnull document options, used for every range of the prepared document
+     * @return immutable prepared document, valid for this partitioner's configuration in this process
+     * @throws java.io.IOException if loading, parsing, a document check or cancellation fails
+     * @throws IllegalArgumentException if the source is remote
+     * @throws UnsupportedOperationException if a custom implementation does not support preparation
+     */
+    default PdfPreparedDocument prepare(final DocumentSource source, final PartitionOptions options)
+            throws java.io.IOException {
+        java.util.Objects.requireNonNull(source, "source");
+        java.util.Objects.requireNonNull(options, "options");
+        throw new UnsupportedOperationException("Custom PDF partitioner does not support prepared documents");
+    }
+
+    /**
+     * Partitions one page range of a prepared document. The result is identical to
+     * {@link #partitionRange(DocumentSource, PartitionOptions, PdfPageRange, PdfBudget, PartitionProgressListener)}
+     * on the same source and options; only the document-wide work is skipped.
+     * Custom implementations may override this optional method; its default rejects the request.
+     * @param document nonnull document prepared by an identically configured partitioner
+     * @param pages nonnull pages to extract, within the document
+     * @param budget nonnull budget charged by this call
+     * @param listener progress listener, or null for none
+     * @return immutable range result
+     * @throws java.io.IOException if parsing, limits or cancellation fail
+     * @throws IllegalArgumentException if the document was prepared by a differently configured partitioner
+     * @throws UnsupportedOperationException if a custom implementation does not support prepared documents
+     */
+    default PdfRangeResult partitionRange(final PdfPreparedDocument document, final PdfPageRange pages,
+            final PdfBudget budget, final PartitionProgressListener listener) throws java.io.IOException {
+        java.util.Objects.requireNonNull(document, "document");
+        throw new UnsupportedOperationException("Custom PDF partitioner does not support prepared documents");
+    }
+
+    /**
+     * Counts one page range of a prepared document without retaining its elements: every page is extracted and its
+     * elements are charged to {@code budget}, then dropped. Extraction-phase charges are unchanged ({@code IMAGE_BYTES}
+     * per codec write, {@code PAGE_ELEMENTS} once per element with amount 1). The ordered charges differ: {@code
+     * PAGE_PENDING} (buffered output only) and
+     * {@code ELEMENTS} are each charged once per page, with the page's element total as the amount, instead of once per
+     * element. Per-page usage totals are therefore identical to partitioning, and the standard budget reports the same
+     * code, message and page, but a cumulative limit is refused at the page's single charge rather than at a particular
+     * element within the page.
+     * Table continuation and ordering are not applied. A permissive
+     * budget can therefore count a page far denser than a partition call could hold; the page-local memory ceiling of
+     * partitioning does not apply because nothing is retained. Page completions and progress are reported as when
+     * partitioning.
+     * Custom implementations may override this optional method; its default rejects the request.
+     * @param document nonnull document prepared by an identically configured partitioner
+     * @param pages nonnull pages to count, within the document
+     * @param budget nonnull budget charged by this call
+     * @param listener progress listener, or null for none
+     * @return per-page usage and warnings, without elements
+     * @throws java.io.IOException if parsing, the budget or cancellation fails
+     * @throws IllegalArgumentException if the document was prepared by a differently configured partitioner
+     * @throws UnsupportedOperationException if a custom implementation does not support counting
+     */
+    default PdfRangeCount countRange(final PdfPreparedDocument document, final PdfPageRange pages,
+            final PdfBudget budget, final PartitionProgressListener listener) throws java.io.IOException {
+        java.util.Objects.requireNonNull(document, "document");
+        throw new UnsupportedOperationException("Custom PDF partitioner does not support counting");
+    }
+
+    /**
+     * Partitions one contiguous page range without progress reporting; see
+     * {@link #partitionRange(DocumentSource, PartitionOptions, PdfPageRange, PdfBudget, PartitionProgressListener)}.
+     * @param source nonnull local PDF source
+     * @param options nonnull document options
+     * @param pages nonnull pages to extract
+     * @param budget nonnull budget charged by this call
+     * @return immutable range result
+     * @throws java.io.IOException if loading, parsing, limits or cancellation fail
+     * @throws UnsupportedOperationException if a custom implementation does not support page ranges
+     */
+    default PdfRangeResult partitionRange(final DocumentSource source, final PartitionOptions options,
+            final PdfPageRange pages, final PdfBudget budget) throws java.io.IOException {
+        return partitionRange(source, options, pages, budget, null);
+    }
+
+    /**
+     * Creates the document budgets this strategy applies to one whole-document partition call, for callers that
+     * process a document in page ranges and want the same limits. Each call needs a new instance: the budget
+     * accumulates image bytes and element counts. It admits the same amounts and fails with the same codes and
+     * messages as the whole-document path: {@code IMAGE_LIMIT} once encoded image bytes would exceed
+     * {@link PdfOptions#maxImageBytes()}; {@code ELEMENT_LIMIT} when a page would hold more than its page-local
+     * ceiling ({@code min(4096, maxElements)} with table continuation or geometric reading order, otherwise
+     * {@code maxElements}), or when the ordered output would exceed {@code maxElements}. Used on page ranges alone,
+     * the cumulative checks see only the elements and images of the ranges charged to the same instance.
+     * Custom implementations may override this optional method; its default rejects the request.
+     * @param options nonnull document options supplying {@code maxElements}
+     * @return new thread-safe budget
+     * @throws NullPointerException if options is null
+     * @throws UnsupportedOperationException if a custom implementation does not provide standard budgets
+     */
+    default PdfBudget standardBudget(final PartitionOptions options) {
+        java.util.Objects.requireNonNull(options, "options");
+        throw new UnsupportedOperationException("Custom PDF partitioner does not provide standard budgets");
+    }
+
+    /**
      * Copies an explicitly source-tagged strategy with a caller-selected geometry requirement.
      * Logical-envelope mode retains blank source slots without assigning them cell rectangles.
      * The explicit cell-envelope variant keeps unclaimed gap text as separate ordinary output;

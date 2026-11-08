@@ -1,13 +1,22 @@
 package io.docweave.partition;
 
+import org.commonmark.Extension;
+import org.commonmark.ext.autolink.AutolinkExtension;
+import org.commonmark.ext.autolink.AutolinkType;
+import org.commonmark.ext.footnotes.FootnotesExtension;
+import org.commonmark.ext.gfm.strikethrough.StrikethroughExtension;
 import org.commonmark.ext.gfm.tables.TablesExtension;
+import org.commonmark.ext.task.list.items.TaskListItemsExtension;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
 import java.io.IOException;
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
+import java.util.Map;
 
 /** Stateless CommonMark strategy with optional rendered-DOM delegation; all traversal state is document-local. */
 final class MarkdownPartitioner implements Partitioner {
@@ -30,30 +39,49 @@ final class MarkdownPartitioner implements Partitioner {
 
     /**
      * Parses Markdown within configured nesting/table budgets and partitions either the AST or rendered DOM.
-     * @param context synchronous document context
+     * @param input synchronous document context
      * @throws IOException if parsing, depth/table limits, HTML service discovery or interruption fails
      */
-    public void partition(final PartitionContext context) throws IOException {
-        NestedTableSupport.check(this, context.options());
-        final var options = context.options().markdownOptions();
+    public void partition(final PartitionContext input) throws IOException {
+        NestedTableSupport.check(this, input.options());
+        final var options = input.options().markdownOptions();
         final boolean preserve =
-                context.options().nestedTableOptions().mode() == NestedTableOptions.Mode.PRESERVE_METADATA;
+                input.options().nestedTableOptions().mode() == NestedTableOptions.Mode.PRESERVE_METADATA;
         if (preserve && options.rawHtml() != MarkdownOptions.RawHtml.EXTRACT_DOM) {
             throw new PartitionException(PartitionException.Code.UNSUPPORTED_OPTION,
                     "Markdown nested-table preservation requires EXTRACT_DOM");
         }
         // Resolve preservation support before parsing. Default mode retains its existing failure precedence.
         final HtmlExtraction preservation = preserve ? htmlExtraction(true) : null;
+        // Read content only after option checks, so unsupported combinations fail before the input is touched.
+        PartitionContext context = input;
+        String text = input.text();
+        if (options.extensions().contains(MarkdownOptions.Extension.FRONT_MATTER)) {
+            final var split = MarkdownFrontMatter.split(text);
+            text = split.body();
+            if (split.invalid() != null) {
+                input.warn(PartitionResult.WarningCode.MARKDOWN_FRONT_MATTER_INVALID,
+                        "Markdown front matter was kept as literal text: " + split.reason());
+                if (!split.invalid().isBlank()) {
+                    input.emit(io.docweave.core.ElementType.UncategorizedText, split.invalid(), Map.of());
+                }
+            }
+            context = new FrontMatterContext(input, text, split.values());
+        }
         final var builder = Parser.builder()
                                     .maxOpenBlockParsers(options.maxNesting() + 1)
                                     .maxInlineNesting(options.maxNesting() + 1);
+        final var parserExtensions = syntaxExtensions(options);
         if (options.tables()) {
-            builder.extensions(List.of(TablesExtension.builder().maxCells(options.tableLimits().maxCells()).build()));
+            parserExtensions.addFirst(TablesExtension.builder().maxCells(options.tableLimits().maxCells()).build());
+        }
+        if (!parserExtensions.isEmpty()) {
+            builder.extensions(parserExtensions);
         }
         ElementCollector.checkInterrupted();
         Node document;
         try {
-            document = builder.build().parse(context.text());
+            document = builder.build().parse(text);
         } catch (final IllegalArgumentException error) {
             if (options.tables() && error.getMessage() != null
                     && error.getMessage().startsWith("Aborting parsing because maximum number of cells reached")) {
@@ -81,14 +109,51 @@ final class MarkdownPartitioner implements Partitioner {
         // Delegate to the HTML DOM walker when EXTRACT_DOM is active; otherwise walk the CommonMark AST directly.
         if (options.rawHtml() == MarkdownOptions.RawHtml.EXTRACT_DOM) {
             final var html = preservation == null ? htmlExtraction(false) : preservation;
+            if (options.extensions().contains(MarkdownOptions.Extension.FOOTNOTES)) {
+                // The renderer omits footnotes it does not place in its notes section; keep their text.
+                MarkdownFootnotes.keepMalformed(document);
+                MarkdownFootnotes.analyze(document).unwrap(document);
+            }
             final var renderer = HtmlRenderer.builder();
+            final var renderExtensions = syntaxExtensions(options);
             if (options.tables()) {
-                renderer.extensions(List.of(TablesExtension.create()));
+                renderExtensions.addFirst(TablesExtension.create());
+            }
+            if (!renderExtensions.isEmpty()) {
+                renderer.extensions(renderExtensions);
             }
             html.partition(context, renderer.build().render(document), options.tableLimits());
         } else {
             new MarkdownAstWalker(context).partition(document);
         }
+    }
+
+    /**
+     * Creates the opt-in CommonMark syntax extensions selected by the caller, in a fixed order.
+     * @param options active Markdown policies
+     * @return mutable list of parser/renderer extensions; empty when no syntax extension is selected
+     */
+    private static List<Extension> syntaxExtensions(final MarkdownOptions options) {
+        final var selected = options.extensions();
+        final var result = new ArrayList<Extension>();
+        if (selected.contains(MarkdownOptions.Extension.STRIKETHROUGH)) {
+            result.add(StrikethroughExtension.builder().requireTwoTildes(true).build());
+        }
+        if (selected.contains(MarkdownOptions.Extension.TASK_LIST_ITEMS)) {
+            result.add(TaskListItemsExtension.create());
+        }
+        if (selected.contains(MarkdownOptions.Extension.AUTOLINKS)) {
+            result.add(AutolinkExtension.builder()
+                            .linkTypes(EnumSet.of(AutolinkType.URL, AutolinkType.WWW, AutolinkType.EMAIL))
+                            .build());
+        }
+        if (selected.contains(MarkdownOptions.Extension.FOOTNOTES)) {
+            result.add(FootnotesExtension.create());
+        }
+        if (selected.contains(MarkdownOptions.Extension.DEFINITION_LISTS)) {
+            result.add(MarkdownDefinitionLists.create());
+        }
+        return result;
     }
 
     /**

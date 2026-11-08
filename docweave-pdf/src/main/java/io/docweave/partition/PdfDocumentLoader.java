@@ -81,6 +81,12 @@ final class PdfDocumentLoader {
         boolean retained = false;
         try {
             final var document = Loader.loadPDF(reader, password);
+            // Image XObjects and their decoded rasters must not outlive the page that used them (#56). Only a cache
+            // of exactly PDFBox's default class is replaced; a custom cache class (or none) is left as configured.
+            if (document.getResourceCache() != null
+                    && document.getResourceCache().getClass() == org.apache.pdfbox.pdmodel.DefaultResourceCache.class) {
+                document.setResourceCache(new PdfResourceCache());
+            }
             retained = true;
             return document;
         } finally {

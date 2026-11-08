@@ -19,6 +19,21 @@ import java.util.regex.Pattern;
  */
 record PdfTableSignature(double width, double height, Map<String, Object> transforms, String source,
         List<Double> columns, List<String> header, double top, double bottom) {
+    /**
+     * Stores the frame transforms normalized once, so comparisons need no copies.
+     * @param width displayed page width
+     * @param height displayed page height
+     * @param transforms frame properties; numbers become doubles
+     * @param source recognition family
+     * @param columns column boundaries
+     * @param header normalized labels
+     * @param top table top
+     * @param bottom table bottom
+     */
+    PdfTableSignature {
+        transforms = numeric(transforms);
+    }
+
     /** Unicode spacing normalization, without OCR correction or case folding. */
     private static final Pattern SPACE = Pattern.compile("[\\p{javaWhitespace}\\p{Zs}]+");
 
@@ -132,6 +147,33 @@ record PdfTableSignature(double width, double height, Map<String, Object> transf
                                       .toList();
         return new PdfTableSignature(width, height, validated.transforms(),
                 source + ":header_prefix_rows=" + rows.size(), validated.columns(), canonical, top, bottom);
+    }
+
+    /**
+     * Copies a JSON-compatible map with every number, at any depth, converted to a {@link Double}, so frames compare by
+     * value regardless of the number types a store used.
+     * @param map source map
+     * @return immutable normalized copy
+     */
+    static Map<String, Object> numeric(final Map<String, Object> map) {
+        final var copy = new java.util.LinkedHashMap<String, Object>();
+        map.forEach((key, value) -> copy.put(java.util.Objects.requireNonNull(key), numericValue(value)));
+        return java.util.Collections.unmodifiableMap(copy);
+    }
+
+    /**
+     * Normalizes one value.
+     * @param value value
+     * @return value with numbers as doubles
+     */
+    @SuppressWarnings("unchecked")
+    private static Object numericValue(final Object value) {
+        return switch (java.util.Objects.requireNonNull(value)) {
+            case final Number number -> number.doubleValue();
+            case final List<?> list -> list.stream().map(PdfTableSignature::numericValue).toList();
+            case final Map<?, ?> map -> numeric((Map<String, Object>) map);
+            default -> value;
+        };
     }
 
     /**

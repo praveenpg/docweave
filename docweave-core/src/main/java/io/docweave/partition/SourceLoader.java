@@ -108,7 +108,7 @@ final class SourceLoader {
     /**
      * Loads a custom resolver's local source under its logical filename.
      *
-     * @param local File, Bytes or Text source
+     * @param local File, Bytes, OwnedBytes or Text source
      * @param filename logical filename replacing the source's own name
      * @param options partition options and resource limits
      * @return loaded {@link Content}
@@ -143,7 +143,14 @@ final class SourceLoader {
                 if (bytes.size() > options.maxInputBytes()) {
                     throw tooLarge(options);
                 }
-                yield new Raw(bytes.content(), bytes.filename());
+                // The snapshot is private to the source and never modified, so it is read in place (#56).
+                yield new Raw(bytes.snapshot(), bytes.filename());
+            }
+            case final DocumentSource.OwnedBytes bytes -> {
+                if (bytes.size() > options.maxInputBytes()) {
+                    throw tooLarge(options);
+                }
+                yield new Raw(bytes.snapshot(), bytes.filename());
             }
             case final DocumentSource.Text text -> {
                 final int size = DecodedTextInput.measure(text.content(), options.maxInputBytes());

@@ -32,7 +32,9 @@ public record PartitionResult(List<Element> elements, DocumentFormat format, Str
         /** DOCX content not represented in the supported extraction model was skipped or flattened. */
         DOCX_CONTENT_OMITTED,
         /** PDF native extraction cannot provide OCR or full rendered layout semantics. */
-        PDF_EXTRACTION_LIMITATION
+        PDF_EXTRACTION_LIMITATION,
+        /** A Markdown front-matter block was malformed or over budget and was kept as literal text. */
+        MARKDOWN_FRONT_MATTER_INVALID
     }
 
     /**

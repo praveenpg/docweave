@@ -7,6 +7,7 @@ Keep the matching changelog entry, version, source revision and candidate scope 
 Update status only after the corresponding service confirms it; distinguish prepared, validated,
 publishing and published. Published artifact bytes and coordinates remain immutable.
 
+- [0.1.0-beta.18](0.1.0-beta.18.md): proposed full-library release; cumulative PDF memory/API and Markdown improvements since beta.13.
 - [0.1.0-beta.13](0.1.0-beta.13.md): published full-library release; parallel PDF page processing.
 - [0.1.0-beta.12](0.1.0-beta.12.md): proposed full-library release; breaking contextual-enrichment removal,
   optional PDF operator ceiling, new PDF bounds and partition progress. Covers all changes since beta.10.

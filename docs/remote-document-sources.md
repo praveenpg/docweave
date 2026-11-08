@@ -268,6 +268,10 @@ Adding `Remote` to the sealed interface is a **source-compatibility change** for
 `PartitionResult` record patterns with six components must add the seventh. Local calls start no thread, network
 activity or credential lookup and produce unchanged output.
 
+`OwnedBytes` (0.1.0-beta.15, `DocumentSource.ownedBytes`) is the same kind of change: exhaustive `switch` statements
+over `DocumentSource` must add an `OwnedBytes` case or a default branch. `SourceLoader` and
+`DefaultPdfPageCropRenderer` handle it like `Bytes`.
+
 ## Studio integration seam
 
 Studio stores uploads durably in S3-compatible artifact storage before processing. The intended integration keeps

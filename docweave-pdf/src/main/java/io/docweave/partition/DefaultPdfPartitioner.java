@@ -267,59 +267,402 @@ final class DefaultPdfPartitioner implements PdfPartitioner {
     }
 
     /**
-     * Extracts pages without executing scripts, following links or evaluating forms.
+     * Extracts pages without executing scripts, following links or evaluating forms. The whole document is processed
+     * as one page range covering every page, assembled by the same path as stored range results. Because that range
+     * starts at page 1, its elements are emitted straight into the context with final IDs and assembly only verifies
+     * that no reference needs rewriting.
      * @param context synchronous binary input and bounded emission sink
      * @throws IOException if parsing, permission checks, cancellation or extraction limits fail
      */
     @Override
     public void partition(final PartitionContext context) throws IOException {
         NestedTableSupport.check(this, context.options());
-        try (final var documents = new PdfPageDocuments(context.binaryBuffer(), context.filename(), passwords);
-                final var document = documents.open()) {
-            validateDocument(document);
-            // A page is the unit of PDF progress; completion follows all output for that page.
-            final var progress = context.progress();
-            progress.beginUnits("pages", document.getNumberOfPages());
-            context.warn(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION, limitation());
-            final var tagged = readTaggedStructure(document, context);
-            ElementCollector.checkInterrupted();
-            final String paragraphDocumentIdentity =
-                    paragraphOptions != null
-                                    && paragraphOptions.pageBoundary()
-                                               == PdfTaggedParagraphOptions.PageBoundary.PAGE_FRAGMENTS
-                            ? PdfParagraphIdentity.document(context.binaryBuffer())
-                            : null;
-            ElementCollector.checkInterrupted();
-            // These budgets and buffers belong to the whole call, not to individual pages.
-            final var images = new PdfImageBudget(options);
-            final var output = createOutput(context);
-            final var indices = java.util.stream.IntStream.range(0, document.getNumberOfPages()).boxed().toList();
-            // Batches prevent the ordered writer from retaining an entire document of completed pages.
-            final int batchSize = Math.max(1, java.util.concurrent.ForkJoinPool.getCommonPoolParallelism() + 1);
-            try (final var execution = new PdfPageExecution()) {
-                for (int start = 0; start < indices.size(); start += batchSize) {
-                    ElementCollector.checkInterrupted();
-                    final var batch = indices.subList(start, Math.min(indices.size(), start + batchSize));
-                    final var task = java.util.concurrent.CompletableFuture.supplyAsync(
-                            ()
-                                    -> batch.parallelStream()
-                                            .map(index -> execution.run(() -> {
-                                                final var pageOutput = output.pageBuffer();
-                                                partitionPage(documents.page(), index, images, pageOutput, tagged,
-                                                        paragraphDocumentIdentity);
-                                                return pageOutput;
-                                            }))
-                                            .toList(),
-                            java.util.concurrent.ForkJoinPool.commonPool());
-                    final var completed = execution.await(task);
-                    execution.check();
-                    for (int offset = 0; offset < completed.size(); offset++) {
-                        ElementCollector.checkInterrupted();
-                        completed.get(offset).replay(output, start + offset + 1);
-                        progress.unitCompleted(start + offset);
+        final var assembly = new PdfRangeAssembly(PdfRangeAssembly.Output.emitted(context));
+        final var pages = new PdfRangeCollector.Listener() {
+            /** Whole-document coverage, known once the document is open. */
+            private PdfPageRange coverage;
+            /** Evidence of the last completed page. */
+            private PdfTableBoundary last;
+
+            @Override
+            public void begin(final int documentPages, final java.util.List<PartitionResult.Warning> warnings)
+                    throws IOException {
+                coverage = documentPages == 0 ? null : new PdfPageRange(1, documentPages);
+                if (coverage != null) {
+                    assembly.begin(coverage, documentPages, warnings, null);
+                } else {
+                    for (final var warning : warnings) {
+                        context.warn(warning.code(), warning.message());
                     }
                 }
             }
+
+            @Override
+            public void page(final PdfRangeResult.Page page, final PdfTableBoundary boundary) throws IOException {
+                assembly.page(page);
+                last = boundary;
+            }
+        };
+        extract(context.binaryBuffer(), context.filename(), context.options(), null, standardBudget(context.options()),
+                context.progress(), pages, null, null, false, context);
+        if (pages.coverage != null) {
+            assembly.end(pages.coverage, pages.last);
+            assembly.finish();
+        }
+    }
+
+    /**
+     * Partitions one contiguous page range from a source. The source is hashed once; that digest also serves as the
+     * paragraph identity. Document-wide checks and the source-tag pass still cover the whole document.
+     * @param source local PDF source
+     * @param partitionOptions document options
+     * @param pages one-based inclusive page range
+     * @param budget caller's budget for this call
+     * @param listener optional progress listener
+     * @return immutable range result
+     * @throws IOException if loading, parsing, limits or cancellation fail
+     */
+    @Override
+    public PdfRangeResult partitionRange(final DocumentSource source, final PartitionOptions partitionOptions,
+            final PdfPageRange pages, final PdfBudget budget, final PartitionProgressListener listener)
+            throws IOException {
+        java.util.Objects.requireNonNull(pages, "pages");
+        java.util.Objects.requireNonNull(budget, "budget");
+        final var progress = PartitionProgressTracker.of(listener);
+        try {
+            progress.enter(PartitionProgress.Phase.PREPARING);
+            final var content = load(source, partitionOptions);
+            final String sha = sha256(content.binary());
+            progress.enter(PartitionProgress.Phase.EXTRACTING);
+            final var collected = new RangePages();
+            extract(java.nio.ByteBuffer.wrap(content.binary()).asReadOnlyBuffer(), content.filename(), partitionOptions,
+                    pages, budget, progress, collected, null, sha, false, null);
+            return rangeResult(progress, collected, content.warnings(), sha, content.bytes(), content.filename(),
+                    optionsDigest(partitionOptions), pages);
+        } finally {
+            progress.close();
+        }
+    }
+
+    @Override
+    public PdfPreparedDocument prepare(final DocumentSource source, final PartitionOptions partitionOptions)
+            throws IOException {
+        final var content = load(source, partitionOptions);
+        final String sha = sha256(content.binary());
+        final var input = java.nio.ByteBuffer.wrap(content.binary()).asReadOnlyBuffer();
+        final Inspection inspection = translated(() -> {
+            try (final var documents = new PdfPageDocuments(input, content.filename(), passwords);
+                    final var document = documents.open()) {
+                validateDocument(document);
+                return inspect(document, input, sha);
+            }
+        });
+        return new DefaultPdfPreparedDocument(content.binary(), content.filename(), partitionOptions,
+                optionsDigest(partitionOptions), sha, content.bytes(), content.warnings(), inspection);
+    }
+
+    @Override
+    public PdfRangeResult partitionRange(final PdfPreparedDocument document, final PdfPageRange pages,
+            final PdfBudget budget, final PartitionProgressListener listener) throws IOException {
+        final var prepared = prepared(document, pages, budget);
+        final var progress = PartitionProgressTracker.of(listener);
+        try {
+            progress.enter(PartitionProgress.Phase.PREPARING);
+            progress.enter(PartitionProgress.Phase.EXTRACTING);
+            final var collected = new RangePages();
+            extract(prepared.input(), prepared.filename(), prepared.options(), pages, budget, progress, collected,
+                    prepared.inspection(), prepared.sourceSha256(), false, null);
+            return rangeResult(progress, collected, prepared.loaderWarnings(), prepared.sourceSha256(),
+                    prepared.sourceBytes(), prepared.filename(), prepared.optionsDigest(), pages);
+        } finally {
+            progress.close();
+        }
+    }
+
+    @Override
+    public PdfRangeCount countRange(final PdfPreparedDocument document, final PdfPageRange pages,
+            final PdfBudget budget, final PartitionProgressListener listener) throws IOException {
+        final var prepared = prepared(document, pages, budget);
+        final var progress = PartitionProgressTracker.of(listener);
+        try {
+            progress.enter(PartitionProgress.Phase.PREPARING);
+            progress.enter(PartitionProgress.Phase.EXTRACTING);
+            final var collected = new RangePages();
+            extract(prepared.input(), prepared.filename(), prepared.options(), pages, budget, progress, collected,
+                    prepared.inspection(), prepared.sourceSha256(), true, null);
+            ElementCollector.checkInterrupted();
+            progress.enter(PartitionProgress.Phase.ASSEMBLING);
+            final var result = new PdfRangeCount(pages, collected.documentPages, collected.completed);
+            progress.enter(PartitionProgress.Phase.DONE);
+            return result;
+        } finally {
+            progress.close();
+        }
+    }
+
+    /**
+     * Accepts only documents prepared by an identically configured partitioner.
+     * @param document candidate
+     * @param pages nonnull range
+     * @param budget nonnull budget
+     * @return hidden prepared document
+     * @throws IOException if interrupted
+     */
+    private DefaultPdfPreparedDocument prepared(
+            final PdfPreparedDocument document, final PdfPageRange pages, final PdfBudget budget) throws IOException {
+        java.util.Objects.requireNonNull(document, "document");
+        java.util.Objects.requireNonNull(pages, "pages");
+        java.util.Objects.requireNonNull(budget, "budget");
+        if (!(document instanceof final DefaultPdfPreparedDocument prepared)
+                || !prepared.optionsDigest().equals(optionsDigest(prepared.options()))) {
+            throw new IllegalArgumentException("The PDF document was prepared by a differently configured partitioner");
+        }
+        ElementCollector.checkInterrupted();
+        return prepared;
+    }
+
+    /**
+     * Loads a local PDF source for a range call.
+     * @param source local source
+     * @param partitionOptions document options
+     * @return loaded binary content
+     * @throws IOException if loading fails or the content is not a PDF
+     */
+    private SourceLoader.Content load(final DocumentSource source, final PartitionOptions partitionOptions)
+            throws IOException {
+        java.util.Objects.requireNonNull(source, "source");
+        java.util.Objects.requireNonNull(partitionOptions, "options");
+        if (source instanceof DocumentSource.Remote) {
+            throw new IllegalArgumentException("PDF page ranges need a local document source");
+        }
+        ElementCollector.checkInterrupted();
+        final var content = new SourceLoader().load(source, partitionOptions);
+        if (content.format() != DocumentFormat.PDF) {
+            throw new PartitionException(
+                    PartitionException.Code.UNSUPPORTED_FORMAT, "PDF page ranges need a PDF document");
+        }
+        NestedTableSupport.check(this, partitionOptions);
+        return content;
+    }
+
+    /**
+     * Builds a range result from collected pages and reports the final phases.
+     * @param progress call progress
+     * @param collected collected pages
+     * @param loaderWarnings warnings from loading, before the document warnings
+     * @param sha source digest
+     * @param bytes source size
+     * @param filename optional filename
+     * @param digest options digest
+     * @param pages covered pages
+     * @return result
+     * @throws IOException if interrupted
+     */
+    private static PdfRangeResult rangeResult(final PartitionProgressTracker progress, final RangePages collected,
+            final java.util.List<PartitionResult.Warning> loaderWarnings, final String sha, final int bytes,
+            final String filename, final String digest, final PdfPageRange pages) throws IOException {
+        ElementCollector.checkInterrupted();
+        progress.enter(PartitionProgress.Phase.ASSEMBLING);
+        final var warnings = new java.util.ArrayList<>(loaderWarnings);
+        warnings.addAll(collected.warnings);
+        final var result = new PdfRangeResult(PdfRangeResult.FORMAT_VERSION, PdfRangeResult.currentLibraryVersion(),
+                sha, bytes, filename, digest, collected.documentPages, pages, warnings,
+                PdfRangeResult.ID_REFERENCE_FIELDS, collected.completed, collected.first, collected.last);
+        progress.enter(PartitionProgress.Phase.DONE);
+        return result;
+    }
+
+    /** Collects the pages of one range call. */
+    private static final class RangePages implements PdfRangeCollector.Listener {
+        /** Document page count. */
+        private int documentPages;
+        /** Document warnings from the partitioner. */
+        private java.util.List<PartitionResult.Warning> warnings;
+        /** Completed pages. */
+        private final java.util.List<PdfRangeResult.Page> completed = new java.util.ArrayList<>();
+        /** Evidence of the first page. */
+        private PdfTableBoundary first;
+        /** Evidence of the latest page. */
+        private PdfTableBoundary last;
+
+        @Override
+        public void begin(final int count, final java.util.List<PartitionResult.Warning> documentWarnings) {
+            documentPages = count;
+            warnings = documentWarnings;
+        }
+
+        @Override
+        public void page(final PdfRangeResult.Page page, final PdfTableBoundary boundary) {
+            if (completed.isEmpty()) {
+                first = boundary;
+            }
+            completed.add(page);
+            last = boundary;
+        }
+    }
+
+    /**
+     * Results of the document-wide passes, computed once per call or once per prepared document.
+     * @param documentPages physical page count
+     * @param warnings document warnings from the partitioner, in order
+     * @param tagged source tables and paragraphs
+     * @param paragraphIdentity identity of cross-page paragraph fragments, or null
+     */
+    record Inspection(int documentPages, java.util.List<PartitionResult.Warning> warnings,
+            PdfTaggedStructure.Result tagged, String paragraphIdentity) {}
+
+    /**
+     * Runs the document-wide passes after the document checks: the limitation warning, the source-tag pass, the
+     * paragraph identity and the output warnings, in the historical order.
+     * @param document opened PDF
+     * @param input source bytes
+     * @param sha source digest if already computed, otherwise null
+     * @return inspection
+     * @throws IOException if tag traversal, cancellation or a paragraph budget fails
+     */
+    private Inspection inspect(final PDDocument document, final java.nio.ByteBuffer input, final String sha)
+            throws IOException {
+        final var warnings = new java.util.ArrayList<PartitionResult.Warning>();
+        warnings.add(new PartitionResult.Warning(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION, limitation()));
+        final var tagged = readTaggedStructure(document, warnings);
+        ElementCollector.checkInterrupted();
+        final String paragraphIdentity =
+                paragraphOptions != null
+                                && paragraphOptions.pageBoundary()
+                                           == PdfTaggedParagraphOptions.PageBoundary.PAGE_FRAGMENTS
+                        ? sha != null ? sha : PdfParagraphIdentity.document(input)
+                        : null;
+        ElementCollector.checkInterrupted();
+        if (options.tableContinuation() != PdfOptions.TableContinuation.NONE) {
+            warnings.add(new PartitionResult.Warning(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION,
+                    "Table continuation links use repeated-header geometry heuristics, not semantic identity"));
+        }
+        if (ocrOptions != null && ocrOptions.readingOrder() == PdfOcrOptions.ReadingOrder.GEOMETRIC) {
+            warnings.add(new PartitionResult.Warning(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION,
+                    "Page top-left native/OCR order is geometric, not logical article order"));
+        }
+        return new Inspection(document.getNumberOfPages(), java.util.List.copyOf(warnings), tagged, paragraphIdentity);
+    }
+
+    /**
+     * Shared extraction of a page range: document checks and passes (unless prepared), then pages in batches of the
+     * common pool's parallelism plus one, extracted concurrently and replayed in page order into the range collector.
+     * @param input read-only PDF bytes
+     * @param filename optional source filename
+     * @param partitionOptions document options
+     * @param requested pages to extract, or null for every page
+     * @param budget call budget
+     * @param progress progress sink; units are the range's pages
+     * @param listener receives the document header, then each completed page in order
+     * @param prepared document-wide results computed earlier, or null to compute them now
+     * @param sha source digest if already computed, otherwise null
+     * @param counting whether elements are charged and dropped instead of retained
+     * @param direct whole-document context that receives elements with final IDs, or null for range results
+     * @throws IOException if parsing, permission checks, cancellation or extraction limits fail
+     */
+    private void extract(final java.nio.ByteBuffer input, final String filename,
+            final PartitionOptions partitionOptions, final PdfPageRange requested, final PdfBudget budget,
+            final PartitionProgressReporter progress, final PdfRangeCollector.Listener listener,
+            final Inspection prepared, final String sha, final boolean counting, final PartitionContext direct)
+            throws IOException {
+        translated(() -> {
+            try (final var documents = new PdfPageDocuments(input, filename, passwords)) {
+                final Inspection inspection;
+                if (prepared == null) {
+                    try (final var document = documents.open()) {
+                        validateDocument(document);
+                        begin(document.getNumberOfPages(), requested, progress);
+                        inspection = inspect(document, input, sha);
+                    }
+                } else {
+                    begin(prepared.documentPages(), requested, progress);
+                    inspection = prepared;
+                }
+                final int first = requested == null ? 0 : requested.first() - 1;
+                final int end = requested == null ? inspection.documentPages() : requested.last();
+                // These budgets and buffers belong to the whole call, not to individual pages.
+                final var usage = new PdfBudgetUsage(budget);
+                final var output =
+                        new PdfPageOutput(new PdfRangeCollector(filename, partitionOptions, usage, listener, direct),
+                                options.tableContinuation(), readingOrder(), usage, counting);
+                listener.begin(inspection.documentPages(), inspection.warnings());
+                final var indices = java.util.stream.IntStream.range(first, end).boxed().toList();
+                // Batches prevent the ordered writer from retaining an entire document of completed pages.
+                final int batchSize = Math.max(1, java.util.concurrent.ForkJoinPool.getCommonPoolParallelism() + 1);
+                try (final var execution = new PdfPageExecution()) {
+                    for (int start = 0; start < indices.size(); start += batchSize) {
+                        ElementCollector.checkInterrupted();
+                        final var batch = indices.subList(start, Math.min(indices.size(), start + batchSize));
+                        final var task = java.util.concurrent.CompletableFuture.supplyAsync(
+                                ()
+                                        -> batch.parallelStream()
+                                                .map(index -> execution.run(() -> {
+                                                    final var pageOutput = output.pageBuffer(index + 1);
+                                                    partitionPage(documents.page(), index,
+                                                            new PdfImageBudget(options, usage, index + 1), pageOutput,
+                                                            inspection.tagged(), inspection.paragraphIdentity());
+                                                    return pageOutput;
+                                                }))
+                                                .toList(),
+                                java.util.concurrent.ForkJoinPool.commonPool());
+                        final var completed = execution.await(task);
+                        execution.check();
+                        for (int offset = 0; offset < completed.size(); offset++) {
+                            ElementCollector.checkInterrupted();
+                            completed.get(offset).replay(output, first + start + offset + 1);
+                            usage.pageCompleted(first + start + offset + 1);
+                            progress.unitCompleted(start + offset);
+                        }
+                    }
+                }
+            }
+            return null;
+        });
+    }
+
+    /**
+     * Checks the requested range against the document and declares the progress units.
+     * @param documentPages physical page count
+     * @param requested pages, or null for all
+     * @param progress progress sink
+     * @throws PartitionException if the range exceeds the document
+     */
+    private static void begin(final int documentPages, final PdfPageRange requested,
+            final PartitionProgressReporter progress) throws PartitionException {
+        if (requested != null && requested.last() > documentPages) {
+            throw new PartitionException(
+                    PartitionException.Code.UNSUPPORTED_OPTION, "PDF page range exceeds the document's pages");
+        }
+        // A page is the unit of PDF progress; completion follows all output for that page.
+        progress.beginUnits("pages", requested == null ? documentPages : requested.pageCount());
+    }
+
+    /** Checked PDF work. */
+    @FunctionalInterface
+    private interface PdfWork<T> {
+        /**
+         * Runs the work.
+         * @return result
+         * @throws IOException if it fails
+         */
+        T run() throws IOException;
+    }
+
+    /**
+     * Runs PDF work and maps parser failures to the library's typed failures, while budget exceptions, assembly
+     * invariant violations, typed failures and cancellation pass through unchanged.
+     * @param work PDF work
+     * @param <T> result type
+     * @return result
+     * @throws IOException if the work fails
+     */
+    private static <T> T translated(final PdfWork<T> work) throws IOException {
+        try {
+            return work.run();
+        } catch (final PdfBudgetUsage.Failure failure) {
+            throw failure.original();
+        } catch (final PdfRangeAssembly.InvalidRange failure) {
+            throw failure;
         } catch (final PdfTraversalFailure failure) {
             throw failure.checked();
         } catch (final PartitionException | InterruptedIOException failure) {
@@ -331,6 +674,48 @@ final class DefaultPdfPartitioner implements PdfPartitioner {
             throw new PartitionException(
                     PartitionException.Code.MALFORMED_DOCUMENT, "PDF could not be parsed or decoded", failure);
         }
+    }
+
+    /**
+     * Computes the SHA-256 of the complete source.
+     * @param bytes source bytes
+     * @return lowercase hexadecimal digest
+     */
+    private static String sha256(final byte[] bytes) {
+        try {
+            return java.util.HexFormat.of().formatHex(java.security.MessageDigest.getInstance("SHA-256").digest(bytes));
+        } catch (final java.security.NoSuchAlgorithmException impossible) {
+            throw new AssertionError(impossible);
+        }
+    }
+
+    /**
+     * Digests everything that selects extraction behaviour: the document options and this strategy's policies.
+     * Providers contribute their class name (or only their presence for lambdas and other hidden classes), not their
+     * configuration; callers that vary providers must distinguish them separately.
+     * @param partitionOptions document options
+     * @return lowercase hexadecimal SHA-256
+     */
+    private String optionsDigest(final PartitionOptions partitionOptions) {
+        final String description = String.join("\n", "docweave-pdf-range-options-v1", String.valueOf(partitionOptions),
+                String.valueOf(options), String.valueOf(ocrOptions), String.valueOf(nativeLayoutOptions),
+                String.valueOf(nativeTablesFirst), String.valueOf(taggedCellTextJoin), String.valueOf(paragraphOptions),
+                String.valueOf(taggedGeometry), String.valueOf(passwords != null), provider(ocrProvider),
+                provider(tableLayout), provider(orientation), provider(cellProvider), provider(nativeLayout));
+        return sha256(description.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+    }
+
+    /**
+     * Describes a provider without depending on unstable hidden-class names.
+     * @param provider optional provider
+     * @return none, present, or the class name
+     */
+    private static String provider(final Object provider) {
+        if (provider == null) {
+            return "none";
+        }
+        final var type = provider.getClass();
+        return type.isHidden() || type.isSynthetic() || type.isAnonymousClass() ? "present" : type.getName();
     }
 
     /**
@@ -354,12 +739,12 @@ final class DefaultPdfPartitioner implements PdfPartitioner {
      * Reads document-wide source tags and validates paragraph budgets before emitting any page.
      * Unsupported tags retain their existing native fallback and warnings.
      * @param document opened PDF
-     * @param context warning sink and extraction settings
+     * @param warnings document warnings, in order
      * @return source tables and paragraphs, or an empty result when tags are not requested
      * @throws IOException if tag traversal, cancellation or a paragraph budget fails
      */
-    private PdfTaggedStructure.Result readTaggedStructure(final PDDocument document, final PartitionContext context)
-            throws IOException {
+    private PdfTaggedStructure.Result readTaggedStructure(
+            final PDDocument document, final java.util.List<PartitionResult.Warning> warnings) throws IOException {
         final var tagged =
                 taggedCellTextJoin == null && paragraphOptions == null
                         ? new PdfTaggedStructure.Result(java.util.List.of(), 0)
@@ -369,12 +754,12 @@ final class DefaultPdfPartitioner implements PdfPartitioner {
                                           && paragraphOptions.pageBoundary()
                                                      == PdfTaggedParagraphOptions.PageBoundary.PAGE_FRAGMENTS);
         if (tagged.rejected() > 0) {
-            context.warn(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION,
-                    "Unsupported or inconsistent source-tagged tables retain native fallback");
+            warnings.add(new PartitionResult.Warning(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION,
+                    "Unsupported or inconsistent source-tagged tables retain native fallback"));
         }
         if (tagged.rejectedParagraphs() > 0) {
-            context.warn(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION,
-                    "Unsupported source paragraphs retain ordinary native fallback");
+            warnings.add(new PartitionResult.Warning(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION,
+                    "Unsupported source paragraphs retain ordinary native fallback"));
         }
         if (paragraphOptions != null) {
             final var counts = new java.util.HashMap<Integer, Integer>();
@@ -390,22 +775,24 @@ final class DefaultPdfPartitioner implements PdfPartitioner {
     }
 
     /**
-     * Creates the call-wide ordered output buffer and reports selected ordering limitations.
-     * @param context emission and warning sink
-     * @return output retaining cross-page table continuation state
+     * Returns the reading order that decides page buffering.
+     * @return selected OCR reading order, or source order without OCR options
      */
-    private PdfPageOutput createOutput(final PartitionContext context) {
-        final var output = new PdfPageOutput(context, options.tableContinuation(),
-                ocrOptions == null ? PdfOcrOptions.ReadingOrder.SOURCE_ORDER : ocrOptions.readingOrder());
-        if (output.continuations()) {
-            context.warn(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION,
-                    "Table continuation links use repeated-header geometry heuristics, not semantic identity");
-        }
-        if (ocrOptions != null && ocrOptions.readingOrder() == PdfOcrOptions.ReadingOrder.GEOMETRIC) {
-            context.warn(PartitionResult.WarningCode.PDF_EXTRACTION_LIMITATION,
-                    "Page top-left native/OCR order is geometric, not logical article order");
-        }
-        return output;
+    private PdfOcrOptions.ReadingOrder readingOrder() {
+        return ocrOptions == null ? PdfOcrOptions.ReadingOrder.SOURCE_ORDER : ocrOptions.readingOrder();
+    }
+
+    /**
+     * Creates the historical document budgets for one call of this strategy.
+     * @param partitionOptions document options supplying maxElements
+     * @return new call-confined thread-safe budget
+     */
+    @Override
+    public PdfBudget standardBudget(final PartitionOptions partitionOptions) {
+        java.util.Objects.requireNonNull(partitionOptions, "partitionOptions");
+        return new StandardPdfBudget(partitionOptions.maxElements(), options.maxImageBytes(),
+                options.tableContinuation() != PdfOptions.TableContinuation.NONE
+                        || readingOrder() == PdfOcrOptions.ReadingOrder.GEOMETRIC);
     }
 
     /**
@@ -413,7 +800,7 @@ final class DefaultPdfPartitioner implements PdfPartitioner {
      * The caller replays its buffered output in page order before recording progress.
      * @param document opened PDF, confined to this partition call
      * @param index zero-based page index
-     * @param images shared document image budget
+     * @param images page image extraction charging the shared call budget
      * @param output shared ordered page output
      * @param tagged document-wide source tags
      * @param paragraphDocumentIdentity optional identity for cross-page paragraph fragments

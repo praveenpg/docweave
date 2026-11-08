@@ -114,7 +114,7 @@ class PdfTaggedParagraphTest {
      * @return unchanged display text with explicitly authored paragraph references
      * @throws Exception if source construction fails
      */
-    private static byte[] fragmentedSource(final String variant) throws Exception {
+    static byte[] fragmentedSource(final String variant) throws Exception {
         try (final var document = Loader.loadPDF(source("valid")); final var output = new ByteArrayOutputStream()) {
             final var root = document.getDocumentCatalog().getStructureTreeRoot();
             final var paragraph = (PDStructureElement) root.getKids().getFirst();
@@ -520,7 +520,7 @@ class PdfTaggedParagraphTest {
      * Selects source-only discretionary word joining with default original-text budgets.
      * @return immutable explicit policy
      */
-    private static PdfTaggedParagraphOptions joining() {
+    static PdfTaggedParagraphOptions joining() {
         return PdfTaggedParagraphOptions.defaults().withWordWrap(
                 PdfTaggedParagraphOptions.WordWrap.SOURCE_SOFT_HYPHENS);
     }

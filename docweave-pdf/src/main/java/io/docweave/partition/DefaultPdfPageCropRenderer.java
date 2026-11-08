@@ -114,7 +114,7 @@ final class DefaultPdfPageCropRenderer implements PdfPageCropRenderer {
      * @return owned bytes with an optional password lookup hint
      * @throws IOException if the source is text, too large, unreadable or cancellation occurs
      */
-    private Input read(final DocumentSource source) throws IOException {
+    Input read(final DocumentSource source) throws IOException {
         return switch (source) {
             case DocumentSource.File file -> {
                 try (final var channel = FileChannel.open(file.path(), StandardOpenOption.READ)) {
@@ -128,7 +128,14 @@ final class DefaultPdfPageCropRenderer implements PdfPageCropRenderer {
                     throw new PartitionException(PartitionException.Code.INPUT_TOO_LARGE,
                             "Document exceeds maxInputBytes=" + options.maxInputBytes());
                 }
-                yield new Input(bytes.content(), bytes.filename());
+                yield new Input(bytes.snapshot(), bytes.filename());
+            }
+            case DocumentSource.OwnedBytes bytes -> {
+                if (bytes.size() > options.maxInputBytes()) {
+                    throw new PartitionException(PartitionException.Code.INPUT_TOO_LARGE,
+                            "Document exceeds maxInputBytes=" + options.maxInputBytes());
+                }
+                yield new Input(bytes.snapshot(), bytes.filename());
             }
             case DocumentSource.Text ignored ->
                 throw new PartitionException(
@@ -445,7 +452,7 @@ final class DefaultPdfPageCropRenderer implements PdfPageCropRenderer {
      * @param bytes owned PDF bytes
      * @param filename nullable password lookup hint
      */
-    private record Input(byte[] bytes, String filename) {}
+    record Input(byte[] bytes, String filename) {}
 
     /**
      * One predicted page raster and the requests it serves.
