@@ -2,8 +2,8 @@ package io.docweave.partition;
 
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.nio.ByteBuffer;
 
 /** Stateless DOCX strategy; archive verification and source-order extraction are composed per call. */
 final class DocxPartitioner implements Partitioner {
@@ -35,10 +35,12 @@ final class DocxPartitioner implements Partitioner {
     public void partition(final PartitionContext context) throws IOException {
         NestedTableSupport.check(this, context.options());
         ElementCollector.checkInterrupted();
-        final byte[] bytes = context.binaryContent();
-        new DocxArchiveVerifier(context.options().docxOptions()).verify(bytes);
+        // Read the context's bytes in place (#65): the verifier and POI each stream their own read-only view instead
+        // of a defensive copy of the whole input.
+        final ByteBuffer input = context.binaryBuffer();
+        new DocxArchiveVerifier(context.options().docxOptions()).verify(new DocxBufferInput(input));
         ElementCollector.checkInterrupted();
-        try (final var document = new XWPFDocument(new ByteArrayInputStream(bytes))) {
+        try (final var document = new XWPFDocument(new DocxBufferInput(input))) {
             ElementCollector.checkInterrupted();
             if (!DocxArchiveVerifier.MAIN_TYPE.equals(document.getPackagePart().getContentType())) {
                 throw new PartitionException(

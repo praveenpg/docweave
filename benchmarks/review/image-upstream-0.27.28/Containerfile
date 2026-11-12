@@ -1,0 +1,11 @@
+# Pinned Unstructured 0.27.28 reference runtime for #76 (image partitioning comparison). Tesseract 5.3.4 from
+# Ubuntu 24.04 matches the DocWeave acceptance runtime.
+FROM docker.io/library/ubuntu:24.04
+ENV DEBIAN_FRONTEND=noninteractive PIP_NO_CACHE_DIR=1
+RUN apt-get update && apt-get install -y --no-install-recommends python3.12 python3.12-venv tesseract-ocr \
+      tesseract-ocr-eng poppler-utils libgl1 libglib2.0-0 libmagic1 && rm -rf /var/lib/apt/lists/*
+RUN python3.12 -m venv /venv
+COPY requirements.freeze.txt /tmp/requirements.txt
+RUN /venv/bin/pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0+cpu torchvision==0.25.0+cpu \
+ && grep -v -E '^(torch|torchvision)==' /tmp/requirements.txt > /tmp/rest.txt \
+ && /venv/bin/pip install -r /tmp/rest.txt
