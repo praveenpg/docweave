@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent><groupId>io.docweave</groupId><artifactId>docweave-parent</artifactId><version>0.1.0-beta.20</version></parent>
+    <artifactId>docweave-image</artifactId>
+    <name>DocWeave image</name>
+    <dependencies>
+        <dependency><groupId>io.docweave</groupId><artifactId>docweave-core</artifactId><version>${project.version}</version></dependency>
+        <!-- The PdfOcrProvider contract, so the same configured OCR provider serves PDF pages and image frames. -->
+        <dependency><groupId>io.docweave</groupId><artifactId>docweave-pdf</artifactId><version>${project.version}</version></dependency>
+        <dependency><groupId>io.docweave</groupId><artifactId>docweave-ocr-tesseract</artifactId><version>${project.version}</version><scope>test</scope></dependency>
+    </dependencies>
+    <build><plugins><plugin>
+        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId>
+        <configuration><systemPropertyVariables><java.awt.headless>true</java.awt.headless></systemPropertyVariables></configuration>
+    </plugin></plugins></build>
+</project>

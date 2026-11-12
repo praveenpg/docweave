@@ -1,0 +1,204 @@
+{
+ "unstructured": "0.27.28",
+ "unstructured_inference": "1.6.13",
+ "pytesseract": "0.3.15",
+ "strategy": "ocr_only",
+ "languages": [
+  "eng"
+ ],
+ "results": {
+  "text.png": {
+   "ok": true,
+   "elements": [
+    {
+     "type": "NarrativeText",
+     "text": "DocWeave image acceptance Invoice 4471 dated 12 March 2026",
+     "page_number": 1,
+     "filetype": "PNG",
+     "coordinates_system": "PixelSpace",
+     "layout": [
+      1600,
+      520
+     ],
+     "points": [
+      [
+       85.0,
+       69.0
+      ],
+      [
+       85.0,
+       251.0
+      ],
+      [
+       1026.0,
+       251.0
+      ],
+      [
+       1026.0,
+       69.0
+      ]
+     ]
+    },
+    {
+     "type": "Title",
+     "text": "Total due: 1,250.00 EUR",
+     "page_number": 1,
+     "filetype": "PNG",
+     "coordinates_system": "PixelSpace",
+     "layout": [
+      1600,
+      520
+     ],
+     "points": [
+      [
+       80.0,
+       346.0
+      ],
+      [
+       80.0,
+       399.0
+      ],
+      [
+       740.0,
+       399.0
+      ],
+      [
+       740.0,
+       346.0
+      ]
+     ]
+    }
+   ],
+   "seconds": 0.51
+  },
+  "text.jpg": {
+   "ok": true,
+   "elements": [
+    {
+     "type": "NarrativeText",
+     "text": "DocWeave image acceptance Invoice 4471 dated 12 March 2026",
+     "page_number": 1,
+     "filetype": "JPEG",
+     "coordinates_system": "PixelSpace",
+     "layout": [
+      1600,
+      520
+     ],
+     "points": [
+      [
+       85.0,
+       69.0
+      ],
+      [
+       85.0,
+       251.0
+      ],
+      [
+       1026.0,
+       251.0
+      ],
+      [
+       1026.0,
+       69.0
+      ]
+     ]
+    },
+    {
+     "type": "Title",
+     "text": "Total due: 1,250.00 EUR",
+     "page_number": 1,
+     "filetype": "JPEG",
+     "coordinates_system": "PixelSpace",
+     "layout": [
+      1600,
+      520
+     ],
+     "points": [
+      [
+       80.0,
+       346.0
+      ],
+      [
+       80.0,
+       399.0
+      ],
+      [
+       740.0,
+       399.0
+      ],
+      [
+       740.0,
+       346.0
+      ]
+     ]
+    }
+   ],
+   "seconds": 0.34
+  },
+  "text-exif6.jpg": {
+   "ok": true,
+   "elements": [],
+   "seconds": 0.4
+  },
+  "pages-g4.tif": {
+   "ok": true,
+   "elements": [
+    {
+     "type": "Title",
+     "text": "Page one alpha harbor",
+     "page_number": 1,
+     "filetype": "TIFF",
+     "coordinates_system": "PixelSpace",
+     "layout": [
+      1400,
+      300
+     ],
+     "points": [
+      [
+       85.0,
+       66.0
+      ],
+      [
+       85.0,
+       121.0
+      ],
+      [
+       690.0,
+       121.0
+      ],
+      [
+       690.0,
+       66.0
+      ]
+     ]
+    }
+   ],
+   "seconds": 0.16
+  },
+  "blank.png": {
+   "ok": true,
+   "elements": [],
+   "seconds": 0.13
+  },
+  "truncated.png": {
+   "ok": false,
+   "error": "OSError",
+   "message": "image file is truncated"
+  },
+  "truncated.jpg": {
+   "ok": false,
+   "error": "OSError",
+   "message": "image file is truncated (61 bytes not processed)"
+  },
+  "not-an-image.png": {
+   "ok": false,
+   "error": "UnidentifiedImageError",
+   "message": "cannot identify image file '/tmp/tmp54fcylb9/not-an-image.png'"
+  },
+  "big.tif": {
+   "ok": false,
+   "error": "UnidentifiedImageError",
+   "message": "cannot identify image file '/tmp/tmp54fcylb9/big.tif'"
+  }
+ }
+}

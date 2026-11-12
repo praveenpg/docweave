@@ -45,15 +45,15 @@ final class DocxArchiveVerifier {
     /**
      * Verifies archive structure, entry names, size budgets, content types, and XML parts.
      *
-     * @param bytes raw DOCX archive bytes
+     * @param archive raw DOCX archive bytes, read once from the start
      * @throws IOException if the thread is interrupted during verification
      */
-    void verify(final byte[] bytes) throws IOException {
+    void verify(final java.io.InputStream archive) throws IOException {
         final var parts = new LinkedHashMap<String, byte[]>();
         final Set<String> names = new HashSet<>();
         long total = 0;
         int count = 0;
-        try (final var zip = new ZipInputStream(new ByteArrayInputStream(bytes))) {
+        try (final var zip = new ZipInputStream(archive)) {
             // Stream all ZIP entries in memory while enforcing entry count, path safety, macro rejection, and byte
             // budgets.
             for (var entry = zip.getNextEntry(); entry != null; entry = zip.getNextEntry()) {

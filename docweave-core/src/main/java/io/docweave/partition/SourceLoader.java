@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
@@ -176,6 +177,29 @@ final class SourceLoader {
             throw tooLarge(options);
         }
         ElementCollector.checkInterrupted();
+        final DocumentFormat image = imageSignature(raw.bytes());
+        final DocumentFormat namedImage = IMAGE_EXTENSIONS.get(extension(raw.filename()));
+        final DocumentFormat imageFormat = options.format() != null && IMAGE_FORMATS.contains(options.format())
+                                                   ? options.format()
+                                           : options.format() != null ? null
+                                           : image != null ? image
+                                           // A name alone never makes text or another binary format an image.
+                                           : raw.decodedText() != null || binarySignature(raw.bytes()) ? null
+                                           : namedImage;
+        if (imageFormat != null) {
+            if (raw.decodedText() != null) {
+                throw new PartitionException(PartitionException.Code.UNSUPPORTED_FORMAT,
+                        imageFormat + " requires a file or binary source");
+            }
+            final var notices = new ArrayList<PartitionResult.Warning>();
+            if (options.format() == null && image != null && !extension(raw.filename()).isEmpty()
+                    && namedImage != image) {
+                notices.add(new PartitionResult.Warning(PartitionResult.WarningCode.FORMAT_MISMATCH,
+                        image + " signature overrides filename extension"));
+            }
+            return new Content(
+                    null, raw.filename(), imageFormat, "binary", raw.size(), List.copyOf(notices), raw.bytes());
+        }
         final boolean pdf = starts(raw.bytes(), 0x25, 0x50, 0x44, 0x46, 0x2d);
         if (options.format() == DocumentFormat.PDF
                 || options.format() == null && (pdf || extension(raw.filename()).equals("pdf"))) {
@@ -383,6 +407,35 @@ final class SourceLoader {
             return new Bom(StandardCharsets.UTF_16LE, 2);
         }
         return new Bom(null, 0);
+    }
+
+    /** Image formats routed to binary image partitioners. */
+    private static final Set<DocumentFormat> IMAGE_FORMATS =
+            Set.of(DocumentFormat.PNG, DocumentFormat.JPEG, DocumentFormat.TIFF);
+
+    /** Filename fallbacks used only when the content has no recognized image signature. */
+    private static final Map<String, DocumentFormat> IMAGE_EXTENSIONS = Map.of("png", DocumentFormat.PNG,
+            "jpg", DocumentFormat.JPEG, "jpeg", DocumentFormat.JPEG, "jpe", DocumentFormat.JPEG,
+            "tif", DocumentFormat.TIFF, "tiff", DocumentFormat.TIFF);
+
+    /**
+     * Recognizes PNG, JPEG and classic or BigTIFF signatures; the image partitioner validates the decoded format.
+     *
+     * @param bytes content prefix
+     * @return image format, or null when the content carries no image signature
+     */
+    private static DocumentFormat imageSignature(final byte[] bytes) {
+        if (starts(bytes, 0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a)) {
+            return DocumentFormat.PNG;
+        }
+        if (starts(bytes, 0xff, 0xd8, 0xff)) {
+            return DocumentFormat.JPEG;
+        }
+        if (starts(bytes, 0x49, 0x49, 0x2a, 0x00) || starts(bytes, 0x4d, 0x4d, 0x00, 0x2a)
+                || starts(bytes, 0x49, 0x49, 0x2b, 0x00) || starts(bytes, 0x4d, 0x4d, 0x00, 0x2b)) {
+            return DocumentFormat.TIFF;
+        }
+        return null;
     }
 
     /**

@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.0-beta.20
+
+Release candidate for Maven Central; publication is not yet confirmed. Previous public release: beta.18.
+Includes the image and DOCX changes previously available in internal-only beta.19.
+
+- **Standalone image OCR:** new `docweave-image` module, also included by `docweave-all`, for PNG, JPEG and
+  multi-page TIFF. Supports EXIF/TIFF orientation correction, ordered pages, pixel-space text coordinates,
+  content-based detection and bounded page/pixel processing. An OCR provider must be configured explicitly;
+  no executable, language data, vision model or layout model is downloaded automatically.
+- **DOCX input ownership:** archive verification and POI read the existing read-only input buffer instead of
+  cloning the complete document. Extracted output is unchanged; POI still expands package parts in memory.
+
+See [release notes](docs/releases/0.1.0-beta.20.md) for usage, upgrade impact and limitations.
+
+
 ## 0.1.0-beta.18
 
 Published to Maven Central on 2026-11-08 (UTC); all reactor modules use `0.1.0-beta.18`.

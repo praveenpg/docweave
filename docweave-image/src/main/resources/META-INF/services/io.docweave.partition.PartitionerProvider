@@ -1,0 +1,3 @@
+io.docweave.partition.PngImagePartitionerProvider
+io.docweave.partition.JpegImagePartitionerProvider
+io.docweave.partition.TiffImagePartitionerProvider
