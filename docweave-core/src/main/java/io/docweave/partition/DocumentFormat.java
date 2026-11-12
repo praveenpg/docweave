@@ -11,7 +11,11 @@ public enum DocumentFormat {
     /** Portable Document Format; extraction capabilities depend on the installed PDF strategy. */
     PDF("application/pdf"),
     /** OOXML Word documents; binary DOC and macro-enabled DOCM are excluded. */
-    DOCX("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+    DOCX("application/vnd.openxmlformats-officedocument.wordprocessingml.document"),
+    /** PNG raster image; text needs an explicitly configured OCR provider. */ PNG("image/png"),
+    /** JPEG/JFIF raster image; text needs an explicitly configured OCR provider. */ JPEG("image/jpeg"),
+    /** TIFF raster image, including multi-page files; text needs an explicitly configured OCR provider. */
+    TIFF("image/tiff");
 
     /** Canonical wire MIME type string associated with this document format. */
     private final String mimeType;

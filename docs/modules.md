@@ -19,6 +19,7 @@ The beta.8 parent/core artifacts are published; all other beta.8 modules remain 
 | docweave-pdf | Native quarter-turn PDF text/layout, ruled/merged and aligned numeric tables, image placements/payloads; optional provider-based OCR and scanned complete ruled tables | core, PDFBox |
 | docweave-layout-onnx | Explicit local pinned ONNX table-structure provider; no discovery/download | PDF module, ONNX Runtime; excluded from convenience artifact |
 | docweave-ocr-tesseract | Explicit optional managed external OCR for textless/mixed-image PDF pages; executable/models installed separately | PDF module; excluded from convenience artifact |
+| docweave-image | Standalone PNG, JPEG and multi-page TIFF pages recognized with an explicitly configured OCR provider; header-checked page/pixel limits, page-at-a-time decoding | core, PDF module (OCR contract), JDK ImageIO |
 | docweave-source-s3 | Explicit optional `RemoteSourceResolver` for AWS S3 and S3-compatible services ([README](../docweave-source-s3/README.md)) | core, AWS SDK for Java 2.x (s3, Apache HttpClient 5); excluded from convenience artifact |
 | docweave-docx | DOCX archive and WordprocessingML extraction | core, POI and its required libraries |
 | docweave-delimited | Internal quoted-record extraction shared by CSV/TSV | core, Commons CSV and its required libraries |

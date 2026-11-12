@@ -34,7 +34,9 @@ public record PartitionResult(List<Element> elements, DocumentFormat format, Str
         /** PDF native extraction cannot provide OCR or full rendered layout semantics. */
         PDF_EXTRACTION_LIMITATION,
         /** A Markdown front-matter block was malformed or over budget and was kept as literal text. */
-        MARKDOWN_FRONT_MATTER_INVALID
+        MARKDOWN_FRONT_MATTER_INVALID,
+        /** OCR ran on an image page but recognized no text there; no text element was emitted for it. */
+        IMAGE_NO_TEXT
     }
 
     /**

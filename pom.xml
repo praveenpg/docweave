@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.docweave</groupId>
     <artifactId>docweave-parent</artifactId>
-    <version>0.1.0-beta.18</version>
+    <version>0.1.0-beta.20</version>
     <packaging>pom</packaging>
     <modules>
         <module>docweave-core</module>
@@ -21,6 +21,7 @@
         <module>docweave-docx</module>
         <module>docweave-pdf</module>
         <module>docweave-ocr-tesseract</module>
+        <module>docweave-image</module>
         <module>docweave-layout-onnx</module>
         <module>docweave-source-s3</module>
         <module>docweave-all</module>

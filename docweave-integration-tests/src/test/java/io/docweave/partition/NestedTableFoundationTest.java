@@ -38,6 +38,7 @@ class NestedTableFoundationTest {
             }
             final var source = switch (format) {
                 case PDF -> DocumentSource.bytes(new byte[0], "input.pdf");
+                case PNG, JPEG, TIFF -> DocumentSource.bytes(new byte[0], "input.image");
                 case DOCX -> DocumentSource.of(Path.of("benchmarks/review/nested-tables/nested.docx"));
                 case XML -> DocumentSource.text("<root>text</root>");
                 case HTML -> DocumentSource.text("<p>text</p>");

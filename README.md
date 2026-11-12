@@ -6,7 +6,7 @@
 
 A JVM library for turning documents into ordered semantic elements and retrieval-ready chunks.
 
-Status: Java 21+ library with native TXT/HTML/Markdown/CSV/TSV/XML/DOCX partitioning and an initial native PDF module, compatibility JSON, basic/title-aware chunking, and bounded virtual-thread document batches.
+Status: Java 21+ library with native TXT/HTML/Markdown/CSV/TSV/XML/DOCX partitioning and an initial native PDF module, OCR-based PNG/JPEG/TIFF partitioning ([image support](docs/image-support.md)), compatibility JSON, basic/title-aware chunking, and bounded virtual-thread document batches.
 
 ## Why DocWeave?
 
@@ -17,15 +17,15 @@ as structured elements and useful chunks that applications can work with.
 
 ## Getting started
 
-Use **Java 21 or later**. The `0.1.0-beta.18` full-library release includes the format parsers,
-chunking/JSON services and optional OCR, layout and S3 adapters. Published to
-Maven Central. See the [beta.18 release notes](docs/releases/0.1.0-beta.18.md). Core alone installs no parsers.
+Use **Java 21 or later**. The `0.1.0-beta.20` full-library release includes the format parsers,
+chunking/JSON services and optional OCR, layout and S3 adapters. This candidate is prepared for
+Maven Central publication; use beta.18 until publication is confirmed. See the [beta.20 release notes](docs/releases/0.1.0-beta.20.md). Core alone installs no parsers.
 
 ```xml
 <dependency>
     <groupId>io.docweave</groupId>
     <artifactId>docweave-pdf</artifactId>
-    <version>0.1.0-beta.18</version>
+    <version>0.1.0-beta.20</version>
 </dependency>
 ```
 
@@ -78,7 +78,7 @@ For other formats, select the corresponding [Maven module](docs/modules.md). Use
 JSON serialization, chunking and batches also have their own modules. Java imports remain
 `io.docweave` even though the Maven group is `io.docweave`.
 
-The source checkout targets `0.1.0-beta.18`. To build it locally,
+The source checkout targets `0.1.0-beta.20`. To build it locally,
 use Maven 3.9+ and run `mvn verify`; the beta dependency above is for consuming the release.
 
 ## Initial milestone
@@ -110,7 +110,7 @@ use Maven 3.9+ and run `mvn verify`; the beta dependency above is for consuming 
 - Runtime partitioner strategies selected through an injectable registry.
 - Extensive public Javadocs checked with doclint and warnings treated as errors during `mvn verify`.
 
-Requires Java 21 or later and Maven 3.9+. This is a plain Java library; Spring Boot is not a dependency. The reactor uses parent `io.docweave:docweave-parent:0.1.0-beta.18`; examples target the matching library modules. Starting with beta.8, Java packages use `io.docweave`; older releases use `dev.docweave`. This is a source and binary breaking change; see the [migration guide](docs/package-migration.md). Development validation is moving into the Java/JUnit [validation module](docweave-validation/README.md); remaining Python benchmark/reference helpers are documented there. Neither the production library nor Maven Java tests require Python. The released upstream reference pin and reviewed main drift are tracked in [upstream status](benchmarks/upstream-status.json).
+Requires Java 21 or later and Maven 3.9+. This is a plain Java library; Spring Boot is not a dependency. The reactor uses parent `io.docweave:docweave-parent:0.1.0-beta.20`; examples target the matching library modules. Starting with beta.8, Java packages use `io.docweave`; older releases use `dev.docweave`. This is a source and binary breaking change; see the [migration guide](docs/package-migration.md). Development validation is moving into the Java/JUnit [validation module](docweave-validation/README.md); remaining Python benchmark/reference helpers are documented there. Neither the production library nor Maven Java tests require Python. The released upstream reference pin and reviewed main drift are tracked in [upstream status](benchmarks/upstream-status.json).
 
 Build and test:
 
@@ -375,7 +375,7 @@ DocWeave processor = DocWeave.create(registry);
 
 Implement `partition(PartitionContext context)` and emit semantic elements with `context.emit(...)`. The context supplies stable IDs, source metadata, warnings, output limits and interruption checks. It becomes unwritable after the strategy returns. Strategies must be thread-safe; the built-in HTML strategy creates a document-local walker on every call.
 
-Use `PartitionerRegistry.of(...)` to configure only specified strategies. Missing formats fail explicitly. The format model/detector covers TXT, HTML, Markdown, CSV, TSV, XML and DOCX; registration replaces supported strategies rather than adding arbitrary new MIME types. Inject a custom processor into batches using `DocumentBatch.create(processor, Chunker.create())`.
+Use `PartitionerRegistry.of(...)` to configure only specified strategies. Missing formats fail explicitly. The format model/detector covers TXT, HTML, Markdown, CSV, TSV, XML, DOCX, PDF, PNG, JPEG and TIFF; registration replaces supported strategies rather than adding arbitrary new MIME types. Inject a custom processor into batches using `DocumentBatch.create(processor, Chunker.create())`.
 
 ## Format-specific policies
 
@@ -730,7 +730,7 @@ isolated measurements; broader independent DOCX fidelity coverage remains the ne
 
 Before a new release, update the reactor version, `.ci/release.json` and the matching notes under `docs/releases/`. Jenkins watches public `main`, verifies the selected scope on Java 21, creates an annotated tag and prerelease, signs the captured artifacts, and publishes them to Maven Central. A version already published in the selected scope is skipped; documentation-only merges do not create another release. Published versions cannot be replaced.
 
-The beta.18 release plan selects **full-library** scope. Jenkins must verify the full Java 21 reactor, strict
+The beta.20 release plan selects **full-library** scope. Jenkins must verify the full Java 21 reactor, strict
 Javadocs, release archives and standalone adapter consumers before signing or uploading. The S3-compatible tests
 are required (their helper process uses Java 25; library compilation and tests use Java 21). No development-branch
 build publishes to Central. See [release policy](docs/releases/README.md).
